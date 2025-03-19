@@ -1,0 +1,15 @@
+# Requirements for Mesh Tube Knowledge Database
+# This implementation has minimal dependencies as it uses Python's standard library
+# for most functionality. Future improvements could include visualization libraries.
+
+# For testing (optional)
+pytest==7.4.3
+pytest-cov==4.1.0
+
+# For spatial indexing optimization
+rtree==1.0.1
+
+# If using a 3D visualization library in the future:
+# matplotlib==3.8.0
+# plotly==5.18.0
+# networkx==3.2.1 
