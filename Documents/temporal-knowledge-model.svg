@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0f4ff" />
+      <stop offset="100%" stop-color="#e0e8ff" />
+    </linearGradient>
+    
+    <!-- Node gradients -->
+    <radialGradient id="node-gradient-primary" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#6495ED" />
+      <stop offset="100%" stop-color="#4169E1" />
+    </radialGradient>
+    
+    <radialGradient id="node-gradient-secondary" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#9370DB" />
+      <stop offset="100%" stop-color="#8A2BE2" />
+    </radialGradient>
+    
+    <radialGradient id="node-gradient-tertiary" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#20B2AA" />
+      <stop offset="100%" stop-color="#008B8B" />
+    </radialGradient>
+    
+    <!-- Time axis gradient -->
+    <linearGradient id="time-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ddd" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#aaa" stop-opacity="0.5" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bg-gradient)" />
+  
+  <!-- Time axis (z-axis in 3D) -->
+  <line x1="100" y1="500" x2="700" y2="300" stroke="url(#time-gradient)" stroke-width="3" stroke-dasharray="10,5" />
+  <text x="710" y="290" font-family="Arial" font-size="16" fill="#444">Time →</text>
+  
+  <!-- Origin point (T0) -->
+  <circle cx="100" cy="500" r="8" fill="#444" />
+  <text x="80" y="525" font-family="Arial" font-size="14" fill="#444">T₀</text>
+  
+  <!-- Present point (T1) -->
+  <circle cx="700" cy="300" r="8" fill="#444" />
+  <text x="710" y="325" font-family="Arial" font-size="14" fill="#444">T₁</text>
+  
+  <!-- Root conversation topic -->
+  <circle cx="150" cy="480" r="25" fill="url(#node-gradient-primary)" />
+  <text x="150" y="485" font-family="Arial" font-size="12" fill="white" text-anchor="middle">Root Topic</text>
+  
+  <!-- First level branches -->
+  <!-- Topic branch 1 -->
+  <path d="M160 465 Q 220 430 280 410" stroke="#6495ED" stroke-width="3" fill="none" />
+  <circle cx="280" cy="410" r="20" fill="url(#node-gradient-primary)" opacity="0.9" />
+  <text x="280" y="415" font-family="Arial" font-size="10" fill="white" text-anchor="middle">Topic A</text>
+  
+  <!-- Topic branch 2 -->
+  <path d="M165 490 Q 220 490 280 470" stroke="#6495ED" stroke-width="3" fill="none" />
+  <circle cx="280" cy="470" r="20" fill="url(#node-gradient-primary)" opacity="0.9" />
+  <text x="280" y="475" font-family="Arial" font-size="10" fill="white" text-anchor="middle">Topic B</text>
+  
+  <!-- Topic branch 3 -->
+  <path d="M155 455 Q 200 420 250 380" stroke="#6495ED" stroke-width="3" fill="none" />
+  <circle cx="250" cy="380" r="20" fill="url(#node-gradient-primary)" opacity="0.9" />
+  <text x="250" y="385" font-family="Arial" font-size="10" fill="white" text-anchor="middle">Topic C</text>
+  
+  <!-- Second level branches from Topic A -->
+  <path d="M295 400 Q 340 380 380 370" stroke="#9370DB" stroke-width="2.5" fill="none" />
+  <circle cx="380" cy="370" r="15" fill="url(#node-gradient-secondary)" opacity="0.85" />
+  <text x="380" y="374" font-family="Arial" font-size="8" fill="white" text-anchor="middle">Subtopic A1</text>
+  
+  <path d="M290 425 Q 330 405 370 410" stroke="#9370DB" stroke-width="2.5" fill="none" />
+  <circle cx="370" cy="410" r="15" fill="url(#node-gradient-secondary)" opacity="0.85" />
+  <text x="370" y="414" font-family="Arial" font-size="8" fill="white" text-anchor="middle">Subtopic A2</text>
+  
+  <!-- Second level branches from Topic B -->
+  <path d="M295 460 Q 330 445 365 440" stroke="#9370DB" stroke-width="2.5" fill="none" />
+  <circle cx="365" cy="440" r="15" fill="url(#node-gradient-secondary)" opacity="0.85" />
+  <text x="365" y="444" font-family="Arial" font-size="8" fill="white" text-anchor="middle">Subtopic B1</text>
+  
+  <!-- Second level branches from Topic C -->
+  <path d="M265 370 Q 300 345 335 340" stroke="#9370DB" stroke-width="2.5" fill="none" />
+  <circle cx="335" cy="340" r="15" fill="url(#node-gradient-secondary)" opacity="0.85" />
+  <text x="335" y="344" font-family="Arial" font-size="8" fill="white" text-anchor="middle">Subtopic C1</text>
+  
+  <!-- Third level branches (deeper in time) -->
+  <path d="M390 360 Q 440 340 490 335" stroke="#20B2AA" stroke-width="2" fill="none" />
+  <circle cx="490" cy="335" r="12" fill="url(#node-gradient-tertiary)" opacity="0.8" />
+  <text x="490" y="339" font-family="Arial" font-size="7" fill="white" text-anchor="middle">Detail A1.1</text>
+  
+  <path d="M380 370 Q 450 350 520 355" stroke="#20B2AA" stroke-width="2" fill="none" />
+  <circle cx="520" cy="355" r="12" fill="url(#node-gradient-tertiary)" opacity="0.8" />
+  <text x="520" y="359" font-family="Arial" font-size="7" fill="white" text-anchor="middle">Detail A1.2</text>
+  
+  <!-- Cross-topic connection (shows topic relation) -->
+  <path d="M370 410 Q 420 380 490 335" stroke="#888" stroke-width="1.5" stroke-dasharray="5,3" fill="none" />
+  <path d="M365 440 Q 430 380 490 335" stroke="#888" stroke-width="1.5" stroke-dasharray="5,3" fill="none" />
+  
+  <!-- Fourth level (near present time) -->
+  <path d="M520 355 Q 580 330 640 320" stroke="#20B2AA" stroke-width="2" fill="none" />
+  <circle cx="640" cy="320" r="10" fill="url(#node-gradient-tertiary)" opacity="0.75" />
+  <text x="640" y="323" font-family="Arial" font-size="6" fill="white" text-anchor="middle">Current Detail</text>
+  
+  <!-- Memory continuum representation (fuzzy connections) -->
+  <path d="M280 410 Q 440 370 600 350" stroke="#6495ED" stroke-width="4" fill="none" opacity="0.15" />
+  <path d="M280 470 Q 440 410 600 370" stroke="#6495ED" stroke-width="4" fill="none" opacity="0.15" />
+  <path d="M250 380 Q 400 350 550 330" stroke="#6495ED" stroke-width="4" fill="none" opacity="0.15" />
+  
+  <!-- Legend -->
+  <rect x="550" y="450" width="200" height="125" rx="10" ry="10" fill="white" fill-opacity="0.8" stroke="#ccc" />
+  <text x="570" y="475" font-family="Arial" font-size="14" font-weight="bold" fill="#444">Legend</text>
+  
+  <circle cx="580" cy="495" r="8" fill="url(#node-gradient-primary)" />
+  <text x="595" y="500" font-family="Arial" font-size="12" fill="#444">Primary Topics</text>
+  
+  <circle cx="580" cy="520" r="6" fill="url(#node-gradient-secondary)" />
+  <text x="595" y="525" font-family="Arial" font-size="12" fill="#444">Subtopics</text>
+  
+  <circle cx="580" cy="545" r="5" fill="url(#node-gradient-tertiary)" />
+  <text x="595" y="550" font-family="Arial" font-size="12" fill="#444">Detail Topics</text>
+  
+  <line x1="570" y1="565" x2="590" y2="565" stroke="#888" stroke-width="1.5" stroke-dasharray="5,3" />
+  <text x="595" y="570" font-family="Arial" font-size="12" fill="#444">Cross-Topic Relations</text>
+  
+  <!-- Title -->
+  <text x="400" y="40" font-family="Arial" font-size="20" font-weight="bold" fill="#444" text-anchor="middle">Temporal-Spatial Knowledge Graph for LLM Conversation Tracking</text>
+  <text x="400" y="65" font-family="Arial" font-size="14" fill="#666" text-anchor="middle">Topics branching like tree roots while moving through time as a continuous memory space</text>
+</svg>

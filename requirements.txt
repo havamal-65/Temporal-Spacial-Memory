@@ -1,15 +1,26 @@
-# Requirements for Mesh Tube Knowledge Database
-# This implementation has minimal dependencies as it uses Python's standard library
-# for most functionality. Future improvements could include visualization libraries.
+# Requirements for Temporal-Spatial Knowledge Database
 
-# For testing (optional)
-pytest==7.4.3
-pytest-cov==4.1.0
+# Core Dependencies
+python-rocksdb>=0.7.0
+numpy>=1.23.0
+scipy>=1.9.0
+rtree>=1.0.0
+sortedcontainers>=2.4.0
+msgpack>=1.0.4
 
-# For spatial indexing optimization
-rtree==1.0.1
+# Development Tools
+pytest>=7.0.0
+pytest-cov>=4.0.0
+black>=23.0.0
+isort>=5.12.0
+mypy>=1.0.0
+sphinx>=6.0.0
 
-# If using a 3D visualization library in the future:
-# matplotlib==3.8.0
-# plotly==5.18.0
-# networkx==3.2.1 
+# Performance Testing
+pytest-benchmark>=4.0.0
+memory-profiler>=0.60.0
+
+# Optional Visualization
+# matplotlib>=3.8.0
+# plotly>=5.18.0
+# networkx>=3.2.1 

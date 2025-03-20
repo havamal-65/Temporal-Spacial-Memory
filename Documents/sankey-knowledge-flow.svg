@@ -1,0 +1,461 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700">
+  <!-- Background -->
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8f9fa" />
+      <stop offset="100%" stop-color="#e9ecef" />
+    </linearGradient>
+    
+    <!-- Node gradients -->
+    <radialGradient id="core-node-gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#4361ee" />
+      <stop offset="100%" stop-color="#3a0ca3" />
+    </radialGradient>
+    
+    <radialGradient id="mid-node-gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#7209b7" />
+      <stop offset="100%" stop-color="#560bad" />
+    </radialGradient>
+    
+    <radialGradient id="outer-node-gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#f72585" />
+      <stop offset="100%" stop-color="#b5179e" />
+    </radialGradient>
+    
+    <radialGradient id="branch-node-gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#4cc9f0" />
+      <stop offset="100%" stop-color="#4895ef" />
+    </radialGradient>
+    
+    <!-- Flow connections -->
+    <linearGradient id="flow-gradient-a" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4361ee" stop-opacity="0.7" />
+      <stop offset="100%" stop-color="#4361ee" stop-opacity="0.3" />
+    </linearGradient>
+    
+    <linearGradient id="flow-gradient-b" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7209b7" stop-opacity="0.7" />
+      <stop offset="100%" stop-color="#7209b7" stop-opacity="0.3" />
+    </linearGradient>
+    
+    <linearGradient id="flow-gradient-c" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f72585" stop-opacity="0.7" />
+      <stop offset="100%" stop-color="#f72585" stop-opacity="0.3" />
+    </linearGradient>
+    
+    <linearGradient id="flow-gradient-d" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4cc9f0" stop-opacity="0.7" />
+      <stop offset="100%" stop-color="#4cc9f0" stop-opacity="0.3" />
+    </linearGradient>
+    
+    <!-- Branch connection gradient -->
+    <linearGradient id="branch-flow-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f72585" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#4cc9f0" stop-opacity="0.6" />
+    </linearGradient>
+    
+    <!-- Time slice guides -->
+    <linearGradient id="time-slice-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#4cc9f0" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#4cc9f0" stop-opacity="0.03" />
+    </linearGradient>
+    
+    <!-- Branch circle -->
+    <linearGradient id="branch-circle-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4cc9f0" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#4895ef" stop-opacity="0.08" />
+    </linearGradient>
+    
+    <!-- Threshold indicator -->
+    <linearGradient id="threshold-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f72585" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#f72585" stop-opacity="0.08" />
+    </linearGradient>
+    
+    <!-- Clip paths for flow areas -->
+    <clipPath id="clip-flow-1">
+      <path d="M150,570 C200,570 250,570 300,570 L300,510 C250,510 200,510 150,510 Z" />
+    </clipPath>
+    
+    <clipPath id="clip-flow-2">
+      <path d="M150,510 C200,510 250,510 300,510 L300,430 C250,430 200,430 150,430 Z" />
+    </clipPath>
+    
+    <clipPath id="clip-flow-3">
+      <path d="M150,430 C200,430 250,430 300,430 L300,330 C250,330 200,330 150,330 Z" />
+    </clipPath>
+    
+    <clipPath id="clip-flow-4">
+      <path d="M150,330 C200,330 250,330 300,330 L300,210 C250,210 200,210 150,210 Z" />
+    </clipPath>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="700" fill="url(#bg-gradient)" />
+  
+  <!-- Title -->
+  <text x="450" y="40" font-family="Arial" font-size="24" font-weight="bold" fill="#333" text-anchor="middle">Temporal-Spatial Knowledge Flow</text>
+  <text x="450" y="70" font-family="Arial" font-size="16" fill="#555" text-anchor="middle">Knowledge Evolution with Branch Formation and Flow Visualization</text>
+  
+  <!-- Main Time Axis -->
+  <line x1="100" y1="600" x2="100" y2="150" stroke="#888" stroke-width="2" />
+  <polygon points="100,140 95,150 105,150" fill="#888" />
+  <text x="75" y="145" font-family="Arial" font-size="14" fill="#666">Time</text>
+  
+  <!-- Time labels -->
+  <text x="80" y="570" font-family="Arial" font-size="14" fill="#666" text-anchor="end">T₁</text>
+  <text x="80" y="490" font-family="Arial" font-size="14" fill="#666" text-anchor="end">T₂</text>
+  <text x="80" y="410" font-family="Arial" font-size="14" fill="#666" text-anchor="end">T₃</text>
+  <text x="80" y="330" font-family="Arial" font-size="14" fill="#666" text-anchor="end">T₄</text>
+  <text x="80" y="250" font-family="Arial" font-size="14" fill="#666" text-anchor="end">T₅</text>
+  
+  <!-- Time slice planes -->
+  <line x1="100" y1="570" x2="750" y2="570" stroke="#ddd" stroke-width="1" stroke-dasharray="5,3" />
+  <line x1="100" y1="490" x2="750" y2="490" stroke="#ddd" stroke-width="1" stroke-dasharray="5,3" />
+  <line x1="100" y1="410" x2="750" y2="410" stroke="#ddd" stroke-width="1" stroke-dasharray="5,3" />
+  <line x1="100" y1="330" x2="750" y2="330" stroke="#ddd" stroke-width="1" stroke-dasharray="5,3" />
+  <line x1="100" y1="250" x2="750" y2="250" stroke="#ddd" stroke-width="1" stroke-dasharray="5,3" />
+  
+  <!-- STAGE 1: Initial knowledge structure (T1) -->
+  <ellipse cx="250" cy="570" rx="80" ry="30" stroke="#4cc9f0" stroke-width="1" fill="url(#time-slice-gradient)" />
+  
+  <!-- Core node at T1 -->
+  <circle cx="250" cy="570" r="15" fill="url(#core-node-gradient)" />
+  <text x="250" cy="570" font-family="Arial" font-size="9" fill="white" text-anchor="middle">Core</text>
+  
+  <!-- Related nodes at T1 -->
+  <circle cx="210" cy="560" r="8" fill="url(#mid-node-gradient)" />
+  <text x="210" cy="560" font-family="Arial" font-size="7" fill="white" text-anchor="middle">A</text>
+  
+  <circle cx="290" cy="560" r="8" fill="url(#mid-node-gradient)" />
+  <text x="290" cy="560" font-family="Arial" font-size="7" fill="white" text-anchor="middle">B</text>
+  
+  <!-- Connections at T1 -->
+  <line x1="250" y1="570" x2="210" y2="560" stroke="#7209b7" stroke-width="3" opacity="0.7" />
+  <line x1="250" y1="570" x2="290" y2="560" stroke="#7209b7" stroke-width="3" opacity="0.7" />
+  
+  <!-- STAGE 2: Growing knowledge (T2) -->
+  <ellipse cx="250" cy="490" rx="100" ry="40" stroke="#4cc9f0" stroke-width="1" fill="url(#time-slice-gradient)" />
+  
+  <!-- Core node at T2 -->
+  <circle cx="250" cy="490" r="15" fill="url(#core-node-gradient)" />
+  <text x="250" cy="490" font-family="Arial" font-size="9" fill="white" text-anchor="middle">Core</text>
+  
+  <!-- Related nodes at T2 -->
+  <circle cx="190" cy="480" r="10" fill="url(#mid-node-gradient)" />
+  <text x="190" cy="480" font-family="Arial" font-size="7" fill="white" text-anchor="middle">A</text>
+  
+  <circle cx="310" cy="480" r="10" fill="url(#mid-node-gradient)" />
+  <text x="310" cy="480" font-family="Arial" font-size="7" fill="white" text-anchor="middle">B</text>
+  
+  <circle cx="230" cy="450" r="8" fill="url(#mid-node-gradient)" />
+  <text x="230" cy="450" font-family="Arial" font-size="7" fill="white" text-anchor="middle">C</text>
+  
+  <circle cx="270" cy="450" r="8" fill="url(#mid-node-gradient)" />
+  <text x="270" cy="450" font-family="Arial" font-size="7" fill="white" text-anchor="middle">D</text>
+  
+  <!-- Outer nodes at T2 -->
+  <circle cx="160" cy="470" r="6" fill="url(#outer-node-gradient)" />
+  <circle cx="340" cy="470" r="6" fill="url(#outer-node-gradient)" />
+  
+  <!-- Connections at T2 -->
+  <line x1="250" y1="490" x2="190" y2="480" stroke="#7209b7" stroke-width="4" opacity="0.7" />
+  <line x1="250" y1="490" x2="310" y2="480" stroke="#7209b7" stroke-width="4" opacity="0.7" />
+  <line x1="250" y1="490" x2="230" y2="450" stroke="#7209b7" stroke-width="2.5" opacity="0.7" />
+  <line x1="250" y1="490" x2="270" y2="450" stroke="#7209b7" stroke-width="2.5" opacity="0.7" />
+  <line x1="190" y1="480" x2="160" y2="470" stroke="#f72585" stroke-width="2" opacity="0.7" />
+  <line x1="310" y1="480" x2="340" y2="470" stroke="#f72585" stroke-width="2" opacity="0.7" />
+  
+  <!-- Flow connections from T1 to T2 -->
+  <path d="M250,570 C250,540 250,520 250,490" stroke="#4361ee" stroke-width="8" fill="none" opacity="0.4" />
+  <path d="M210,560 C205,530 195,510 190,480" stroke="#7209b7" stroke-width="5" fill="none" opacity="0.4" />
+  <path d="M290,560 C295,530 305,510 310,480" stroke="#7209b7" stroke-width="5" fill="none" opacity="0.4" />
+  
+  <!-- STAGE 3: Approaching threshold (T3) -->
+  <ellipse cx="250" cy="410" rx="120" ry="50" stroke="#4cc9f0" stroke-width="1" fill="url(#time-slice-gradient)" />
+  
+  <!-- Threshold indication -->
+  <circle cx="250" cy="410" r="95" stroke="#f72585" stroke-width="1.5" stroke-dasharray="5,3" fill="none" />
+  <text x="320" cy="340" font-family="Arial" font-size="12" fill="#f72585">Threshold</text>
+  
+  <!-- Core node at T3 -->
+  <circle cx="250" cy="410" r="15" fill="url(#core-node-gradient)" />
+  <text x="250" cy="410" font-family="Arial" font-size="9" fill="white" text-anchor="middle">Core</text>
+  
+  <!-- Related nodes at T3 -->
+  <circle cx="180" cy="400" r="12" fill="url(#mid-node-gradient)" />
+  <text x="180" cy="400" font-family="Arial" font-size="7" fill="white" text-anchor="middle">A</text>
+  
+  <circle cx="320" cy="400" r="12" fill="url(#mid-node-gradient)" />
+  <text x="320" cy="400" font-family="Arial" font-size="7" fill="white" text-anchor="middle">B</text>
+  
+  <circle cx="220" cy="370" r="9" fill="url(#mid-node-gradient)" />
+  <text x="220" cy="370" font-family="Arial" font-size="7" fill="white" text-anchor="middle">C</text>
+  
+  <circle cx="280" cy="370" r="9" fill="url(#mid-node-gradient)" />
+  <text x="280" cy="370" font-family="Arial" font-size="7" fill="white" text-anchor="middle">D</text>
+  
+  <!-- Approaching threshold node - highlighted -->
+  <circle cx="150" cy="380" r="13" fill="url(#outer-node-gradient)" />
+  <text x="150" cy="380" font-family="Arial" font-size="8" fill="white" text-anchor="middle">E</text>
+  
+  <!-- Other outer nodes at T3 -->
+  <circle cx="140" cy="430" r="7" fill="url(#outer-node-gradient)" />
+  <circle cx="360" cy="430" r="7" fill="url(#outer-node-gradient)" />
+  <circle cx="350" cy="370" r="7" fill="url(#outer-node-gradient)" />
+  
+  <!-- Satellite nodes around E -->
+  <circle cx="125" cy="360" r="5" fill="url(#outer-node-gradient)" opacity="0.8" />
+  <circle cx="130" cy="400" r="5" fill="url(#outer-node-gradient)" opacity="0.8" />
+  <circle cx="110" cy="380" r="5" fill="url(#outer-node-gradient)" opacity="0.8" />
+  
+  <!-- Connections at T3 -->
+  <line x1="250" y1="410" x2="180" y2="400" stroke="#7209b7" stroke-width="5" opacity="0.7" />
+  <line x1="250" y1="410" x2="320" y2="400" stroke="#7209b7" stroke-width="5" opacity="0.7" />
+  <line x1="250" y1="410" x2="220" y2="370" stroke="#7209b7" stroke-width="3" opacity="0.7" />
+  <line x1="250" y1="410" x2="280" y2="370" stroke="#7209b7" stroke-width="3" opacity="0.7" />
+  <line x1="180" y1="400" x2="150" y2="380" stroke="#f72585" stroke-width="4" opacity="0.7" />
+  <line x1="180" y1="400" x2="140" y2="430" stroke="#f72585" stroke-width="2" opacity="0.7" />
+  <line x1="320" y1="400" x2="350" y2="370" stroke="#f72585" stroke-width="2" opacity="0.7" />
+  <line x1="320" y1="400" x2="360" y2="430" stroke="#f72585" stroke-width="2" opacity="0.7" />
+  
+  <!-- Satellite connections -->
+  <line x1="150" y1="380" x2="125" y2="360" stroke="#f72585" stroke-width="1.5" opacity="0.7" />
+  <line x1="150" y1="380" x2="130" y2="400" stroke="#f72585" stroke-width="1.5" opacity="0.7" />
+  <line x1="150" y1="380" x2="110" y2="380" stroke="#f72585" stroke-width="1.5" opacity="0.7" />
+  
+  <!-- Flow connections from T2 to T3 -->
+  <path d="M250,490 C250,460 250,440 250,410" stroke="#4361ee" stroke-width="10" fill="none" opacity="0.4" />
+  <path d="M190,480 C185,450 182,430 180,400" stroke="#7209b7" stroke-width="7" fill="none" opacity="0.4" />
+  <path d="M310,480 C315,450 318,430 320,400" stroke="#7209b7" stroke-width="7" fill="none" opacity="0.4" />
+  <path d="M230,450 C228,420 225,400 220,370" stroke="#7209b7" stroke-width="4" fill="none" opacity="0.4" />
+  <path d="M270,450 C272,420 275,400 280,370" stroke="#7209b7" stroke-width="4" fill="none" opacity="0.4" />
+  <path d="M160,470 C155,440 152,400 150,380" stroke="#f72585" stroke-width="3" fill="none" opacity="0.4" />
+  
+  <!-- STAGE 4: Branch formation (T4) -->
+  <ellipse cx="250" cy="330" rx="140" ry="60" stroke="#4cc9f0" stroke-width="1" fill="url(#time-slice-gradient)" />
+  
+  <!-- New branch structure -->
+  <ellipse cx="550" cy="330" rx="80" ry="40" stroke="#4cc9f0" stroke-width="1" fill="url(#branch-circle-gradient)" />
+  
+  <!-- Branch connection (Sankey-style thick flow) -->
+  <path d="M150,380 C250,350 350,350 550,330" stroke="url(#branch-flow-gradient)" stroke-width="15" fill="none" opacity="0.5" />
+  <text x="350" cy="320" font-family="Arial" font-size="12" fill="#f72585">Branch Formation</text>
+  
+  <!-- Core node at T4 -->
+  <circle cx="250" cy="330" r="16" fill="url(#core-node-gradient)" />
+  <text x="250" cy="330" font-family="Arial" font-size="10" fill="white" text-anchor="middle">Core</text>
+  
+  <!-- Related nodes at T4 -->
+  <circle cx="180" cy="320" r="12" fill="url(#mid-node-gradient)" />
+  <text x="180" cy="320" font-family="Arial" font-size="8" fill="white" text-anchor="middle">A</text>
+  
+  <circle cx="320" cy="320" r="12" fill="url(#mid-node-gradient)" />
+  <text x="320" cy="320" font-family="Arial" font-size="8" fill="white" text-anchor="middle">B</text>
+  
+  <circle cx="220" cy="290" r="10" fill="url(#mid-node-gradient)" />
+  <text x="220" cy="290" font-family="Arial" font-size="7" fill="white" text-anchor="middle">C</text>
+  
+  <circle cx="280" cy="290" r="10" fill="url(#mid-node-gradient)" />
+  <text x="280" cy="290" font-family="Arial" font-size="7" fill="white" text-anchor="middle">D</text>
+  
+  <!-- Outer nodes at T4 -->
+  <circle cx="140" cy="350" r="8" fill="url(#outer-node-gradient)" />
+  <circle cx="360" cy="350" r="8" fill="url(#outer-node-gradient)" />
+  <circle cx="190" cy="360" r="8" fill="url(#outer-node-gradient)" />
+  <circle cx="310" cy="360" r="8" fill="url(#outer-node-gradient)" />
+  
+  <!-- New branch center (was E) -->
+  <circle cx="550" cy="330" r="14" fill="url(#branch-node-gradient)" />
+  <text x="550" cy="330" font-family="Arial" font-size="9" fill="white" text-anchor="middle">E</text>
+  
+  <!-- Branch nodes -->
+  <circle cx="520" cy="310" r="9" fill="url(#mid-node-gradient)" />
+  <text x="520" cy="310" font-family="Arial" font-size="7" fill="white" text-anchor="middle">E1</text>
+  
+  <circle cx="580" cy="310" r="9" fill="url(#mid-node-gradient)" />
+  <text x="580" cy="310" font-family="Arial" font-size="7" fill="white" text-anchor="middle">E2</text>
+  
+  <circle cx="540" cy="360" r="9" fill="url(#mid-node-gradient)" />
+  <text x="540" cy="360" font-family="Arial" font-size="7" fill="white" text-anchor="middle">E3</text>
+  
+  <circle cx="560" cy="360" r="9" fill="url(#mid-node-gradient)" />
+  <text x="560" cy="360" font-family="Arial" font-size="7" fill="white" text-anchor="middle">E4</text>
+  
+  <!-- Satellite nodes in new branch -->
+  <circle cx="500" cy="330" r="6" fill="url(#outer-node-gradient)" />
+  <circle cx="600" cy="330" r="6" fill="url(#outer-node-gradient)" />
+  <circle cx="520" cy="370" r="6" fill="url(#outer-node-gradient)" />
+  <circle cx="580" cy="370" r="6" fill="url(#outer-node-gradient)" />
+  
+  <!-- Connections in original structure T4 -->
+  <line x1="250" y1="330" x2="180" y2="320" stroke="#7209b7" stroke-width="5" opacity="0.7" />
+  <line x1="250" y1="330" x2="320" y2="320" stroke="#7209b7" stroke-width="5" opacity="0.7" />
+  <line x1="250" y1="330" x2="220" y2="290" stroke="#7209b7" stroke-width="3" opacity="0.7" />
+  <line x1="250" y1="330" x2="280" y2="290" stroke="#7209b7" stroke-width="3" opacity="0.7" />
+  <line x1="180" y1="320" x2="140" y2="350" stroke="#f72585" stroke-width="2" opacity="0.7" />
+  <line x1="180" y1="320" x2="190" y2="360" stroke="#f72585" stroke-width="2" opacity="0.7" />
+  <line x1="320" y1="320" x2="360" y2="350" stroke="#f72585" stroke-width="2" opacity="0.7" />
+  <line x1="320" y1="320" x2="310" y2="360" stroke="#f72585" stroke-width="2" opacity="0.7" />
+  
+  <!-- Connections in new branch T4 -->
+  <line x1="550" y1="330" x2="520" y2="310" stroke="#7209b7" stroke-width="3" opacity="0.7" />
+  <line x1="550" y1="330" x2="580" y2="310" stroke="#7209b7" stroke-width="3" opacity="0.7" />
+  <line x1="550" y1="330" x2="540" y2="360" stroke="#7209b7" stroke-width="3" opacity="0.7" />
+  <line x1="550" y1="330" x2="560" y2="360" stroke="#7209b7" stroke-width="3" opacity="0.7" />
+  <line x1="520" y1="310" x2="500" y2="330" stroke="#f72585" stroke-width="1.5" opacity="0.7" />
+  <line x1="580" y1="310" x2="600" y2="330" stroke="#f72585" stroke-width="1.5" opacity="0.7" />
+  <line x1="540" y1="360" x2="520" y2="370" stroke="#f72585" stroke-width="1.5" opacity="0.7" />
+  <line x1="560" y1="360" x2="580" y2="370" stroke="#f72585" stroke-width="1.5" opacity="0.7" />
+  
+  <!-- Flow connections from T3 to T4 -->
+  <path d="M250,410 C250,380 250,360 250,330" stroke="#4361ee" stroke-width="12" fill="none" opacity="0.4" />
+  <path d="M180,400 C180,370 180,350 180,320" stroke="#7209b7" stroke-width="7" fill="none" opacity="0.4" />
+  <path d="M320,400 C320,370 320,350 320,320" stroke="#7209b7" stroke-width="7" fill="none" opacity="0.4" />
+  <path d="M220,370 C220,340 220,320 220,290" stroke="#7209b7" stroke-width="4" fill="none" opacity="0.4" />
+  <path d="M280,370 C280,340 280,320 280,290" stroke="#7209b7" stroke-width="4" fill="none" opacity="0.4" />
+  
+  <!-- STAGE 5: Evolved structure with branches (T5) -->
+  <ellipse cx="250" cy="250" rx="160" ry="70" stroke="#4cc9f0" stroke-width="1" fill="url(#time-slice-gradient)" />
+  <ellipse cx="550" cy="250" rx="100" ry="50" stroke="#4cc9f0" stroke-width="1" fill="url(#branch-circle-gradient)" />
+  
+  <!-- Core node at T5 -->
+  <circle cx="250" cy="250" r="18" fill="url(#core-node-gradient)" />
+  <text x="250" cy="250" font-family="Arial" font-size="10" fill="white" text-anchor="middle">Core</text>
+  
+  <!-- Related nodes at T5 -->
+  <circle cx="170" cy="250" r="14" fill="url(#mid-node-gradient)" />
+  <text x="170" cy="250" font-family="Arial" font-size="8" fill="white" text-anchor="middle">A</text>
+  
+  <circle cx="330" cy="250" r="14" fill="url(#mid-node-gradient)" />
+  <text x="330" cy="250" font-family="Arial" font-size="8" fill="white" text-anchor="middle">B</text>
+  
+  <circle cx="210" cy="200" r="12" fill="url(#mid-node-gradient)" />
+  <text x="210" cy="200" font-family="Arial" font-size="8" fill="white" text-anchor="middle">C</text>
+  
+  <circle cx="290" cy="200" r="12" fill="url(#mid-node-gradient)" />
+  <text x="290" cy="200" font-family="Arial" font-size="8" fill="white" text-anchor="middle">D</text>
+  
+  <!-- Approaching threshold node in branch 1 -->
+  <circle cx="130" cy="220" r="14" fill="url(#outer-node-gradient)" />
+  <text x="130" cy="220" font-family="Arial" font-size="8" fill="white" text-anchor="middle">F</text>
+  
+  <!-- Other outer nodes in branch 1 -->
+  <circle cx="100" cy="260" r="8" fill="url(#outer-node-gradient)" />
+  <circle cx="140" cy="280" r="8" fill="url(#outer-node-gradient)" />
+  <circle cx="400" cy="250" r="8" fill="url(#outer-node-gradient)" />
+  <circle cx="370" cy="210" r="8" fill="url(#outer-node-gradient)" />
+  <circle cx="170" cy="190" r="8" fill="url(#outer-node-gradient)" />
+  <circle cx="330" cy="190" r="8" fill="url(#outer-node-gradient)" />
+  
+  <!-- Branch center at T5 -->
+  <circle cx="550" cy="250" r="16" fill="url(#branch-node-gradient)" />
+  <text x="550" cy="250" font-family="Arial" font-size="10" fill="white" text-anchor="middle">E</text>
+  
+  <!-- Branch nodes at T5 -->
+  <circle cx="500" cy="240" r="12" fill="url(#mid-node-gradient)" />
+  <text x="500" cy="240" font-family="Arial" font-size="8" fill="white" text-anchor="middle">E1</text>
+  
+  <circle cx="600" cy="240" r="12" fill="url(#mid-node-gradient)" />
+  <text x="600" cy="240" font-family="Arial" font-size="8" fill="white" text-anchor="middle">E2</text>
+  
+  <circle cx="530" cy="200" r="12" fill="url(#mid-node-gradient)" />
+  <text x="530" cy="200" font-family="Arial" font-size="8" fill="white" text-anchor="middle">E5</text>
+  
+  <circle cx="570" cy="200" r="12" fill="url(#mid-node-gradient)" />
+  <text x="570" cy="200" font-family="Arial" font-size="8" fill="white" text-anchor="middle">E6</text>
+  
+  <circle cx="520" cy="280" r="12" fill="url(#mid-node-gradient)" />
+  <text x="520" cy="280" font-family="Arial" font-size="8" fill="white" text-anchor="middle">E3</text>
+  
+  <circle cx="580" cy="280" r="12" fill="url(#mid-node-gradient)" />
+  <text x="580" cy="280" font-family="Arial" font-size="8" fill="white" text-anchor="middle">E4</text>
+  
+  <!-- Outer nodes in branch -->
+  <circle cx="470" cy="220" r="9" fill="url(#outer-node-gradient)" />
+  <circle cx="630" cy="220" r="9" fill="url(#outer-node-gradient)" />
+  <circle cx="490" cy="270" r="9" fill="url(#outer-node-gradient)" />
+  <circle cx="610" cy="270" r="9" fill="url(#outer-node-gradient)" />
+  <circle cx="510" cy="180" r="9" fill="url(#outer-node-gradient)" />
+  <circle cx="590" cy="180" r="9" fill="url(#outer-node-gradient)" />
+  
+  <!-- Connections in original structure T5 -->
+  <line x1="250" y1="250" x2="170" y2="250" stroke="#7209b7" stroke-width="6" opacity="0.7" />
+  <line x1="250" y1="250" x2="330" y2="250" stroke="#7209b7" stroke-width="6" opacity="0.7" />
+  <line x1="250" y1="250" x2="210" y2="200" stroke="#7209b7" stroke-width="4" opacity="0.7" />
+  <line x1="250" y1="250" x2="290" y2="200" stroke="#7209b7" stroke-width="4" opacity="0.7" />
+  <line x1="170" y1="250" x2="130" y2="220" stroke="#f72585" stroke-width="4" opacity="0.7" />
+  <line x1="170" y1="250" x2="140" y2="280" stroke="#f72585" stroke-width="2" opacity="0.7" />
+  <line x1="130" y1="220" x2="100" y2="260" stroke="#f72585" stroke-width="2" opacity="0.7" />
+  <line x1="330" y1="250" x2="370" y2="210" stroke="#f72585" stroke-width="2" opacity="0.7" />
+  <line x1="330" y1="250" x2="400" y2="250" stroke="#f72585" stroke-width="2" opacity="0.7" />
+  <line x1="210" y1="200" x2="170" y2="190" stroke="#f72585" stroke-width="2" opacity="0.7" />
+  <line x1="290" y1="200" x2="330" y2="190" stroke="#f72585" stroke-width="2" opacity="0.7" />
+  
+  <!-- Connections in branch at T5 -->
+  <line x1="550" y1="250" x2="500" y2="240" stroke="#7209b7" stroke-width="4" opacity="0.7" />
+  <line x1="550" y1="250" x2="600" y2="240" stroke="#7209b7" stroke-width="4" opacity="0.7" />
+  <line x1="550" y1="250" x2="530" y2="200" stroke="#7209b7" stroke-width="3" opacity="0.7" />
+  <line x1="550" y1="250" x2="570" y2="200" stroke="#7209b7" stroke-width="3" opacity="0.7" />
+  <line x1="550" y1="250" x2="520" y2="280" stroke="#7209b7" stroke-width="3" opacity="0.7" />
+  <line x1="550" y1="250" x2="580" y2="280" stroke="#7209b7" stroke-width="3" opacity="0.7" />
+  <line x1="500" y1="240" x2="470" y2="220" stroke="#f72585" stroke-width="2" opacity="0.7" />
+  <line x1="600" y1="240" x2="630" y2="220" stroke="#f72585" stroke-width="2" opacity="0.7" />
+  <line x1="520" y1="280" x2="490" y2="270" stroke="#f72585" stroke-width="2" opacity="0.7" />
+  <line x1="580" y1="280" x2="610" y2="270" stroke="#f72585" stroke-width="2" opacity="0.7" />
+  <line x1="530" y1="200" x2="510" y2="180" stroke="#f72585" stroke-width="2" opacity="0.7" />
+  <line x1="570" y1="200" x2="590" y2="180" stroke="#f72585" stroke-width="2" opacity="0.7" />
+  
+  <!-- Flow connections from T4 to T5 -->
+  <path d="M250,330 C250,300 250,280 250,250" stroke="#4361ee" stroke-width="14" fill="none" opacity="0.4" />
+  <path d="M180,320 C175,290 172,280 170,250" stroke="#7209b7" stroke-width="9" fill="none" opacity="0.4" />
+  <path d="M320,320 C325,290 328,280 330,250" stroke="#7209b7" stroke-width="9" fill="none" opacity="0.4" />
+  <path d="M220,290 C217,260 214,230 210,200" stroke="#7209b7" stroke-width="6" fill="none" opacity="0.4" />
+  <path d="M280,290 C283,260 286,230 290,200" stroke="#7209b7" stroke-width="6" fill="none" opacity="0.4" />
+  
+  <!-- Branch evolution flows -->
+  <path d="M550,330 C550,300 550,280 550,250" stroke="#4cc9f0" stroke-width="10" fill="none" opacity="0.4" />
+  <path d="M520,310 C515,290 510,270 500,240" stroke="#7209b7" stroke-width="5" fill="none" opacity="0.4" />
+  <path d="M580,310 C585,290 590,270 600,240" stroke="#7209b7" stroke-width="5" fill="none" opacity="0.4" />
+  <path d="M540,360 C535,330 525,300 520,280" stroke="#7209b7" stroke-width="5" fill="none" opacity="0.4" />
+  <path d="M560,360 C565,330 575,300 580,280" stroke="#7209b7" stroke-width="5" fill="none" opacity="0.4" />
+  
+  <!-- Another branch connection forming (showing potential future branch) -->
+  <path d="M130,220 C 80,180 60,150 40,120" stroke="#f72585" stroke-width="5" stroke-dasharray="8,4" fill="none" opacity="0.5" />
+  <text x="50" y="110" font-family="Arial" font-size="12" fill="#f72585">Potential Future Branch</text>
+  
+  <!-- Legend -->
+  <rect x="700" y="150" width="180" height="280" rx="10" ry="10" fill="white" fill-opacity="0.9" stroke="#ddd" />
+  <text x="710" y="175" font-family="Arial" font-size="16" font-weight="bold" fill="#333">Legend</text>
+  
+  <circle cx="720" cy="200" r="10" fill="url(#core-node-gradient)" />
+  <text x="740" y="204" font-family="Arial" font-size="12" fill="#333">Core Node</text>
+  
+  <circle cx="720" cy="230" r="10" fill="url(#branch-node-gradient)" />
+  <text x="740" y="234" font-family="Arial" font-size="12" fill="#333">Branch Center</text>
+  
+  <circle cx="720" cy="260" r="8" fill="url(#mid-node-gradient)" />
+  <text x="740" y="264" font-family="Arial" font-size="12" fill="#333">Related Node</text>
+  
+  <circle cx="720" cy="290" r="6" fill="url(#outer-node-gradient)" />
+  <text x="740" y="294" font-family="Arial" font-size="12" fill="#333">Detail Node</text>
+  
+  <path d="M710 320 L730 320" stroke="#4361ee" stroke-width="8" fill="none" opacity="0.4" />
+  <text x="740" y="324" font-family="Arial" font-size="12" fill="#333">Core Flow</text>
+  
+  <path d="M710 350 L730 350" stroke="#7209b7" stroke-width="6" fill="none" opacity="0.4" />
+  <text x="740" y="354" font-family="Arial" font-size="12" fill="#333">Topic Flow</text>
+  
+  <path d="M710 380 L730 380" stroke="url(#branch-flow-gradient)" stroke-width="8" fill="none" opacity="0.6" />
+  <text x="740" y="384" font-family="Arial" font-size="12" fill="#333">Branch Formation</text>
+  
+  <line x1="710" y1="410" x2="730" y2="410" stroke="#f72585" stroke-width="1.5" stroke-dasharray="5,3" />
+  <text x="740" y="414" font-family="Arial" font-size="12" fill="#333">Threshold</text>
+  
+  <!-- Key Explanation -->
+  <rect x="100" y="100" width="300" height="100" rx="10" ry="10" fill="white" fill-opacity="0.9" stroke="#ddd" />
+  <text x="120" y="125" font-family="Arial" font-size="14" font-weight="bold" fill="#333">Sankey-Like Knowledge Flow:</text>
+  <text x="120" y="150" font-family="Arial" font-size="12" fill="#333">• Flow thickness represents information volume</text>
+  <text x="120" y="170" font-family="Arial" font-size="12" fill="#333">• Branch formation occurs when topics exceed threshold</text>
+  <text x="120" y="190" font-family="Arial" font-size="12" fill="#333">• Time flows along vertical axis with expanding knowledge</text>
+</svg>

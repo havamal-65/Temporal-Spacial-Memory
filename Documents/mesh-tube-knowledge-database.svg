@@ -1,0 +1,246 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f5f7fa" />
+      <stop offset="100%" stop-color="#e4e8f0" />
+    </linearGradient>
+    
+    <!-- Node gradients -->
+    <radialGradient id="core-node-gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#5E72E4" />
+      <stop offset="100%" stop-color="#324CDD" />
+    </radialGradient>
+    
+    <radialGradient id="mid-node-gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#9370DB" />
+      <stop offset="100%" stop-color="#8A2BE2" />
+    </radialGradient>
+    
+    <radialGradient id="outer-node-gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#2DCE89" />
+      <stop offset="100%" stop-color="#20A46D" />
+    </radialGradient>
+    
+    <!-- Tube sections -->
+    <linearGradient id="tube-gradient-1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#5D72E4" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#5D72E4" stop-opacity="0.2" />
+    </linearGradient>
+    
+    <linearGradient id="tube-gradient-2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#5D72E4" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#5D72E4" stop-opacity="0.2" />
+    </linearGradient>
+    
+    <linearGradient id="tube-gradient-3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#5D72E4" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#5D72E4" stop-opacity="0.2" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bg-gradient)" />
+  
+  <!-- Title -->
+  <text x="400" y="40" font-family="Arial" font-size="22" font-weight="bold" fill="#444" text-anchor="middle">Mesh Tube Knowledge Database</text>
+  <text x="400" y="65" font-family="Arial" font-size="14" fill="#666" text-anchor="middle">3D Temporal-Spatial Structure for Conversation Tracking</text>
+  
+  <!-- Cylindrical mesh tube structure - Section 1 (Past) -->
+  <ellipse cx="400" cy="170" rx="180" ry="60" stroke="#5E72E4" stroke-width="1.5" fill="url(#tube-gradient-1)" opacity="0.7" />
+  
+  <!-- Cylindrical mesh tube structure - Section 2 (Middle) -->
+  <ellipse cx="400" cy="300" rx="200" ry="70" stroke="#5E72E4" stroke-width="1.5" fill="url(#tube-gradient-2)" opacity="0.7" />
+  
+  <!-- Cylindrical mesh tube structure - Section 3 (Present) -->
+  <ellipse cx="400" cy="430" rx="220" ry="80" stroke="#5E72E4" stroke-width="1.5" fill="url(#tube-gradient-3)" opacity="0.7" />
+  
+  <!-- Connecting lines for tube shape -->
+  <line x1="220" y1="170" x2="200" y2="300" stroke="#5E72E4" stroke-width="1.5" opacity="0.5" />
+  <line x1="580" y1="170" x2="600" y2="300" stroke="#5E72E4" stroke-width="1.5" opacity="0.5" />
+  <line x1="200" y1="300" x2="180" y2="430" stroke="#5E72E4" stroke-width="1.5" opacity="0.5" />
+  <line x1="600" y1="300" x2="620" y2="430" stroke="#5E72E4" stroke-width="1.5" opacity="0.5" />
+  
+  <!-- Time axis label -->
+  <line x1="680" y1="170" x2="680" y2="430" stroke="#666" stroke-width="2" stroke-dasharray="5,3" />
+  <polygon points="680,440 675,430 685,430" fill="#666" />
+  <text x="695" y="300" font-family="Arial" font-size="16" fill="#666" transform="rotate(90 695,300)">Time →</text>
+  
+  <!-- Temporal plane markers -->
+  <text x="150" y="170" font-family="Arial" font-size="14" fill="#666">T₁ (Past)</text>
+  <text x="150" y="300" font-family="Arial" font-size="14" fill="#666">T₂ (Middle)</text>
+  <text x="150" y="430" font-family="Arial" font-size="14" fill="#666">T₃ (Present)</text>
+  
+  <!-- PAST LAYER (T1) -->
+  <!-- Central node in past layer -->
+  <circle cx="400" cy="170" r="25" fill="url(#core-node-gradient)" />
+  <text x="400" y="175" font-family="Arial" font-size="12" fill="white" text-anchor="middle">Computers</text>
+  
+  <!-- Mid-level nodes in past layer -->
+  <circle cx="340" cy="150" r="15" fill="url(#mid-node-gradient)" />
+  <text x="340" y="155" font-family="Arial" font-size="10" fill="white" text-anchor="middle">Hardware</text>
+  
+  <circle cx="460" cy="150" r="15" fill="url(#mid-node-gradient)" />
+  <text x="460" y="155" font-family="Arial" font-size="10" fill="white" text-anchor="middle">Software</text>
+  
+  <!-- Outer nodes in past layer -->
+  <circle cx="300" cy="130" r="10" fill="url(#outer-node-gradient)" />
+  <text x="300" y="133" font-family="Arial" font-size="8" fill="white" text-anchor="middle">CPU</text>
+  
+  <circle cx="500" cy="130" r="10" fill="url(#outer-node-gradient)" />
+  <text x="500" y="133" font-family="Arial" font-size="8" fill="white" text-anchor="middle">OS</text>
+  
+  <!-- Connections in past layer -->
+  <line x1="400" y1="170" x2="340" y2="150" stroke="#5E72E4" stroke-width="1.5" />
+  <line x1="400" y1="170" x2="460" y2="150" stroke="#5E72E4" stroke-width="1.5" />
+  <line x1="340" y1="150" x2="300" y2="130" stroke="#9370DB" stroke-width="1" />
+  <line x1="460" y1="150" x2="500" y2="130" stroke="#9370DB" stroke-width="1" />
+  
+  <!-- MIDDLE LAYER (T2) -->
+  <!-- Central node in middle layer -->
+  <circle cx="400" cy="300" r="28" fill="url(#core-node-gradient)" />
+  <text x="400" y="305" font-family="Arial" font-size="12" fill="white" text-anchor="middle">Computers</text>
+  
+  <!-- New mid-level node representing evolution of topic -->
+  <circle cx="350" cy="270" r="18" fill="url(#mid-node-gradient)" />
+  <text x="350" y="275" font-family="Arial" font-size="10" fill="white" text-anchor="middle">Hardware</text>
+  
+  <circle cx="470" cy="270" r="18" fill="url(#mid-node-gradient)" />
+  <text x="470" y="275" font-family="Arial" font-size="10" fill="white" text-anchor="middle">Software</text>
+  
+  <!-- New topic emerges in middle layer -->
+  <circle cx="440" cy="320" r="18" fill="url(#mid-node-gradient)" />
+  <text x="440" y="325" font-family="Arial" font-size="10" fill="white" text-anchor="middle">Computer
+Languages</text>
+  
+  <!-- Outer nodes in middle layer -->
+  <circle cx="300" cy="260" r="12" fill="url(#outer-node-gradient)" />
+  <text x="300" y="263" font-family="Arial" font-size="8" fill="white" text-anchor="middle">CPU</text>
+  
+  <circle cx="290" cy="290" r="12" fill="url(#outer-node-gradient)" />
+  <text x="290" y="293" font-family="Arial" font-size="8" fill="white" text-anchor="middle">GPU</text>
+  
+  <circle cx="520" cy="260" r="12" fill="url(#outer-node-gradient)" />
+  <text x="520" y="263" font-family="Arial" font-size="8" fill="white" text-anchor="middle">OS</text>
+  
+  <circle cx="490" cy="320" r="12" fill="url(#outer-node-gradient)" />
+  <text x="490" y="323" font-family="Arial" font-size="8" fill="white" text-anchor="middle">Python</text>
+  
+  <!-- Connections in middle layer -->
+  <line x1="400" y1="300" x2="350" y2="270" stroke="#5E72E4" stroke-width="1.5" />
+  <line x1="400" y1="300" x2="470" y2="270" stroke="#5E72E4" stroke-width="1.5" />
+  <line x1="400" y1="300" x2="440" y2="320" stroke="#5E72E4" stroke-width="1.5" />
+  <line x1="350" y1="270" x2="300" y2="260" stroke="#9370DB" stroke-width="1" />
+  <line x1="350" y1="270" x2="290" y2="290" stroke="#9370DB" stroke-width="1" />
+  <line x1="470" y1="270" x2="520" y2="260" stroke="#9370DB" stroke-width="1" />
+  <line x1="440" y1="320" x2="490" y2="320" stroke="#9370DB" stroke-width="1" />
+  
+  <!-- Cross-layer connections (temporal continuity) -->
+  <line x1="400" y1="170" x2="400" y2="300" stroke="#666" stroke-width="1.5" stroke-dasharray="5,3" />
+  <line x1="340" y1="150" x2="350" y2="270" stroke="#666" stroke-width="1" stroke-dasharray="5,3" />
+  <line x1="460" y1="150" x2="470" y2="270" stroke="#666" stroke-width="1" stroke-dasharray="5,3" />
+  <line x1="300" y1="130" x2="300" y2="260" stroke="#666" stroke-width="0.5" stroke-dasharray="5,3" />
+  <line x1="500" y1="130" x2="520" y2="260" stroke="#666" stroke-width="0.5" stroke-dasharray="5,3" />
+  
+  <!-- Direct cross-topic relation (shows semantic relationship) -->
+  <line x1="460" y1="150" x2="440" y2="320" stroke="#FF6B6B" stroke-width="1" stroke-dasharray="5,3" />
+  
+  <!-- PRESENT LAYER (T3) -->
+  <!-- Central node in present layer -->
+  <circle cx="400" cy="430" r="30" fill="url(#core-node-gradient)" />
+  <text x="400" y="435" font-family="Arial" font-size="12" fill="white" text-anchor="middle">Computers</text>
+  
+  <!-- Mid-level nodes in present layer -->
+  <circle cx="340" cy="390" r="20" fill="url(#mid-node-gradient)" />
+  <text x="340" y="395" font-family="Arial" font-size="10" fill="white" text-anchor="middle">Hardware</text>
+  
+  <circle cx="470" cy="390" r="20" fill="url(#mid-node-gradient)" />
+  <text x="470" y="395" font-family="Arial" font-size="10" fill="white" text-anchor="middle">Software</text>
+  
+  <circle cx="430" cy="470" r="20" fill="url(#mid-node-gradient)" />
+  <text x="430" y="475" font-family="Arial" font-size="10" fill="white" text-anchor="middle">Computer
+Languages</text>
+  
+  <!-- New topic emerges in present layer -->
+  <circle cx="370" cy="470" r="20" fill="url(#mid-node-gradient)" />
+  <text x="370" y="475" font-family="Arial" font-size="10" fill="white" text-anchor="middle">AI</text>
+  
+  <!-- Outer nodes in present layer -->
+  <circle cx="290" cy="380" r="14" fill="url(#outer-node-gradient)" />
+  <text x="290" y="384" font-family="Arial" font-size="8" fill="white" text-anchor="middle">CPU</text>
+  
+  <circle cx="280" cy="420" r="14" fill="url(#outer-node-gradient)" />
+  <text x="280" y="424" font-family="Arial" font-size="8" fill="white" text-anchor="middle">GPU</text>
+  
+  <circle cx="530" cy="380" r="14" fill="url(#outer-node-gradient)" />
+  <text x="530" y="384" font-family="Arial" font-size="8" fill="white" text-anchor="middle">OS</text>
+  
+  <circle cx="490" cy="460" r="14" fill="url(#outer-node-gradient)" />
+  <text x="490" y="464" font-family="Arial" font-size="8" fill="white" text-anchor="middle">Python</text>
+  
+  <circle cx="480" cy="490" r="14" fill="url(#outer-node-gradient)" />
+  <text x="480" y="494" font-family="Arial" font-size="8" fill="white" text-anchor="middle">Java</text>
+  
+  <circle cx="370" cy="510" r="14" fill="url(#outer-node-gradient)" />
+  <text x="370" y="514" font-family="Arial" font-size="8" fill="white" text-anchor="middle">ML</text>
+  
+  <circle cx="320" cy="490" r="14" fill="url(#outer-node-gradient)" />
+  <text x="320" y="494" font-family="Arial" font-size="8" fill="white" text-anchor="middle">NLP</text>
+  
+  <!-- Connections in present layer -->
+  <line x1="400" y1="430" x2="340" y2="390" stroke="#5E72E4" stroke-width="1.5" />
+  <line x1="400" y1="430" x2="470" y2="390" stroke="#5E72E4" stroke-width="1.5" />
+  <line x1="400" y1="430" x2="430" y2="470" stroke="#5E72E4" stroke-width="1.5" />
+  <line x1="400" y1="430" x2="370" y2="470" stroke="#5E72E4" stroke-width="1.5" />
+  <line x1="340" y1="390" x2="290" y2="380" stroke="#9370DB" stroke-width="1" />
+  <line x1="340" y1="390" x2="280" y2="420" stroke="#9370DB" stroke-width="1" />
+  <line x1="470" y1="390" x2="530" y2="380" stroke="#9370DB" stroke-width="1" />
+  <line x1="430" y1="470" x2="490" y2="460" stroke="#9370DB" stroke-width="1" />
+  <line x1="430" y1="470" x2="480" y2="490" stroke="#9370DB" stroke-width="1" />
+  <line x1="370" y1="470" x2="370" y2="510" stroke="#9370DB" stroke-width="1" />
+  <line x1="370" y1="470" x2="320" y2="490" stroke="#9370DB" stroke-width="1" />
+  
+  <!-- Cross-layer connections to present -->
+  <line x1="400" y1="300" x2="400" y2="430" stroke="#666" stroke-width="1.5" stroke-dasharray="5,3" />
+  <line x1="350" y1="270" x2="340" y2="390" stroke="#666" stroke-width="1" stroke-dasharray="5,3" />
+  <line x1="470" y1="270" x2="470" y2="390" stroke="#666" stroke-width="1" stroke-dasharray="5,3" />
+  <line x1="440" y1="320" x2="430" y2="470" stroke="#666" stroke-width="1" stroke-dasharray="5,3" />
+  
+  <!-- Direct cross-topic relations (shows semantic relationships) -->
+  <line x1="440" y1="320" x2="370" y2="470" stroke="#FF6B6B" stroke-width="1" stroke-dasharray="5,3" />
+  <line x1="290" y1="290" x2="280" y2="420" stroke="#666" stroke-width="0.5" stroke-dasharray="3,2" />
+  <line x1="490" y1="320" x2="490" y2="460" stroke="#666" stroke-width="0.5" stroke-dasharray="3,2" />
+  
+  <!-- Spider web mesh representation -->
+  <path d="M350 150 Q 375 185 400 170" stroke="#ddd" stroke-width="0.5" fill="none" opacity="0.5" />
+  <path d="M460 150 Q 425 185 400 170" stroke="#ddd" stroke-width="0.5" fill="none" opacity="0.5" />
+  <path d="M300 130 Q 350 165 340 150" stroke="#ddd" stroke-width="0.5" fill="none" opacity="0.5" />
+  <path d="M500 130 Q 470 165 460 150" stroke="#ddd" stroke-width="0.5" fill="none" opacity="0.5" />
+  <path d="M350 270 Q 375 285 400 300" stroke="#ddd" stroke-width="0.5" fill="none" opacity="0.5" />
+  <path d="M470 270 Q 435 285 400 300" stroke="#ddd" stroke-width="0.5" fill="none" opacity="0.5" />
+  <path d="M440 320 Q 410 310 400 300" stroke="#ddd" stroke-width="0.5" fill="none" opacity="0.5" />
+  <path d="M340 390 Q 370 410 400 430" stroke="#ddd" stroke-width="0.5" fill="none" opacity="0.5" />
+  <path d="M470 390 Q 435 410 400 430" stroke="#ddd" stroke-width="0.5" fill="none" opacity="0.5" />
+  <path d="M430 470 Q 415 450 400 430" stroke="#ddd" stroke-width="0.5" fill="none" opacity="0.5" />
+  <path d="M370 470 Q 385 450 400 430" stroke="#ddd" stroke-width="0.5" fill="none" opacity="0.5" />
+  
+  <!-- Legend -->
+  <rect x="580" y="500" width="200" height="80" rx="10" ry="10" fill="white" fill-opacity="0.8" stroke="#ccc" />
+  <text x="590" y="520" font-family="Arial" font-size="12" font-weight="bold" fill="#444">Node Types</text>
+  
+  <circle cx="600" cy="540" r="8" fill="url(#core-node-gradient)" />
+  <text x="615" y="545" font-family="Arial" font-size="11" fill="#444">Core Topics</text>
+  
+  <circle cx="600" cy="560" r="6" fill="url(#mid-node-gradient)" />
+  <text x="615" y="565" font-family="Arial" font-size="11" fill="#444">Related Topics</text>
+  
+  <circle cx="600" cy="580" r="4" fill="url(#outer-node-gradient)" />
+  <text x="615" y="585" font-family="Arial" font-size="11" fill="#444">Specific Details</text>
+  
+  <!-- Node ID explanation -->
+  <rect x="20" y="500" width="250" height="80" rx="10" ry="10" fill="white" fill-opacity="0.8" stroke="#ccc" />
+  <text x="30" y="520" font-family="Arial" font-size="12" font-weight="bold" fill="#444">Node ID Structure</text>
+  <text x="30" y="540" font-family="Arial" font-size="11" fill="#444">(X, Y, Z) Coordinates for Node ID</text>
+  <text x="30" y="560" font-family="Arial" font-size="11" fill="#444">Z = Temporal Plane (Time)</text>
+  <text x="30" y="580" font-family="Arial" font-size="11" fill="#444">X, Y = Spatial Position in Topic Space</text>
+</svg>
