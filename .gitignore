@@ -53,4 +53,8 @@ htmlcov/
 
 # Environment variables
 .env
-.env.* 
+.env.*
+
+# New additions from the code block
+benchmark_results/
+/test_data/ 
