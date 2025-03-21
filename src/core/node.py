@@ -34,8 +34,9 @@ class Node:
         metadata: Additional node metadata
     """
     
-    id: str = field(default_factory=lambda: str(uuid.uuid4()))
+    # Required parameters must come before parameters with default values
     coordinates: Coordinates
+    id: str = field(default_factory=lambda: str(uuid.uuid4()))
     data: Dict[str, Any] = field(default_factory=dict)
     created_at: datetime = field(default_factory=datetime.now)
     references: Set[str] = field(default_factory=set)
@@ -52,8 +53,8 @@ class Node:
     def with_data(self, new_data: Dict[str, Any]) -> Node:
         """Create a new node with updated data."""
         return Node(
-            id=self.id,
             coordinates=self.coordinates,
+            id=self.id,
             data={**self.data, **new_data},
             created_at=self.created_at,
             references=self.references.copy(),
@@ -63,8 +64,8 @@ class Node:
     def with_coordinates(self, new_coordinates: Coordinates) -> Node:
         """Create a new node with updated coordinates."""
         return Node(
-            id=self.id,
             coordinates=new_coordinates,
+            id=self.id,
             data=self.data.copy(),
             created_at=self.created_at,
             references=self.references.copy(),
@@ -74,8 +75,8 @@ class Node:
     def with_references(self, new_references: Set[str]) -> Node:
         """Create a new node with updated references."""
         return Node(
-            id=self.id,
             coordinates=self.coordinates,
+            id=self.id,
             data=self.data.copy(),
             created_at=self.created_at,
             references=new_references,
