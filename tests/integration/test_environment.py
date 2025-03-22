@@ -27,11 +27,17 @@ except ImportError:
     ROCKSDB_AVAILABLE = False
 
 # Import indexing components with error handling
+# Check for rtree availability first to avoid import errors
+RTREE_AVAILABLE = False
 try:
-    from src.indexing.rtree import RTree
+    import rtree
     RTREE_AVAILABLE = True
 except ImportError:
-    # Create a mock RTree that raises an error if used
+    print("WARNING: RTree library not available. Install with: pip install rtree")
+    
+# Define mock classes for missing components
+if not RTREE_AVAILABLE:
+    # Mock RTree if not available
     class RTree:
         def __init__(self, *args, **kwargs):
             print("WARNING: RTree not available. Spatial queries will not work.")
@@ -41,14 +47,31 @@ except ImportError:
             return []
         def range_query(self, *args, **kwargs):
             return []
-    RTREE_AVAILABLE = False
+else:
+    # If rtree is available, import it
+    try:
+        from src.indexing.rtree_impl import RTree
+    except ImportError:
+        print("WARNING: RTree implementation not available. Using mock version.")
+        # Define a mock version as fallback
+        class RTree:
+            def __init__(self, *args, **kwargs):
+                print("WARNING: RTree implementation not available. Spatial queries will not work.")
+            def insert(self, *args, **kwargs):
+                pass
+            def nearest_neighbors(self, *args, **kwargs):
+                return []
+            def range_query(self, *args, **kwargs):
+                return []
 
+# Handle other indexing components
 try:
     from src.indexing.temporal_index import TemporalIndex
-    from src.indexing.combined_index import SpatioTemporalIndex
-    INDEXING_AVAILABLE = True
+    TEMPORAL_INDEX_AVAILABLE = True
 except ImportError:
-    # Create mock classes if imports fail
+    print("WARNING: TemporalIndex not available. Temporal queries will not work.")
+    TEMPORAL_INDEX_AVAILABLE = False
+    # Mock TemporalIndex if not available
     class TemporalIndex:
         def __init__(self, *args, **kwargs):
             print("WARNING: TemporalIndex not available. Temporal queries will not work.")
@@ -56,7 +79,14 @@ except ImportError:
             pass
         def query(self, *args, **kwargs):
             return []
-    
+
+try:
+    from src.indexing.combined_index import SpatioTemporalIndex
+    COMBINED_INDEX_AVAILABLE = True
+except ImportError:
+    print("WARNING: SpatioTemporalIndex not available. Combined queries will not work.")
+    COMBINED_INDEX_AVAILABLE = False
+    # Mock SpatioTemporalIndex if not available
     class SpatioTemporalIndex:
         def __init__(self, *args, **kwargs):
             print("WARNING: SpatioTemporalIndex not available. Combined queries will not work.")
@@ -70,7 +100,9 @@ except ImportError:
             return []
         def query_nearest(self, *args, **kwargs):
             return []
-    INDEXING_AVAILABLE = False
+
+# Flag for combined indexing
+INDEXING_AVAILABLE = RTREE_AVAILABLE and TEMPORAL_INDEX_AVAILABLE and COMBINED_INDEX_AVAILABLE
 
 try:
     from src.delta.store import InMemoryDeltaStore, RocksDBDeltaStore
@@ -106,6 +138,7 @@ class TestEnvironment:
         self.delta_store = None
         self.spatial_index = None
         self.temporal_index = None
+        self.combined_index = None
         self.query_engine = None
         
     def setup(self) -> None:
@@ -138,7 +171,8 @@ class TestEnvironment:
         # Close connections
         if not self.use_in_memory and ROCKSDB_AVAILABLE:
             self.node_store.close()
-            self.delta_store.close()
+            if hasattr(self.delta_store, 'close'):
+                self.delta_store.close()
             
         # Clean up resources
         self.node_store = None

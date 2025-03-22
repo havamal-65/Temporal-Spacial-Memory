@@ -8,12 +8,49 @@ deserializing nodes for storage.
 from abc import ABC, abstractmethod
 import json
 import uuid
-from typing import Dict, Any, Union, Optional
+from typing import Dict, Any, Union, Optional, Set, List, Tuple
 from datetime import datetime
 import msgpack
 
 from ..core.node_v2 import Node
 from ..core.exceptions import SerializationError
+
+
+# Custom JSON encoder that handles sets, UUIDs, and other complex types
+class ComplexJSONEncoder(json.JSONEncoder):
+    """JSON encoder that can handle complex types like sets, UUIDs, and datetimes."""
+    
+    def default(self, obj):
+        if isinstance(obj, set):
+            return {"__set__": list(obj)}
+        elif isinstance(obj, tuple):
+            return {"__tuple__": list(obj)}
+        elif isinstance(obj, uuid.UUID):
+            return {"__uuid__": str(obj)}
+        elif isinstance(obj, datetime):
+            return {"__datetime__": obj.isoformat()}
+        return super().default(obj)
+
+
+# Function to decode custom types from JSON
+def json_decode_complex(obj):
+    """Helper function to decode custom types from JSON."""
+    if isinstance(obj, dict):
+        # Check for special keys that indicate a transformed type
+        if "__set__" in obj and len(obj) == 1:
+            return set(obj["__set__"])
+        elif "__tuple__" in obj and len(obj) == 1:
+            return tuple(obj["__tuple__"])
+        elif "__uuid__" in obj and len(obj) == 1:
+            return uuid.UUID(obj["__uuid__"])
+        elif "__datetime__" in obj and len(obj) == 1:
+            return datetime.fromisoformat(obj["__datetime__"])
+        
+        # Handle position field specifically for Node
+        if "position" in obj and isinstance(obj["position"], list) and len(obj["position"]) == 3:
+            obj["position"] = tuple(obj["position"])
+    
+    return obj
 
 
 class NodeSerializer(ABC):
@@ -68,14 +105,19 @@ class JSONSerializer(NodeSerializer):
         """Serialize a node to JSON bytes."""
         try:
             node_dict = node.to_dict()
-            return json.dumps(node_dict, ensure_ascii=False).encode('utf-8')
+            return json.dumps(node_dict, ensure_ascii=False, cls=ComplexJSONEncoder).encode('utf-8')
         except Exception as e:
             raise SerializationError(f"Failed to serialize node to JSON: {e}") from e
     
     def deserialize(self, data: bytes) -> Node:
         """Deserialize JSON bytes to a node."""
         try:
-            node_dict = json.loads(data.decode('utf-8'))
+            node_dict = json.loads(data.decode('utf-8'), object_hook=json_decode_complex)
+            
+            # Ensure position is a tuple
+            if "position" in node_dict and isinstance(node_dict["position"], list):
+                node_dict["position"] = tuple(node_dict["position"])
+                
             return Node.from_dict(node_dict)
         except Exception as e:
             raise SerializationError(f"Failed to deserialize node from JSON: {e}") from e
