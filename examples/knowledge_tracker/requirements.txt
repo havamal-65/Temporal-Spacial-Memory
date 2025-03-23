@@ -1,0 +1,17 @@
+# Core dependencies
+matplotlib>=3.5.0
+networkx>=2.7.0
+numpy>=1.20.0
+pytest>=7.0.0
+pytest-cov>=3.0.0
+
+# Database dependencies
+neo4j>=5.5.0
+
+# Utility dependencies
+python-dateutil>=2.8.2
+tqdm>=4.62.0
+uuid>=1.30
+
+# Visualization dependencies
+matplotlib-inline>=0.1.3 
