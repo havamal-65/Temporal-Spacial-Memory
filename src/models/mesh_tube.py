@@ -331,11 +331,19 @@ class MeshTube:
         
         # Find nearest candidates using R-tree
         nearest_candidates = []
-        for item in self.spatial_index.nearest(coordinates=query_point, num_results=search_limit):
-            node_id = self.spatial_index.get_object(item)
+        
+        # Instead of using get_object, we'll get the node IDs from our hash mapping
+        found_items = list(self.spatial_index.nearest(coordinates=query_point, num_results=search_limit))
+        
+        for item in found_items:
+            # Find the node ID that corresponds to this hash
+            node_id = None
+            for nid in self.nodes.keys():
+                if int(hash(nid) % (2**31)) == item:
+                    node_id = nid
+                    break
             
-            # Skip if it's the reference node itself
-            if node_id == reference_node.node_id:
+            if not node_id or node_id == reference_node.node_id:
                 continue
                 
             node = self.nodes.get(node_id)
