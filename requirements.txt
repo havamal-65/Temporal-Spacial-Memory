@@ -19,6 +19,18 @@ sphinx>=6.0.0
 # Performance Testing
 pytest-benchmark>=4.0.0
 memory-profiler>=0.60.0
+psutil>=5.9.0
+
+# Visualization - Required for Benchmarks
+matplotlib>=3.8.0
+plotly>=5.18.0
+networkx>=3.2.1
+
+# Concurrency
+concurrent-log-handler>=0.9.20
+
+# Statistics
+pandas>=2.0.0
 
 # Optional Visualization
 # matplotlib>=3.8.0
