@@ -12,12 +12,15 @@ import logging
 from enum import Enum
 from collections import defaultdict
 from dataclasses import dataclass
+from datetime import datetime, timedelta
+import uuid
 
 from src.query.query import Query, FilterCriteria, QueryType
 from src.storage.node_store import NodeStore
 from src.indexing.rtree import SpatialIndex
 from src.core.node import Node
 from src.core.exceptions import QueryExecutionError
+from .statistics import QueryStatistics, QueryCostModel, QueryMonitor
 
 # Configure logger
 logger = logging.getLogger(__name__)
@@ -232,7 +235,7 @@ class JoinStrategy(ExecutionStrategy):
 class QueryOptimizer:
     """Optimizer for query execution plans."""
     
-    def __init__(self, index_manager: Any, statistics_manager: Any = None):
+    def __init__(self, index_manager: Any, statistics_manager: Optional[QueryStatistics] = None):
         """
         Initialize a new query optimizer.
         
@@ -241,12 +244,25 @@ class QueryOptimizer:
             statistics_manager: Optional statistics manager
         """
         self.index_manager = index_manager
-        self.statistics_manager = statistics_manager
+        self.statistics = statistics_manager or QueryStatistics()
+        self.cost_model = QueryCostModel(self.statistics)
+        
+        # Cache config - these can be tuned
+        self.plan_cache_size = 100
+        self.plan_cache: Dict[str, Tuple[ExecutionPlan, datetime]] = {}
+        self.plan_cache_ttl = timedelta(minutes=10)
+        
+        # Register optimization rules with estimated execution order
         self.optimization_rules = [
-            self.select_indexes,
-            self.push_down_filters,
-            self.optimize_join_order
+            (self.select_indexes, 10),
+            (self.push_down_filters, 20),
+            (self.optimize_join_order, 30),
+            (self.estimate_costs, 40),
+            (self.apply_result_size_limits, 50)
         ]
+        
+        # Sort rules by execution order
+        self.optimization_rules.sort(key=lambda x: x[1])
     
     def optimize(self, query: Query) -> ExecutionPlan:
         """
@@ -258,14 +274,58 @@ class QueryOptimizer:
         Returns:
             The optimized execution plan
         """
+        # Check the plan cache first
+        cache_key = str(query)
+        cached_plan = self._check_plan_cache(cache_key)
+        if cached_plan:
+            return cached_plan
+        
         # Create initial plan
         plan = self._create_initial_plan(query)
         
-        # Apply optimization rules
-        for rule in self.optimization_rules:
-            plan = rule(plan)
+        # Apply optimization rules in order
+        for rule_func, _ in self.optimization_rules:
+            plan = rule_func(plan)
+        
+        # Cache the optimized plan
+        self._cache_plan(cache_key, plan)
+        
+        # Set optimization statistics on the plan
+        plan.statistics = {
+            "optimized": True,
+            "rules_applied": [rule[0].__name__ for rule in self.optimization_rules],
+            "estimated_cost": plan.estimated_cost
+        }
         
         return plan
+    
+    def _check_plan_cache(self, cache_key: str) -> Optional[ExecutionPlan]:
+        """Check if we have a cached execution plan for this query."""
+        if cache_key in self.plan_cache:
+            plan, timestamp = self.plan_cache[cache_key]
+            
+            # Check if plan is still valid
+            if datetime.now() - timestamp < self.plan_cache_ttl:
+                # Update timestamp to keep it fresh
+                self.plan_cache[cache_key] = (plan, datetime.now())
+                return plan
+            
+            # Plan is stale, remove it
+            del self.plan_cache[cache_key]
+        
+        return None
+    
+    def _cache_plan(self, cache_key: str, plan: ExecutionPlan) -> None:
+        """Cache an execution plan."""
+        # Ensure cache doesn't grow too large
+        if len(self.plan_cache) >= self.plan_cache_size:
+            # Remove oldest entry
+            oldest_key = min(self.plan_cache.keys(), 
+                            key=lambda k: self.plan_cache[k][1])
+            del self.plan_cache[oldest_key]
+        
+        # Add to cache
+        self.plan_cache[cache_key] = (plan, datetime.now())
     
     def _create_initial_plan(self, query: Query) -> ExecutionPlan:
         """
@@ -279,22 +339,37 @@ class QueryOptimizer:
         """
         plan = ExecutionPlan(query)
         
+        # Estimate the collection size
+        collection_size = self._estimate_collection_size()
+        
         # Add a simple full scan step for now
+        full_scan_cost = self.cost_model.estimate_full_scan_cost(collection_size)
         plan.add_step(ExecutionStep(
             operation="full_scan",
             parameters={"filter_func": lambda node: True},
-            estimated_cost=100.0  # High cost for full scan
+            estimated_cost=full_scan_cost
         ))
         
         # Add a filter step if the query has criteria
         if query.criteria:
+            filter_cost = self.cost_model.estimate_filter_cost(
+                collection_size, 
+                0.5,  # Default selectivity
+                collection_size
+            )
             plan.add_step(ExecutionStep(
                 operation="filter",
                 parameters={"criteria": query.criteria},
-                estimated_cost=10.0
+                estimated_cost=filter_cost
             ))
         
         return plan
+    
+    def _estimate_collection_size(self) -> int:
+        """Estimate the size of the data collection."""
+        # Use statistics if available
+        # For now, use a default size
+        return 10000
     
     def select_indexes(self, plan: ExecutionPlan) -> ExecutionPlan:
         """
@@ -307,65 +382,307 @@ class QueryOptimizer:
             The optimized execution plan
         """
         query = plan.query
+        collection_size = self._estimate_collection_size()
         
         # Create a new plan
         optimized_plan = ExecutionPlan(query)
         
         # Check if we can use the spatial index
         if query.has_spatial_criteria() and self.index_manager.has_index("spatial"):
+            # Estimate the number of nodes that will match the spatial criteria
+            spatial_criteria = query.get_spatial_criteria()
+            spatial_matches = self._estimate_spatial_matches(spatial_criteria, collection_size)
+            
+            # Calculate the cost of using the spatial index
+            index_cost = self.cost_model.estimate_index_scan_cost(
+                "spatial", 
+                spatial_matches, 
+                collection_size
+            )
+            
             optimized_plan.add_step(ExecutionStep(
                 operation="index_scan",
                 parameters={
                     "index_name": "spatial",
-                    "criteria": query.get_spatial_criteria()
+                    "criteria": spatial_criteria
                 },
-                estimated_cost=10.0  # Lower cost for index scan
+                estimated_cost=index_cost
             ))
+            
+            # Record index usage
+            if self.statistics:
+                self.statistics.record_index_usage("spatial", True)
+        
         # Check if we can use the temporal index
         elif query.has_temporal_criteria() and self.index_manager.has_index("temporal"):
+            # Estimate the number of nodes that will match the temporal criteria
+            temporal_criteria = query.get_temporal_criteria()
+            temporal_matches = self._estimate_temporal_matches(temporal_criteria, collection_size)
+            
+            # Calculate the cost of using the temporal index
+            index_cost = self.cost_model.estimate_index_scan_cost(
+                "temporal", 
+                temporal_matches, 
+                collection_size
+            )
+            
             optimized_plan.add_step(ExecutionStep(
                 operation="index_scan",
                 parameters={
                     "index_name": "temporal",
-                    "criteria": query.get_temporal_criteria()
+                    "criteria": temporal_criteria
                 },
-                estimated_cost=10.0
+                estimated_cost=index_cost
             ))
+            
+            # Record index usage
+            if self.statistics:
+                self.statistics.record_index_usage("temporal", True)
+                
         # Check if we can use a combined index
         elif (query.has_spatial_criteria() and query.has_temporal_criteria() and 
               self.index_manager.has_index("combined")):
+            # Estimate the number of nodes that will match the combined criteria
+            spatial_criteria = query.get_spatial_criteria()
+            temporal_criteria = query.get_temporal_criteria()
+            
+            # Estimate for combined criteria
+            combined_matches = self._estimate_combined_matches(
+                spatial_criteria, 
+                temporal_criteria, 
+                collection_size
+            )
+            
+            # Calculate the cost of using the combined index
+            index_cost = self.cost_model.estimate_index_scan_cost(
+                "combined", 
+                combined_matches, 
+                collection_size
+            )
+            
             optimized_plan.add_step(ExecutionStep(
                 operation="index_scan",
                 parameters={
                     "index_name": "combined",
                     "criteria": {
-                        "spatial": query.get_spatial_criteria(),
-                        "temporal": query.get_temporal_criteria()
+                        "spatial": spatial_criteria,
+                        "temporal": temporal_criteria
                     }
                 },
-                estimated_cost=5.0  # Even lower cost for combined index
+                estimated_cost=index_cost
             ))
+            
+            # Record index usage
+            if self.statistics:
+                self.statistics.record_index_usage("combined", True)
         else:
             # Fall back to the full scan approach
             return plan
         
         # If we have other criteria, add a filter step
         if query.has_other_criteria():
-            optimized_plan.add_step(ExecutionStep(
+            # Get remaining criteria
+            other_criteria = query.get_other_criteria()
+            
+            # Estimate number of results after index scan
+            # This will be the input to the filter step
+            result_size_after_index = optimized_plan.steps[0].estimated_output_size
+            if result_size_after_index is None:
+                # Use an estimate based on the index
+                if "index_name" in optimized_plan.steps[0].parameters:
+                    index_name = optimized_plan.steps[0].parameters["index_name"]
+                    
+                    if index_name == "spatial":
+                        result_size_after_index = self._estimate_spatial_matches(
+                            spatial_criteria, 
+                            collection_size
+                        )
+                    elif index_name == "temporal":
+                        result_size_after_index = self._estimate_temporal_matches(
+                            temporal_criteria, 
+                            collection_size
+                        )
+                    elif index_name == "combined":
+                        result_size_after_index = self._estimate_combined_matches(
+                            spatial_criteria, 
+                            temporal_criteria, 
+                            collection_size
+                        )
+                    else:
+                        result_size_after_index = collection_size // 2
+                else:
+                    result_size_after_index = collection_size // 2
+            
+            # Estimate the selectivity of other criteria
+            selectivity = self._estimate_filter_selectivity(other_criteria)
+            
+            # Calculate the cost of the filter
+            filter_cost = self.cost_model.estimate_filter_cost(
+                collection_size, 
+                selectivity, 
+                result_size_after_index
+            )
+            
+            # Calculate the estimated output size
+            estimated_output_size = int(result_size_after_index * selectivity)
+            
+            # Add the filter step
+            filter_step = ExecutionStep(
                 operation="filter",
-                parameters={"criteria": query.get_other_criteria()},
-                estimated_cost=5.0
-            ))
+                parameters={"criteria": other_criteria},
+                estimated_cost=filter_cost
+            )
+            filter_step.estimated_output_size = estimated_output_size
+            
+            optimized_plan.add_step(filter_step)
         
         # If the optimized plan has a lower cost, use it
         if optimized_plan.get_estimated_cost() < plan.get_estimated_cost():
             return optimized_plan
         
+        # If we get here, the original plan was better
+        if self.statistics:
+            # Record that we didn't use indexes
+            if query.has_spatial_criteria():
+                self.statistics.record_index_usage("spatial", False)
+            if query.has_temporal_criteria():
+                self.statistics.record_index_usage("temporal", False)
+            if query.has_spatial_criteria() and query.has_temporal_criteria():
+                self.statistics.record_index_usage("combined", False)
+        
         return plan
+    
+    def _estimate_spatial_matches(self, 
+                                 spatial_criteria: Dict[str, Any], 
+                                 collection_size: int) -> int:
+        """Estimate the number of nodes that will match spatial criteria."""
+        # For now, use a simple estimate based on the area
+        # In a real implementation, you'd use statistics and spatial calculations
+        
+        # Default selectivity if we can't calculate
+        default_selectivity = 0.1
+        
+        # Extract bounded area if available
+        if "bounds" in spatial_criteria:
+            bounds = spatial_criteria["bounds"]
+            
+            # Calculate area of bounds
+            try:
+                x_min, y_min, x_max, y_max = bounds
+                area = (x_max - x_min) * (y_max - y_min)
+                
+                # Assume data is in a space from 0 to 1
+                total_area = 1.0 
+                
+                # Calculate selectivity based on the relative area
+                selectivity = min(1.0, max(0.01, area / total_area))
+                
+                return int(collection_size * selectivity)
+            except (ValueError, TypeError):
+                pass
+        
+        # For nearest-neighbor queries, estimate based on limit
+        if "nearest" in spatial_criteria and "limit" in spatial_criteria:
+            limit = spatial_criteria["limit"]
+            return min(collection_size, limit)
+        
+        # Default estimate
+        return int(collection_size * default_selectivity)
+    
+    def _estimate_temporal_matches(self, 
+                                  temporal_criteria: Dict[str, Any], 
+                                  collection_size: int) -> int:
+        """Estimate the number of nodes that will match temporal criteria."""
+        # Default selectivity if we can't calculate
+        default_selectivity = 0.2
+        
+        # Extract time range if available
+        if "range" in temporal_criteria:
+            time_range = temporal_criteria["range"]
+            
+            # Calculate duration of range
+            try:
+                start_time, end_time = time_range
+                
+                # Convert to timestamps if needed
+                if isinstance(start_time, datetime):
+                    start_time = start_time.timestamp()
+                if isinstance(end_time, datetime):
+                    end_time = end_time.timestamp()
+                
+                # Calculate duration in seconds
+                duration = end_time - start_time
+                
+                # Assume data spans about 1 year
+                # This should be based on actual statistics
+                total_duration = 60 * 60 * 24 * 365  # seconds in a year
+                
+                # Calculate selectivity based on the relative duration
+                selectivity = min(1.0, max(0.01, duration / total_duration))
+                
+                return int(collection_size * selectivity)
+            except (ValueError, TypeError):
+                pass
+        
+        # Default estimate
+        return int(collection_size * default_selectivity)
+    
+    def _estimate_combined_matches(self, 
+                                 spatial_criteria: Dict[str, Any],
+                                 temporal_criteria: Dict[str, Any],
+                                 collection_size: int) -> int:
+        """Estimate the number of nodes that will match combined criteria."""
+        # Estimate matches for individual criteria
+        spatial_matches = self._estimate_spatial_matches(spatial_criteria, collection_size)
+        temporal_matches = self._estimate_temporal_matches(temporal_criteria, collection_size)
+        
+        # For combined index, we need to estimate the intersection
+        # A simple estimate is to assume independence and multiply the probabilities
+        spatial_selectivity = spatial_matches / collection_size
+        temporal_selectivity = temporal_matches / collection_size
+        
+        # Calculate combined selectivity
+        combined_selectivity = spatial_selectivity * temporal_selectivity
+        
+        # Apply a correction factor based on observed correlation
+        # This should ideally come from statistics
+        correlation_factor = 1.5  # > 1 means positively correlated, < 1 means negatively correlated
+        
+        adjusted_selectivity = min(1.0, combined_selectivity * correlation_factor)
+        
+        return int(collection_size * adjusted_selectivity)
+    
+    def _estimate_filter_selectivity(self, criteria: Dict[str, Any]) -> float:
+        """Estimate the selectivity of filter criteria."""
+        # Default selectivity
+        default_selectivity = 0.5
+        
+        # If no criteria, everything passes
+        if not criteria:
+            return 1.0
+            
+        # In a real implementation, you'd use statistics about field distributions
+        # and combine the selectivity of each criterion
+        
+        # For now, just use the number of criteria to estimate selectivity
+        # More criteria usually means more selective
+        num_criteria = len(criteria)
+        
+        # Assume each criterion is equally selective
+        per_criterion_selectivity = 0.7  # 70% of records pass each criterion
+        
+        # Combine selectivity assuming independence
+        combined_selectivity = per_criterion_selectivity ** num_criteria
+        
+        # Ensure we don't get too close to zero
+        return max(0.01, combined_selectivity)
     
     def push_down_filters(self, plan: ExecutionPlan) -> ExecutionPlan:
         """
         Apply filter pushdown optimization rule.
+        
+        This moves filters earlier in the execution plan to reduce
+        the number of records processed by later operations.
         
         Args:
             plan: The execution plan to optimize
@@ -373,20 +690,221 @@ class QueryOptimizer:
         Returns:
             The optimized execution plan
         """
-        # For simplicity, just return the original plan for now
+        # For now, we'll just handle the simple case of pushing a filter
+        # before a join or aggregation
+        
+        # Check if the plan has both a scan and a filter
+        scan_index = next((i for i, step in enumerate(plan.steps) 
+                           if step.operation in ["full_scan", "index_scan"]), -1)
+        filter_index = next((i for i, step in enumerate(plan.steps) 
+                            if step.operation == "filter"), -1)
+        
+        # If no scan or filter, or filter is already before other operations, return as is
+        if scan_index == -1 or filter_index == -1 or scan_index + 1 == filter_index:
+            return plan
+            
+        # Check if there are operations between scan and filter that we can push past
+        intervening_ops = [step.operation for step in plan.steps[scan_index+1:filter_index]]
+        
+        # Operations that filter can be pushed before
+        pushable_ops = ["sort", "limit"]
+        
+        # If all intervening operations are pushable, move the filter
+        if all(op in pushable_ops for op in intervening_ops):
+            # Create a new plan with the filter pushed down
+            optimized_plan = ExecutionPlan(plan.query)
+            
+            # Add the scan first
+            optimized_plan.add_step(plan.steps[scan_index])
+            
+            # Add the filter next
+            optimized_plan.add_step(plan.steps[filter_index])
+            
+            # Add the intervening steps
+            for i in range(scan_index + 1, filter_index):
+                optimized_plan.add_step(plan.steps[i])
+            
+            # Add any remaining steps
+            for i in range(filter_index + 1, len(plan.steps)):
+                optimized_plan.add_step(plan.steps[i])
+            
+            return optimized_plan
+        
+        # If we couldn't push the filter, return the original plan
         return plan
     
     def optimize_join_order(self, plan: ExecutionPlan) -> ExecutionPlan:
         """
         Apply join order optimization rule.
         
+        Determines the best order to join tables based on estimated sizes.
+        
         Args:
             plan: The execution plan to optimize
             
         Returns:
             The optimized execution plan
         """
-        # For simplicity, just return the original plan for now
+        # Get join steps
+        join_steps = [(i, step) for i, step in enumerate(plan.steps) 
+                      if step.operation == "join"]
+        
+        # If there are no joins or only one join, no reordering is needed
+        if len(join_steps) <= 1:
+            return plan
+        
+        # For more complex join ordering (beyond this example), you would:
+        # 1. Build a join graph
+        # 2. Estimate cardinalities for different join orders
+        # 3. Use a search algorithm (dynamic programming, greedy) to find the optimal order
+        
+        # For simplicity in this example, we'll just reorder based on estimated costs
+        # This would need to be much more sophisticated in a real system
+        
+        # Check if we have all the required information to reorder
+        for _, step in join_steps:
+            if "left_source" not in step.parameters or "right_source" not in step.parameters:
+                # Skip optimization if joins are not properly specified
+                return plan
+        
+        # For a real implementation, you would estimate sizes and costs for different orderings
+        # and choose the best one
+        
+        # We'll just return the original plan for now
+        return plan
+    
+    def estimate_costs(self, plan: ExecutionPlan) -> ExecutionPlan:
+        """
+        Estimate costs for all steps in the plan.
+        
+        This updates the estimated output size and memory requirements for each step.
+        
+        Args:
+            plan: The execution plan to update
+            
+        Returns:
+            The updated execution plan
+        """
+        # Make a copy of the plan
+        updated_plan = ExecutionPlan(plan.query)
+        for step in plan.steps:
+            updated_plan.add_step(step)
+        
+        # Current estimated size (output from previous step)
+        current_size = self._estimate_collection_size()
+        
+        # Update estimates for each step
+        for i, step in enumerate(updated_plan.steps):
+            # Update input size based on previous step's output
+            step.estimated_input_size = current_size
+            
+            # Calculate estimated output size based on operation type
+            if step.operation == "full_scan":
+                # Full scan returns all nodes
+                step.estimated_output_size = current_size
+                
+            elif step.operation == "index_scan":
+                # Index scan returns a subset
+                index_name = step.parameters.get("index_name")
+                criteria = step.parameters.get("criteria", {})
+                
+                if index_name == "spatial":
+                    step.estimated_output_size = self._estimate_spatial_matches(
+                        criteria, current_size
+                    )
+                elif index_name == "temporal":
+                    step.estimated_output_size = self._estimate_temporal_matches(
+                        criteria, current_size
+                    )
+                elif index_name == "combined":
+                    spatial_criteria = criteria.get("spatial", {})
+                    temporal_criteria = criteria.get("temporal", {})
+                    step.estimated_output_size = self._estimate_combined_matches(
+                        spatial_criteria, temporal_criteria, current_size
+                    )
+                else:
+                    # Default estimate
+                    step.estimated_output_size = current_size // 2
+                    
+            elif step.operation == "filter":
+                # Filter returns a subset
+                criteria = step.parameters.get("criteria", {})
+                selectivity = self._estimate_filter_selectivity(criteria)
+                step.estimated_output_size = int(current_size * selectivity)
+                
+            elif step.operation == "join":
+                # Join can increase or decrease size
+                # Estimate based on join selectivity
+                left_size = step.parameters.get("left_estimated_size", current_size)
+                right_size = step.parameters.get("right_estimated_size", current_size)
+                join_selectivity = 0.1  # Default
+                
+                step.estimated_output_size = int(
+                    (left_size * right_size) * join_selectivity
+                )
+                
+            elif step.operation == "sort":
+                # Sort doesn't change size
+                step.estimated_output_size = current_size
+                
+            elif step.operation == "limit":
+                # Limit caps the size
+                limit = step.parameters.get("limit", current_size)
+                step.estimated_output_size = min(current_size, limit)
+                
+            else:
+                # Default: assume no change
+                step.estimated_output_size = current_size
+            
+            # Update the memory requirement estimate
+            record_size_kb = 1  # Approximate size of each record in KB
+            step.estimated_memory = (
+                self.cost_model.estimate_memory_cost(step.estimated_output_size, record_size_kb)
+            )
+            
+            # Update current size for the next step
+            current_size = step.estimated_output_size
+        
+        return updated_plan
+    
+    def apply_result_size_limits(self, plan: ExecutionPlan) -> ExecutionPlan:
+        """
+        Apply limits to result sizes to manage memory usage.
+        
+        For queries that could produce very large results, this adds
+        limits or pagination to keep memory usage under control.
+        
+        Args:
+            plan: The execution plan to update
+            
+        Returns:
+            The updated execution plan
+        """
+        # Check if the final estimated result size is large
+        if len(plan.steps) > 0:
+            final_step = plan.steps[-1]
+            estimated_results = final_step.estimated_output_size or 0
+            
+            # If results could be very large, add a limit
+            memory_limit_mb = 500  # Example memory limit
+            record_size_kb = 1  # Approximate size of each record in KB
+            
+            max_results = (memory_limit_mb * 1024) // record_size_kb
+            
+            # If the estimated results exceed our limit and there's no limit already
+            has_limit = any(step.operation == "limit" for step in plan.steps)
+            
+            if estimated_results > max_results and not has_limit:
+                # Add a limit step
+                plan.add_step(ExecutionStep(
+                    operation="limit",
+                    parameters={"limit": max_results},
+                    estimated_cost=1.0  # Limit operations are cheap
+                ))
+                
+                # Update the estimated output size
+                plan.steps[-1].estimated_output_size = max_results
+        
         return plan
 
 class QueryResult:
@@ -608,15 +1126,24 @@ class QueryEngine:
         self.index_manager = index_manager
         self.config = config or {}
         
-        # Create optimizer
-        self.optimizer = QueryOptimizer(index_manager)
+        # Create statistics manager
+        stats_file = self.config.get("statistics_file")
+        self.statistics = QueryStatistics(stats_file=stats_file)
+        
+        # Create optimizer with statistics
+        self.optimizer = QueryOptimizer(index_manager, self.statistics)
+        
+        # Create query monitor
+        self.monitor = QueryMonitor(self.statistics)
         
         # Create execution strategies
         self.strategies = {
             "index_scan": IndexScanStrategy(),
             "full_scan": FullScanStrategy(),
             "filter": FilterStrategy(),
-            "join": JoinStrategy()
+            "join": JoinStrategy(),
+            "sort": SortStrategy(),
+            "limit": LimitStrategy()
         }
         
         # Statistics
@@ -652,14 +1179,32 @@ class QueryEngine:
         execution_mode = options.get("mode", ExecutionMode.SYNC)
         use_cache = options.get("use_cache", True)
         
+        # Generate a query ID
+        query_id = str(uuid.uuid4())
+        
+        # Extract query type
+        query_type = query.__class__.__name__
+        
+        # Extract query details for monitoring
+        query_details = {
+            "type": query_type,
+            "filters": getattr(query, "criteria", {}),
+            "options": options
+        }
+        
         # Check cache if enabled
         if use_cache:
             cache_key = str(query)
             cached_result = self._check_cache(cache_key)
             if cached_result:
+                self.stats["cache_hits"] += 1
                 return cached_result
+            self.stats["cache_misses"] += 1
         
         try:
+            # Start monitoring the query
+            self.monitor.start_query(query_id, query_type, query_details)
+            
             # Record start time
             start_time = time.time()
             
@@ -683,6 +1228,9 @@ class QueryEngine:
             # Update statistics
             self._update_statistics(query, result, duration)
             
+            # End monitoring
+            self.monitor.end_query(query_id, result.count())
+            
             # Cache result if caching is enabled
             if use_cache:
                 self._cache_result(cache_key, result)
@@ -690,6 +1238,12 @@ class QueryEngine:
             return result
             
         except Exception as e:
+            logger.error(f"Error executing query: {e}")
+            # End monitoring with error
+            try:
+                self.monitor.end_query(query_id, 0)
+            except:
+                pass
             raise QueryExecutionError(f"Error executing query: {e}") from e
     
     def _execute_sync(self, plan: ExecutionPlan) -> QueryResult:

@@ -9,7 +9,7 @@ alwaysApply: true
 
 
 -Always prefer simple solutions
--Always refer to related documentation when possible
+-Always search out using the internet for documentation for processes and refer to related documentation when possible
 -Avoid duplication of code whenever possible, which means checking for other areas of the codebase that might already have similar code and functionality
 -Write code that takes into account the different environments: dev, test, and prod
 -You are careful to only make changes that are requested or you are confident are well understood and related to the change being requested
@@ -22,6 +22,7 @@ alwaysApply: true
 -Never overwrite my .env file without first asking and confirming
 -You need to handle versioning properly
 -Follow Git best practices
+-Push to Git after every significant change
 -Readme files are only made when the user decides the application is complete, or they request one
 -New builds need to be clearly marked
 -You must ask permission to start a new implementation, if there are existing files it should be assumed you are continuing an existing implementation

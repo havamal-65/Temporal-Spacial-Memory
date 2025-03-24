@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temporal-Spatial Memory Visualizations</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f7f9fc;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+        .card h2 {
+            color: #3498db;
+            margin-top: 0;
+        }
+        .card p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 14px;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+    <h1>Temporal-Spatial Memory Visualizations</h1>
+    
+    <div class="container">
+        <div class="card">
+            <h2>Complete Memory Visualization</h2>
+            <p>View the entire memory database with all nodes and connections in 3D space. Nodes are color-coded by type (conversations, messages, keywords, queries).</p>
+            <a href="memory_visualization.html" class="btn">Open Visualization</a>
+        </div>
+        
+        <div class="card">
+            <h2>Conversation Timeline</h2>
+            <p>A timeline view showing all conversations arranged chronologically with height indicating number of messages.</p>
+            <a href="conversation_timeline.html" class="btn">Open Timeline</a>
+        </div>
+        
+        <div class="card">
+            <h2>Conversation 1: Using the Memory Database</h2>
+            <p>Focused view of the first conversation about using the Temporal-Spatial Memory Database, including all messages and connected concepts.</p>
+            <a href="conversation_1_visualization.html" class="btn">Open Conversation 1</a>
+        </div>
+        
+        <div class="card">
+            <h2>Conversation 2: Spatial vs Temporal Dimensions</h2>
+            <p>Focused view of the second conversation about spatial vs temporal dimensions and how they help with information organization.</p>
+            <a href="conversation_2_visualization.html" class="btn">Open Conversation 2</a>
+        </div>
+    </div>
+    
+    <footer>
+        <p>Temporal-Spatial Memory Database Visualization System</p>
+        <p>Instructions: Click on a visualization to open it. In each visualization, you can:
+        <br>• Rotate the view by clicking and dragging
+        <br>• Zoom with the scroll wheel
+        <br>• Hover over nodes to see details
+        <br>• Click on legend items to show/hide specific node types</p>
+    </footer>
+</body>
+</html> 

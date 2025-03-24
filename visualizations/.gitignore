@@ -1,0 +1,4 @@
+# Ignore all files in the visualizations directory
+*
+# But not the .gitignore file
+!.gitignore 
