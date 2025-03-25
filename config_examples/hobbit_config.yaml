@@ -1,0 +1,127 @@
+# Configuration file for The Hobbit narrative processing
+
+narrative:
+  title: "The Hobbit"
+  author: "J.R.R. Tolkien"
+  description: "A fantasy novel about Bilbo Baggins' adventure with a group of dwarves to reclaim their mountain home from the dragon Smaug."
+
+storage:
+  path: "data/hobbit"
+  format: "json"
+
+output:
+  path: "Output/hobbit"
+  format: "html"
+
+text_processing:
+  segmentation_level: "chapter"  # chapter, paragraph, or sentence
+  # Patterns to remove header/footer content
+  header_pattern: "The Hobbit, or There and Back Again\\s*J\\.R\\.R\\. Tolkien\\s*"
+  footer_pattern: "\\d+\\s*$"
+  
+  # Entity extraction patterns
+  entity_patterns:
+    characters:
+      - "Bilbo"
+      - "Thorin"
+      - "Gandalf"
+      - "Smaug"
+      - "Gollum"
+      - "Elrond"
+      - "Beorn"
+      - "Bard"
+      - "Balin"
+      - "Dwalin"
+      - "Kili"
+      - "Fili"
+      - "Dori"
+      - "Nori"
+      - "Ori"
+      - "Oin"
+      - "Gloin"
+      - "Bifur"
+      - "Bofur"
+      - "Bombur"
+      - "Baggins"
+    
+    locations:
+      - "Bag End"
+      - "Hobbiton"
+      - "The Shire"
+      - "Rivendell"
+      - "Misty Mountains"
+      - "Mirkwood"
+      - "Lake-town"
+      - "Esgaroth"
+      - "Lonely Mountain"
+      - "Erebor"
+      - "Dale"
+      - "Laketown"
+      - "Goblin Town"
+      - "Beorn's House"
+      - "Mirkwood Forest"
+    
+    events:
+      - "battle"
+      - "fight"
+      - "journey"
+      - "meeting"
+      - "feast"
+      - "escape"
+      - "attack"
+      - "capture"
+      - "conversation"
+    
+    themes:
+      - "adventure"
+      - "courage"
+      - "greed"
+      - "home"
+      - "friendship"
+      - "heroism"
+      - "transformation"
+
+visualization:
+  color_scheme:
+    character: "#3498db"  # Blue
+    location: "#2ecc71"   # Green
+    event: "#e74c3c"      # Red
+    theme: "#9b59b6"      # Purple
+  
+  timeline:
+    show_chapter_markers: true
+    highlight_major_events: true
+    character_filter: 5  # Show top 5 characters by default
+  
+  character_arcs:
+    track_locations: true
+    track_relationships: true
+    show_dialogue_samples: true
+
+# Queries to demonstrate with The Hobbit
+sample_queries:
+  - name: "Bilbo's Journey"
+    description: "Track Bilbo's appearance throughout the narrative"
+    type: "character_arc"
+    parameters:
+      character: "Bilbo"
+  
+  - name: "Location Timeline"
+    description: "Show the sequence of major locations in the narrative"
+    type: "location_sequence"
+    parameters:
+      min_scene_count: 2
+  
+  - name: "Character Co-occurrences"
+    description: "Find scenes where multiple main characters appear together"
+    type: "character_cooccurrence"
+    parameters:
+      characters: ["Bilbo", "Thorin", "Gandalf"]
+      window_size: 3  # segments
+  
+  - name: "Dragon Encounters"
+    description: "Find all mentions and interactions with Smaug the dragon"
+    type: "entity_mentions"
+    parameters:
+      entity: "Smaug"
+      context_size: 2  # paragraphs 

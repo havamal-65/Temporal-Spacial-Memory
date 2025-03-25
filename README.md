@@ -6,7 +6,7 @@ A high-performance database system optimized for storing and querying data with 
 
 - **Sprint 1**: ✅ Completed - Core Storage, Spatial Indexing, and Query Building
 - **Sprint 2**: ✅ Completed - Query Engine, Combined Temporal-Spatial Indexing, and Testing
-- **Sprint 3**: 🔄 Planned - API Design and Delta Optimization
+- **Sprint 3**: ✅ Completed - API Design, Delta Optimization, and Document Integration
 
 ## Key Features
 
@@ -15,6 +15,7 @@ A high-performance database system optimized for storing and querying data with 
 - **High-performance queries**: Optimized query execution with cost-based optimization
 - **Efficient storage**: RocksDB-based storage with compression and batching
 - **Flexible query API**: Build complex temporal and spatial queries with an intuitive API
+- **Document integration**: Process and analyze narrative texts from PDFs and other documents
 
 ## Project Components
 
@@ -30,6 +31,14 @@ A high-performance database system optimized for storing and querying data with 
 - **Query Builder**: Expressive API for constructing complex queries
 - **Query Engine**: Optimized execution with multiple strategies
 - **Query Optimization**: Cost-based optimization with index selection
+
+### Narrative Analysis
+
+- **PDF Integration**: Extract and process text from PDF documents
+- **Entity Extraction**: Identify characters, locations, events, and themes
+- **Temporal Mapping**: Place narrative elements on a timeline
+- **Spatial Representation**: Organize narrative elements in symbolic space
+- **Visualization**: Interactive 3D visualization of narrative structures
 
 ### Testing & Performance
 
@@ -79,6 +88,39 @@ for item in result:
     print(item)
 ```
 
+### Processing Narrative Texts
+
+The system can process narrative texts from PDFs and other document formats, storing narrative elements in the temporal-spatial database:
+
+```bash
+# Process a narrative from a PDF with default settings
+python process_narrative.py --pdf path/to/your/document.pdf
+
+# Process using a specific configuration
+python process_narrative.py --config config_examples/hobbit_config.yaml
+
+# List available configurations
+python process_narrative.py --list-configs
+
+# Process with a specific segmentation level
+python process_narrative.py --config config_examples/hobbit_config.yaml --segmentation chapter
+```
+
+## The Hobbit Example
+
+We've included a ready-to-use example that processes J.R.R. Tolkien's "The Hobbit" (PDF not included due to copyright):
+
+1. Place your legally obtained PDF of "The Hobbit" in the `Input/` directory
+2. Run: `python process_narrative.py --config config_examples/hobbit_config.yaml --pdf Input/the_hobbit.pdf`
+3. View the generated visualizations in the `Output/hobbit/visualizations/` directory
+
+This example demonstrates:
+- Processing literature with temporal-spatial storage
+- Extracting characters, locations, and events
+- Building a narrative timeline
+- Generating character arc visualizations
+- Executing narrative-specific queries
+
 ## Project Structure
 
 ```
@@ -90,12 +132,19 @@ src/
 │   ├── combined_index.py  # Combined temporal-spatial index
 │   └── test_combined_index.py  # Tests for combined index
 ├── models/            # Data models and schemas
+│   ├── narrative_atlas.py  # Narrative analysis framework
+│   └── narrative_nodes.py  # Specialized node types for narratives
+├── nlp/               # Natural language processing utilities
 ├── query/             # Query building and execution
 │   ├── query_builder.py  # Fluent API for building queries
 │   ├── query_engine.py   # Query execution and optimization
 │   └── test_query_engine.py  # Tests for query engine
 ├── storage/           # Storage backends
 │   └── rocksdb_store.py  # RocksDB integration
+├── utils/             # Utility functions and helpers
+│   └── config_loader.py  # Configuration loading utilities
+├── visualization/     # Visualization utilities
+│   └── narrative_visualizer.py  # Narrative visualization
 └── tests/             # Test suites
     └── benchmarks/    # Performance benchmarks
         ├── benchmark_framework.py  # Benchmark utilities
@@ -109,6 +158,7 @@ The database has been optimized for query performance with the following benchma
 - Spatial queries: ~35% faster than traditional approaches
 - Combined temporal-spatial queries: Efficient pruning reduces query time by up to 60%
 - Bulk loading: Optimized for fast data ingestion
+- Narrative processing: Efficient handling of large text corpora
 
 ## Contributing
 

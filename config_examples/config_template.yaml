@@ -1,0 +1,104 @@
+# Narrative Processing Configuration
+
+# Basic narrative metadata
+narrative:
+  title: "Narrative Title"  # Title of the work being processed
+  author: "Author Name"     # Author of the work
+  language: "en"            # Language code (ISO 639-1)
+  description: "Brief description of the narrative"
+  genre: "fiction"          # genre or category
+  
+# Input/output configuration
+paths:
+  input_file: "Input/{title}.pdf"  # Template for input file path
+  output_dir: "Output/{title}"     # Template for output directory
+  launcher_file: "{output_dir}/{title_slug}_launcher.html"  # Template for launcher file
+  summary_file: "{output_dir}/{title_slug}_summary.html"    # Template for summary file
+  visualization_file: "{output_dir}/{title_slug}_visualization.html"  # Template for visualization
+  timeline_file: "{output_dir}/{title_slug}_timeline.html"  # Template for timeline file
+
+# Text processing rules
+text_processing:
+  segmentation_level: "chapter"  # How to segment text: paragraph, sentence, or chapter
+  
+  # Text replacements to apply (regex patterns)
+  replacements:
+    - pattern: "pattern to replace"
+      replacement: "text to replace with"
+      case_sensitive: false
+  
+  # Additional preprocessing steps
+  preprocessing:
+    clean_headers: true      # Remove headers/footers
+    clean_page_numbers: true # Remove page numbers
+    normalize_whitespace: true # Normalize whitespace
+    
+# Character configuration
+characters:
+  # Character name normalization (for consistent references)
+  name_mapping:
+    - aliases: ["alias1", "alias2"] 
+      canonical: "Canonical Character Name"
+    
+  # List of main character names (for prioritization)
+  main_characters: 
+    - "Character Name 1"
+    - "Character Name 2"
+  
+  # Word filtering (words that should not be treated as characters)
+  common_words_filter:
+    - "the"
+    - "and"
+    - "but"
+    - "he"
+    - "she"
+    - "it"
+    - "they"
+    - "there"
+    # Add more common words that might be mistaken for names
+
+# Location configuration
+locations:
+  # List of important locations
+  known_locations:
+    - "Location 1"
+    - "Location 2"
+  
+  # Location name normalization
+  name_mapping:
+    - aliases: ["location alias 1", "location alias 2"]
+      canonical: "Canonical Location Name"
+
+# Visualization configuration
+visualization:
+  colors:
+    character: "#3498db"  # Blue for characters
+    event: "#e74c3c"      # Red for events
+    location: "#2ecc71"   # Green for locations
+    theme: "#9b59b6"      # Purple for themes
+  
+  node_sizing:
+    character_scale: 3.0   # Scaling factor for character node size
+    location_scale: 2.0    # Scaling factor for location node size
+    event_scale: 5.0       # Scaling factor for event node size
+    theme_scale: 2.0       # Scaling factor for theme node size
+
+# Optional pre-defined elements (for works with known structure)
+predefined_elements:
+  # Pre-defined narrative phases
+  narrative_phases:
+    - name: "Exposition"
+      start_position: 0.0
+      end_position: 0.2
+    - name: "Rising Action"
+      start_position: 0.2
+      end_position: 0.6
+    - name: "Climax"
+      start_position: 0.6
+      end_position: 0.7
+    - name: "Falling Action"
+      start_position: 0.7
+      end_position: 0.9
+    - name: "Resolution"
+      start_position: 0.9
+      end_position: 1.0 
