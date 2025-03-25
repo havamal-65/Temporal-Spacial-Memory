@@ -1,0 +1,57 @@
+# Universal Narrative Processor Configuration
+# One configuration to process any narrative text
+
+# NLP Engine settings
+nlp:
+  engine: "spacy"              # Options: spacy, huggingface, opennlp
+  model: "en_core_web_lg"      # Large model for better entity recognition
+  coreference_resolution: true # Link pronouns to their references
+  
+processing:
+  # Entity detection thresholds
+  minimum_character_mentions: 5    # Minimum mentions to consider as character
+  minimum_location_mentions: 3     # Minimum mentions to consider as location
+  event_detection_threshold: 0.65  # Confidence threshold for event detection
+  
+  # Processing options
+  extract_relationships: true      # Detect relationships between entities
+  identify_narrative_structure: true # Try to identify narrative structure
+  segment_level: "auto"            # Options: paragraph, sentence, chapter, auto
+  
+  # Optional overrides (empty by default)
+  forced_characters: []            # Force recognition of specific characters
+  ignored_entities: []             # Entities to explicitly ignore
+  
+  # Knowledge base
+  use_knowledge_base: true         # Use cross-narrative learning
+  knowledge_db_path: "data/narrative_knowledge.db"
+  update_knowledge_base: true      # Update knowledge base after processing
+
+# Text preprocessing
+text_preprocessing:
+  normalize_whitespace: true
+  clean_headers: true
+  clean_page_numbers: true
+  normalize_quotes: true           # Standardize different quote styles
+  
+# Visualization settings
+visualization:
+  colors:
+    character: "#3498db"           # Blue for characters
+    event: "#e74c3c"               # Red for events
+    location: "#2ecc71"            # Green for locations
+    theme: "#9b59b6"               # Purple for themes
+  
+  node_sizing:
+    character_scale: 3.0           # Scaling factor for character node size
+    location_scale: 2.0            # Scaling factor for location node size
+    event_scale: 5.0               # Scaling factor for event node size
+    theme_scale: 2.0               # Scaling factor for theme node size
+
+# Output paths (templated)
+paths:
+  output_dir: "Output/{title}"
+  launcher_file: "{output_dir}/{title_slug}_launcher.html"
+  summary_file: "{output_dir}/{title_slug}_summary.html"
+  visualization_file: "{output_dir}/{title_slug}_visualization.html"
+  timeline_file: "{output_dir}/{title_slug}_timeline.html" 
