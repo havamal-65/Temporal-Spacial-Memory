@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Arc: Journey</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        body { margin: 0; padding: 20px; font-family: Arial, sans-serif; background: #f9f9f9; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 { color: #2c3e50; margin-bottom: 5px; }
+        h2 { color: #7f8c8d; font-weight: normal; margin-top: 0; }
+        .arc-viz { width: 100%; height: 300px; margin: 30px 0; }
+        .events-container { margin-top: 40px; }
+        .event-card { 
+            background: white; 
+            border-radius: 4px; 
+            padding: 15px; 
+            margin: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .event-title { color: #e74c3c; margin-top: 0; }
+        .event-text { color: #333; line-height: 1.5; }
+        .timeline { 
+            position: relative; 
+            height: 4px; 
+            background: #ddd; 
+            margin: 40px 0;
+        }
+        .timeline-marker { 
+            position: absolute; 
+            width: 12px; 
+            height: 12px; 
+            background: #e74c3c; 
+            border-radius: 50%; 
+            top: -4px; 
+            transform: translateX(-50%);
+            cursor: pointer;
+        }
+        .stats { 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 20px; 
+            margin: 30px 0;
+            background: white;
+            padding: 15px;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .stat { 
+            flex: 1; 
+            min-width: 150px;
+            padding: 10px; 
+            background: #f7f7f7;
+            border-radius: 4px;
+        }
+        .stat-title { color: #7f8c8d; margin: 0; font-size: 14px; }
+        .stat-value { color: #2c3e50; margin: 5px 0 0; font-size: 20px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Journey</h1>
+        <h2>Character Arc Analysis</h2>
+        
+        <div class="stats">
+            <div class="stat">
+                <h3 class="stat-title">Mentions</h3>
+                <p class="stat-value">1</p>
+            </div>
+            <div class="stat">
+                <h3 class="stat-title">First Appearance</h3>
+                <p class="stat-value">Segment 0</p>
+            </div>
+            <div class="stat">
+                <h3 class="stat-title">Last Appearance</h3>
+                <p class="stat-value">Segment 0</p>
+            </div>
+            <div class="stat">
+                <h3 class="stat-title">Location Count</h3>
+                <p class="stat-value">0</p>
+            </div>
+        </div>
+        
+        <div class="arc-viz" id="arc-viz"></div>
+        
+        <div class="timeline" id="timeline">
+            <!-- Timeline markers will be added dynamically -->
+        </div>
+        
+        <div class="events-container" id="events-container">
+            <h2>Character Events</h2>
+            <!-- Event cards will be added dynamically -->
+        </div>
+    </div>
+
+    <script>
+        // Character arc data
+        const character = {"name": "Journey", "attributes": []};
+        const events = [{"id": "6f784d01-8c05-4ce5-844e-78465f30ee15", "description": "The Journey of Heroes Chapter 1: The Call In the s...", "time": 0.0, "segment_text": "The Journey of Heroes Chapter 1: The Call In the small village of Riverdale, nestled between the great mountains and the endless sea, lived a young farmer named Thomas. He spent his days tending to his crops and caring for his aging mother, content with the simplicity of rural life. Thomas had never ventured beyond the boundaries of his village, though he often dreamed of the world that lay beyond the horizon. One evening, as Thomas returned from the fields, he noticed a stranger in the village square. The man was tall and draped in a weathered gray cloak. His face, partially hidden beneath a hood, bore the marks of many journeys. The villagers gathered around him, captivated by his tales of distant lands and ancient mysteries. \"Beyond the Western Woods,\" the stranger said, his voice deep and resonant, \"lies the Temple of the Four Winds, where the ancient Artifact of Truth is kept. It is said that those who possess it can see the true nature of all things.\" Thomas listened intently, a strange feeling stirring within him. The stranger, who introduced himself as Elden, spoke of a growing darkness that threatened to engulf the known world. Only the Artifact could reveal the source of this darkness and how to combat it. \"I seek brave companions for this journey,\" Elden announced, his eyes scanning the crowd. His gaze lingered on Thomas, who felt an inexplicable connection to the stranger's words. That night, Thomas could not sleep. The stranger's tales and the promise of adventure beyond Riverdale kept him awake until dawn. As the first light of morning broke through his window, Thomas made his decision. He would answer the call to adventure. Chapter 2: Companions Thomas found Elden at the village inn, preparing for departure. \"I want to join you,\" Thomas declared, his voice more confident than he felt. Elden studied him carefully. \"The journey will be perilous, young farmer. What skills do you bring?\" Before Thomas could respond, a voice called from the doorway. \"He brings heart, and sometimes that's more valuable than skill.\" They turned to see Sofia, the village healer, standing with her herb pouch and a determined expression. \"I'm coming too,\" she said firmly. \"My knowledge of herbs and healing will be useful.\" Sofia had always been kind to Thomas, tending to his mother during her illnesses. Her green eyes held a wisdom beyond her years, and her skill with medicines was renowned in Riverdale and beyond. \"And what of combat?\" Elden asked. \"The dangers we face may not be cured with herbs alone.\" \"That's where I come in,\" came another voice. Rowan, the village blacksmith's son and Thomas's childhood friend, stepped forward, a newly forged sword at his hip. \"I've been training with the village guard for years. I can handle myself in a fight.\" Rowan was strong and skilled, having learned the art of metalwork from his father while practicing swordplay whenever he could. His broad shoulders and calloused hands spoke of his physical prowess. Elden looked at the three villagers and nodded slowly. \"Very well. We leave at noon. Pack only what you can carry. The journey to the Western Woods is long, and beyond them, the terrain grows treacherous.\" As Thomas returned home to prepare, he found his mother waiting for him. \"I heard about your decision,\" she said softly. \"I always knew this day would come.\" She pressed a small pendant into his hand. \"This belonged to your father. He was an adventurer too, before he settled here. May it keep you safe.\" Thomas embraced his mother, promising to return with stories that would make her proud. As the sun reached its zenith, the four travelers set out from Riverdale, their path leading toward the distant Western Woods and the mysteries that lay beyond. Chapter 3: The Western Woods The Western Woods loomed before the travelers, a dense wall of ancient trees that seemed to touch the sky. Three days of travel had brought them to its edge, where the well-worn path from Riverdale faded into the underbrush. \"The woods have a mind of their own,\" Elden warned as they prepared to enter. \"Stay close and touch nothing that seems out of place.\" Thomas felt a shiver as they stepped beneath the canopy. Sunlight filtered through in thin beams, creating patches of light in the otherwise dim forest. The air was thick with the scent of moss and decay, the sounds of birds and small creatures creating a constant background chorus. Sofia moved with surprising confidence, stopping occasionally to gather herbs that grew in the dappled light. \"These woods are a healer's treasure,\" she explained, carefully placing a strange blue flower in her pouch. \"Plants grow here that can't be found anywhere else.\" Rowan remained vigilant, his hand never far from his sword. \"I don't like this place,\" he muttered. \"It feels like we're being watched.\" As they ventured deeper, the path grew increasingly difficult to discern. Elden seemed to navigate by signs invisible to the others, turning at certain trees and avoiding patches of ground that looked no different than any other. On the second day in the woods, as they made camp in a small clearing, Thomas heard whispering voices carried on the evening breeze. \"Did you hear that?\" he asked, but the others shook their heads. That night, Thomas dreamed of the trees moving, their roots pulling free from the earth as they walked on twisted limbs. He awoke with a start to find a small creature sitting on a log near the dying embers of their fire. It resembled a fox but had large, luminous eyes and small antlers protruding from its head. \"Hello, traveler,\" the creature said, its voice melodic and strange. \"You seek the Temple of the Four Winds.\" Thomas glanced at his sleeping companions, wondering if he was still dreaming. \"Yes,\" he answered cautiously. \"Can you help us find it?\" The creature tilted its head. \"The temple finds those who are worthy. But first, you must pass the Trials of the Forest.\" It pointed to a path that hadn't been there when they made camp. \"Follow this at dawn. Bring only one companion. The others must wait here.\" Before Thomas could ask more questions, the creature vanished, seeming to dissolve into the moonlight. He sat awake until morning, pondering its words and wondering which of his companions he should choose for the trials ahead."}];
+        
+        // Create timeline markers
+        const timeline = document.getElementById('timeline');
+        const timelineWidth = timeline.offsetWidth;
+        const maxTime = events.length > 0 ? Math.max(...events.map(e => e.time)) : 0;
+        
+        events.forEach((event, i) => {
+            const marker = document.createElement('div');
+            marker.className = 'timeline-marker';
+            marker.setAttribute('data-index', i);
+            marker.style.left = `${(event.time / maxTime) * 100}%`;
+            marker.title = event.description;
+            
+            marker.addEventListener('click', () => {
+                document.getElementById(`event-${i}`).scrollIntoView({ behavior: 'smooth' });
+            });
+            
+            timeline.appendChild(marker);
+        });
+        
+        // Create event cards
+        const eventsContainer = document.getElementById('events-container');
+        
+        events.forEach((event, i) => {
+            const card = document.createElement('div');
+            card.className = 'event-card';
+            card.id = `event-${i}`;
+            
+            card.innerHTML = `
+                <h3 class="event-title">${event.description}</h3>
+                <p class="event-text">${event.segment_text}</p>
+            `;
+            
+            eventsContainer.appendChild(card);
+        });
+        
+        // Create arc visualization with D3
+        const arcViz = d3.select('#arc-viz');
+        const width = arcViz.node().offsetWidth;
+        const height = 300;
+        
+        const svg = arcViz.append('svg')
+            .attr('width', width)
+            .attr('height', height)
+            .append('g')
+            .attr('transform', `translate(0, ${height/2})`);
+            
+        // X scale for time
+        const x = d3.scaleLinear()
+            .domain([0, maxTime])
+            .range([0, width]);
+            
+        // Y scale for importance
+        const y = d3.scaleLinear()
+            .domain([0, 1])
+            .range([50, -50]);
+            
+        // Create line for character arc
+        const line = d3.line()
+            .x(d => x(d.time))
+            .y(d => y(d.importance || 0.5))
+            .curve(d3.curveCatmullRom);
+            
+        // Add axis
+        svg.append('line')
+            .attr('x1', 0)
+            .attr('x2', width)
+            .attr('y1', 0)
+            .attr('y2', 0)
+            .attr('stroke', '#ddd')
+            .attr('stroke-width', 1);
+            
+        // Prepare data points with interpolation
+        const points = events.map(event => ({
+            time: event.time,
+            importance: 0.5
+        }));
+        
+        // Draw line
+        svg.append('path')
+            .datum(points)
+            .attr('fill', 'none')
+            .attr('stroke', '#3498db')
+            .attr('stroke-width', 3)
+            .attr('d', line);
+            
+        // Add points
+        svg.selectAll('circle')
+            .data(points)
+            .enter()
+            .append('circle')
+            .attr('cx', d => x(d.time))
+            .attr('cy', d => y(d.importance))
+            .attr('r', 5)
+            .attr('fill', '#3498db');
+    </script>
+</body>
+</html>
+    

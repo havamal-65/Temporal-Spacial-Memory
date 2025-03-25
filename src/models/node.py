@@ -1,87 +1,57 @@
-from typing import Dict, List, Any, Optional, Set
-from datetime import datetime
+#!/usr/bin/env python3
+"""
+Node class for the Temporal-Spatial Memory Database.
+"""
+
 import uuid
-import math
+from typing import Dict, Any, Set, List, Optional
 
 class Node:
     """
-    Represents a node in the Mesh Tube Knowledge Database.
-    
-    Each node has a unique 3D position in the mesh tube:
-    - time: position along the longitudinal axis (temporal dimension)
-    - distance: radial distance from the center (relevance to core topic)
-    - angle: angular position (conceptual relationship)
+    A node in the cylindrical mesh database.
+    Each node has:
+    - A unique ID
+    - Content (any JSON-serializable data)
+    - Temporal-spatial coordinates (time, distance, angle)
+    - Connections to other nodes
     """
     
-    def __init__(self, 
-                 content: Dict[str, Any],
-                 time: float,
-                 distance: float,
-                 angle: float,
-                 node_id: Optional[str] = None,
-                 parent_id: Optional[str] = None):
+    def __init__(self,
+                node_id: Optional[str] = None,
+                content: Dict[str, Any] = None,
+                time: float = 0.0,
+                distance: float = 0.0,
+                angle: float = 0.0,
+                parent_id: Optional[str] = None,
+                created_at: Optional[str] = None):
         """
-        Initialize a new Node in the Mesh Tube.
+        Initialize a new node.
         
         Args:
-            content: The actual data stored in this node
-            time: Temporal coordinate (longitudinal position)
-            distance: Radial distance from tube center (relevance measure)
-            angle: Angular position around the tube (topic relationship)
-            node_id: Unique identifier for this node (generated if not provided)
-            parent_id: ID of parent node (for delta references)
+            node_id: Unique identifier (generated if not provided)
+            content: Node content (dictionary)
+            time: Vertical position (0 = present)
+            distance: Radial distance from center
+            angle: Angular position (0-360 degrees)
+            parent_id: Optional ID of parent node
+            created_at: Creation timestamp (ISO format)
         """
-        self.node_id = node_id if node_id else str(uuid.uuid4())
-        self.content = content
+        self.node_id = node_id or str(uuid.uuid4())
+        self.content = content or {}
         self.time = time
-        self.distance = distance  # 0 = center (core topics), higher = less relevant
-        self.angle = angle  # 0-360 degrees, represents conceptual relationships
+        self.distance = distance
+        self.angle = angle
         self.parent_id = parent_id
-        self.created_at = datetime.now()
-        self.connections: Set[str] = set()  # IDs of connected nodes
-        self.delta_references: List[str] = []  # Temporal predecessors
+        self.created_at = created_at
         
-        if parent_id:
-            self.delta_references.append(parent_id)
-    
-    def add_connection(self, node_id: str) -> None:
-        """Add a connection to another node"""
-        self.connections.add(node_id)
-    
-    def remove_connection(self, node_id: str) -> None:
-        """Remove a connection to another node"""
-        if node_id in self.connections:
-            self.connections.remove(node_id)
-    
-    def add_delta_reference(self, node_id: str) -> None:
-        """Add a temporal predecessor reference"""
-        if node_id not in self.delta_references:
-            self.delta_references.append(node_id)
-            
-    def spatial_distance(self, other_node: 'Node') -> float:
-        """
-        Calculate the spatial distance between this node and another node in the mesh.
-        Uses cylindrical coordinate system distance formula.
-        """
-        # Calculate distance in cylindrical coordinates
-        r1, theta1, z1 = self.distance, self.angle, self.time
-        r2, theta2, z2 = other_node.distance, other_node.angle, other_node.time
+        # Set of connected node IDs
+        self.connections: Set[str] = set()
         
-        # Convert angles from degrees to radians
-        theta1_rad = math.radians(theta1)
-        theta2_rad = math.radians(theta2)
-        
-        # Cylindrical coordinate distance formula
-        distance = math.sqrt(
-            r1**2 + r2**2 - 
-            2 * r1 * r2 * math.cos(theta1_rad - theta2_rad) + 
-            (z1 - z2)**2
-        )
-        
-        return distance
+        # List of nodes this node references for delta updates
+        self.delta_references: List[str] = []
     
     def to_dict(self) -> Dict[str, Any]:
-        """Convert node to dictionary for storage"""
+        """Convert node to dictionary for serialization"""
         return {
             "node_id": self.node_id,
             "content": self.content,
@@ -89,23 +59,45 @@ class Node:
             "distance": self.distance,
             "angle": self.angle,
             "parent_id": self.parent_id,
-            "created_at": self.created_at.isoformat(),
+            "created_at": self.created_at,
             "connections": list(self.connections),
             "delta_references": self.delta_references
         }
     
     @classmethod
     def from_dict(cls, data: Dict[str, Any]) -> 'Node':
-        """Create a node from dictionary data"""
-        node = cls(
-            content=data["content"],
-            time=data["time"],
-            distance=data["distance"],
-            angle=data["angle"],
-            node_id=data["node_id"],
-            parent_id=data.get("parent_id")
-        )
-        node.created_at = datetime.fromisoformat(data["created_at"])
-        node.connections = set(data["connections"])
-        node.delta_references = data["delta_references"]
-        return node 
+        """Create a node from a dictionary"""
+        try:
+            # Check if the required keys are present
+            required_keys = ["node_id", "content", "time", "distance", "angle"]
+            for key in required_keys:
+                if key not in data:
+                    return None
+            
+            # Create the node
+            node = cls(
+                node_id=data["node_id"],
+                content=data["content"],
+                time=data["time"],
+                distance=data["distance"],
+                angle=data["angle"],
+                parent_id=data.get("parent_id"),
+                created_at=data.get("created_at")
+            )
+            
+            # Restore connections
+            if "connections" in data and isinstance(data["connections"], list):
+                node.connections = set(data["connections"])
+                
+            if "delta_references" in data and isinstance(data["delta_references"], list):
+                node.delta_references = data["delta_references"]
+            
+            # Validate the node
+            if not node.content:
+                return None
+                
+            return node
+            
+        except Exception as e:
+            print(f"Error creating node from dictionary: {str(e)}")
+            return None 

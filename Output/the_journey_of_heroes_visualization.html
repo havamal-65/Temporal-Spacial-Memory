@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Narrative Atlas: the_journey_of_heroes</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://unpkg.com/three@0.132.2/build/three.min.js"></script>
+    <script src="https://unpkg.com/three-spritetext@1.6.5/dist/three-spritetext.min.js"></script>
+    <script src="https://unpkg.com/three-forcegraph"></script>
+    <style>
+        body { margin: 0; padding: 0; font-family: Arial, sans-serif; }
+        #container { width: 100%; height: 100vh; }
+        #info-panel { 
+            position: absolute; 
+            top: 10px; 
+            left: 10px; 
+            background: rgba(255,255,255,0.8); 
+            padding: 15px; 
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            max-width: 300px;
+        }
+        h1, h2 { margin-top: 0; color: #333; }
+        .stat { margin: 5px 0; }
+        .legend { display: flex; flex-wrap: wrap; margin-top: 10px; }
+        .legend-item { 
+            display: flex; 
+            align-items: center; 
+            margin-right: 15px;
+            margin-bottom: 5px;
+            cursor: pointer;
+        }
+        .legend-color { 
+            width: 15px; 
+            height: 15px; 
+            margin-right: 5px; 
+            border-radius: 50%; 
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+    <div id="info-panel">
+        <h1>Narrative Atlas</h1>
+        <h2>the_journey_of_heroes</h2>
+        <div class="stats">
+            <div class="stat">Characters: 55</div>
+            <div class="stat">Events: 1</div>
+            <div class="stat">Locations: 1</div>
+            <div class="stat">Themes: 0</div>
+        </div>
+        <div class="legend">
+            <div class="legend-item" data-type="character">
+                <div class="legend-color" style="background-color: #3498db;"></div>
+                <div>Characters</div>
+            </div>
+            <div class="legend-item" data-type="event">
+                <div class="legend-color" style="background-color: #e74c3c;"></div>
+                <div>Events</div>
+            </div>
+            <div class="legend-item" data-type="location">
+                <div class="legend-color" style="background-color: #2ecc71;"></div>
+                <div>Locations</div>
+            </div>
+            <div class="legend-item" data-type="theme">
+                <div class="legend-color" style="background-color: #9b59b6;"></div>
+                <div>Themes</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Visualization data
+        const data = {"nodes": [{"id": "fbeee9eb-0b38-4302-84a2-a0895cec1db8", "type": "character", "name": "The", "time": 0.0, "distance": 0.5, "angle": 0.0, "size": 8.49964003216865, "color": "#3498db"}, {"id": "3432e51d-4845-43d9-832b-07e322da1177", "type": "character", "name": "Journey", "time": 0.0, "distance": 0.5, "angle": 180.0, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "d2e29b7f-bcaa-4c81-853a-f178ad904b74", "type": "character", "name": "Heroes", "time": 0.0, "distance": 0.5, "angle": 240.0, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "593a9522-c61d-4258-ae21-4a40897c1104", "type": "character", "name": "Chapter", "time": 0.0, "distance": 0.5, "angle": 270.0, "size": 4.1588830833596715, "color": "#3498db"}, {"id": "c283e5eb-31d6-4c2d-ac52-64369bae3270", "type": "character", "name": "Call", "time": 0.0, "distance": 0.5, "angle": 288.0, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "30cb2f5e-8e2e-4f3f-a2ad-ee6f7795b725", "type": "character", "name": "In", "time": 0.0, "distance": 0.5, "angle": 300.0, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "6f8af205-5bb7-4d77-94cb-ce964e266de6", "type": "character", "name": "Riverdale", "time": 0.0, "distance": 0.5, "angle": 308.57142857142856, "size": 5.375278407684165, "color": "#3498db"}, {"id": "8928a93c-2058-4faa-aa1f-7a8c1fc1e4ba", "type": "character", "name": "Thomas", "time": 0.0, "distance": 0.5, "angle": 315.0, "size": 8.987196820661973, "color": "#3498db"}, {"id": "57a57ee5-291f-47ce-90d4-cd02d4e573e1", "type": "character", "name": "He", "time": 0.0, "distance": 0.5, "angle": 320.0, "size": 5.8377304471659395, "color": "#3498db"}, {"id": "f0594dcd-a35d-4a5a-be8e-3033180b4a13", "type": "character", "name": "One", "time": 0.0, "distance": 0.5, "angle": 324.0, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "c60ee183-7699-4684-9af6-d1a40dbce945", "type": "character", "name": "His", "time": 0.0, "distance": 0.5, "angle": 327.27272727272725, "size": 4.1588830833596715, "color": "#3498db"}, {"id": "b3784154-ef88-4b90-96d3-a754a35203fa", "type": "character", "name": "Beyond", "time": 0.0, "distance": 0.5, "angle": 330.0, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "a44ea387-6138-4e3d-9025-f409cbab530d", "type": "character", "name": "Western", "time": 0.0, "distance": 0.5, "angle": 332.3076923076923, "size": 5.375278407684165, "color": "#3498db"}, {"id": "4b03a59b-5aec-4d6f-9e63-2ee306d99d3c", "type": "character", "name": "Woods", "time": 0.0, "distance": 0.5, "angle": 334.2857142857143, "size": 5.375278407684165, "color": "#3498db"}, {"id": "0e9ee2ed-0dbe-42a6-b93d-39e7653d75d0", "type": "character", "name": "Temple", "time": 0.0, "distance": 0.5, "angle": 336.0, "size": 3.295836866004329, "color": "#3498db"}, {"id": "d9e09606-751c-489d-a2d1-c31423a3b1a9", "type": "character", "name": "Four", "time": 0.0, "distance": 0.5, "angle": 337.5, "size": 3.295836866004329, "color": "#3498db"}, {"id": "cf505751-8713-4937-acf5-79e9311c98a8", "type": "character", "name": "Winds", "time": 0.0, "distance": 0.5, "angle": 338.8235294117647, "size": 3.295836866004329, "color": "#3498db"}, {"id": "a63e6807-0118-4326-9ff7-04c6ab0dda53", "type": "character", "name": "Artifact", "time": 0.0, "distance": 0.5, "angle": 340.0, "size": 3.295836866004329, "color": "#3498db"}, {"id": "566a81d3-ab0d-4d88-acf4-ceb65fea0062", "type": "character", "name": "Truth", "time": 0.0, "distance": 0.5, "angle": 341.05263157894734, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "9ce3316f-69ba-4346-a737-a804e3c66276", "type": "character", "name": "It", "time": 0.0, "distance": 0.5, "angle": 342.0, "size": 4.828313737302301, "color": "#3498db"}, {"id": "ccd94e0b-db16-4688-a5b9-df9c6dfc26df", "type": "character", "name": "Elden", "time": 0.0, "distance": 0.5, "angle": 342.85714285714283, "size": 6.591673732008658, "color": "#3498db"}, {"id": "457f2ea0-aedf-4c1a-80b6-f1d6b2af998e", "type": "character", "name": "Only", "time": 0.0, "distance": 0.5, "angle": 343.6363636363636, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "247c3f2a-0f20-4fca-83f2-8d7193ab7e30", "type": "character", "name": "That", "time": 0.0, "distance": 0.5, "angle": 344.3478260869565, "size": 4.1588830833596715, "color": "#3498db"}, {"id": "fb1e5c59-f18c-435e-b2f8-46aa93ad1fc9", "type": "character", "name": "As", "time": 0.0, "distance": 0.5, "angle": 345.0, "size": 4.828313737302301, "color": "#3498db"}, {"id": "a56415ff-c21f-4f7a-8c3e-2b28610fb0e8", "type": "character", "name": "Companions", "time": 0.0, "distance": 0.5, "angle": 345.6, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "508ce322-537b-416f-a779-fccfabfc5193", "type": "character", "name": "What", "time": 0.0, "distance": 0.5, "angle": 346.1538461538462, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "a4cbb2e0-a602-4e6b-acdc-2709e37c5488", "type": "character", "name": "Before", "time": 0.0, "distance": 0.5, "angle": 346.6666666666667, "size": 3.295836866004329, "color": "#3498db"}, {"id": "8224bcb1-a7ec-48e1-80b9-9c2afb499615", "type": "character", "name": "They", "time": 0.0, "distance": 0.5, "angle": 347.14285714285717, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "3c153772-8d96-48b0-85fe-9cd05f3bf5e1", "type": "character", "name": "Sofia", "time": 0.0, "distance": 0.5, "angle": 347.58620689655174, "size": 4.1588830833596715, "color": "#3498db"}, {"id": "a5429071-3ed0-4859-b4ab-2c5690b5b89c", "type": "character", "name": "My", "time": 0.0, "distance": 0.5, "angle": 348.0, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "bc1550b5-238d-49c9-9cf0-278315ff37b5", "type": "character", "name": "Her", "time": 0.0, "distance": 0.5, "angle": 348.38709677419354, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "da9739e5-da3d-4b52-8b0d-c617c60aa855", "type": "character", "name": "And", "time": 0.0, "distance": 0.5, "angle": 348.75, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "4e43ee1c-098a-461a-9ee1-2a44a39e7e3b", "type": "character", "name": "Rowan", "time": 0.0, "distance": 0.5, "angle": 349.09090909090907, "size": 4.1588830833596715, "color": "#3498db"}, {"id": "72f5a96a-4b18-4b5a-b1fd-b64be730c4ce", "type": "character", "name": "Very", "time": 0.0, "distance": 0.5, "angle": 349.4117647058823, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "e087e997-bc09-458a-baf8-a44bf3e1f465", "type": "character", "name": "We", "time": 0.0, "distance": 0.5, "angle": 349.7142857142857, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "7661bcf3-2595-4a57-b4c9-f2ad05c40e29", "type": "character", "name": "Pack", "time": 0.0, "distance": 0.5, "angle": 350.0, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "525fd054-6c64-4ad2-9d54-1cdc993b4b99", "type": "character", "name": "She", "time": 0.0, "distance": 0.5, "angle": 350.27027027027026, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "e1b050a6-b3c7-406d-ab7a-e49337bbeaf9", "type": "character", "name": "This", "time": 0.0, "distance": 0.5, "angle": 350.52631578947364, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "527fccdc-846b-4003-b0ff-bdddd408139d", "type": "character", "name": "May", "time": 0.0, "distance": 0.5, "angle": 350.7692307692307, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "5b31d0a9-1021-48e0-9735-f0f0bb6a1c43", "type": "character", "name": "Three", "time": 0.0, "distance": 0.5, "angle": 351.0, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "dabba193-9048-49e9-bbb9-4a7de867601d", "type": "character", "name": "Stay", "time": 0.0, "distance": 0.5, "angle": 351.219512195122, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "6494958e-9ed3-460d-a316-ade32d06d7b1", "type": "character", "name": "Sunlight", "time": 0.0, "distance": 0.5, "angle": 351.42857142857144, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "452c7971-7fb5-4df9-afe1-de3c0b8b95ed", "type": "character", "name": "These", "time": 0.0, "distance": 0.5, "angle": 351.6279069767442, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "03fe44e7-9c5b-49ee-ab3f-f748aaa122e5", "type": "character", "name": "Plants", "time": 0.0, "distance": 0.5, "angle": 351.8181818181818, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "fd579558-7a76-41aa-b4f7-40a43f5bbc68", "type": "character", "name": "On", "time": 0.0, "distance": 0.5, "angle": 352.0, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "88693344-518d-403d-888a-3b6228cd1083", "type": "character", "name": "Did", "time": 0.0, "distance": 0.5, "angle": 352.17391304347825, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "31903e19-9dfc-4328-8d56-e6849356d651", "type": "character", "name": "Hello", "time": 0.0, "distance": 0.5, "angle": 352.3404255319149, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "eb76ca3f-049c-42d1-afa3-6e17ca7530e4", "type": "character", "name": "You", "time": 0.0, "distance": 0.5, "angle": 352.5, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "93fb13ec-6117-491a-bd07-ace8277e6553", "type": "character", "name": "Yes", "time": 0.0, "distance": 0.5, "angle": 352.6530612244898, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "d42c87ed-df73-4392-b632-062212119442", "type": "character", "name": "Can", "time": 0.0, "distance": 0.5, "angle": 352.8, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "2c21ec94-7145-4418-88ba-91d05ebee38c", "type": "character", "name": "But", "time": 0.0, "distance": 0.5, "angle": 352.94117647058823, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "3894d56f-4537-4d26-bc46-6be1dfed712b", "type": "character", "name": "Trials", "time": 0.0, "distance": 0.5, "angle": 353.0769230769231, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "e4515a7f-b9b6-4b40-9777-9d2f63aad9da", "type": "character", "name": "Forest", "time": 0.0, "distance": 0.5, "angle": 353.20754716981133, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "7bd393fc-5e05-4dd3-b07e-faf4ed6fb0d7", "type": "character", "name": "Follow", "time": 0.0, "distance": 0.5, "angle": 353.33333333333337, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "57e66ee4-bd10-4086-8d00-fbddde6482d1", "type": "character", "name": "Bring", "time": 0.0, "distance": 0.5, "angle": 353.4545454545455, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "6f784d01-8c05-4ce5-844e-78465f30ee15", "type": "event", "name": "The Journey of Heroes Chapter ...", "time": 0.0, "distance": 0.3, "angle": 0.0, "size": 2.5, "color": "#e74c3c"}, {"id": "dc2fd758-47b4-4e1d-88b4-89d14cf2e7ff", "type": "location", "name": "Riverdale", "time": 0.0, "distance": 0.7, "angle": 0.0, "size": 2, "color": "#2ecc71"}], "links": [], "metadata": {"title": "the_journey_of_heroes", "segments": 1, "timeline_start": 0.0, "timeline_end": 0.0, "character_count": 55, "event_count": 1, "location_count": 1, "theme_count": 0}};
+        
+        // Initialize 3D Graph
+        const Graph = ForceGraph3D()
+            (document.getElementById('container'))
+            .graphData(data)
+            .nodeId('id')
+            .nodeLabel('name')
+            .nodeColor('color')
+            .nodeVal('size')
+            .linkWidth(1)
+            .linkOpacity(0.5)
+            .backgroundColor('#f7f7f7')
+            .showNavInfo(true);
+            
+        // Add text labels to nodes
+        Graph.nodeThreeObject(node => {
+            const sprite = new SpriteText(node.name);
+            sprite.color = node.color;
+            sprite.textHeight = 4;
+            sprite.position.y = node.size + 4;
+            return sprite;
+        });
+        
+        // Position nodes based on cylindrical coordinates
+        Graph.nodePositionUpdate((node, pos) => {
+            // Convert cylindrical coordinates to Cartesian
+            const radius = node.distance * 100;
+            const angle = node.angle * (Math.PI / 180);
+            const height = node.time * 20;
+            
+            return {
+                x: radius * Math.cos(angle),
+                y: height,
+                z: radius * Math.sin(angle)
+            };
+        });
+        
+        // Legend toggle functionality
+        document.querySelectorAll('.legend-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const type = item.getAttribute('data-type');
+                const graphData = Graph.graphData();
+                
+                // Toggle visibility
+                const newNodes = graphData.nodes.map(node => {
+                    if (node.type === type) {
+                        return {
+                            ...node,
+                            hidden: !node.hidden
+                        };
+                    }
+                    return node;
+                });
+                
+                Graph.graphData({
+                    nodes: newNodes,
+                    links: graphData.links
+                });
+                
+                // Toggle legend item style
+                item.style.opacity = item.style.opacity === '0.5' ? '1' : '0.5';
+            });
+        });
+    </script>
+</body>
+</html>
+    
