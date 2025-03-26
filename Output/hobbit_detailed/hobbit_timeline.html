@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Narrative Timeline: the_hobbit_detailed</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        body { margin: 0; padding: 20px; font-family: Arial, sans-serif; background: #f9f9f9; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 { color: #2c3e50; margin-bottom: 5px; }
+        .timeline { 
+            width: 100%; 
+            height: 500px; 
+            margin: 30px 0; 
+            position: relative;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+        .phase { 
+            position: absolute; 
+            height: 100%; 
+            top: 0; 
+            opacity: 0.2; 
+        }
+        .phase-label { 
+            position: absolute; 
+            top: 5px; 
+            text-align: center; 
+            font-weight: bold; 
+            color: #333; 
+        }
+        .event-point { 
+            position: absolute; 
+            width: 12px; 
+            height: 12px; 
+            border-radius: 50%; 
+            cursor: pointer;
+            transform: translate(-50%, -50%);
+        }
+        .event-point[data-type="event"] { background: #e74c3c; }
+        .event-point[data-type="character_intro"] { background: #3498db; }
+        .event-tooltip { 
+            position: absolute; 
+            background: rgba(0,0,0,0.8); 
+            color: white; 
+            padding: 10px; 
+            border-radius: 4px; 
+            font-size: 14px; 
+            pointer-events: none; 
+            opacity: 0; 
+            transition: opacity 0.2s; 
+            max-width: 250px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Narrative Timeline: the_hobbit_detailed</h1>
+        
+        <div class="timeline" id="timeline">
+            <!-- Will be populated by script -->
+        </div>
+    </div>
+
+    <script>
+        // Timeline data
+        const events = [{"id": "unexpected_party", "type": "event", "title": "Gandalf and thirteen dwarves arrive at Bilbo's hom", "time": 0.05, "importance": 0.5, "participants": [], "segment_text": "In which Bilbo Baggins is visited by Gandalf and a company of dwarves who seek a burglar for their quest."}, {"id": "troll_encounter", "type": "event", "title": "The company is captured by three trolls. Gandalf t", "time": 0.15, "importance": 0.5, "participants": [], "segment_text": "In which Bilbo Baggins is visited by Gandalf and a company of dwarves who seek a burglar for their quest."}, {"id": "rivendell_visit", "type": "event", "title": "The company rests in Rivendell, where Elrond revea", "time": 0.2, "importance": 0.5, "participants": [], "segment_text": "In which Bilbo Baggins is visited by Gandalf and a company of dwarves who seek a burglar for their quest."}, {"id": "goblin_capture", "type": "event", "title": "While sheltering in a cave in the Misty Mountains,", "time": 0.3, "importance": 0.5, "participants": [], "segment_text": "In which Bilbo Baggins is visited by Gandalf and a company of dwarves who seek a burglar for their quest."}, {"id": "riddles_in_the_dark", "type": "event", "title": "Bilbo gets separated from the dwarves, finds the R", "time": 0.3, "importance": 0.5, "participants": [], "segment_text": "In which Bilbo Baggins is visited by Gandalf and a company of dwarves who seek a burglar for their quest."}, {"id": "eagle_rescue", "type": "event", "title": "The Great Eagles rescue the company from wargs and", "time": 0.35, "importance": 0.5, "participants": [], "segment_text": "In which Bilbo Baggins is visited by Gandalf and a company of dwarves who seek a burglar for their quest."}, {"id": "beorn_stay", "type": "event", "title": "The company recovers at Beorn's house before enter", "time": 0.45, "importance": 0.5, "participants": [], "segment_text": "In which Bilbo Baggins is visited by Gandalf and a company of dwarves who seek a burglar for their quest."}, {"id": "mirkwood_journey", "type": "event", "title": "The company loses their way in Mirkwood, runs out ", "time": 0.5, "importance": 0.5, "participants": [], "segment_text": "In which Bilbo Baggins is visited by Gandalf and a company of dwarves who seek a burglar for their quest."}, {"id": "elf_capture", "type": "event", "title": "The dwarves are captured by the Elvenking's guards", "time": 0.6, "importance": 0.5, "participants": [], "segment_text": "In which the company encounters three trolls and Gandalf saves them by tricking the trolls into arguing until dawn."}, {"id": "barrel_escape", "type": "event", "title": "Bilbo helps the dwarves escape from the Elvenking'", "time": 0.6, "importance": 0.5, "participants": [], "segment_text": "In which the company encounters three trolls and Gandalf saves them by tricking the trolls into arguing until dawn."}, {"id": "laketown_welcome", "type": "event", "title": "The company arrives in Lake-town, where they are w", "time": 0.65, "importance": 0.5, "participants": [], "segment_text": "In which the company rests in Rivendell and Elrond provides them with valuable information about their map."}, {"id": "lonely_mountain_arrival", "type": "event", "title": "The company finds the secret door into the Lonely ", "time": 0.7, "importance": 0.5, "participants": [], "segment_text": "In which the company rests in Rivendell and Elrond provides them with valuable information about their map."}, {"id": "smaug_conversation", "type": "event", "title": "Bilbo enters the mountain and converses with Smaug", "time": 0.75, "importance": 0.5, "participants": [], "segment_text": "In which the company crosses the Misty Mountains but is captured by goblins."}, {"id": "smaug_attack", "type": "event", "title": "An enraged Smaug attacks Lake-town but is killed b", "time": 0.8, "importance": 0.5, "participants": [], "segment_text": "In which Bilbo gets lost in the goblin tunnels, finds a mysterious ring, and encounters Gollum."}, {"id": "battle_five_armies", "type": "event", "title": "Men, Elves, Dwarves, Eagles, and Beorn unite to fi", "time": 0.9, "importance": 0.5, "participants": [], "segment_text": "In which the company stays with Beorn, a skin-changer who can transform into a bear."}, {"id": "thorin_death", "type": "event", "title": "Thorin is mortally wounded in battle but reconcile", "time": 0.95, "importance": 0.5, "participants": [], "segment_text": "In which the company stays with Beorn, a skin-changer who can transform into a bear."}, {"id": "return_journey", "type": "event", "title": "Bilbo returns to the Shire with Gandalf, a changed", "time": 0.95, "importance": 0.5, "participants": [], "segment_text": "In which the company stays with Beorn, a skin-changer who can transform into a bear."}, {"id": "home_auction", "type": "event", "title": "Bilbo arrives home to find his possessions being a", "time": 0.98, "importance": 0.5, "participants": [], "segment_text": "In which the company travels through Mirkwood, Bombur falls into an enchanted stream, and they are attacked by giant spiders."}];
+        const phases = [{"name": "Exposition", "start": 0, "end": 4}, {"name": "Rising Action", "start": 4, "end": 9}, {"name": "Climax", "start": 9, "end": 14}, {"name": "Falling Action", "start": 14, "end": 18}, {"name": "Resolution", "start": 18, "end": 19}];
+        
+        // Get max time value for scaling
+        const maxTime = events.length > 0 ? Math.max(...events.map(e => e.time)) : 0;
+        
+        // Setup container dimensions
+        const timeline = document.getElementById('timeline');
+        const width = timeline.offsetWidth - 40; // Account for padding
+        const height = timeline.offsetHeight - 40;
+        
+        // Add narrative phases as background
+        phases.forEach(phase => {
+            const phaseEl = document.createElement('div');
+            phaseEl.className = 'phase';
+            
+            // Calculate position based on segments
+            const startPercent = (phase.start / maxTime) * 100;
+            const endPercent = (phase.end / maxTime) * 100;
+            const phaseWidth = endPercent - startPercent;
+            
+            phaseEl.style.left = `${startPercent}%`;
+            phaseEl.style.width = `${phaseWidth}%`;
+            phaseEl.style.backgroundColor = getPhaseColor(phase.name);
+            
+            // Add label
+            const labelEl = document.createElement('div');
+            labelEl.className = 'phase-label';
+            labelEl.style.left = `${(startPercent + phaseWidth/2)}%`;
+            labelEl.style.width = `${phaseWidth}%`;
+            labelEl.textContent = phase.name;
+            
+            timeline.appendChild(phaseEl);
+            timeline.appendChild(labelEl);
+        });
+        
+        // Create tooltip
+        const tooltip = document.createElement('div');
+        tooltip.className = 'event-tooltip';
+        document.body.appendChild(tooltip);
+        
+        // Add event points
+        events.forEach(event => {
+            const point = document.createElement('div');
+            point.className = 'event-point';
+            point.setAttribute('data-type', event.type);
+            
+            // Position horizontally based on time, vertically based on importance
+            const xPos = (event.time / maxTime) * width + 20; // +20 for padding
+            
+            // For events, use importance; for character intros, use fixed position
+            let yPos;
+            if (event.type === 'event') {
+                yPos = height - (event.importance * height * 0.6) - 100;
+            } else {
+                yPos = 100; // Position character intros at the top
+            }
+            
+            point.style.left = `${xPos}px`;
+            point.style.top = `${yPos}px`;
+            
+            // Add tooltip behavior
+            point.addEventListener('mouseover', (e) => {
+                tooltip.textContent = event.title;
+                tooltip.style.left = `${e.pageX + 10}px`;
+                tooltip.style.top = `${e.pageY + 10}px`;
+                tooltip.style.opacity = '1';
+            });
+            
+            point.addEventListener('mouseout', () => {
+                tooltip.style.opacity = '0';
+            });
+            
+            timeline.appendChild(point);
+        });
+        
+        // Helper function for phase colors
+        function getPhaseColor(phaseName) {
+            const colors = {
+                'Exposition': '#3498db',
+                'Rising Action': '#2ecc71', 
+                'Climax': '#e74c3c',
+                'Falling Action': '#f39c12',
+                'Resolution': '#9b59b6'
+            };
+            return colors[phaseName] || '#ddd';
+        }
+    </script>
+</body>
+</html>
+    

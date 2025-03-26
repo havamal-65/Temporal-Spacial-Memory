@@ -7,7 +7,7 @@ alwaysApply: true
 # Coding pattern preferences
 
 
-
+-Use Atomic Composible Architecture
 -Always prefer simple solutions
 -Always search out using the internet for documentation for processes and refer to related documentation when possible
 -Avoid duplication of code whenever possible, which means checking for other areas of the codebase that might already have similar code and functionality
