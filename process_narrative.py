@@ -2,6 +2,8 @@
 """
 Process narrative texts into the Temporal-Spatial Memory database, with specific
 support for PDF documents like The Hobbit.
+
+Now enhanced with GraphRAG for better entity extraction and relationship modeling.
 """
 
 import os
@@ -13,7 +15,7 @@ from pathlib import Path
 from typing import Dict, List, Any, Optional
 
 # Core imports
-from src.models.narrative_atlas import NarrativeAtlas
+from src.core.narrative_processor import NarrativeProcessor
 from src.visualization.narrative_visualizer import (
     create_narrative_visualization,
     create_character_arc_visualization,
@@ -313,51 +315,129 @@ class NarrativeProcessor:
         print(f"Visualizations saved to {viz_dir}")
 
 def main():
-    """Main entry point for the narrative processor CLI."""
-    parser = argparse.ArgumentParser(description="Process narrative text into a temporal-spatial database")
-    parser.add_argument("--config", help="Path to configuration file")
-    parser.add_argument("--pdf", help="Path to PDF file to process")
-    parser.add_argument("--segmentation", choices=["paragraph", "sentence", "chapter"], 
-                       help="Segmentation level for text processing")
-    parser.add_argument("--list-configs", action="store_true", help="List available configuration files")
-    parser.add_argument("--select-config", type=int, help="Select a configuration by number")
+    """Main entry point for narrative processing."""
+    parser = argparse.ArgumentParser(description="Process a narrative text (PDF or plain text) into a temporal-spatial database.")
+    parser.add_argument("--config", type=str, help="Path to configuration file", default="config_examples/default_config.yaml")
+    parser.add_argument("--pdf", type=str, help="Path to PDF file to process")
+    parser.add_argument("--text", type=str, help="Path to text file to process")
+    parser.add_argument("--segmentation", type=str, choices=["paragraph", "sentence", "chapter"], 
+                        help="Segmentation level (default is from config)")
+    parser.add_argument("--use-graphrag", action="store_true", help="Use GraphRAG for enhanced entity extraction")
+    parser.add_argument("--visualize", action="store_true", help="Generate visualizations after processing")
     
     args = parser.parse_args()
     
-    # Handle configuration selection
-    if args.list_configs:
-        config_dir = Path("config_examples")
-        if config_dir.exists():
-            configs = list(config_dir.glob("*.yaml"))
-            print("\nAvailable configurations:")
-            for i, config in enumerate(configs):
-                print(f"{i+1}. {config.name}")
-        else:
-            print("No configuration directory found.")
+    if not args.pdf and not args.text:
+        print("Error: Either a PDF or text file must be specified.")
+        parser.print_help()
         return
     
-    if args.select_config is not None:
-        config_dir = Path("config_examples")
-        if config_dir.exists():
-            configs = list(config_dir.glob("*.yaml"))
-            if 1 <= args.select_config <= len(configs):
-                args.config = str(configs[args.select_config - 1])
-                print(f"Selected configuration: {configs[args.select_config - 1].name}")
-            else:
-                print(f"Invalid configuration number. Must be between 1 and {len(configs)}.")
-                return
+    # Load config
+    config_loader = ConfigLoader(args.config)
+    config = config_loader.load_config()
+    
+    # Update config with command line arguments
+    if args.use_graphrag:
+        if "processing" not in config:
+            config["processing"] = {}
+        config["processing"]["use_graphrag"] = True
+    
+    # Save updated config if needed
+    config_loader.config = config
     
     # Initialize processor
+    print(f"Initializing with config: {args.config}")
     processor = NarrativeProcessor(args.config)
     
-    # Process narrative
-    processor.process_narrative(
-        pdf_path=args.pdf,
+    # Extract text if needed
+    text = None
+    if args.pdf:
+        text = processor.extract_text_from_pdf(args.pdf)
+        if not text:
+            print("Failed to extract text from PDF.")
+            return
+    elif args.text:
+        try:
+            with open(args.text, 'r', encoding='utf-8') as f:
+                text = f.read()
+        except Exception as e:
+            print(f"Error reading text file: {str(e)}")
+            return
+    
+    # Process the narrative
+    atlas = processor.process_narrative(
+        text=text,
         segmentation_level=args.segmentation
     )
     
-    # Generate visualizations
-    processor.generate_visualizations()
+    # Generate visualizations if requested
+    if args.visualize:
+        output_dir = config.get("output", {}).get("path", "Output")
+        title = config.get("narrative", {}).get("title", "Unnamed Narrative")
+        slug = re.sub(r'[^\w\s-]', '', title).lower().replace(' ', '_')
+        
+        print(f"Generating visualizations in {output_dir}...")
+        
+        # Create main narrative visualization
+        viz_path = os.path.join(output_dir, f"{slug}_narrative.html")
+        create_narrative_visualization(atlas, viz_path)
+        print(f"Created narrative visualization: {viz_path}")
+        
+        # Create timeline visualization
+        timeline_path = os.path.join(output_dir, f"{slug}_timeline.html")
+        create_narrative_timeline(atlas, timeline_path)
+        print(f"Created timeline visualization: {timeline_path}")
+        
+        # Create character arc visualizations for top characters
+        top_characters = sorted(atlas.characters.values(), 
+                               key=lambda c: c.content.get("mention_count", 0), 
+                               reverse=True)[:5]
+        
+        for char in top_characters:
+            char_name = char.content.get("name", "character")
+            char_slug = re.sub(r'[^\w\s-]', '', char_name).lower().replace(' ', '_')
+            char_path = os.path.join(output_dir, f"{slug}_{char_slug}_arc.html")
+            create_character_arc_visualization(atlas, char.node_id, char_path)
+            print(f"Created character arc for {char_name}: {char_path}")
+        
+        # Create a launcher HTML file
+        launcher_path = os.path.join(output_dir, f"{slug}_launcher.html")
+        with open(launcher_path, 'w') as f:
+            f.write(f"""<!DOCTYPE html>
+<html>
+<head>
+    <title>{title} - Narrative Analysis</title>
+    <style>
+        body {{ font-family: Arial, sans-serif; margin: 20px; }}
+        h1 {{ color: #2c3e50; }}
+        .viz-link {{ 
+            display: block; margin: 10px 0; padding: 10px;
+            background-color: #3498db; color: white;
+            text-decoration: none; border-radius: 5px;
+            width: 300px; text-align: center;
+        }}
+        .viz-link:hover {{ background-color: #2980b9; }}
+    </style>
+</head>
+<body>
+    <h1>{title} - Narrative Analysis</h1>
+    <p>Select a visualization to view:</p>
+    
+    <a href="{slug}_narrative.html" class="viz-link">Complete Narrative Structure</a>
+    <a href="{slug}_timeline.html" class="viz-link">Narrative Timeline</a>
+""")
+            
+            # Add character links
+            for char in top_characters:
+                char_name = char.content.get("name", "character")
+                char_slug = re.sub(r'[^\w\s-]', '', char_name).lower().replace(' ', '_')
+                f.write(f'    <a href="{slug}_{char_slug}_arc.html" class="viz-link">{char_name}\'s Character Arc</a>\n')
+            
+            f.write("""</body>
+</html>""")
+        
+        print(f"Created launcher HTML: {launcher_path}")
+        print(f"Open {launcher_path} in a web browser to view all visualizations.")
     
     print("Processing complete!")
 

@@ -121,6 +121,42 @@ class NarrativeAtlas:
         with open(segments_path, 'w') as f:
             json.dump(segments_data, f, indent=2)
     
+    def add_segment(self, text: str, position: float, entities: Dict[str, List[str]]) -> None:
+        """
+        Add a segment directly to the atlas, used for GraphRAG integration.
+        
+        Args:
+            text: The segment text
+            position: Timeline position (float)
+            entities: Dict with entity IDs by type (characters, locations, events, themes)
+        """
+        # Generate a unique hash for the segment
+        segment_hash = hashlib.md5(text.encode()).hexdigest()
+        
+        # Create segment data structure
+        segment_info = {
+            "id": segment_hash,
+            "text": text,
+            "position": position,
+            "entities": entities,
+            "index": len(self.segments)
+        }
+        
+        # Add to segments list
+        self.segments.append(segment_info)
+        
+        # Update timeline metrics
+        if len(self.segments) == 1:
+            self.metrics["timeline_start"] = position
+        self.metrics["timeline_end"] = max(self.metrics["timeline_end"], position)
+        self.metrics["segment_count"] = len(self.segments)
+        
+        # Update entity counts
+        self.metrics["character_count"] = len(self.characters)
+        self.metrics["location_count"] = len(self.locations)
+        self.metrics["event_count"] = len(self.events)
+        self.metrics["theme_count"] = len(self.themes)
+    
     def process_text(self, text: str, title: str, segmentation_level: str = "paragraph") -> None:
         """
         Process a complete text, segmenting it and extracting narrative elements.

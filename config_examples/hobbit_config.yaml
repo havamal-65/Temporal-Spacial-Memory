@@ -13,6 +13,16 @@ output:
   path: "Output/hobbit"
   format: "html"
 
+processing:
+  use_graphrag: true
+  llm:
+    provider: "openai"
+    model_name: "gpt-3.5-turbo"
+  knowledge_graph:
+    enable_relationship_extraction: true
+    confidence_threshold: 0.7
+    centrality_metric: "eigenvector"
+  
 text_processing:
   segmentation_level: "chapter"  # chapter, paragraph, or sentence
   # Patterns to remove header/footer content

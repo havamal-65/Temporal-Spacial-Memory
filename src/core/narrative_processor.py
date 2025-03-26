@@ -8,11 +8,13 @@ import re
 import time
 import argparse
 from typing import Dict, Any, Optional, List
+from pathlib import Path
 
 from PyPDF2 import PdfReader
 from src.models.narrative_atlas import NarrativeAtlas
 from src.utils.config_loader import ConfigLoader
 from src.utils.text_processor import TextProcessor
+from src.utils.graphrag_adapter import GraphRAGAdapter
 from src.visualization.narrative_visualizer import (
     create_narrative_visualization,
     create_character_arc_visualization,
@@ -27,7 +29,7 @@ class NarrativeProcessor:
     eliminating content-specific code.
     """
     
-    def __init__(self, config_path: str):
+    def __init__(self, config_path: Optional[str] = None):
         """
         Initialize the narrative processor.
         
@@ -35,14 +37,38 @@ class NarrativeProcessor:
             config_path: Path to the configuration file
         """
         self.config_loader = ConfigLoader(config_path)
+        self.config = self.config_loader.load_config()
         self.text_processor = TextProcessor(self.config_loader)
         
         # Get title from config
-        self.title = self.config_loader.get_value("narrative.title", "narrative")
+        self.title = self.config.get("narrative", {}).get("title", "narrative")
         self.db_name = self.config_loader.to_slug(self.title)
         
         # Initialize the atlas
-        self.atlas = NarrativeAtlas(name=self.db_name, storage_path="data")
+        storage_path = self.config.get("storage", {}).get("path", "data")
+        self.atlas = NarrativeAtlas(
+            name=self._sanitize_name(self.title),
+            storage_path=storage_path
+        )
+        
+        # Initialize GraphRAG adapter if enabled
+        use_graphrag = self.config.get("processing", {}).get("use_graphrag", True)
+        self.graphrag_enabled = use_graphrag
+        
+        if self.graphrag_enabled:
+            project_name = f"{self._sanitize_name(self.title)}_graphrag"
+            self.graphrag = GraphRAGAdapter(project_name=project_name)
+        else:
+            self.graphrag = None
+        
+        # Track processing state
+        self.processed_file = None
+        self.output_dir = Path(self.config.get("output", {}).get("path", "Output"))
+        self.output_dir.mkdir(exist_ok=True)
+    
+    def _sanitize_name(self, name: str) -> str:
+        """Convert a name to a valid filename."""
+        return re.sub(r'[^\w\s-]', '', name).lower().replace(' ', '_')
     
     def extract_text_from_pdf(self, pdf_path: Optional[str] = None) -> Optional[str]:
         """
@@ -79,13 +105,12 @@ class NarrativeProcessor:
             print(f"Error extracting text from PDF: {str(e)}")
             return None
     
-    def process_narrative(self, text: Optional[str] = None, pdf_path: Optional[str] = None, segmentation_level: Optional[str] = None) -> NarrativeAtlas:
+    def process_narrative(self, text: str, segmentation_level: Optional[str] = None) -> NarrativeAtlas:
         """
         Process a narrative text and build the narrative atlas.
         
         Args:
-            text: The text to process. If None, will extract from PDF.
-            pdf_path: Path to the PDF to extract text from (if text is None)
+            text: The text to process
             segmentation_level: How to segment the text (paragraph, sentence, chapter)
                                If None, uses the value from config.
                                
@@ -96,30 +121,186 @@ class NarrativeProcessor:
         
         # Get segmentation level from config if not specified
         if segmentation_level is None:
-            segmentation_level = self.config_loader.get_value("text_processing.segmentation_level", "chapter")
-        
-        # If text is not provided, extract from PDF
-        if text is None:
-            text = self.extract_text_from_pdf(pdf_path)
-            if not text:
-                print("Failed to extract text from PDF.")
-                return self.atlas
+            segmentation_level = self.config.get("text_processing", {}).get("segmentation_level", "chapter")
         
         print(f"Processing narrative: {self.title}")
         print(f"Segmentation level: {segmentation_level}")
         
-        # Clean and preprocess the text
-        clean_text = self.text_processor.clean_text(text)
-        processed_text = self.text_processor.preprocess_for_entity_extraction(clean_text)
-        
-        # Build the narrative atlas
-        self.atlas.process_text(processed_text, self.title, segmentation_level)
+        if self.graphrag_enabled:
+            print("Using GraphRAG for enhanced entity extraction and relationship modeling")
+            self._process_with_graphrag(text, segmentation_level)
+        else:
+            print("Using basic entity extraction (without GraphRAG)")
+            self._process_with_basic_extraction(text, segmentation_level)
         
         # Calculate processing time
         elapsed_time = time.time() - start_time
         print(f"Processing completed in {elapsed_time:.2f} seconds")
         
         return self.atlas
+    
+    def _process_with_graphrag(self, text: str, segmentation_level: str) -> None:
+        """
+        Process text using GraphRAG for enhanced entity extraction.
+        
+        Args:
+            text: The text to process
+            segmentation_level: How to segment the text
+        """
+        # Prepare metadata for GraphRAG
+        narrative_metadata = {
+            "type": "narrative",
+            "temporal_structure": "linear",
+            "title": self.title,
+            "author": self.config.get("narrative", {}).get("author", "Unknown"),
+            "segmentation_level": segmentation_level
+        }
+        
+        # Process text with GraphRAG to get knowledge graph
+        print("Extracting knowledge graph with GraphRAG...")
+        knowledge_graph = self.graphrag.extract_knowledge_graph(text, metadata=narrative_metadata)
+        
+        # Convert knowledge graph to mesh nodes
+        print("Converting knowledge graph to temporal-spatial mesh nodes...")
+        mesh_nodes = self.graphrag.convert_to_mesh_nodes(knowledge_graph)
+        
+        # Add nodes to atlas
+        print(f"Adding {len(mesh_nodes)} nodes to atlas...")
+        for node in mesh_nodes:
+            self.atlas.db.add_node(node)
+        
+        # Process segments for timeline
+        if segmentation_level == "paragraph":
+            segments = self._segment_by_paragraphs(text)
+        elif segmentation_level == "sentence":
+            segments = self._segment_by_sentences(text)
+        elif segmentation_level == "chapter":
+            segments = self._segment_by_chapters(text)
+        else:
+            # Default to paragraph segmentation
+            segments = self._segment_by_paragraphs(text)
+        
+        # Create segments
+        print(f"Processing {len(segments)} segments...")
+        for i, segment_text in enumerate(segments):
+            if not segment_text.strip():
+                continue
+                
+            # Extract entities from this segment
+            segment_nodes = [node for node in mesh_nodes if abs(node.time - i) < 1.0]
+            
+            # Create segment data
+            self.atlas.add_segment(
+                text=segment_text,
+                position=float(i),
+                entities={
+                    "characters": [n.node_id for n in segment_nodes if hasattr(n, 'node_type') and n.node_type == 'character'],
+                    "locations": [n.node_id for n in segment_nodes if hasattr(n, 'node_type') and n.node_type == 'location'],
+                    "events": [n.node_id for n in segment_nodes if hasattr(n, 'node_type') and n.node_type == 'event'],
+                    "themes": [n.node_id for n in segment_nodes if hasattr(n, 'node_type') and n.node_type == 'theme']
+                }
+            )
+        
+        # Save the atlas
+        self.atlas.save()
+    
+    def _process_with_basic_extraction(self, text: str, segmentation_level: str) -> None:
+        """
+        Process text using basic extraction methods (fallback).
+        
+        Args:
+            text: The text to process
+            segmentation_level: How to segment the text
+        """
+        # Clean and preprocess the text
+        clean_text = self._clean_literary_text(text)
+        processed_text = self._preprocess_for_entity_extraction(clean_text)
+        
+        # Build the narrative atlas with basic processing
+        self.atlas.process_text(processed_text, self.title, segmentation_level)
+    
+    def _segment_by_paragraphs(self, text: str) -> List[str]:
+        """Split text into paragraphs."""
+        # Split on double line breaks or multiple blank lines
+        paragraphs = re.split(r'\n\s*\n', text)
+        return [p.strip() for p in paragraphs if p.strip()]
+    
+    def _segment_by_sentences(self, text: str) -> List[str]:
+        """Split text into sentences."""
+        # Simple sentence splitting - can be improved with NLP
+        sentences = re.split(r'(?<=[.!?])\s+', text)
+        return [s.strip() for s in sentences if s.strip()]
+    
+    def _segment_by_chapters(self, text: str) -> List[str]:
+        """Split text into chapters based on common chapter markers."""
+        # Look for common chapter headings (Chapter X, CHAPTER X, etc.)
+        chapter_pattern = r'(?i)(?:^|\n)\s*(chapter|CHAPTER|Chapter)\s+[IVXLCDM\d]+.*?(?=\n\s*(?:chapter|CHAPTER|Chapter)\s+[IVXLCDM\d]+|\Z)'
+        chapters = re.findall(chapter_pattern, text, re.DOTALL)
+        
+        # If no chapters found, fall back to paragraph segmentation
+        if not chapters:
+            return self._segment_by_paragraphs(text)
+            
+        return [c.strip() for c in chapters if c.strip()]
+    
+    def _clean_literary_text(self, text: str) -> str:
+        """
+        Clean and preprocess literary text for better processing.
+        
+        Args:
+            text: Raw text from the PDF
+            
+        Returns:
+            Cleaned text
+        """
+        # Remove page numbers
+        text = re.sub(r'\n\d+\n', '\n', text)
+        
+        # Remove headers and footers that repeat on pages
+        header_pattern = self.config.get("text_processing", {}).get("header_pattern", "")
+        footer_pattern = self.config.get("text_processing", {}).get("footer_pattern", "")
+        
+        if header_pattern:
+            text = re.sub(header_pattern, '', text)
+        if footer_pattern:
+            text = re.sub(footer_pattern, '', text)
+        
+        # Replace multiple newlines with a single newline
+        text = re.sub(r'\n\s*\n', '\n\n', text)
+        
+        # Clean up spaces
+        text = re.sub(r' +', ' ', text)
+        
+        return text
+    
+    def _preprocess_for_entity_extraction(self, text: str) -> str:
+        """
+        Add additional preprocessing to improve entity extraction for literature.
+        
+        Args:
+            text: Cleaned text
+            
+        Returns:
+            Text prepared for entity extraction
+        """
+        # Load entity extraction patterns from config
+        entity_patterns = self.config.get("text_processing", {}).get("entity_patterns", {})
+        
+        # Add markers for dialogue to help with entity extraction
+        text = re.sub(r'"([^"]+)" said (\w+)', r'"\1" said CHARACTER:\2', text)
+        text = re.sub(r'"([^"]+)" (\w+) said', r'"\1" CHARACTER:\2 said', text)
+        
+        # Add location markers using configured patterns
+        location_patterns = entity_patterns.get("locations", [])
+        for pattern in location_patterns:
+            text = re.sub(rf'\b{pattern}\b', f"LOCATION:{pattern}", text, flags=re.IGNORECASE)
+        
+        # Add character markers using configured patterns
+        character_patterns = entity_patterns.get("characters", [])
+        for pattern in character_patterns:
+            text = re.sub(rf'\b{pattern}\b', f"CHARACTER:{pattern}", text, flags=re.IGNORECASE)
+        
+        return text
     
     def create_narrative_launcher(self) -> None:
         """Create a launcher HTML file for the narrative visualizations."""
