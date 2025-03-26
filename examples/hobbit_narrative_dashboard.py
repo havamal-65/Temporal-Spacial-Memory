@@ -1,0 +1,469 @@
+#!/usr/bin/env python3
+"""
+The Hobbit Narrative Dashboard
+
+This script creates a comprehensive dashboard that combines our detailed
+visualizations of The Hobbit with the temporal-spatial memory system.
+"""
+
+import os
+import sys
+import json
+from pathlib import Path
+
+def create_dashboard():
+    """Create an integrated dashboard for The Hobbit visualizations."""
+    
+    # Set up paths
+    output_dir = "Output/hobbit_dashboard"
+    os.makedirs(output_dir, exist_ok=True)
+    
+    # Define visualization paths
+    viz_paths = {
+        "narrative": "Output/hobbit_detailed/hobbit_narrative.html",
+        "timeline": "Output/hobbit_detailed/hobbit_timeline.html",
+        "bilbo_arc": "Output/hobbit_detailed/hobbit_bilbo_baggins_arc.html",
+        "gandalf_arc": "Output/hobbit_detailed/hobbit_gandalf_arc.html",
+        "thorin_arc": "Output/hobbit_detailed/hobbit_thorin_oakenshield_arc.html",
+        "smaug_arc": "Output/hobbit_detailed/hobbit_smaug_arc.html",
+        "bard_arc": "Output/hobbit_detailed/hobbit_bard_the_bowman_arc.html"
+    }
+    
+    # Check if files exist
+    for name, path in viz_paths.items():
+        if not os.path.exists(path):
+            print(f"Warning: {path} not found. Dashboard may be incomplete.")
+    
+    # Create the dashboard HTML file
+    dashboard_path = os.path.join(output_dir, "hobbit_dashboard.html")
+    
+    with open(dashboard_path, 'w') as f:
+        f.write("""<!DOCTYPE html>
+<html>
+<head>
+    <title>The Hobbit - Narrative Analysis Dashboard</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f7fa;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+            margin-bottom: 30px;
+        }
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.2em;
+        }
+        .subtitle {
+            margin-top: 5px;
+            font-size: 1.2em;
+            opacity: 0.8;
+        }
+        .nav-tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+            flex-wrap: wrap;
+        }
+        .nav-tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            user-select: none;
+        }
+        .nav-tab:hover {
+            color: #3498db;
+            border-bottom-color: #3498db;
+        }
+        .nav-tab.active {
+            color: #3498db;
+            border-bottom-color: #3498db;
+            font-weight: 600;
+        }
+        .tab-content {
+            display: none;
+            border: 1px solid #ddd;
+            padding: 20px;
+            background-color: white;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .dashboard-heading {
+            color: #2c3e50;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        .viz-frame-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 aspect ratio */
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .viz-frame {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .viz-selector {
+            margin-bottom: 20px;
+        }
+        select {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1em;
+            background-color: white;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .grid-item {
+            background-color: white;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 15px;
+        }
+        .grid-item h3 {
+            margin-top: 0;
+            color: #2c3e50;
+            border-bottom: 1px solid #ecf0f1;
+            padding-bottom: 10px;
+        }
+        .data-point {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        .data-label {
+            font-weight: 500;
+        }
+        .data-value {
+            font-weight: 600;
+            color: #3498db;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+            margin-top: 30px;
+            text-align: center;
+            font-size: 0.9em;
+        }
+        .info-box {
+            background-color: #e8f4fd;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 0 4px 4px 0;
+        }
+        .info-box h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        .info-box p {
+            margin-bottom: 5px;
+        }
+        .button {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>The Hobbit - Narrative Analysis Dashboard</h1>
+            <div class="subtitle">Temporal-Spatial Memory Visualizations</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="nav-tabs">
+            <div class="nav-tab active" data-tab="dashboard">Dashboard</div>
+            <div class="nav-tab" data-tab="narrative">Narrative Structure</div>
+            <div class="nav-tab" data-tab="timeline">Timeline</div>
+            <div class="nav-tab" data-tab="character-arcs">Character Arcs</div>
+            <div class="nav-tab" data-tab="about">About</div>
+        </div>
+
+        <div id="dashboard" class="tab-content active">
+            <h2 class="dashboard-heading">The Hobbit Analysis Overview</h2>
+            
+            <div class="info-box">
+                <h3>Temporal-Spatial Memory System</h3>
+                <p>This dashboard presents an analysis of J.R.R. Tolkien's "The Hobbit" using our temporal-spatial memory system, which maps narrative elements in cylindrical coordinates.</p>
+                <p>The system tracks characters, locations, events, and themes throughout the text, identifying relationships and tracking how they develop over time.</p>
+            </div>
+            
+            <div class="grid-container">
+                <div class="grid-item">
+                    <h3>Narrative Metrics</h3>
+                    <div class="data-point">
+                        <span class="data-label">Characters:</span>
+                        <span class="data-value">25</span>
+                    </div>
+                    <div class="data-point">
+                        <span class="data-label">Locations:</span>
+                        <span class="data-value">14</span>
+                    </div>
+                    <div class="data-point">
+                        <span class="data-label">Events:</span>
+                        <span class="data-value">18</span>
+                    </div>
+                    <div class="data-point">
+                        <span class="data-label">Themes:</span>
+                        <span class="data-value">10</span>
+                    </div>
+                    <div class="data-point">
+                        <span class="data-label">Chapters:</span>
+                        <span class="data-value">19</span>
+                    </div>
+                    <div class="data-point">
+                        <span class="data-label">Relationships:</span>
+                        <span class="data-value">100+</span>
+                    </div>
+                </div>
+                
+                <div class="grid-item">
+                    <h3>Key Characters</h3>
+                    <div class="data-point">
+                        <span class="data-label">Bilbo Baggins:</span>
+                        <span class="data-value">Protagonist</span>
+                    </div>
+                    <div class="data-point">
+                        <span class="data-label">Gandalf:</span>
+                        <span class="data-value">Mentor</span>
+                    </div>
+                    <div class="data-point">
+                        <span class="data-label">Thorin Oakenshield:</span>
+                        <span class="data-value">Deuteragonist</span>
+                    </div>
+                    <div class="data-point">
+                        <span class="data-label">Smaug:</span>
+                        <span class="data-value">Antagonist</span>
+                    </div>
+                    <div class="data-point">
+                        <span class="data-label">Bard the Bowman:</span>
+                        <span class="data-value">Supporting</span>
+                    </div>
+                </div>
+                
+                <div class="grid-item">
+                    <h3>Central Themes</h3>
+                    <div class="data-point">
+                        <span class="data-label">Adventure:</span>
+                        <span class="data-value">Primary</span>
+                    </div>
+                    <div class="data-point">
+                        <span class="data-label">Heroism:</span>
+                        <span class="data-value">Major</span>
+                    </div>
+                    <div class="data-point">
+                        <span class="data-label">Greed:</span>
+                        <span class="data-value">Major</span>
+                    </div>
+                    <div class="data-point">
+                        <span class="data-label">Home:</span>
+                        <span class="data-value">Major</span>
+                    </div>
+                    <div class="data-point">
+                        <span class="data-label">Transformation:</span>
+                        <span class="data-value">Major</span>
+                    </div>
+                </div>
+                
+                <div class="grid-item">
+                    <h3>Key Locations</h3>
+                    <div class="data-point">
+                        <span class="data-label">The Shire:</span>
+                        <span class="data-value">Starting Point</span>
+                    </div>
+                    <div class="data-point">
+                        <span class="data-label">Misty Mountains:</span>
+                        <span class="data-value">First Threshold</span>
+                    </div>
+                    <div class="data-point">
+                        <span class="data-label">Mirkwood:</span>
+                        <span class="data-value">Special World</span>
+                    </div>
+                    <div class="data-point">
+                        <span class="data-label">Erebor:</span>
+                        <span class="data-value">Final Destination</span>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>Quick Visualizations</h3>
+            <p>Select a visualization to view:</p>
+            <div class="viz-selector">
+                <select id="dashboard-viz-selector">
+                    <option value="narrative">Complete Narrative Structure</option>
+                    <option value="timeline">Narrative Timeline</option>
+                    <option value="bilbo_arc">Bilbo's Character Arc</option>
+                    <option value="thorin_arc">Thorin's Character Arc</option>
+                    <option value="gandalf_arc">Gandalf's Character Arc</option>
+                </select>
+            </div>
+            
+            <div class="viz-frame-container">
+                <iframe id="dashboard-viz-frame" class="viz-frame" src="../../Output/hobbit_detailed/hobbit_narrative.html"></iframe>
+            </div>
+        </div>
+
+        <div id="narrative" class="tab-content">
+            <h2 class="dashboard-heading">Narrative Structure</h2>
+            <p>This visualization shows the complete narrative structure of The Hobbit, including all characters, locations, events, and themes.</p>
+            
+            <div class="viz-frame-container">
+                <iframe class="viz-frame" src="../../Output/hobbit_detailed/hobbit_narrative.html"></iframe>
+            </div>
+        </div>
+
+        <div id="timeline" class="tab-content">
+            <h2 class="dashboard-heading">Narrative Timeline</h2>
+            <p>This visualization shows the temporal progression of The Hobbit, tracking events and character appearances throughout the story.</p>
+            
+            <div class="viz-frame-container">
+                <iframe class="viz-frame" src="../../Output/hobbit_detailed/hobbit_timeline.html"></iframe>
+            </div>
+        </div>
+
+        <div id="character-arcs" class="tab-content">
+            <h2 class="dashboard-heading">Character Arcs</h2>
+            <p>Explore the development and relationships of key characters in The Hobbit.</p>
+            
+            <div class="viz-selector">
+                <select id="character-viz-selector">
+                    <option value="bilbo_arc">Bilbo Baggins</option>
+                    <option value="gandalf_arc">Gandalf</option>
+                    <option value="thorin_arc">Thorin Oakenshield</option>
+                    <option value="smaug_arc">Smaug</option>
+                    <option value="bard_arc">Bard the Bowman</option>
+                </select>
+            </div>
+            
+            <div class="viz-frame-container">
+                <iframe id="character-viz-frame" class="viz-frame" src="../../Output/hobbit_detailed/hobbit_bilbo_baggins_arc.html"></iframe>
+            </div>
+        </div>
+
+        <div id="about" class="tab-content">
+            <h2 class="dashboard-heading">About This Project</h2>
+            
+            <div class="info-box">
+                <h3>Temporal-Spatial Memory System</h3>
+                <p>This project demonstrates a novel approach to narrative analysis using a cylindrical coordinate system to represent narrative elements in time and space.</p>
+            </div>
+            
+            <h3>Key Components</h3>
+            <ul>
+                <li><strong>Narrative Atlas:</strong> A comprehensive database of narrative elements and their relationships.</li>
+                <li><strong>Cylindrical Coordinates:</strong> Time (vertical axis), distance (radial distance), and angle (thematic positioning).</li>
+                <li><strong>Relationship Mapping:</strong> Connections between characters, locations, events, and themes.</li>
+                <li><strong>Visualization:</strong> Interactive visualizations of narrative structure and character arcs.</li>
+            </ul>
+            
+            <h3>Technical Implementation</h3>
+            <ul>
+                <li><strong>Backend:</strong> Python-based narrative processing system.</li>
+                <li><strong>Data Structure:</strong> Custom mesh network optimized for narrative relationships.</li>
+                <li><strong>Visualization:</strong> Web-based interactive visualizations using HTML/CSS/JavaScript.</li>
+                <li><strong>Integration:</strong> Optional GraphRAG integration for automated processing.</li>
+            </ul>
+            
+            <h3>Project Goals</h3>
+            <p>This project aims to provide new insights into narrative structure and character development through computational analysis and visualization. By mapping narrative elements in a temporal-spatial coordinate system, we can better understand the complex relationships and patterns within literary works.</p>
+        </div>
+    </div>
+
+    <footer>
+        <div>Temporal-Spatial Memory System &copy; 2025 | The Hobbit by J.R.R. Tolkien</div>
+    </footer>
+
+    <script>
+        // Tab navigation
+        document.querySelectorAll('.nav-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Remove active class from all tabs
+                document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                this.classList.add('active');
+                document.getElementById(this.dataset.tab).classList.add('active');
+            });
+        });
+        
+        // Dashboard visualization selector
+        document.getElementById('dashboard-viz-selector').addEventListener('change', function() {
+            const vizFrame = document.getElementById('dashboard-viz-frame');
+            vizFrame.src = '../../Output/hobbit_detailed/hobbit_' + this.value + '.html';
+        });
+        
+        // Character visualization selector
+        document.getElementById('character-viz-selector').addEventListener('change', function() {
+            const vizFrame = document.getElementById('character-viz-frame');
+            vizFrame.src = '../../Output/hobbit_detailed/hobbit_' + this.value + '.html';
+        });
+    </script>
+</body>
+</html>
+""")
+    
+    print(f"Created dashboard at {dashboard_path}")
+    print(f"Open {dashboard_path} in a web browser to view the interactive dashboard.")
+
+def main():
+    """Run the dashboard creation."""
+    print("Creating The Hobbit Narrative Dashboard")
+    print("======================================\n")
+    
+    create_dashboard()
+    
+    print("\nDashboard creation complete!")
+
+if __name__ == "__main__":
+    main() 

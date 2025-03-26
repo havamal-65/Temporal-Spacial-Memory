@@ -9,8 +9,8 @@ with GraphRAG to process The Hobbit and generate improved visualizations.
 import os
 import sys
 from pathlib import Path
+from PyPDF2 import PdfReader
 
-from process_narrative import extract_text_from_pdf
 from src.core.narrative_processor import NarrativeProcessor
 from src.visualization.narrative_visualizer import (
     create_narrative_visualization,
@@ -18,18 +18,49 @@ from src.visualization.narrative_visualizer import (
     create_narrative_timeline
 )
 
+def extract_text_from_pdf(pdf_path):
+    """
+    Extract text from a PDF file.
+    
+    Args:
+        pdf_path: Path to the PDF file
+        
+    Returns:
+        Extracted text as a string
+    """
+    print(f"Reading PDF: {pdf_path}")
+    
+    try:
+        reader = PdfReader(pdf_path)
+        num_pages = len(reader.pages)
+        
+        print(f"PDF has {num_pages} pages")
+        
+        # Extract text from each page
+        text = ""
+        for i, page in enumerate(reader.pages):
+            if i % 10 == 0:
+                print(f"Processing page {i+1}/{num_pages}...")
+            text += page.extract_text() + "\n\n"
+            
+        print(f"Extracted {len(text)} characters")
+        return text
+    except Exception as e:
+        print(f"Error extracting text from PDF: {str(e)}")
+        return None
+
 def main():
     """Process The Hobbit with GraphRAG integration."""
     print("Processing The Hobbit with GraphRAG Integration")
     print("==============================================\n")
     
     # Check for hobbit PDF
-    pdf_path = "data/the_hobbit.pdf"
+    pdf_path = "Input/the_hobbit_tolkien.pdf"
     config_path = "config_examples/hobbit_config.yaml"
     
     if not os.path.exists(pdf_path):
         print(f"Error: PDF file not found at {pdf_path}")
-        print("Please place The Hobbit PDF in the data directory as 'the_hobbit.pdf'")
+        print("Please place The Hobbit PDF in the Input directory as 'the_hobbit_tolkien.pdf'")
         return
     
     if not os.path.exists(config_path):

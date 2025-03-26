@@ -13,9 +13,9 @@ import numpy as np
 from pathlib import Path
 
 # GraphRAG imports
-import graphrag
-from graphrag import Pipeline, LLMExtractor, KnowledgeGraphTransformer
-from graphrag.schema import Node, Edge, Triple
+import graphrag.api as graphrag_api
+from graphrag.config.load_config import load_config
+from graphrag.config.models.graph_rag_config import GraphRagConfig
 
 # Temporal-Spatial Memory imports
 from ..models.mesh_node import MeshNode
@@ -34,14 +34,34 @@ class GraphRAGAdapter:
             project_name: Name to use for the GraphRAG project
         """
         self.project_name = project_name
-        # Initialize GraphRAG
-        graphrag.init(project_name)
+        self.project_dir = Path(f"data/{project_name}")
+        self.project_dir.mkdir(parents=True, exist_ok=True)
         
-        # Configure the extraction pipeline
-        self.pipeline = Pipeline(
-            extractor=LLMExtractor(),
-            transformer=KnowledgeGraphTransformer()
+        # Initialize config
+        self.config = self._initialize_config()
+        
+    def _initialize_config(self) -> GraphRagConfig:
+        """Initialize GraphRAG configuration."""
+        # Check if the project already has a config
+        config_path = self.project_dir / "settings.yaml"
+        
+        if config_path.exists():
+            return load_config(self.project_dir)
+        
+        # Create a new configuration using CLI
+        from subprocess import run
+        result = run(
+            ["graphrag", "init", str(self.project_dir.absolute())],
+            capture_output=True,
+            text=True
         )
+        
+        if result.returncode != 0:
+            print(f"Error initializing GraphRAG: {result.stderr}")
+            raise RuntimeError("Failed to initialize GraphRAG")
+            
+        # Load the newly created config
+        return load_config(self.project_dir)
         
     def extract_knowledge_graph(self, text: str, metadata: Dict[str, Any] = None) -> Dict[str, Any]:
         """
@@ -57,8 +77,24 @@ class GraphRAGAdapter:
         if metadata is None:
             metadata = {"type": "narrative", "temporal_structure": "linear"}
         
-        # Process text with GraphRAG pipeline
-        knowledge_graph = self.pipeline.process_text(text, metadata=metadata)
+        # Write text to file for GraphRAG to process
+        text_path = self.project_dir / "input.txt"
+        with open(text_path, "w", encoding="utf-8") as f:
+            f.write(text)
+        
+        # Process text with GraphRAG API
+        print("Extracting knowledge graph with GraphRAG...")
+        result = graphrag_api.build_index(
+            str(self.project_dir),
+            verbose=True,
+            cache=True
+        )
+        
+        # Extract the knowledge graph from the result
+        knowledge_graph = {
+            "nodes": result.get("entities", []),
+            "edges": result.get("relationships", [])
+        }
         
         return knowledge_graph
     
