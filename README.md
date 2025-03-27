@@ -139,4 +139,55 @@ The system generates several types of visualizations:
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details. 
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+# GraphRAG Document Processor
+
+This tool automates the process of ingesting documents into GraphRAG and managing the input/output files.
+
+## Features
+
+- **Document Processing**: Select and process documents using GraphRAG with a simple UI
+- **Output Management**: Automatically creates dedicated output folders for each document
+- **Duplicate Handling**: Detects when the same document is processed again and offers to overwrite or create a new version
+- **File Browsing**: Browse input files and output visualizations directly from the UI
+- **Visualization Viewing**: Easily open and view generated visualizations
+
+## Getting Started
+
+### Prerequisites
+
+- Python 3.8 or higher
+- GraphRAG installed and configured
+- Required Python packages: tkinter, pyyaml
+
+### Running the Application
+
+1. Double-click the `process_document.bat` file (Windows) to launch the application
+2. If you're on Mac or Linux, run `python document_processor.py` in your terminal
+
+### How to Use
+
+1. **Select a Document**: Click the "Browse" button to select a document file (PDF, TXT, etc.)
+2. **Set Document Name**: Enter a name for the document (used for the output folder)
+3. **Process**: Click "Process Document" to start processing
+4. **View Results**: Once processing is complete, the output files will appear in the Output Files section
+5. **Open Visualizations**: Select an output folder and click "Open Selected" to view the visualizations
+
+### Output Organization
+
+Each document is processed into its own folder in the `Output` directory:
+
+- If processing the same document again, you'll be asked if you want to overwrite the existing output
+- If you choose not to overwrite, a new folder with a timestamp will be created
+- All visualizations, vector stores, and data files are saved in the document's folder
+
+## Troubleshooting
+
+- **Processing Errors**: Check the error message for details - most often related to API keys or file access
+- **Missing Visualizations**: Make sure the document was processed successfully
+- **Performance Issues**: Large documents may take a long time to process
+
+## Advanced Configuration
+
+The tool automatically updates the `settings.yaml` file to direct output to the document-specific folder. If you need to make additional configuration changes, edit the `settings.yaml` file directly. 
