@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Narrative Timeline: the_journey_of_heroes</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        body { margin: 0; padding: 20px; font-family: Arial, sans-serif; background: #f9f9f9; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 { color: #2c3e50; margin-bottom: 5px; }
+        .timeline { 
+            width: 100%; 
+            height: 500px; 
+            margin: 30px 0; 
+            position: relative;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+        .phase { 
+            position: absolute; 
+            height: 100%; 
+            top: 0; 
+            opacity: 0.2; 
+        }
+        .phase-label { 
+            position: absolute; 
+            top: 5px; 
+            text-align: center; 
+            font-weight: bold; 
+            color: #333; 
+        }
+        .event-point { 
+            position: absolute; 
+            width: 12px; 
+            height: 12px; 
+            border-radius: 50%; 
+            cursor: pointer;
+            transform: translate(-50%, -50%);
+        }
+        .event-point[data-type="event"] { background: #e74c3c; }
+        .event-point[data-type="character_intro"] { background: #3498db; }
+        .event-tooltip { 
+            position: absolute; 
+            background: rgba(0,0,0,0.8); 
+            color: white; 
+            padding: 10px; 
+            border-radius: 4px; 
+            font-size: 14px; 
+            pointer-events: none; 
+            opacity: 0; 
+            transition: opacity 0.2s; 
+            max-width: 250px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Narrative Timeline: the_journey_of_heroes</h1>
+        
+        <div class="timeline" id="timeline">
+            <!-- Will be populated by script -->
+        </div>
+    </div>
+
+    <script>
+        // Timeline data
+        const events = [{"id": "6f784d01-8c05-4ce5-844e-78465f30ee15", "type": "event", "title": "The Journey of Heroes Chapter 1: The Call In the s", "time": 0.0, "importance": 0.5, "participants": ["fbeee9eb-0b38-4302-84a2-a0895cec1db8", "3432e51d-4845-43d9-832b-07e322da1177", "d2e29b7f-bcaa-4c81-853a-f178ad904b74", "593a9522-c61d-4258-ae21-4a40897c1104", "c283e5eb-31d6-4c2d-ac52-64369bae3270", "30cb2f5e-8e2e-4f3f-a2ad-ee6f7795b725", "6f8af205-5bb7-4d77-94cb-ce964e266de6", "8928a93c-2058-4faa-aa1f-7a8c1fc1e4ba", "57a57ee5-291f-47ce-90d4-cd02d4e573e1", "f0594dcd-a35d-4a5a-be8e-3033180b4a13", "c60ee183-7699-4684-9af6-d1a40dbce945", "b3784154-ef88-4b90-96d3-a754a35203fa", "a44ea387-6138-4e3d-9025-f409cbab530d", "4b03a59b-5aec-4d6f-9e63-2ee306d99d3c", "0e9ee2ed-0dbe-42a6-b93d-39e7653d75d0", "d9e09606-751c-489d-a2d1-c31423a3b1a9", "cf505751-8713-4937-acf5-79e9311c98a8", "a63e6807-0118-4326-9ff7-04c6ab0dda53", "566a81d3-ab0d-4d88-acf4-ceb65fea0062", "9ce3316f-69ba-4346-a737-a804e3c66276", "ccd94e0b-db16-4688-a5b9-df9c6dfc26df", "457f2ea0-aedf-4c1a-80b6-f1d6b2af998e", "247c3f2a-0f20-4fca-83f2-8d7193ab7e30", "fb1e5c59-f18c-435e-b2f8-46aa93ad1fc9", "a56415ff-c21f-4f7a-8c3e-2b28610fb0e8", "508ce322-537b-416f-a779-fccfabfc5193", "a4cbb2e0-a602-4e6b-acdc-2709e37c5488", "8224bcb1-a7ec-48e1-80b9-9c2afb499615", "3c153772-8d96-48b0-85fe-9cd05f3bf5e1", "a5429071-3ed0-4859-b4ab-2c5690b5b89c", "bc1550b5-238d-49c9-9cf0-278315ff37b5", "da9739e5-da3d-4b52-8b0d-c617c60aa855", "4e43ee1c-098a-461a-9ee1-2a44a39e7e3b", "72f5a96a-4b18-4b5a-b1fd-b64be730c4ce", "e087e997-bc09-458a-baf8-a44bf3e1f465", "7661bcf3-2595-4a57-b4c9-f2ad05c40e29", "525fd054-6c64-4ad2-9d54-1cdc993b4b99", "e1b050a6-b3c7-406d-ab7a-e49337bbeaf9", "527fccdc-846b-4003-b0ff-bdddd408139d", "5b31d0a9-1021-48e0-9735-f0f0bb6a1c43", "dabba193-9048-49e9-bbb9-4a7de867601d", "6494958e-9ed3-460d-a316-ade32d06d7b1", "452c7971-7fb5-4df9-afe1-de3c0b8b95ed", "03fe44e7-9c5b-49ee-ab3f-f748aaa122e5", "fd579558-7a76-41aa-b4f7-40a43f5bbc68", "88693344-518d-403d-888a-3b6228cd1083", "31903e19-9dfc-4328-8d56-e6849356d651", "eb76ca3f-049c-42d1-afa3-6e17ca7530e4", "93fb13ec-6117-491a-bd07-ace8277e6553", "d42c87ed-df73-4392-b632-062212119442", "2c21ec94-7145-4418-88ba-91d05ebee38c", "3894d56f-4537-4d26-bc46-6be1dfed712b", "e4515a7f-b9b6-4b40-9777-9d2f63aad9da", "7bd393fc-5e05-4dd3-b07e-faf4ed6fb0d7", "57e66ee4-bd10-4086-8d00-fbddde6482d1"], "segment_text": "The Journey of Heroes Chapter 1: The Call In the small village of Riverdale, nestled between the great mountains and the endless sea, lived a young farmer named Thomas. He spent his days tending to his crops and caring for his aging mother, content with the simplicity of rural life. Thomas had never ventured beyond the boundaries of his village, though he often dreamed of the world that lay beyond the horizon. One evening, as Thomas returned from the fields, he noticed a stranger in the village square. The man was tall and draped in a weathered gray cloak. His face, partially hidden beneath a hood, bore the marks of many journeys. The villagers gathered around him, captivated by his tales of distant lands and ancient mysteries. \"Beyond the Western Woods,\" the stranger said, his voice deep and resonant, \"lies the Temple of the Four Winds, where the ancient Artifact of Truth is kept. It is said that those who possess it can see the true nature of all things.\" Thomas listened intently, a strange feeling stirring within him. The stranger, who introduced himself as Elden, spoke of a growing darkness that threatened to engulf the known world. Only the Artifact could reveal the source of this darkness and how to combat it. \"I seek brave companions for this journey,\" Elden announced, his eyes scanning the crowd. His gaze lingered on Thomas, who felt an inexplicable connection to the stranger's words. That night, Thomas could not sleep. The stranger's tales and the promise of adventure beyond Riverdale kept him awake until dawn. As the first light of morning broke through his window, Thomas made his decision. He would answer the call to adventure. Chapter 2: Companions Thomas found Elden at the village inn, preparing for departure. \"I want to join you,\" Thomas declared, his voice more confident than he felt. Elden studied him carefully. \"The journey will be perilous, young farmer. What skills do you bring?\" Before Thomas could respond, a voice called from the doorway. \"He brings heart, and sometimes that's more valuable than skill.\" They turned to see Sofia, the village healer, standing with her herb pouch and a determined expression. \"I'm coming too,\" she said firmly. \"My knowledge of herbs and healing will be useful.\" Sofia had always been kind to Thomas, tending to his mother during her illnesses. Her green eyes held a wisdom beyond her years, and her skill with medicines was renowned in Riverdale and beyond. \"And what of combat?\" Elden asked. \"The dangers we face may not be cured with herbs alone.\" \"That's where I come in,\" came another voice. Rowan, the village blacksmith's son and Thomas's childhood friend, stepped forward, a newly forged sword at his hip. \"I've been training with the village guard for years. I can handle myself in a fight.\" Rowan was strong and skilled, having learned the art of metalwork from his father while practicing swordplay whenever he could. His broad shoulders and calloused hands spoke of his physical prowess. Elden looked at the three villagers and nodded slowly. \"Very well. We leave at noon. Pack only what you can carry. The journey to the Western Woods is long, and beyond them, the terrain grows treacherous.\" As Thomas returned home to prepare, he found his mother waiting for him. \"I heard about your decision,\" she said softly. \"I always knew this day would come.\" She pressed a small pendant into his hand. \"This belonged to your father. He was an adventurer too, before he settled here. May it keep you safe.\" Thomas embraced his mother, promising to return with stories that would make her proud. As the sun reached its zenith, the four travelers set out from Riverdale, their path leading toward the distant Western Woods and the mysteries that lay beyond. Chapter 3: The Western Woods The Western Woods loomed before the travelers, a dense wall of ancient trees that seemed to touch the sky. Three days of travel had brought them to its edge, where the well-worn path from Riverdale faded into the underbrush. \"The woods have a mind of their own,\" Elden warned as they prepared to enter. \"Stay close and touch nothing that seems out of place.\" Thomas felt a shiver as they stepped beneath the canopy. Sunlight filtered through in thin beams, creating patches of light in the otherwise dim forest. The air was thick with the scent of moss and decay, the sounds of birds and small creatures creating a constant background chorus. Sofia moved with surprising confidence, stopping occasionally to gather herbs that grew in the dappled light. \"These woods are a healer's treasure,\" she explained, carefully placing a strange blue flower in her pouch. \"Plants grow here that can't be found anywhere else.\" Rowan remained vigilant, his hand never far from his sword. \"I don't like this place,\" he muttered. \"It feels like we're being watched.\" As they ventured deeper, the path grew increasingly difficult to discern. Elden seemed to navigate by signs invisible to the others, turning at certain trees and avoiding patches of ground that looked no different than any other. On the second day in the woods, as they made camp in a small clearing, Thomas heard whispering voices carried on the evening breeze. \"Did you hear that?\" he asked, but the others shook their heads. That night, Thomas dreamed of the trees moving, their roots pulling free from the earth as they walked on twisted limbs. He awoke with a start to find a small creature sitting on a log near the dying embers of their fire. It resembled a fox but had large, luminous eyes and small antlers protruding from its head. \"Hello, traveler,\" the creature said, its voice melodic and strange. \"You seek the Temple of the Four Winds.\" Thomas glanced at his sleeping companions, wondering if he was still dreaming. \"Yes,\" he answered cautiously. \"Can you help us find it?\" The creature tilted its head. \"The temple finds those who are worthy. But first, you must pass the Trials of the Forest.\" It pointed to a path that hadn't been there when they made camp. \"Follow this at dawn. Bring only one companion. The others must wait here.\" Before Thomas could ask more questions, the creature vanished, seeming to dissolve into the moonlight. He sat awake until morning, pondering its words and wondering which of his companions he should choose for the trials ahead."}, {"id": "fbeee9eb-0b38-4302-84a2-a0895cec1db8", "type": "character_intro", "title": "Introduction of The", "time": 0.0, "character_id": "fbeee9eb-0b38-4302-84a2-a0895cec1db8"}, {"id": "3432e51d-4845-43d9-832b-07e322da1177", "type": "character_intro", "title": "Introduction of Journey", "time": 0.0, "character_id": "3432e51d-4845-43d9-832b-07e322da1177"}, {"id": "d2e29b7f-bcaa-4c81-853a-f178ad904b74", "type": "character_intro", "title": "Introduction of Heroes", "time": 0.0, "character_id": "d2e29b7f-bcaa-4c81-853a-f178ad904b74"}, {"id": "593a9522-c61d-4258-ae21-4a40897c1104", "type": "character_intro", "title": "Introduction of Chapter", "time": 0.0, "character_id": "593a9522-c61d-4258-ae21-4a40897c1104"}, {"id": "c283e5eb-31d6-4c2d-ac52-64369bae3270", "type": "character_intro", "title": "Introduction of Call", "time": 0.0, "character_id": "c283e5eb-31d6-4c2d-ac52-64369bae3270"}, {"id": "30cb2f5e-8e2e-4f3f-a2ad-ee6f7795b725", "type": "character_intro", "title": "Introduction of In", "time": 0.0, "character_id": "30cb2f5e-8e2e-4f3f-a2ad-ee6f7795b725"}, {"id": "6f8af205-5bb7-4d77-94cb-ce964e266de6", "type": "character_intro", "title": "Introduction of Riverdale", "time": 0.0, "character_id": "6f8af205-5bb7-4d77-94cb-ce964e266de6"}, {"id": "8928a93c-2058-4faa-aa1f-7a8c1fc1e4ba", "type": "character_intro", "title": "Introduction of Thomas", "time": 0.0, "character_id": "8928a93c-2058-4faa-aa1f-7a8c1fc1e4ba"}, {"id": "57a57ee5-291f-47ce-90d4-cd02d4e573e1", "type": "character_intro", "title": "Introduction of He", "time": 0.0, "character_id": "57a57ee5-291f-47ce-90d4-cd02d4e573e1"}, {"id": "f0594dcd-a35d-4a5a-be8e-3033180b4a13", "type": "character_intro", "title": "Introduction of One", "time": 0.0, "character_id": "f0594dcd-a35d-4a5a-be8e-3033180b4a13"}, {"id": "c60ee183-7699-4684-9af6-d1a40dbce945", "type": "character_intro", "title": "Introduction of His", "time": 0.0, "character_id": "c60ee183-7699-4684-9af6-d1a40dbce945"}, {"id": "b3784154-ef88-4b90-96d3-a754a35203fa", "type": "character_intro", "title": "Introduction of Beyond", "time": 0.0, "character_id": "b3784154-ef88-4b90-96d3-a754a35203fa"}, {"id": "a44ea387-6138-4e3d-9025-f409cbab530d", "type": "character_intro", "title": "Introduction of Western", "time": 0.0, "character_id": "a44ea387-6138-4e3d-9025-f409cbab530d"}, {"id": "4b03a59b-5aec-4d6f-9e63-2ee306d99d3c", "type": "character_intro", "title": "Introduction of Woods", "time": 0.0, "character_id": "4b03a59b-5aec-4d6f-9e63-2ee306d99d3c"}, {"id": "0e9ee2ed-0dbe-42a6-b93d-39e7653d75d0", "type": "character_intro", "title": "Introduction of Temple", "time": 0.0, "character_id": "0e9ee2ed-0dbe-42a6-b93d-39e7653d75d0"}, {"id": "d9e09606-751c-489d-a2d1-c31423a3b1a9", "type": "character_intro", "title": "Introduction of Four", "time": 0.0, "character_id": "d9e09606-751c-489d-a2d1-c31423a3b1a9"}, {"id": "cf505751-8713-4937-acf5-79e9311c98a8", "type": "character_intro", "title": "Introduction of Winds", "time": 0.0, "character_id": "cf505751-8713-4937-acf5-79e9311c98a8"}, {"id": "a63e6807-0118-4326-9ff7-04c6ab0dda53", "type": "character_intro", "title": "Introduction of Artifact", "time": 0.0, "character_id": "a63e6807-0118-4326-9ff7-04c6ab0dda53"}, {"id": "566a81d3-ab0d-4d88-acf4-ceb65fea0062", "type": "character_intro", "title": "Introduction of Truth", "time": 0.0, "character_id": "566a81d3-ab0d-4d88-acf4-ceb65fea0062"}, {"id": "9ce3316f-69ba-4346-a737-a804e3c66276", "type": "character_intro", "title": "Introduction of It", "time": 0.0, "character_id": "9ce3316f-69ba-4346-a737-a804e3c66276"}, {"id": "ccd94e0b-db16-4688-a5b9-df9c6dfc26df", "type": "character_intro", "title": "Introduction of Elden", "time": 0.0, "character_id": "ccd94e0b-db16-4688-a5b9-df9c6dfc26df"}, {"id": "457f2ea0-aedf-4c1a-80b6-f1d6b2af998e", "type": "character_intro", "title": "Introduction of Only", "time": 0.0, "character_id": "457f2ea0-aedf-4c1a-80b6-f1d6b2af998e"}, {"id": "247c3f2a-0f20-4fca-83f2-8d7193ab7e30", "type": "character_intro", "title": "Introduction of That", "time": 0.0, "character_id": "247c3f2a-0f20-4fca-83f2-8d7193ab7e30"}, {"id": "fb1e5c59-f18c-435e-b2f8-46aa93ad1fc9", "type": "character_intro", "title": "Introduction of As", "time": 0.0, "character_id": "fb1e5c59-f18c-435e-b2f8-46aa93ad1fc9"}, {"id": "a56415ff-c21f-4f7a-8c3e-2b28610fb0e8", "type": "character_intro", "title": "Introduction of Companions", "time": 0.0, "character_id": "a56415ff-c21f-4f7a-8c3e-2b28610fb0e8"}, {"id": "508ce322-537b-416f-a779-fccfabfc5193", "type": "character_intro", "title": "Introduction of What", "time": 0.0, "character_id": "508ce322-537b-416f-a779-fccfabfc5193"}, {"id": "a4cbb2e0-a602-4e6b-acdc-2709e37c5488", "type": "character_intro", "title": "Introduction of Before", "time": 0.0, "character_id": "a4cbb2e0-a602-4e6b-acdc-2709e37c5488"}, {"id": "8224bcb1-a7ec-48e1-80b9-9c2afb499615", "type": "character_intro", "title": "Introduction of They", "time": 0.0, "character_id": "8224bcb1-a7ec-48e1-80b9-9c2afb499615"}, {"id": "3c153772-8d96-48b0-85fe-9cd05f3bf5e1", "type": "character_intro", "title": "Introduction of Sofia", "time": 0.0, "character_id": "3c153772-8d96-48b0-85fe-9cd05f3bf5e1"}, {"id": "a5429071-3ed0-4859-b4ab-2c5690b5b89c", "type": "character_intro", "title": "Introduction of My", "time": 0.0, "character_id": "a5429071-3ed0-4859-b4ab-2c5690b5b89c"}, {"id": "bc1550b5-238d-49c9-9cf0-278315ff37b5", "type": "character_intro", "title": "Introduction of Her", "time": 0.0, "character_id": "bc1550b5-238d-49c9-9cf0-278315ff37b5"}, {"id": "da9739e5-da3d-4b52-8b0d-c617c60aa855", "type": "character_intro", "title": "Introduction of And", "time": 0.0, "character_id": "da9739e5-da3d-4b52-8b0d-c617c60aa855"}, {"id": "4e43ee1c-098a-461a-9ee1-2a44a39e7e3b", "type": "character_intro", "title": "Introduction of Rowan", "time": 0.0, "character_id": "4e43ee1c-098a-461a-9ee1-2a44a39e7e3b"}, {"id": "72f5a96a-4b18-4b5a-b1fd-b64be730c4ce", "type": "character_intro", "title": "Introduction of Very", "time": 0.0, "character_id": "72f5a96a-4b18-4b5a-b1fd-b64be730c4ce"}, {"id": "e087e997-bc09-458a-baf8-a44bf3e1f465", "type": "character_intro", "title": "Introduction of We", "time": 0.0, "character_id": "e087e997-bc09-458a-baf8-a44bf3e1f465"}, {"id": "7661bcf3-2595-4a57-b4c9-f2ad05c40e29", "type": "character_intro", "title": "Introduction of Pack", "time": 0.0, "character_id": "7661bcf3-2595-4a57-b4c9-f2ad05c40e29"}, {"id": "525fd054-6c64-4ad2-9d54-1cdc993b4b99", "type": "character_intro", "title": "Introduction of She", "time": 0.0, "character_id": "525fd054-6c64-4ad2-9d54-1cdc993b4b99"}, {"id": "e1b050a6-b3c7-406d-ab7a-e49337bbeaf9", "type": "character_intro", "title": "Introduction of This", "time": 0.0, "character_id": "e1b050a6-b3c7-406d-ab7a-e49337bbeaf9"}, {"id": "527fccdc-846b-4003-b0ff-bdddd408139d", "type": "character_intro", "title": "Introduction of May", "time": 0.0, "character_id": "527fccdc-846b-4003-b0ff-bdddd408139d"}, {"id": "5b31d0a9-1021-48e0-9735-f0f0bb6a1c43", "type": "character_intro", "title": "Introduction of Three", "time": 0.0, "character_id": "5b31d0a9-1021-48e0-9735-f0f0bb6a1c43"}, {"id": "dabba193-9048-49e9-bbb9-4a7de867601d", "type": "character_intro", "title": "Introduction of Stay", "time": 0.0, "character_id": "dabba193-9048-49e9-bbb9-4a7de867601d"}, {"id": "6494958e-9ed3-460d-a316-ade32d06d7b1", "type": "character_intro", "title": "Introduction of Sunlight", "time": 0.0, "character_id": "6494958e-9ed3-460d-a316-ade32d06d7b1"}, {"id": "452c7971-7fb5-4df9-afe1-de3c0b8b95ed", "type": "character_intro", "title": "Introduction of These", "time": 0.0, "character_id": "452c7971-7fb5-4df9-afe1-de3c0b8b95ed"}, {"id": "03fe44e7-9c5b-49ee-ab3f-f748aaa122e5", "type": "character_intro", "title": "Introduction of Plants", "time": 0.0, "character_id": "03fe44e7-9c5b-49ee-ab3f-f748aaa122e5"}, {"id": "fd579558-7a76-41aa-b4f7-40a43f5bbc68", "type": "character_intro", "title": "Introduction of On", "time": 0.0, "character_id": "fd579558-7a76-41aa-b4f7-40a43f5bbc68"}, {"id": "88693344-518d-403d-888a-3b6228cd1083", "type": "character_intro", "title": "Introduction of Did", "time": 0.0, "character_id": "88693344-518d-403d-888a-3b6228cd1083"}, {"id": "31903e19-9dfc-4328-8d56-e6849356d651", "type": "character_intro", "title": "Introduction of Hello", "time": 0.0, "character_id": "31903e19-9dfc-4328-8d56-e6849356d651"}, {"id": "eb76ca3f-049c-42d1-afa3-6e17ca7530e4", "type": "character_intro", "title": "Introduction of You", "time": 0.0, "character_id": "eb76ca3f-049c-42d1-afa3-6e17ca7530e4"}, {"id": "93fb13ec-6117-491a-bd07-ace8277e6553", "type": "character_intro", "title": "Introduction of Yes", "time": 0.0, "character_id": "93fb13ec-6117-491a-bd07-ace8277e6553"}, {"id": "d42c87ed-df73-4392-b632-062212119442", "type": "character_intro", "title": "Introduction of Can", "time": 0.0, "character_id": "d42c87ed-df73-4392-b632-062212119442"}, {"id": "2c21ec94-7145-4418-88ba-91d05ebee38c", "type": "character_intro", "title": "Introduction of But", "time": 0.0, "character_id": "2c21ec94-7145-4418-88ba-91d05ebee38c"}, {"id": "3894d56f-4537-4d26-bc46-6be1dfed712b", "type": "character_intro", "title": "Introduction of Trials", "time": 0.0, "character_id": "3894d56f-4537-4d26-bc46-6be1dfed712b"}, {"id": "e4515a7f-b9b6-4b40-9777-9d2f63aad9da", "type": "character_intro", "title": "Introduction of Forest", "time": 0.0, "character_id": "e4515a7f-b9b6-4b40-9777-9d2f63aad9da"}, {"id": "7bd393fc-5e05-4dd3-b07e-faf4ed6fb0d7", "type": "character_intro", "title": "Introduction of Follow", "time": 0.0, "character_id": "7bd393fc-5e05-4dd3-b07e-faf4ed6fb0d7"}, {"id": "57e66ee4-bd10-4086-8d00-fbddde6482d1", "type": "character_intro", "title": "Introduction of Bring", "time": 0.0, "character_id": "57e66ee4-bd10-4086-8d00-fbddde6482d1"}];
+        const phases = [{"name": "Exposition", "start": 0, "end": 0}, {"name": "Rising Action", "start": 0, "end": 0}, {"name": "Climax", "start": 0, "end": 0}, {"name": "Falling Action", "start": 0, "end": 0}, {"name": "Resolution", "start": 0, "end": 1}];
+        
+        // Get max time value for scaling
+        const maxTime = events.length > 0 ? Math.max(...events.map(e => e.time)) : 0;
+        
+        // Setup container dimensions
+        const timeline = document.getElementById('timeline');
+        const width = timeline.offsetWidth - 40; // Account for padding
+        const height = timeline.offsetHeight - 40;
+        
+        // Add narrative phases as background
+        phases.forEach(phase => {
+            const phaseEl = document.createElement('div');
+            phaseEl.className = 'phase';
+            
+            // Calculate position based on segments
+            const startPercent = (phase.start / maxTime) * 100;
+            const endPercent = (phase.end / maxTime) * 100;
+            const phaseWidth = endPercent - startPercent;
+            
+            phaseEl.style.left = `${startPercent}%`;
+            phaseEl.style.width = `${phaseWidth}%`;
+            phaseEl.style.backgroundColor = getPhaseColor(phase.name);
+            
+            // Add label
+            const labelEl = document.createElement('div');
+            labelEl.className = 'phase-label';
+            labelEl.style.left = `${(startPercent + phaseWidth/2)}%`;
+            labelEl.style.width = `${phaseWidth}%`;
+            labelEl.textContent = phase.name;
+            
+            timeline.appendChild(phaseEl);
+            timeline.appendChild(labelEl);
+        });
+        
+        // Create tooltip
+        const tooltip = document.createElement('div');
+        tooltip.className = 'event-tooltip';
+        document.body.appendChild(tooltip);
+        
+        // Add event points
+        events.forEach(event => {
+            const point = document.createElement('div');
+            point.className = 'event-point';
+            point.setAttribute('data-type', event.type);
+            
+            // Position horizontally based on time, vertically based on importance
+            const xPos = (event.time / maxTime) * width + 20; // +20 for padding
+            
+            // For events, use importance; for character intros, use fixed position
+            let yPos;
+            if (event.type === 'event') {
+                yPos = height - (event.importance * height * 0.6) - 100;
+            } else {
+                yPos = 100; // Position character intros at the top
+            }
+            
+            point.style.left = `${xPos}px`;
+            point.style.top = `${yPos}px`;
+            
+            // Add tooltip behavior
+            point.addEventListener('mouseover', (e) => {
+                tooltip.textContent = event.title;
+                tooltip.style.left = `${e.pageX + 10}px`;
+                tooltip.style.top = `${e.pageY + 10}px`;
+                tooltip.style.opacity = '1';
+            });
+            
+            point.addEventListener('mouseout', () => {
+                tooltip.style.opacity = '0';
+            });
+            
+            timeline.appendChild(point);
+        });
+        
+        // Helper function for phase colors
+        function getPhaseColor(phaseName) {
+            const colors = {
+                'Exposition': '#3498db',
+                'Rising Action': '#2ecc71', 
+                'Climax': '#e74c3c',
+                'Falling Action': '#f39c12',
+                'Resolution': '#9b59b6'
+            };
+            return colors[phaseName] || '#ddd';
+        }
+    </script>
+</body>
+</html>
+    

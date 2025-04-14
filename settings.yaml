@@ -1,0 +1,45 @@
+# GraphRAG Configuration
+
+# Project settings
+project:
+  name: hobbit_analysis
+  description: Analysis of The Hobbit using GraphRAG
+  version: "1.0.0"
+
+# Processing settings
+processing:
+  chunk_size: 1000
+  overlap: 200
+  min_entity_mentions: 2
+  max_entities_per_chunk: 10
+  relationship_threshold: 0.6
+
+# Model settings
+model:
+  name: gpt-4
+  temperature: 0.7
+  max_tokens: 1000
+  top_p: 0.9
+
+# Storage settings
+storage:
+  type: lancedb
+  path: Output/lancedb
+  index_type: hnsw
+  index_params:
+    M: 16
+    ef_construction: 100
+
+# Visualization settings
+visualization:
+  theme: light
+  node_size: 10
+  edge_width: 1
+  font_size: 12
+  layout: force_directed
+  colors:
+    character: "#4C72B0"
+    location: "#55A868"
+    event: "#C44E52"
+    theme: "#8172B2"
+    relationship: "#937860" 

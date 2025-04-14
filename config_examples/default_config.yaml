@@ -1,0 +1,62 @@
+# Default configuration for the narrative processor
+
+narrative:
+  title: "Untitled Narrative"
+  author: "Unknown"
+  description: "A narrative text for temporal-spatial analysis."
+
+storage:
+  path: "data/default"
+  format: "json"
+
+output:
+  path: "Output/default"
+  format: "html"
+
+text_processing:
+  segmentation_level: "paragraph"  # paragraph, sentence, or chapter
+  
+  # Entity extraction patterns
+  entity_patterns:
+    characters: []
+    locations: []
+    events: []
+    themes: []
+
+visualization:
+  color_scheme:
+    character: "#3498db"  # Blue
+    location: "#2ecc71"   # Green
+    event: "#e74c3c"      # Red
+    theme: "#9b59b6"      # Purple
+  
+  timeline:
+    show_chapter_markers: true
+    highlight_major_events: true
+    character_filter: 5  # Show top 5 characters by default
+  
+  character_arcs:
+    track_locations: true
+    track_relationships: true
+    show_dialogue_samples: true
+
+# Sample queries to demonstrate the system
+sample_queries:
+  - name: "Character Journey"
+    description: "Track a character's appearance throughout the narrative"
+    type: "character_arc"
+    parameters:
+      character: ""  # To be filled in with a specific character
+  
+  - name: "Location Timeline"
+    description: "Show the sequence of locations in the narrative"
+    type: "location_sequence"
+    parameters:
+      min_scene_count: 2
+  
+  - name: "Character Co-occurrences"
+    description: "Find scenes where multiple characters appear together"
+    type: "character_cooccurrence"
+    parameters:
+      characters: []  # To be filled in with specific characters
+      window_size: 3  # segments 

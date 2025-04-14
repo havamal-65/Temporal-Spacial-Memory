@@ -33,11 +33,23 @@ class ConversationMemory:
             db_name: Name for the memory database
             storage_path: Path to store the database files
         """
+        # Create storage directories
+        os.makedirs(storage_path, exist_ok=True)
+        
+        # Initialize the database
         self.db = MeshTube(name=db_name, storage_path=storage_path)
         self.current_time = 0.0  # Start time for new conversations
         
-        # Create storage directories
-        os.makedirs(storage_path, exist_ok=True)
+        # Load existing database if it exists
+        try:
+            self.db.load()
+            print(f"Loaded existing database from {storage_path}/{db_name}.json")
+        except Exception as e:
+            print(f"No existing database found or error loading: {str(e)}")
+    
+    def save(self):
+        """Save the database to disk"""
+        self.db.save()
     
     def add_conversation(self, 
                         title: str, 
@@ -144,7 +156,7 @@ class ConversationMemory:
     def _find_keyword_node(self, keyword: str) -> Optional[Node]:
         """Find an existing keyword node if it exists"""
         # Get all nodes at global time (time=0)
-        nodes = self.db.get_temporal_slice(time=0.0, tolerance=0.1)
+        nodes = self.db.get_temporal_slice(0.0, tolerance=0.1)
         
         # Filter for keyword nodes with matching keyword
         for node in nodes:
@@ -369,7 +381,7 @@ class ConversationMemory:
             # Use the same angle as the conversation but at fixed distance,
             # positioned slightly above in time
             time_val = conv_node.time + 0.2
-            distance_val = 0.4  # Fixed distance for query nodes
+            distance_val = 0.4
             angle_val = conv_node.angle
             parent_id = conv_node.node_id
         else:
@@ -397,7 +409,7 @@ class ConversationMemory:
                 if (node.content.get("type") == "keyword" and 
                     node.node_id in conv_node.connections):
                     # Extract keyword
-                    keyword = node.content.get("keyword", "").lower()
+                    keyword = node.content.get("keyword")
                     # If the query contains this keyword, connect them
                     if keyword and (keyword in query.lower() or keyword in result.lower()):
                         self.db.connect_nodes(node.node_id, query_node.node_id)
@@ -415,7 +427,7 @@ class ConversationMemory:
         nodes = list(self.db.nodes.values())
         
         for node in nodes:
-            if node.content.get("type") == "conversation":
+            if node and node.content and node.content.get("type") == "conversation":
                 conversations.append({
                     "id": node.content.get("id"),
                     "title": node.content.get("title", "Untitled"),
@@ -442,59 +454,29 @@ class ConversationMemory:
                 keywords.add(node.content.get("keyword"))
         
         return sorted(list(keywords))
-    
-    def save(self) -> None:
-        """Save the database to disk"""
-        self.db.save(filepath=os.path.join(self.db.storage_path, f"{self.db.name}.json"))
-    
-    def load(self) -> None:
-        """Load the database from disk"""
-        filepath = os.path.join(self.db.storage_path, f"{self.db.name}.json")
-        if os.path.exists(filepath):
-            self.db = MeshTube.load(filepath)
 
-
-def extract_keywords(text: str, min_length: int = 3, max_keywords: int = 5) -> List[str]:
+def extract_keywords(text: str, max_keywords: int = 10) -> List[str]:
     """
-    Extract keywords from text (simple implementation).
-    In a real system, this would use NLP techniques.
+    Extract key topics/themes from text.
+    This is a simple implementation - a real system would use more sophisticated NLP.
     
     Args:
-        text: Text to extract keywords from
-        min_length: Minimum keyword length
+        text: Text to analyze
         max_keywords: Maximum number of keywords to return
         
     Returns:
-        List of keywords
+        List of extracted keywords
     """
-    # This is a very simple implementation
-    # In a real system, you'd use NLP techniques like TF-IDF or LDA
+    # For now, just split on spaces and take unique words
+    words = set(text.lower().split())
     
-    # Placeholder stop words
-    stop_words = {
-        'the', 'and', 'is', 'in', 'to', 'for', 'with', 'on', 'of', 'a', 'an', 'this', 
-        'that', 'you', 'it', 'not', 'are', 'be', 'will', 'can', 'have', 'has', 'had',
-        'was', 'were', 'they', 'them', 'their', 'we', 'our', 'us', 'i', 'me', 'my'
-    }
+    # Remove common stop words
+    stop_words = {'the', 'a', 'an', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for', 'of', 'with', 'by'}
+    keywords = [w for w in words if w not in stop_words and len(w) > 3]
     
-    # Simple tokenization and filtering
-    words = text.lower().split()
-    candidates = [w for w in words if len(w) >= min_length and w not in stop_words]
-    
-    # Count frequencies
-    word_counts = {}
-    for word in candidates:
-        if word in word_counts:
-            word_counts[word] += 1
-        else:
-            word_counts[word] = 1
-    
-    # Get top words by frequency
-    sorted_words = sorted(word_counts.items(), key=lambda x: x[1], reverse=True)
-    keywords = [word for word, count in sorted_words[:max_keywords]]
-    
-    return keywords
-
+    # Sort by length (simple heuristic for importance) and take top N
+    keywords.sort(key=len, reverse=True)
+    return keywords[:max_keywords]
 
 def generate_summary(messages: List[Dict[str, Any]], max_length: int = 200) -> str:
     """

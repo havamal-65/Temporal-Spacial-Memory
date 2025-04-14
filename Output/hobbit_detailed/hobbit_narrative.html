@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Narrative Atlas: the_hobbit_detailed</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://unpkg.com/three@0.132.2/build/three.min.js"></script>
+    <script src="https://unpkg.com/three-spritetext@1.6.5/dist/three-spritetext.min.js"></script>
+    <script src="https://unpkg.com/three-forcegraph"></script>
+    <style>
+        body { margin: 0; padding: 0; font-family: Arial, sans-serif; }
+        #container { width: 100%; height: 100vh; }
+        #info-panel { 
+            position: absolute; 
+            top: 10px; 
+            left: 10px; 
+            background: rgba(255,255,255,0.8); 
+            padding: 15px; 
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            max-width: 300px;
+        }
+        h1, h2 { margin-top: 0; color: #333; }
+        .stat { margin: 5px 0; }
+        .legend { display: flex; flex-wrap: wrap; margin-top: 10px; }
+        .legend-item { 
+            display: flex; 
+            align-items: center; 
+            margin-right: 15px;
+            margin-bottom: 5px;
+            cursor: pointer;
+        }
+        .legend-color { 
+            width: 15px; 
+            height: 15px; 
+            margin-right: 5px; 
+            border-radius: 50%; 
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+    <div id="info-panel">
+        <h1>Narrative Atlas</h1>
+        <h2>the_hobbit_detailed</h2>
+        <div class="stats">
+            <div class="stat">Characters: 25</div>
+            <div class="stat">Events: 18</div>
+            <div class="stat">Locations: 14</div>
+            <div class="stat">Themes: 10</div>
+        </div>
+        <div class="legend">
+            <div class="legend-item" data-type="character">
+                <div class="legend-color" style="background-color: #3498db;"></div>
+                <div>Characters</div>
+            </div>
+            <div class="legend-item" data-type="event">
+                <div class="legend-color" style="background-color: #e74c3c;"></div>
+                <div>Events</div>
+            </div>
+            <div class="legend-item" data-type="location">
+                <div class="legend-color" style="background-color: #2ecc71;"></div>
+                <div>Locations</div>
+            </div>
+            <div class="legend-item" data-type="theme">
+                <div class="legend-color" style="background-color: #9b59b6;"></div>
+                <div>Themes</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Visualization data
+        const data = {"nodes": [{"id": "bilbo", "type": "character", "name": "Bilbo Baggins", "time": 0.5, "distance": 0.050000000000000044, "angle": 0.8164, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "gandalf", "type": "character", "name": "Gandalf", "time": 0.4, "distance": 0.15000000000000002, "angle": 5.652, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "thorin", "type": "character", "name": "Thorin Oakenshield", "time": 0.5, "distance": 0.19999999999999996, "angle": 4.961200000000001, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "smaug", "type": "character", "name": "Smaug", "time": 0.7, "distance": 0.25, "angle": 5.4008, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "gollum", "type": "character", "name": "Gollum", "time": 0.3, "distance": 0.30000000000000004, "angle": 1.57, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "bard", "type": "character", "name": "Bard the Bowman", "time": 0.8, "distance": 0.35, "angle": 5.966, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "beorn", "type": "character", "name": "Beorn", "time": 0.55, "distance": 0.4, "angle": 5.9032, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "elrond", "type": "character", "name": "Elrond", "time": 0.2, "distance": 0.4, "angle": 1.1932, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "thranduil", "type": "character", "name": "Thranduil", "time": 0.6, "distance": 0.44999999999999996, "angle": 5.2124, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "master", "type": "character", "name": "Master of Lake-town", "time": 0.75, "distance": 0.5, "angle": 4.082000000000001, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "balin", "type": "character", "name": "Balin", "time": 0.45, "distance": 0.44999999999999996, "angle": 1.2560000000000002, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "dwalin", "type": "character", "name": "Dwalin", "time": 0.45, "distance": 0.5, "angle": 2.0724, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "fili", "type": "character", "name": "Fili", "time": 0.45, "distance": 0.5, "angle": 1.57, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "kili", "type": "character", "name": "Kili", "time": 0.45, "distance": 0.5, "angle": 3.768, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "dori", "type": "character", "name": "Dori", "time": 0.45, "distance": 0.55, "angle": 6.1544, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "nori", "type": "character", "name": "Nori", "time": 0.45, "distance": 0.55, "angle": 1.5072, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "ori", "type": "character", "name": "Ori", "time": 0.45, "distance": 0.55, "angle": 4.2704, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "oin", "type": "character", "name": "Oin", "time": 0.45, "distance": 0.55, "angle": 0.5024000000000001, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "gloin", "type": "character", "name": "Gloin", "time": 0.45, "distance": 0.55, "angle": 3.0144, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "bifur", "type": "character", "name": "Bifur", "time": 0.45, "distance": 0.55, "angle": 0.1884, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "bofur", "type": "character", "name": "Bofur", "time": 0.45, "distance": 0.55, "angle": 5.2752, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "bombur", "type": "character", "name": "Bombur", "time": 0.45, "distance": 0.55, "angle": 0.942, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "great_goblin", "type": "character", "name": "Great Goblin", "time": 0.35, "distance": 0.5, "angle": 6.0288, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "azog", "type": "character", "name": "Azog the Defiler", "time": 0.85, "distance": 0.44999999999999996, "angle": 3.3912000000000004, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "bolg", "type": "character", "name": "Bolg", "time": 0.85, "distance": 0.5, "angle": 1.8212, "size": 2.0794415416798357, "color": "#3498db"}, {"id": "unexpected_party", "type": "event", "name": "Gandalf and thirteen dwarves a...", "time": 0.05, "distance": 0.30000000000000004, "angle": 8.792, "size": 2.5, "color": "#e74c3c"}, {"id": "troll_encounter", "type": "event", "name": "The company is captured by thr...", "time": 0.15, "distance": 0.4, "angle": 5.4008, "size": 2.5, "color": "#e74c3c"}, {"id": "rivendell_visit", "type": "event", "name": "The company rests in Rivendell...", "time": 0.2, "distance": 0.4, "angle": 5.9032, "size": 2.5, "color": "#e74c3c"}, {"id": "goblin_capture", "type": "event", "name": "While sheltering in a cave in ...", "time": 0.3, "distance": 0.35, "angle": 5.212400000000001, "size": 2.5, "color": "#e74c3c"}, {"id": "riddles_in_the_dark", "type": "event", "name": "Bilbo gets separated from the ...", "time": 0.3, "distance": 0.19999999999999996, "angle": 8.3524, "size": 2.5, "color": "#e74c3c"}, {"id": "eagle_rescue", "type": "event", "name": "The Great Eagles rescue the co...", "time": 0.35, "distance": 0.35, "angle": 5.0868, "size": 2.5, "color": "#e74c3c"}, {"id": "beorn_stay", "type": "event", "name": "The company recovers at Beorn'...", "time": 0.45, "distance": 0.4, "angle": 8.7292, "size": 2.5, "color": "#e74c3c"}, {"id": "mirkwood_journey", "type": "event", "name": "The company loses their way in...", "time": 0.5, "distance": 0.30000000000000004, "angle": 7.096400000000001, "size": 2.5, "color": "#e74c3c"}, {"id": "elf_capture", "type": "event", "name": "The dwarves are captured by th...", "time": 0.6, "distance": 0.35, "angle": 8.3524, "size": 2.5, "color": "#e74c3c"}, {"id": "barrel_escape", "type": "event", "name": "Bilbo helps the dwarves escape...", "time": 0.6, "distance": 0.30000000000000004, "angle": 3.14, "size": 2.5, "color": "#e74c3c"}, {"id": "laketown_welcome", "type": "event", "name": "The company arrives in Lake-to...", "time": 0.65, "distance": 0.4, "angle": 4.3332, "size": 2.5, "color": "#e74c3c"}, {"id": "lonely_mountain_arrival", "type": "event", "name": "The company finds the secret d...", "time": 0.7, "distance": 0.30000000000000004, "angle": 8.5408, "size": 2.5, "color": "#e74c3c"}, {"id": "smaug_conversation", "type": "event", "name": "Bilbo enters the mountain and ...", "time": 0.75, "distance": 0.19999999999999996, "angle": 5.652000000000001, "size": 2.5, "color": "#e74c3c"}, {"id": "smaug_attack", "type": "event", "name": "An enraged Smaug attacks Lake-...", "time": 0.8, "distance": 0.25, "angle": 8.854800000000001, "size": 2.5, "color": "#e74c3c"}, {"id": "battle_five_armies", "type": "event", "name": "Men, Elves, Dwarves, Eagles, a...", "time": 0.9, "distance": 0.09999999999999998, "angle": 7.6616, "size": 2.5, "color": "#e74c3c"}, {"id": "thorin_death", "type": "event", "name": "Thorin is mortally wounded in ...", "time": 0.95, "distance": 0.19999999999999996, "angle": 7.912800000000001, "size": 2.5, "color": "#e74c3c"}, {"id": "return_journey", "type": "event", "name": "Bilbo returns to the Shire wit...", "time": 0.95, "distance": 0.30000000000000004, "angle": 6.2172, "size": 2.5, "color": "#e74c3c"}, {"id": "home_auction", "type": "event", "name": "Bilbo arrives home to find his...", "time": 0.98, "distance": 0.4, "angle": 7.6616, "size": 2.5, "color": "#e74c3c"}, {"id": "bag_end", "type": "location", "name": "Bag End", "time": 0.05, "distance": 0.4, "angle": 6.405600000000001, "size": 2, "color": "#2ecc71"}, {"id": "shire", "type": "location", "name": "The Shire", "time": 0.05, "distance": 0.5, "angle": 7.410400000000001, "size": 2, "color": "#2ecc71"}, {"id": "trollshaws", "type": "location", "name": "Trollshaws", "time": 0.15, "distance": 0.5, "angle": 5.526400000000001, "size": 2, "color": "#2ecc71"}, {"id": "rivendell", "type": "location", "name": "Rivendell", "time": 0.2, "distance": 0.35, "angle": 1.57, "size": 2, "color": "#2ecc71"}, {"id": "misty_mountains", "type": "location", "name": "Misty Mountains", "time": 0.3, "distance": 0.30000000000000004, "angle": 6.594000000000001, "size": 2, "color": "#2ecc71"}, {"id": "gollums_cave", "type": "location", "name": "Gollum's Cave", "time": 0.3, "distance": 0.35, "angle": 7.284800000000001, "size": 2, "color": "#2ecc71"}, {"id": "carrock", "type": "location", "name": "Carrock", "time": 0.4, "distance": 0.4, "angle": 4.1448, "size": 2, "color": "#2ecc71"}, {"id": "beorns_house", "type": "location", "name": "Beorn's House", "time": 0.45, "distance": 0.4, "angle": 6.594000000000001, "size": 2, "color": "#2ecc71"}, {"id": "mirkwood", "type": "location", "name": "Mirkwood", "time": 0.55, "distance": 0.30000000000000004, "angle": 6.2172, "size": 2, "color": "#2ecc71"}, {"id": "elvenking_halls", "type": "location", "name": "Halls of the Elvenking", "time": 0.6, "distance": 0.35, "angle": 7.222, "size": 2, "color": "#2ecc71"}, {"id": "laketown", "type": "location", "name": "Lake-town", "time": 0.65, "distance": 0.4, "angle": 4.2076, "size": 2, "color": "#2ecc71"}, {"id": "erebor", "type": "location", "name": "Lonely Mountain (Erebor)", "time": 0.75, "distance": 0.25, "angle": 5.2752, "size": 2, "color": "#2ecc71"}, {"id": "dale", "type": "location", "name": "Dale", "time": 0.75, "distance": 0.4, "angle": 7.284800000000001, "size": 2, "color": "#2ecc71"}, {"id": "ravenhill", "type": "location", "name": "Ravenhill", "time": 0.85, "distance": 0.35, "angle": 2.8260000000000005, "size": 2, "color": "#2ecc71"}, {"id": "adventure", "type": "theme", "name": "Adventure", "time": 0.5, "distance": 0.19999999999999996, "angle": 4.71, "size": 2, "color": "#9b59b6"}, {"id": "heroism", "type": "theme", "name": "Heroism", "time": 0.6, "distance": 0.19999999999999996, "angle": 10.8016, "size": 2, "color": "#9b59b6"}, {"id": "greed", "type": "theme", "name": "Greed", "time": 0.7, "distance": 0.25, "angle": 7.1592, "size": 2, "color": "#9b59b6"}, {"id": "home", "type": "theme", "name": "Home", "time": 0.5, "distance": 0.30000000000000004, "angle": 5.5264, "size": 2, "color": "#9b59b6"}, {"id": "friendship", "type": "theme", "name": "Friendship", "time": 0.5, "distance": 0.25, "angle": 6.28, "size": 2, "color": "#9b59b6"}, {"id": "transformation", "type": "theme", "name": "Transformation", "time": 0.5, "distance": 0.19999999999999996, "angle": 5.966, "size": 2, "color": "#9b59b6"}, {"id": "fate", "type": "theme", "name": "Fate & Destiny", "time": 0.5, "distance": 0.30000000000000004, "angle": 8.6664, "size": 2, "color": "#9b59b6"}, {"id": "courage", "type": "theme", "name": "Courage", "time": 0.5, "distance": 0.25, "angle": 9.985199999999999, "size": 2, "color": "#9b59b6"}, {"id": "wisdom", "type": "theme", "name": "Wisdom vs. Intelligence", "time": 0.5, "distance": 0.30000000000000004, "angle": 8.7292, "size": 2, "color": "#9b59b6"}, {"id": "wealth", "type": "theme", "name": "Wealth & Possession", "time": 0.7, "distance": 0.30000000000000004, "angle": 8.6036, "size": 2, "color": "#9b59b6"}], "links": [{"source": "bilbo", "target": "riddles_in_the_dark", "value": 1}, {"source": "bilbo", "target": "troll_encounter", "value": 1}, {"source": "bilbo", "target": "adventure", "value": 1}, {"source": "bilbo", "target": "gandalf", "value": 1}, {"source": "bilbo", "target": "erebor", "value": 1}, {"source": "bilbo", "target": "rivendell", "value": 1}, {"source": "bilbo", "target": "elf_capture", "value": 1}, {"source": "bilbo", "target": "misty_mountains", "value": 1}, {"source": "bilbo", "target": "smaug_conversation", "value": 1}, {"source": "bilbo", "target": "shire", "value": 1}, {"source": "bilbo", "target": "mirkwood", "value": 1}, {"source": "bilbo", "target": "rivendell_visit", "value": 1}, {"source": "bilbo", "target": "ravenhill", "value": 1}, {"source": "bilbo", "target": "balin", "value": 1}, {"source": "bilbo", "target": "trollshaws", "value": 1}, {"source": "bilbo", "target": "gollums_cave", "value": 1}, {"source": "bilbo", "target": "eagle_rescue", "value": 1}, {"source": "bilbo", "target": "battle_five_armies", "value": 1}, {"source": "bilbo", "target": "thorin", "value": 1}, {"source": "bilbo", "target": "barrel_escape", "value": 1}, {"source": "bilbo", "target": "beorns_house", "value": 1}, {"source": "bilbo", "target": "return_journey", "value": 1}, {"source": "bilbo", "target": "home", "value": 1}, {"source": "bilbo", "target": "carrock", "value": 1}, {"source": "bilbo", "target": "dale", "value": 1}, {"source": "bilbo", "target": "smaug", "value": 1}, {"source": "bilbo", "target": "beorn", "value": 1}, {"source": "bilbo", "target": "laketown_welcome", "value": 1}, {"source": "bilbo", "target": "heroism", "value": 1}, {"source": "bilbo", "target": "gollum", "value": 1}, {"source": "bilbo", "target": "goblin_capture", "value": 1}, {"source": "bilbo", "target": "transformation", "value": 1}, {"source": "bilbo", "target": "courage", "value": 1}, {"source": "bilbo", "target": "beorn_stay", "value": 1}, {"source": "bilbo", "target": "bard", "value": 1}, {"source": "bilbo", "target": "mirkwood_journey", "value": 1}, {"source": "bilbo", "target": "lonely_mountain_arrival", "value": 1}, {"source": "bilbo", "target": "home_auction", "value": 1}, {"source": "bilbo", "target": "elvenking_halls", "value": 1}, {"source": "bilbo", "target": "laketown", "value": 1}, {"source": "bilbo", "target": "bag_end", "value": 1}, {"source": "bilbo", "target": "unexpected_party", "value": 1}, {"source": "gandalf", "target": "fate", "value": 1}, {"source": "gandalf", "target": "rivendell_visit", "value": 1}, {"source": "gandalf", "target": "beorns_house", "value": 1}, {"source": "gandalf", "target": "troll_encounter", "value": 1}, {"source": "gandalf", "target": "ravenhill", "value": 1}, {"source": "gandalf", "target": "return_journey", "value": 1}, {"source": "gandalf", "target": "wisdom", "value": 1}, {"source": "gandalf", "target": "eagle_rescue", "value": 1}, {"source": "gandalf", "target": "carrock", "value": 1}, {"source": "gandalf", "target": "beorn", "value": 1}, {"source": "gandalf", "target": "rivendell", "value": 1}, {"source": "gandalf", "target": "goblin_capture", "value": 1}, {"source": "gandalf", "target": "battle_five_armies", "value": 1}, {"source": "gandalf", "target": "misty_mountains", "value": 1}, {"source": "gandalf", "target": "great_goblin", "value": 1}, {"source": "gandalf", "target": "unexpected_party", "value": 1}, {"source": "gandalf", "target": "elrond", "value": 1}, {"source": "thorin", "target": "troll_encounter", "value": 1}, {"source": "thorin", "target": "thranduil", "value": 1}, {"source": "thorin", "target": "wealth", "value": 1}, {"source": "thorin", "target": "gandalf", "value": 1}, {"source": "thorin", "target": "erebor", "value": 1}, {"source": "thorin", "target": "elf_capture", "value": 1}, {"source": "thorin", "target": "ravenhill", "value": 1}, {"source": "thorin", "target": "balin", "value": 1}, {"source": "thorin", "target": "greed", "value": 1}, {"source": "thorin", "target": "battle_five_armies", "value": 1}, {"source": "thorin", "target": "barrel_escape", "value": 1}, {"source": "thorin", "target": "dale", "value": 1}, {"source": "thorin", "target": "laketown_welcome", "value": 1}, {"source": "thorin", "target": "heroism", "value": 1}, {"source": "thorin", "target": "bilbo", "value": 1}, {"source": "thorin", "target": "goblin_capture", "value": 1}, {"source": "thorin", "target": "bard", "value": 1}, {"source": "thorin", "target": "lonely_mountain_arrival", "value": 1}, {"source": "thorin", "target": "thorin_death", "value": 1}, {"source": "thorin", "target": "unexpected_party", "value": 1}, {"source": "smaug", "target": "smaug_attack", "value": 1}, {"source": "smaug", "target": "greed", "value": 1}, {"source": "smaug", "target": "erebor", "value": 1}, {"source": "smaug", "target": "laketown", "value": 1}, {"source": "smaug", "target": "smaug_conversation", "value": 1}, {"source": "gollum", "target": "riddles_in_the_dark", "value": 1}, {"source": "gollum", "target": "gollums_cave", "value": 1}, {"source": "gollum", "target": "greed", "value": 1}, {"source": "gollum", "target": "bilbo", "value": 1}, {"source": "gollum", "target": "misty_mountains", "value": 1}, {"source": "bard", "target": "smaug_attack", "value": 1}, {"source": "bard", "target": "heroism", "value": 1}, {"source": "bard", "target": "dale", "value": 1}, {"source": "bard", "target": "battle_five_armies", "value": 1}, {"source": "bard", "target": "laketown", "value": 1}, {"source": "bard", "target": "master", "value": 1}, {"source": "beorn", "target": "transformation", "value": 1}, {"source": "beorn", "target": "beorn_stay", "value": 1}, {"source": "beorn", "target": "beorns_house", "value": 1}, {"source": "beorn", "target": "ravenhill", "value": 1}, {"source": "beorn", "target": "battle_five_armies", "value": 1}, {"source": "beorn", "target": "azog", "value": 1}, {"source": "elrond", "target": "rivendell_visit", "value": 1}, {"source": "elrond", "target": "rivendell", "value": 1}, {"source": "thranduil", "target": "thorin", "value": 1}, {"source": "thranduil", "target": "mirkwood", "value": 1}, {"source": "thranduil", "target": "elvenking_halls", "value": 1}, {"source": "thranduil", "target": "battle_five_armies", "value": 1}, {"source": "thranduil", "target": "elf_capture", "value": 1}, {"source": "master", "target": "laketown", "value": 1}, {"source": "master", "target": "greed", "value": 1}, {"source": "master", "target": "laketown_welcome", "value": 1}, {"source": "balin", "target": "friendship", "value": 1}, {"source": "balin", "target": "dwalin", "value": 1}, {"source": "fili", "target": "kili", "value": 1}, {"source": "dori", "target": "nori", "value": 1}, {"source": "nori", "target": "ori", "value": 1}, {"source": "gloin", "target": "oin", "value": 1}, {"source": "bifur", "target": "bofur", "value": 1}, {"source": "bofur", "target": "bombur", "value": 1}, {"source": "great_goblin", "target": "misty_mountains", "value": 1}, {"source": "great_goblin", "target": "goblin_capture", "value": 1}, {"source": "azog", "target": "thorin", "value": 1}, {"source": "azog", "target": "battle_five_armies", "value": 1}, {"source": "azog", "target": "ravenhill", "value": 1}, {"source": "bolg", "target": "thorin", "value": 1}, {"source": "bolg", "target": "battle_five_armies", "value": 1}, {"source": "bolg", "target": "ravenhill", "value": 1}], "metadata": {"title": "the_hobbit_detailed", "segments": 19, "timeline_start": 0.05, "timeline_end": 0.98, "character_count": 25, "event_count": 18, "location_count": 14, "theme_count": 10}};
+        
+        // Initialize 3D Graph
+        const Graph = ForceGraph3D()
+            (document.getElementById('container'))
+            .graphData(data)
+            .nodeId('id')
+            .nodeLabel('name')
+            .nodeColor('color')
+            .nodeVal('size')
+            .linkWidth(1)
+            .linkOpacity(0.5)
+            .backgroundColor('#f7f7f7')
+            .showNavInfo(true);
+            
+        // Add text labels to nodes
+        Graph.nodeThreeObject(node => {
+            const sprite = new SpriteText(node.name);
+            sprite.color = node.color;
+            sprite.textHeight = 4;
+            sprite.position.y = node.size + 4;
+            return sprite;
+        });
+        
+        // Position nodes based on cylindrical coordinates
+        Graph.nodePositionUpdate((node, pos) => {
+            // Convert cylindrical coordinates to Cartesian
+            const radius = node.distance * 100;
+            const angle = node.angle * (Math.PI / 180);
+            const height = node.time * 20;
+            
+            return {
+                x: radius * Math.cos(angle),
+                y: height,
+                z: radius * Math.sin(angle)
+            };
+        });
+        
+        // Legend toggle functionality
+        document.querySelectorAll('.legend-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const type = item.getAttribute('data-type');
+                const graphData = Graph.graphData();
+                
+                // Toggle visibility
+                const newNodes = graphData.nodes.map(node => {
+                    if (node.type === type) {
+                        return {
+                            ...node,
+                            hidden: !node.hidden
+                        };
+                    }
+                    return node;
+                });
+                
+                Graph.graphData({
+                    nodes: newNodes,
+                    links: graphData.links
+                });
+                
+                // Toggle legend item style
+                item.style.opacity = item.style.opacity === '0.5' ? '1' : '0.5';
+            });
+        });
+    </script>
+</body>
+</html>
+    

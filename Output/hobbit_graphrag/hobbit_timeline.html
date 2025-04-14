@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Narrative Timeline: the_hobbit_graphrag</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        body { margin: 0; padding: 20px; font-family: Arial, sans-serif; background: #f9f9f9; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 { color: #2c3e50; margin-bottom: 5px; }
+        .timeline { 
+            width: 100%; 
+            height: 500px; 
+            margin: 30px 0; 
+            position: relative;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+        .phase { 
+            position: absolute; 
+            height: 100%; 
+            top: 0; 
+            opacity: 0.2; 
+        }
+        .phase-label { 
+            position: absolute; 
+            top: 5px; 
+            text-align: center; 
+            font-weight: bold; 
+            color: #333; 
+        }
+        .event-point { 
+            position: absolute; 
+            width: 12px; 
+            height: 12px; 
+            border-radius: 50%; 
+            cursor: pointer;
+            transform: translate(-50%, -50%);
+        }
+        .event-point[data-type="event"] { background: #e74c3c; }
+        .event-point[data-type="character_intro"] { background: #3498db; }
+        .event-tooltip { 
+            position: absolute; 
+            background: rgba(0,0,0,0.8); 
+            color: white; 
+            padding: 10px; 
+            border-radius: 4px; 
+            font-size: 14px; 
+            pointer-events: none; 
+            opacity: 0; 
+            transition: opacity 0.2s; 
+            max-width: 250px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Narrative Timeline: the_hobbit_graphrag</h1>
+        
+        <div class="timeline" id="timeline">
+            <!-- Will be populated by script -->
+        </div>
+    </div>
+
+    <script>
+        // Timeline data
+        const events = [];
+        const phases = [];
+        
+        // Get max time value for scaling
+        const maxTime = events.length > 0 ? Math.max(...events.map(e => e.time)) : 0;
+        
+        // Setup container dimensions
+        const timeline = document.getElementById('timeline');
+        const width = timeline.offsetWidth - 40; // Account for padding
+        const height = timeline.offsetHeight - 40;
+        
+        // Add narrative phases as background
+        phases.forEach(phase => {
+            const phaseEl = document.createElement('div');
+            phaseEl.className = 'phase';
+            
+            // Calculate position based on segments
+            const startPercent = (phase.start / maxTime) * 100;
+            const endPercent = (phase.end / maxTime) * 100;
+            const phaseWidth = endPercent - startPercent;
+            
+            phaseEl.style.left = `${startPercent}%`;
+            phaseEl.style.width = `${phaseWidth}%`;
+            phaseEl.style.backgroundColor = getPhaseColor(phase.name);
+            
+            // Add label
+            const labelEl = document.createElement('div');
+            labelEl.className = 'phase-label';
+            labelEl.style.left = `${(startPercent + phaseWidth/2)}%`;
+            labelEl.style.width = `${phaseWidth}%`;
+            labelEl.textContent = phase.name;
+            
+            timeline.appendChild(phaseEl);
+            timeline.appendChild(labelEl);
+        });
+        
+        // Create tooltip
+        const tooltip = document.createElement('div');
+        tooltip.className = 'event-tooltip';
+        document.body.appendChild(tooltip);
+        
+        // Add event points
+        events.forEach(event => {
+            const point = document.createElement('div');
+            point.className = 'event-point';
+            point.setAttribute('data-type', event.type);
+            
+            // Position horizontally based on time, vertically based on importance
+            const xPos = (event.time / maxTime) * width + 20; // +20 for padding
+            
+            // For events, use importance; for character intros, use fixed position
+            let yPos;
+            if (event.type === 'event') {
+                yPos = height - (event.importance * height * 0.6) - 100;
+            } else {
+                yPos = 100; // Position character intros at the top
+            }
+            
+            point.style.left = `${xPos}px`;
+            point.style.top = `${yPos}px`;
+            
+            // Add tooltip behavior
+            point.addEventListener('mouseover', (e) => {
+                tooltip.textContent = event.title;
+                tooltip.style.left = `${e.pageX + 10}px`;
+                tooltip.style.top = `${e.pageY + 10}px`;
+                tooltip.style.opacity = '1';
+            });
+            
+            point.addEventListener('mouseout', () => {
+                tooltip.style.opacity = '0';
+            });
+            
+            timeline.appendChild(point);
+        });
+        
+        // Helper function for phase colors
+        function getPhaseColor(phaseName) {
+            const colors = {
+                'Exposition': '#3498db',
+                'Rising Action': '#2ecc71', 
+                'Climax': '#e74c3c',
+                'Falling Action': '#f39c12',
+                'Resolution': '#9b59b6'
+            };
+            return colors[phaseName] || '#ddd';
+        }
+    </script>
+</body>
+</html>
+    
