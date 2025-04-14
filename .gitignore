@@ -55,6 +55,10 @@ htmlcov/
 .env
 .env.*
 
+# Generated Directories
+graphrag/
+logs/
+
 # New additions from the code block
 benchmark_results/
 /test_data/ 
