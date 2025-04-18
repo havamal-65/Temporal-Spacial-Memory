@@ -13,24 +13,8 @@ try:
 except ImportError:
     SERIALIZERS_AVAILABLE = False
 
-# Try to import RocksDB, but don't fail if it's not available
-try:
-    from .rocksdb_store import RocksDBNodeStore
-    ROCKSDB_AVAILABLE = True
-except ImportError:
-    ROCKSDB_AVAILABLE = False
-    # Create a mock RocksDBNodeStore that raises an informative error if used
-    class RocksDBNodeStore:
-        def __init__(self, *args, **kwargs):
-            raise ImportError(
-                "The RocksDB Python package is not installed. "
-                "Please install it with: pip install python-rocksdb"
-            )
-
 __all__ = [
     'NodeStore',
-    'RocksDBNodeStore',
-    'ROCKSDB_AVAILABLE',
     'SERIALIZERS_AVAILABLE'
 ]
 

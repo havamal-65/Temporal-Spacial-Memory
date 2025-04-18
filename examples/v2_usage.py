@@ -15,7 +15,7 @@ import random
 
 from src.core.node_v2 import Node, NodeConnection
 from src.storage.serializers import get_serializer
-from src.storage.node_store_v2 import InMemoryNodeStore, RocksDBNodeStore
+from src.storage.node_store_v2 import InMemoryNodeStore
 from src.storage.cache import LRUCache, TemporalAwareCache, CacheChain
 from src.storage.key_management import IDGenerator, TimeBasedIDGenerator
 from src.storage.error_handling import retry, ExponentialBackoffStrategy
@@ -127,54 +127,6 @@ def demo_storage(nodes):
     
     # Verify count
     assert memory_store.count() == len(nodes), "Node count mismatch"
-    
-    # RocksDB storage
-    print("Testing RocksDB storage...")
-    db_path = "./example_rocksdb"
-    
-    # Clean up any existing DB
-    if os.path.exists(db_path):
-        shutil.rmtree(db_path)
-    
-    # Create the store with MessagePack serialization
-    rocksdb_store = RocksDBNodeStore(
-        db_path=db_path,
-        create_if_missing=True,
-        serialization_format='msgpack'
-    )
-    
-    # Store all nodes
-    start_time = time.time()
-    for node in nodes:
-        rocksdb_store.put(node)
-    
-    rocksdb_time = time.time() - start_time
-    print(f"Stored {len(nodes)} nodes in RocksDB in {rocksdb_time:.4f} seconds")
-    
-    # Verify count
-    assert rocksdb_store.count() == len(nodes), "Node count mismatch"
-    
-    # Batch operations
-    print("Testing batch operations...")
-    
-    # Clear the store
-    rocksdb_store.clear()
-    assert rocksdb_store.count() == 0, "Store not cleared"
-    
-    # Batch put
-    start_time = time.time()
-    rocksdb_store.batch_put(nodes)
-    
-    batch_time = time.time() - start_time
-    print(f"Batch stored {len(nodes)} nodes in {batch_time:.4f} seconds")
-    print(f"Speedup vs. individual puts: {rocksdb_time / batch_time:.1f}x")
-    
-    # Verify count again
-    assert rocksdb_store.count() == len(nodes), "Node count mismatch after batch put"
-    
-    # Close the store
-    rocksdb_store.close()
-    print(f"RocksDB store closed. Database stored at: {db_path}")
 
 
 def demo_caching(nodes):

@@ -10,6 +10,8 @@ The following components can be benchmarked:
 2. **Spatial Index (RTree)** - Measures performance of spatial indexing and querying operations
 3. **Combined Spatio-Temporal Index** - Measures performance of combined queries
 
+> **Note:** Only in-memory and SQLite (if enabled) storage backends are supported. All RocksDB-related code and benchmarks have been removed for simplicity and cross-platform compatibility.
+
 ## Running Benchmarks
 
 To run all benchmarks:

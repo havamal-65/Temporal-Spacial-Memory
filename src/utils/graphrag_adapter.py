@@ -11,6 +11,8 @@ import re
 from typing import Dict, List, Any, Optional, Tuple
 import numpy as np
 from pathlib import Path
+from subprocess import run
+import asyncio
 
 # GraphRAG imports
 import graphrag.api as graphrag_api
@@ -20,6 +22,7 @@ from graphrag.config.models.graph_rag_config import GraphRagConfig
 # Temporal-Spatial Memory imports
 from ..models.node import Node
 from ..models.narrative_nodes import CharacterNode, LocationNode, EventNode, ThemeNode
+from .position_calculator import PositionCalculator
 
 class GraphRAGAdapter:
     """
@@ -48,10 +51,9 @@ class GraphRAGAdapter:
         if config_path.exists():
             return load_config(self.project_dir)
         
-        # Create a new configuration using CLI
-        from subprocess import run
+        # Create a new configuration using CLI with --root argument
         result = run(
-            ["graphrag", "init", str(self.project_dir.absolute())],
+            ["graphrag", "init", "--root", str(self.project_dir.absolute())],
             capture_output=True,
             text=True
         )
@@ -77,25 +79,27 @@ class GraphRAGAdapter:
         if metadata is None:
             metadata = {"type": "narrative", "temporal_structure": "linear"}
         
-        # Write text to file for GraphRAG to process
-        text_path = self.project_dir / "input.txt"
+        # Write text to file for GraphRAG to process in the expected input directory
+        input_dir = self.project_dir / "input"
+        input_dir.mkdir(parents=True, exist_ok=True)
+        text_path = input_dir / "input.txt"
         with open(text_path, "w", encoding="utf-8") as f:
             f.write(text)
         
-        # Process text with GraphRAG API
+        # Process text with GraphRAG API (async)
         print("Extracting knowledge graph with GraphRAG...")
-        result = graphrag_api.build_index(
-            str(self.project_dir),
-            verbose=True,
-            cache=True
-        )
-        
-        # Extract the knowledge graph from the result
-        knowledge_graph = {
-            "nodes": result.get("entities", []),
-            "edges": result.get("relationships", [])
-        }
-        
+        # Load config
+        config = load_config(self.project_dir)
+        # Run build_index asynchronously
+        results = asyncio.run(graphrag_api.build_index(config))
+        # Extract entities and relationships from the first result
+        if results and hasattr(results[0], 'entities') and hasattr(results[0], 'relationships'):
+            knowledge_graph = {
+                "nodes": getattr(results[0], 'entities', []),
+                "edges": getattr(results[0], 'relationships', [])
+            }
+        else:
+            knowledge_graph = {"nodes": [], "edges": []}
         return knowledge_graph
     
     def convert_to_mesh_nodes(self, knowledge_graph: Dict[str, Any]) -> List[Node]:
@@ -224,6 +228,8 @@ class GraphRAGAdapter:
                     }
                 )
         
+        # --- Branching logic integration ---
+        PositionCalculator.mark_branches(mesh_nodes)
         return mesh_nodes
     
     def _determine_node_type(self, node: Dict[str, Any]) -> str:

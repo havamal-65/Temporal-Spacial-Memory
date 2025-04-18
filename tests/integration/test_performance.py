@@ -313,7 +313,7 @@ class ComparativeBenchmark:
         
     def compare_storage_implementations(self, 
                                       node_count: int = 10000,
-                                      implementations: List[str] = ["memory", "rocksdb"]):
+                                      implementations: List[str] = ["memory"]):
         """Compare different storage implementations"""
         for impl in implementations:
             # Create appropriate environment

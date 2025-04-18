@@ -17,7 +17,7 @@ from .operations import (
 
 from .records import DeltaRecord
 from .chain import DeltaChain
-from .store import DeltaStore, RocksDBDeltaStore
+from .store import DeltaStore
 from .reconstruction import StateReconstructor
 from .detector import ChangeDetector
 from .navigator import TimeNavigator
@@ -37,7 +37,6 @@ __all__ = [
     'DeltaRecord',
     'DeltaChain',
     'DeltaStore',
-    'RocksDBDeltaStore',
     
     # Utility classes
     'StateReconstructor',

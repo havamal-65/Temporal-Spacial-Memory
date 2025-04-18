@@ -31,15 +31,12 @@ except ImportError:
 # Import storage components with error handling
 try:
     from src.storage.node_store import InMemoryNodeStore
-    from src.storage.rocksdb_store import RocksDBNodeStore
-    ROCKSDB_AVAILABLE = True
-except ImportError:
-    print("WARNING: RocksDB not available. Using in-memory store only.")
-    ROCKSDB_AVAILABLE = False
     # Create a mock RocksDBNodeStore
     class RocksDBNodeStore(InMemoryNodeStore):
         def __init__(self, *args, **kwargs):
             super().__init__()
+except ImportError:
+    print("WARNING: RocksDB not available. Using in-memory store only.")
 
 
 class BenchmarkSuite:

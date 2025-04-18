@@ -15,10 +15,11 @@ import numpy as np
 import psutil
 from datetime import datetime, timedelta
 from typing import Dict, List, Callable, Any, Tuple, Optional
+import uuid
 
 # Import core components with error handling
 try:
-    from src.core.node import Node
+    from src.core import Node  # Use canonical v2 Node
     from src.core.coordinates import Coordinates, SpatialCoordinate, TemporalCoordinate
     CORE_COMPONENTS_AVAILABLE = True
 except ImportError as e:
@@ -28,7 +29,7 @@ except ImportError as e:
 # Import index components with error handling
 try:
     from src.indexing.rtree import SpatialIndex
-    from src.indexing.temporal_index import TemporalIndex
+    from src.indexing.combined_index import TemporalIndex
     from src.indexing.combined_index import CombinedIndex
     INDEXING_AVAILABLE = True
 except ImportError as e:
@@ -38,7 +39,6 @@ except ImportError as e:
 # Import storage components with error handling
 try:
     from src.storage.node_store import InMemoryNodeStore
-    from src.storage.rocksdb_store import RocksDBNodeStore
     ROCKSDB_AVAILABLE = True
 except ImportError as e:
     print(f"Warning: RocksDB not available: {e}")
@@ -149,22 +149,18 @@ class MemoryBenchmark:
         
         nodes = []
         for i in range(count):
-            # Create temporal coordinate
-            coords = Coordinates()
-            coords.add(TemporalCoordinate(datetime.now() + timedelta(minutes=random.randint(-1000, 1000))))
-            
-            # Add spatial coordinate
-            pos = (random.uniform(-100, 100), random.uniform(-100, 100), random.uniform(-100, 100))
-            coords.add(SpatialCoordinate(pos))
-            
-            # Create node
+            # Generate a random position (t, r, theta)
+            t = random.uniform(1_600_000_000, 1_700_000_000)  # plausible POSIX timestamp
+            r = random.uniform(0, 100)
+            theta = random.uniform(0, 2 * np.pi)
+            position = (t, r, theta)
             node = Node(
-                id=f"node_{i}",
+                id=uuid.uuid4(),
                 content={"value": random.random(), "name": f"Node {i}"},
-                coordinates=coords
+                position=position
             )
             nodes.append(node)
-            
+        
         return nodes
     
     def benchmark_node_creation(self, sizes: List[int]):
@@ -206,7 +202,7 @@ class MemoryBenchmark:
                 # Add nodes to store
                 for node in nodes:
                     if CORE_COMPONENTS_AVAILABLE:
-                        store.put(node.id, node)
+                        store.put(node)
                     else:
                         store.put(node["id"], node)
                 
@@ -246,12 +242,11 @@ class MemoryBenchmark:
                 # Add nodes to index
                 for node in nodes:
                     if CORE_COMPONENTS_AVAILABLE:
-                        # Get temporal coordinate
-                        temp_coord = node.coordinates.get(TemporalCoordinate)
+                        temp_coord = node.coordinates.temporal
                         if temp_coord:
-                            index.insert(node.id, temp_coord.value)
+                            ts = temp_coord.timestamp.timestamp()
+                            index.insert(node.id, ts)
                     else:
-                        # Mock version
                         index.insert(node["id"], node["timestamp"])
                 
                 return index, nodes
@@ -290,18 +285,12 @@ class MemoryBenchmark:
                 # Add nodes to index
                 for node in nodes:
                     if CORE_COMPONENTS_AVAILABLE:
-                        # Get coordinates
-                        temp_coord = node.coordinates.get(TemporalCoordinate)
-                        spatial_coord = node.coordinates.get(SpatialCoordinate)
-                        
+                        temp_coord = node.coordinates.temporal
+                        spatial_coord = node.coordinates.spatial
                         if temp_coord and spatial_coord:
-                            index.insert(
-                                node.id, 
-                                temp_coord.value,
-                                spatial_coord.value
-                            )
+                            ts = temp_coord.timestamp.timestamp()
+                            index.insert(node)
                     else:
-                        # Mock version
                         index.insert(
                             node["id"], 
                             node["timestamp"],
@@ -321,61 +310,6 @@ class MemoryBenchmark:
                 index = None
             
             self.benchmark_memory(operation_name, setup_index, cleanup_index)
-    
-    def benchmark_rocksdb_store(self, sizes: List[int]):
-        """Benchmark memory usage for RocksDB storage with different data sizes.
-        
-        Args:
-            sizes: List of node counts to test
-        """
-        if not ROCKSDB_AVAILABLE:
-            print("Warning: RocksDB not available. Skipping RocksDB memory benchmark.")
-            return
-            
-        print("Benchmarking RocksDB store memory usage...")
-        
-        # Create a temporary directory for RocksDB
-        import tempfile
-        import shutil
-        
-        temp_dir = tempfile.mkdtemp()
-        
-        try:
-            for size in sizes:
-                operation_name = f"RocksDB_Storage_{size}"
-                
-                def setup_store():
-                    # Create a store with temporary directory
-                    store = RocksDBNodeStore(temp_dir)
-                    nodes = self.generate_random_nodes(size)
-                    
-                    # Add nodes to store
-                    for node in nodes:
-                        if CORE_COMPONENTS_AVAILABLE:
-                            store.put(node.id, node)
-                        else:
-                            store.put(node["id"], node)
-                    
-                    return store, nodes
-                
-                def cleanup_store(result):
-                    store, nodes = result
-                    
-                    # Close the store
-                    if hasattr(store, 'close'):
-                        store.close()
-                    
-                    # Help the garbage collector
-                    for i in range(len(nodes)):
-                        nodes[i] = None
-                    
-                    # Clear the store
-                    store = None
-                
-                self.benchmark_memory(operation_name, setup_store, cleanup_store)
-        finally:
-            # Clean up temporary directory
-            shutil.rmtree(temp_dir)
     
     def plot_memory_comparison(self, component_type: str, sizes: List[int]):
         """Plot memory usage comparison for a component type.
@@ -439,9 +373,6 @@ class MemoryBenchmark:
         if any(f"Combined_Index_{size}" in self.results for size in sizes):
             components.append("Combined_Index")
         
-        if any(f"RocksDB_Storage_{size}" in self.results for size in sizes):
-            components.append("RocksDB_Storage")
-        
         if not components:
             print("Warning: No components to compare. Skipping comparison plot.")
             return
@@ -485,10 +416,9 @@ class MemoryBenchmark:
         self.benchmark_in_memory_store(sizes)
         self.benchmark_temporal_index(sizes)
         self.benchmark_combined_index(sizes)
-        self.benchmark_rocksdb_store(sizes)
         
         # Generate plots
-        for component in ["Node_Creation", "InMemory_Storage", "Temporal_Index", "Combined_Index", "RocksDB_Storage"]:
+        for component in ["Node_Creation", "InMemory_Storage", "Temporal_Index", "Combined_Index"]:
             self.plot_memory_comparison(component, sizes)
         
         # Generate comparison plots

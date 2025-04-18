@@ -16,12 +16,6 @@ from .records import DeltaRecord
 from .operations import DeltaOperation
 from ..storage.serialization import SimpleNodeSerializer
 
-try:
-    import rocksdb
-    ROCKSDB_AVAILABLE = True
-except ImportError:
-    ROCKSDB_AVAILABLE = False
-
 
 class DeltaStore(ABC):
     """
@@ -240,12 +234,4 @@ class InMemoryDeltaStore(DeltaStore):
 
     def get_deltas_in_time_range(self, node_id: UUID, start_time: float, end_time: float) -> List[DeltaRecord]:
         ids = self.node_index.get(node_id, [])
-        return [self.deltas[did] for did in ids if start_time <= self.deltas[did].timestamp <= end_time]
-
-
-if ROCKSDB_AVAILABLE:
-    class RocksDBDeltaStore(DeltaStore):
-        # ... existing code ...
-        pass
-else:
-    RocksDBDeltaStore = None 
+        return [self.deltas[did] for did in ids if start_time <= self.deltas[did].timestamp <= end_time] 

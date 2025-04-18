@@ -16,7 +16,7 @@ The system now integrates with GraphRAG for dramatically improved entity recogni
 - **Multi-dimensional indexing**: Efficiently query data across both time and space dimensions
 - **Immutable time-series storage**: Track changes to spatial data over time
 - **High-performance queries**: Optimized query execution with cost-based optimization
-- **Efficient storage**: RocksDB-based storage with compression and batching
+- **Efficient storage**: In-memory and SQLite-based storage for fast, portable, and persistent data
 - **Flexible query API**: Build complex temporal and spatial queries with an intuitive API
 - **GraphRAG Integration**: Enhanced knowledge representation using graph-based retrieval augmented generation
 - **Secure Configuration**: Environment-based configuration management for sensitive data
@@ -25,7 +25,7 @@ The system now integrates with GraphRAG for dramatically improved entity recogni
 
 Temporal-Spatial Memory offers a unique approach to organizing knowledge in a cylindrical coordinate system:
 
-- **Storage Engine**: Built on RocksDB for high-performance, durable storage
+- **Storage Engine**: In-memory and SQLite backends for high-performance, durable storage
 - **Spatial Indexing**: R-tree based spatial index for efficient 2D/3D queries
 - **Temporal Indexing**: Specialized index structures for time-based data retrieval
 - **Combined Index**: Unified temporal-spatial index for multi-dimensional queries
@@ -45,6 +45,7 @@ This creates a "mesh tube" that enables:
 - **Thematic Analysis**: Identify and track themes through texts
 - **PDF Processing**: Directly analyze PDF documents
 - **Interactive Visualizations**: Explore narratives through interactive HTML interfaces
+- **In-Memory and SQLite Storage**: Fast, portable storage backends for all environments
 
 ## Processing the Hobbit with GraphRAG
 
@@ -136,6 +137,20 @@ The system generates several types of visualizations:
 4. Knowledge graph construction with semantic understanding
 5. Graph is mapped to cylindrical coordinates
 6. Relationships preserved in spatial positioning
+
+## Supported Storage Backends
+
+- **In-Memory**: Fastest, best for development, testing, and small/medium datasets.
+- **SQLite**: (If enabled) Lightweight, file-based storage for persistence and portability.
+
+> **Note:** RocksDB and other key-value store backends are no longer supported. All code, tests, and dependencies related to RocksDB have been removed for simplicity, maintainability, and cross-platform compatibility.
+
+## Troubleshooting
+
+- **Processing Errors**: Check the error message for details - most often related to API keys or file access
+- **Missing Visualizations**: Make sure the document was processed successfully
+- **Performance Issues**: Large documents may take a long time to process
+- **Storage Issues**: If you need persistent storage, use the SQLite backend. For most workflows, in-memory storage is sufficient and fastest.
 
 ## License
 

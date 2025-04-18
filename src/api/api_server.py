@@ -22,7 +22,6 @@ from src.query.query_engine import QueryEngine
 from src.query.query import Query
 from src.core.node import Node
 from src.core.coordinates import Coordinates
-from src.storage.rocksdb_store import RocksDBStore
 from src.indexing.combined_index import TemporalSpatialIndex
 from src.indexing.rtree import SpatialIndex
 
@@ -101,12 +100,6 @@ async def startup_event():
     global db, query_engine
     
     logger.info("Initializing database connection...")
-    
-    # Database path from environment or default
-    db_path = os.environ.get("DB_PATH", "data/temporal_spatial_db")
-    
-    # Initialize storage
-    db = RocksDBStore(db_path)
     
     # Initialize indices
     spatial_index = SpatialIndex(dimension=3)

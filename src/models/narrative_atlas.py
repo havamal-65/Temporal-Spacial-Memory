@@ -513,4 +513,58 @@ class NarrativeAtlas:
         for segment in self.segments:
             if abs(segment["position"] - position) <= tolerance:
                 return segment
-        return None 
+        return None
+    
+    def get_core_story(self, threshold: float = None, top_n: int = None) -> str:
+        """
+        Get the core story as a summary made from the most important parts.
+
+        You can choose how much detail you want:
+        - Use 'threshold' to include all story pieces (nodes) that are close enough to the center (more important).
+        - Use 'top_n' to include the top N most important pieces.
+        - If you don't set either, it uses a default threshold of 0.4 (short summary).
+        - If you set both, 'top_n' is used.
+
+        Returns:
+            The core story as a single string, with the most important parts in order.
+
+        Example:
+            # Get a short core story (default)
+            summary = atlas.get_core_story()
+            # Get a longer core story
+            summary = atlas.get_core_story(threshold=0.7)
+            # Get the 10 most important pieces
+            summary = atlas.get_core_story(top_n=10)
+        """
+        # Gather all nodes (characters, events, locations, themes)
+        all_nodes = list(self.characters.values()) + list(self.events.values()) + list(self.locations.values()) + list(self.themes.values())
+        # Sort nodes by distance (closer = more important)
+        sorted_nodes = sorted(all_nodes, key=lambda n: n.distance)
+
+        # Decide which nodes to include
+        if top_n is not None:
+            selected_nodes = sorted_nodes[:top_n]
+        else:
+            if threshold is None:
+                threshold = 0.4  # Default value
+            selected_nodes = [n for n in sorted_nodes if n.distance <= threshold]
+
+        # Get the IDs of selected nodes
+        selected_ids = set(n.node_id for n in selected_nodes)
+
+        # Gather all segments that reference these nodes, in order
+        core_segments = []
+        for segment in sorted(self.segments, key=lambda s: s.get('position', 0)):
+            # Check if any of the segment's entities are in selected_ids
+            entities = segment.get('entities', {})
+            found = False
+            for entity_list in entities.values():
+                if any(eid in selected_ids for eid in entity_list):
+                    found = True
+                    break
+            if found:
+                core_segments.append(segment.get('text', ''))
+
+        # Join the segments to make the core story
+        core_story = '\n\n'.join(core_segments)
+        return core_story 

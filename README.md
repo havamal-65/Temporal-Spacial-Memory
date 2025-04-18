@@ -45,6 +45,7 @@ This creates a "mesh tube" that enables:
 - **Thematic Analysis**: Identify and track themes through texts
 - **PDF Processing**: Directly analyze PDF documents
 - **Interactive Visualizations**: Explore narratives through interactive HTML interfaces
+- **In-Memory and SQLite Storage**: Fast, portable storage backends for all environments
 
 ## Processing the Hobbit with GraphRAG
 
@@ -136,6 +137,20 @@ The system generates several types of visualizations:
 4. Knowledge graph construction with semantic understanding
 5. Graph is mapped to cylindrical coordinates
 6. Relationships preserved in spatial positioning
+
+## Supported Storage Backends
+
+- **In-Memory**: Fastest, best for development, testing, and small/medium datasets.
+- **SQLite**: (If enabled) Lightweight, file-based storage for persistence and portability.
+
+> **Note:** RocksDB and other key-value store backends are no longer supported. All code, tests, and dependencies related to RocksDB have been removed for simplicity, maintainability, and cross-platform compatibility.
+
+## Troubleshooting
+
+- **Processing Errors**: Check the error message for details - most often related to API keys or file access
+- **Missing Visualizations**: Make sure the document was processed successfully
+- **Performance Issues**: Large documents may take a long time to process
+- **Storage Issues**: If you need persistent storage, use the SQLite backend. For most workflows, in-memory storage is sufficient and fastest.
 
 ## License
 

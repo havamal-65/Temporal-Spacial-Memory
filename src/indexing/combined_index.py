@@ -834,4 +834,5 @@ class TemporalSpatialIndex:
             return filtered_nodes
         return [self.nodes[node.id] for node in spatial_nodes if node.id in self.nodes]
 
-SpatioTemporalIndex = TemporalSpatialIndex 
+# Add alias for compatibility
+CombinedIndex = TemporalSpatialIndex 

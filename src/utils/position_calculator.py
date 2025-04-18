@@ -1,5 +1,6 @@
 import math
 import random
+import numpy as np
 from typing import List, Dict, Any, Optional, Tuple
 
 from ..models.node import Node
@@ -204,3 +205,26 @@ class PositionCalculator:
         angle = angle % 360
         
         return angle 
+
+    @staticmethod
+    def mark_branches(nodes: list, k: float = 1.0) -> float:
+        """
+        Mark nodes as branches if their radius exceeds the calculated threshold.
+        Args:
+            nodes: List of Node objects (must have .position and .metadata)
+            k: Multiplier for standard deviation (default 1.0)
+        Returns:
+            The calculated branch threshold (float)
+        """
+        if not nodes:
+            return 0.0
+        radii = [node.position[1] for node in nodes]
+        mu = np.mean(radii)
+        sigma = np.std(radii)
+        threshold = mu + k * sigma
+        for node in nodes:
+            if node.position[1] > threshold:
+                node.metadata['branch'] = True
+            else:
+                node.metadata['branch'] = False
+        return threshold 
