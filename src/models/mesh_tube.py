@@ -10,6 +10,7 @@ from datetime import datetime
 from typing import Dict, List, Any, Optional, Set
 
 from .node import Node
+from src.delta.delta_optimizer import DeltaOptimizer
 
 class MeshTube:
     """
@@ -234,4 +235,30 @@ class MeshTube:
                 print("No nodes found in database.")
                 
         except Exception as e:
-            print(f"Error loading database: {str(e)}") 
+            print(f"Error loading database: {str(e)}")
+
+    def apply_delta(self, original_node: Node, delta_content: dict, time: float = None) -> Node:
+        """Apply a delta to a node and return the new node."""
+        # Construct the delta with a changes dict for patching
+        delta = {"changes": {"content": {"new": delta_content}}}
+        # Pass original_node.content (dict) instead of Node
+        new_content = DeltaOptimizer.apply_delta(original_node.content, delta)
+        # Create a new Node with the merged content and other properties copied from original_node
+        new_node = Node(
+            node_id=original_node.node_id,
+            content=new_content,
+            time=original_node.time if time is None else time,
+            distance=original_node.distance,
+            angle=original_node.angle,
+            parent_id=original_node.parent_id,
+            created_at=original_node.created_at
+        )
+        # Track delta reference
+        new_node.delta_references = getattr(new_node, 'delta_references', []) + [original_node.node_id]
+        self.nodes[new_node.node_id] = new_node
+        return new_node
+
+    def compute_node_state(self, node_id: str) -> dict:
+        """Stub: Return the content of the node for now."""
+        node = self.get_node(node_id)
+        return node.content if node else {} 

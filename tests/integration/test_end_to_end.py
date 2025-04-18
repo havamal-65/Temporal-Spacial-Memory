@@ -183,7 +183,10 @@ class EndToEndTest(unittest.TestCase):
                 origin_content=base_node.content,
                 target_timestamp=node.position[0]
             )
-            
+            # Print debug info before assertion
+            print(f"\n[DEBUG] Step {i}")
+            print(f"[DEBUG] Reconstructed: {reconstructed}")
+            print(f"[DEBUG] Expected:      {node.content}")
             # Verify reconstruction
             self.assertEqual(reconstructed, node.content)
             

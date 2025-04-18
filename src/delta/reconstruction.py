@@ -13,6 +13,7 @@ import logging
 
 from .records import DeltaRecord
 from .store import DeltaStore
+from .delta_optimizer import DeltaOptimizer
 
 
 class StateReconstructor:
@@ -69,11 +70,10 @@ class StateReconstructor:
         )
         query_time = time.time() - start_time
         
-        # Apply deltas in sequence
+        # Apply deltas in sequence using DeltaOptimizer.apply_delta
         apply_start = time.time()
         for delta in deltas:
-            for operation in delta.operations:
-                current_state = operation.apply(current_state)
+            current_state = DeltaOptimizer.apply_delta(current_state, delta)
         apply_time = time.time() - apply_start
         
         # Log performance metrics

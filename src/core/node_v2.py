@@ -9,8 +9,9 @@ from __future__ import annotations
 from typing import Dict, Any, Optional, List, Tuple, Set, Union
 import uuid
 from dataclasses import dataclass, field
-from datetime import datetime
+from datetime import datetime, timezone
 from uuid import UUID
+from .coordinates import SpatioTemporalCoordinate, Coordinates, SpatialCoordinate, TemporalCoordinate
 
 
 @dataclass
@@ -183,4 +184,16 @@ class Node:
             origin_reference=origin_ref,
             delta_information=data.get('delta_information', {}),
             metadata=data.get('metadata', {})
-        ) 
+        )
+
+    @property
+    def coordinates(self) -> Coordinates:
+        """
+        Return a Coordinates object for compatibility with indexers.
+        Maps position (t, r, theta) to temporal and spatial coordinates.
+        """
+        t, r, theta = self.position
+        # Assume t is a POSIX timestamp (float seconds since epoch)
+        temporal = TemporalCoordinate(timestamp=datetime.fromtimestamp(t, tz=timezone.utc))
+        spatial = SpatialCoordinate(dimensions=(r, theta))
+        return Coordinates(spatial=spatial, temporal=temporal) 

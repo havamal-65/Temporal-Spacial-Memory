@@ -322,7 +322,15 @@ class TemporalSpatialIndex:
             
             # Insert into temporal index if it has a timestamp
             if node.coordinates.temporal:
-                self.temporal_index.insert(node.id, node.coordinates.temporal)
+                # Extract float timestamp from TemporalCoordinate
+                temporal = node.coordinates.temporal
+                if hasattr(temporal, 'timestamp') and hasattr(temporal.timestamp, 'timestamp'):
+                    ts = temporal.timestamp.timestamp()
+                elif hasattr(temporal, 'timestamp'):
+                    ts = temporal.timestamp
+                else:
+                    ts = float(temporal)
+                self.temporal_index.insert(node.id, ts)
             
             # Store the node for quick lookups
             self.nodes[node.id] = node
@@ -356,7 +364,14 @@ class TemporalSpatialIndex:
             # Insert temporal nodes
             for node in nodes:
                 if node.coordinates.temporal:
-                    self.temporal_index.insert(node.id, node.coordinates.temporal)
+                    temporal = node.coordinates.temporal
+                    if hasattr(temporal, 'timestamp') and hasattr(temporal.timestamp, 'timestamp'):
+                        ts = temporal.timestamp.timestamp()
+                    elif hasattr(temporal, 'timestamp'):
+                        ts = temporal.timestamp
+                    else:
+                        ts = float(temporal)
+                    self.temporal_index.insert(node.id, ts)
             
             # Store nodes for quick lookups
             for node in nodes:
@@ -428,7 +443,31 @@ class TemporalSpatialIndex:
         except Exception as e:
             raise IndexingError(f"Error updating node {node.id} in combined index: {e}") from e
     
-    def query(self, spatial_criteria: Optional[Dict[str, Any]] = None, 
+    def query(self, min_t: float = None, max_t: float = None, min_r: float = None, max_r: float = None, min_theta: float = None, max_theta: float = None, limit: int = None) -> List[Node]:
+        """
+        Query the index with combined temporal and spatial range arguments.
+        Args:
+            min_t, max_t: Temporal range
+            min_r, max_r, min_theta, max_theta: Spatial range
+            limit: Optional maximum number of results
+        Returns:
+            List of nodes matching the criteria
+        """
+        spatial_criteria = None
+        temporal_criteria = None
+        if min_r is not None and max_r is not None and min_theta is not None and max_theta is not None:
+            # Build region bounds for spatial query
+            lower_bounds = (min_r, min_theta)
+            upper_bounds = (max_r, max_theta)
+            if self.spatial_dimension > 2:
+                lower_bounds = lower_bounds + (0.0,) * (self.spatial_dimension - 2)
+                upper_bounds = upper_bounds + (0.0,) * (self.spatial_dimension - 2)
+            spatial_criteria = {"region": (lower_bounds, upper_bounds)}
+        if min_t is not None and max_t is not None:
+            temporal_criteria = {"start_time": min_t, "end_time": max_t}
+        return self._query(spatial_criteria=spatial_criteria, temporal_criteria=temporal_criteria, limit=limit)
+    
+    def _query(self, spatial_criteria: Optional[Dict[str, Any]] = None, 
              temporal_criteria: Optional[Dict[str, Any]] = None,
              limit: Optional[int] = None) -> List[Node]:
         """
@@ -477,7 +516,8 @@ class TemporalSpatialIndex:
                     spatial_results = {node.id for node in spatial_nodes}
                 elif region:
                     # Region query
-                    spatial_nodes = self.spatial_index.query_region(region)
+                    lower_bounds, upper_bounds = region
+                    spatial_nodes = self.spatial_index.range_query(lower_bounds, upper_bounds)
                     spatial_results = {node.id for node in spatial_nodes}
             
             # Query temporal index if criteria provided
@@ -738,4 +778,60 @@ class TemporalSpatialIndex:
         return {
             "temporal": temporal_data,
             "spatial": spatial_data
-        } 
+        }
+
+    def query_temporal_range(self, min_t: float, max_t: float) -> List[Node]:
+        """
+        Query nodes within a temporal range [min_t, max_t].
+        Returns a list of Node objects.
+        """
+        try:
+            node_ids = self.temporal_index.query_range(min_t, max_t)
+            return [self.nodes[node_id] for node_id in node_ids if node_id in self.nodes]
+        except Exception as e:
+            raise IndexingError(f"Error in query_temporal_range: {e}") from e
+
+    def query_spatial_range(self, min_r: float, max_r: float, min_theta: float, max_theta: float) -> List[Node]:
+        """
+        Query nodes within a spatial range defined by r and theta bounds.
+        Returns a list of Node objects.
+        """
+        try:
+            # For cylindrical coordinates, assume (r, theta) are the first two spatial dimensions
+            lower_bounds = (min_r, min_theta)
+            upper_bounds = (max_r, max_theta)
+            # Pad to match spatial dimension if needed
+            if self.spatial_dimension > 2:
+                lower_bounds = lower_bounds + (0.0,) * (self.spatial_dimension - 2)
+                upper_bounds = upper_bounds + (0.0,) * (self.spatial_dimension - 2)
+            spatial_nodes = self.spatial_index.range_query(lower_bounds, upper_bounds)
+            return [self.nodes[node.id] for node in spatial_nodes if node.id in self.nodes]
+        except Exception as e:
+            raise IndexingError(f"Error in query_spatial_range: {e}") from e
+
+    def query_nearest(self, t: float = None, r: float = None, theta: float = None, k: int = 5, max_distance: float = None) -> List[Node]:
+        """
+        Query for k nearest neighbors to (r, theta) with optional temporal filtering at time t.
+        Args:
+            t: Optional time for temporal filtering
+            r, theta: Spatial coordinates for the query point
+            k: Number of nearest neighbors to return
+            max_distance: Optional maximum distance for neighbors
+        Returns:
+            List of nearest Node objects
+        """
+        # Build the query point (assume (r, theta) for 2D, pad if needed)
+        point = (r, theta)
+        if self.spatial_dimension > 2:
+            point = point + (0.0,) * (self.spatial_dimension - 2)
+        spatial_nodes = self.spatial_index.nearest(point=point, num_results=k, max_distance=max_distance)
+        if t is not None:
+            # Allow a small window for floating point variance
+            window = 1.0
+            node_ids = [node.id for node in spatial_nodes]
+            temporal_ids = self.temporal_index.query_range(t - window, t + window)
+            filtered_nodes = [self.nodes[node_id] for node_id in node_ids if node_id in temporal_ids]
+            return filtered_nodes
+        return [self.nodes[node.id] for node in spatial_nodes if node.id in self.nodes]
+
+SpatioTemporalIndex = TemporalSpatialIndex 

@@ -66,4 +66,8 @@ class SpatialQueryError(QueryError):
 
 class TemporalQueryError(QueryError):
     """Exception for temporal query-related errors."""
+    pass
+
+class IndexingError(Exception):
+    """Exception for general indexing-related errors."""
     pass 

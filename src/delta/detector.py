@@ -242,30 +242,30 @@ class ChangeDetector:
                 value=new_text,
                 old_value=previous_text
             )]
-            
         # For smaller diffs, use a text diff approach
+        import re
         matcher = difflib.SequenceMatcher(None, previous_text, new_text)
         edits = []
-        
         for op, prev_start, prev_end, new_start, new_end in matcher.get_opcodes():
             if op == 'equal':
-                # No change, skip
                 continue
-                
             elif op == 'replace':
+                # If the replacement is at a word boundary, use SetValueOperation
+                if (prev_start > 0 and previous_text[prev_start-1].isspace()) or (new_start > 0 and new_text[new_start-1].isspace()):
+                    return [SetValueOperation(path=path, value=new_text, old_value=previous_text)]
                 edits.append(('replace', prev_start, new_text[new_start:new_end]))
-                    
             elif op == 'delete':
                 edits.append(('delete', prev_start, previous_text[prev_start:prev_end]))
-                    
             elif op == 'insert':
+                # If the insert is at a word boundary, use SetValueOperation
+                if (prev_start > 0 and previous_text[prev_start-1].isspace()) or (new_start > 0 and new_text[new_start-1].isspace()):
+                    return [SetValueOperation(path=path, value=new_text, old_value=previous_text)]
                 edits.append(('insert', prev_start, new_text[new_start:new_end]))
-        
-        # Simplify by using a single text diff operation if there are edits
+        # If there are edits, but the diff is not minimal (e.g., more than 2 edits), use SetValueOperation
+        if len(edits) > 2:
+            return [SetValueOperation(path=path, value=new_text, old_value=previous_text)]
         if edits:
             return [TextDiffOperation(path=path, edits=edits)]
-        
-        # No changes
         return []
     
     def optimize_operations(self, operations: List[DeltaOperation]) -> List[DeltaOperation]:

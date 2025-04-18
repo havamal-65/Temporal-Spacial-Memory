@@ -13,6 +13,7 @@ import hashlib
 from typing import Dict, List, Any, Optional, Tuple, Set, Union
 from datetime import datetime
 from collections import defaultdict
+import copy
 
 from src.core.node import Node
 
@@ -648,4 +649,53 @@ class DeltaOptimizer:
         # Update compression ratio
         self.calculate_compression_ratio()
         
-        return self.stats 
+        return self.stats
+
+    @staticmethod
+    def _deep_merge_dicts(base: dict, updates: dict) -> dict:
+        """
+        Recursively merge updates into base dict, returning a new dict.
+        """
+        import copy
+        result = copy.deepcopy(base)
+        for k, v in updates.items():
+            if (
+                k in result and isinstance(result[k], dict) and isinstance(v, dict)
+            ):
+                result[k] = DeltaOptimizer._deep_merge_dicts(result[k], v)
+            else:
+                result[k] = copy.deepcopy(v)
+        return result
+
+    @staticmethod
+    def apply_delta(base_content: dict, delta) -> dict:
+        import copy
+        # If delta is a dict and has a "changes" key, handle content update
+        if isinstance(delta, dict) and "changes" in delta:
+            changes = delta["changes"]
+            if "content" in changes and "new" in changes["content"]:
+                new_val = changes["content"]["new"]
+                # If new_val is a dict and has a special __replace__ flag, do full replacement
+                if isinstance(new_val, dict) and new_val.get("__replace__", False):
+                    result = copy.deepcopy(new_val)
+                    result.pop("__replace__", None)
+                    return result
+                # If both are dicts, always merge (patch)
+                if isinstance(base_content, dict) and isinstance(new_val, dict):
+                    merged = copy.deepcopy(base_content)
+                    for key, value in new_val.items():
+                        merged[key] = value
+                    return merged
+                else:
+                    # Fallback: replace
+                    return copy.deepcopy(new_val)
+        content = copy.deepcopy(base_content)
+        if hasattr(delta, 'operations'):
+            for operation in delta.operations:
+                content = operation.apply(content)
+            return content
+        changes = delta.get("changes", {})
+        if "content" in changes:
+            if "new" in changes["content"]:
+                return copy.deepcopy(changes["content"]["new"])
+        return content 

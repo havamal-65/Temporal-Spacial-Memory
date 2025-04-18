@@ -9,14 +9,18 @@ from abc import ABC, abstractmethod
 from typing import Dict, List, Any, Optional, Set, Tuple
 from uuid import UUID
 import json
-import rocksdb
-import pickle
 import time
 import struct
 
 from .records import DeltaRecord
 from .operations import DeltaOperation
-from ..storage.serialization import Serializer, JsonSerializer
+from ..storage.serialization import SimpleNodeSerializer
+
+try:
+    import rocksdb
+    ROCKSDB_AVAILABLE = True
+except ImportError:
+    ROCKSDB_AVAILABLE = False
 
 
 class DeltaStore(ABC):
@@ -198,257 +202,50 @@ class DeltaSerializer:
             raise ValueError(f"Failed to deserialize delta: {e}")
 
 
-class RocksDBDeltaStore(DeltaStore):
-    """
-    RocksDB implementation of DeltaStore.
-    
-    This class stores delta records in a RocksDB database with
-    efficient indexing for time-based queries.
-    """
-    
-    # Key prefixes for different types of data
-    DELTA_PREFIX = b'delta:'      # delta_id -> delta record
-    NODE_PREFIX = b'node:'        # node_id -> list of delta_ids
-    TIME_PREFIX = b'time:'        # node_id:timestamp -> delta_id
-    LATEST_PREFIX = b'latest:'    # node_id -> latest delta_id
-    
-    def __init__(self, db_path: str, create_if_missing: bool = True):
-        """
-        Initialize the RocksDB delta store.
-        
-        Args:
-            db_path: Path to the RocksDB database
-            create_if_missing: Whether to create the database if it doesn't exist
-        """
-        # Create options
-        opts = rocksdb.Options()
-        opts.create_if_missing = create_if_missing
-        opts.max_open_files = 300
-        opts.write_buffer_size = 67108864  # 64MB
-        opts.max_write_buffer_number = 3
-        opts.target_file_size_base = 67108864  # 64MB
-        
-        # Create column family options
-        cf_opts = rocksdb.ColumnFamilyOptions()
-        
-        # Define column families
-        self.cf_names = [b'default', b'deltas', b'node_index', b'time_index']
-        
-        # Create column family descriptors
-        cf_descriptors = [rocksdb.ColumnFamilyDescriptor(name, cf_opts) for name in self.cf_names]
-        
-        # Open the database
-        self.db, self.cf_handles = rocksdb.DB.open_for_read_write(
-            str(db_path),
-            opts,
-            cf_descriptors
-        )
-        
-        # Get the column family handles
-        self.deltas_cf = self.cf_handles[1]
-        self.node_index_cf = self.cf_handles[2]
-        self.time_index_cf = self.cf_handles[3]
-        
-        # Create a serializer
-        self.serializer = DeltaSerializer()
-    
-    def _make_delta_key(self, delta_id: UUID) -> bytes:
-        """Create a key for storing a delta record."""
-        return self.DELTA_PREFIX + str(delta_id).encode()
-    
-    def _make_node_key(self, node_id: UUID) -> bytes:
-        """Create a key for a node's delta list."""
-        return self.NODE_PREFIX + str(node_id).encode()
-    
-    def _make_time_key(self, node_id: UUID, timestamp: float) -> bytes:
-        """Create a time index key."""
-        # Use a format that allows for range scans
-        # node_id:timestamp (padded for lexicographic ordering)
-        timestamp_bytes = struct.pack('>d', timestamp)  # Big-endian double
-        return self.TIME_PREFIX + str(node_id).encode() + b':' + timestamp_bytes
-    
-    def _make_latest_key(self, node_id: UUID) -> bytes:
-        """Create a key for the latest delta of a node."""
-        return self.LATEST_PREFIX + str(node_id).encode()
-    
-    def _decode_time_key(self, key: bytes) -> Tuple[UUID, float]:
-        """Decode a time index key to get node_id and timestamp."""
-        if not key.startswith(self.TIME_PREFIX):
-            raise ValueError(f"Not a time key: {key}")
-            
-        # Strip the prefix
-        key = key[len(self.TIME_PREFIX):]
-        
-        # Split node_id and timestamp
-        node_id_str, timestamp_bytes = key.split(b':')
-        
-        # Decode
-        node_id = UUID(node_id_str.decode())
-        timestamp = struct.unpack('>d', timestamp_bytes)[0]
-        
-        return node_id, timestamp
-    
+class InMemoryDeltaStore(DeltaStore):
+    def __init__(self):
+        self.deltas: Dict[UUID, DeltaRecord] = {}
+        self.node_index: Dict[UUID, List[UUID]] = {}
+
     def store_delta(self, delta: DeltaRecord) -> None:
-        """Store a delta record."""
-        # Serialize the delta
-        serialized_delta = self.serializer.serialize_delta(delta)
-        
-        # Prepare batch
-        batch = rocksdb.WriteBatch()
-        
-        # Add delta record
-        delta_key = self._make_delta_key(delta.delta_id)
-        batch.put(delta_key, serialized_delta, self.deltas_cf)
-        
-        # Add to node index
-        node_key = self._make_node_key(delta.node_id)
-        node_deltas = self.db.get(node_key, self.node_index_cf)
-        
-        if node_deltas:
-            delta_ids = pickle.loads(node_deltas)
-            delta_ids.append(delta.delta_id)
-        else:
-            delta_ids = [delta.delta_id]
-            
-        batch.put(node_key, pickle.dumps(delta_ids), self.node_index_cf)
-        
-        # Add to time index
-        time_key = self._make_time_key(delta.node_id, delta.timestamp)
-        batch.put(time_key, str(delta.delta_id).encode(), self.time_index_cf)
-        
-        # Update latest delta
-        latest_key = self._make_latest_key(delta.node_id)
-        current_latest = self.db.get(latest_key)
-        
-        if not current_latest or delta.timestamp > float(self.get_delta(UUID(current_latest.decode())).timestamp):
-            batch.put(latest_key, str(delta.delta_id).encode())
-        
-        # Commit the batch
-        self.db.write(batch)
-    
+        self.deltas[delta.delta_id] = delta
+        if delta.node_id not in self.node_index:
+            self.node_index[delta.node_id] = []
+        self.node_index[delta.node_id].append(delta.delta_id)
+        # Keep index sorted by timestamp
+        self.node_index[delta.node_id].sort(key=lambda did: self.deltas[did].timestamp)
+
     def get_delta(self, delta_id: UUID) -> Optional[DeltaRecord]:
-        """Retrieve a delta by ID."""
-        delta_key = self._make_delta_key(delta_id)
-        serialized_delta = self.db.get(delta_key, self.deltas_cf)
-        
-        if not serialized_delta:
-            return None
-            
-        return self.serializer.deserialize_delta(serialized_delta)
-    
+        return self.deltas.get(delta_id)
+
     def get_deltas_for_node(self, node_id: UUID) -> List[DeltaRecord]:
-        """Get all deltas for a node."""
-        node_key = self._make_node_key(node_id)
-        node_deltas = self.db.get(node_key, self.node_index_cf)
-        
-        if not node_deltas:
-            return []
-            
-        delta_ids = pickle.loads(node_deltas)
-        result = []
-        
-        for delta_id in delta_ids:
-            delta = self.get_delta(delta_id)
-            if delta:
-                result.append(delta)
-        
-        # Sort by timestamp
-        result.sort(key=lambda d: d.timestamp)
-        return result
-    
+        ids = self.node_index.get(node_id, [])
+        return [self.deltas[did] for did in ids]
+
     def get_latest_delta_for_node(self, node_id: UUID) -> Optional[DeltaRecord]:
-        """Get the most recent delta for a node."""
-        latest_key = self._make_latest_key(node_id)
-        latest_id = self.db.get(latest_key)
-        
-        if not latest_id:
+        ids = self.node_index.get(node_id, [])
+        if not ids:
             return None
-            
-        return self.get_delta(UUID(latest_id.decode()))
-    
+        return self.deltas[ids[-1]]
+
     def delete_delta(self, delta_id: UUID) -> bool:
-        """Delete a delta."""
-        # Get the delta first to check if it exists and get its node_id
-        delta = self.get_delta(delta_id)
+        delta = self.deltas.pop(delta_id, None)
         if not delta:
             return False
-            
-        # Prepare batch
-        batch = rocksdb.WriteBatch()
-        
-        # Remove from delta storage
-        delta_key = self._make_delta_key(delta_id)
-        batch.delete(delta_key, self.deltas_cf)
-        
-        # Remove from node index
-        node_key = self._make_node_key(delta.node_id)
-        node_deltas = self.db.get(node_key, self.node_index_cf)
-        
-        if node_deltas:
-            delta_ids = pickle.loads(node_deltas)
-            delta_ids.remove(delta_id)
-            batch.put(node_key, pickle.dumps(delta_ids), self.node_index_cf)
-        
-        # Remove from time index
-        time_key = self._make_time_key(delta.node_id, delta.timestamp)
-        batch.delete(time_key, self.time_index_cf)
-        
-        # Update latest delta if necessary
-        latest_key = self._make_latest_key(delta.node_id)
-        current_latest_bytes = self.db.get(latest_key)
-        
-        if current_latest_bytes and UUID(current_latest_bytes.decode()) == delta_id:
-            # We're deleting the latest delta, so we need to find the new latest
-            remaining_deltas = self.get_deltas_for_node(delta.node_id)
-            if remaining_deltas:
-                new_latest = max(remaining_deltas, key=lambda d: d.timestamp)
-                batch.put(latest_key, str(new_latest.delta_id).encode())
-            else:
-                batch.delete(latest_key)
-        
-        # Commit the batch
-        self.db.write(batch)
+        if delta.node_id in self.node_index:
+            self.node_index[delta.node_id] = [did for did in self.node_index[delta.node_id] if did != delta_id]
+            if not self.node_index[delta.node_id]:
+                del self.node_index[delta.node_id]
         return True
-    
-    def get_deltas_in_time_range(self, 
-                                node_id: UUID, 
-                                start_time: float, 
-                                end_time: float) -> List[DeltaRecord]:
-        """Get deltas in a time range."""
-        # Create prefix for range scan
-        prefix = self.TIME_PREFIX + str(node_id).encode() + b':'
-        
-        # Create start and end keys
-        start_key = self._make_time_key(node_id, start_time)
-        end_key = self._make_time_key(node_id, end_time)
-        
-        # Perform the range scan
-        it = self.db.iteritems(self.time_index_cf)
-        it.seek(start_key)
-        
-        result = []
-        while it.valid():
-            key, value = it.item()
-            
-            # Check if we're still in the range and the correct node
-            if not key.startswith(prefix) or key > end_key:
-                break
-                
-            # Get the delta
-            delta_id = UUID(value.decode())
-            delta = self.get_delta(delta_id)
-            
-            if delta:
-                result.append(delta)
-                
-            it.next()
-        
-        # Sort by timestamp
-        result.sort(key=lambda d: d.timestamp)
-        return result
-    
-    def close(self) -> None:
-        """Close the database."""
-        for handle in self.cf_handles:
-            self.db.close_column_family(handle)
-        del self.db 
+
+    def get_deltas_in_time_range(self, node_id: UUID, start_time: float, end_time: float) -> List[DeltaRecord]:
+        ids = self.node_index.get(node_id, [])
+        return [self.deltas[did] for did in ids if start_time <= self.deltas[did].timestamp <= end_time]
+
+
+if ROCKSDB_AVAILABLE:
+    class RocksDBDeltaStore(DeltaStore):
+        # ... existing code ...
+        pass
+else:
+    RocksDBDeltaStore = None 

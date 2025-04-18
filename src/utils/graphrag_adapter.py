@@ -18,7 +18,7 @@ from graphrag.config.load_config import load_config
 from graphrag.config.models.graph_rag_config import GraphRagConfig
 
 # Temporal-Spatial Memory imports
-from ..models.mesh_node import MeshNode
+from ..models.node import Node
 from ..models.narrative_nodes import CharacterNode, LocationNode, EventNode, ThemeNode
 
 class GraphRAGAdapter:
@@ -98,7 +98,7 @@ class GraphRAGAdapter:
         
         return knowledge_graph
     
-    def convert_to_mesh_nodes(self, knowledge_graph: Dict[str, Any]) -> List[MeshNode]:
+    def convert_to_mesh_nodes(self, knowledge_graph: Dict[str, Any]) -> List[Node]:
         """
         Convert GraphRAG knowledge graph to temporal-spatial mesh nodes.
         
@@ -106,7 +106,7 @@ class GraphRAGAdapter:
             knowledge_graph: GraphRAG knowledge graph
             
         Returns:
-            List of MeshNode objects
+            List of Node objects
         """
         mesh_nodes = []
         
@@ -177,7 +177,7 @@ class GraphRAGAdapter:
             
             else:
                 # Generic mesh node for other types
-                mesh_node = MeshNode(
+                mesh_node = Node(
                     time=time,
                     distance=distance,
                     angle=angle,

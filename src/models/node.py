@@ -5,6 +5,7 @@ Node class for the Temporal-Spatial Memory Database.
 
 import uuid
 from typing import Dict, Any, Set, List, Optional
+from math import cos, radians, sqrt
 
 class Node:
     """
@@ -101,3 +102,10 @@ class Node:
         except Exception as e:
             print(f"Error creating node from dictionary: {str(e)}")
             return None 
+
+    def spatial_distance(self, other: 'Node') -> float:
+        """Calculate the spatial distance to another node in cylindrical coordinates."""
+        r1, r2 = self.distance, other.distance
+        theta1, theta2 = radians(self.angle), radians(other.angle)
+        z1, z2 = self.time, other.time
+        return sqrt(r1**2 + r2**2 - 2*r1*r2*cos(theta1-theta2) + (z1-z2)**2) 

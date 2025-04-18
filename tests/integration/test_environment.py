@@ -158,13 +158,10 @@ class TestEnvironment:
             
         # Create index components
         self.spatial_index = RTree(max_entries=50, min_entries=20)
-        self.temporal_index = TemporalIndex(resolution=0.1)
+        self.temporal_index = TemporalIndex()
         
         # Create combined index
-        self.combined_index = SpatioTemporalIndex(
-            spatial_index=self.spatial_index,
-            temporal_index=self.temporal_index
-        )
+        self.combined_index = SpatioTemporalIndex()
         
     def teardown(self) -> None:
         """Clean up test environment"""

@@ -15,7 +15,8 @@ class TestMeshTube(unittest.TestCase):
     
     def setUp(self):
         """Set up a test mesh tube instance with sample data"""
-        self.mesh = MeshTube(name="Test Mesh", storage_path=None)
+        self.temp_dir = tempfile.TemporaryDirectory()
+        self.mesh = MeshTube(name="Test Mesh", storage_path=self.temp_dir.name)
         
         # Add some test nodes
         self.node1 = self.mesh.add_node(
@@ -41,6 +42,10 @@ class TestMeshTube(unittest.TestCase):
         
         # Connect some nodes
         self.mesh.connect_nodes(self.node1.node_id, self.node2.node_id)
+    
+    def tearDown(self):
+        """Clean up temporary directory after tests"""
+        self.temp_dir.cleanup()
     
     def test_node_creation(self):
         """Test that nodes are created correctly"""
@@ -111,47 +116,33 @@ class TestMeshTube(unittest.TestCase):
     
     def test_save_and_load(self):
         """Test saving and loading the database"""
-        # Create a temporary file for testing
-        with tempfile.NamedTemporaryFile(suffix='.json', delete=False) as temp:
-            temp_path = temp.name
-        
-        try:
-            # Save the database
-            self.mesh.save(temp_path)
-            
-            # Verify the file exists and has content
-            self.assertTrue(os.path.exists(temp_path))
-            with open(temp_path, 'r') as f:
-                data = json.load(f)
-                self.assertEqual(data["name"], "Test Mesh")
-                self.assertEqual(len(data["nodes"]), 3)
-            
-            # Load the database
-            loaded_mesh = MeshTube.load(temp_path)
-            
-            # Verify loaded content
-            self.assertEqual(loaded_mesh.name, "Test Mesh")
-            self.assertEqual(len(loaded_mesh.nodes), 3)
-            
-            # Check that a specific node exists
-            loaded_node1 = None
-            for node in loaded_mesh.nodes.values():
-                if node.content.get("topic") == "Test Topic 1":
-                    loaded_node1 = node
-                    break
-                    
-            self.assertIsNotNone(loaded_node1)
-            self.assertEqual(loaded_node1.distance, 0.1)
-            
-            # Verify connections were preserved
-            for node_id in loaded_node1.connections:
-                node = loaded_mesh.get_node(node_id)
-                self.assertIn(loaded_node1.node_id, node.connections)
-            
-        finally:
-            # Clean up
-            if os.path.exists(temp_path):
-                os.unlink(temp_path)
+        # Save the database
+        self.mesh.save()
+        # Verify the file exists and has content
+        save_path = os.path.join(self.mesh.storage_path, f"{self.mesh.name}.json")
+        self.assertTrue(os.path.exists(save_path))
+        with open(save_path, 'r') as f:
+            data = json.load(f)
+            self.assertEqual(data["name"], "Test Mesh")
+            self.assertEqual(len(data["nodes"]), 3)
+        # Load the database
+        loaded_mesh = MeshTube(name="Test Mesh", storage_path=self.mesh.storage_path)
+        loaded_mesh.load()
+        # Verify loaded content
+        self.assertEqual(loaded_mesh.name, "Test Mesh")
+        self.assertEqual(len(loaded_mesh.nodes), 3)
+        # Check that a specific node exists
+        loaded_node1 = None
+        for node in loaded_mesh.nodes.values():
+            if node.content.get("topic") == "Test Topic 1":
+                loaded_node1 = node
+                break
+        self.assertIsNotNone(loaded_node1)
+        self.assertEqual(loaded_node1.distance, 0.1)
+        # Verify connections were preserved
+        for node_id in loaded_node1.connections:
+            node = loaded_mesh.get_node(node_id)
+            self.assertIn(loaded_node1.node_id, node.connections)
     
     def test_spatial_distance(self):
         """Test the spatial distance calculation between nodes"""
