@@ -13,6 +13,7 @@ import yaml
 import re
 from pathlib import Path
 from typing import Dict, List, Any, Optional
+import datetime
 
 # Core imports
 from src.core.narrative_processor import NarrativeProcessor
@@ -22,6 +23,7 @@ from src.visualization.narrative_visualizer import (
     create_narrative_timeline
 )
 from src.utils.config_loader import ConfigLoader
+from src.models.narrative_atlas import NarrativeAtlas
 
 # Add debugging
 import inspect
@@ -58,15 +60,17 @@ class NarrativeProcessor:
     Converts documents, especially PDFs, into a temporal-spatial representation.
     """
     
-    def __init__(self, config_path: Optional[str] = None):
+    def __init__(self, config_path: Optional[str] = None, debug: bool = False):
         """
         Initialize the narrative processor.
         
         Args:
             config_path: Path to the configuration file
+            debug: Enable analytical breakpoints and snapshotting
         """
         self.config_loader = ConfigLoader(config_path)
         self.config = self.config_loader.load_config()
+        self.debug = debug
         
         # Get narrative metadata from config
         self.title = self.config.get("narrative", {}).get("title", "Unnamed Narrative")
@@ -82,6 +86,10 @@ class NarrativeProcessor:
         self.processed_file = None
         self.output_dir = Path(self.config.get("output", {}).get("path", "Output"))
         self.output_dir.mkdir(exist_ok=True)
+        # Create a timestamped run directory for this execution
+        timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+        self.run_output_dir = self.output_dir / timestamp
+        self.run_output_dir.mkdir(exist_ok=True)
     
     def _sanitize_name(self, name: str) -> str:
         """Convert a name to a valid filename."""
@@ -130,6 +138,12 @@ class NarrativeProcessor:
                 text += page.extract_text() + "\n\n"
                 
             print(f"Extracted {len(text)} characters with PyPDF2")
+            # Analytical breakpoint
+            if self.debug and text:
+                print(f"[CHECKPOINT] Extracted text length: {len(text)}")
+                print(f"[CHECKPOINT] Sample text (first 500 chars):\n{text[:500]}")
+                with open("debug_extracted_text.txt", "w", encoding="utf-8") as f:
+                    f.write(text)
             return text
         except Exception as e:
             print(f"Error extracting text from PDF: {str(e)}")
@@ -137,32 +151,53 @@ class NarrativeProcessor:
     
     def clean_literary_text(self, text: str) -> str:
         """
-        Clean and preprocess literary text for better processing.
-        
+        Clean and preprocess literary text for better processing, preserving page numbers, headers, and footers.
+        Extracts these elements as metadata for temporal/contextual use.
         Args:
             text: Raw text from the PDF
-            
         Returns:
-            Cleaned text
+            Cleaned text (with all original content preserved)
+        Side effects:
+            Updates self.metadata with page numbers, chapters, headers, and footers
         """
-        # Remove page numbers
-        text = re.sub(r'\n\d+\n', '\n', text)
-        
-        # Remove headers and footers that repeat on pages
+        # Initialize metadata storage if not present
+        if not hasattr(self, 'metadata'):
+            self.metadata = {'pages': [], 'chapters': [], 'headers': [], 'footers': []}
+
+        # Extract page numbers (simple heuristic: lines with only digits)
+        page_number_pattern = re.compile(r'^\s*(\d+)\s*$', re.MULTILINE)
+        for match in page_number_pattern.finditer(text):
+            self.metadata['pages'].append({'page_number': int(match.group(1)), 'position': match.start()})
+
+        # Extract chapter headings (common patterns)
+        chapter_pattern = re.compile(r'(?im)^(chapter|CHAPTER|Chapter)\s+[IVXLCDM\d]+.*$', re.MULTILINE)
+        for match in chapter_pattern.finditer(text):
+            self.metadata['chapters'].append({'chapter': match.group(0).strip(), 'position': match.start()})
+
+        # Optionally, extract headers/footers if patterns are provided in config
         header_pattern = self.config.get("text_processing", {}).get("header_pattern", "")
         footer_pattern = self.config.get("text_processing", {}).get("footer_pattern", "")
-        
         if header_pattern:
-            text = re.sub(header_pattern, '', text)
+            for match in re.finditer(header_pattern, text):
+                self.metadata['headers'].append({'header': match.group(0), 'position': match.start()})
         if footer_pattern:
-            text = re.sub(footer_pattern, '', text)
-        
-        # Replace multiple newlines with a single newline
-        text = re.sub(r'\n\s*\n', '\n\n', text)
-        
-        # Clean up spaces
+            for match in re.finditer(footer_pattern, text):
+                self.metadata['footers'].append({'footer': match.group(0), 'position': match.start()})
+
+        # Do NOT remove page numbers, headers, or footers from the text
+        # Only normalize whitespace minimally
         text = re.sub(r' +', ' ', text)
-        
+        text = re.sub(r'\n\s*\n', '\n\n', text)
+        # Analytical breakpoint
+        if self.debug:
+            import json
+            print(f"[CHECKPOINT] Pages found: {len(self.metadata['pages'])}")
+            print(f"[CHECKPOINT] Chapters found: {len(self.metadata['chapters'])}")
+            print(f"[CHECKPOINT] Sample cleaned text (first 500 chars):\n{text[:500]}")
+            with open("debug_metadata.json", "w", encoding="utf-8") as f:
+                json.dump(self.metadata, f, indent=2)
+            with open("debug_cleaned_text.txt", "w", encoding="utf-8") as f:
+                f.write(text)
         return text
     
     def preprocess_for_entity_extraction(self, text: str) -> str:
@@ -192,9 +227,35 @@ class NarrativeProcessor:
         for pattern in character_patterns:
             text = re.sub(rf'\b{pattern}\b', f"CHARACTER:{pattern}", text, flags=re.IGNORECASE)
         
+        # Analytical breakpoint
+        if self.debug:
+            print(f"[CHECKPOINT] Sample preprocessed text (first 500 chars):\n{text[:500]}")
+            with open("debug_preprocessed_text.txt", "w", encoding="utf-8") as f:
+                f.write(text)
         return text
     
-    def process_narrative(self, text: Optional[str] = None, pdf_path: Optional[str] = None, segmentation_level: Optional[str] = None) -> NarrativeAtlas:
+    def export_nodes_to_json(self, output_path: str = None) -> None:
+        """
+        Export all individual nodes (characters, events, locations, themes) to a structured JSON file.
+        Args:
+            output_path: Path to the output JSON file
+        """
+        nodes = []
+        for node_dict in [self.atlas.characters, self.atlas.events, self.atlas.locations, self.atlas.themes]:
+            for node_id, node in node_dict.items():
+                if hasattr(node, 'to_dict'):
+                    node_data = node.to_dict()
+                else:
+                    node_data = node.__dict__
+                node_data['node_id'] = node_id
+                nodes.append(node_data)
+        import json
+        if output_path is None:
+            output_path = self.run_output_dir / "narrative_nodes.json"
+        with open(output_path, "w", encoding="utf-8") as f:
+            json.dump(nodes, f, indent=2)
+    
+    def process_narrative(self, text: Optional[str] = None, pdf_path: Optional[str] = None, segmentation_level: Optional[str] = None) -> "NarrativeAtlas":
         """
         Process a narrative text and build the narrative atlas.
         
@@ -235,6 +296,16 @@ class NarrativeProcessor:
         # Build the narrative atlas
         self.atlas.process_text(processed_text, self.title, segmentation_level)
         
+        # Analytical breakpoint after segmentation and atlas creation
+        if self.debug:
+            print(f"[CHECKPOINT] NarrativeAtlas summary: {self.atlas.summary() if hasattr(self.atlas, 'summary') else str(self.atlas)}")
+            # Optionally, save a serialized version of the atlas if supported
+            if hasattr(self.atlas, 'to_json'):
+                with open("debug_atlas.json", "w", encoding="utf-8") as f:
+                    f.write(self.atlas.to_json())
+        # Always export all nodes to a structured JSON file in the run-specific Output directory
+        self.export_nodes_to_json()
+        
         # Calculate processing time
         elapsed_time = time.time() - start_time
         print(f"Processing completed in {elapsed_time:.2f} seconds")
@@ -249,8 +320,8 @@ class NarrativeProcessor:
         
         file_prefix = self._sanitize_name(self.title)
         
-        # Create the visualization directory
-        viz_dir = self.output_dir / "visualizations"
+        # Create the visualization directory inside the run-specific output directory
+        viz_dir = self.run_output_dir / "visualizations"
         viz_dir.mkdir(exist_ok=True)
         
         print("Generating narrative visualizations...")
