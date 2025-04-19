@@ -29,6 +29,9 @@ from src.models.narrative_atlas import NarrativeAtlas
 import inspect
 import sys
 
+from .llm_operator import LLMOperator
+from .hybrid_extractor import HybridExtractor
+
 def debug_function(func):
     """Print function signature for debugging"""
     print(f"Function: {func.__name__}")
@@ -420,6 +423,10 @@ def main():
     print(f"Initializing with config: {args.config}")
     processor = NarrativeProcessor(args.config)
     
+    # Initialize LLM and hybrid extractor
+    llm = LLMOperator()
+    extractor = HybridExtractor(llm)
+    
     # Extract text if needed
     text = None
     if args.pdf:
@@ -435,80 +442,23 @@ def main():
             print(f"Error reading text file: {str(e)}")
             return
     
-    # Process the narrative
-    atlas = processor.process_narrative(
-        text=text,
-        segmentation_level=args.segmentation
-    )
+    # Segment text using hybrid (LLM + deterministic) extractor
+    print("Segmenting text using hybrid (LLM + deterministic) extractor...")
+    segments = extractor.segment_text(text)
     
-    # Generate visualizations if requested
-    if args.visualize:
-        output_dir = config.get("output", {}).get("path", "Output")
-        title = config.get("narrative", {}).get("title", "Unnamed Narrative")
-        slug = re.sub(r'[^\w\s-]', '', title).lower().replace(' ', '_')
-        
-        print(f"Generating visualizations in {output_dir}...")
-        
-        # Create main narrative visualization
-        viz_path = os.path.join(output_dir, f"{slug}_narrative.html")
-        create_narrative_visualization(atlas, viz_path)
-        print(f"Created narrative visualization: {viz_path}")
-        
-        # Create timeline visualization
-        timeline_path = os.path.join(output_dir, f"{slug}_timeline.html")
-        create_narrative_timeline(atlas, timeline_path)
-        print(f"Created timeline visualization: {timeline_path}")
-        
-        # Create character arc visualizations for top characters
-        top_characters = sorted(atlas.characters.values(), 
-                               key=lambda c: c.content.get("mention_count", 0), 
-                               reverse=True)[:5]
-        
-        for char in top_characters:
-            char_name = char.content.get("name", "character")
-            char_slug = re.sub(r'[^\w\s-]', '', char_name).lower().replace(' ', '_')
-            char_path = os.path.join(output_dir, f"{slug}_{char_slug}_arc.html")
-            create_character_arc_visualization(atlas, char.node_id, char_path)
-            print(f"Created character arc for {char_name}: {char_path}")
-        
-        # Create a launcher HTML file
-        launcher_path = os.path.join(output_dir, f"{slug}_launcher.html")
-        with open(launcher_path, 'w') as f:
-            f.write(f"""<!DOCTYPE html>
-<html>
-<head>
-    <title>{title} - Narrative Analysis</title>
-    <style>
-        body {{ font-family: Arial, sans-serif; margin: 20px; }}
-        h1 {{ color: #2c3e50; }}
-        .viz-link {{ 
-            display: block; margin: 10px 0; padding: 10px;
-            background-color: #3498db; color: white;
-            text-decoration: none; border-radius: 5px;
-            width: 300px; text-align: center;
-        }}
-        .viz-link:hover {{ background-color: #2980b9; }}
-    </style>
-</head>
-<body>
-    <h1>{title} - Narrative Analysis</h1>
-    <p>Select a visualization to view:</p>
+    # Extract entities for each segment
+    print("Extracting entities for each segment...")
+    all_entities = []
+    for segment in segments:
+        entities = extractor.extract_entities(segment['text'] if isinstance(segment, dict) and 'text' in segment else segment)
+        all_entities.append(entities)
+        # TODO: Pass entities and segment info to NarrativeAtlas for node creation and time hierarchy assignment
     
-    <a href="{slug}_narrative.html" class="viz-link">Complete Narrative Structure</a>
-    <a href="{slug}_timeline.html" class="viz-link">Narrative Timeline</a>
-""")
-            
-            # Add character links
-            for char in top_characters:
-                char_name = char.content.get("name", "character")
-                char_slug = re.sub(r'[^\w\s-]', '', char_name).lower().replace(' ', '_')
-                f.write(f'    <a href="{slug}_{char_slug}_arc.html" class="viz-link">{char_name}\'s Character Arc</a>\n')
-            
-            f.write("""</body>
-</html>""")
-        
-        print(f"Created launcher HTML: {launcher_path}")
-        print(f"Open {launcher_path} in a web browser to view all visualizations.")
+    # TODO: Integrate with NarrativeAtlas to build nodes using segments and extracted entities
+    # atlas = processor.process_narrative(
+    #     text=text,
+    #     segmentation_level=args.segmentation
+    # )
     
     print("Processing complete!")
 
