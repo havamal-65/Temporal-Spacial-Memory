@@ -151,8 +151,11 @@ class NarrativeProcessor:
             if self.debug and text:
                 print(f"[CHECKPOINT] Extracted text length: {len(text)}")
                 print(f"[CHECKPOINT] Sample text (first 500 chars):\n{text[:500]}")
-                with open("debug_extracted_text.txt", "w", encoding="utf-8") as f:
+                # Write debug output to the run-specific directory
+                debug_path = self.run_output_dir / "debug_extracted_text.txt"
+                with open(debug_path, "w", encoding="utf-8") as f:
                     f.write(text)
+                print(f"  >> Saved debug extracted text to: {debug_path}")
             return text
         except Exception as e:
             print(f"Error extracting text from PDF: {str(e)}")
@@ -203,10 +206,15 @@ class NarrativeProcessor:
             print(f"[CHECKPOINT] Pages found: {len(self.metadata['pages'])}")
             print(f"[CHECKPOINT] Chapters found: {len(self.metadata['chapters'])}")
             print(f"[CHECKPOINT] Sample cleaned text (first 500 chars):\n{text[:500]}")
-            with open("debug_metadata.json", "w", encoding="utf-8") as f:
+            # Write debug outputs to the run-specific directory
+            debug_meta_path = self.run_output_dir / "debug_metadata.json"
+            with open(debug_meta_path, "w", encoding="utf-8") as f:
                 json.dump(self.metadata, f, indent=2)
-            with open("debug_cleaned_text.txt", "w", encoding="utf-8") as f:
+            print(f"  >> Saved debug metadata to: {debug_meta_path}")
+            debug_clean_path = self.run_output_dir / "debug_cleaned_text.txt"
+            with open(debug_clean_path, "w", encoding="utf-8") as f:
                 f.write(text)
+            print(f"  >> Saved debug cleaned text to: {debug_clean_path}")
         return text
     
     def preprocess_for_entity_extraction(self, text: str) -> str:
@@ -239,8 +247,11 @@ class NarrativeProcessor:
         # Analytical breakpoint
         if self.debug:
             print(f"[CHECKPOINT] Sample preprocessed text (first 500 chars):\n{text[:500]}")
-            with open("debug_preprocessed_text.txt", "w", encoding="utf-8") as f:
+            # Write debug output to the run-specific directory
+            debug_preproc_path = self.run_output_dir / "debug_preprocessed_text.txt"
+            with open(debug_preproc_path, "w", encoding="utf-8") as f:
                 f.write(text)
+            print(f"  >> Saved debug preprocessed text to: {debug_preproc_path}")
         return text
     
     def export_nodes_to_json(self, output_path: str = None) -> None:
@@ -311,8 +322,11 @@ class NarrativeProcessor:
             print(f"[CHECKPOINT] NarrativeAtlas summary: {self.atlas.summary() if hasattr(self.atlas, 'summary') else str(self.atlas)}")
             # Optionally, save a serialized version of the atlas if supported
             if hasattr(self.atlas, 'to_json'):
-                with open("debug_atlas.json", "w", encoding="utf-8") as f:
+                # Write debug output to the run-specific directory
+                debug_atlas_path = self.run_output_dir / "debug_atlas.json"
+                with open(debug_atlas_path, "w", encoding="utf-8") as f:
                     f.write(self.atlas.to_json())
+                print(f"  >> Saved debug atlas to: {debug_atlas_path}")
         # Always export all nodes to a structured JSON file in the run-specific Output directory
         self.export_nodes_to_json()
         
@@ -458,9 +472,9 @@ def main():
                 print(f"      No entities extracted for Chunk {idx+1}-{sub_idx+1}.")
                 all_entities_for_atlas.append({}) # Keep entity list aligned with segments
             
-            # Add delay to respect rate limits
-            print(f"    [Chunk {idx+1}-{sub_idx+1}] Waiting 1 second before next call..." )
-            time.sleep(1)
+            # Remove delay when using local LLM
+            # print(f"    [Chunk {idx+1}-{sub_idx+1}] Waiting 1 second before next call..." )
+            # time.sleep(1)
 
     # --- Add all extracted nodes to the atlas --- 
     if all_segments_for_atlas and all_entities_for_atlas:
