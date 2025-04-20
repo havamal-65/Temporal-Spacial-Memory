@@ -1,3 +1,5 @@
+import json
+import re
 from .llm_operator import LLMOperator
 
 class DeterministicExtractor:
@@ -10,6 +12,9 @@ class DeterministicExtractor:
         return []
 
 class HybridExtractor:
+    """
+    Combines deterministic (regex) and LLM-based extraction methods.
+    """
     def __init__(self, llm_operator: LLMOperator):
         self.llm = llm_operator
         self.det = DeterministicExtractor()

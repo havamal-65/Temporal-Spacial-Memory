@@ -6,6 +6,16 @@ support for PDF documents like The Hobbit.
 Now enhanced with GraphRAG for better entity extraction and relationship modeling.
 """
 
+# Ensure .env is loaded first!
+try:
+    from dotenv import load_dotenv
+    if load_dotenv():
+        print("Loaded environment variables from .env file.")
+    else:
+        print("Warning: .env file not found or empty.")
+except ImportError:
+    print("Warning: dotenv package not installed. Cannot load .env file.")
+
 import os
 import time
 import argparse
@@ -17,11 +27,6 @@ import datetime
 
 # Core imports
 from src.core.narrative_processor import NarrativeProcessor
-from src.visualization.narrative_visualizer import (
-    create_narrative_visualization,
-    create_character_arc_visualization,
-    create_narrative_timeline
-)
 from src.utils.config_loader import ConfigLoader
 from src.models.narrative_atlas import NarrativeAtlas
 
@@ -29,17 +34,14 @@ from src.models.narrative_atlas import NarrativeAtlas
 import inspect
 import sys
 
-from .llm_operator import LLMOperator
-from .hybrid_extractor import HybridExtractor
+from src.core.llm_operator import LLMOperator
+from src.core.hybrid_extractor import HybridExtractor
 
 def debug_function(func):
     """Print function signature for debugging"""
     print(f"Function: {func.__name__}")
     print(f"Signature: {inspect.signature(func)}")
     return func
-
-# Assign debug wrappers
-debug_create_character_arc_visualization = debug_function(create_character_arc_visualization)
 
 # PDF processing imports
 try:
@@ -56,6 +58,10 @@ except ImportError:
     UNSTRUCTURED_AVAILABLE = False
     print("Note: 'unstructured' library not available. Using basic PDF extraction.")
     print("For better PDF extraction, install with: pip install unstructured[pdf]")
+
+# Define a maximum chunk size in characters (adjust as needed)
+# ~8000 chars is roughly 2000 tokens, well below typical limits
+MAX_CHUNK_CHARS = 8000
 
 class NarrativeProcessor:
     """
@@ -253,10 +259,11 @@ class NarrativeProcessor:
                 node_data['node_id'] = node_id
                 nodes.append(node_data)
         import json
-        if output_path is None:
-            output_path = self.run_output_dir / "narrative_nodes.json"
+        # Always write to the run_output_dir as narrative_nodes.json
+        output_path = self.run_output_dir / "narrative_nodes.json"
         with open(output_path, "w", encoding="utf-8") as f:
             json.dump(nodes, f, indent=2)
+        print(f"Exported nodes to {output_path}")
     
     def process_narrative(self, text: Optional[str] = None, pdf_path: Optional[str] = None, segmentation_level: Optional[str] = None) -> "NarrativeAtlas":
         """
@@ -314,79 +321,6 @@ class NarrativeProcessor:
         print(f"Processing completed in {elapsed_time:.2f} seconds")
         
         return self.atlas
-    
-    def generate_visualizations(self) -> None:
-        """Generate standard visualizations for the narrative."""
-        if not self.atlas:
-            print("No atlas to visualize.")
-            return
-        
-        file_prefix = self._sanitize_name(self.title)
-        
-        # Create the visualization directory inside the run-specific output directory
-        viz_dir = self.run_output_dir / "visualizations"
-        viz_dir.mkdir(exist_ok=True)
-        
-        print("Generating narrative visualizations...")
-        
-        try:
-            # Create main narrative visualization
-            create_narrative_visualization(
-                self.atlas, 
-                str(viz_dir / f"{file_prefix}_visualization.html")
-            )
-            
-            # Create narrative timeline
-            create_narrative_timeline(
-                self.atlas,
-                str(viz_dir / f"{file_prefix}_timeline.html")
-            )
-            
-            # Print function signatures for debugging
-            print("Debugging function signatures:")
-            debug_create_character_arc_visualization
-            
-            # Create character arc visualizations for major characters
-            top_characters = sorted(
-                self.atlas.characters.items(),
-                key=lambda x: x[1].content.get("mentions", 0),
-                reverse=True
-            )[:10]  # Top 10 characters
-            
-            for char_id, _ in top_characters:
-                try:
-                    print(f"Processing character: {char_id}")
-                    character_data = self.atlas.analyze_character_arc(char_id)
-                    character_name = character_data["name"]
-                    char_filename = self._sanitize_name(character_name)
-                    output_path = str(viz_dir / f"{file_prefix}_{char_filename}_arc.html")
-                    
-                    # Use a fallback approach with try/except
-                    try:
-                        create_character_arc_visualization(
-                            self.atlas,
-                            char_id,
-                            output_path
-                        )
-                    except TypeError as e:
-                        print(f"TypeError: {e}")
-                        # Try alternative parameter combinations
-                        try:
-                            print("Trying alternative approach...")
-                            create_character_arc_visualization(
-                                character_data,
-                                output_path
-                            )
-                        except Exception as e2:
-                            print(f"Alternative approach failed: {e2}")
-                except Exception as e:
-                    print(f"Error processing character {char_id}: {str(e)}")
-        except Exception as e:
-            print(f"Error generating visualizations: {str(e)}")
-            import traceback
-            traceback.print_exc()
-        
-        print(f"Visualizations saved to {viz_dir}")
 
 def main():
     """Main entry point for narrative processing."""
@@ -394,11 +328,7 @@ def main():
     parser.add_argument("--config", type=str, help="Path to configuration file", default="config_examples/default_config.yaml")
     parser.add_argument("--pdf", type=str, help="Path to PDF file to process")
     parser.add_argument("--text", type=str, help="Path to text file to process")
-    parser.add_argument("--segmentation", type=str, choices=["paragraph", "sentence", "chapter"], 
-                        help="Segmentation level (default is from config)")
-    parser.add_argument("--use-graphrag", action="store_true", help="Use GraphRAG for enhanced entity extraction")
-    parser.add_argument("--visualize", action="store_true", help="Generate visualizations after processing")
-    
+    parser.add_argument("--use-graphrag", action="store_true", help="Use GraphRAG for enhanced entity extraction (currently implies LLM use)")
     args = parser.parse_args()
     
     if not args.pdf and not args.text:
@@ -409,58 +339,145 @@ def main():
     # Load config
     config_loader = ConfigLoader(args.config)
     config = config_loader.load_config()
-    
-    # Update config with command line arguments
+    print(f"Loaded configuration from: {args.config}")
+
+    # Update config with command line arguments (if any affect config directly)
     if args.use_graphrag:
         if "processing" not in config:
             config["processing"] = {}
         config["processing"]["use_graphrag"] = True
-    
-    # Save updated config if needed
+        print("GraphRAG processing enabled via command line.")
+
+    # Save updated config if needed (optional)
     config_loader.config = config
-    
-    # Initialize processor
-    print(f"Initializing with config: {args.config}")
-    processor = NarrativeProcessor(args.config)
-    
+
+    # Initialize processor (loads config, sets up output dirs)
+    print(f"Initializing NarrativeProcessor with config: {args.config}")
+    processor = NarrativeProcessor(config_path=args.config) # Pass config path again
+
     # Initialize LLM and hybrid extractor
-    llm = LLMOperator()
-    extractor = HybridExtractor(llm)
-    
+    try:
+        llm = LLMOperator() # Assumes API key is set via environment
+        extractor = HybridExtractor(llm)
+    except ValueError as e:
+        print(f"Error initializing LLM components: {e}")
+        print("Please ensure the OPENAI_API_KEY environment variable is set correctly.")
+        return
+
     # Extract text if needed
     text = None
     if args.pdf:
+        print(f"Extracting text from PDF: {args.pdf}")
         text = processor.extract_text_from_pdf(args.pdf)
         if not text:
-            print("Failed to extract text from PDF.")
+            print("Failed to extract text from PDF. Exiting.")
             return
     elif args.text:
         try:
+            print(f"Reading text from file: {args.text}")
             with open(args.text, 'r', encoding='utf-8') as f:
                 text = f.read()
         except Exception as e:
-            print(f"Error reading text file: {str(e)}")
+            print(f"Error reading text file: {str(e)}. Exiting.")
             return
-    
-    # Segment text using hybrid (LLM + deterministic) extractor
-    print("Segmenting text using hybrid (LLM + deterministic) extractor...")
-    segments = extractor.segment_text(text)
-    
-    # Extract entities for each segment
-    print("Extracting entities for each segment...")
-    all_entities = []
-    for segment in segments:
-        entities = extractor.extract_entities(segment['text'] if isinstance(segment, dict) and 'text' in segment else segment)
-        all_entities.append(entities)
-        # TODO: Pass entities and segment info to NarrativeAtlas for node creation and time hierarchy assignment
-    
-    # TODO: Integrate with NarrativeAtlas to build nodes using segments and extracted entities
-    # atlas = processor.process_narrative(
-    #     text=text,
-    #     segmentation_level=args.segmentation
-    # )
-    
-    print("Processing complete!")
+
+    if not text:
+        print("No text available to process. Exiting.")
+        return
+
+    # Clean text and extract metadata (like chapter positions)
+    print("Cleaning text and extracting metadata...")
+    clean_text = processor.clean_literary_text(text)
+
+    # --- Process by Chunks --- 
+    print("Processing text by chapter, sub-chunking if necessary...")
+    all_segments_for_atlas = []
+    all_entities_for_atlas = []
+
+    if not processor.metadata or not processor.metadata.get('chapters'):
+        print("Warning: No chapter metadata found. Processing the text with sub-chunking.")
+        # Treat the whole text as one initial "chapter" to be sub-chunked
+        initial_chunks = [(clean_text, 0, len(clean_text), {'chapter': 'Full Text'})]
+    else:
+        print(f"Found {len(processor.metadata['chapters'])} chapters.")
+        chapters = sorted(processor.metadata['chapters'], key=lambda x: x['position'])
+        initial_chunks = []
+        for i, chapter_meta in enumerate(chapters):
+            start_pos = chapter_meta['position']
+            end_pos = chapters[i+1]['position'] if (i + 1) < len(chapters) else len(clean_text)
+            chapter_text = clean_text[start_pos:end_pos]
+            initial_chunks.append((chapter_text, start_pos, end_pos, chapter_meta))
+
+    # Process initial chunks (chapters or full text), sub-chunking if needed
+    total_initial_chunks = len(initial_chunks)
+    for idx, (initial_text, initial_start, initial_end, initial_meta) in enumerate(initial_chunks):
+        
+        print(f"\nProcessing Initial Chunk {idx+1}/{total_initial_chunks} (Source: {initial_meta.get('chapter', 'Full Text')}, Chars: {len(initial_text)})..." )
+
+        sub_chunks = []
+        if len(initial_text) > MAX_CHUNK_CHARS:
+            print(f"  Initial chunk exceeds {MAX_CHUNK_CHARS} chars. Sub-chunking...")
+            # Simple fixed-size sub-chunking (can be improved, e.g., split by paragraph)
+            current_pos = 0
+            while current_pos < len(initial_text):
+                sub_end = min(current_pos + MAX_CHUNK_CHARS, len(initial_text))
+                sub_chunks.append(initial_text[current_pos:sub_end])
+                current_pos = sub_end
+            print(f"  Split into {len(sub_chunks)} sub-chunks.")
+        else:
+            sub_chunks.append(initial_text)
+
+        # Process each sub-chunk (or the single chunk if not split)
+        for sub_idx, chunk_text in enumerate(sub_chunks):
+            if len(sub_chunks) > 1:
+                print(f"  Processing Sub-chunk {sub_idx+1}/{len(sub_chunks)} (Chars: {len(chunk_text)})..." )
+            
+            # Calculate correct start/end indices relative to the *original* clean_text
+            # This assumes fixed-size chunking for simplicity; paragraph splitting would need smarter index tracking
+            chunk_start_in_doc = initial_start + sum(len(c) for c in sub_chunks[:sub_idx])
+            chunk_end_in_doc = chunk_start_in_doc + len(chunk_text)
+
+            # Create a segment corresponding to this specific chunk
+            segment = {
+                'text': chunk_text, 
+                'start_index': chunk_start_in_doc, 
+                'end_index': chunk_end_in_doc, 
+                'metadata': initial_meta # Associate with original chapter/source
+            }
+            all_segments_for_atlas.append(segment)
+
+            # Extract entities for this chunk
+            print(f"    [Chunk {idx+1}-{sub_idx+1}] Calling LLM for entity extraction..." )
+            entities = extractor.extract_entities(chunk_text)
+            print(f"    [Chunk {idx+1}-{sub_idx+1}] LLM call complete.")
+
+            if entities:
+                print(f"      Extracted entities for Chunk {idx+1}-{sub_idx+1}.")
+                all_entities_for_atlas.append(entities)
+            else:
+                print(f"      No entities extracted for Chunk {idx+1}-{sub_idx+1}.")
+                all_entities_for_atlas.append({}) # Keep entity list aligned with segments
+            
+            # Add delay to respect rate limits
+            print(f"    [Chunk {idx+1}-{sub_idx+1}] Waiting 1 second before next call..." )
+            time.sleep(1)
+
+    # --- Add all extracted nodes to the atlas --- 
+    if all_segments_for_atlas and all_entities_for_atlas:
+            print("\nAdding all extracted nodes to NarrativeAtlas...")
+            processor.atlas.add_nodes_from_extraction(all_segments_for_atlas, all_entities_for_atlas)
+    else:
+            print("\nNo segments or entities were processed to add to the atlas.")
+
+    # --- Save Atlas and Export Nodes --- 
+    print("Saving NarrativeAtlas...")
+    processor.atlas.save()
+
+    print("Exporting nodes...")
+    processor.export_nodes_to_json() # Uses run_output_dir by default now
+
+    print(f"\nProcessing complete!")
+    print(f"All outputs (like narrative_nodes.json) should be in: {processor.run_output_dir}")
 
 if __name__ == "__main__":
     main() 

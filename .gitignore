@@ -138,6 +138,7 @@ htmlcov/
 .env.*
 
 # Generated Directories
+Output/
 graphrag/
 logs/
 
