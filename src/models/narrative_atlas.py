@@ -15,7 +15,7 @@ import numpy as np
 import faiss
 from sentence_transformers import SentenceTransformer
 
-from .spatial_temporal_db import SpatialTemporalDB
+from .spatial_temporal_db import SpatialTemporalDB, Node
 from .narrative_nodes import CharacterNode, EventNode, LocationNode, ThemeNode
 
 class NarrativeAtlas:
@@ -32,14 +32,15 @@ class NarrativeAtlas:
     FAISS_INDEX_FILENAME = "narrative_atlas.faiss"
     FAISS_ID_MAP_FILENAME = "faiss_id_map.json"
 
-    def __init__(self, name: str = "narrative", storage_path: str = "data", embedding_model_name: str = DEFAULT_EMBEDDING_MODEL):
+    def __init__(self, name: str = "narrative", storage_path: str = "data", embedding_model_name: str = DEFAULT_EMBEDDING_MODEL, embedding_model: Optional[SentenceTransformer] = None):
         """
         Initialize a new NarrativeAtlas.
         
         Args:
             name: Name of the narrative database
             storage_path: Path to store database files
-            embedding_model_name: Name of the SentenceTransformer model to use
+            embedding_model_name: Name of the SentenceTransformer model to use (if embedding_model is not provided)
+            embedding_model: An optional pre-loaded SentenceTransformer model instance.
         """
         self.name = name
         self.storage_path = storage_path
@@ -78,21 +79,53 @@ class NarrativeAtlas:
         self.faiss_id_to_node_id: Dict[int, str] = {} # FAISS ID (int) -> Node ID (str) - Renamed from faiss_id_map for clarity
         self.next_faiss_id: int = 0
 
-        # 1. Load SentenceTransformer Model
-        try:
-            print(f"Loading embedding model: {self.embedding_model_name}...")
-            self.embedding_model = SentenceTransformer(self.embedding_model_name)
-            self.embedding_dim = self.embedding_model.get_sentence_embedding_dimension()
-            print(f"Embedding model loaded. Dimension: {self.embedding_dim}")
-        except Exception as e:
-            print(f"Error loading embedding model '{self.embedding_model_name}': {e}")
-            print("FAISS indexing will be disabled.")
-            self.embedding_model = None
+        # 1. Use provided model or load SentenceTransformer Model
+        self.embedding_model = embedding_model # Use provided model if available
+        self.embedding_dim = None
+
+        if self.embedding_model:
+            print(f"Using provided embedding model: {type(self.embedding_model).__name__}")
+            try:
+                # Attempt to get dimension if it's a standard SentenceTransformer
+                if hasattr(self.embedding_model, 'get_sentence_embedding_dimension'):
+                    self.embedding_dim = self.embedding_model.get_sentence_embedding_dimension()
+                elif hasattr(self.embedding_model, 'dim'): # Handle mock model
+                    self.embedding_dim = self.embedding_model.dim
+                else:
+                    # Attempt a fallback: encode a dummy text
+                    print("Attempting to determine embedding dimension by encoding dummy text...")
+                    dummy_embedding = self.embedding_model.encode(["test"], convert_to_numpy=True)
+                    self.embedding_dim = dummy_embedding.shape[1]
+                
+                if self.embedding_dim:
+                    print(f"Embedding dimension determined: {self.embedding_dim}")
+                else:
+                     raise ValueError("Could not determine embedding dimension from provided model.")
+            except Exception as e:
+                print(f"Error determining dimension from provided embedding model: {e}")
+                print("FAISS indexing will be disabled.")
+                self.embedding_model = None
+                self.faiss_index = None
+        
+        if not self.embedding_model:
+            try:
+                print(f"Loading embedding model: {self.embedding_model_name}...")
+                self.embedding_model = SentenceTransformer(self.embedding_model_name)
+                self.embedding_dim = self.embedding_model.get_sentence_embedding_dimension()
+                print(f"Embedding model loaded. Dimension: {self.embedding_dim}")
+            except Exception as e:
+                print(f"Error loading embedding model '{self.embedding_model_name}': {e}")
+                print("FAISS indexing will be disabled.")
+                self.embedding_model = None
+                self.faiss_index = None
+
+        # If embedding model failed or dim couldn't be determined, disable FAISS
+        if not self.embedding_model or not self.embedding_dim:
             self.faiss_index = None
             self.faiss_id_to_node_id = {}
             self.node_id_to_faiss_id = {}
             self.next_faiss_id = 0
-            # If model fails, don't proceed with FAISS setup
+            # Stop FAISS setup
             return 
 
         # 2. Load or Create ID Map and Next ID
@@ -138,21 +171,31 @@ class NarrativeAtlas:
             except Exception as e:
                 print(f"Error loading FAISS index: {e}. Creating a new index.")
                 # Fallback to creating a new index if loading fails
-                self.faiss_index = faiss.IndexIDMap2(faiss.IndexFlatL2(self.embedding_dim))
+                # Using IndexHNSWFlat for scalability
+                M = 32 # Number of connections per node (parameter to tune)
+                base_index = faiss.IndexHNSWFlat(self.embedding_dim, M, faiss.METRIC_L2)
+                self.faiss_index = faiss.IndexIDMap2(base_index)
                 # Since index load failed, clear potentially inconsistent maps and reset ID
                 self.faiss_id_to_node_id = {}
                 self.node_id_to_faiss_id = {}
                 self.next_faiss_id = 0
-                print("New FAISS index created.")
+                print("New FAISS index (HNSWFlat) created.")
         else:
             print("No existing FAISS index found. Creating a new index.")
-            self.faiss_index = faiss.IndexIDMap2(faiss.IndexFlatL2(self.embedding_dim))
+            # Using IndexHNSWFlat for scalability
+            M = 32 # Number of connections per node (parameter to tune)
+            base_index = faiss.IndexHNSWFlat(self.embedding_dim, M, faiss.METRIC_L2)
+            self.faiss_index = faiss.IndexIDMap2(base_index)
             # Ensure maps are empty and ID is reset if index is new
             self.faiss_id_to_node_id = {}
             self.node_id_to_faiss_id = {}
             self.next_faiss_id = 0
-            print("New FAISS index created.")
+            print("New FAISS index (HNSWFlat) created.")
             
+        # Optional: Set search parameters for HNSW if needed (can also be done per-query)
+        # if isinstance(self.faiss_index.index, faiss.IndexHNSW):
+        #    self.faiss_index.index.hnsw.efSearch = 64 
+        
         # -- End FAISS Initialization --
     
     def load(self) -> None:
@@ -456,14 +499,14 @@ class NarrativeAtlas:
             if character.content.get("name", "").lower() == name.lower():
                 # Character exists, update mentions and time if needed
                 character.increment_mentions()
-                # TODO: Decide if we should update embedding here if content changed?
-                # For now, we assume name is the primary searchable text and doesn't change often.
-                # self._add_or_update_embedding(char_id, name) # Optionally update
+                # Note: Embedding update logic moved to _get_or_create_character_with_metadata
+                # if relevant content changes significantly. Simple get/create only uses name initially.
                 return char_id
         
         # Create new character
+        content = {"name": name}
         character = CharacterNode(
-            content={"name": name},
+            content=content,
             time=position,
             distance=0.5,  # Default distance until importance is determined
             angle=len(self.characters) * (360.0 / (len(self.characters) + 1)) if self.characters else 0.0
@@ -471,8 +514,9 @@ class NarrativeAtlas:
         
         # Add to database
         self.characters[character.node_id] = character
-        # Add embedding for the new character
-        self._add_or_update_embedding(character.node_id, name)
+        # Construct text for embedding (name only for simple creation)
+        text_to_embed = f"Character: {name}"
+        self._add_or_update_embedding(character.node_id, text_to_embed)
         return character.node_id
     
     def _get_or_create_location(self, name: str, position: float) -> str:
@@ -482,13 +526,13 @@ class NarrativeAtlas:
             if location.content.get("name", "").lower() == name.lower():
                 # Location exists, update scene count
                 location.increment_scene_count()
-                # Optionally update embedding
-                # self._add_or_update_embedding(loc_id, name)
+                # Note: Embedding update logic moved to _get_or_create_location_with_metadata
                 return loc_id
         
         # Create new location
+        content = {"name": name}
         location = LocationNode(
-            content={"name": name},
+            content=content,
             time=position,
             distance=0.7,  # Default distance
             angle=len(self.locations) * (360.0 / (len(self.locations) + 1)) if self.locations else 0.0
@@ -496,25 +540,28 @@ class NarrativeAtlas:
         
         # Add to database
         self.locations[location.node_id] = location
-        # Add embedding for the new location
-        self._add_or_update_embedding(location.node_id, name)
+        # Construct text for embedding (name only for simple creation)
+        text_to_embed = f"Location: {name}"
+        self._add_or_update_embedding(location.node_id, text_to_embed)
         return location.node_id
     
     def _create_event(self, description: str, position: float, participant_ids: List[str]) -> str:
         """Create a new event node."""
         # Create new event
+        content = {"description": description, "participants": participant_ids} # Store participant IDs in content
         event = EventNode(
-            content={"description": description},
+            content=content,
             time=position,
             distance=0.3,  # Default distance for events (closer to center)
             angle=len(self.events) * (360.0 / (len(self.events) + 1)) if self.events else 0.0,
-            participants=participant_ids
+            participants=participant_ids # Also keep direct attribute if needed elsewhere
         )
         
         # Add to database
         self.events[event.node_id] = event
-        # Add embedding for the new event
-        self._add_or_update_embedding(event.node_id, description)
+        # Construct text for embedding (description only for simple creation)
+        text_to_embed = f"Event: {description}"
+        self._add_or_update_embedding(event.node_id, text_to_embed)
         return event.node_id
     
     def analyze_character_arc(self, character_id: str) -> Dict[str, Any]:
@@ -760,37 +807,58 @@ class NarrativeAtlas:
         if not name:
             return None # Cannot create/index without a name
             
+        content["node_type"] = "character" # Explicitly set type in content
+        description = content.get('description', '') # Get description if available
+        
+        # Construct text for embedding (combine name and description)
+        text_to_embed_parts = [f"Character: {name}"]
+        if description:
+            text_to_embed_parts.append(f"Description: {description}")
+        text_to_embed = ". ".join(text_to_embed_parts).strip()
+            
         for char_id, character in self.characters.items():
             if character.content.get("name", "").lower() == name.lower():
                 character.increment_mentions()
-                # Update existing node content if necessary (merge?)
-                # Optionally update embedding if relevant content changed
-                self._add_or_update_embedding(char_id, name)
+                # Update existing node content (simple overwrite/merge needed?)
+                # TODO: Implement more sophisticated content merging if needed
+                character.content.update(content) 
+                # Update embedding as metadata might have changed
+                self._add_or_update_embedding(char_id, text_to_embed)
                 return char_id
                 
         character = CharacterNode(content=content, time=position)
         self.characters[character.node_id] = character
         # Add embedding for new node
-        self._add_or_update_embedding(character.node_id, name)
+        self._add_or_update_embedding(character.node_id, text_to_embed)
         return character.node_id
 
     def _get_or_create_location_with_metadata(self, content, position):
         name = content.get('name', '')
         if not name:
             return None # Cannot create/index without a name
+
+        content["node_type"] = "location" # Explicitly set type in content
+        description = content.get('description', '') # Get description if available
+
+        # Construct text for embedding (combine name and description)
+        text_to_embed_parts = [f"Location: {name}"]
+        if description:
+            text_to_embed_parts.append(f"Description: {description}")
+        text_to_embed = ". ".join(text_to_embed_parts).strip()
             
         for loc_id, location in self.locations.items():
             if location.content.get("name", "").lower() == name.lower():
                 location.increment_scene_count()
-                # Update existing node content if necessary (merge?)
-                # Optionally update embedding if relevant content changed
-                self._add_or_update_embedding(loc_id, name)
+                # Update existing node content
+                location.content.update(content)
+                # Update embedding as metadata might have changed
+                self._add_or_update_embedding(loc_id, text_to_embed)
                 return loc_id
                 
         location = LocationNode(content=content, time=position)
         self.locations[location.node_id] = location
         # Add embedding for new node
-        self._add_or_update_embedding(location.node_id, name)
+        self._add_or_update_embedding(location.node_id, text_to_embed)
         return location.node_id
 
     def _create_event_with_metadata(self, content, position, participant_ids):
@@ -798,10 +866,34 @@ class NarrativeAtlas:
         if not description:
             return None # Cannot create/index without a description
             
-        event = EventNode(content=content, time=position, participants=participant_ids)
+        content["node_type"] = "event" # Explicitly set type in content
+        # Ensure participant_ids are in content if not already
+        if 'participants' not in content:
+            content['participants'] = participant_ids 
+            
+        # Get participant names (if possible) and location name for embedding
+        participant_names = []
+        # Use the potentially updated participant list from content
+        current_participants = content.get('participants', []) 
+        for p_id in current_participants:
+            if p_id in self.characters:
+                participant_names.append(self.characters[p_id].content.get('name', 'Unknown Character'))
+        
+        location_name = content.get('location_name', '') # Assuming location name might be in content
+
+        # Construct text for embedding
+        text_to_embed_parts = [f"Event: {description}"]
+        if participant_names:
+            text_to_embed_parts.append(f"Participants: {', '.join(participant_names)}")
+        if location_name:
+             text_to_embed_parts.append(f"Location: {location_name}")
+        text_to_embed = ". ".join(text_to_embed_parts).strip()
+
+        # Use current_participants when creating the EventNode
+        event = EventNode(content=content, time=position)
         self.events[event.node_id] = event
         # Add embedding for new node
-        self._add_or_update_embedding(event.node_id, description)
+        self._add_or_update_embedding(event.node_id, text_to_embed)
         return event.node_id
 
     def _get_or_create_theme_with_metadata(self, content, position):
@@ -809,19 +901,102 @@ class NarrativeAtlas:
         if not name:
             return None # Cannot create/index without a name
 
+        content["node_type"] = "theme" # Explicitly set type in content
+        keywords = content.get('keywords', []) # Get keywords if available
+
+        # Construct text for embedding
+        text_to_embed_parts = [f"Theme: {name}"]
+        if keywords:
+            # Ensure keywords are strings before joining
+            keywords_str = [str(kw) for kw in keywords if kw] 
+            if keywords_str:
+                text_to_embed_parts.append(f"Keywords: {', '.join(keywords_str)}")
+        text_to_embed = ". ".join(text_to_embed_parts).strip()
+
         for theme_id, theme in self.themes.items():
             if theme.content.get("name", "").lower() == name.lower():
                 theme.increment_instances()
-                # Update embedding if name changed (or other relevant content)
-                self._add_or_update_embedding(theme_id, name)
+                 # Update existing node content
+                theme.content.update(content)
+                # Update embedding if relevant content changed
+                self._add_or_update_embedding(theme_id, text_to_embed)
                 return theme_id
                 
         theme = ThemeNode(content=content, time=position)
         self.themes[theme.node_id] = theme
         # Add embedding for new node
-        self._add_or_update_embedding(theme.node_id, name) 
+        self._add_or_update_embedding(theme.node_id, text_to_embed) 
         return theme.node_id
 
+    # --- Node Deletion ---
+    def delete_node(self, node_id: str) -> bool:
+        """
+        Deletes a node from the atlas, including its FAISS embedding and internal references.
+        NOTE: With HNSW index, the vector is NOT removed from the underlying FAISS index, 
+              only from the lookup maps and DB.
+
+        Args:
+            node_id: The unique identifier of the node to delete.
+
+        Returns:
+            True if the node was successfully deleted, False otherwise.
+        """
+        print(f"Attempting to delete node: {node_id}")
+        
+        # 1. Delete from the underlying database
+        if not self.db.delete_node(node_id):
+            print(f"Node {node_id} not found in SpatialTemporalDB.")
+            return False
+        
+        print(f"Node {node_id} deleted from SpatialTemporalDB.")
+
+        faiss_id_to_remove = None
+        # 2. Get FAISS ID for map cleanup (DO NOT attempt removal from HNSW index)
+        if self.faiss_index is not None and self.embedding_model is not None:
+            if node_id in self.node_id_to_faiss_id:
+                faiss_id_to_remove = self.node_id_to_faiss_id[node_id]
+                print(f"Node {node_id} has FAISS ID {faiss_id_to_remove}. It will be removed from maps, but not the HNSW index itself.")
+            else:
+                print(f"Node {node_id} not found in FAISS ID map. Skipping FAISS map cleanup.")
+        else:
+            print(f"FAISS index or embedding model not available. Skipping FAISS map cleanup for node {node_id}.")
+
+        # 3. Remove from FAISS ID maps (crucial step)
+        if faiss_id_to_remove is not None:
+            if faiss_id_to_remove in self.faiss_id_to_node_id:
+                del self.faiss_id_to_node_id[faiss_id_to_remove]
+                print(f"Removed FAISS ID {faiss_id_to_remove} from faiss_id_to_node_id map.")
+                
+        if node_id in self.node_id_to_faiss_id:
+            del self.node_id_to_faiss_id[node_id]
+            print(f"Removed node ID {node_id} from node_id_to_faiss_id map.")
+        
+        # 4. Remove from typed dictionaries
+        deleted_from_typed_dict = False
+        if node_id in self.characters:
+            del self.characters[node_id]
+            deleted_from_typed_dict = True
+            print(f"Node {node_id} removed from self.characters.")
+        elif node_id in self.events:
+            del self.events[node_id]
+            deleted_from_typed_dict = True
+            print(f"Node {node_id} removed from self.events.")
+        elif node_id in self.locations:
+            del self.locations[node_id]
+            deleted_from_typed_dict = True
+            print(f"Node {node_id} removed from self.locations.")
+        elif node_id in self.themes:
+            del self.themes[node_id]
+            deleted_from_typed_dict = True
+            print(f"Node {node_id} removed from self.themes.")
+
+        if not deleted_from_typed_dict:
+             print(f"Warning: Node {node_id} was deleted from DB but not found in any typed dictionary.")
+
+        # TODO: Consider decrementing metrics? Maybe update on save/load instead.
+        print(f"Deletion process completed for node: {node_id}")
+        return True
+        
     # --- FAISS Helper Methods ---
     def _add_or_update_embedding(self, node_id: str, text_to_embed: str):
         """
@@ -890,52 +1065,192 @@ class NarrativeAtlas:
             return []
 
         try:
-            # 1. Embed the query
+            # Generate query embedding
             query_embedding = self.embedding_model.encode([query_text], convert_to_numpy=True)
             if query_embedding.ndim == 1:
                 query_embedding = np.expand_dims(query_embedding, axis=0)
 
-            # 2. Search FAISS
-            # Returns distances (D) and FAISS IDs (I)
+            # Ensure query dimension matches index dimension
+            if query_embedding.shape[1] != self.faiss_index.d:
+                print(f"Error: Query embedding dimension ({query_embedding.shape[1]}) does not match FAISS index dimension ({self.faiss_index.d}).")
+                return []
+
+            # Perform search
             distances, faiss_ids = self.faiss_index.search(query_embedding, k)
             
+            # Map results back to nodes
             results = []
-            if faiss_ids.size > 0:
-                # Process results only if any IDs were found
-                for i, faiss_id in enumerate(faiss_ids[0]):
-                    # A faiss_id of -1 means no neighbor found (if k > ntotal)
-                    if faiss_id != -1:
-                        # 3. Map FAISS ID back to Node ID
-                        node_id = self.faiss_id_to_node_id.get(faiss_id)
-                        distance = distances[0][i]
-                        
-                        if node_id:
-                            # 4. Retrieve the actual node object
-                            node = self.db.nodes.get(node_id) 
-                            if node:
-                                # Determine the type and get the specific node object
-                                node_type = node.content.get("node_type", "")
-                                specific_node = None
-                                if node_type == "character":
-                                    specific_node = self.characters.get(node_id)
-                                elif node_type == "event":
-                                    specific_node = self.events.get(node_id)
-                                elif node_type == "location":
-                                    specific_node = self.locations.get(node_id)
-                                elif node_type == "theme":
-                                    specific_node = self.themes.get(node_id)
-                                
-                                if specific_node:
-                                     results.append((specific_node, float(distance)))
-                                else:
-                                    print(f"Warning: Node object for ID {node_id} (FAISS ID {faiss_id}) not found in typed dictionaries.")
-                            else:
-                                print(f"Warning: Node data for ID {node_id} (FAISS ID {faiss_id}) not found in db.nodes.")
-                        else:
-                            print(f"Warning: Node ID not found in map for FAISS ID {faiss_id}.")
-            
+            for i in range(len(faiss_ids[0])):
+                faiss_id = faiss_ids[0][i]
+                distance = distances[0][i]
+                if faiss_id != -1: # FAISS returns -1 for no result in that slot
+                    node_id = self.faiss_id_to_node_id.get(int(faiss_id))
+                    if node_id:
+                        node = self.db.get_node(node_id)
+                        if node:
+                            results.append((node, float(distance)))
+                    else:
+                        print(f"Warning: FAISS ID {faiss_id} found during search but not in faiss_id_to_node_id map.")
+
             return results
 
         except Exception as e:
-            print(f"Error during similarity search for query '{query_text}': {e}")
-            return [] 
+            print(f"Error during FAISS search for '{query_text}': {e}")
+            return []
+
+    # --- Basic RAG Functionality ---
+    def answer_query_with_context(self, user_query: str, k: int = 3, llm_client: Optional[Any] = None) -> str:
+        """
+        Retrieves relevant context using semantic search and constructs a prompt
+        for an LLM to answer a user query.
+
+        Args:
+            user_query: The user's question.
+            k: The number of similar nodes to retrieve for context.
+            llm_client: (Optional) An LLM client object/function (placeholder).
+
+        Returns:
+            A formatted prompt string ready for an LLM, or an error message.
+        """
+        print(f"Received query: '{user_query}'. Finding {k} relevant nodes...")
+        retrieved_nodes = self.find_similar_nodes(query_text=user_query, k=k)
+
+        if not retrieved_nodes:
+            print("No relevant context found.")
+            return "I could not find any relevant context in the narrative atlas to answer your query."
+
+        print(f"Found {len(retrieved_nodes)} nodes.")
+        formatted_context = ""
+        for i, (base_node_tuple) in enumerate(retrieved_nodes):
+            base_node, score = base_node_tuple # Unpack the tuple
+            node_id = base_node.node_id
+            
+            # Determine type from the base node content first
+            node_type = base_node.content.get("node_type", "Unknown")
+            
+            # Attempt to get the richer typed node from the corresponding atlas dictionary
+            typed_node = None
+            if node_type == "character" and node_id in self.characters:
+                typed_node = self.characters[node_id]
+            elif node_type == "event" and node_id in self.events:
+                typed_node = self.events[node_id]
+            elif node_type == "location" and node_id in self.locations:
+                typed_node = self.locations[node_id]
+            elif node_type == "theme" and node_id in self.themes:
+                typed_node = self.themes[node_id]
+            
+            # Use the typed node if found, otherwise fallback to the base node from search
+            node_to_format = typed_node if typed_node else base_node
+            
+            # Now use node_to_format.content for details
+            node_name = node_to_format.content.get("name", node_to_format.content.get("description", f"Node {node_to_format.node_id}"))
+            description = node_to_format.content.get("description", "")
+            
+            context_piece = f"Context {i+1} (Type: {node_type}, Name: {node_name}, Score: {score:.4f}):\\n"
+            if description:
+                 context_piece += f"  Description: {description}\\n"
+                 
+            # Add type-specific details using node_to_format.content
+            if isinstance(node_to_format, CharacterNode) and "attributes" in node_to_format.content:
+                 context_piece += f"  Attributes: {node_to_format.content['attributes']}\\n"
+            elif isinstance(node_to_format, EventNode) and "participants" in node_to_format.content:
+                 # print(f"DEBUG [RAG]: Found EventNode. Type: {type(node_to_format)}") # Debug
+                 # print(f"DEBUG [RAG]: Event Node Content: {node_to_format.content}") # Debug
+                 participant_ids = node_to_format.content["participants"]
+                 # print(f"DEBUG [RAG]: Participant IDs from content: {participant_ids}") # Debug
+                 participant_names = []
+                 for pid in participant_ids:
+                     p_node = self.db.get_node(pid) # Still need DB access for participant names
+                     if p_node:
+                         p_name = p_node.content.get("name", pid)
+                         participant_names.append(p_name)
+                         # print(f"DEBUG [RAG]: Looked up pid={pid}. Found node. Name='{p_name}'") # Debug
+                     # else:
+                         # print(f"DEBUG [RAG]: Looked up pid={pid}. Node NOT FOUND in self.db.nodes.") # Debug
+                 
+                 # print(f"DEBUG [RAG]: Final participant_names list: {participant_names}") # Debug
+                 if participant_names:
+                     context_piece += f"  Participants: {', '.join(participant_names)}\\n"
+                 
+            formatted_context += context_piece + "---\\n"
+
+        prompt = f"""
+Based ONLY on the following context:
+--- CONTEXT START ---
+{formatted_context.strip()}
+--- CONTEXT END ---
+
+Answer the question: {user_query}
+Answer: """
+
+        print("\nConstructed Prompt:\n", prompt)
+
+        # --- LLM Call Placeholder ---
+        # if llm_client:
+        #     try:
+        #         # response = llm_client.generate(prompt) 
+        #         # return response 
+        #         print("\n(Placeholder: LLM call would happen here)")
+        #         return prompt # Return prompt for now
+        #     except Exception as e:
+        #         print(f"Error calling LLM: {e}")
+        #         return f"Error generating response: {e}"
+        # else:
+        #     print("\n(Placeholder: No LLM client provided)")
+        #     return prompt # Return prompt if no LLM client
+        # --- End Placeholder ---
+            
+        # For now, just return the constructed prompt
+        return prompt
+
+# Example Usage (can be run separately or in tests)
+if __name__ == '__main__':
+    # This block is for basic demonstration/testing if the script is run directly
+    # Ensure you have a compatible embedding model and FAISS installed
+    print("Running basic NarrativeAtlas RAG example...")
+    
+    # Create a dummy embedding model for testing if needed
+    class DummyEmbedder:
+        def __init__(self, dim=384):
+            self.dim = dim
+        def encode(self, texts, convert_to_numpy=True):
+            # Generate random embeddings of the correct dimension
+            embeddings = np.random.rand(len(texts), self.dim).astype('float32')
+            return embeddings if convert_to_numpy else embeddings.tolist()
+        def get_sentence_embedding_dimension(self):
+             return self.dim
+
+    temp_storage = "./temp_rag_test_data"
+    # Use the dummy embedder if a real one causes issues in simple testing
+    # atlas = NarrativeAtlas(storage_path=temp_storage, embedding_model=DummyEmbedder()) 
+    try:
+        atlas = NarrativeAtlas(storage_path=temp_storage) # Tries default 'all-MiniLM-L6-v2'
+    except Exception as e:
+         print(f"Could not initialize Atlas with default model ({e}), trying dummy.")
+         atlas = NarrativeAtlas(storage_path=temp_storage, embedding_model=DummyEmbedder())
+
+    if atlas.embedding_model: # Proceed only if embedding model is loaded
+        print("Adding sample nodes...")
+        char_id = atlas._get_or_create_character("Bilbo Baggins", 1.0, {"description": "A hobbit who enjoys comfort but goes on an adventure."})
+        event_id = atlas._create_event("Unexpected Party", 2.0, [char_id], {"description": "Gandalf and dwarves arrive at Bilbo's home."})
+        loc_id = atlas._get_or_create_location("Bag End", 0.5, {"description": "A comfortable hobbit-hole under The Hill."})
+        
+        atlas.save() # Save including FAISS index
+
+        print("\n--- Testing RAG Function ---")
+        query = "Who is Bilbo?"
+        generated_prompt = atlas.answer_query_with_context(query)
+        # print(f"\nQuery: {query}\nGenerated Prompt:\n{generated_prompt}")
+
+        query2 = "What happened at Bag End?"
+        generated_prompt2 = atlas.answer_query_with_context(query2)
+        # print(f"\nQuery: {query2}\nGenerated Prompt:\n{generated_prompt2}")
+
+        print("\n--- Cleanup ---")
+        # Clean up the temporary directory
+        import shutil
+        if os.path.exists(temp_storage):
+            shutil.rmtree(temp_storage)
+            print(f"Removed temporary directory: {temp_storage}")
+    else:
+        print("Skipping RAG example as embedding model could not be loaded.") 

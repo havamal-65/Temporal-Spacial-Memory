@@ -107,8 +107,7 @@ class EventNode(Node):
                 parent_id: Optional[str] = None,
                 created_at: Optional[str] = None,
                 duration: float = 0.0,
-                importance: float = 0.5,
-                participants: List[str] = None):
+                importance: float = 0.5):
         """
         Initialize an event node.
         
@@ -122,23 +121,23 @@ class EventNode(Node):
             created_at: Creation timestamp (ISO format)
             duration: Time span of the event
             importance: Significance to overall plot (0.0 to 1.0)
-            participants: List of character IDs involved
         """
         # Ensure content has required fields
         content = content or {}
         if "description" not in content:
             content["description"] = "Unnamed Event"
+        if "participants" not in content:
+            content["participants"] = []
             
         # Add specialized fields to content
         content["node_type"] = "event"
         content["duration"] = duration
         content["importance"] = importance
-        content["participants"] = participants or []
         
         super().__init__(node_id, content, time, distance, angle, parent_id, created_at)
         
-        # Connect to all participants
-        for participant_id in content["participants"]:
+        # Connect to all participants stored in content
+        for participant_id in self.content.get("participants", []):
             self.connections.add(participant_id)
     
     def add_participant(self, character_id: str) -> None:

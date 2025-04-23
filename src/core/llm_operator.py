@@ -1,5 +1,6 @@
 import os
 import json
+import re
 from openai import OpenAI
 
 # Remove global client initialization
@@ -55,37 +56,48 @@ class LLMOperator:
         return f"Segment the text below into chapters, scenes, and paragraphs. Output ONLY as JSON with start/end indices.\n\nText:\n{text}"
 
     def _parse_response(self, response):
-        # Try to extract JSON from the LLM response
         try:
-            # Use dot notation for pydantic models from OpenAI v1.x+
             content = response.choices[0].message.content
             
-            # Attempt to find and parse JSON within the content string
-            start = content.find('{')
-            end = content.rfind('}') + 1
-            if start != -1 and end != -1:
-                json_str = content[start:end]
+            # Attempt to extract JSON potentially wrapped in markdown fences
+            match = re.search(r"```json\n(\{.*?\n?^\\})\\n```", content, re.DOTALL | re.MULTILINE)
+            json_str = None
+            if match:
+                json_str = match.group(1).strip()
+                print(f"    [Parser] Extracted JSON from markdown fence.")
+            else:
+                # Fallback: Check if the whole content is JSON or find first/last braces
+                content_stripped = content.strip()
+                if content_stripped.startswith('{') and content_stripped.endswith('}'):
+                    json_str = content_stripped
+                    print(f"    [Parser] Treating whole content as JSON.")
+                else:
+                    # Try finding first/last brace as a last resort
+                    start = content.find('{')
+                    end = content.rfind('}') + 1
+                    if start != -1 and end != -1:
+                        json_str = content[start:end]
+                        print(f"    [Parser] Found JSON between first/last braces.")
+
+            # If we found a potential JSON string, try parsing it
+            if json_str:
                 try:
                     return json.loads(json_str)
                 except json.JSONDecodeError as e_inner:
-                    print(f"LLMOperator: Failed to parse extracted JSON substring: {e_inner}")
-                    print(f"Substring: {json_str}")
-                    print(f"Original content: {content}")
+                    print(f"LLMOperator: Failed to parse extracted JSON string: {e_inner}")
+                    print(f"String attempted: {json_str}")
                     return None # Indicate parsing failure
             else:
-                # Try parsing the whole content if no braces found, or only partial
-                try:
-                    return json.loads(content)
-                except json.JSONDecodeError:
-                    print(f"LLMOperator: Content is not valid JSON and braces not found/matched. Content: {content}")
-                    return None
+                # No JSON structure found at all
+                print(f"LLMOperator: Could not find JSON structure in content.")
+                print(f"Raw content: {content}")
+                return None
 
         except (AttributeError, IndexError, TypeError) as e:
             print(f"LLMOperator: Error accessing response structure: {e}")
             print("Raw response object:", response)
             return None
         except Exception as e:
-            # Catch any other unexpected errors during parsing
             print(f"LLMOperator: Unexpected error parsing LLM response: {e}")
             print("Raw response object:", response)
             return None 

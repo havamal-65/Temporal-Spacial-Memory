@@ -1,0 +1,49 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Project Prompt Sequence and Implementation Rules
+
+This project follows a staged prompt-driven development process for building a temporal-spatial knowledge database with advanced vector search and RAG capabilities. Each prompt represents a major milestone and should be implemented in order, with each step building on the previous.
+
+## Prompt Sequence
+
+1. **Test FAISS Integration**
+   - Ensure core add, save, load, and search functions work for the NarrativeAtlas and its FAISS index.
+   - See [tests/integration/test_narrative_atlas_faiss.py](mdc:tests/integration/test_narrative_atlas_faiss.py) for the test structure.
+
+2. **Refine Embeddings for Relevance**
+   - For each node type (Character, Event, Location, Theme), determine and implement the optimal text representation to embed for semantic search.
+   - Update embedding logic in [src/models/narrative_atlas.py](mdc:src/models/narrative_atlas.py).
+
+3. **Implement Node Deletion Handling**
+   - Add `delete_node` methods to both `SpatialTemporalDB` and `NarrativeAtlas` to ensure consistency between the database and FAISS index.
+   - Ensure all relevant dictionaries and ID maps are updated on deletion.
+
+4. **Implement Basic RAG Functionality**
+   - Add a function (e.g., `answer_query_with_context`) to retrieve relevant nodes via semantic search and construct a prompt for an LLM.
+   - The function should format context clearly and handle empty results gracefully.
+
+5. **Improve Scalability with Advanced FAISS Index**
+   - Replace `IndexFlatL2` with `IndexHNSWFlat` (Hierarchical Navigable Small World) for scalable approximate nearest neighbor search.
+   - Tune parameters such as `M` and optionally `efSearch` for performance.
+
+## General Implementation Rules
+
+- **Follow the prompt sequence strictly.** Do not skip steps or introduce new architectural patterns unless required by the prompt.
+- **Each prompt should be implemented in a focused, self-contained manner.** Avoid mixing unrelated changes.
+- **All code changes should be tested.** Update or add tests as needed to verify new functionality.
+- **Keep the codebase clean and organized.** Refactor as necessary to avoid duplication and maintain clarity.
+- **Document key decisions and changes.** Use comments and docstrings to explain non-trivial logic or design choices.
+- **Push to version control after each significant change.** Follow Git best practices for commit messages and branching.
+
+## References
+
+- [src/models/narrative_atlas.py](mdc:src/models/narrative_atlas.py)
+- [src/models/spatial_temporal_db.py](mdc:src/models/spatial_temporal_db.py)
+- [tests/integration/test_narrative_atlas_faiss.py](mdc:tests/integration/test_narrative_atlas_faiss.py)
+- [prompts/03_spatial_indexing.md](mdc:prompts/03_spatial_indexing.md)
+
+
+This rule ensures that all contributors understand the staged, prompt-driven approach and the expectations for each development phase.

@@ -166,6 +166,17 @@ class SpatialTemporalDB:
                 
         return matches
     
+    def delete_node(self, node_id: str) -> bool:
+        """Delete a node by ID."""
+        if node_id in self.nodes:
+            del self.nodes[node_id]
+            # Optionally, remove connections pointing to this node from others
+            for other_node in self.nodes.values():
+                if node_id in other_node.connections:
+                    other_node.connections.remove(node_id)
+            return True
+        return False
+    
     def save(self) -> None:
         """Save the database to disk"""
         # Convert to serializable format
@@ -179,8 +190,13 @@ class SpatialTemporalDB:
         
         # Save to file
         filepath = os.path.join(self.storage_path, f"{self.name}.json")
-        with open(filepath, 'w') as f:
-            json.dump(data, f, indent=2)
+        print(f"Attempting to save DB to: {filepath}")
+        try:
+            with open(filepath, 'w') as f:
+                json.dump(data, f, indent=2)
+            print(f"Successfully saved DB to: {filepath}")
+        except Exception as e:
+            print(f"ERROR saving DB to {filepath}: {e}")
     
     def load(self) -> None:
         """Load the database from disk"""
