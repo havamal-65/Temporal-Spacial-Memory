@@ -1,0 +1,8318 @@
+[
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 3
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 3
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 3
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 4
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 4
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 4
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 5
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 5
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 5
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 6
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 6
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 6
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 7
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 7
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 7
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 8
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 8
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 8
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 11
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 11
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 11
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 12
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 12
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 12
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 13
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 13
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 13
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 14
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 14
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 14
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 15
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 15
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 15
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 16
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 16
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 16
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 17
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 17
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 17
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 18
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 18
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 18
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 19
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 19
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 19
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 20
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 20
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 20
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 21
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 21
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 21
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 22
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 22
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 22
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 23
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 23
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 23
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 24
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 24
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 24
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 25
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 25
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 25
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 26
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 26
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 26
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 27
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 27
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 27
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 28
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 28
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 28
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 29
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 29
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 29
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 30
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 30
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 30
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 31
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 31
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 31
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 32
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 32
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 32
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 33
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 33
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 33
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 34
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 34
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 34
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 35
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 35
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 35
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 36
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 36
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 36
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 37
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 37
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 37
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 38
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 38
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 38
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 39
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 39
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 39
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 40
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 40
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 40
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 41
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 41
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 41
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 42
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 42
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 42
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 43
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 43
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 43
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 44
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 44
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 44
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 45
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 45
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 45
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 46
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 46
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 46
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 47
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 47
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 47
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 48
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 48
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 48
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 49
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 49
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 49
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 51
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 51
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 51
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 52
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 52
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 52
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 53
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 53
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 53
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 54
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 54
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 54
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 55
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 55
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 55
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 56
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 56
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 56
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 57
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 57
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 57
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 58
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 58
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 58
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 59
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 59
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 59
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 60
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 60
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 60
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 61
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 61
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 61
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 62
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 62
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 62
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 63
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 63
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 63
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 64
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 64
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 64
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 65
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 65
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 65
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 66
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 66
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 66
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999552735401,
+    "angle": -1.3697098672425991,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 67
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 67
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 67
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 68
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 68
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 68
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 70
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 70
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 70
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 71
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 71
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 71
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 72
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 72
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 72
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 73
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 73
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 73
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 74
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 74
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 74
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 75
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 75
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 75
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 76
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 76
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 76
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 77
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 77
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 77
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 78
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 78
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 78
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 79
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 79
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 79
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 80
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 80
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 80
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 81
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 81
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 81
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 82
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 82
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 82
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 83
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 83
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 83
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 84
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 84
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 84
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 85
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 85
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 85
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 86
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 86
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 86
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 87
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 87
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 87
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 88
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 88
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 88
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 89
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 89
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 89
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 90
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 90
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 90
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 91
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 91
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 91
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 92
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 92
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 92
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 93
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 93
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 93
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 94
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 94
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 94
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 95
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 95
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 95
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 96
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 96
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 96
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 97
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 97
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 97
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 98
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 98
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 98
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 99
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 99
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 99
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 100
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 100
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 100
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999350910944,
+    "angle": -1.3367627920915615,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 101
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 101
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 0.9999999404129886,
+    "angle": -1.9529538068030863,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 101
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 102
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 102
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 102
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 103
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 103
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 103
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 104
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 104
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 104
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 105
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 105
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 105
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 106
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 106
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 0.9999999024113158,
+    "angle": -1.9505205367807117,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 106
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 107
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 107
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 107
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 108
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 108
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 108
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 109
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 109
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 109
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 110
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 110
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 110
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 111
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 111
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 111
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 112
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 112
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 112
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 113
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 113
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 113
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 114
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 114
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 114
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 115
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 115
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 115
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 116
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 116
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 116
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 117
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 117
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 117
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 118
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 118
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 118
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 119
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 119
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 119
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 121
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 121
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 121
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 122
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 122
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 122
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 123
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 123
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 123
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 124
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 124
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 124
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 125
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 125
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 125
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 126
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 126
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 126
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 127
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 127
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 127
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 128
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 128
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 128
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 129
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 129
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 129
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 130
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 130
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 130
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 132
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 132
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 132
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 133
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 133
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 133
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 134
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 134
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 134
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 135
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 135
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 135
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 136
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 136
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 136
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 137
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 137
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 137
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 138
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 138
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 138
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 139
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 139
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 139
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 140
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 140
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 140
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 141
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 141
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 141
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 142
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 142
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 142
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 143
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 143
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 143
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 144
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 144
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 144
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 145
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 145
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 145
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 146
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 146
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 146
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 147
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 147
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 147
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 148
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 148
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 148
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 149
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 149
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 149
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 150
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 150
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 150
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 151
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 151
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 151
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 152
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 152
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 152
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 153
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 153
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 153
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 154
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 154
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 154
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 155
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 155
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 155
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 156
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 156
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 156
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 157
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 157
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 157
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 158
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 158
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 158
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 159
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 159
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 159
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 160
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 160
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 160
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 161
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 161
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 161
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 162
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 162
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 162
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 163
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 163
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 163
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 164
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 164
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 164
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 165
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 165
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 165
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 166
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 166
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 166
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 167
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 167
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 167
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 168
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 168
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 168
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 169
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 169
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 169
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 170
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 170
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 170
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 171
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 171
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 171
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 172
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 172
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 172
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 173
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 173
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 173
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 174
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 174
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 174
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 175
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 175
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 175
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 176
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 176
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 176
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 177
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 177
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 177
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 178
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 178
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 178
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 179
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 179
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 179
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 181
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 181
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 181
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 182
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 182
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 182
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 183
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 183
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 183
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 184
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 184
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 184
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 185
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 185
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 185
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 186
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 186
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 186
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 187
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 187
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 187
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 188
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 188
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 188
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 189
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 189
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 189
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 190
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 190
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 190
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 191
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 191
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 191
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 192
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 192
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 192
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 193
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 193
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 193
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 194
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 194
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 194
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 195
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 195
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 195
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 196
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 196
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 196
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 197
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 197
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 197
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 198
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 198
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 198
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 199
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 199
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 199
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 201
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 201
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 201
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 202
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 202
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 202
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 203
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 203
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 203
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 204
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 204
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 204
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 205
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 205
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 205
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 206
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 206
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 206
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 207
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 207
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 207
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 208
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 208
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 208
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 209
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 209
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 209
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 210
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 210
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 210
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 211
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 211
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 211
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 212
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 212
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 212
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 1.0000000063737795,
+    "angle": -1.337654563330519,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 214
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.0000000609332564,
+    "angle": -2.0575751605695523,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 214
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000160005351,
+    "angle": -1.9488442462562245,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 214
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 215
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 215
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 215
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 216
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 216
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 216
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 217
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 217
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 217
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 218
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 218
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 218
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 219
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 219
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 219
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 220
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 220
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 220
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 221
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 221
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 221
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 222
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 222
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 222
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 223
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 223
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 223
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 224
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 224
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 224
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 225
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 225
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 225
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 226
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 226
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 226
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 227
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 227
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 227
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 228
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 228
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 228
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 229
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 229
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 229
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 230
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 230
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 230
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 231
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 231
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 231
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 232
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 232
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 232
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 233
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 233
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 233
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 234
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 234
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 234
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 235
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 235
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 235
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 236
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 236
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 236
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 237
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 237
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 237
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 238
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 238
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 238
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 239
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 239
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 239
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 240
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 240
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 240
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 241
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 241
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 241
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 242
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 242
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 242
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 243
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 243
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 243
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 244
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 244
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 244
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 245
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 245
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 245
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 246
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 246
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 246
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 247
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 247
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 247
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 248
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 248
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 248
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 249
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 249
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 249
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 250
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 250
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 250
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 251
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 251
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 251
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 252
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 252
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 252
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 253
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 253
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 253
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 254
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 254
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 254
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 255
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 255
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 255
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 256
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 256
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 256
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 257
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 257
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 257
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 258
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 258
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 258
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 259
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 259
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 259
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 260
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 260
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 260
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 261
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 261
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 261
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 262
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 262
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 262
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 263
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 263
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 263
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 264
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 264
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 264
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 265
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 265
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 265
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 266
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 266
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 266
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 267
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 267
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 267
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 268
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 268
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 268
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 269
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 269
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 269
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 270
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 270
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 270
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 271
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 271
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 271
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 272
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 272
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 272
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 273
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 273
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 273
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 274
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 274
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 274
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 275
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 275
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 275
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 276
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 276
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 276
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 277
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 277
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 277
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 278
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 278
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 278
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 279
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 279
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 279
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 280
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 280
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 280
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 281
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 281
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 281
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 282
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 282
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 282
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 283
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 283
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 283
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 284
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 284
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 284
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 285
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 285
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 285
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 286
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 286
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 286
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 287
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 287
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 287
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 288
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 288
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 288
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 1.0000000888157374,
+    "angle": -1.3415948505647628,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 289
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 289
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 289
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 290
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 290
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 290
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 291
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 291
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 291
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 292
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 292
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 292
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 293
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 293
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 293
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 294
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 294
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 294
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 295
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 295
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 295
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 296
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 296
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 296
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 297
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 297
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 297
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 298
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 298
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 298
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 299
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 299
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 299
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 300
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 300
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 300
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 301
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 301
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 301
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 302
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 302
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 302
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 303
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 303
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 303
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 304
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 304
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 304
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 305
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 305
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 305
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 306
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 306
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 306
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 307
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 307
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 307
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 308
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 308
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 308
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 309
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 309
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 309
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 310
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 310
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 310
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 312
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 312
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 312
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 314
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 314
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 314
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 315
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 315
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 315
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 316
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 316
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 316
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 317
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 317
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 317
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 318
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 318
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 318
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 319
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 319
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 319
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 320
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 320
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 320
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 1 content...",
+    "distance": 0.9999999928118906,
+    "angle": -1.3350332942763687,
+    "time_position": 1.0,
+    "metadata": {
+      "page_number": 321
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 2 content...",
+    "distance": 1.000000019758269,
+    "angle": -1.9865862194655257,
+    "time_position": 2.0,
+    "metadata": {
+      "page_number": 321
+    }
+  },
+  {
+    "content": "Placeholder PDF Page 3 content...",
+    "distance": 1.0000000255602723,
+    "angle": -1.9501372023687262,
+    "time_position": 3.0,
+    "metadata": {
+      "page_number": 321
+    }
+  }
+]
