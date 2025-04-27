@@ -1,0 +1,136 @@
+{
+  "id": "f51fca50-89cc-4e24-95e9-4662bd724352",
+  "content": "puzzling\t his\t little\t head\t about\t Beorn,\t till\t he\t dreamed\t a\ndream\t of\t hundreds\t of\t black\t bears\t dancing\t slow\t heavy\ndances\tround\tand\tround\tin\tthe\tmoonlight\tin\tthe\tcourtyard.\nThen\the\twoke\tup\twhen\teveryone\telse\twas\tasleep,\tand\the\nheard\t the\t same\t scraping,\t scuffling,\t snuffling,\t and\ngrowling\tas\tbefore.\nNext\tmorning\tthey\twere\tall\twakened\tby\tBeorn\thimself.\n\u201cSo\t here\t you\t all\t are\t still!\u201d\t he\t said.\t He\t picked\t up\t the\nhobbit\tand\tlaughed:\t\u201cNot\teaten\tup\tby\tWargs\tor\tgoblins\tor\nwicked\t bears\t yet\t I\t see\u201d;\t and\t he\t poked\t Mr.\t Baggins\u2019\nwaistcoat\t most\t disrespectfully.\t \u201cLittle\t bunny\t is\t getting\nnice\t and\t fat\t again\t on\t bread\t and\t honey,\u201d\t he\t chuckled.\n\u201cCome\tand\thave\tsome\tmore!\u201d\nSo\tthey\tall\twent\tto\tbreakfast\twith\thim.\tBeorn\twas\tmost\njolly\tfor\ta\tchange;\tindeed\the\tseemed\tto\tbe\tin\ta\tsplendidly\ngood\t humour\t and\t set\t them\t all\t laughing\t with\t his\t funny\nstories;\t nor\t did\t they\t have\t to\t wonder\t long\t where\t he\t had\nbeen\t or\t why\t he\t was\t so\t nice\t to\t them,\t for\t he\t told\t them\nhimself.\tHe\thad\tbeen\tover\tthe\triver\tand\tright\tback\tup\tinto\nthe\tmountains\u2014from\twhich\tyou\tcan\tguess\tthat\the\tcould\ntravel\tquickly,\tin\tbear\u2019s\tshape\tat\tany\trate.\tFrom\tthe\tburnt\nwolf-glade\the\thad\tsoon\tfound\tout\tthat\tpart\tof\ttheir\tstory\nwas\ttrue;\tbut\the\thad\tfound\tmore\tthan\tthat:\the\thad\tcaught\na\tWarg\tand\ta\tgoblin\twandering\tin\tthe\twoods.\tFrom\tthese\nhe\thad\tgot\tnews:\tthe\tgoblin\tpatrols\twere\tstill\thunting\twith\nWargs\t for\t the\t dwarves,\t and\t they\t were\t fiercely\t angry\nbecause\t of\t the\t death\t of\t the\t Great\t Goblin,\t and\t also\nbecause\t of\t the\t burning\t of\t the\t chief\t wolf\u2019s\t nose\t and\t the\ndeath\tfrom\tthe\twizard\u2019s\tfire\tof\tmany\tof\this\tchief\tservants.\nSo\t much\t they\t told\t him\t when\t he\t forced\t them,\t but\t he\nguessed\tthere\twas\tmore\twickedness\tthan\tthis\tafoot,\tand\nthat\ta\tgreat\traid\tof\tthe\twhole\tgoblin\tarmy\twith\ttheir\twolf-\nallies\t into\t the\t lands\t shadowed\t by\t the\t mountains\t might\nsoon\tbe\tmade\tto\tfind\tthe\tdwarves,\tor\tto\ttake\tvengeance\non\tthe\tmen\tand\tcreatures\tthat\tlived\tthere,\tand\twho\tthey\nthought\tmust\tbe\tsheltering\tthem.\n\u201cIt\twas\ta\tgood\tstory,\tthat\tof\tyours,\u201d\tsaid\tBeorn,\t\u201cbut\tI\nlike\t it\t still\t better\t now\t I\t am\t sure\t it\t is\t true.\t You\t must",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 0.2568251994309656,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 131,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2161,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_person",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Beorn",
+        "type": "person",
+        "start": 36,
+        "end": 41,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Beorn\twas\tmost\njolly\tfor\ta\tchange;\tindeed\the\tseeme..."
+          }
+        ]
+      },
+      {
+        "name": "Wargs",
+        "type": "organization",
+        "start": 470,
+        "end": 475,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Beorn\twas\tmost\njolly\tfor\ta\tchange;\tindeed\the\tseeme..."
+          }
+        ]
+      },
+      {
+        "name": "Baggins",
+        "type": "person",
+        "start": 541,
+        "end": 548,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Beorn\twas\tmost\njolly\tfor\ta\tchange;\tindeed\the\tseeme..."
+          }
+        ]
+      },
+      {
+        "name": "Goblin",
+        "type": "administrative",
+        "start": 1511,
+        "end": 1517,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Beorn\twas\tmost\njolly\tfor\ta\tchange;\tindeed\the\tseeme..."
+          }
+        ]
+      },
+      {
+        "name": "wolf",
+        "type": "person",
+        "start": 1573,
+        "end": 1577,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Beorn\twas\tmost\njolly\tfor\ta\tchange;\tindeed\the\tseeme..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "Beorn\twas\tmost\njolly\tfor\ta\tchange;\tindeed\the\tseeme...",
+        "description": "Beorn\twas\tmost\njolly\tfor\ta\tchange;\tindeed\the\tseemed\tto\tbe\tin\ta\tsplendidly\ngood\t humour\t and\t set\t them\t all\t laughing\t with\t his\t funny\nstories;\t nor\t did\t they\t have\t to\t wonder\t long\t where\t he\t had\nbeen\t or\t why\t he\t was\t so\t nice\t to\t them,\t for\t he\t told\t them\nhimself.\t",
+        "start": 742,
+        "end": 1017,
+        "participants": [
+          "Beorn",
+          "Wargs",
+          "Baggins",
+          "Goblin",
+          "wolf"
+        ],
+        "location": "Goblin",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Goblin",
+        "type": "administrative",
+        "start": 1511,
+        "end": 1517,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "Beorn\twas\tmost\njolly\tfor\ta\tchange;\tindeed\the\tseeme..."
+          }
+        ]
+      }
+    ]
+  },
+  "timestamp": 1745715406.550439,
+  "has_embedding": true
+}

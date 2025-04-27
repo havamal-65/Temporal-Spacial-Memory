@@ -1,0 +1,74 @@
+{
+  "id": "8326cb1c-c249-4d77-a05d-dc8233f688a1",
+  "content": "wet\tas\the\twas\tand\tfar\tfrom\ta\tfire,\tbut\tthe\tbottle\thelped\nhim\tto\tdo\tthat,\tand\the\tactually\tdozed\ta\tlittle\ton\tsome\tdry\nleaves,\teven\tthough\tthe\tyear\twas\tgetting\tlate\tand\tthe\tair\nwas\tchilly.\nHe\t woke\t again\t with\t a\t specially\t loud\t sneeze.\t It\t was\nalready\tgrey\tmorning,\tand\tthere\twas\ta\tmerry\tracket\tdown\nby\tthe\triver.\tThey\twere\tmaking\tup\ta\traft\tof\tbarrels,\tand\nthe\t raft-elves\t would\t soon\t be\t steering\t it\t off\t down\t the\nstream\t to\t Lake-town.\t Bilbo\t sneezed\t again.\t He\t was\t no\nlonger\t dripping\t but\t he\t felt\t cold\t all\t over.\t He\t scrambled\ndown\tas\tfast\tas\this\tstiff\tlegs\twould\ttake\thim\tand\tmanaged\njust\tin\ttime\tto\tget\ton\tto\tthe\tmass\tof\tcasks\twithout\tbeing\nnoticed\tin\tthe\tgeneral\tbustle.\tLuckily\tthere\twas\tno\tsun\tat\nthe\ttime\tto\tcast\tan\tawkward\tshadow,\tand\tfor\ta\tmercy\the\ndid\tnot\tsneeze\tagain\tfor\ta\tgood\twhile.\nThere\t was\t a\t mighty\t pushing\t of\t poles.\t The\t elves\t that\nwere\t standing\t in\t the\t shallow\t water\t heaved\t and\t shoved.\nThe\tbarrels\tnow\tall\tlashed\ttogether\tcreaked\tand\tfretted.\n\u201cThis\tis\ta\theavy\tload!\u201d\tsome\tgrumbled.\t\u201cThey\tfloat\ttoo\ndeep\u2014some\tof\tthese\tare\tnever\tempty.\tIf\tthey\thad\tcome\nashore\tin\tthe\tdaylight,\twe\tmight\thave\thad\ta\tlook\tinside,\u201d\nthey\tsaid.\n\u201cNo\t time\t now!\u201d\t cried\t the\t raftman.\t \u201cShove\t off!\u201d\t And\noff\tthey\twent\tat\tlast,\tslowly\tat\tfirst,\tuntil\tthey\thad\tpassed\nthe\tpoint\tof\trock\twhere\tother\telves\tstood\tto\tfend\tthem\toff\nwith\tpoles,\tand\tthen\tquicker\tand\tquicker\tas\tthey\tcaught\nthe\t main\t stream\t and\t went\t sailing\t away\t down,\t down\ntowards\tthe\tLake.\nThey\thad\tescaped\tthe\tdungeons\tof\tthe\tking\tand\twere\nthrough\tthe\twood,\tbut\twhether\talive\tor\tdead\tstill\tremains\nto\tbe\tseen.",
+  "coordinates": {
+    "r": 5.99,
+    "theta": 4.0220239947583325,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 183,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1604,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_person",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "person",
+        "start": 446,
+        "end": 451,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "poles",
+        "type": "group",
+        "start": 1358,
+        "end": 1363,
+        "mentions": 1,
+        "relationships": []
+      }
+    ],
+    "events": [],
+    "locations": [
+      {
+        "name": "Lake-town",
+        "type": "geographical",
+        "start": 434,
+        "end": 443,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Lake",
+        "type": "geographical",
+        "start": 1478,
+        "end": 1482,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745715410.7760897,
+  "has_embedding": true
+}

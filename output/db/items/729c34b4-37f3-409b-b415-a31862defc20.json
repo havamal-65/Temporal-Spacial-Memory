@@ -1,0 +1,137 @@
+{
+  "id": "729c34b4-37f3-409b-b415-a31862defc20",
+  "content": "The\tdaylight\tis\tdying!\nTo\tfly\twould\tbe\tfolly,\nTo\tstay\twould\tbe\tjolly\n\t\t\t\tAnd\tlisten\tand\thark\n\t\t\t\t\t\t\t\tTill\tthe\tend\tof\tthe\tdark\n\t\t\t\t\t\t\t\t\t\t\t\tto\tour\ttune\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tha!\tha!\nSo\tthey\tlaughed\tand\tsang\tin\tthe\ttrees;\tand\tpretty\tfair\nnonsense\tI\tdaresay\tyou\tthink\tit.\tNot\tthat\tthey\twould\tcare;\nthey\twould\tonly\tlaugh\tall\tthe\tmore\tif\tyou\ttold\tthem\tso.\nThey\twere\telves\tof\tcourse.\tSoon\tBilbo\tcaught\tglimpses\nof\tthem\tas\tthe\tdarkness\tdeepened.\tHe\tloved\telves,\tthough\nhe\t seldom\t met\t them;\t but\t he\t was\t a\t little\t frightened\t of\nthem\t too.\t Dwarves\t don\u2019t\t get\t on\t well\t with\t them.\t Even\ndecent\tenough\tdwarves\tlike\tThorin\tand\this\tfriends\tthink\nthem\tfoolish\t(which\tis\ta\tvery\tfoolish\tthing\tto\tthink),\tor\nget\t annoyed\t with\t them.\t For\t some\t elves\t tease\t them\t and\nlaugh\tat\tthem,\tand\tmost\tof\tall\tat\ttheir\tbeards.\n\u201cWell,\twell!\u201d\tsaid\ta\tvoice.\t\u201cJust\tlook!\tBilbo\tthe\thobbit\non\ta\tpony,\tmy\tdear!\tIsn\u2019t\tit\tdelicious!\u201d\n\u201cMost\tastonishing\twonderful!\u201d\nThen\toff\tthey\twent\tinto\tanother\tsong\tas\tridiculous\tas\nthe\t one\t I\t have\t written\t down\t in\t full.\t At\t last\t one,\t a\t tall\nyoung\t fellow,\t came\t out\t from\t the\t trees\t and\t bowed\t to\nGandalf\tand\tto\tThorin.\n\u201cWelcome\tto\tthe\tvalley!\u201d\the\tsaid.\n\u201cThank\t you!\u201d\t said\t Thorin\t a\t bit\t gruffly;\t but\t Gandalf\nwas\t already\t off\t his\t horse\t and\t among\t the\t elves,\t talking\nmerrily\twith\tthem.\n\u201cYou\tare\ta\tlittle\tout\tof\tyour\tway,\u201d\tsaid\tthe\telf:\t\u201cthat\tis,\nif\tyou\tare\tmaking\tfor\tthe\tonly\tpath\tacross\tthe\twater\tand\nto\tthe\thouse\tbeyond.\tWe\twill\tset\tyou\tright,\tbut\tyou\thad\nbest\t get\t on\t foot,\t until\t you\t are\t over\t the\t bridge.\t Are\t you\ngoing\t to\t stay\t a\t bit\t and\t sing\t with\t us,\t or\t will\t you\t go\nstraight\t on?\t Supper\t is\t preparing\t over\t there,\u201d\t he\t said.\t \u201cI\ncan\tsmell\tthe\twood-fires\tfor\tthe\tcooking.\u201d",
+  "coordinates": {
+    "r": 5.675,
+    "theta": 3.440436654762522,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 52,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1730,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 376,
+        "end": 381,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "He\tloved\telves,\tthough\nhe\t seldom\t met\t them;\t but..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Isn\u2019t\tit\tdelicious!\u201d\n\u201cMost\tastonishing\twonderful!\u201d..."
+          }
+        ]
+      },
+      {
+        "name": "Thorin",
+        "type": "group",
+        "start": 607,
+        "end": 613,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "He\tloved\telves,\tthough\nhe\t seldom\t met\t them;\t but..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Isn\u2019t\tit\tdelicious!\u201d\n\u201cMost\tastonishing\twonderful!\u201d..."
+          }
+        ]
+      },
+      {
+        "name": "Supper",
+        "type": "organization",
+        "start": 1636,
+        "end": 1642,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "He\tloved\telves,\tthough\nhe\t seldom\t met\t them;\t but..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Isn\u2019t\tit\tdelicious!\u201d\n\u201cMost\tastonishing\twonderful!\u201d..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "He\tloved\telves,\tthough\nhe\t seldom\t met\t them;\t but...",
+        "description": "He\tloved\telves,\tthough\nhe\t seldom\t met\t them;\t but\t he\t was\t a\t little\t frightened\t of\nthem\t too.\t Dwarves\t don\u2019t\t get\t on\t well\t with\t them.\t ",
+        "start": 432,
+        "end": 575,
+        "participants": [
+          "Bilbo",
+          "Thorin",
+          "Supper"
+        ],
+        "location": "Bilbo",
+        "time": null
+      },
+      {
+        "name": "Isn\u2019t\tit\tdelicious!\u201d\n\u201cMost\tastonishing\twonderful!\u201d...",
+        "description": "Isn\u2019t\tit\tdelicious!\u201d\n\u201cMost\tastonishing\twonderful!\u201d\n",
+        "start": 881,
+        "end": 932,
+        "participants": [
+          "Bilbo",
+          "Thorin",
+          "Supper"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 376,
+        "end": 381,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "He\tloved\telves,\tthough\nhe\t seldom\t met\t them;\t but..."
+          },
+          {
+            "type": "hosted",
+            "target": "Isn\u2019t\tit\tdelicious!\u201d\n\u201cMost\tastonishing\twonderful!\u201d..."
+          }
+        ]
+      }
+    ]
+  },
+  "timestamp": 1745773072.9965541,
+  "has_embedding": true
+}

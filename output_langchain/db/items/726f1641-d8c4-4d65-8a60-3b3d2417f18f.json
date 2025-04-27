@@ -1,0 +1,66 @@
+{
+  "id": "726f1641-d8c4-4d65-8a60-3b3d2417f18f",
+  "content": "\u201cI\t always\t meant\t to\t see\t you\t all\t safe\t (if\t possible)\t over\nthe\t mountains,\u201d\t said\t the\t wizard,\t \u201cand\t now\t by\t good\nmanagement\t\nand\n\tgood\tluck\tI\thave\tdone\tit.\tIndeed\twe\tare\nnow\ta\tgood\tdeal\tfurther\teast\tthan\tI\tever\tmeant\tto\tcome\nwith\tyou,\tfor\tafter\tall\tthis\tis\tnot\tmy\tadventure.\tI\tmay\tlook\nin\ton\tit\tagain\tbefore\tit\tis\tall\tover,\tbut\tin\tthe\tmeanwhile\tI\nhave\tsome\tother\tpressing\tbusiness\tto\tattend\tto.\u201d\nThe\tdwarves\tgroaned\tand\tlooked\tmost\tdistressed,\tand\nBilbo\twept.\tThey\thad\tbegun\tto\tthink\tGandalf\twas\tgoing\nto\t come\t all\t the\t way\t and\t would\t always\t be\t there\t to\t help\nthem\tout\tof\tdifficulties.\t\u201cI\tam\tnot\tgoing\tto\tdisappear\tthis\nvery\tinstant,\u201d\tsaid\the.\t\u201cI\tcan\tgive\tyou\ta\tday\tor\ttwo\tmore.\nProbably\tI\tcan\thelp\tyou\tout\tof\tyour\tpresent\tplight,\tand\tI\nneed\t a\t little\t help\t myself.\t We\t have\t no\t food,\t and\t no\nbaggage,\t and\t no\t ponies\t to\t ride;\t and\t you\t don\u2019t\t know\nwhere\tyou\tare.\tNow\tI\tcan\ttell\tyou\tthat.\tYou\tare\tstill\tsome\nmiles\t north\t of\t the\t path\t which\t we\t should\t have\t been\nfollowing,\tif\twe\thad\tnot\tleft\tthe\tmountain\tpass\tin\ta\thurry.\nVery\t few\t people\t live\t in\t these\t parts,\t unless\t they\t have\ncome\there\tsince\tI\twas\tlast\tdown\tthis\tway,\twhich\tis\tsome\nyears\t ago.\t But\t there\t is\t\nsomebody\n\t that\t I\t know\t of,\t who\nlives\tnot\tfar\taway.\tThat\tSomebody\tmade\tthe\tsteps\ton\tthe\ngreat\trock\u2014the\tCarrock\tI\tbelieve\the\tcalls\tit.\tHe\tdoes\tnot\ncome\there\toften,\tcertainly\tnot\tin\tthe\tdaytime,\tand\tit\tis\tno\ngood\twaiting\tfor\thim.\tIn\tfact\tit\twould\tbe\tvery\tdangerous.\nWe\t must\t go\t and\t find\t him;\t and\t if\t all\t goes\t well\t at\t our\nmeeting,\tI\tthink\tI\tshall\tbe\toff\tand\twish\tyou\tlike\tthe\teagles\n\u2018farewell\twherever\tyou\tfare!\u2019\u201d\nThey\tbegged\thim\tnot\tto\tleave\tthem.\tThey\toffered\thim\ndragon-gold\t and\t silver\t and\t jewels,\t but\t he\t would\t not\nchange\t his\t mind.\t \u201cWe\t shall\t see,\t we\t shall\t see!\u201d\t he\t said,\n\u201cand\tI\tthink\tI\thave\tearned\talready\tsome\tof\tyour\tdragon-\ngold\u2014when\tyou\thave\tgot\tit.\u201d\nAfter\tthat\tthey\tstopped\tpleading.\tThen\tthey\ttook\toff\ttheir\nclothes\t and\t bathed\t in\t the\t river,\t which\t was\t shallow\t and",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 3.406271834654733,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 115,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2009,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_group",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 458,
+        "end": 463,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Gandalf",
+        "type": "group",
+        "start": 494,
+        "end": 501,
+        "mentions": 1,
+        "relationships": []
+      }
+    ],
+    "events": [],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 458,
+        "end": 463,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745715405.2966921,
+  "has_embedding": true
+}

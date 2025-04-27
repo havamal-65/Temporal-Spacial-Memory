@@ -1,0 +1,166 @@
+{
+  "id": "76ff5447-d4c6-4b70-b6a1-ebb7462f0db5",
+  "content": "\u201cWhat\tvoice\tis\tit\tthat\tspeaks\tamong\tthe\tstones?\u201d\tsaid\nthe\tman\thalting\tand\tpeering\tabout\thim\tnot\tfar\tfrom\twhere\nBilbo\tsat.\nThen\tBilbo\tremembered\this\tring!\t\u201cWell\tI\u2019m\tblessed!\u201d\nsaid\t he.\t \u201cThis\t invisibility\t has\t its\t drawbacks\t after\t all.\nOtherwise\t I\t suppose\t I\t might\t have\t spent\t a\t warm\t and\ncomfortable\tnight\tin\tbed!\u201d\n\u201cIt\u2019s\t me,\t Bilbo\t Baggins,\t companion\t of\t Thorin!\u201d\t he\ncried,\thurriedly\ttaking\toff\tthe\tring.\n\u201cIt\tis\twell\tthat\tI\thave\tfound\tyou!\u201d\tsaid\tthe\tman\tstriding\nforward.\t \u201cYou\t are\t needed\t and\t we\t have\t looked\t for\t you\nlong.\t You\t would\t have\t been\t numbered\t among\t the\t dead,\nwho\t are\t many,\t if\t Gandalf\t the\t wizard\t had\t not\t said\t that\nyour\tvoice\twas\tlast\theard\tin\tthis\tplace.\tI\thave\tbeen\tsent\tto\nlook\there\tfor\tthe\tlast\ttime.\tAre\tyou\tmuch\thurt?\u201d\n\u201cA\tnasty\tknock\ton\tthe\thead,\tI\tthink,\u201d\tsaid\tBilbo.\t\u201cBut\tI\nhave\ta\thelm\tand\ta\thard\tskull.\tAll\tthe\tsame\tI\tfeel\tsick\tand\nmy\tlegs\tare\tlike\tstraws.\u201d\n\u201cI\twill\tcarry\tyou\tdown\tto\tthe\tcamp\tin\tthe\tvalley,\u201d\tsaid\nthe\tman,\tand\tpicked\thim\tlightly\tup.\nThe\t man\t was\t swift\t and\t sure-footed.\t It\t was\t not\t long\nbefore\tBilbo\twas\tset\tdown\tbefore\ta\ttent\tin\tDale;\tand\tthere\nstood\tGandalf,\twith\this\tarm\tin\ta\tsling.\tEven\tthe\twizard\nhad\t not\t escaped\t without\t a\t wound;\t and\t there\t were\t few\nunharmed\tin\tall\tthe\thost.\nWhen\t Gandalf\t saw\t Bilbo,\t he\t was\t delighted.\n\u201cBaggins!\u201d\the\texclaimed.\t\u201cWell\tI\tnever!\tAlive\tafter\tall\u2014\nI\t\nam\n\tglad!\tI\tbegan\tto\twonder\tif\teven\tyour\tluck\twould\tsee\nyou\t through!\t A\t terrible\t business,\t and\t it\t nearly\t was\ndisastrous.\tBut\tother\tnews\tcan\twait.\tCome!\u201d\the\tsaid\tmore\ngravely.\t\u201cYou\tare\tcalled\tfor;\u201d\tand\tleading\tthe\thobbit\the\ntook\thim\twithin\tthe\ttent.\n\u201cHail!\tThorin,\u201d\the\tsaid\tas\the\tentered.\t\u201cI\thave\tbrought\nhim.\u201d\nThere\t indeed\t lay\t Thorin\t Oakenshield,\t wounded\t with\nmany\twounds,\tand\this\trent\tarmour\tand\tnotched\taxe\twere\ncast\tupon\tthe\tfloor.\tHe\tlooked\tup\tas\tBilbo\tcame\tbeside\nhim.",
+  "coordinates": {
+    "r": 5.345,
+    "theta": 3.2660782624882887,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 281,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1862,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_organization",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 111,
+        "end": 116,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cWell\tI\tnever!\tAlive\tafter\tall\u2014\nI\t\nam\n\tglad!\tI\tbeg..."
+          }
+        ]
+      },
+      {
+        "name": "Baggins",
+        "type": "facility",
+        "start": 344,
+        "end": 351,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cWell\tI\tnever!\tAlive\tafter\tall\u2014\nI\t\nam\n\tglad!\tI\tbeg..."
+          }
+        ]
+      },
+      {
+        "name": "Thorin",
+        "type": "group",
+        "start": 369,
+        "end": 375,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cWell\tI\tnever!\tAlive\tafter\tall\u2014\nI\t\nam\n\tglad!\tI\tbeg..."
+          }
+        ]
+      },
+      {
+        "name": "Gandalf",
+        "type": "group",
+        "start": 619,
+        "end": 626,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cWell\tI\tnever!\tAlive\tafter\tall\u2014\nI\t\nam\n\tglad!\tI\tbeg..."
+          }
+        ]
+      },
+      {
+        "name": "Dale",
+        "type": "organization",
+        "start": 1109,
+        "end": 1113,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cWell\tI\tnever!\tAlive\tafter\tall\u2014\nI\t\nam\n\tglad!\tI\tbeg..."
+          }
+        ]
+      },
+      {
+        "name": "Oakenshield",
+        "type": "administrative",
+        "start": 1721,
+        "end": 1732,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cWell\tI\tnever!\tAlive\tafter\tall\u2014\nI\t\nam\n\tglad!\tI\tbeg..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "\u201cWell\tI\tnever!\tAlive\tafter\tall\u2014\nI\t\nam\n\tglad!\tI\tbeg...",
+        "description": "\u201cWell\tI\tnever!\tAlive\tafter\tall\u2014\nI\t\nam\n\tglad!\tI\tbegan\tto\twonder\tif\teven\tyour\tluck\twould\tsee\nyou\t through!\t ",
+        "start": 1341,
+        "end": 1447,
+        "participants": [
+          "Bilbo",
+          "Baggins",
+          "Thorin",
+          "Gandalf",
+          "Dale",
+          "Oakenshield"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 111,
+        "end": 116,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "\u201cWell\tI\tnever!\tAlive\tafter\tall\u2014\nI\t\nam\n\tglad!\tI\tbeg..."
+          }
+        ]
+      },
+      {
+        "name": "Baggins",
+        "type": "facility",
+        "start": 344,
+        "end": 351,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Oakenshield",
+        "type": "administrative",
+        "start": 1721,
+        "end": 1732,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745715418.1314194,
+  "has_embedding": true
+}

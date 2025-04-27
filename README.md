@@ -1,172 +1,136 @@
 # Temporal-Spatial Memory System
 
-A 4D polar-temporal memory system for information retrieval, designed to map and store knowledge in a coordinate space defined by relevance (r), perspective (θ), time (t), and abstraction (z).
+A system for creating a 4D spatial-temporal database designed to map and store knowledge, particularly narrative structures, in a coordinate space defined by relevance/centrality (r), thematic perspective (θ), temporal sequence (t), and abstraction layer (z).
 
-## Overview
+## Project Goal & Vision
 
-This project implements a knowledge representation system using a 4D polar-temporal coordinate space. The system allows for the ingestion, storage, and retrieval of information along different dimensions of meaning.
+The primary goal is to build a "Narrative Atlas" capable of reconstructing and querying narrative sequences from source documents. It aims to understand not just *what* information exists, but *where* it fits within the overall structure and flow of the narrative in a multi-dimensional context. This involves mapping text chunks (nodes) into a 4D coordinate system:
 
-The four dimensions are:
-- **r (radius)**: Relevance/significance to the core concept
-- **θ (theta)**: Perspective/approach to the topic
-- **t (time)**: Temporal position
-- **z (height)**: Level of abstraction/granularity
+-   **t (time)**: Represents the sequential position within the document/narrative flow. Derived from structural features like page number and chunk order.
+-   **r (radius)**: Represents relevance or centrality to the core narrative or a specific query context. Currently fixed in Phase 1, intended for semantic refinement in Phase 2. (Range 0.0 - 1.0, lower is more relevant).
+-   **θ (theta)**: Represents thematic category or perspective. Currently derived simplistically from structure (page number) in Phase 1, intended for semantic refinement in Phase 2. (Range 0 - 2π or 0-360 degrees).
+-   **z (height)**: Represents the level of abstraction or context layer (e.g., document root, section, paragraph, chunk). Derived from structural information.
+
+## Approach: Phased Development
+
+The system is being developed in phases:
+
+1.  **Phase 1: Structural Backbone (Complete)**
+    *   Focus on accurately mapping the *structure* of documents (pages, chunk order) to establish the temporal (`t`) and initial spatial (`theta`, `z`, fixed `r`) coordinates.
+    *   Ingest documents, perform page-by-page chunking, and store nodes with structure-derived coordinates in the `NarrativeAtlas`.
+    *   Utilize FAISS for efficient vector similarity search based on chunk embeddings.
+2.  **Phase 2: Semantic Refinement (Planned)**
+    *   Integrate a Large Language Model (LLM) to analyze node content and metadata.
+    *   Use LLM insights to refine the semantic coordinates (`r` and `theta`) based on content relevance and thematic classification.
+    *   Update nodes in the `NarrativeAtlas` with these refined coordinates, adding a layer of semantic understanding.
+
+## Current Status (Post-Phase 1)
+
+*   Phase 1 refactoring is complete and tested.
+*   The system successfully ingests documents (tested with PDFs).
+*   It performs page-by-page chunking and assigns unique node IDs (`chunk_<filename>_p<page_num>_c<chunk_index>`).
+*   `CoordinateMapper` calculates initial coordinates based on structure (`t`, `theta`, `z`) and extracts keywords.
+*   `NarrativeAtlas` stores nodes with these coordinates and manages a FAISS index for vector search.
+*   Basic text-based querying via `run.py --mode query` is functional.
+*   A Phase 1 completion report is available in `docs/phase_1_completion_report.md`.
 
 ## Components
 
 The system is organized into several key components:
 
-1. **Core Coordinate System**: Defines the mathematical model and operations for the 4D space.
-2. **Ingestion Pipeline**: Processes documents into the system.
-3. **Storage Layer**: Manages the efficient storage and retrieval of information.
-4. **Query Engine**: Allows for complex querying across the coordinate space.
-5. **Narrative Atlas**: A high-level interface for managing and querying narrative elements (characters, events, locations) using semantic search powered by LangChain and FAISS.
-
-## Embedding Service
-
-The system supports multiple embedding service types for generating vector representations of text:
-
-1. **Mock Embedding Service**: Generates deterministic pseudo-embeddings for testing and development.
-2. **LangChain Embedding Service**: Uses real embedding models from the LangChain ecosystem.
-3. **Cascading Embedding Service**: Provides fallback mechanisms if the primary service fails.
-
-Supported embedding models include:
-- `all-MiniLM-L6-v2` (local, 384 dimensions)
-- `all-mpnet-base-v2` (local, 768 dimensions) 
-- `text-embedding-3-small` (OpenAI, 1536 dimensions)
-- `text-embedding-3-large` (OpenAI, 3072 dimensions)
-
-The embedding service can be configured through environment variables or directly when initializing the ingestion pipeline.
-
-## Narrative Atlas (Detailed)
-
-The `NarrativeAtlas` class (`src/models/narrative_atlas.py`) provides a structured way to interact with narrative data.
-
-Key features include:
-
-- **Node Management**: Methods to create, retrieve, and delete specific node types (characters, events, locations).
-- **LangChain FAISS Integration**: Uses `langchain_community.vectorstores.FAISS` for storing and searching text embeddings.
-- **Scalable Indexing**: Initializes new vector stores using `faiss.IndexHNSWFlat` for efficient approximate similarity search, suitable for larger datasets.
-- **Persistence**: Saves and loads the FAISS index and associated node ID mappings to disk (`save_local`, `load_local`).
-- **Refined Embeddings**: Constructs descriptive text for embedding based on node type and content (e.g., including participant names for events) to improve search relevance.
-- **Basic RAG Support**: Includes an `answer_query_with_context` method that retrieves relevant nodes based on a query, formats them as context, and constructs a prompt suitable for Retrieval-Augmented Generation with an LLM.
-
-An integration test (`tests/integration/test_narrative_atlas_faiss.py`) verifies the core add, save, load, search, and delete functionality.
+1.  **Models (`src/models`)**:
+    *   `SpatialTemporalDB`: Basic in-memory node storage.
+    *   `Node`: Dataclass representing a text chunk or other entity.
+    *   `CoordinateSystem`: Defines the `PolarTemporalCoordinate`.
+    *   `NarrativeAtlas`: High-level interface for managing nodes, coordinates, and the FAISS vector store. Orchestrates coordinate calculation and storage.
+2.  **Services (`src/services`)**:
+    *   `IngestionPipeline`: Orchestrates document loading, chunking, embedding generation, and adding nodes to the `NarrativeAtlas`.
+3.  **Utilities (`src/utils`)**:
+    *   `DocumentLoader`: Loads various document types (PDF, DOCX, TXT, etc.).
+    *   `TextChunker`: Splits text into manageable chunks.
+    *   `EntityExtractor`: Extracts named entities, events, and locations using spaCy.
+    *   `CoordinateMapper`: Calculates coordinates (primarily structural in Phase 1) and extracts keywords.
+    *   `EmbeddingService`: Handles text embedding generation (supports mock, LangChain models).
+4.  **Scripts**:
+    *   `run.py`: Main entry point for running ingestion or queries via subprocesses.
+    *   `src/main.py`: Handles the ingestion process logic.
+    *   `src/query.py`: Handles the query process logic.
 
 ## Installation
 
-1. Clone the repository:
-   ```
-   git clone https://github.com/yourusername/temporal-spatial-memory.git
-   cd temporal-spatial-memory
-   ```
-
-2. Install dependencies:
-   ```
-   pip install -r requirements.txt
-   ```
-
-3. Download the spaCy model (required for entity extraction):
-   ```
-   python -m spacy download en_core_web_sm
-   ```
-
-4. (Optional) Create a `.env` file based on `.env.example` to configure the embedding service and other settings.
+1.  Clone the repository:
+    ```bash
+    git clone <your-repo-url>
+    cd Temporal-Spacial Memory
+    ```
+2.  Create a virtual environment (recommended) and activate it.
+3.  Install dependencies:
+    ```bash
+    pip install -r requirements.txt
+    ```
+4.  Download the spaCy model (required for entity extraction):
+    ```bash
+    python -m spacy download en_core_web_sm
+    ```
+5.  (Optional) Create a `.env` file to configure `OPENAI_API_KEY` if using OpenAI embeddings, or other settings like `CHUNK_SIZE`, `CHUNK_OVERLAP`.
 
 ## Usage
 
-### Running the System
+Use the `run.py` script for primary operations:
 
-Use the `run.py` script to run the system:
+**1. Ingest Documents:**
 
-```
-python run.py --mode all --clear-db
-```
+*   Place documents in the `input/` directory (or a subdirectory).
+*   Run the ingestion command, specifying the storage path and input directory.
 
-This will:
-1. Clear the existing database (if --clear-db is set)
-2. Process all documents in the `input` directory
-3. Store the chunks in the 4D coordinate space
+    ```bash
+    # Example: Ingest documents from 'input/' into 'output/my_atlas'
+    python run.py --mode ingest --storage-path output/my_atlas --input-dir input
+    ```
+*   Use `--clear-db` flag to remove existing data at the storage path before ingesting.
 
-### Command-line Options
+    ```bash
+    # Example: Clear and ingest into 'output/test_atlas'
+    python run.py --mode ingest --storage-path output/test_atlas --input-dir input --clear-db
+    ```
 
-- `--mode`: Operation mode (`ingest`, `query`, or `all`, default: `ingest`)
-- `--input-dir`: Directory containing input documents (default: `input`)
-- `--output-dir`: Directory for processing output (default: `output`)
-- `--storage-path`: Path for database storage (default: `output/db`)
-- `--clear-db`: Clear the database before ingestion
-- `--text-query`: Query by text similarity
-- `--max-results`: Maximum number of results to return (default: 10)
+**2. Query the Atlas:**
 
-### Ingestion Pipeline
+*   Run the query command, specifying the storage path and your text query.
 
-To just run the ingestion pipeline:
+    ```bash
+    # Example: Query 'output/my_atlas'
+    python run.py --mode query --storage-path output/my_atlas --text-query "Search for this information"
+    ```
+*   Adjust the number of results with `--max-results` (default: 10).
 
-```
-python src/main.py --input-dir input --output-dir output
-```
+### Command-line Options (`run.py`)
 
-### Query Engine
-
-To query the database:
-
-```
-python src/query.py --text-query "Your query here" --min-relevance 0.1
-```
+*   `--mode`: Operation mode (`ingest`, `query`, default: `ingest`).
+*   `--input-dir`: Directory containing input documents for ingestion (default: `input`).
+*   `--storage-path`: Path for storing/loading the Narrative Atlas data (DB + FAISS index). Required for both ingest and query.
+*   `--clear-db`: (Ingest mode only) Clear existing data at `--storage-path` before ingestion.
+*   `--text-query`: (Query mode only) The text query for similarity search.
+*   `--max-results`: (Query mode only) Maximum number of results to return (default: 10).
+*   `--embedding-service`: Choose the embedding service (`mock`, `langchain`, `cascading`, default: `mock`).
 
 ## Configuration
 
-The system can be configured through environment variables:
+Environment variables can be set (e.g., in a `.env` file):
 
-- `EMBEDDING_SERVICE_TYPE`: Type of embedding service to use ("mock", "langchain", or "cascading")
-- `EMBEDDING_MODEL_NAME`: Name of the embedding model (default: "all-MiniLM-L6-v2")
-- `EMBEDDING_CACHE_SIZE`: Size of the LRU cache for embeddings (default: 1000)
-- `OPENAI_API_KEY`: API key for OpenAI embeddings (if using OpenAI models)
-- `CHUNK_SIZE`: Default size of text chunks (default: 1000)
-- `CHUNK_OVERLAP`: Default overlap between chunks (default: 200)
+*   `EMBEDDING_SERVICE_TYPE`: Default embedding service if not specified via CLI.
+*   `EMBEDDING_MODEL_NAME`: Specific model name (e.g., "all-MiniLM-L6-v2", "text-embedding-3-small").
+*   `OPENAI_API_KEY`: Required if using OpenAI models.
+*   `CHUNK_SIZE`: Default text chunk size (default: 1000).
+*   `CHUNK_OVERLAP`: Default chunk overlap (default: 200).
 
-## Supported File Types
+## Next Steps (Phase 2)
 
-The system currently supports the following document formats:
-- PDF (.pdf)
-- Microsoft Word (.docx)
-- Text (.txt)
-- Markdown (.md)
-- HTML (.html)
-
-## Architecture
-
-The system follows a pipeline architecture:
-
-1. **Core Coordinate System**: Defines the fundamental 4D coordinate structure and implements custom distance metrics.
-2. **Ingestion Pipeline**: Handles document loading, text chunking, entity extraction, and coordinate mapping.
-3. **Storage Layer**: Manages the persistence of nodes and their relationships in the database.
-4. **Query Engine**: Provides semantic search and coordinate-based querying capabilities.
-
-## Project Structure
-
-```
-.
-├── input/                 # Input documents
-├── output/                # Processing output and database storage
-├── src/
-│   ├── models/            # Core data models
-│   │   └── coordinate_system.py
-│   ├── services/          # Service components
-│   │   ├── ingestion_pipeline.py
-│   │   └── storage_manager.py
-│   ├── utils/             # Utility functions
-│   │   ├── document_loader.py
-│   │   ├── text_chunker.py
-│   │   ├── entity_extractor.py
-│   │   ├── coordinate_mapper.py
-│   │   └── embedding_service.py
-│   ├── main.py            # Main ingestion script
-│   └── query.py           # Query script
-├── run.py                 # System runner script
-└── requirements.txt       # Python dependencies
-```
+*   Integrate an LLM into the `CoordinateMapper` or a new refinement service.
+*   Develop prompts for the LLM to assess chunk relevance (`r`) and thematic category (`theta`).
+*   Implement logic to update node coordinates post-ingestion or during a separate refinement step.
+*   Evaluate the effectiveness of semantic coordinate refinement.
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details. 
+MIT License. 

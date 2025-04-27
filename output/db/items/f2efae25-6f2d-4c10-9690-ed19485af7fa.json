@@ -1,0 +1,108 @@
+{
+  "id": "f2efae25-6f2d-4c10-9690-ed19485af7fa",
+  "content": "Chapter\n\tXIX\nTHE\tLAST\tSTAGE\nIt\twas\ton\tMay\tthe\tFirst\tthat\tthe\ttwo\tcame\tback\tat\tlast\tto\nthe\tbrink\tof\tthe\tvalley\tof\tRivendell,\twhere\tstood\tthe\tLast\n(or\tthe\tFirst)\tHomely\tHouse.\tAgain\tit\twas\tevening,\ttheir\nponies\t were\t tired,\t especially\t the\t one\t that\t carried\t the\nbaggage;\t and\t they\t all\t felt\t in\t need\t of\t rest.\t As\t they\t rode\ndown\tthe\tsteep\tpath,\tBilbo\theard\tthe\telves\tstill\tsinging\tin\nthe\ttrees,\tas\tif\tthey\thad\tnot\tstopped\tsince\the\tleft;\tand\tas\nsoon\tas\tthe\triders\tcame\tdown\tinto\tthe\tlower\tglades\tof\tthe\nwood\t they\t burst\t into\t a\t song\t of\t much\t the\t same\t kind\t as\nbefore.\tThis\tis\tsomething\tlike\tit:\nThe\tdragon\tis\twithered,\nHis\tbones\tare\tnow\tcrumbled;\nHis\tarmour\tis\tshivered,\nHis\tsplendour\tis\thumbled!\nThough\tsword\tshall\tbe\trusted,\nAnd\tthrone\tand\tcrown\tperish\nWith\tstrength\tthat\tmen\ttrusted\nAnd\twealth\tthat\tthey\tcherish,\nHere\tgrass\tis\tstill\tgrowing,\nAnd\tleaves\tare\tyet\tswinging,\nThe\twhite\twater\tflowing,",
+  "coordinates": {
+    "r": 7.717499999999999,
+    "theta": 0.8953539062730911,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 289,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 913,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Rivendell",
+        "type": "organization",
+        "start": 113,
+        "end": 122,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "This\tis\tsomething\tlike\tit:\nThe\tdragon\tis\twithered,..."
+          }
+        ]
+      },
+      {
+        "name": "House",
+        "type": "organization",
+        "start": 167,
+        "end": 172,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "This\tis\tsomething\tlike\tit:\nThe\tdragon\tis\twithered,..."
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 354,
+        "end": 359,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "This\tis\tsomething\tlike\tit:\nThe\tdragon\tis\twithered,..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "This\tis\tsomething\tlike\tit:\nThe\tdragon\tis\twithered,...",
+        "description": "This\tis\tsomething\tlike\tit:\nThe\tdragon\tis\twithered,\nHis\tbones\tare\tnow\tcrumbled;\nHis\tarmour\tis\tshivered,\nHis\tsplendour\tis\thumbled!\n",
+        "start": 583,
+        "end": 712,
+        "participants": [
+          "Rivendell",
+          "House",
+          "Bilbo"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 354,
+        "end": 359,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "This\tis\tsomething\tlike\tit:\nThe\tdragon\tis\twithered,..."
+          }
+        ]
+      }
+    ]
+  },
+  "timestamp": 1745773112.503077,
+  "has_embedding": true
+}

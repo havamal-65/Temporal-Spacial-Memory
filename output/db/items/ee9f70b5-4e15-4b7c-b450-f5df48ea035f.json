@@ -1,0 +1,126 @@
+{
+  "id": "ee9f70b5-4e15-4b7c-b450-f5df48ea035f",
+  "content": "It\twas\tat\tthis\tpoint\tthat\tBilbo\tstopped.\tGoing\ton\tfrom\nthere\twas\tthe\tbravest\tthing\the\tever\tdid.\tThe\ttremendous\nthings\t that\t happened\t afterwards\t were\t as\t nothing\ncompared\t to\t it.\t He\t fought\t the\t real\t battle\t in\t the\t tunnel\nalone,\tbefore\the\tever\tsaw\tthe\tvast\tdanger\tthat\tlay\tin\twait.\nAt\tany\trate\tafter\ta\tshort\thalt\tgo\ton\the\tdid;\tand\tyou\tcan\npicture\thim\tcoming\tto\tthe\tend\tof\tthe\ttunnel,\tan\topening\nof\t much\t the\t same\t size\t and\t shape\t as\t the\t door\t above.\nThrough\tit\tpeeps\tthe\thobbit\u2019s\tlittle\thead.\tBefore\thim\tlies\nthe\t great\t bottom-most\t cellar\t or\t dungeon-hall\t of\t the\nancient\tdwarves\tright\tat\tthe\tMountain\u2019s\troot.\tIt\tis\talmost\ndark\tso\tthat\tits\tvastness\tcan\tonly\tbe\tdimly\tguessed,\tbut\nrising\tfrom\tthe\tnear\tside\tof\tthe\trocky\tfloor\tthere\tis\ta\tgreat\nglow.\tThe\tglow\tof\tSmaug!\nThere\t he\t lay,\t a\t vast\t red-golden\t dragon,\t fast\t asleep;\t a\nthrumming\tcame\tfrom\this\tjaws\tand\tnostrils,\tand\twisps\tof\nsmoke,\t but\t his\t fires\t were\t low\t in\t slumber.\t Beneath\t him,\nunder\tall\this\tlimbs\tand\this\thuge\tcoiled\ttail,\tand\tabout\thim\non\tall\tsides\tstretching\taway\tacross\tthe\tunseen\tfloors,\tlay\ncountless\t piles\t of\t precious\t things,\t gold\t wrought\t and\nunwrought,\tgems\tand\tjewels,\tand\tsilver\tred-stained\tin\tthe\nruddy\tlight.\nSmaug\t lay,\t with\t wings\t folded\t like\t an\t immeasurable\nbat,\tturned\tpartly\ton\tone\tside,\tso\tthat\tthe\thobbit\tcould\tsee\nhis\tunderparts\tand\this\tlong\tpale\tbelly\tcrusted\twith\tgems\nand\tfragments\tof\tgold\tfrom\this\tlong\tlying\ton\this\tcostly\nbed.\t Behind\t him\t where\t the\t walls\t were\t nearest\t could\ndimly\tbe\tseen\tcoats\tof\tmail,\thelms\tand\taxes,\tswords\tand\nspears\t hanging;\t and\t there\t in\t rows\t stood\t great\t jars\t and\nvessels\tfilled\twith\ta\twealth\tthat\tcould\tnot\tbe\tguessed.\nTo\t say\t that\t Bilbo\u2019s\t breath\t was\t taken\t away\t is\t no\ndescription\tat\tall.\tThere\tare\tno\twords\tleft\tto\texpress\this\nstaggerment,\t since\t Men\t changed\t the\t language\t that\t they\nlearned\t of\t elves\t in\t the\t days\t when\t all\t the\t world\t was\nwonderful.\tBilbo\thad\theard\ttell\tand\tsing\tof\tdragon-hoards",
+  "coordinates": {
+    "r": 5.045,
+    "theta": 3.4259067887396695,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 210,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1982,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 26,
+        "end": 31,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "The\ttremendous\nthings\t that\t happened\t afterwards\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "There\tare\tno\twords\tleft\tto\texpress\this\nstaggerment..."
+          }
+        ]
+      },
+      {
+        "name": "Smaug",
+        "type": "administrative",
+        "start": 779,
+        "end": 784,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "The\ttremendous\nthings\t that\t happened\t afterwards\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "There\tare\tno\twords\tleft\tto\texpress\this\nstaggerment..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "The\ttremendous\nthings\t that\t happened\t afterwards\t...",
+        "description": "The\ttremendous\nthings\t that\t happened\t afterwards\t were\t as\t nothing\ncompared\t to\t it.\t ",
+        "start": 96,
+        "end": 184,
+        "participants": [
+          "Bilbo",
+          "Smaug"
+        ],
+        "location": "Bilbo",
+        "time": null
+      },
+      {
+        "name": "There\tare\tno\twords\tleft\tto\texpress\this\nstaggerment...",
+        "description": "There\tare\tno\twords\tleft\tto\texpress\this\nstaggerment,\t since\t Men\t changed\t the\t language\t that\t they\nlearned\t of\t elves\t in\t the\t days\t when\t all\t the\t world\t was\nwonderful.\t",
+        "start": 1763,
+        "end": 1936,
+        "participants": [
+          "Bilbo",
+          "Smaug"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 26,
+        "end": 31,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "The\ttremendous\nthings\t that\t happened\t afterwards\t..."
+          },
+          {
+            "type": "hosted",
+            "target": "There\tare\tno\twords\tleft\tto\texpress\this\nstaggerment..."
+          }
+        ]
+      },
+      {
+        "name": "Smaug",
+        "type": "administrative",
+        "start": 779,
+        "end": 784,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745773098.1254463,
+  "has_embedding": true
+}

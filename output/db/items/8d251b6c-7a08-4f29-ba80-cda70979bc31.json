@@ -1,0 +1,214 @@
+{
+  "id": "8d251b6c-7a08-4f29-ba80-cda70979bc31",
+  "content": "dislike\t being\t broken\u2014except\t by\t the\t noise\t of\t water\t and\nthe\twail\tof\twind\tand\tthe\tcrack\tof\tstone.\n\u201cThe\t summer\t is\t getting\t on\t down\t below,\u201d\t thought\nBilbo,\t\u201cand\thaymaking\tis\tgoing\ton\tand\tpicnics.\tThey\twill\nbe\tharvesting\tand\tblackberrying,\tbefore\twe\teven\tbegin\tto\ngo\tdown\tthe\tother\tside\tat\tthis\trate.\u201d\tAnd\tthe\tothers\twere\nthinking\t equally\t gloomy\t thoughts,\t although\t when\t they\nhad\t said\t good-bye\t to\t Elrond\t in\t the\t high\t hope\t of\t a\nmidsummer\t morning,\t they\t had\t spoken\t gaily\t of\t the\npassage\tof\tthe\tmountains,\tand\tof\triding\tswift\tacross\tthe\nlands\tbeyond.\tThey\thad\tthought\tof\tcoming\tto\tthe\tsecret\ndoor\tin\tthe\tLonely\tMountain,\tperhaps\tthat\tvery\tnext\tlast\nmoon\tof\tAutumn\u2014\u201cand\tperhaps\tit\twill\tbe\tDurin\u2019s\tDay\u201d\nthey\thad\tsaid.\tOnly\tGandalf\thad\tshaken\this\thead\tand\tsaid\nnothing.\t Dwarves\t had\t not\t passed\t that\t way\t for\t many\nyears,\tbut\tGandalf\thad,\tand\the\tknew\thow\tevil\tand\tdanger\nhad\tgrown\tand\tthriven\tin\tthe\tWild,\tsince\tthe\tdragons\thad\ndriven\tmen\tfrom\tthe\tlands,\tand\tthe\tgoblins\thad\tspread\tin\nsecret\t after\t the\t battle\t of\t the\t Mines\t of\t Moria.\t Even\t the\ngood\t plans\t of\t wise\t wizards\t like\t Gandalf\t and\t of\t good\nfriends\tlike\tElrond\tgo\tastray\tsometimes\twhen\tyou\tare\toff\non\tdangerous\tadventures\tover\tthe\tEdge\tof\tthe\tWild;\tand\nGandalf\twas\ta\twise\tenough\twizard\tto\tknow\tit.\nHe\t knew\t that\t something\t unexpected\t might\t happen,\t and\nhe\t hardly\t dared\t to\t hope\t that\t they\t would\t pass\t without\nfearful\t adventure\t over\t those\t great\t tall\t mountains\t with\nlonely\tpeaks\tand\tvalleys\twhere\tno\tking\truled.\tThey\tdid\nnot.\tAll\twas\twell,\tuntil\tone\tday\tthey\tmet\ta\tthunderstorm\n\u2014more\tthan\ta\tthunderstorm,\ta\tthunder-battle.\tYou\tknow\nhow\tterrific\ta\treally\tbig\tthunderstorm\tcan\tbe\tdown\tin\tthe\nland\tand\tin\ta\triver-valley;\tespecially\tat\ttimes\twhen\ttwo\ngreat\tthunderstorms\tmeet\tand\tclash.\tMore\tterrible\tstill\tare\nthunder\t and\t lightning\t in\t the\t mountains\t at\t night,\t when\nstorms\tcome\tup\tfrom\tEast\tand\tWest\tand\tmake\twar.\tThe\nlightning\t splinters\t on\t the\t peaks,\t and\t rocks\t shiver,\t and",
+  "coordinates": {
+    "r": 5.015,
+    "theta": 3.352472060462008,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 59,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1994,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 157,
+        "end": 162,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Even\t the\ngood\t plans\t of\t wise\t wizards\t like\t Ga..."
+          },
+          {
+            "type": "participated_in",
+            "target": "He\t knew\t that\t something\t unexpected\t might\t happ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "All\twas\twell,\tuntil\tone\tday\tthey\tmet\ta\tthunderstor..."
+          }
+        ]
+      },
+      {
+        "name": "Autumn\u2014\u201cand",
+        "type": "administrative",
+        "start": 680,
+        "end": 691,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Even\t the\ngood\t plans\t of\t wise\t wizards\t like\t Ga..."
+          },
+          {
+            "type": "participated_in",
+            "target": "He\t knew\t that\t something\t unexpected\t might\t happ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "All\twas\twell,\tuntil\tone\tday\tthey\tmet\ta\tthunderstor..."
+          }
+        ]
+      },
+      {
+        "name": "Gandalf",
+        "type": "group",
+        "start": 850,
+        "end": 857,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Even\t the\ngood\t plans\t of\t wise\t wizards\t like\t Ga..."
+          },
+          {
+            "type": "participated_in",
+            "target": "He\t knew\t that\t something\t unexpected\t might\t happ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "All\twas\twell,\tuntil\tone\tday\tthey\tmet\ta\tthunderstor..."
+          }
+        ]
+      },
+      {
+        "name": "Moria",
+        "type": "person",
+        "start": 1057,
+        "end": 1062,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Even\t the\ngood\t plans\t of\t wise\t wizards\t like\t Ga..."
+          },
+          {
+            "type": "participated_in",
+            "target": "He\t knew\t that\t something\t unexpected\t might\t happ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "All\twas\twell,\tuntil\tone\tday\tthey\tmet\ta\tthunderstor..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "Even\t the\ngood\t plans\t of\t wise\t wizards\t like\t Ga...",
+        "description": "Even\t the\ngood\t plans\t of\t wise\t wizards\t like\t Gandalf\t and\t of\t good\nfriends\tlike\tElrond\tgo\tastray\tsometimes\twhen\tyou\tare\toff\non\tdangerous\tadventures\tover\tthe\tEdge\tof\tthe\tWild;\tand\nGandalf\twas\ta\twise\tenough\twizard\tto\tknow\tit.\n",
+        "start": 1065,
+        "end": 1293,
+        "participants": [
+          "Bilbo",
+          "Autumn\u2014\u201cand",
+          "Gandalf",
+          "Moria"
+        ],
+        "location": "Bilbo",
+        "time": null
+      },
+      {
+        "name": "He\t knew\t that\t something\t unexpected\t might\t happ...",
+        "description": "He\t knew\t that\t something\t unexpected\t might\t happen,\t and\nhe\t hardly\t dared\t to\t hope\t that\t they\t would\t pass\t without\nfearful\t adventure\t over\t those\t great\t tall\t mountains\t with\nlonely\tpeaks\tand\tvalleys\twhere\tno\tking\truled.\t",
+        "start": 1293,
+        "end": 1522,
+        "participants": [
+          "Bilbo",
+          "Autumn\u2014\u201cand",
+          "Gandalf",
+          "Moria"
+        ],
+        "location": "Bilbo",
+        "time": null
+      },
+      {
+        "name": "All\twas\twell,\tuntil\tone\tday\tthey\tmet\ta\tthunderstor...",
+        "description": "All\twas\twell,\tuntil\tone\tday\tthey\tmet\ta\tthunderstorm\n\u2014more\tthan\ta\tthunderstorm,\ta\tthunder-battle.\t",
+        "start": 1536,
+        "end": 1633,
+        "participants": [
+          "Bilbo",
+          "Autumn\u2014\u201cand",
+          "Gandalf",
+          "Moria"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 157,
+        "end": 162,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "Even\t the\ngood\t plans\t of\t wise\t wizards\t like\t Ga..."
+          },
+          {
+            "type": "hosted",
+            "target": "He\t knew\t that\t something\t unexpected\t might\t happ..."
+          },
+          {
+            "type": "hosted",
+            "target": "All\twas\twell,\tuntil\tone\tday\tthey\tmet\ta\tthunderstor..."
+          }
+        ]
+      },
+      {
+        "name": "Autumn\u2014\u201cand",
+        "type": "administrative",
+        "start": 680,
+        "end": 691,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Wild",
+        "type": "geographical",
+        "start": 924,
+        "end": 928,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "East",
+        "type": "geographical",
+        "start": 1899,
+        "end": 1903,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745709005.3924863,
+  "has_embedding": true
+}

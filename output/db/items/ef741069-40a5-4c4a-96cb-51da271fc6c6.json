@@ -1,0 +1,218 @@
+{
+  "id": "ef741069-40a5-4c4a-96cb-51da271fc6c6",
+  "content": "side\tof\tthe\tMountain.\tThat\tis\tthe\tusual\tdwarves\u2019\tmethod\n\u2014I\tthink\tthat\tis\tright,\tisn\u2019t\tit?\u201d\n\u201cQuite\tright,\u201d\tsaid\tThorin.\n\u201cAlso,\u201d\twent\ton\tGandalf,\t\u201cI\tforgot\tto\tmention\tthat\twith\nthe\tmap\twent\ta\tkey,\ta\tsmall\tand\tcurious\tkey.\tHere\tit\tis!\u201d\nhe\tsaid,\tand\thanded\tto\tThorin\ta\tkey\twith\ta\tlong\tbarrel\tand\nintricate\twards,\tmade\tof\tsilver.\t\u201cKeep\tit\tsafe!\u201d\n\u201cIndeed\tI\twill,\u201d\tsaid\tThorin,\tand\the\tfastened\tit\tupon\ta\nfine\tchain\tthat\thung\tabout\this\tneck\tand\tunder\this\tjacket.\n\u201cNow\tthings\tbegin\tto\tlook\tmore\thopeful.\tThis\tnews\talters\nthem\t much\t for\t the\t better.\t So\t far\t we\t have\t had\t no\t clear\nidea\twhat\tto\tdo.\tWe\tthought\tof\tgoing\tEast,\tas\tquiet\tand\ncareful\tas\twe\tcould,\tas\tfar\tas\tthe\tLong\tLake.\tAfter\tthat\nthe\ttrouble\twould\tbegin\u2014.\u201d\n\u201cA\tlong\ttime\tbefore\tthat,\tif\tI\tknow\tanything\tabout\tthe\nroads\tEast,\u201d\tinterrupted\tGandalf.\n\u201cWe\tmight\tgo\tfrom\tthere\tup\talong\tthe\tRiver\tRunning,\u201d\nwent\ton\tThorin\ttaking\tno\tnotice,\t\u201cand\tso\tto\tthe\truins\tof\nDale\u2014the\told\ttown\tin\tthe\tvalley\tthere,\tunder\tthe\tshadow\nof\tthe\tMountain.\tBut\twe\tnone\tof\tus\tliked\tthe\tidea\tof\tthe\nFront\tGate.\tThe\triver\truns\tright\tout\tof\tit\tthrough\tthe\tgreat\ncliff\tat\tthe\tSouth\tof\tthe\tMountain,\tand\tout\tof\tit\tcomes\tthe\ndragon\t too\u2014far\t too\t often,\t unless\t he\t has\t changed\t his\nhabits.\u201d\n\u201cThat\twould\tbe\tno\tgood,\u201d\tsaid\tthe\twizard,\t\u201cnot\twithout\na\t mighty\t Warrior,\t even\t a\t Hero.\t I\t tried\t to\t find\t one;\t but\nwarriors\t are\t busy\t fighting\t one\t another\t in\t distant\t lands,\nand\t in\t this\t neighbourhood\t heroes\t are\t scarce,\t or\t simply\nnot\tto\tbe\tfound.\tSwords\tin\tthese\tparts\tare\tmostly\tblunt,\nand\taxes\tare\tused\tfor\ttrees,\tand\tshields\tas\tcradles\tor\tdish-\ncovers;\t and\t dragons\t are\t comfortably\t far-off\t (and\ntherefore\tlegendary).\tThat\tis\twhy\tI\tsettled\ton\t\nburglary\n\u2014\nespecially\t when\t I\t remembered\t the\t existence\t of\t a\t Side-\ndoor.\tAnd\there\tis\tour\tlittle\tBilbo\tBaggins,\t\nthe\n\tburglar,\tthe\nchosen\t and\t selected\t burglar.\t So\t now\t let\u2019s\t get\t on\t and\nmake\tsome\tplans.\u201d\n\u201cVery\twell\tthen,\u201d\tsaid\tThorin,\t\u201csupposing\tthe\tburglar-\nexpert\t gives\t us\t some\t ideas\t or\t suggestions.\u201d\t He\t turned",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 3.3238050274980013,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 25,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2022,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Thorin",
+        "type": "group",
+        "start": 111,
+        "end": 117,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "That\tis\tthe\tusual\tdwarves\u2019\tmethod\n\u2014I\tthink\tthat\tis..."
+          },
+          {
+            "type": "participated_in",
+            "target": "And\there\tis\tour\tlittle\tBilbo\tBaggins,\t\nthe\n\tburgla..."
+          }
+        ]
+      },
+      {
+        "name": "Gandalf",
+        "type": "group",
+        "start": 135,
+        "end": 142,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "That\tis\tthe\tusual\tdwarves\u2019\tmethod\n\u2014I\tthink\tthat\tis..."
+          },
+          {
+            "type": "participated_in",
+            "target": "And\there\tis\tour\tlittle\tBilbo\tBaggins,\t\nthe\n\tburgla..."
+          }
+        ]
+      },
+      {
+        "name": "Front\tGate",
+        "type": "organization",
+        "start": 1029,
+        "end": 1039,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "That\tis\tthe\tusual\tdwarves\u2019\tmethod\n\u2014I\tthink\tthat\tis..."
+          },
+          {
+            "type": "participated_in",
+            "target": "And\there\tis\tour\tlittle\tBilbo\tBaggins,\t\nthe\n\tburgla..."
+          }
+        ]
+      },
+      {
+        "name": "Swords",
+        "type": "group",
+        "start": 1486,
+        "end": 1492,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "That\tis\tthe\tusual\tdwarves\u2019\tmethod\n\u2014I\tthink\tthat\tis..."
+          },
+          {
+            "type": "participated_in",
+            "target": "And\there\tis\tour\tlittle\tBilbo\tBaggins,\t\nthe\n\tburgla..."
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 1792,
+        "end": 1797,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "That\tis\tthe\tusual\tdwarves\u2019\tmethod\n\u2014I\tthink\tthat\tis..."
+          },
+          {
+            "type": "participated_in",
+            "target": "And\there\tis\tour\tlittle\tBilbo\tBaggins,\t\nthe\n\tburgla..."
+          }
+        ]
+      },
+      {
+        "name": "Baggins",
+        "type": "administrative",
+        "start": 1798,
+        "end": 1805,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "That\tis\tthe\tusual\tdwarves\u2019\tmethod\n\u2014I\tthink\tthat\tis..."
+          },
+          {
+            "type": "participated_in",
+            "target": "And\there\tis\tour\tlittle\tBilbo\tBaggins,\t\nthe\n\tburgla..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "That\tis\tthe\tusual\tdwarves\u2019\tmethod\n\u2014I\tthink\tthat\tis...",
+        "description": "That\tis\tthe\tusual\tdwarves\u2019\tmethod\n\u2014I\tthink\tthat\tis\tright,\tisn\u2019t\tit?\u201d\n\u201cQuite\tright,\u201d\tsaid\tThorin.\n",
+        "start": 22,
+        "end": 119,
+        "participants": [
+          "Thorin",
+          "Gandalf",
+          "Front\tGate",
+          "Swords",
+          "Bilbo",
+          "Baggins"
+        ],
+        "location": "East",
+        "time": null
+      },
+      {
+        "name": "And\there\tis\tour\tlittle\tBilbo\tBaggins,\t\nthe\n\tburgla...",
+        "description": "And\there\tis\tour\tlittle\tBilbo\tBaggins,\t\nthe\n\tburglar,\tthe\nchosen\t and\t selected\t burglar.\t ",
+        "start": 1769,
+        "end": 1859,
+        "participants": [
+          "Thorin",
+          "Gandalf",
+          "Front\tGate",
+          "Swords",
+          "Bilbo",
+          "Baggins"
+        ],
+        "location": "East",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "East",
+        "type": "geographical",
+        "start": 614,
+        "end": 618,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "That\tis\tthe\tusual\tdwarves\u2019\tmethod\n\u2014I\tthink\tthat\tis..."
+          },
+          {
+            "type": "hosted",
+            "target": "And\there\tis\tour\tlittle\tBilbo\tBaggins,\t\nthe\n\tburgla..."
+          }
+        ]
+      },
+      {
+        "name": "South",
+        "type": "geographical",
+        "start": 1103,
+        "end": 1108,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 1792,
+        "end": 1797,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Baggins",
+        "type": "administrative",
+        "start": 1798,
+        "end": 1805,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745709003.5994854,
+  "has_embedding": true
+}

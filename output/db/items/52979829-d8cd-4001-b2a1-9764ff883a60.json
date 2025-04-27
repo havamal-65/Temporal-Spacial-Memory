@@ -1,0 +1,182 @@
+{
+  "id": "52979829-d8cd-4001-b2a1-9764ff883a60",
+  "content": "a\t great\t strong\t black-haired\t man\t with\t huge\t arms\t and\t a\ngreat\t beard.\t I\t cannot\t tell\t you\t much\t more,\t though\t that\nought\tto\tbe\tenough.\tSome\tsay\tthat\the\tis\ta\tbear\tdescended\nfrom\t the\t great\t and\t ancient\t bears\t of\t the\t mountains\t that\nlived\tthere\tbefore\tthe\tgiants\tcame.\tOthers\tsay\tthat\the\tis\ta\nman\t descended\t from\t the\t first\t men\t who\t lived\t before\nSmaug\t or\t the\t other\t dragons\t came\t into\t this\t part\t of\t the\nworld,\t and\t before\t the\t goblins\t came\t into\t the\t hills\t out\t of\nthe\tNorth.\tI\tcannot\tsay,\tthough\tI\tfancy\tthe\tlast\tis\tthe\ttrue\ntale.\tHe\tis\tnot\tthe\tsort\tof\tperson\tto\task\tquestions\tof.\n\u201cAt\tany\trate\the\tis\tunder\tno\tenchantment\tbut\this\town.\nHe\tlives\tin\tan\toak-wood\tand\thas\ta\tgreat\twooden\thouse;\nand\tas\ta\tman\the\tkeeps\tcattle\tand\thorses\twhich\tare\tnearly\nas\tmarvellous\tas\thimself.\tThey\twork\tfor\thim\tand\ttalk\tto\nhim.\t He\t does\t not\t eat\t them;\t neither\t does\t he\t hunt\t or\t eat\nwild\t animals.\t He\t keeps\t hives\t and\t hives\t of\t great\t fierce\nbees,\t and\t lives\t most\t on\t cream\t and\t honey.\t As\t a\t bear\t he\nranges\tfar\tand\twide.\tI\tonce\tsaw\thim\tsitting\tall\talone\ton\nthe\ttop\tof\tthe\tCarrock\tat\tnight\twatching\tthe\tmoon\tsinking\ntowards\tthe\tMisty\tMountains,\tand\tI\theard\thim\tgrowl\tin\nthe\ttongue\tof\tbears:\t\u2018The\tday\twill\tcome\twhen\tthey\twill\nperish\tand\tI\tshall\tgo\tback!\u2019\tThat\tis\twhy\tI\tbelieve\the\tonce\ncame\tfrom\tthe\tmountains\thimself.\u201d\nBilbo\tand\tthe\tdwarves\thad\tnow\tplenty\tto\tthink\tabout,\tand\nthey\tasked\tno\tmore\tquestions.\tThey\tstill\thad\ta\tlong\tway\nto\t walk\t before\t them.\t Up\t slope\t and\t down\t dale\t they\nplodded.\tIt\tgrew\tvery\thot.\tSometimes\tthey\trested\tunder\nthe\t trees,\t and\t then\t Bilbo\t felt\t so\t hungry\t that\t he\t would\nhave\t eaten\t acorns,\t if\t any\t had\t been\t ripe\t enough\t yet\t to\nhave\tfallen\tto\tthe\tground.\nIt\twas\tthe\tmiddle\tof\tthe\tafternoon\tbefore\tthey\tnoticed\nthat\tgreat\tpatches\tof\tflowers\thad\tbegun\tto\tspring\tup,\tall\nthe\t same\t kinds\t growing\t together\t as\t if\t they\t had\t been\nplanted.\t Especially\t there\t was\t clover,\t waving\t patches\t of\ncockscomb\tclover,\tand\tpurple\tclover,\tand\twide\tstretches",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 3.3422618843378413,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 117,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2018,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Smaug",
+        "type": "administrative",
+        "start": 364,
+        "end": 369,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Some\tsay\tthat\the\tis\ta\tbear\tdescended\nfrom\t the\t gr..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Others\tsay\tthat\the\tis\ta\nman\t descended\t from\t the\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Sometimes\tthey\trested\tunder\nthe\t trees,\t and\t then..."
+          }
+        ]
+      },
+      {
+        "name": "Carrock",
+        "type": "administrative",
+        "start": 1099,
+        "end": 1106,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Some\tsay\tthat\the\tis\ta\tbear\tdescended\nfrom\t the\t gr..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Others\tsay\tthat\the\tis\ta\nman\t descended\t from\t the\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Sometimes\tthey\trested\tunder\nthe\t trees,\t and\t then..."
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "person",
+        "start": 1344,
+        "end": 1349,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Some\tsay\tthat\the\tis\ta\tbear\tdescended\nfrom\t the\t gr..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Others\tsay\tthat\the\tis\ta\nman\t descended\t from\t the\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Sometimes\tthey\trested\tunder\nthe\t trees,\t and\t then..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "Some\tsay\tthat\the\tis\ta\tbear\tdescended\nfrom\t the\t gr...",
+        "description": "Some\tsay\tthat\the\tis\ta\tbear\tdescended\nfrom\t the\t great\t and\t ancient\t bears\t of\t the\t mountains\t that\nlived\tthere\tbefore\tthe\tgiants\tcame.\t",
+        "start": 145,
+        "end": 282,
+        "participants": [
+          "Smaug",
+          "Carrock",
+          "Bilbo"
+        ],
+        "location": "Smaug",
+        "time": null
+      },
+      {
+        "name": "Others\tsay\tthat\the\tis\ta\nman\t descended\t from\t the\t...",
+        "description": "Others\tsay\tthat\the\tis\ta\nman\t descended\t from\t the\t first\t men\t who\t lived\t before\nSmaug\t or\t the\t other\t dragons\t came\t into\t this\t part\t of\t the\nworld,\t and\t before\t the\t goblins\t came\t into\t the\t hills\t out\t of\nthe\tNorth.\t",
+        "start": 282,
+        "end": 506,
+        "participants": [
+          "Smaug",
+          "Carrock",
+          "Bilbo"
+        ],
+        "location": "Smaug",
+        "time": null
+      },
+      {
+        "name": "Sometimes\tthey\trested\tunder\nthe\t trees,\t and\t then...",
+        "description": "Sometimes\tthey\trested\tunder\nthe\t trees,\t and\t then\t Bilbo\t felt\t so\t hungry\t that\t he\t would\nhave\t eaten\t acorns,\t if\t any\t had\t been\t ripe\t enough\t yet\t to\nhave\tfallen\tto\tthe\tground.\n",
+        "start": 1542,
+        "end": 1726,
+        "participants": [
+          "Smaug",
+          "Carrock",
+          "Bilbo"
+        ],
+        "location": "Smaug",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Smaug",
+        "type": "administrative",
+        "start": 364,
+        "end": 369,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "Some\tsay\tthat\the\tis\ta\tbear\tdescended\nfrom\t the\t gr..."
+          },
+          {
+            "type": "hosted",
+            "target": "Others\tsay\tthat\the\tis\ta\nman\t descended\t from\t the\t..."
+          },
+          {
+            "type": "hosted",
+            "target": "Sometimes\tthey\trested\tunder\nthe\t trees,\t and\t then..."
+          }
+        ]
+      },
+      {
+        "name": "North",
+        "type": "geographical",
+        "start": 499,
+        "end": 504,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Carrock",
+        "type": "administrative",
+        "start": 1099,
+        "end": 1106,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745773082.6940064,
+  "has_embedding": true
+}

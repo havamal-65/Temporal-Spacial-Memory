@@ -1,0 +1,74 @@
+{
+  "id": "eab84aa0-fc7b-4841-9dbd-e35c091bcf89",
+  "content": "Hurriedly\tBilbo\tstepped\tback\tand\tblessed\tthe\tluck\tof\this\nring.\tThen\tSmaug\tspoke.\n\u201cWell,\tthief!\tI\tsmell\tyou\tand\tI\tfeel\tyour\tair.\tI\thear\tyour\nbreath.\tCome\talong!\tHelp\tyourself\tagain,\tthere\tis\tplenty\nand\tto\tspare!\u201d\nBut\tBilbo\twas\tnot\tquite\tso\tunlearned\tin\tdragon-lore\tas\nall\tthat,\tand\tif\tSmaug\thoped\tto\tget\thim\tto\tcome\tnearer\tso\neasily\the\twas\tdisappointed.\t\u201cNo\tthank\tyou,\tO\tSmaug\tthe\nTremendous!\u201d\the\treplied.\n\u201cI\tdid\tnot\tcome\tfor\tpresents.\tI\tonly\twished\tto\thave\ta\nlook\tat\tyou\tand\tsee\tif\tyou\twere\ttruly\tas\tgreat\tas\ttales\tsay.\nI\tdid\tnot\tbelieve\tthem.\u201d\n\u201cDo\t you\t now?\u201d\t said\t the\t dragon\t somewhat\t flattered,\neven\tthough\the\tdid\tnot\tbelieve\ta\tword\tof\tit.\n\u201cTruly\tsongs\tand\ttales\tfall\tutterly\tshort\tof\tthe\treality,\tO\nSmaug\tthe\tChiefest\tand\tGreatest\tof\tCalamities,\u201d\treplied\nBilbo.\n\u201cYou\thave\tnice\tmanners\tfor\ta\tthief\tand\ta\tliar,\u201d\tsaid\tthe\ndragon.\t \u201cYou\t seem\t familiar\t with\t my\t name,\t but\t I\t don\u2019t\nseem\tto\tremember\tsmelling\tyou\tbefore.\tWho\tare\tyou\tand\nwhere\tdo\tyou\tcome\tfrom,\tmay\tI\task?\u201d\n\u201cYou\t may\t indeed!\t I\t come\t from\t under\t the\t hill,\t and\nunder\t the\t hills\t and\t over\t the\t hills\t my\t paths\t led.\t And\nthrough\tthe\tair.\tI\tam\the\tthat\twalks\tunseen.\u201d\n\u201cSo\tI\tcan\twell\tbelieve,\u201d\tsaid\tSmaug,\t\u201cbut\tthat\tis\thardly\nyour\tusual\tname.\u201d\n\u201cI\tam\tthe\tclue-finder,\tthe\tweb-cutter,\tthe\tstinging\tfly.\tI\nwas\tchosen\tfor\tthe\tlucky\tnumber.\u201d\n\u201cLovely\t titles!\u201d\t sneered\t the\t dragon.\t \u201cBut\t lucky\nnumbers\tdon\u2019t\talways\tcome\toff.\u201d\n\u201cI\tam\the\tthat\tburies\this\tfriends\talive\tand\tdrowns\tthem\nand\tdraws\tthem\talive\tagain\tfrom\tthe\twater.\tI\tcame\tfrom\nthe\tend\tof\ta\tbag,\tbut\tno\tbag\twent\tover\tme.\u201d\n\u201cThese\t don\u2019t\t sound\t so\t creditable,\u201d\t scoffed\t Smaug.\t \u201cI\nam\t the\t friend\t of\t bears\t and\t the\t guest\t of\t eagles.\t I\t am",
+  "coordinates": {
+    "r": 5.8100000000000005,
+    "theta": 3.297101489942488,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 217,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1676,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 10,
+        "end": 15,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Smaug",
+        "type": "administrative",
+        "start": 68,
+        "end": 73,
+        "mentions": 1,
+        "relationships": []
+      }
+    ],
+    "events": [],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 10,
+        "end": 15,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Smaug",
+        "type": "administrative",
+        "start": 68,
+        "end": 73,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745715413.2618403,
+  "has_embedding": true
+}

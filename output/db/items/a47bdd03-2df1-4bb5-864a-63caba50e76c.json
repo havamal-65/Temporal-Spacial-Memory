@@ -1,0 +1,40 @@
+{
+  "id": "a47bdd03-2df1-4bb5-864a-63caba50e76c",
+  "content": "the\tland\tbeyond.",
+  "coordinates": {
+    "r": 9.96,
+    "theta": 5.837079150369836,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 57,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 16,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "hash_based",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [],
+    "events": [],
+    "locations": []
+  },
+  "timestamp": 1745773073.6732516,
+  "has_embedding": true
+}

@@ -1,0 +1,238 @@
+{
+  "id": "5426f289-100e-4165-b73e-35a8a2c8e534",
+  "content": "\u201cFarewell,\tgood\tthief,\u201d\the\tsaid.\t\u201cI\tgo\tnow\tto\tthe\thalls\nof\t waiting\t to\t sit\t beside\t my\t fathers,\t until\t the\t world\t is\nrenewed.\t Since\t I\t leave\t now\t all\t gold\t and\t silver,\t and\t go\nwhere\tit\tis\tof\tlittle\tworth,\tI\twish\tto\tpart\tin\tfriendship\tfrom\nyou,\t and\t I\t would\t take\t back\t my\t words\t and\t deeds\t at\t the\nGate.\u201d\nBilbo\tknelt\ton\tone\tknee\tfilled\twith\tsorrow.\t\u201cFarewell,\nKing\t under\t the\t Mountain!\u201d\t he\t said.\t \u201cThis\t is\t a\t bitter\nadventure,\tif\tit\tmust\tend\tso;\tand\tnot\ta\tmountain\tof\tgold\ncan\t amend\t it.\t Yet\t I\t am\t glad\t that\t I\t have\t shared\t in\t your\nperils\u2014that\thas\tbeen\tmore\tthan\tany\tBaggins\tdeserves.\u201d\n\u201cNo!\u201d\tsaid\tThorin.\t\u201cThere\tis\tmore\tin\tyou\tof\tgood\tthan\nyou\t know,\t child\t of\t the\t kindly\t West.\t Some\t courage\t and\nsome\twisdom,\tblended\tin\tmeasure.\tIf\tmore\tof\tus\tvalued\nfood\tand\tcheer\tand\tsong\tabove\thoarded\tgold,\tit\twould\tbe\na\t merrier\t world.\t But\t sad\t or\t merry,\t I\t must\t leave\t it\t now.\nFarewell!\u201d\nThen\tBilbo\tturned\taway,\tand\the\twent\tby\thimself,\tand\nsat\talone\twrapped\tin\ta\tblanket,\tand,\twhether\tyou\tbelieve\nit\t or\t not,\t he\t wept\t until\t his\t eyes\t were\t red\t and\t his\t voice\nwas\thoarse.\tHe\twas\ta\tkindly\tlittle\tsoul.\tIndeed\tit\twas\tlong\nbefore\the\thad\tthe\theart\tto\tmake\ta\tjoke\tagain.\t\u201cA\tmercy\tit\nis,\u201d\the\tsaid\tat\tlast\tto\thimself,\t\u201cthat\tI\twoke\tup\twhen\tI\tdid.\nI\twish\tThorin\twere\tliving,\tbut\tI\tam\tglad\tthat\twe\tparted\tin\nkindness.\tYou\tare\ta\tfool,\tBilbo\tBaggins,\tand\tyou\tmade\ta\ngreat\tmess\tof\tthat\tbusiness\twith\tthe\tstone;\tand\tthere\twas\ta\nbattle,\tin\tspite\tof\tall\tyour\tefforts\tto\tbuy\tpeace\tand\tquiet,\nbut\tI\tsuppose\tyou\tcan\thardly\tbe\tblamed\tfor\tthat.\u201d\nAll\tthat\thad\thappened\tafter\the\twas\tstunned,\tBilbo\tlearned\nlater;\tbut\tit\tgave\thim\tmore\tsorrow\tthan\tjoy,\tand\the\twas\nnow\tweary\tof\this\tadventure.\tHe\twas\taching\tin\this\tbones\nfor\t the\t homeward\t journey.\t That,\t however,\t was\t a\t little\ndelayed,\t so\t in\t the\t meantime\t I\t will\t tell\t something\t of\nevents.\tThe\tEagles\thad\tlong\thad\tsuspicion\tof\tthe\tgoblins\u2019\nmustering;\tfrom\ttheir\twatchfulness\tthe\tmovements\tin\tthe",
+  "coordinates": {
+    "r": 5.0775,
+    "theta": 3.272754146877167,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 282,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1969,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 321,
+        "end": 326,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Some\t courage\t and\nsome\twisdom,\tblended\tin\tmeasure..."
+          },
+          {
+            "type": "participated_in",
+            "target": "All\tthat\thad\thappened\tafter\the\twas\tstunned,\tBilbo\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "That,\t however,\t was\t a\t little\ndelayed,\t so\t in\t ..."
+          }
+        ]
+      },
+      {
+        "name": "Farewell",
+        "type": "person",
+        "start": 366,
+        "end": 374,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Some\t courage\t and\nsome\twisdom,\tblended\tin\tmeasure..."
+          },
+          {
+            "type": "participated_in",
+            "target": "All\tthat\thad\thappened\tafter\the\twas\tstunned,\tBilbo\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "That,\t however,\t was\t a\t little\ndelayed,\t so\t in\t ..."
+          }
+        ]
+      },
+      {
+        "name": "Baggins",
+        "type": "person",
+        "start": 597,
+        "end": 604,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Some\t courage\t and\nsome\twisdom,\tblended\tin\tmeasure..."
+          },
+          {
+            "type": "participated_in",
+            "target": "All\tthat\thad\thappened\tafter\the\twas\tstunned,\tBilbo\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "That,\t however,\t was\t a\t little\ndelayed,\t so\t in\t ..."
+          }
+        ]
+      },
+      {
+        "name": "Thorin",
+        "type": "group",
+        "start": 627,
+        "end": 633,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Some\t courage\t and\nsome\twisdom,\tblended\tin\tmeasure..."
+          },
+          {
+            "type": "participated_in",
+            "target": "All\tthat\thad\thappened\tafter\the\twas\tstunned,\tBilbo\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "That,\t however,\t was\t a\t little\ndelayed,\t so\t in\t ..."
+          }
+        ]
+      },
+      {
+        "name": "Eagles",
+        "type": "administrative",
+        "start": 1868,
+        "end": 1874,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Some\t courage\t and\nsome\twisdom,\tblended\tin\tmeasure..."
+          },
+          {
+            "type": "participated_in",
+            "target": "All\tthat\thad\thappened\tafter\the\twas\tstunned,\tBilbo\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "That,\t however,\t was\t a\t little\ndelayed,\t so\t in\t ..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "Some\t courage\t and\nsome\twisdom,\tblended\tin\tmeasure...",
+        "description": "Some\t courage\t and\nsome\twisdom,\tblended\tin\tmeasure.\t",
+        "start": 713,
+        "end": 765,
+        "participants": [
+          "Bilbo",
+          "Farewell",
+          "Baggins",
+          "Thorin",
+          "Eagles"
+        ],
+        "location": "Bilbo",
+        "time": null
+      },
+      {
+        "name": "All\tthat\thad\thappened\tafter\the\twas\tstunned,\tBilbo\t...",
+        "description": "All\tthat\thad\thappened\tafter\the\twas\tstunned,\tBilbo\tlearned\nlater;\tbut\tit\tgave\thim\tmore\tsorrow\tthan\tjoy,\tand\the\twas\nnow\tweary\tof\this\tadventure.\t",
+        "start": 1563,
+        "end": 1705,
+        "participants": [
+          "Bilbo",
+          "Farewell",
+          "Baggins",
+          "Thorin",
+          "Eagles"
+        ],
+        "location": "Bilbo",
+        "time": null
+      },
+      {
+        "name": "That,\t however,\t was\t a\t little\ndelayed,\t so\t in\t ...",
+        "description": "That,\t however,\t was\t a\t little\ndelayed,\t so\t in\t the\t meantime\t I\t will\t tell\t something\t of\nevents.\t",
+        "start": 1762,
+        "end": 1864,
+        "participants": [
+          "Bilbo",
+          "Farewell",
+          "Baggins",
+          "Thorin",
+          "Eagles"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 321,
+        "end": 326,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "Some\t courage\t and\nsome\twisdom,\tblended\tin\tmeasure..."
+          },
+          {
+            "type": "hosted",
+            "target": "All\tthat\thad\thappened\tafter\the\twas\tstunned,\tBilbo\t..."
+          },
+          {
+            "type": "hosted",
+            "target": "That,\t however,\t was\t a\t little\ndelayed,\t so\t in\t ..."
+          }
+        ]
+      },
+      {
+        "name": "West",
+        "type": "geographical",
+        "start": 706,
+        "end": 710,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Baggins",
+        "type": "administrative",
+        "start": 1368,
+        "end": 1375,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Eagles",
+        "type": "administrative",
+        "start": 1868,
+        "end": 1874,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745709017.5633712,
+  "has_embedding": true
+}

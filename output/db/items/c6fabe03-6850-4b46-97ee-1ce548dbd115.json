@@ -1,0 +1,116 @@
+{
+  "id": "c6fabe03-6850-4b46-97ee-1ce548dbd115",
+  "content": "fortified\thas\tthought\tof\tthat.\u201d\nThe\t dragon\t stopped\t short\t in\t his\t boasting.\t \u201cYour\ninformation\t is\t antiquated,\u201d\t he\t snapped.\t \u201cI\t am\t armoured\nabove\t and\t below\t with\t iron\t scales\t and\t hard\t gems.\t No\nblade\tcan\tpierce\tme.\u201d\n\u201cI\tmight\thave\tguessed\tit,\u201d\tsaid\tBilbo.\t\u201cTruly\tthere\tcan\nnowhere\t be\t found\t the\t equal\t of\t Lord\t Smaug\t the\nImpenetrable.\tWhat\tmagnificence\tto\tpossess\ta\twaistcoat\nof\tfine\tdiamonds!\u201d\n\u201cYes,\t it\t is\t rare\t and\t wonderful,\t indeed,\u201d\t said\t Smaug\nabsurdly\t pleased.\t He\t did\t not\t know\t that\t the\t hobbit\t had\nalready\t caught\t a\t glimpse\t of\t his\t peculiar\t under-covering\non\this\tprevious\tvisit,\tand\twas\titching\tfor\ta\tcloser\tview\tfor\nreasons\tof\this\town.\tThe\tdragon\trolled\tover.\t\u201cLook!\u201d\the\nsaid.\t\u201cWhat\tdo\tyou\tsay\tto\tthat?\u201d\n\u201cDazzlingly\t marvellous!\t Perfect!\t Flawless!\nStaggering!\u201d\texclaimed\tBilbo\taloud,\tbut\twhat\the\tthought\ninside\twas:\t\u201cOld\tfool!\tWhy,\tthere\tis\ta\tlarge\tpatch\tin\tthe\nhollow\tof\this\tleft\tbreast\tas\tbare\tas\ta\tsnail\tout\tof\tits\tshell!\u201d\nAfter\the\thad\tseen\tthat\tMr.\tBaggins\u2019\tone\tidea\twas\tto\tget\naway.\t\u201cWell,\tI\treally\tmust\tnot\tdetain\tYour\tMagnificence\nany\t longer,\u201d\t he\t said,\t \u201cor\t keep\t you\t from\t much\t needed\nrest.\t Ponies\t take\t some\t catching,\t I\t believe,\t after\t a\t long\nstart.\tAnd\tso\tdo\tburglars,\u201d\the\tadded\tas\ta\tparting\tshot,\tas\nhe\tdarted\tback\tand\tfled\tup\tthe\ttunnel.\nIt\t was\t an\t unfortunate\t remark,\t for\t the\t dragon\t spouted\nterrific\tflames\tafter\thim,\tand\tfast\tthough\the\tsped\tup\tthe\nslope,\t he\t had\t not\t gone\t nearly\t far\t enough\t to\t be\ncomfortable\tbefore\tthe\tghastly\thead\tof\tSmaug\twas\tthrust\nagainst\tthe\topening\tbehind.\tLuckily\tthe\twhole\thead\tand\njaws\tcould\tnot\tsqueeze\tin,\tbut\tthe\tnostrils\tsent\tforth\tfire\nand\tvapour\tto\tpursue\thim,\tand\the\twas\tnearly\tovercome,\nand\t stumbled\t blindly\t on\t in\t great\t pain\t and\t fear.\t He\t had\nbeen\t feeling\t rather\t pleased\t with\t the\t cleverness\t of\t his\nconversation\t with\t Smaug,\t but\t his\t mistake\t at\t the\t end\nshook\thim\tinto\tbetter\tsense.\n\u201cNever\tlaugh\tat\tlive\tdragons,\tBilbo\tyou\tfool!\u201d\the\tsaid\nto\thimself,\tand\tit\tbecame\ta\tfavourite\tsaying\tof\this\tlater,",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 3.19185813604723,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 221,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2040,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 263,
+        "end": 268,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cYes,\t it\t is\t rare\t and\t wonderful,\t indeed,\u201d\t sa..."
+          }
+        ]
+      },
+      {
+        "name": "Smaug",
+        "type": "administrative",
+        "start": 468,
+        "end": 473,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cYes,\t it\t is\t rare\t and\t wonderful,\t indeed,\u201d\t sa..."
+          }
+        ]
+      },
+      {
+        "name": "Baggins",
+        "type": "person",
+        "start": 1000,
+        "end": 1007,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cYes,\t it\t is\t rare\t and\t wonderful,\t indeed,\u201d\t sa..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "\u201cYes,\t it\t is\t rare\t and\t wonderful,\t indeed,\u201d\t sa...",
+        "description": "\u201cYes,\t it\t is\t rare\t and\t wonderful,\t indeed,\u201d\t said\t Smaug\nabsurdly\t pleased.\t ",
+        "start": 414,
+        "end": 494,
+        "participants": [
+          "Bilbo",
+          "Smaug",
+          "Baggins"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 263,
+        "end": 268,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "\u201cYes,\t it\t is\t rare\t and\t wonderful,\t indeed,\u201d\t sa..."
+          }
+        ]
+      },
+      {
+        "name": "Smaug",
+        "type": "administrative",
+        "start": 468,
+        "end": 473,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745709014.2957966,
+  "has_embedding": true
+}

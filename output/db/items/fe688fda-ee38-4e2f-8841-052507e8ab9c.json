@@ -1,0 +1,106 @@
+{
+  "id": "fe688fda-ee38-4e2f-8841-052507e8ab9c",
+  "content": "Chapter\n\tIV\nOVER\tHILL\tAND\tUNDER\tHILL\nThere\twere\tmany\tpaths\tthat\tled\tup\tinto\tthose\tmountains,\nand\tmany\tpasses\tover\tthem.\tBut\tmost\tof\tthe\tpaths\twere\ncheats\t and\t deceptions\t and\t led\t nowhere\t or\t to\t bad\t ends;\nand\t most\t of\t the\t passes\t were\t infested\t by\t evil\t things\t and\ndreadful\tdangers.\tThe\tdwarves\tand\tthe\thobbit,\thelped\tby\nthe\twise\tadvice\tof\tElrond\tand\tthe\tknowledge\tand\tmemory\nof\tGandalf,\ttook\tthe\tright\troad\tto\tthe\tright\tpass.\nLong\tdays\tafter\tthey\thad\tclimbed\tout\tof\tthe\tvalley\tand\nleft\tthe\tLast\tHomely\tHouse\tmiles\tbehind,\tthey\twere\tstill\ngoing\t up\t and\t up\t and\t up.\t It\t was\t a\t hard\t path\t and\t a\ndangerous\tpath,\ta\tcrooked\tway\tand\ta\tlonely\tand\ta\tlong.\nNow\t they\t could\t look\t back\t over\t the\t lands\t they\t had\t left,\nlaid\tout\tbehind\tthem\tfar\tbelow.\tFar,\tfar\taway\tin\tthe\tWest,\nwhere\t things\t were\t blue\t and\t faint,\t Bilbo\t knew\t there\t lay\nhis\town\tcountry\tof\tsafe\tand\tcomfortable\tthings,\tand\this\nlittle\thobbit-hole.\tHe\tshivered.\tIt\twas\tgetting\tbitter\tcold\nup\t here,\t and\t the\t wind\t came\t shrill\t among\t the\t rocks.\nBoulders,\t too,\t at\t times\t came\t galloping\t down\t the\nmountain-sides,\tlet\tloose\tby\tmid-day\tsun\tupon\tthe\tsnow,\nand\tpassed\tamong\tthem\t(which\twas\tlucky),\tor\tover\ttheir\nheads\t(which\twas\talarming).\tThe\tnights\twere\tcomfortless\nand\tchill,\tand\tthey\tdid\tnot\tdare\tto\tsing\tor\ttalk\ttoo\tloud,\nfor\tthe\techoes\twere\tuncanny,\tand\tthe\tsilence\tseemed\tto",
+  "coordinates": {
+    "r": 6.5875,
+    "theta": 3.406271834654733,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 58,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1365,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "HILL",
+        "type": "organization",
+        "start": 32,
+        "end": 36,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Gandalf",
+        "type": "group",
+        "start": 390,
+        "end": 397,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "House",
+        "type": "organization",
+        "start": 514,
+        "end": 519,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Far",
+        "type": "administrative",
+        "start": 763,
+        "end": 766,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 830,
+        "end": 835,
+        "mentions": 1,
+        "relationships": []
+      }
+    ],
+    "events": [],
+    "locations": [
+      {
+        "name": "Far",
+        "type": "administrative",
+        "start": 763,
+        "end": 766,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "West",
+        "type": "geographical",
+        "start": 784,
+        "end": 788,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 830,
+        "end": 835,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745709005.3374853,
+  "has_embedding": true
+}

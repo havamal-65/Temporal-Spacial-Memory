@@ -1,0 +1,174 @@
+{
+  "id": "7103d98a-74ea-4b03-8168-4ebba24d6b45",
+  "content": "meanwhile\teveryone\tought\tto\tbe\twell\tinside\tthe\ttunnel\tby\nnight.\n\u201cNow\tI\twill\tmake\tyou\tan\toffer.\tI\thave\tgot\tmy\tring\tand\nwill\t creep\t down\t this\t very\t noon\u2014then\t if\t ever\t Smaug\nought\tto\tbe\tnapping\u2014and\tsee\twhat\the\tis\tup\tto.\tPerhaps\nsomething\twill\tturn\tup.\t\u2018Every\tworm\thas\this\tweak\tspot,\u2019\nas\tmy\tfather\tused\tto\tsay,\tthough\tI\tam\tsure\tit\twas\tnot\tfrom\npersonal\texperience.\u201d\nNaturally\t the\t dwarves\t accepted\t the\t offer\t eagerly.\nAlready\tthey\thad\tcome\tto\trespect\tlittle\tBilbo.\tNow\the\thad\nbecome\tthe\treal\tleader\tin\ttheir\tadventure.\tHe\thad\tbegun\nto\thave\tideas\tand\tplans\tof\this\town.\tWhen\tmidday\tcame\nhe\tgot\tready\tfor\tanother\tjourney\tdown\tinto\tthe\tMountain.\nHe\tdid\tnot\tlike\tit\tof\tcourse,\tbut\tit\twas\tnot\tso\tbad\tnow\the\nknew,\t more\t or\t less,\t what\t was\t in\t front\t of\t him.\t Had\t he\nknown\tmore\tabout\tdragons\tand\ttheir\twily\tways,\the\tmight\nhave\t been\t more\t frightened\t and\t less\t hopeful\t of\t catching\nthis\tone\tnapping.\nThe\tsun\twas\tshining\twhen\the\tstarted,\tbut\tit\twas\tas\tdark\nas\t night\t in\t the\t tunnel.\t The\t light\t from\t the\t door,\t almost\nclosed,\t soon\t faded\t as\t he\t went\t down.\t So\t silent\t was\t his\ngoing\t that\t smoke\t on\t a\t gentle\t wind\t could\t hardly\t have\nsurpassed\t it,\t and\t he\t was\t inclined\t to\t feel\t a\t bit\t proud\t of\nhimself\tas\the\tdrew\tnear\tthe\tlower\tdoor.\tThere\twas\tonly\nthe\tvery\tfaintest\tglow\tto\tbe\tseen.\n\u201cOld\t Smaug\t is\t weary\t and\t asleep,\u201d\t he\t thought.\t \u201cHe\ncan\u2019t\tsee\tme\tand\the\twon\u2019t\thear\tme.\tCheer\tup\tBilbo!\u201d\tHe\nhad\tforgotten\tor\thad\tnever\theard\tabout\tdragons\u2019\tsense\tof\nsmell.\tIt\tis\talso\tan\tawkward\tfact\tthat\tthey\tcan\tkeep\thalf\nan\t eye\t open\t watching\t while\t they\t sleep,\t if\t they\t are\nsuspicious.\nSmaug\t certainly\t looked\t fast\t asleep,\t almost\t dead\t and\ndark,\twith\tscarcely\ta\tsnore\tmore\tthan\ta\twhiff\tof\tunseen\nsteam,\twhen\tBilbo\tpeeped\tonce\tmore\tfrom\tthe\tentrance.\nHe\t was\t just\t about\t to\t step\t out\t on\t to\t the\t floor\t when\t he\ncaught\ta\tsudden\tthin\tand\tpiercing\tray\tof\tred\tfrom\tunder\nthe\t drooping\t lid\t of\t Smaug\u2019s\t left\t eye.\t He\t was\t only\npretending\tto\tsleep!\tHe\twas\twatching\tthe\ttunnel\tentrance!",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 3.46871098864483,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 216,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2017,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_person",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Smaug",
+        "type": "administrative",
+        "start": 170,
+        "end": 175,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Perhaps\nsomething\twill\tturn\tup.\t"
+          },
+          {
+            "type": "participated_in",
+            "target": "The\tsun\twas\tshining\twhen\the\tstarted,\tbut\tit\twas\tas..."
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cHe\ncan\u2019t\tsee\tme\tand\the\twon\u2019t\thear\tme.\t"
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 463,
+        "end": 468,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Perhaps\nsomething\twill\tturn\tup.\t"
+          },
+          {
+            "type": "participated_in",
+            "target": "The\tsun\twas\tshining\twhen\the\tstarted,\tbut\tit\twas\tas..."
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cHe\ncan\u2019t\tsee\tme\tand\the\twon\u2019t\thear\tme.\t"
+          }
+        ]
+      },
+      {
+        "name": "Cheer",
+        "type": "person",
+        "start": 1403,
+        "end": 1408,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Perhaps\nsomething\twill\tturn\tup.\t"
+          },
+          {
+            "type": "participated_in",
+            "target": "The\tsun\twas\tshining\twhen\the\tstarted,\tbut\tit\twas\tas..."
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cHe\ncan\u2019t\tsee\tme\tand\the\twon\u2019t\thear\tme.\t"
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "Perhaps\nsomething\twill\tturn\tup.\t",
+        "description": "Perhaps\nsomething\twill\tturn\tup.\t",
+        "start": 222,
+        "end": 254,
+        "participants": [
+          "Smaug",
+          "Bilbo",
+          "Cheer"
+        ],
+        "location": "Smaug",
+        "time": null
+      },
+      {
+        "name": "The\tsun\twas\tshining\twhen\the\tstarted,\tbut\tit\twas\tas...",
+        "description": "The\tsun\twas\tshining\twhen\the\tstarted,\tbut\tit\twas\tas\tdark\nas\t night\t in\t the\t tunnel.\t ",
+        "start": 906,
+        "end": 991,
+        "participants": [
+          "Smaug",
+          "Bilbo",
+          "Cheer"
+        ],
+        "location": "Smaug",
+        "time": null
+      },
+      {
+        "name": "\u201cHe\ncan\u2019t\tsee\tme\tand\the\twon\u2019t\thear\tme.\t",
+        "description": "\u201cHe\ncan\u2019t\tsee\tme\tand\the\twon\u2019t\thear\tme.\t",
+        "start": 1364,
+        "end": 1403,
+        "participants": [
+          "Smaug",
+          "Bilbo",
+          "Cheer"
+        ],
+        "location": "Smaug",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Smaug",
+        "type": "administrative",
+        "start": 170,
+        "end": 175,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "Perhaps\nsomething\twill\tturn\tup.\t"
+          },
+          {
+            "type": "hosted",
+            "target": "The\tsun\twas\tshining\twhen\the\tstarted,\tbut\tit\twas\tas..."
+          },
+          {
+            "type": "hosted",
+            "target": "\u201cHe\ncan\u2019t\tsee\tme\tand\the\twon\u2019t\thear\tme.\t"
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 463,
+        "end": 468,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745715413.1832888,
+  "has_embedding": true
+}

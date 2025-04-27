@@ -1,0 +1,122 @@
+{
+  "id": "54262735-dfe2-45ae-a3d5-b980260b4ebc",
+  "content": "on\t saying\t to\t himself,\t but\t it\t was\t a\t long\t time\t before\t he\nventured\tto\ttry.\tThen\tit\twas\tlike\ta\thorrible\tgame\tof\tblind-\nman\u2019s-buff.\tThe\tplace\twas\tfull\tof\tgoblins\trunning\tabout,\nand\tthe\tpoor\tlittle\thobbit\tdodged\tthis\tway\tand\tthat,\twas\nknocked\tover\tby\ta\tgoblin\twho\tcould\tnot\tmake\tout\twhat\nhe\thad\tbumped\tinto,\tscrambled\taway\ton\tall\tfours,\tslipped\nbetween\tthe\tlegs\tof\tthe\tcaptain\tjust\tin\ttime,\tgot\tup,\tand\nran\tfor\tthe\tdoor.\nIt\t was\t still\t ajar,\t but\t a\t goblin\t had\t pushed\t it\t nearly\t to.\nBilbo\t struggled\t but\t he\t could\t not\t move\t it.\t He\t tried\t to\nsqueeze\t through\t the\t crack.\t He\t squeezed\t and\t squeezed,\nand\the\tstuck!\tIt\twas\tawful.\tHis\tbuttons\thad\tgot\twedged\non\tthe\tedge\tof\tthe\tdoor\tand\tthe\tdoor-post.\tHe\tcould\tsee\noutside\tinto\tthe\topen\tair:\tthere\twere\ta\tfew\tsteps\trunning\ndown\t into\t a\t narrow\t valley\t between\t tall\t mountains;\t the\nsun\tcame\tout\tfrom\tbehind\ta\tcloud\tand\tshone\tbright\ton\tthe\noutside\tof\tthe\tdoor\u2014but\the\tcould\tnot\tget\tthrough.\nSuddenly\tone\tof\tthe\tgoblins\tinside\tshouted:\t\u201cThere\tis\ta\nshadow\tby\tthe\tdoor.\tSomething\tis\toutside!\u201d\nBilbo\u2019s\theart\tjumped\tinto\this\tmouth.\tHe\tgave\ta\tterrific\nsquirm.\t Buttons\t burst\t off\t in\t all\t directions.\t He\t was\nthrough,\twith\ta\ttorn\tcoat\tand\twaistcoat,\tleaping\tdown\tthe\nsteps\t like\t a\t goat,\t while\t bewildered\t goblins\t were\t still\npicking\tup\this\tnice\tbrass\tbuttons\ton\tthe\tdoorstep.\nOf\tcourse\tthey\tsoon\tcame\tdown\tafter\thim,\thooting\tand\nhallooing,\t and\t hunting\t among\t the\t trees.\t But\t they\t don\u2019t\nlike\t the\t sun:\t it\t makes\t their\t legs\t wobble\t and\t their\t heads\ngiddy.\t They\t could\t not\t find\t Bilbo\t with\t the\t ring\t on,\nslipping\t in\t and\t out\t of\t the\t shadow\t of\t the\t trees,\t running\nquick\tand\tquiet,\tand\tkeeping\tout\tof\tthe\tsun;\tso\tsoon\tthey\nwent\tback\tgrumbling\tand\tcursing\tto\tguard\tthe\tdoor.\tBilbo\nhad\tescaped.",
+  "coordinates": {
+    "r": 5.5525,
+    "theta": 0.1806415775814131,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 91,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1779,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_group",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "man\u2019s-buff",
+        "type": "person",
+        "start": 126,
+        "end": 136,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Something\tis\toutside!\u201d\nBilbo\u2019s\theart\tjumped\tinto\th..."
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "person",
+        "start": 494,
+        "end": 499,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Something\tis\toutside!\u201d\nBilbo\u2019s\theart\tjumped\tinto\th..."
+          }
+        ]
+      },
+      {
+        "name": "Something",
+        "type": "group",
+        "start": 1032,
+        "end": 1041,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Something\tis\toutside!\u201d\nBilbo\u2019s\theart\tjumped\tinto\th..."
+          }
+        ]
+      },
+      {
+        "name": "Buttons",
+        "type": "organization",
+        "start": 1120,
+        "end": 1127,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Something\tis\toutside!\u201d\nBilbo\u2019s\theart\tjumped\tinto\th..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "Something\tis\toutside!\u201d\nBilbo\u2019s\theart\tjumped\tinto\th...",
+        "description": "Something\tis\toutside!\u201d\nBilbo\u2019s\theart\tjumped\tinto\this\tmouth.\t",
+        "start": 1032,
+        "end": 1092,
+        "participants": [
+          "man\u2019s-buff",
+          "Bilbo",
+          "Something",
+          "Buttons"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 1761,
+        "end": 1766,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "Something\tis\toutside!\u201d\nBilbo\u2019s\theart\tjumped\tinto\th..."
+          }
+        ]
+      }
+    ]
+  },
+  "timestamp": 1745773078.586593,
+  "has_embedding": true
+}

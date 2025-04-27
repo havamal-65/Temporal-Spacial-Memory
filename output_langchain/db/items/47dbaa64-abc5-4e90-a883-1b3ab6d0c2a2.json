@@ -1,0 +1,195 @@
+{
+  "id": "47dbaa64-abc5-4e90-a883-1b3ab6d0c2a2",
+  "content": "He\tcould\tnot\tthink\twhat\tto\tdo;\tnor\tcould\the\tthink\twhat\nhad\thappened;\tor\twhy\the\thad\tbeen\tleft\tbehind;\tor\twhy,\tif\nhe\thad\tbeen\tleft\tbehind,\tthe\tgoblins\thad\tnot\tcaught\thim;\nor\teven\twhy\this\thead\twas\tso\tsore.\tThe\ttruth\twas\the\thad\nbeen\tlying\tquiet,\tout\tof\tsight\tand\tout\tof\tmind,\tin\ta\tvery\ndark\tcorner\tfor\ta\tlong\twhile.\nAfter\tsome\ttime\the\tfelt\tfor\this\tpipe.\tIt\twas\tnot\tbroken,\nand\tthat\twas\tsomething.\tThen\the\tfelt\tfor\this\tpouch,\tand\nthere\t was\t some\t tobacco\t in\t it,\t and\t that\t was\t something\nmore.\tThen\the\tfelt\tfor\tmatches\tand\the\tcould\tnot\tfind\tany\nat\t all,\t and\t that\t shattered\t his\t hopes\t completely.\t Just\t as\nwell\t for\t him,\t as\t he\t agreed\t when\t he\t came\t to\t his\t senses.\nGoodness\t knows\t what\t the\t striking\t of\t matches\t and\t the\nsmell\tof\ttobacco\twould\thave\tbrought\ton\thim\tout\tof\tdark\nholes\t in\t that\t horrible\t place.\t Still\t at\t the\t moment\t he\t felt\nvery\tcrushed.\tBut\tin\tslapping\tall\this\tpockets\tand\tfeeling\nall\tround\thimself\tfor\tmatches\this\thand\tcame\ton\tthe\thilt\tof\nhis\t little\t sword\u2014the\t little\t dagger\t that\t he\t got\t from\t the\ntrolls,\tand\tthat\the\thad\tquite\tforgotten;\tnor\tfortunately\thad\nthe\tgoblins\tnoticed\tit,\tas\the\twore\tit\tinside\this\tbreeches.\nNow\the\tdrew\tit\tout.\tIt\tshone\tpale\tand\tdim\tbefore\this\neyes.\t \u201cSo\t it\t is\t an\t elvish\t blade,\t too,\u201d\t he\t thought;\t \u201cand\ngoblins\tare\tnot\tvery\tnear,\tand\tyet\tnot\tfar\tenough.\u201d\nBut\tsomehow\the\twas\tcomforted.\tIt\twas\trather\tsplendid\nto\tbe\twearing\ta\tblade\tmade\tin\tGondolin\tfor\tthe\tgoblin-\nwars\tof\twhich\tso\tmany\tsongs\thad\tsung;\tand\talso\the\thad\nnoticed\t that\t such\t weapons\t made\t a\t great\t impression\t on\ngoblins\tthat\tcame\tupon\tthem\tsuddenly.\n\u201cGo\tback?\u201d\the\tthought.\t\u201cNo\tgood\tat\tall!\tGo\tsideways?\nImpossible!\tGo\tforward?\tOnly\tthing\tto\tdo!\tOn\twe\tgo!\u201d\nSo\tup\the\tgot,\tand\ttrotted\talong\twith\this\tlittle\tsword\theld\nin\t front\t of\t him\t and\t one\t hand\t feeling\t the\t wall,\t and\t his\nheart\tall\tof\ta\tpatter\tand\ta\tpitter.\nNow\tcertainly\tBilbo\twas\tin\twhat\tis\tcalled\ta\ttight\tplace.\nBut\tyou\tmust\tremember\tit\twas\tnot\tquite\tso\ttight\tfor\thim",
+  "coordinates": {
+    "r": 5.07,
+    "theta": 5.095270585040946,
+    "t": 1745630173.9676006,
+    "z": 2
+  },
+  "metadata": {
+    "chunk_index": 72,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1972,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_person",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 2
+    },
+    "entities": [
+      {
+        "name": "elvish",
+        "type": "group",
+        "start": 1238,
+        "end": 1244,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "He\tcould\tnot\tthink\twhat\tto\tdo;\tnor\tcould\the\tthink\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "It\twas\tnot\tbroken,\nand\tthat\twas\tsomething.\t"
+          },
+          {
+            "type": "participated_in",
+            "target": "Then\the\tfelt\tfor\this\tpouch,\tand\nthere\t was\t some\t ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Just\t as\nwell\t for\t him,\t as\t he\t agreed\t when\t he..."
+          }
+        ]
+      },
+      {
+        "name": "Gondolin",
+        "type": "person",
+        "start": 1415,
+        "end": 1423,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "He\tcould\tnot\tthink\twhat\tto\tdo;\tnor\tcould\the\tthink\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "It\twas\tnot\tbroken,\nand\tthat\twas\tsomething.\t"
+          },
+          {
+            "type": "participated_in",
+            "target": "Then\the\tfelt\tfor\this\tpouch,\tand\nthere\t was\t some\t ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Just\t as\nwell\t for\t him,\t as\t he\t agreed\t when\t he..."
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 1874,
+        "end": 1879,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "He\tcould\tnot\tthink\twhat\tto\tdo;\tnor\tcould\the\tthink\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "It\twas\tnot\tbroken,\nand\tthat\twas\tsomething.\t"
+          },
+          {
+            "type": "participated_in",
+            "target": "Then\the\tfelt\tfor\this\tpouch,\tand\nthere\t was\t some\t ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Just\t as\nwell\t for\t him,\t as\t he\t agreed\t when\t he..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "He\tcould\tnot\tthink\twhat\tto\tdo;\tnor\tcould\the\tthink\t...",
+        "description": "He\tcould\tnot\tthink\twhat\tto\tdo;\tnor\tcould\the\tthink\twhat\nhad\thappened;\tor\twhy\the\thad\tbeen\tleft\tbehind;\tor\twhy,\tif\nhe\thad\tbeen\tleft\tbehind,\tthe\tgoblins\thad\tnot\tcaught\thim;\nor\teven\twhy\this\thead\twas\tso\tsore.\t",
+        "start": 0,
+        "end": 203,
+        "participants": [
+          "elvish",
+          "Gondolin",
+          "Bilbo"
+        ],
+        "location": "Bilbo",
+        "time": null
+      },
+      {
+        "name": "It\twas\tnot\tbroken,\nand\tthat\twas\tsomething.\t",
+        "description": "It\twas\tnot\tbroken,\nand\tthat\twas\tsomething.\t",
+        "start": 350,
+        "end": 393,
+        "participants": [
+          "elvish",
+          "Gondolin",
+          "Bilbo"
+        ],
+        "location": "Bilbo",
+        "time": null
+      },
+      {
+        "name": "Then\the\tfelt\tfor\this\tpouch,\tand\nthere\t was\t some\t ...",
+        "description": "Then\the\tfelt\tfor\this\tpouch,\tand\nthere\t was\t some\t tobacco\t in\t it,\t and\t that\t was\t something\nmore.\t",
+        "start": 393,
+        "end": 493,
+        "participants": [
+          "elvish",
+          "Gondolin",
+          "Bilbo"
+        ],
+        "location": "Bilbo",
+        "time": null
+      },
+      {
+        "name": "Just\t as\nwell\t for\t him,\t as\t he\t agreed\t when\t he...",
+        "description": "Just\t as\nwell\t for\t him,\t as\t he\t agreed\t when\t he\t came\t to\t his\t senses.\n",
+        "start": 601,
+        "end": 676,
+        "participants": [
+          "elvish",
+          "Gondolin",
+          "Bilbo"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 1874,
+        "end": 1879,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "He\tcould\tnot\tthink\twhat\tto\tdo;\tnor\tcould\the\tthink\t..."
+          },
+          {
+            "type": "hosted",
+            "target": "It\twas\tnot\tbroken,\nand\tthat\twas\tsomething.\t"
+          },
+          {
+            "type": "hosted",
+            "target": "Then\the\tfelt\tfor\this\tpouch,\tand\nthere\t was\t some\t ..."
+          },
+          {
+            "type": "hosted",
+            "target": "Just\t as\nwell\t for\t him,\t as\t he\t agreed\t when\t he..."
+          }
+        ]
+      }
+    ]
+  },
+  "timestamp": 1745715402.0263338,
+  "has_embedding": true
+}

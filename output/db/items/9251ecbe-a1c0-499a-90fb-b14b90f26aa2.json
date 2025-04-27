@@ -1,0 +1,114 @@
+{
+  "id": "9251ecbe-a1c0-499a-90fb-b14b90f26aa2",
+  "content": "look\tof\tit.\tNow\tyou\tmust\tsend\tback\tthese\texcellent\tponies\nyou\thave\tborrowed.\u201d\nThe\tdwarves\twere\tinclined\tto\tgrumble\tat\tthis,\tbut\tthe\nwizard\ttold\tthem\tthey\twere\tfools.\t\u201cBeorn\tis\tnot\tas\tfar\toff\nas\t you\t seem\t to\t think,\t and\t you\t had\t better\t keep\t your\npromises\t anyway,\t for\t he\t is\t a\t bad\t enemy.\t Mr.\t Baggins\u2019\neyes\t are\t sharper\t than\t yours,\t if\t you\t have\t not\t seen\t each\nnight\tafter\tdark\ta\tgreat\tbear\tgoing\talong\twith\tus\tor\tsitting\nfar\t off\t in\t the\t moon\t watching\t our\t camps.\t Not\t only\t to\nguard\tyou\tand\tguide\tyou,\tbut\tto\tkeep\tan\teye\ton\tthe\tponies\ntoo.\tBeorn\tmay\tbe\tyour\tfriend,\tbut\the\tloves\this\tanimals\tas\nhis\t children.\t You\t do\t not\t guess\t what\t kindness\t he\t has\nshown\tyou\tin\tletting\tdwarves\tride\tthem\tso\tfar\tand\tso\tfast,\nnor\twhat\twould\thappen\tto\tyou,\tif\tyou\ttried\tto\ttake\tthem\ninto\tthe\tforest.\u201d\n\u201cWhat\tabout\tthe\thorse,\tthen?\u201d\tsaid\tThorin.\t\u201cYou\tdon\u2019t\nmention\tsending\tthat\tback.\u201d\n\u201cI\tdon\u2019t,\tbecause\tI\tam\tnot\tsending\tit.\u201d\n\u201cWhat\tabout\t\nyour\n\tpromise\tthen?\u201d\n\u201cI\twill\tlook\tafter\tthat.\tI\tam\tnot\tsending\tthe\thorse\tback,\nI\tam\triding\tit!\u201d\nThen\tthey\tknew\tthat\tGandalf\twas\tgoing\tto\tleave\tthem\nat\tthe\tvery\tedge\tof\tMirkwood,\tand\tthey\twere\tin\tdespair.\nBut\tnothing\tthey\tcould\tsay\twould\tchange\this\tmind.\n\u201cNow\twe\thad\tthis\tall\tout\tbefore,\twhen\twe\tlanded\ton\nthe\tCarrock,\u201d\the\tsaid.\t\u201cIt\tis\tno\tuse\targuing.\tI\thave,\tas\tI\ntold\t you,\t some\t pressing\t business\t away\t south;\t and\t I\t am\nalready\tlate\tthrough\tbothering\twith\tyou\tpeople.\tWe\tmay\nmeet\tagain\tbefore\tall\tis\tover,\tand\tthen\tagain\tof\tcourse\twe\nmay\tnot.\tThat\tdepends\ton\tyour\tluck\tand\ton\tyour\tcourage\nand\tsense;\tand\tI\tam\tsending\tMr.\tBaggins\twith\tyou.\tI\thave\ntold\t you\t before\t that\t he\t has\t more\t about\t him\t than\t you\nguess,\tand\tyou\twill\tfind\tthat\tout\tbefore\tlong.\tSo\tcheer\tup\nBilbo\t and\t don\u2019t\t look\t so\t glum.\t Cheer\t up\t Thorin\t and\nCompany!\tThis\tis\tyour\texpedition\tafter\tall.\tThink\tof\tthe\ntreasure\tat\tthe\tend,\tand\tforget\tthe\tforest\tand\tthe\tdragon,\tat\nany\trate\tuntil\ttomorrow\tmorning!\u201d\nWhen\ttomorrow\tmorning\tcame\the\tstill\tsaid\tthe\tsame.",
+  "coordinates": {
+    "r": 5.04,
+    "theta": 0.325940237809941,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 136,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1984,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Baggins",
+        "type": "person",
+        "start": 305,
+        "end": 312,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Beorn",
+        "type": "person",
+        "start": 565,
+        "end": 570,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Thorin",
+        "type": "group",
+        "start": 848,
+        "end": 854,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Gandalf",
+        "type": "group",
+        "start": 1064,
+        "end": 1071,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Mirkwood",
+        "type": "organization",
+        "start": 1116,
+        "end": 1124,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Carrock",
+        "type": "administrative",
+        "start": 1257,
+        "end": 1264,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bilbo",
+        "type": "person",
+        "start": 1722,
+        "end": 1727,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Cheer",
+        "type": "person",
+        "start": 1758,
+        "end": 1763,
+        "mentions": 1,
+        "relationships": []
+      }
+    ],
+    "events": [],
+    "locations": [
+      {
+        "name": "Carrock",
+        "type": "administrative",
+        "start": 1257,
+        "end": 1264,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745709009.5665991,
+  "has_embedding": true
+}

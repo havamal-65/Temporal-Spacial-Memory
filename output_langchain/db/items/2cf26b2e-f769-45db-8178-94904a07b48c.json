@@ -1,0 +1,176 @@
+{
+  "id": "2cf26b2e-f769-45db-8178-94904a07b48c",
+  "content": "frowning\tand\tburst\tinto\ta\tchuckling\tlaugh:\tthey\tlooked\tso\ncomical.\n\u201cTroop,\twas\tright,\u201d\the\tsaid.\t\u201cA\tfine\tcomic\tone.\tCome\nin\tmy\tmerry\tmen,\tand\twhat\tare\t\nyour\n\tnames?\tI\tdon\u2019t\twant\nyour\t service\t just\t now,\t only\t your\t names;\t and\t then\t sit\ndown\tand\tstop\twagging!\u201d\n\u201cBalin\t and\t Dwalin,\u201d\t they\t said\t not\t daring\t to\t be\noffended,\t and\t sat\t flop\t on\t the\t floor\t looking\t rather\nsurprised.\n\u201cNow\tgo\ton\tagain!\u201d\tsaid\tBeorn\tto\tthe\twizard.\t\u201cWhere\nwas\tI?\tO\tyes\u2014I\twas\t\nnot\n\tgrabbed.\tI\tkilled\ta\tgoblin\tor\ttwo\nwith\ta\tflash\u2014\u201d\n\u201cGood!\u201d\t growled\t Beorn.\t \u201cIt\t is\t some\t good\t being\t a\nwizard,\tthen.\u201d\n\u201c\u2014and\t slipped\t inside\t the\t crack\t before\t it\t closed.\t I\nfollowed\t down\t into\t the\t main\t hall,\t which\t was\t crowded\nwith\t goblins.\t The\t Great\t Goblin\t was\t there\t with\t thirty\t or\nforty\tarmed\tguards.\tI\tthought\tto\tmyself\t\u2018even\tif\tthey\twere\nnot\tall\tchained\ttogether,\twhat\tcan\ta\tdozen\tdo\tagainst\tso\nmany?\u201d\u2019\n\u201cA\tdozen!\tThat\u2019s\tthe\tfirst\ttime\tI\u2019ve\theard\teight\tcalled\ta\ndozen.\tOr\thave\tyou\tstill\tgot\tsome\tmore\tjacks\tthat\thaven\u2019t\nyet\tcome\tout\tof\ttheir\tboxes?\u201d\n\u201cWell,\tyes,\tthere\tseem\tto\tbe\ta\tcouple\tmore\there\tnow\u2014\nFili\tand\tKili,\tI\tbelieve,\u201d\tsaid\tGandalf,\tas\tthese\ttwo\tnow\nappeared\tand\tstood\tsmiling\tand\tbowing.\n\u201cThat\u2019s\tenough!\u201d\tsaid\tBeorn.\t\u201cSit\tdown\tand\tbe\tquiet!\nNow\tgo\ton,\tGandalf!\u201d\nSo\tGandalf\twent\ton\twith\tthe\ttale,\tuntil\the\tcame\tto\tthe\nfight\tin\tthe\tdark,\tthe\tdiscovery\tof\tthe\tlower\tgate,\tand\ttheir\nhorror\t when\t they\t found\t that\t Mr.\t Baggins\t had\t been\nmislaid.\t\u201cWe\tcounted\tourselves\tand\tfound\tthat\tthere\twas\nno\thobbit.\tThere\twere\tonly\tfourteen\tof\tus\tleft!\u201d\n\u201cFourteen!\tThat\u2019s\tthe\tfirst\ttime\tI\u2019ve\theard\tone\tfrom\tten\nleave\tfourteen.\tYou\tmean\tnine,\tor\telse\tyou\thaven\u2019t\ttold\nme\tyet\tall\tthe\tnames\tof\tyour\tparty.\u201d\n\u201cWell,\tof\tcourse\tyou\thaven\u2019t\tseen\tOin\tand\tGloin\tyet.\nAnd,\t bless\t me!\t here\t they\t are.\t I\t hope\t you\t will\t forgive",
+  "coordinates": {
+    "r": 5.4799999999999995,
+    "theta": 0.34125550199619126,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 123,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1808,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_group",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Troop",
+        "type": "organization",
+        "start": 68,
+        "end": 73,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cBalin\t and\t Dwalin,\u201d\t they\t said\t not\t daring\t to..."
+          },
+          {
+            "type": "participated_in",
+            "target": "I\tkilled\ta\tgoblin\tor\ttwo\nwith\ta\tflash\u2014\u201d\n\u201cGood!\u201d\t g..."
+          }
+        ]
+      },
+      {
+        "name": "Dwalin",
+        "type": "organization",
+        "start": 276,
+        "end": 282,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cBalin\t and\t Dwalin,\u201d\t they\t said\t not\t daring\t to..."
+          },
+          {
+            "type": "participated_in",
+            "target": "I\tkilled\ta\tgoblin\tor\ttwo\nwith\ta\tflash\u2014\u201d\n\u201cGood!\u201d\t g..."
+          }
+        ]
+      },
+      {
+        "name": "Beorn",
+        "type": "person",
+        "start": 412,
+        "end": 417,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cBalin\t and\t Dwalin,\u201d\t they\t said\t not\t daring\t to..."
+          },
+          {
+            "type": "participated_in",
+            "target": "I\tkilled\ta\tgoblin\tor\ttwo\nwith\ta\tflash\u2014\u201d\n\u201cGood!\u201d\t g..."
+          }
+        ]
+      },
+      {
+        "name": "Kili",
+        "type": "person",
+        "start": 1101,
+        "end": 1105,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cBalin\t and\t Dwalin,\u201d\t they\t said\t not\t daring\t to..."
+          },
+          {
+            "type": "participated_in",
+            "target": "I\tkilled\ta\tgoblin\tor\ttwo\nwith\ta\tflash\u2014\u201d\n\u201cGood!\u201d\t g..."
+          }
+        ]
+      },
+      {
+        "name": "Gandalf",
+        "type": "group",
+        "start": 1124,
+        "end": 1131,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cBalin\t and\t Dwalin,\u201d\t they\t said\t not\t daring\t to..."
+          },
+          {
+            "type": "participated_in",
+            "target": "I\tkilled\ta\tgoblin\tor\ttwo\nwith\ta\tflash\u2014\u201d\n\u201cGood!\u201d\t g..."
+          }
+        ]
+      },
+      {
+        "name": "Baggins",
+        "type": "person",
+        "start": 1418,
+        "end": 1425,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cBalin\t and\t Dwalin,\u201d\t they\t said\t not\t daring\t to..."
+          },
+          {
+            "type": "participated_in",
+            "target": "I\tkilled\ta\tgoblin\tor\ttwo\nwith\ta\tflash\u2014\u201d\n\u201cGood!\u201d\t g..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "\u201cBalin\t and\t Dwalin,\u201d\t they\t said\t not\t daring\t to...",
+        "description": "\u201cBalin\t and\t Dwalin,\u201d\t they\t said\t not\t daring\t to\t be\noffended,\t and\t sat\t flop\t on\t the\t floor\t looking\t rather\nsurprised.\n",
+        "start": 263,
+        "end": 388,
+        "participants": [
+          "Troop",
+          "Dwalin",
+          "Beorn",
+          "Kili",
+          "Gandalf",
+          "Baggins"
+        ],
+        "location": null,
+        "time": null
+      },
+      {
+        "name": "I\tkilled\ta\tgoblin\tor\ttwo\nwith\ta\tflash\u2014\u201d\n\u201cGood!\u201d\t g...",
+        "description": "I\tkilled\ta\tgoblin\tor\ttwo\nwith\ta\tflash\u2014\u201d\n\u201cGood!\u201d\t growled\t Beorn.\t ",
+        "start": 474,
+        "end": 540,
+        "participants": [
+          "Troop",
+          "Dwalin",
+          "Beorn",
+          "Kili",
+          "Gandalf",
+          "Baggins"
+        ],
+        "location": null,
+        "time": null
+      }
+    ],
+    "locations": []
+  },
+  "timestamp": 1745715405.9207325,
+  "has_embedding": true
+}

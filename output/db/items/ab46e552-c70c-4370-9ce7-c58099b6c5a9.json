@@ -1,0 +1,224 @@
+{
+  "id": "ab46e552-c70c-4370-9ce7-c58099b6c5a9",
+  "content": "has\t come\t more\t swiftly\t than\t I\t guessed.\t The\t Goblins\t are\nupon\tyou!\tBolg\n*\n\tof\tthe\tNorth\tis\tcoming,\tO\tDain!\twhose\nfather\tyou\tslew\tin\tMoria.\tBehold!\tthe\tbats\tare\tabove\this\narmy\t like\t a\t sea\t of\t locusts.\t They\t ride\t upon\t wolves\t and\nWargs\tare\tin\ttheir\ttrain!\u201d\nAmazement\tand\tconfusion\tfell\tupon\tthem\tall.\tEven\tas\nGandalf\t had\t been\t speaking\t the\t darkness\t grew.\t The\ndwarves\thalted\tand\tgazed\tat\tthe\tsky.\tThe\telves\tcried\tout\nwith\tmany\tvoices.\n\u201cCome!\u201d\tcalled\tGandalf.\t\u201cThere\tis\tyet\ttime\tfor\tcouncil.\nLet\tDain\tson\tof\tNain\tcome\tswiftly\tto\tus!\u201d\nSo\t began\t a\t battle\t that\t none\t had\t expected;\t and\t it\t was\ncalled\tthe\tBattle\tof\tFive\tArmies,\tand\tit\twas\tvery\tterrible.\nUpon\t one\t side\t were\t the\t Goblins\t and\t the\t Wild\t Wolves,\nand\t upon\t the\t other\t were\t Elves\t and\t Men\t and\t Dwarves.\nThis\t is\t how\t it\t fell\t out.\t Ever\t since\t the\t fall\t of\t the\t Great\nGoblin\tof\tthe\tMisty\tMountains\tthe\thatred\tof\ttheir\trace\tfor\nthe\tdwarves\thad\tbeen\trekindled\tto\tfury.\tMessengers\thad\npassed\t to\t and\t fro\t between\t all\t their\t cities,\t colonies\t and\nstrongholds;\tfor\tthey\tresolved\tnow\tto\twin\tthe\tdominion\nof\t the\t North.\t Tidings\t they\t had\t gathered\t in\t secret\t ways;\nand\t in\t all\t the\t mountains\t there\t was\t a\t forging\t and\t an\narming.\t Then\t they\t marched\t and\t gathered\t by\t hill\t and\nvalley,\tgoing\tever\tby\ttunnel\tor\tunder\tdark,\tuntil\taround\nand\tbeneath\tthe\tgreat\tmountain\tGundabad\tof\tthe\tNorth,\nwhere\twas\ttheir\tcapital,\ta\tvast\thost\twas\tassembled\tready\nto\tsweep\tdown\tin\ttime\tof\tstorm\tunawares\nupon\t the\t South.\t Then\t they\t learned\t of\t the\t death\t of\nSmaug,\t and\t joy\t was\t in\t their\t hearts;\t and\t they\t hastened\nnight\tafter\tnight\tthrough\tthe\tmountains,\tand\tcame\tthus\tat\nlast\ton\ta\tsudden\tfrom\tthe\tNorth\thard\ton\tthe\theels\tof\tDain.\nNot\teven\tthe\travens\tknew\tof\ttheir\tcoming\tuntil\tthey\tcame\nout\t in\t the\t broken\t lands\t which\t divided\t the\t Lonely\nMountain\tfrom\tthe\thills\tbehind.\tHow\tmuch\tGandalf\tknew\ncannot\tbe\tsaid,\tbut\tit\tis\tplain\tthat\the\thad\tnot\texpected\tthis",
+  "coordinates": {
+    "r": 5.1025,
+    "theta": 3.4031302420011436,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 274,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1959,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Goblins",
+        "type": "person",
+        "start": 50,
+        "end": 57,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "So\t began\t a\t battle\t that\t none\t had\t expected;\t ..."
+          }
+        ]
+      },
+      {
+        "name": "Moria",
+        "type": "group",
+        "start": 138,
+        "end": 143,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "So\t began\t a\t battle\t that\t none\t had\t expected;\t ..."
+          }
+        ]
+      },
+      {
+        "name": "Behold",
+        "type": "administrative",
+        "start": 145,
+        "end": 151,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "So\t began\t a\t battle\t that\t none\t had\t expected;\t ..."
+          }
+        ]
+      },
+      {
+        "name": "Gandalf",
+        "type": "group",
+        "start": 319,
+        "end": 326,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "So\t began\t a\t battle\t that\t none\t had\t expected;\t ..."
+          }
+        ]
+      },
+      {
+        "name": "Nain",
+        "type": "administrative",
+        "start": 522,
+        "end": 526,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "So\t began\t a\t battle\t that\t none\t had\t expected;\t ..."
+          }
+        ]
+      },
+      {
+        "name": "Messengers",
+        "type": "group",
+        "start": 961,
+        "end": 971,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "So\t began\t a\t battle\t that\t none\t had\t expected;\t ..."
+          }
+        ]
+      },
+      {
+        "name": "Tidings",
+        "type": "person",
+        "start": 1114,
+        "end": 1121,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "So\t began\t a\t battle\t that\t none\t had\t expected;\t ..."
+          }
+        ]
+      },
+      {
+        "name": "Gundabad",
+        "type": "person",
+        "start": 1371,
+        "end": 1379,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "So\t began\t a\t battle\t that\t none\t had\t expected;\t ..."
+          }
+        ]
+      },
+      {
+        "name": "Smaug",
+        "type": "administrative",
+        "start": 1550,
+        "end": 1555,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "So\t began\t a\t battle\t that\t none\t had\t expected;\t ..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "So\t began\t a\t battle\t that\t none\t had\t expected;\t ...",
+        "description": "So\t began\t a\t battle\t that\t none\t had\t expected;\t and\t it\t was\ncalled\tthe\tBattle\tof\tFive\tArmies,\tand\tit\twas\tvery\tterrible.\n",
+        "start": 548,
+        "end": 671,
+        "participants": [
+          "Goblins",
+          "Moria",
+          "Behold",
+          "Gandalf",
+          "Nain",
+          "Messengers",
+          "Tidings",
+          "Gundabad",
+          "Smaug"
+        ],
+        "location": "North",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "North",
+        "type": "geographical",
+        "start": 88,
+        "end": 93,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "So\t began\t a\t battle\t that\t none\t had\t expected;\t ..."
+          }
+        ]
+      },
+      {
+        "name": "Behold",
+        "type": "administrative",
+        "start": 145,
+        "end": 151,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Nain",
+        "type": "administrative",
+        "start": 522,
+        "end": 526,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "South",
+        "type": "geographical",
+        "start": 1502,
+        "end": 1507,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Smaug",
+        "type": "administrative",
+        "start": 1550,
+        "end": 1555,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745773109.6971729,
+  "has_embedding": true
+}

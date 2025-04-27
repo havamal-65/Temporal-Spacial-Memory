@@ -1,0 +1,146 @@
+{
+  "id": "aa731fae-702b-48ca-8b1b-9f818abbb031",
+  "content": "CONTENTS\nCOVER\tPAGE\nTITLE\tPAGE\nLIST\tOF\tILLUSTRATIONS\nNOTE\tON\tTHE\tTEXT\nAUTHOR\u2019S\tNOTE\nCHAPTER\tI:\tAN\tUNEXPECTED\tPARTY\nCHAPTER\tII:\tROAST\tMUTTON\nCHAPTER\tIII:\tA\tSHORT\tREST\nCHAPTER\tIV:\tOVER\tHILL\tAND\tUNDER\tHILL\nCHAPTER\tV:\tRIDDLES\tIN\tTHE\tDARK\nCHAPTER\tVI:\tOUT\tOF\tTHE\tFRYING-PAN\tINTO\tTHE\nFIRE\nCHAPTER\tVII:\tQUEER\tLODGINGS\nCHAPTER\tVIII:\tFLIES\tAND\tSPIDERS\nCHAPTER\tIX:\tBARRELS\tOUT\tOF\tBOND CHAPTER\tX:\tA\tWARM\tWELCOME\nCHAPTER\tXI:\tON\tTHE\tDOORSTEP\nCHAPTER\tXII:\tINSIDE\tINFORMATION\nCHAPTER\tXIII:\tNOT\tAT\tHOME\nCHAPTER\tXIV:\tFIRE\tAND\tWATER\nCHAPTER\tXV:\tTHE\tGATHERING\tOF\tTHE\tCLOUDS\nCHAPTER\tXVI:\tA\tTHIEF\tIN\tTHE\tNIGHT\nCHAPTER\tXVII:\tTHE\tCLOUDS\tBURST\nCHAPTER\tXVIII:\tTHE\tRETURN\tJOURNEY\nCHAPTER\tXIX:\tTHE\tLAST\tSTAGE\nWORKS\tBY\tJ.R.R.\tTOLKIEN\nCOPYRIGHT\nABOUT\tTHE\tPUBLISHER ILLUSTRATIONS\nThror\u2019s\tMap\nThe\tTrolls\nThe\tMountain-path\nThe\tMisty\tMountains\tlooking\tWest\nBeorn\u2019s\tHall\nThe\tElvenking\u2019s\tGate\nLake\tTown\nThe\tFront\tGate\nThe\tHall\tat\tBag-End\nMap\tof\tWilderland",
+  "coordinates": {
+    "r": 7.7025,
+    "theta": 1.0198395151715867,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 2,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 919,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "AUTHOR",
+        "type": "organization",
+        "start": 70,
+        "end": 76,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "UNEXPECTED",
+        "type": "organization",
+        "start": 98,
+        "end": 108,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "HILL",
+        "type": "organization",
+        "start": 183,
+        "end": 187,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "FIRE\nCHAPTER",
+        "type": "organization",
+        "start": 277,
+        "end": 289,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "QUEER",
+        "type": "organization",
+        "start": 295,
+        "end": 300,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "LODGINGS",
+        "type": "administrative",
+        "start": 301,
+        "end": 309,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "DOORSTEP",
+        "type": "organization",
+        "start": 419,
+        "end": 427,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "XII",
+        "type": "organization",
+        "start": 436,
+        "end": 439,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "XIV",
+        "type": "organization",
+        "start": 494,
+        "end": 497,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "FIRE",
+        "type": "organization",
+        "start": 499,
+        "end": 503,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "XV",
+        "type": "organization",
+        "start": 522,
+        "end": 524,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Front\tGate",
+        "type": "organization",
+        "start": 871,
+        "end": 881,
+        "mentions": 1,
+        "relationships": []
+      }
+    ],
+    "events": [],
+    "locations": [
+      {
+        "name": "LODGINGS",
+        "type": "administrative",
+        "start": 301,
+        "end": 309,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745773066.1930819,
+  "has_embedding": true
+}

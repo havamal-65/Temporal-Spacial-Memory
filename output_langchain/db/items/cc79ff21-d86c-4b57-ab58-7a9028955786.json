@@ -1,0 +1,145 @@
+{
+  "id": "cc79ff21-d86c-4b57-ab58-7a9028955786",
+  "content": "of\tthem\tremained.\tSo\tnow\tthey\tbegan\tto\tlabour\thard\tin\nfortifying\t the\t main\t entrance,\t and\t in\t making\t a\t new\t path\nthat\tled\tfrom\tit.\tTools\twere\tto\tbe\tfound\tin\tplenty\tthat\tthe\nminers\tand\tquarriers\tand\tbuilders\tof\told\thad\tused;\tand\tat\nsuch\twork\tthe\tdwarves\twere\tstill\tvery\tskilled.\nAs\t they\t worked\t the\t ravens\t brought\t them\t constant\ntidings.\t In\t this\t way\t they\t learned\t that\t the\t Elvenking\t had\nturned\t aside\t to\t the\t Lake,\t and\t they\t still\t had\t a\t breathing\nspace.\t Better\t still,\t they\t heard\t that\t three\t of\t their\t ponies\nhad\tescaped\tand\twere\twandering\twild\tfar\tdown\tthe\tbanks\nof\tthe\tRunning\tRiver,\tnot\tfar\tfrom\twhere\tthe\trest\tof\ttheir\nstores\t had\t been\t left.\t So\t while\t the\t others\t went\t on\t with\ntheir\twork,\tFili\tand\tKili\twere\tsent,\tguided\tby\ta\traven,\tto\nfind\tthe\tponies\tand\tbring\tback\tall\tthey\tcould.\nThey\twere\tfour\tdays\tgone,\tand\tby\tthat\ttime\tthey\tknew\nthat\t the\t joined\t armies\t of\t the\t Lake-men\t and\t the\t Elves\nwere\thurrying\ttoward\tthe\tMountain.\tBut\tnow\ttheir\thopes\nwere\thigher;\tfor\tthey\thad\tfood\tfor\tsome\tweeks\twith\tcare\n\u2014chiefly\t\ncram\n,\tof\tcourse,\tand\tthey\twere\tvery\ttired\tof\tit;\nbut\t\ncram\n\t is\t much\t better\t than\t nothing\u2014and\t already\t the\ngate\twas\tblocked\twith\ta\twall\tof\tsquared\tstones\tlaid\tdry,\nbut\tvery\tthick\tand\thigh,\tacross\tthe\topening.\tThere\twere\nholes\tin\tthe\twall\tthrough\twhich\tthey\tcould\tsee\t(or\tshoot),\nbut\tno\tentrance.\tThey\tclimbed\tin\tor\tout\twith\tladders,\tand\nhauled\tstuff\tup\twith\tropes.\tFor\tthe\tissuing\tof\tthe\tstream\nthey\thad\tcontrived\ta\tsmall\tlow\tarch\tunder\tthe\tnew\twall;\nbut\tnear\tthe\tentrance\tthey\thad\tso\taltered\tthe\tnarrow\tbed\nthat\ta\twide\tpool\tstretched\tfrom\tthe\tmountain-wall\tto\tthe\nhead\tof\tthe\tfall\tover\twhich\tthe\tstream\twent\ttowards\tDale.\nApproach\t to\t the\t Gate\t was\t now\t only\t possible,\t without\nswimming,\talong\ta\tnarrow\tledge\tof\tthe\tcliff,\tto\tthe\tright\nas\t one\t looked\t outwards\t from\t the\t wall.\t The\t ponies\t they\nhad\t brought\t only\t to\t the\t head\t of\t the\t steps\t above\t the\t old\nbridge,\tand\tunloading\tthem\tthere\thad\tbidden\tthem\treturn\nto\ttheir\tmasters\tand\tsent\tthem\tback\triderless\tto\tthe\tSouth.",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 1.1651381754001144,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 254,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2051,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_person",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Kili",
+        "type": "person",
+        "start": 739,
+        "end": 743,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "So\tnow\tthey\tbegan\tto\tlabour\thard\tin\nfortifying\t th..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Tools\twere\tto\tbe\tfound\tin\tplenty\tthat\tthe\nminers\ta..."
+          }
+        ]
+      },
+      {
+        "name": "Dale",
+        "type": "organization",
+        "start": 1682,
+        "end": 1686,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "So\tnow\tthey\tbegan\tto\tlabour\thard\tin\nfortifying\t th..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Tools\twere\tto\tbe\tfound\tin\tplenty\tthat\tthe\nminers\ta..."
+          }
+        ]
+      },
+      {
+        "name": "Gate",
+        "type": "organization",
+        "start": 1707,
+        "end": 1711,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "So\tnow\tthey\tbegan\tto\tlabour\thard\tin\nfortifying\t th..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Tools\twere\tto\tbe\tfound\tin\tplenty\tthat\tthe\nminers\ta..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "So\tnow\tthey\tbegan\tto\tlabour\thard\tin\nfortifying\t th...",
+        "description": "So\tnow\tthey\tbegan\tto\tlabour\thard\tin\nfortifying\t the\t main\t entrance,\t and\t in\t making\t a\t new\t path\nthat\tled\tfrom\tit.\t",
+        "start": 18,
+        "end": 136,
+        "participants": [
+          "Kili",
+          "Dale",
+          "Gate"
+        ],
+        "location": "Lake",
+        "time": null
+      },
+      {
+        "name": "Tools\twere\tto\tbe\tfound\tin\tplenty\tthat\tthe\nminers\ta...",
+        "description": "Tools\twere\tto\tbe\tfound\tin\tplenty\tthat\tthe\nminers\tand\tquarriers\tand\tbuilders\tof\told\thad\tused;\tand\tat\nsuch\twork\tthe\tdwarves\twere\tstill\tvery\tskilled.\n",
+        "start": 136,
+        "end": 283,
+        "participants": [
+          "Kili",
+          "Dale",
+          "Gate"
+        ],
+        "location": "Lake",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Lake",
+        "type": "geographical",
+        "start": 428,
+        "end": 432,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "So\tnow\tthey\tbegan\tto\tlabour\thard\tin\nfortifying\t th..."
+          },
+          {
+            "type": "hosted",
+            "target": "Tools\twere\tto\tbe\tfound\tin\tplenty\tthat\tthe\nminers\ta..."
+          }
+        ]
+      },
+      {
+        "name": "South",
+        "type": "geographical",
+        "start": 2045,
+        "end": 2050,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745715416.1178875,
+  "has_embedding": true
+}

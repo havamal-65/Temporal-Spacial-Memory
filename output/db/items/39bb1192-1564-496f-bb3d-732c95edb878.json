@@ -1,0 +1,80 @@
+{
+  "id": "39bb1192-1564-496f-bb3d-732c95edb878",
+  "content": "with\tgoblins\tin\tthe\tmountains.\u201d\n\u201cGoblins?\u201d\t said\t the\t big\t man\t less\t gruffly.\t \u201cO\t ho,\t so\nyou\u2019ve\t been\t having\t trouble\t with\t\nthem\n\t have\t you?\t What\ndid\tyou\tgo\tnear\tthem\tfor?\u201d\n\u201cWe\tdid\tnot\tmean\tto.\tThey\tsurprised\tus\tat\tnight\tin\ta\npass\twhich\twe\thad\tto\tcross;\twe\twere\tcoming\tout\tof\tthe\nLands\tover\tWest\tinto\tthese\tcountries\u2014it\tis\ta\tlong\ttale.\u201d\n\u201cThen\tyou\thad\tbetter\tcome\tinside\tand\ttell\tme\tsome\tof\nit,\tif\tit\twon\u2019t\ttake\tall\tday,\u201d\tsaid\tthe\tman\tleading\tthe\tway\nthrough\ta\tdark\tdoor\tthat\topened\tout\tof\tthe\tcourtyard\tinto\nthe\thouse.\nFollowing\t him\t they\t found\t themselves\t in\t a\t wide\t hall\nwith\t a\t fire-place\t in\t the\t middle.\t Though\t it\t was\t summer\nthere\twas\ta\twood-fire\tburning\tand\tthe\tsmoke\twas\trising\nto\tthe\tblackened\trafters\tin\tsearch\tof\tthe\tway\tout\tthrough\nan\topening\tin\tthe\troof.\tThey\tpassed\tthrough\tthis\tdim\thall,\nlit\t only\t by\t the\t fire\t and\t the\t hole\t above\t it,\t and\t came\nthrough\t another\t smaller\t door\t into\t a\t sort\t of\t veranda\npropped\t on\t wooden\t posts\t made\t of\t single\t tree-trunks.\t It\nfaced\tsouth\tand\twas\tstill\twarm\tand\tfilled\twith\tthe\tlight\tof\nthe\twestering\tsun\twhich\tslanted\tinto\tit,\tand\tfell\tgolden\ton\nthe\tgarden\tfull\tof\tflowers\tthat\tcame\tright\tup\tto\tthe\tsteps.",
+  "coordinates": {
+    "r": 7.0325,
+    "theta": 3.2676490588150835,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 120,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1187,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "veranda",
+        "type": "administrative",
+        "start": 937,
+        "end": 944,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cThen\tyou\thad\tbetter\tcome\tinside\tand\ttell\tme\tsome\t..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "\u201cThen\tyou\thad\tbetter\tcome\tinside\tand\ttell\tme\tsome\t...",
+        "description": "\u201cThen\tyou\thad\tbetter\tcome\tinside\tand\ttell\tme\tsome\tof\nit,\tif\tit\twon\u2019t\ttake\tall\tday,\u201d\tsaid\tthe\tman\tleading\tthe\tway\nthrough\ta\tdark\tdoor\tthat\topened\tout\tof\tthe\tcourtyard\tinto\nthe\thouse.\n",
+        "start": 345,
+        "end": 527,
+        "participants": [
+          "veranda"
+        ],
+        "location": "veranda",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "veranda",
+        "type": "administrative",
+        "start": 937,
+        "end": 944,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "\u201cThen\tyou\thad\tbetter\tcome\tinside\tand\ttell\tme\tsome\t..."
+          }
+        ]
+      }
+    ]
+  },
+  "timestamp": 1745709008.6485987,
+  "has_embedding": true
+}

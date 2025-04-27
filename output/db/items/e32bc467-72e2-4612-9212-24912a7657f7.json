@@ -1,0 +1,240 @@
+{
+  "id": "e32bc467-72e2-4612-9212-24912a7657f7",
+  "content": "same\tI\tam\tpleased\tto\tfind\tyou\tremember\tsomething\tabout\nme.\tYou\tseem\tto\tremember\tmy\tfireworks\tkindly,\tat\tany\nrate,\t and\t that\t is\t not\t without\t hope.\t Indeed\t for\t your\t old\ngrandfather\t Took\u2019s\t sake,\t and\t for\t the\t sake\t of\t poor\nBelladonna,\tI\twill\tgive\tyou\twhat\tyou\tasked\tfor.\u201d\n\u201cI\tbeg\tyour\tpardon,\tI\thaven\u2019t\tasked\tfor\tanything!\u201d\n\u201cYes,\tyou\thave!\tTwice\tnow.\tMy\tpardon.\tI\tgive\tit\tyou.\nIn\tfact\tI\twill\tgo\tso\tfar\tas\tto\tsend\tyou\ton\tthis\tadventure.\nVery\tamusing\tfor\tme,\tvery\tgood\tfor\tyou\u2014and\tprofitable\ntoo,\tvery\tlikely,\tif\tyou\tever\tget\tover\tit.\u201d\n\u201cSorry!\t I\t don\u2019t\t want\t any\t adventures,\t thank\t you.\t Not\ntoday.\tGood\tmorning!\tBut\tplease\tcome\tto\ttea\u2014any\ttime\nyou\t like!\t Why\t not\t tomorrow?\t Come\t tomorrow!\t Good\nbye!\u201d\tWith\tthat\tthe\thobbit\tturned\tand\tscuttled\tinside\this\nround\tgreen\tdoor,\tand\tshut\tit\tas\tquickly\tas\the\tdared,\tnot\nto\tseem\trude.\tWizards\tafter\tall\tare\twizards.\n\u201cWhat\t on\t earth\t did\t I\t ask\t him\t to\t tea\t for!\u201d\t he\t said\t to\nhimself,\t as\t he\t went\t to\t the\t pantry.\t He\t had\t only\t just\t had\nbreakfast,\t but\t he\t thought\t a\t cake\t or\t two\t and\t a\t drink\t of\nsomething\twould\tdo\thim\tgood\tafter\this\tfright.\nGandalf\tin\tthe\tmeantime\twas\tstill\tstanding\toutside\tthe\ndoor,\t and\t laughing\t long\t but\t quietly.\t After\t a\t while\t he\nstepped\t up,\t and\t with\t the\t spike\t on\t his\t staff\t scratched\t a\nqueer\t sign\t on\t the\t hobbit\u2019s\t beautiful\t green\t front-door.\nThen\the\tstrode\taway,\tjust\tabout\tthe\ttime\twhen\tBilbo\twas\nfinishing\this\tsecond\tcake\tand\tbeginning\tto\tthink\tthat\the\nhad\tescaped\tadventures\tvery\twell.\nThe\t next\t day\t he\t had\t almost\t forgotten\t about\t Gandalf.\nHe\tdid\tnot\tremember\tthings\tvery\twell,\tunless\the\tput\tthem\ndown\t on\t his\t Engagement\t Tablet:\t like\t this:\t\nGandalf\t Tea\nWednesday\n.\t Yesterday\t he\t had\t been\t too\t flustered\t to\t do\nanything\tof\tthe\tkind.\nJust\t before\t tea-time\t there\t came\t a\t tremendous\t ring\t on\nthe\tfront-door\tbell,\tand\tthen\the\tremembered!\tHe\trushed\nand\tput\ton\tthe\tkettle,\tand\tput\tout\tanother\tcup\tand\tsaucer,\nand\tan\textra\tcake\tor\ttwo,\tand\tran\tto\tthe\tdoor.\n\u201cI\tam\tso\tsorry\tto\tkeep\tyou\twaiting!\u201d\the\twas\tgoing\tto\nsay,\twhen\the\tsaw\tthat\tit\twas\tnot\tGandalf\tat\tall.\tIt\twas\ta",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 1.0606802196682539,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 11,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2103,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Took\u2019s",
+        "type": "organization",
+        "start": 187,
+        "end": 193,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "same\tI\tam\tpleased\tto\tfind\tyou\tremember\tsomething\ta..."
+          },
+          {
+            "type": "participated_in",
+            "target": "He\t had\t only\t just\t had\nbreakfast,\t but\t he\t thou..."
+          }
+        ]
+      },
+      {
+        "name": "Belladonna",
+        "type": "person",
+        "start": 232,
+        "end": 242,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "same\tI\tam\tpleased\tto\tfind\tyou\tremember\tsomething\ta..."
+          },
+          {
+            "type": "participated_in",
+            "target": "He\t had\t only\t just\t had\nbreakfast,\t but\t he\t thou..."
+          }
+        ]
+      },
+      {
+        "name": "Twice",
+        "type": "administrative",
+        "start": 348,
+        "end": 353,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "same\tI\tam\tpleased\tto\tfind\tyou\tremember\tsomething\ta..."
+          },
+          {
+            "type": "participated_in",
+            "target": "He\t had\t only\t just\t had\nbreakfast,\t but\t he\t thou..."
+          }
+        ]
+      },
+      {
+        "name": "Wizards",
+        "type": "organization",
+        "start": 840,
+        "end": 847,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "same\tI\tam\tpleased\tto\tfind\tyou\tremember\tsomething\ta..."
+          },
+          {
+            "type": "participated_in",
+            "target": "He\t had\t only\t just\t had\nbreakfast,\t but\t he\t thou..."
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 1407,
+        "end": 1412,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "same\tI\tam\tpleased\tto\tfind\tyou\tremember\tsomething\ta..."
+          },
+          {
+            "type": "participated_in",
+            "target": "He\t had\t only\t just\t had\nbreakfast,\t but\t he\t thou..."
+          }
+        ]
+      },
+      {
+        "name": "Tablet",
+        "type": "organization",
+        "start": 1652,
+        "end": 1658,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "same\tI\tam\tpleased\tto\tfind\tyou\tremember\tsomething\ta..."
+          },
+          {
+            "type": "participated_in",
+            "target": "He\t had\t only\t just\t had\nbreakfast,\t but\t he\t thou..."
+          }
+        ]
+      },
+      {
+        "name": "Gandalf\t Tea",
+        "type": "organization",
+        "start": 1674,
+        "end": 1686,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "same\tI\tam\tpleased\tto\tfind\tyou\tremember\tsomething\ta..."
+          },
+          {
+            "type": "participated_in",
+            "target": "He\t had\t only\t just\t had\nbreakfast,\t but\t he\t thou..."
+          }
+        ]
+      },
+      {
+        "name": "Gandalf",
+        "type": "group",
+        "start": 2079,
+        "end": 2086,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "same\tI\tam\tpleased\tto\tfind\tyou\tremember\tsomething\ta..."
+          },
+          {
+            "type": "participated_in",
+            "target": "He\t had\t only\t just\t had\nbreakfast,\t but\t he\t thou..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "same\tI\tam\tpleased\tto\tfind\tyou\tremember\tsomething\ta...",
+        "description": "same\tI\tam\tpleased\tto\tfind\tyou\tremember\tsomething\tabout\nme.\t",
+        "start": 0,
+        "end": 59,
+        "participants": [
+          "Took\u2019s",
+          "Belladonna",
+          "Twice",
+          "Wizards",
+          "Bilbo",
+          "Tablet",
+          "Gandalf\t Tea",
+          "Gandalf"
+        ],
+        "location": "Twice",
+        "time": null
+      },
+      {
+        "name": "He\t had\t only\t just\t had\nbreakfast,\t but\t he\t thou...",
+        "description": "He\t had\t only\t just\t had\nbreakfast,\t but\t he\t thought\t a\t cake\t or\t two\t and\t a\t drink\t of\nsomething\twould\tdo\thim\tgood\tafter\this\tfright.\n",
+        "start": 978,
+        "end": 1115,
+        "participants": [
+          "Took\u2019s",
+          "Belladonna",
+          "Twice",
+          "Wizards",
+          "Bilbo",
+          "Tablet",
+          "Gandalf\t Tea",
+          "Gandalf"
+        ],
+        "location": "Twice",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Twice",
+        "type": "administrative",
+        "start": 348,
+        "end": 353,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "same\tI\tam\tpleased\tto\tfind\tyou\tremember\tsomething\ta..."
+          },
+          {
+            "type": "hosted",
+            "target": "He\t had\t only\t just\t had\nbreakfast,\t but\t he\t thou..."
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 1407,
+        "end": 1412,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745773067.3668075,
+  "has_embedding": true
+}

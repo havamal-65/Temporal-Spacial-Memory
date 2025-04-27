@@ -1,0 +1,178 @@
+{
+  "id": "4912d845-3173-44af-b922-7fd72fa72733",
+  "content": "growing\t fainter\t behind\t him.\t A\t pale\t light\t was\t leading\nthem\ton.\n\u201cQuicker,\t quicker!\u201d\t said\t the\t voice.\t \u201cThe\t torches\t will\nsoon\tbe\trelit.\u201d\n\u201cHalf\ta\tminute!\u201d\tsaid\tDori,\twho\twas\tat\tthe\tback\tnext\tto\nBilbo,\tand\ta\tdecent\tfellow.\tHe\tmade\tthe\thobbit\tscramble\non\this\tshoulders\tas\tbest\the\tcould\twith\this\ttied\thands,\tand\nthen\t off\t they\t all\t went\t at\t a\t run,\t with\t a\t clink-clink\t of\nchains,\tand\tmany\ta\tstumble,\tsince\tthey\thad\tno\thands\tto\nsteady\t themselves\t with.\t Not\t for\t a\t long\t while\t did\t they\nstop,\tand\tby\tthat\ttime\tthey\tmust\thave\tbeen\tright\tdown\tin\nthe\tvery\tmountain\u2019s\theart.\nThen\t Gandalf\t lit\t up\t his\t wand.\t Of\t course\t it\t was\nGandalf;\tbut\tjust\tthen\tthey\twere\ttoo\tbusy\tto\task\thow\the\ngot\t there.\t He\t took\t out\t his\t sword\t again,\t and\t again\t it\nflashed\t in\t the\t dark\t by\t itself.\t It\t burned\t with\t a\t rage\t that\nmade\tit\tgleam\tif\tgoblins\twere\tabout;\tnow\tit\twas\tbright\tas\nblue\tflame\tfor\tdelight\tin\tthe\tkilling\tof\tthe\tgreat\tlord\tof\tthe\ncave.\tIt\tmade\tno\ttrouble\twhatever\tof\tcutting\tthrough\tthe\ngoblin-chains\tand\tsetting\tall\tthe\tprisoners\tfree\tas\tquickly\nas\tpossible.\tThis\tsword\u2019s\tname\twas\tGlamdring\tthe\tFoe-\nhammer,\t if\t you\t remember.\t The\t goblins\t just\t called\t it\nBeater,\tand\thated\tit\tworse\tthan\tBiter\tif\tpossible.\tOrcrist,\ntoo,\thad\tbeen\tsaved;\tfor\nGandalf\thad\tbrought\tit\talong\tas\twell,\tsnatching\tit\tfrom\none\t of\t the\t terrified\t guards.\t Gandalf\t thought\t of\t most\nthings;\tand\tthough\the\tcould\tnot\tdo\teverything,\the\tcould\ndo\ta\tgreat\tdeal\tfor\tfriends\tin\ta\ttight\tcorner.\n\u201cAre\twe\tall\there?\u201d\tsaid\the,\thanding\this\tsword\tback\tto\nThorin\twith\ta\tbow.\t\u201cLet\tme\tsee:\tone\u2014that\u2019s\tThorin;\ttwo,\nthree,\tfour,\tfive,\tsix,\tseven,\teight,\tnine,\tten,\televen;\twhere\nare\t Fili\t and\t Kili?\t Here\t they\t are!\t twelve,\t thirteen\u2014and\nhere\u2019s\t Mr.\t Baggins:\t fourteen!\t Well,\t well!\t it\t might\t be\nworse,\tand\tthen\tagain\tit\tmight\tbe\ta\tgood\tdeal\tbetter.\tNo\nponies,\tand\tno\tfood,\tand\tno\tknowing\tquite\twhere\twe\tare,\nand\thordes\tof\tangry\tgoblins\tjust\tbehind!\tOn\twe\tgo!\u201d\nOn\tthey\twent.\tGandalf\twas\tquite\tright:\tthey\tbegan\tto\nhear\t goblin\t noises\t and\t horrible\t cries\t far\t behind\t in\t the",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 0.3169081589308704,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 68,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2067,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 203,
+        "end": 208,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Gandalf\twas\tquite\tright:\tthey\tbegan\tto\nhear\t gobli..."
+          }
+        ]
+      },
+      {
+        "name": "Gandalf",
+        "type": "group",
+        "start": 592,
+        "end": 599,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Gandalf\twas\tquite\tright:\tthey\tbegan\tto\nhear\t gobli..."
+          }
+        ]
+      },
+      {
+        "name": "Glamdring",
+        "type": "person",
+        "start": 1103,
+        "end": 1112,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Gandalf\twas\tquite\tright:\tthey\tbegan\tto\nhear\t gobli..."
+          }
+        ]
+      },
+      {
+        "name": "Biter",
+        "type": "person",
+        "start": 1214,
+        "end": 1219,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Gandalf\twas\tquite\tright:\tthey\tbegan\tto\nhear\t gobli..."
+          }
+        ]
+      },
+      {
+        "name": "Orcrist",
+        "type": "group",
+        "start": 1233,
+        "end": 1240,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Gandalf\twas\tquite\tright:\tthey\tbegan\tto\nhear\t gobli..."
+          }
+        ]
+      },
+      {
+        "name": "Thorin",
+        "type": "group",
+        "start": 1584,
+        "end": 1590,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Gandalf\twas\tquite\tright:\tthey\tbegan\tto\nhear\t gobli..."
+          }
+        ]
+      },
+      {
+        "name": "Kili",
+        "type": "person",
+        "start": 1676,
+        "end": 1680,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Gandalf\twas\tquite\tright:\tthey\tbegan\tto\nhear\t gobli..."
+          }
+        ]
+      },
+      {
+        "name": "Baggins",
+        "type": "person",
+        "start": 1736,
+        "end": 1743,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Gandalf\twas\tquite\tright:\tthey\tbegan\tto\nhear\t gobli..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "Gandalf\twas\tquite\tright:\tthey\tbegan\tto\nhear\t gobli...",
+        "description": "Gandalf\twas\tquite\tright:\tthey\tbegan\tto\nhear\t goblin\t noises\t and\t horrible\t cries\t far\t behind\t in\t the",
+        "start": 1964,
+        "end": 2067,
+        "participants": [
+          "Bilbo",
+          "Gandalf",
+          "Glamdring",
+          "Biter",
+          "Orcrist",
+          "Thorin",
+          "Kili",
+          "Baggins"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 203,
+        "end": 208,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "Gandalf\twas\tquite\tright:\tthey\tbegan\tto\nhear\t gobli..."
+          }
+        ]
+      }
+    ]
+  },
+  "timestamp": 1745709005.8807905,
+  "has_embedding": true
+}

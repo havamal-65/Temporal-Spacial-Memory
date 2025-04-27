@@ -1,0 +1,158 @@
+{
+  "id": "ab7128fd-1c40-4004-82fa-720b6cfd7fc2",
+  "content": "Chapter\n\tXIV\nFIRE\tAND\tWATER\nNow\t if\t you\t wish,\t like\t the\t dwarves,\t to\t hear\t news\t of\nSmaug,\tyou\tmust\tgo\tback\tagain\tto\tthe\tevening\twhen\the\nsmashed\tthe\tdoor\tand\tflew\toff\tin\trage,\ttwo\tdays\tbefore.\nThe\t men\t of\t the\t lake-town\t Esgaroth\t were\t mostly\nindoors,\tfor\tthe\tbreeze\twas\tfrom\tthe\tblack\tEast\tand\tchill,\nbut\t a\t few\t were\t walking\t on\t the\t quays,\t and\t watching,\t as\nthey\t were\t fond\t of\t doing,\t the\t stars\t shine\t out\t from\t the\nsmooth\t patches\t of\t the\t lake\t as\t they\t opened\t in\t the\t sky.\nFrom\t their\t town\t the\t Lonely\t Mountain\t was\t mostly\nscreened\t by\t the\t low\t hills\t at\t the\t far\t end\t of\t the\t lake,\nthrough\t a\t gap\t in\t which\t the\t Running\t River\t came\t down\nfrom\tthe\tNorth.\tOnly\tits\thigh\tpeak\tcould\tthey\tsee\tin\tclear\nweather,\tand\tthey\tlooked\tseldom\tat\tit,\tfor\tit\twas\tominous\nand\tdrear\teven\tin\tthe\tlight\tof\tmorning.\tNow\tit\twas\tlost\nand\tgone,\tblotted\tin\tthe\tdark.\nSuddenly\t it\t flickered\t back\t to\t view;\t a\t brief\t glow\ntouched\tit\tand\tfaded.\n\u201cLook!\u201d\t said\t one.\t \u201cThe\t lights\t again!\t Last\t night\t the\nwatchmen\t saw\t them\t start\t and\t fade\t from\t midnight\t until\ndawn.\tSomething\tis\thappening\tup\tthere.\u201d\n\u201cPerhaps\tthe\tKing\tunder\tthe\tMountain\tis\tforging\tgold,\u201d\nsaid\tanother.\t\u201cIt\tis\tlong\tsince\the\twent\tNorth.\tIt\tis\ttime\tthe\nsongs\tbegan\tto\tprove\tthemselves\tagain.\u201d",
+  "coordinates": {
+    "r": 6.7975,
+    "theta": 4.73084583722453,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 240,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1281,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Smaug",
+        "type": "administrative",
+        "start": 89,
+        "end": 94,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Now\tit\twas\tlost\nand\tgone,\tblotted\tin\tthe\tdark.\n"
+          },
+          {
+            "type": "participated_in",
+            "target": "Something\tis\thappening\tup\tthere.\u201d\n"
+          },
+          {
+            "type": "participated_in",
+            "target": "It\tis\ttime\tthe\nsongs\tbegan\tto\tprove\tthemselves\taga..."
+          }
+        ]
+      },
+      {
+        "name": "Something",
+        "type": "group",
+        "start": 1091,
+        "end": 1100,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Now\tit\twas\tlost\nand\tgone,\tblotted\tin\tthe\tdark.\n"
+          },
+          {
+            "type": "participated_in",
+            "target": "Something\tis\thappening\tup\tthere.\u201d\n"
+          },
+          {
+            "type": "participated_in",
+            "target": "It\tis\ttime\tthe\nsongs\tbegan\tto\tprove\tthemselves\taga..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "Now\tit\twas\tlost\nand\tgone,\tblotted\tin\tthe\tdark.\n",
+        "description": "Now\tit\twas\tlost\nand\tgone,\tblotted\tin\tthe\tdark.\n",
+        "start": 838,
+        "end": 885,
+        "participants": [
+          "Smaug",
+          "Something"
+        ],
+        "location": "Smaug",
+        "time": null
+      },
+      {
+        "name": "Something\tis\thappening\tup\tthere.\u201d\n",
+        "description": "Something\tis\thappening\tup\tthere.\u201d\n",
+        "start": 1091,
+        "end": 1125,
+        "participants": [
+          "Smaug",
+          "Something"
+        ],
+        "location": "Smaug",
+        "time": null
+      },
+      {
+        "name": "It\tis\ttime\tthe\nsongs\tbegan\tto\tprove\tthemselves\taga...",
+        "description": "It\tis\ttime\tthe\nsongs\tbegan\tto\tprove\tthemselves\tagain.\u201d",
+        "start": 1227,
+        "end": 1281,
+        "participants": [
+          "Smaug",
+          "Something"
+        ],
+        "location": "Smaug",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Smaug",
+        "type": "administrative",
+        "start": 89,
+        "end": 94,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "Now\tit\twas\tlost\nand\tgone,\tblotted\tin\tthe\tdark.\n"
+          },
+          {
+            "type": "hosted",
+            "target": "Something\tis\thappening\tup\tthere.\u201d\n"
+          },
+          {
+            "type": "hosted",
+            "target": "It\tis\ttime\tthe\nsongs\tbegan\tto\tprove\tthemselves\taga..."
+          }
+        ]
+      },
+      {
+        "name": "East",
+        "type": "geographical",
+        "start": 294,
+        "end": 298,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "North",
+        "type": "geographical",
+        "start": 690,
+        "end": 695,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745709015.3134105,
+  "has_embedding": true
+}

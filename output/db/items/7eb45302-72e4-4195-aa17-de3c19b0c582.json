@@ -1,0 +1,49 @@
+{
+  "id": "7eb45302-72e4-4195-aa17-de3c19b0c582",
+  "content": "Chapter\n\tVIII\nFLIES\tAND\tSPIDERS\nThey\twalked\tin\tsingle\tfile.\tThe\tentrance\tto\tthe\tpath\twas\nlike\ta\tsort\tof\tarch\tleading\tinto\ta\tgloomy\ttunnel\tmade\tby\ntwo\tgreat\ttrees\tthat\tleant\ttogether,\ttoo\told\tand\tstrangled\nwith\t ivy\t and\t hung\t with\t lichen\t to\t bear\t more\t than\t a\t few\nblackened\tleaves.\tThe\tpath\titself\twas\tnarrow\tand\twound\nin\t and\t out\t among\t the\t trunks.\t Soon\t the\t light\t at\t the\t gate\nwas\tlike\ta\tlittle\tbright\thole\tfar\tbehind,\tand\tthe\tquiet\twas\nso\t deep\t that\t their\t feet\t seemed\t to\t thump\t along\t while\t all\nthe\ttrees\tleaned\tover\tthem\tand\tlistened.\nAs\t their\t eyes\t became\t used\t to\t the\t dimness\t they\t could\nsee\ta\tlittle\tway\tto\teither\tside\tin\ta\tsort\tof\tdarkened\tgreen\nglimmer.\tOccasionally\ta\tslender\tbeam\tof\tsun\tthat\thad\tthe\nluck\t to\t slip\t in\t through\t some\t opening\t in\t the\t leaves\t far\nabove,\t and\t still\t more\t luck\t in\t not\t being\t caught\t in\t the\ntangled\tboughs\tand\tmatted\ttwigs\tbeneath,\tstabbed\tdown\nthin\tand\tbright\tbefore\tthem.\tBut\tthis\twas\tseldom,\tand\tit\nsoon\tceased\taltogether.\nThere\t were\t black\t squirrels\t in\t the\t wood.\t As\t Bilbo\u2019s\nsharp\tinquisitive\teyes\tgot\tused\tto\tseeing\tthings\the\tcould\ncatch\t glimpses\t of\t them\t whisking\t off\t the\t path\t and\nscuttling\tbehind\ttree-trunks.\tThere\twere\tqueer\tnoises\ttoo,\ngrunts,\tscufflings,\tand\thurryings\tin\tthe\tundergrowth,\tand\namong\tthe\tleaves\tthat\tlay\tpiled\tendlessly\tthick\tin\tplaces",
+  "coordinates": {
+    "r": 6.6274999999999995,
+    "theta": 0.12762720155208535,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 139,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1349,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_person",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "person",
+        "start": 1052,
+        "end": 1057,
+        "mentions": 1,
+        "relationships": []
+      }
+    ],
+    "events": [],
+    "locations": []
+  },
+  "timestamp": 1745709009.727322,
+  "has_embedding": true
+}

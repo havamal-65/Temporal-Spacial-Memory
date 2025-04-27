@@ -1,0 +1,183 @@
+{
+  "id": "6b32b5aa-acd2-4278-9d23-813dbf41bbaf",
+  "content": "green,\tblue,\tred,\tsilver-grey,\tyellow,\twhite;\tbig\tones,\tlittle\nones;\t little\t ones\t dodging\t through\t big\t ones\t and\t joining\ninto\tfigure-eights,\tand\tgoing\toff\tlike\ta\tflock\tof\tbirds\tinto\nthe\tdistance.\n\u201cI\thave\tbeen\tpicking\tout\tbear-tracks,\u201d\the\tsaid\tat\tlast.\n\u201cThere\tmust\thave\tbeen\ta\tregular\tbears\u2019\tmeeting\toutside\nhere\t last\t night.\t I\t soon\t saw\t that\t Beorn\t could\t not\t have\nmade\tthem\tall:\tthere\twere\tfar\ttoo\tmany\tof\tthem,\tand\tthey\nwere\t of\t various\t sizes\t too.\t I\t should\t say\t there\t were\t little\nbears,\tlarge\tbears,\tordinary\tbears,\tand\tgigantic\tbig\tbears,\nall\tdancing\toutside\tfrom\tdark\tto\tnearly\tdawn.\tThey\tcame\nfrom\t almost\t every\t direction,\t except\t from\t the\t west\t over\nthe\triver,\tfrom\tthe\tMountains.\tIn\tthat\tdirection\tonly\tone\nset\tof\tfootprints\tled\u2014none\tcoming,\tonly\tones\tgoing\taway\nfrom\there.\tI\tfollowed\tthese\tas\tfar\tas\tthe\tCarrock.\tThere\nthey\t disappeared\t into\t the\t river,\t but\t the\t water\t was\t too\ndeep\tand\tstrong\tbeyond\tthe\trock\tfor\tme\tto\tcross.\tIt\tis\teasy\nenough,\t as\t you\t remember,\t to\t get\t from\t this\t bank\t to\t the\nCarrock\t by\t the\t ford,\t but\t on\t the\t other\t side\t is\t a\t cliff\nstanding\tup\tfrom\ta\tswirling\tchannel.\tI\thad\tto\twalk\tmiles\nbefore\t I\t found\t a\t place\t where\t the\t river\t was\t wide\t and\nshallow\tenough\tfor\tme\tto\twade\tand\tswim,\tand\tthen\tmiles\nback\tagain\tto\tpick\tup\tthe\ttracks\tagain.\tBy\tthat\ttime\tit\twas\ntoo\tlate\tfor\tme\tto\tfollow\tthem\tfar.\tThey\twent\tstraight\toff\nin\tthe\tdirection\tof\tthe\tpine-woods\ton\tthe\teast\tside\tof\tthe\nMisty\tMountains,\twhere\twe\thad\tour\tpleasant\tlittle\tparty\nwith\tthe\tWargs\tthe\tnight\tbefore\tlast.\tAnd\tnow\tI\tthink\tI\nhave\t answered\t your\t first\t question,\t too,\u201d\t ended\t Gandalf,\nand\the\tsat\ta\tlong\twhile\tsilent.\nBilbo\tthought\the\tknew\twhat\tthe\twizard\tmeant.\t\u201cWhat\nshall\twe\tdo,\u201d\the\tcried,\t\u201cif\the\tleads\tall\tthe\tWargs\tand\tthe\ngoblins\tdown\there?\tWe\tshall\tall\tbe\tcaught\tand\tkilled!\tI\nthought\tyou\tsaid\the\twas\tnot\ta\tfriend\tof\ttheirs.\u201d\n\u201cSo\tI\tdid.\tAnd\tdon\u2019t\tbe\tsilly!\tYou\thad\tbetter\tgo\tto\tbed,\nyour\twits\tare\tsleepy.\u201d\nThe\t hobbit\t felt\t quite\t crushed,\t and\t as\t there\t seemed\nnothing\t else\t to\t do\t he\t did\t go\t to\t bed;\t and\t while\t the\ndwarves\twere\tstill\tsinging\tsongs\the\tdropped\tasleep,\tstill",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 0.3597123588360313,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 130,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2136,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Beorn",
+        "type": "person",
+        "start": 352,
+        "end": 357,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "And\tnow\tI\tthink\tI\nhave\t answered\t your\t first\t que..."
+          },
+          {
+            "type": "participated_in",
+            "target": "We\tshall\tall\tbe\tcaught\tand\tkilled!\t"
+          }
+        ]
+      },
+      {
+        "name": "Carrock",
+        "type": "administrative",
+        "start": 836,
+        "end": 843,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "And\tnow\tI\tthink\tI\nhave\t answered\t your\t first\t que..."
+          },
+          {
+            "type": "participated_in",
+            "target": "We\tshall\tall\tbe\tcaught\tand\tkilled!\t"
+          }
+        ]
+      },
+      {
+        "name": "ford",
+        "type": "organization",
+        "start": 1057,
+        "end": 1061,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "And\tnow\tI\tthink\tI\nhave\t answered\t your\t first\t que..."
+          },
+          {
+            "type": "participated_in",
+            "target": "We\tshall\tall\tbe\tcaught\tand\tkilled!\t"
+          }
+        ]
+      },
+      {
+        "name": "Wargs",
+        "type": "organization",
+        "start": 1521,
+        "end": 1526,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "And\tnow\tI\tthink\tI\nhave\t answered\t your\t first\t que..."
+          },
+          {
+            "type": "participated_in",
+            "target": "We\tshall\tall\tbe\tcaught\tand\tkilled!\t"
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "person",
+        "start": 1663,
+        "end": 1668,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "And\tnow\tI\tthink\tI\nhave\t answered\t your\t first\t que..."
+          },
+          {
+            "type": "participated_in",
+            "target": "We\tshall\tall\tbe\tcaught\tand\tkilled!\t"
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "And\tnow\tI\tthink\tI\nhave\t answered\t your\t first\t que...",
+        "description": "And\tnow\tI\tthink\tI\nhave\t answered\t your\t first\t question,\t too,\u201d\t ended\t Gandalf,\nand\the\tsat\ta\tlong\twhile\tsilent.\n",
+        "start": 1550,
+        "end": 1663,
+        "participants": [
+          "Beorn",
+          "Carrock",
+          "ford",
+          "Wargs",
+          "Bilbo"
+        ],
+        "location": "Mountains",
+        "time": null
+      },
+      {
+        "name": "We\tshall\tall\tbe\tcaught\tand\tkilled!\t",
+        "description": "We\tshall\tall\tbe\tcaught\tand\tkilled!\t",
+        "start": 1792,
+        "end": 1827,
+        "participants": [
+          "Beorn",
+          "Carrock",
+          "ford",
+          "Wargs",
+          "Bilbo"
+        ],
+        "location": "Mountains",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Mountains",
+        "type": "geographical",
+        "start": 700,
+        "end": 709,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "And\tnow\tI\tthink\tI\nhave\t answered\t your\t first\t que..."
+          },
+          {
+            "type": "hosted",
+            "target": "We\tshall\tall\tbe\tcaught\tand\tkilled!\t"
+          }
+        ]
+      },
+      {
+        "name": "Carrock",
+        "type": "administrative",
+        "start": 836,
+        "end": 843,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745773084.7245946,
+  "has_embedding": true
+}

@@ -1,0 +1,166 @@
+{
+  "id": "e64eefc6-dd4a-498c-95d9-8bbe9398f1b3",
+  "content": "Poor\tMr.\tBaggins\u2014it\twas\ta\tweary\tlong\ttime\tthat\the\tlived\nin\tthat\tplace\tall\talone,\tand\talways\tin\thiding,\tnever\tdaring\nto\t take\t off\t his\t ring,\t hardly\t daring\t to\t sleep,\t even\t tucked\naway\t in\t the\t darkest\t and\t remotest\t corners\t he\t could\t find.\nFor\t something\t to\t do\t he\t took\t to\t wandering\t about\t the\nElvenking\u2019s\t palace.\t Magic\t shut\t the\t gates,\t but\t he\t could\nsometimes\t get\t out,\t if\t he\t was\t quick.\t Companies\t of\t the\nWood-elves,\t sometimes\t with\t the\t king\t at\t their\t head,\nwould\t from\t time\t to\t time\t ride\t out\t to\t hunt,\t or\t to\t other\nbusiness\tin\tthe\twoods\tand\tin\tthe\tlands\tto\tthe\tEast.\tThen\tif\nBilbo\t was\t very\t nimble,\t he\t could\t slip\t out\t just\t behind\nthem;\tthough\tit\twas\ta\tdangerous\tthing\tto\tdo.\tMore\tthan\nonce\the\twas\tnearly\tcaught\tin\tthe\tdoors,\tas\tthey\tclashed\ntogether\twhen\tthe\tlast\telf\tpassed;\tyet\the\tdid\tnot\tdare\tto\nmarch\t among\t them\t because\t of\t his\t shadow\t (altogether\nthin\t and\t wobbly\t as\t it\t was\t in\t torchlight),\t or\t for\t fear\t of\nbeing\tbumped\tinto\tand\tdiscovered.\tAnd\twhen\the\tdid\tgo\nout,\twhich\twas\tnot\tvery\toften,\the\tdid\tno\tgood.\tHe\tdid\tnot\nwish\tto\tdesert\tthe\tdwarves,\tand\tindeed\the\tdid\tnot\tknow\nwhere\tin\tthe\tworld\tto\tgo\twithout\tthem.\tHe\tcould\tnot\tkeep\nup\twith\tthe\thunting\telves\tall\tthe\ttime\tthey\twere\tout,\tso\the\nnever\tdiscovered\tthe\tways\tout\tof\tthe\twood,\tand\twas\tleft\nto\t wander\t miserably\t in\t the\t forest,\t terrified\t of\t losing\nhimself,\tuntil\ta\tchance\tcame\tof\treturning.\tHe\twas\thungry\ntoo\toutside,\tfor\the\twas\tno\thunter;\tbut\tinside\tthe\tcaves\the\ncould\tpick\tup\ta\tliving\tof\tsome\tsort\tby\tstealing\tfood\tfrom\nstore\tor\ttable\twhen\tno\tone\twas\tat\thand.\n\u201cI\tam\tlike\ta\tburglar\tthat\tcan\u2019t\tget\taway,\tbut\tmust\tgo\ton\nmiserably\t burgling\t the\t same\t house\t day\t after\t day,\u201d\t he\nthought.\t\u201cThis\tis\tthe\tdreariest\tand\tdullest\tpart\tof\tall\tthis\nwretched,\t tiresome,\t uncomfortable\t adventure!\t I\t wish\t I\nwas\t back\t in\t my\t hobbit-hole\t by\t my\t own\t warm\t fireside\nwith\t the\t lamp\t shining!\u201d\t He\t often\t wished,\t too,\t that\t he\ncould\tget\ta\tmessage\tfor\thelp\tsent\tto\tthe\twizard,\tbut\tthat\nof\tcourse\twas\tquite\timpossible;\tand\the\tsoon\trealized\tthat\nif\tanything\twas\tto\tbe\tdone,\tit\twould\thave\tto\tbe\tdone\tby\nMr.\tBaggins,\talone\tand\tunaided.\nEventually,\tafter\ta\tweek\tor\ttwo\tof\tthis\tsneaking\tsort\tof",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 4.816061537953153,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 170,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2212,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_organization",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Baggins",
+        "type": "person",
+        "start": 9,
+        "end": 16,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "For\t something\t to\t do\t he\t took\t to\t wandering\t a..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Magic\t shut\t the\t gates,\t but\t he\t could\nsometimes..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Companies\t of\t the\nWood-elves,\t sometimes\t with\t t..."
+          }
+        ]
+      },
+      {
+        "name": "Magic",
+        "type": "organization",
+        "start": 331,
+        "end": 336,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "For\t something\t to\t do\t he\t took\t to\t wandering\t a..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Magic\t shut\t the\t gates,\t but\t he\t could\nsometimes..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Companies\t of\t the\nWood-elves,\t sometimes\t with\t t..."
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "person",
+        "start": 617,
+        "end": 622,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "For\t something\t to\t do\t he\t took\t to\t wandering\t a..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Magic\t shut\t the\t gates,\t but\t he\t could\nsometimes..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Companies\t of\t the\nWood-elves,\t sometimes\t with\t t..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "For\t something\t to\t do\t he\t took\t to\t wandering\t a...",
+        "description": "For\t something\t to\t do\t he\t took\t to\t wandering\t about\t the\nElvenking\u2019s\t palace.\t ",
+        "start": 249,
+        "end": 331,
+        "participants": [
+          "Baggins",
+          "Magic",
+          "Bilbo"
+        ],
+        "location": "East",
+        "time": null
+      },
+      {
+        "name": "Magic\t shut\t the\t gates,\t but\t he\t could\nsometimes...",
+        "description": "Magic\t shut\t the\t gates,\t but\t he\t could\nsometimes\t get\t out,\t if\t he\t was\t quick.\t ",
+        "start": 331,
+        "end": 415,
+        "participants": [
+          "Baggins",
+          "Magic",
+          "Bilbo"
+        ],
+        "location": "East",
+        "time": null
+      },
+      {
+        "name": "Companies\t of\t the\nWood-elves,\t sometimes\t with\t t...",
+        "description": "Companies\t of\t the\nWood-elves,\t sometimes\t with\t the\t king\t at\t their\t head,\nwould\t from\t time\t to\t time\t ride\t out\t to\t hunt,\t or\t to\t other\nbusiness\tin\tthe\twoods\tand\tin\tthe\tlands\tto\tthe\tEast.\t",
+        "start": 415,
+        "end": 609,
+        "participants": [
+          "Baggins",
+          "Magic",
+          "Bilbo"
+        ],
+        "location": "East",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "East",
+        "type": "geographical",
+        "start": 603,
+        "end": 607,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "For\t something\t to\t do\t he\t took\t to\t wandering\t a..."
+          },
+          {
+            "type": "hosted",
+            "target": "Magic\t shut\t the\t gates,\t but\t he\t could\nsometimes..."
+          },
+          {
+            "type": "hosted",
+            "target": "Companies\t of\t the\nWood-elves,\t sometimes\t with\t t..."
+          }
+        ]
+      }
+    ]
+  },
+  "timestamp": 1745773091.4283178,
+  "has_embedding": true
+}

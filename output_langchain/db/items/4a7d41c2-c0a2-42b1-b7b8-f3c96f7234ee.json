@@ -1,0 +1,130 @@
+{
+  "id": "4a7d41c2-c0a2-42b1-b7b8-f3c96f7234ee",
+  "content": "mountains\t could\t not\t be\t altogether\t hid.\t So\t they\t too\t had\ngathered\t in\t great\t numbers,\t under\t the\t great\t Eagle\t of\t the\nMisty\tMountains;\tand\tat\tlength\tsmelling\tbattle\tfrom\tafar\nthey\t had\t come\t speeding\t down\t the\t gale\t in\t the\t nick\t of\ntime.\t They\t it\t was\t who\t dislodged\t the\t goblins\t from\t the\nmountain-slopes,\tcasting\tthem\tover\tprecipices,\tor\tdriving\nthem\tdown\tshrieking\tand\tbewildered\tamong\ttheir\tfoes.\tIt\nwas\tnot\tlong\tbefore\tthey\thad\tfreed\tthe\tLonely\tMountain,\nand\telves\tand\tmen\ton\teither\tside\tof\tthe\tvalley\tcould\tcome\nat\tlast\tto\tthe\thelp\tof\tthe\tbattle\tbelow.\nBut\teven\twith\tthe\tEagles\tthey\twere\tstill\toutnumbered.\nIn\t that\t last\t hour\t Beorn\t himself\t had\t appeared\u2014no\t one\nknew\thow\tor\tfrom\twhere.\tHe\tcame\talone,\tand\tin\tbear\u2019s\nshape;\tand\the\tseemed\tto\thave\tgrown\talmost\tto\tgiant-size\nin\this\twrath.\nThe\troar\tof\this\tvoice\twas\tlike\tdrums\tand\tguns;\tand\the\ntossed\twolves\tand\tgoblins\tfrom\this\tpath\tlike\tstraws\tand\nfeathers.\tHe\tfell\tupon\ttheir\trear,\tand\tbroke\tlike\ta\tclap\tof\nthunder\t through\t the\t ring.\t The\t dwarves\t were\t making\t a\nstand\tstill\tabout\ttheir\tlords\tupon\ta\tlow\trounded\thill.\tThen\nBeorn\tstooped\tand\tlifted\tThorin,\twho\thad\tfallen\tpierced\nwith\tspears,\tand\tbore\thim\tout\tof\tthe\tfray.\nSwiftly\t he\t returned\t and\t his\t wrath\t was\t redoubled,\t so\nthat\tnothing\tcould\twithstand\thim,\tand\tno\tweapon\tseemed\nto\tbite\tupon\thim.\tHe\tscattered\tthe\tbodyguard,\tand\tpulled\ndown\tBolg\thimself\tand\tcrushed\thim.\tThen\tdismay\tfell\ton\nthe\tGoblins\tand\tthey\tfled\tin\tall\tdirections.\tBut\tweariness\nleft\ttheir\tenemies\twith\tthe\tcoming\tof\tnew\thope,\tand\tthey\npursued\tthem\tclosely,\tand\tprevented\tmost\tof\tthem\tfrom\nescaping\t where\t they\t could.\t They\t drove\t many\t of\t them\ninto\t the\t Running\t River,\t and\t such\t as\t fled\t south\t or\t west\nthey\thunted\tinto\tthe\tmarshes\tabout\tthe\tForest\tRiver;\tand\nthere\tthe\tgreater\tpart\tof\tthe\tlast\tfugitives\tperished,\twhile\nthose\t that\t came\t hardly\t to\t the\t Wood-elves\u2019\t realm\t were\nthere\tslain,\tor\tdrawn\tin\tto\tdie\tdeep\tin\tthe\ttrackless\tdark\tof\nMirkwood.\tSongs\thave\tsaid\tthat\tthree\tparts\tof\tthe\tgoblin\nwarriors\t of\t the\t North\t perished\t on\t that\t day,\t and\t the\nmountains\thad\tpeace\tfor\tmany\ta\tyear.",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 3.1965705250276146,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 283,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2121,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_person",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Eagle",
+        "type": "organization",
+        "start": 114,
+        "end": 119,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Eagles",
+        "type": "administrative",
+        "start": 597,
+        "end": 603,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Beorn",
+        "type": "person",
+        "start": 655,
+        "end": 660,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bolg",
+        "type": "organization",
+        "start": 1382,
+        "end": 1386,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Forest",
+        "type": "administrative",
+        "start": 1765,
+        "end": 1771,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Mirkwood",
+        "type": "organization",
+        "start": 1967,
+        "end": 1975,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Songs",
+        "type": "administrative",
+        "start": 1977,
+        "end": 1982,
+        "mentions": 1,
+        "relationships": []
+      }
+    ],
+    "events": [],
+    "locations": [
+      {
+        "name": "Eagles",
+        "type": "administrative",
+        "start": 597,
+        "end": 603,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Forest",
+        "type": "administrative",
+        "start": 1765,
+        "end": 1771,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Songs",
+        "type": "administrative",
+        "start": 1977,
+        "end": 1982,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "North",
+        "type": "geographical",
+        "start": 2043,
+        "end": 2048,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745715418.3020427,
+  "has_embedding": true
+}

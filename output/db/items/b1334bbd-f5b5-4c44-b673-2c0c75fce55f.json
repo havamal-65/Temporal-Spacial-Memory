@@ -1,0 +1,126 @@
+{
+  "id": "b1334bbd-f5b5-4c44-b673-2c0c75fce55f",
+  "content": "something.\tHe\tcould\tnot\tget\tup\tat\tthe\tbrutes\tand\the\thad\nnothing\t to\t shoot\t with;\t but\t looking\t about\t he\t saw\t that\t in\nthis\tplace\tthere\twere\tmany\tstones\tlying\tin\twhat\tappeared\nto\tbe\ta\tnow\tdry\tlittle\twatercourse.\tBilbo\twas\ta\tpretty\tfair\nshot\twith\ta\tstone,\tand\tit\tdid\tnot\ttake\thim\tlong\tto\tfind\ta\nnice\t smooth\t egg-shaped\t one\t that\t fitted\t his\t hand\t cosily.\nAs\t a\t boy\t he\t used\t to\t practise\t throwing\t stones\t at\t things,\nuntil\trabbits\tand\tsquirrels,\tand\teven\tbirds,\tgot\tout\tof\this\nway\tas\tquick\tas\tlightning\tif\tthey\tsaw\thim\tstoop;\tand\teven\ngrownup\t he\t had\t still\t spent\t a\t deal\t of\t his\t time\t at\t quoits,\ndart-throwing,\tshooting\tat\tthe\twand,\tbowls,\tninepins\tand\nother\t quiet\t games\t of\t the\t aiming\t and\t throwing\t sort\u2014\nindeed\the\tcould\tdo\tlots\tof\tthings,\tbesides\tblowing\tsmoke-\nrings,\tasking\triddles\tand\tcooking,\tthat\tI\thaven\u2019t\thad\ttime\nto\t tell\t you\t about.\t There\t is\t no\t time\t now.\t While\t he\t was\npicking\t up\t stones,\t the\t spider\t had\t reached\t Bombur,\t and\nsoon\t he\t would\t have\t been\t dead.\t At\t that\t moment\t Bilbo\nthrew.\tThe\tstone\tstruck\tthe\tspider\tplunk\ton\tthe\thead,\tand\nit\tdropped\tsenseless\toff\tthe\ttree,\tflop\tto\tthe\tground,\twith\nall\tits\tlegs\tcurled\tup.\nThe\t next\t stone\t went\t whizzing\t through\t a\t big\t web,\nsnapping\tits\tcords,\tand\ttaking\toff\tthe\tspider\tsitting\tin\tthe\nmiddle\tof\tit,\twhack,\tdead.\tAfter\tthat\tthere\twas\ta\tdeal\tof\ncommotion\t in\t the\t spider-colony,\t and\t they\t forgot\t the\ndwarves\tfor\ta\tbit,\tI\tcan\ttell\tyou.\tThey\tcould\tnot\tsee\tBilbo,\nbut\t they\t could\t make\t a\t good\t guess\t at\t the\t direction\t from\nwhich\tthe\tstones\twere\tcoming.\tAs\tquick\tas\tlightning\tthey\ncame\trunning\tand\tswinging\ttowards\tthe\thobbit,\tflinging\nout\ttheir\tlong\tthreads\tin\tall\tdirections,\ttill\tthe\tair\tseemed\nfull\tof\twaving\tsnares.\nBilbo,\thowever,\tsoon\tslipped\taway\tto\ta\tdifferent\tplace.\nThe\tidea\tcame\tto\thim\tto\tlead\tthe\tfurious\tspiders\tfurther\nand\tfurther\taway\tfrom\tthe\tdwarves,\tif\the\tcould;\tto\tmake\nthem\tcurious,\texcited\tand\tangry\tall\tat\tonce.\tWhen\tabout\nfifty\thad\tgone\toff\tto\tthe\tplace\twhere\the\thad\tstood\tbefore,\nhe\tthrew\tsome\tmore\tstones\tat\tthese,\tand\tat\tothers\tthat\thad\nstopped\tbehind;\tthen\tdancing\tamong\tthe\ttrees\the\tbegan\tto\nsing\ta\tsong\tto\tinfuriate\tthem\tand\tbring\tthem\tall\tafter\thim,",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 3.421979797922682,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 156,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2191,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 215,
+        "end": 220,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "something.\t"
+          },
+          {
+            "type": "participated_in",
+            "target": "When\tabout\nfifty\thad\tgone\toff\tto\tthe\tplace\twhere\th..."
+          }
+        ]
+      },
+      {
+        "name": "Bombur",
+        "type": "administrative",
+        "start": 960,
+        "end": 966,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "something.\t"
+          },
+          {
+            "type": "participated_in",
+            "target": "When\tabout\nfifty\thad\tgone\toff\tto\tthe\tplace\twhere\th..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "something.\t",
+        "description": "something.\t",
+        "start": 0,
+        "end": 11,
+        "participants": [
+          "Bilbo",
+          "Bombur"
+        ],
+        "location": "Bilbo",
+        "time": null
+      },
+      {
+        "name": "When\tabout\nfifty\thad\tgone\toff\tto\tthe\tplace\twhere\th...",
+        "description": "When\tabout\nfifty\thad\tgone\toff\tto\tthe\tplace\twhere\the\thad\tstood\tbefore,\nhe\tthrew\tsome\tmore\tstones\tat\tthese,\tand\tat\tothers\tthat\thad\nstopped\tbehind;\tthen\tdancing\tamong\tthe\ttrees\the\tbegan\tto\nsing\ta\tsong\tto\tinfuriate\tthem\tand\tbring\tthem\tall\tafter\thim,",
+        "start": 1946,
+        "end": 2191,
+        "participants": [
+          "Bilbo",
+          "Bombur"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 215,
+        "end": 220,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "something.\t"
+          },
+          {
+            "type": "hosted",
+            "target": "When\tabout\nfifty\thad\tgone\toff\tto\tthe\tplace\twhere\th..."
+          }
+        ]
+      },
+      {
+        "name": "Bombur",
+        "type": "administrative",
+        "start": 960,
+        "end": 966,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745709010.8025308,
+  "has_embedding": true
+}

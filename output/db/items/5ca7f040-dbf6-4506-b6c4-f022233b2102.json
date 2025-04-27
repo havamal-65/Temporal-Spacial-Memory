@@ -1,0 +1,118 @@
+{
+  "id": "5ca7f040-dbf6-4506-b6c4-f022233b2102",
+  "content": "their\ttubs.\tSome\tof\tthose\tthat\tbobbed\talong\tby\thim\tin\tthe\ngloom\t seemed\t pretty\t low\t in\t the\t water,\t and\t he\t guessed\nthat\tthese\thad\tdwarves\tinside.\n\u201cI\tdo\thope\tI\tput\tthe\tlids\ton\ttight\tenough!\u201d\the\tthought,\nbut\tbefore\tlong\the\twas\tworrying\ttoo\tmuch\tabout\thimself\nto\tremember\tthe\tdwarves.\tHe\tmanaged\tto\tkeep\this\thead\nabove\tthe\twater,\tbut\the\twas\tshivering\twith\tthe\tcold,\tand\nhe\twondered\tif\the\twould\tdie\tof\tit\tbefore\tthe\tluck\tturned,\nand\thow\tmuch\tlonger\the\twould\tbe\table\tto\thang\ton,\tand\nwhether\the\tshould\trisk\tthe\tchance\tof\tletting\tgo\tand\ttrying\nto\tswim\tto\tthe\tbank.\nThe\t luck\t turned\t all\t right\t before\t long:\t the\t eddying\ncurrent\t carried\t several\t barrels\t close\t ashore\t at\t one\t point\nand\tthere\tfor\ta\twhile\tthey\tstuck\tagainst\tsome\thidden\troot.\nThen\tBilbo\ttook\tthe\topportunity\tof\tscrambling\tup\tthe\tside\nof\this\tbarrel\twhile\tit\twas\theld\tsteady\tagainst\tanother.\tUp\nhe\tcrawled\tlike\ta\tdrowned\trat,\tand\tlay\ton\tthe\ttop\tspread\nout\tto\tkeep\tthe\tbalance\tas\tbest\the\tcould.\tThe\tbreeze\twas\ncold\tbut\tbetter\tthan\tthe\twater,\tand\the\thoped\the\twould\tnot\nsuddenly\troll\toff\tagain\twhen\tthey\tstarted\toff\tonce\tmore.\nBefore\tlong\tthe\tbarrels\tbroke\tfree\tagain\tand\tturned\tand\ntwisted\t off\t down\t the\t stream,\t and\t out\t into\t the\t main\ncurrent.\tThen\the\tfound\tit\tquite\tas\tdifficult\tto\tstick\ton\tas\nhe\thad\tfeared;\tbut\the\tmanaged\tit\tsomehow,\tthough\tit\twas\nmiserably\tuncomfortable.\tLuckily\the\twas\tvery\tlight,\tand\nthe\tbarrel\twas\ta\tgood\tbig\tone\tand\tbeing\trather\tleaky\thad\nnow\tshipped\ta\tsmall\tamount\tof\twater.\tAll\tthe\tsame\tit\twas\nlike\t trying\t to\t ride,\t without\t bridle\t or\t stirrups,\t a\t round-\nbellied\t pony\t that\t was\t always\t thinking\t of\t rolling\t on\t the\ngrass.\nIn\tthis\tway\tat\tlast\tMr.\tBaggins\tcame\tto\ta\tplace\twhere\nthe\t trees\t on\t either\t hand\t grew\t thinner.\t He\t could\t see\t the\npaler\tsky\tbetween\tthem.\tThe\tdark\triver\topened\tsuddenly\nwide,\t and\t there\t it\t was\t joined\t to\t the\t main\t water\t of\t the\nForest\tRiver\tflowing\tdown\tin\thaste\tfrom\tthe\tking\u2019s\tgreat\ndoors.\t There\t was\t a\t dim\t sheet\t of\t water\t no\t longer\novershadowed,\t and\t on\t its\t sliding\t surface\t there\t were\ndancing\t and\t broken\t reflections\t of\t clouds\t and\t of\t stars.",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 3.4958072252820425,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 181,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2110,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 752,
+        "end": 757,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "He\tmanaged\tto\tkeep\this\thead\nabove\tthe\twater,\tbut\th..."
+          },
+          {
+            "type": "participated_in",
+            "target": "The\tbreeze\twas\ncold\tbut\tbetter\tthan\tthe\twater,\tand..."
+          }
+        ]
+      },
+      {
+        "name": "Baggins",
+        "type": "person",
+        "start": 1658,
+        "end": 1665,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "He\tmanaged\tto\tkeep\this\thead\nabove\tthe\twater,\tbut\th..."
+          },
+          {
+            "type": "participated_in",
+            "target": "The\tbreeze\twas\ncold\tbut\tbetter\tthan\tthe\twater,\tand..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "He\tmanaged\tto\tkeep\this\thead\nabove\tthe\twater,\tbut\th...",
+        "description": "He\tmanaged\tto\tkeep\this\thead\nabove\tthe\twater,\tbut\the\twas\tshivering\twith\tthe\tcold,\tand\nhe\twondered\tif\the\twould\tdie\tof\tit\tbefore\tthe\tluck\tturned,\nand\thow\tmuch\tlonger\the\twould\tbe\table\tto\thang\ton,\tand\nwhether\the\tshould\trisk\tthe\tchance\tof\tletting\tgo\tand\ttrying\nto\tswim\tto\tthe\tbank.\n",
+        "start": 287,
+        "end": 563,
+        "participants": [
+          "Bilbo",
+          "Baggins"
+        ],
+        "location": "Bilbo",
+        "time": null
+      },
+      {
+        "name": "The\tbreeze\twas\ncold\tbut\tbetter\tthan\tthe\twater,\tand...",
+        "description": "The\tbreeze\twas\ncold\tbut\tbetter\tthan\tthe\twater,\tand\the\thoped\the\twould\tnot\nsuddenly\troll\toff\tagain\twhen\tthey\tstarted\toff\tonce\tmore.\n",
+        "start": 963,
+        "end": 1093,
+        "participants": [
+          "Bilbo",
+          "Baggins"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 752,
+        "end": 757,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "He\tmanaged\tto\tkeep\this\thead\nabove\tthe\twater,\tbut\th..."
+          },
+          {
+            "type": "hosted",
+            "target": "The\tbreeze\twas\ncold\tbut\tbetter\tthan\tthe\twater,\tand..."
+          }
+        ]
+      }
+    ]
+  },
+  "timestamp": 1745709012.1975305,
+  "has_embedding": true
+}

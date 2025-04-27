@@ -1,0 +1,74 @@
+{
+  "id": "a5f0e6d9-751d-4d67-bc7e-e27287a7ad8d",
+  "content": "Bilbo.\t\u201cYou\tmust\tgo\ton\tand\tfind\tout\tall\tabout\tthat\tlight,\nand\twhat\tit\tis\tfor,\tand\tif\tall\tis\tperfectly\tsafe\tand\tcanny,\u201d\nsaid\t Thorin\t to\t the\t hobbit.\t \u201cNow\t scuttle\t off,\t and\t come\nback\tquick,\tif\tall\tis\twell.\tIf\tnot,\tcome\tback\tif\tyou\tcan!\tIf\nyou\t can\u2019t,\t hoot\t twice\t like\t a\t barn-owl\t and\t once\t like\t a\nscreech-owl,\tand\twe\twill\tdo\twhat\twe\tcan.\u201d\nOff\t Bilbo\t had\t to\t go,\t before\t he\t could\t explain\t that\t he\ncould\tnot\thoot\teven\tonce\tlike\tany\tkind\tof\towl\tany\tmore\nthan\t fly\t like\t a\t bat.\t But\t at\t any\t rate\t hobbits\t can\t move\nquietly\tin\twoods,\tabsolutely\tquietly.\tThey\ttake\ta\tpride\tin\nit,\tand\tBilbo\thad\tsniffed\tmore\tthan\tonce\tat\twhat\the\tcalled\n\u201call\t this\t dwarvish\t racket,\u201d\t as\t they\t went\t along,\t though\t I\ndon\u2019t\tsuppose\tyou\tor\tI\twould\thave\tnoticed\tanything\tat\tall\non\ta\twindy\tnight,\tnot\tif\tthe\twhole\tcavalcade\thad\tpassed\ntwo\tfeet\toff.\tAs\tfor\tBilbo\twalking\tprimly\ttowards\tthe\tred\nlight,\tI\tdon\u2019t\tsuppose\teven\ta\tweasel\twould\thave\tstirred\ta\nwhisker\tat\tit.\tSo,\tnaturally,\the\tgot\tright\tup\tto\tthe\tfire\u2014for\nfire\tit\twas\u2014without\tdisturbing\tanyone.\tAnd\tthis\tis\twhat\nhe\tsaw.\nThree\tvery\tlarge\tpersons\tsitting\tround\ta\tvery\tlarge\tfire\nof\tbeech-logs.\tThey\twere\ttoasting\tmutton\ton\tlong\tspits\tof\nwood,\tand\tlicking\tthe\tgravy\toff\ttheir\tfingers.\tThere\twas\ta\nfine\t toothsome\t smell.\t Also\t there\t was\t a\t barrel\t of\t good\ndrink\t at\t hand,\t and\t they\t were\t drinking\t out\t of\t jugs.\t But\nthey\twere\ttrolls.\tObviously\ttrolls.\tEven\tBilbo,\tin\tspite\tof\nhis\t sheltered\t life,\t could\t see\t that:\t from\t the\t great\t heavy\nfaces\tof\tthem,\tand\ttheir\tsize,\tand\tthe\tshape\tof\ttheir\tlegs,\nnot\t to\t mention\t their\t language,\t which\t was\t not\t drawing-\nroom\tfashion\tat\tall,\tat\tall.\n\u201cMutton\t yesterday,\t mutton\t today,\t and\t blimey,\t if\t it\ndon\u2019t\t look\t like\t mutton\t again\t tomorrer,\u201d\t said\t one\t of\t the\ntrolls.\n\u201cNever\ta\tblinking\tbit\tof\tmanflesh\thave\twe\thad\tfor\tlong\nenough,\u201d\t said\t a\t second.\t \u201cWhat\t the\t \u2019ell\t William\t was\t a-\nthinkin\u2019\tof\tto\tbring\tus\tinto\tthese\tparts\tat\tall,\tbeats\tme\u2014\nand\tthe\tdrink\trunnin\u2019\tshort,\twhat\u2019s\tmore,\u201d\the\tsaid\tjogging\nthe\telbow\tof\tWilliam,\twho\twas\ttaking\ta\tpull\tat\this\tjug.\nWilliam\tchoked.\t\u201cShut\tyer\tmouth!\u201d\the\tsaid\tas\tsoon\tas",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 3.3626822365861746,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 38,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2126,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_person",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 0,
+        "end": 5,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Thorin",
+        "type": "group",
+        "start": 125,
+        "end": 131,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "William",
+        "type": "person",
+        "start": 1883,
+        "end": 1890,
+        "mentions": 1,
+        "relationships": []
+      }
+    ],
+    "events": [],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 0,
+        "end": 5,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745715399.5344348,
+  "has_embedding": true
+}

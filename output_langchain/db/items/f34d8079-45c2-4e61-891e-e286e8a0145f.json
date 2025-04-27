@@ -1,0 +1,82 @@
+{
+  "id": "f34d8079-45c2-4e61-891e-e286e8a0145f",
+  "content": "be\tdeposed?\tWho\taroused\tthe\tdragon\tfrom\this\tslumber,\tI\nmight\task?\tWho\tobtained\tof\tus\trich\tgifts\tand\tample\thelp,\nand\t led\t us\t to\t believe\t that\t old\t songs\t could\t come\t true?\nWho\tplayed\ton\tour\tsoft\thearts\tand\tour\tpleasant\tfancies?\nWhat\tsort\tof\tgold\thave\tthey\tsent\tdown\tthe\triver\tto\treward\nus?\t Dragon-fire\t and\t ruin!\t From\t whom\t should\t we\t claim\nthe\t recompense\t of\t our\t damage,\t and\t aid\t for\t our\t widows\nand\torphans?\u201d\nAs\t you\t see,\t the\t Master\t had\t not\t got\t his\t position\t for\nnothing.\tThe\tresult\tof\this\twords\twas\tthat\tfor\tthe\tmoment\nthe\t people\t quite\t forgot\t their\t idea\t of\t a\t new\t king,\t and\nturned\t their\t angry\t thoughts\t towards\t Thorin\t and\t his\ncompany.\tWild\tand\tbitter\twords\twere\tshouted\tfrom\tmany\nsides;\t and\t some\t of\t those\t who\t had\t before\t sung\t the\t old\nsongs\tloudest,\twere\tnow\theard\tas\tloudly\tcrying\tthat\tthe\ndwarves\t had\t stirred\t the\t dragon\t up\t against\t them\ndeliberately!\n\u201cFools!\u201d\t said\t Bard.\t \u201cWhy\t waste\t words\t and\t wrath\t on\nthose\tunhappy\tcreatures?\tDoubtless\tthey\tperished\tfirst\tin\nfire,\t before\t Smaug\t came\t to\t us.\u201d\t Then\t even\t as\t he\t was\nspeaking,\t the\t thought\t came\t into\t his\t heart\t of\t the\t fabled\ntreasure\t of\t the\t Mountain\t lying\t without\t guard\t or\t owner,\nand\t he\t fell\t suddenly\t silent.\t He\t thought\t of\t the\t Master\u2019s\nwords,\tand\tof\tDale\trebuilt,\tand\tfilled\twith\tgolden\tbells,\tif\nhe\tcould\tbut\tfind\tthe\tmen.\nAt\t length\t he\t spoke\t again:\t \u201cThis\t is\t no\t time\t for\t angry\nwords,\t Master,\t or\t for\t considering\t weighty\t plans\t of\nchange.\t There\t is\t work\t to\t do.\t I\t serve\t you\t still\u2014though\nafter\t a\t while\t I\t may\t think\t again\t of\t your\t words\t and\t go\nNorth\twith\tany\tthat\twill\tfollow\tme.\u201d\nThen\the\tstrode\toff\tto\thelp\tin\tthe\tordering\tof\tthe\tcamps\nand\t in\t the\t care\t of\t the\t sick\t and\t the\t wounded.\t But\t the\nMaster\t scowled\t at\t his\t back\t as\t he\t went,\t and\t remained\nsitting\t on\t the\t ground.\t He\t thought\t much\t but\t said\t little,\nunless\tit\twas\tto\tcall\tloudly\tfor\tmen\tto\tbring\thim\tfire\tand\nfood.\nNow\teverywhere\tBard\twent\the\tfound\ttalk\trunning\tlike\nfire\t among\t the\t people\t concerning\t the\t vast\t treasure\t that",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 0.20538161972843275,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 246,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2078,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_person",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Thorin",
+        "type": "group",
+        "start": 650,
+        "end": 656,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Fools",
+        "type": "person",
+        "start": 909,
+        "end": 914,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bard",
+        "type": "person",
+        "start": 924,
+        "end": 928,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Smaug",
+        "type": "administrative",
+        "start": 1039,
+        "end": 1044,
+        "mentions": 1,
+        "relationships": []
+      }
+    ],
+    "events": [],
+    "locations": [
+      {
+        "name": "Smaug",
+        "type": "administrative",
+        "start": 1039,
+        "end": 1044,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745715415.5277815,
+  "has_embedding": true
+}

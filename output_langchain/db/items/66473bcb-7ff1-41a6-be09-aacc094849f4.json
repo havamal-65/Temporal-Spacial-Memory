@@ -1,0 +1,138 @@
+{
+  "id": "66473bcb-7ff1-41a6-be09-aacc094849f4",
+  "content": "sudden\tassault.\nThis\tis\tthe\tplan\tthat\the\tmade\tin\tcouncil\twith\tthe\tElven-\nking\t and\t with\t Bard;\t and\t with\t Dain,\t for\t the\t dwarf-lord\nnow\tjoined\tthem:\tthe\tGoblins\twere\tthe\tfoes\tof\tall,\tand\tat\ntheir\tcoming\tall\tother\tquarrels\twere\tforgotten.\tTheir\tonly\nhope\twas\tto\tlure\tthe\tgoblins\tinto\tthe\tvalley\tbetween\tthe\narms\t of\t the\t Mountain;\t and\t themselves\t to\t man\t the\t great\nspurs\t that\t struck\t south\t and\t east.\t Yet\t this\t would\t be\nperilous,\t if\t the\t goblins\t were\t in\t sufficient\t numbers\t to\noverrun\tthe\tMountain\titself,\tand\tso\tattack\tthem\talso\tfrom\nbehind\t and\t above;\t but\t there\t was\t no\t time\t to\t make\t any\nother\tplan,\tor\tto\tsummon\tany\thelp.\nSoon\t the\t thunder\t passed,\t rolling\t away\t to\t the\t South-\nEast;\t but\t the\t bat-cloud\t came,\t flying\t lower,\t over\t the\nshoulder\t of\t the\t Mountain,\t and\t whirled\t above\t them\nshutting\tout\tthe\tlight\tand\tfilling\tthem\twith\tdread.\n\u201cTo\t the\t Mountain!\u201d\t called\t Bard.\t \u201cTo\t the\t Mountain!\nLet\tus\ttake\tour\tplaces\twhile\tthere\tis\tyet\ttime!\u201d\nOn\t the\t Southern\t spur,\t in\t its\t lower\t slopes\t and\t in\t the\nrocks\tat\tits\tfeet,\tthe\tElves\twere\tset;\ton\tthe\tEastern\tspur\nwere\t men\t and\t dwarves.\t But\t Bard\t and\t some\t of\t the\nnimblest\t of\t men\t and\t elves\t climbed\t to\t the\t height\t of\t the\nEastern\tshoulder\tto\tgain\ta\tview\tto\tthe\tNorth.\tSoon\tthey\ncould\tsee\tthe\tlands\tbefore\tthe\tMountain\u2019s\tfeet\tblack\twith\na\t hurrying\t multitude.\t Ere\t long\t the\t vanguard\t swirled\nround\tthe\tspur\u2019s\tend\tand\tcame\trushing\tinto\tDale.\tThese\nwere\tthe\tswiftest\twolf-riders,\tand\talready\ttheir\tcries\tand\nhowls\t rent\t the\t air\t afar.\t A\t few\t brave\t men\t were\t strung\nbefore\tthem\tto\tmake\ta\tfeint\tof\tresistance,\tand\tmany\tthere\nfell\tbefore\tthe\trest\tdrew\tback\tand\tfled\tto\teither\tside.\tAs\nGandalf\thad\thoped,\tthe\tgoblin\tarmy\thad\tgathered\tbehind\nthe\t resisted\t vanguard,\t and\t poured\t now\t in\t rage\t into\t the\nvalley,\t driving\t wildly\t up\t between\t the\t arms\t of\t the\nMountain,\t seeking\t for\t the\t foe.\t Their\t banners\t were\ncountless,\tblack\tand\tred,\tand\tthey\tcame\ton\tlike\ta\ttide\tin\nfury\tand\tdisorder.\nIt\twas\ta\tterrible\tbattle.\tThe\tmost\tdreadful\tof\tall\tBilbo\u2019s\nexperiences,\tand\tthe\tone\twhich\tat\tthe\ttime\the\thated\tmost",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 1.0218030105800802,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 275,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2123,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_group",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bard",
+        "type": "person",
+        "start": 90,
+        "end": 94,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Dain",
+        "type": "person",
+        "start": 108,
+        "end": 112,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Goblins",
+        "type": "organization",
+        "start": 157,
+        "end": 164,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Southern",
+        "type": "group",
+        "start": 996,
+        "end": 1004,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Eastern",
+        "type": "organization",
+        "start": 1096,
+        "end": 1103,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Ere",
+        "type": "person",
+        "start": 1369,
+        "end": 1372,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Dale",
+        "type": "organization",
+        "start": 1446,
+        "end": 1450,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bilbo",
+        "type": "organization",
+        "start": 2059,
+        "end": 2064,
+        "mentions": 1,
+        "relationships": []
+      }
+    ],
+    "events": [],
+    "locations": [
+      {
+        "name": "South-\nEast",
+        "type": "geographical",
+        "start": 705,
+        "end": 716,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Mountain",
+        "type": "geographical",
+        "start": 792,
+        "end": 800,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bard",
+        "type": "geographical",
+        "start": 911,
+        "end": 915,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "North",
+        "type": "geographical",
+        "start": 1269,
+        "end": 1274,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745715417.694269,
+  "has_embedding": true
+}

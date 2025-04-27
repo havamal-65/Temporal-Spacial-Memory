@@ -1,0 +1,194 @@
+{
+  "id": "b11f7798-162f-47e1-86d4-53e76bfcffaa",
+  "content": "It\twas!\tTrolls\u2019\tpurses\tare\tthe\tmischief,\tand\tthis\twas\tno\nexception.\t\u201c\u2019Ere,\t\u2019oo\tare\tyou?\u201d\tit\tsqueaked,\tas\tit\tleft\tthe\npocket;\t and\t William\t turned\t round\t at\t once\t and\t grabbed\nBilbo\tby\tthe\tneck,\tbefore\the\tcould\tduck\tbehind\tthe\ttree.\n\u201cBlimey,\tBert,\tlook\twhat\tI\u2019ve\tcopped!\u201d\tsaid\tWilliam.\n\u201cWhat\tis\tit?\u201d\tsaid\tthe\tothers\tcoming\tup.\t\u201cLumme,\tif\tI\nknows!\tWhat\tare\tyer?\u201d\n\u201cBilbo\t Baggins,\t a\t bur\u2014a\t hobbit,\u201d\t said\t poor\t Bilbo,\nshaking\tall\tover,\tand\twondering\thow\tto\tmake\towl-noises\nbefore\tthey\tthrottled\thim.\n\u201cA\t burrahobbit?\u201d\t said\t they\t a\t bit\t startled.\t Trolls\t are\nslow\tin\tthe\tuptake,\tand\tmighty\tsuspicious\tabout\tanything\nnew\tto\tthem.\n\u201cWhat\u2019s\t a\t burrahobbit\t got\t to\t do\t with\t my\t pocket,\nanyways?\u201d\tsaid\tWilliam.\n\u201cAnd\tcan\tyer\tcook\t\u2019em?\u201d\tsaid\tTom.\n\u201cYer\tcan\ttry,\u201d\tsaid\tBert,\tpicking\tup\ta\tskewer.\n\u201cHe\twouldn\u2019t\tmake\tabove\ta\tmouthful,\u201d\tsaid\tWilliam,\nwho\t had\t already\t had\t a\t fine\t supper,\t \u201cnot\t when\t he\t was\nskinned\tand\tboned.\u201d\n\u201cP\u2019raps\t there\t are\t more\t like\t him\t round\t about,\t and\t we\nmight\t make\t a\t pie,\u201d\t said\t Bert.\t \u201cHere\t you,\t are\t there\t any\nmore\t of\t your\t sort\t a-sneakin\u2019\t in\t these\t here\t woods,\t yer\nnassty\tlittle\trabbit,\u201d\tsaid\the\tlooking\tat\tthe\thobbit\u2019s\tfurry\nfeet;\tand\the\tpicked\thim\tup\tby\tthe\ttoes\tand\tshook\thim.\n\u201cYes,\t lots,\u201d\t said\t Bilbo,\t before\t he\t remembered\t not\t to\ngive\this\tfriends\taway.\t\u201cNo\tnone\tat\tall,\tnot\tone,\u201d\the\tsaid\nimmediately\tafterwards.\n\u201cWhat\td\u2019yer\tmean?\u201d\tsaid\tBert,\tholding\thim\tright\tway\nup,\tby\tthe\thair\tthis\ttime.\n\u201cWhat\t I\t say,\u201d\t said\t Bilbo\t gasping.\t \u201cAnd\t please\t don\u2019t\ncook\tme,\tkind\tsirs!\tI\tam\ta\tgood\tcook\tmyself,\tand\tcook\nbetter\t than\t I\t cook,\t if\t you\t see\t what\t I\t mean.\t I\u2019ll\t cook\nbeautifully\t for\t you,\t a\t perfectly\t beautiful\t breakfast\t for\nyou,\tif\tonly\tyou\twon\u2019t\thave\tme\tfor\tsupper.\u201d\n\u201cPoor\tlittle\tblighter,\u201d\tsaid\tWilliam.\tHe\thad\talready\thad\nas\tmuch\tsupper\tas\the\tcould\thold;\talso\the\thad\thad\tlots\tof\nbeer.\t\u201cPoor\tlittle\tblighter!\tLet\thim\tgo!\u201d",
+  "coordinates": {
+    "r": 5.2575,
+    "theta": 0.2666426764734337,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 40,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1897,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_person",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "William",
+        "type": "person",
+        "start": 131,
+        "end": 138,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "What\tare\tyer?\u201d\n\u201cBilbo\t Baggins,\t a\t bur\u2014a\t hobbit,..."
+          },
+          {
+            "type": "participated_in",
+            "target": "I\u2019ll\t cook\nbeautifully\t for\t you,\t a\t perfectly\t b..."
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "person",
+        "start": 178,
+        "end": 183,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "What\tare\tyer?\u201d\n\u201cBilbo\t Baggins,\t a\t bur\u2014a\t hobbit,..."
+          },
+          {
+            "type": "participated_in",
+            "target": "I\u2019ll\t cook\nbeautifully\t for\t you,\t a\t perfectly\t b..."
+          }
+        ]
+      },
+      {
+        "name": "Blimey",
+        "type": "person",
+        "start": 236,
+        "end": 242,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "What\tare\tyer?\u201d\n\u201cBilbo\t Baggins,\t a\t bur\u2014a\t hobbit,..."
+          },
+          {
+            "type": "participated_in",
+            "target": "I\u2019ll\t cook\nbeautifully\t for\t you,\t a\t perfectly\t b..."
+          }
+        ]
+      },
+      {
+        "name": "Bert",
+        "type": "person",
+        "start": 244,
+        "end": 248,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "What\tare\tyer?\u201d\n\u201cBilbo\t Baggins,\t a\t bur\u2014a\t hobbit,..."
+          },
+          {
+            "type": "participated_in",
+            "target": "I\u2019ll\t cook\nbeautifully\t for\t you,\t a\t perfectly\t b..."
+          }
+        ]
+      },
+      {
+        "name": "Trolls",
+        "type": "organization",
+        "start": 553,
+        "end": 559,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "What\tare\tyer?\u201d\n\u201cBilbo\t Baggins,\t a\t bur\u2014a\t hobbit,..."
+          },
+          {
+            "type": "participated_in",
+            "target": "I\u2019ll\t cook\nbeautifully\t for\t you,\t a\t perfectly\t b..."
+          }
+        ]
+      },
+      {
+        "name": "Tom",
+        "type": "person",
+        "start": 744,
+        "end": 747,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "What\tare\tyer?\u201d\n\u201cBilbo\t Baggins,\t a\t bur\u2014a\t hobbit,..."
+          },
+          {
+            "type": "participated_in",
+            "target": "I\u2019ll\t cook\nbeautifully\t for\t you,\t a\t perfectly\t b..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "What\tare\tyer?\u201d\n\u201cBilbo\t Baggins,\t a\t bur\u2014a\t hobbit,...",
+        "description": "What\tare\tyer?\u201d\n\u201cBilbo\t Baggins,\t a\t bur\u2014a\t hobbit,\u201d\t said\t poor\t Bilbo,\nshaking\tall\tover,\tand\twondering\thow\tto\tmake\towl-noises\nbefore\tthey\tthrottled\thim.\n",
+        "start": 349,
+        "end": 503,
+        "participants": [
+          "William",
+          "Bilbo",
+          "Blimey",
+          "Bert",
+          "Trolls",
+          "Tom"
+        ],
+        "location": "Bilbo",
+        "time": null
+      },
+      {
+        "name": "I\u2019ll\t cook\nbeautifully\t for\t you,\t a\t perfectly\t b...",
+        "description": "I\u2019ll\t cook\nbeautifully\t for\t you,\t a\t perfectly\t beautiful\t breakfast\t for\nyou,\tif\tonly\tyou\twon\u2019t\thave\tme\tfor\tsupper.\u201d\n",
+        "start": 1623,
+        "end": 1742,
+        "participants": [
+          "William",
+          "Bilbo",
+          "Blimey",
+          "Bert",
+          "Trolls",
+          "Tom"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 414,
+        "end": 419,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "What\tare\tyer?\u201d\n\u201cBilbo\t Baggins,\t a\t bur\u2014a\t hobbit,..."
+          },
+          {
+            "type": "hosted",
+            "target": "I\u2019ll\t cook\nbeautifully\t for\t you,\t a\t perfectly\t b..."
+          }
+        ]
+      }
+    ]
+  },
+  "timestamp": 1745715399.6956499,
+  "has_embedding": true
+}

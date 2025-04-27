@@ -1,0 +1,118 @@
+{
+  "id": "63c773dd-959c-4f71-9a81-2a9d8fe4992f",
+  "content": "That\t was\t one\t of\t his\t most\t miserable\t moments.\t But\t he\nsoon\tmade\tup\this\tmind\tthat\tit\twas\tno\tgood\ttrying\tto\tdo\nanything\t till\t day\t came\t with\t some\t little\t light,\t and\t quite\nuseless\tto\tgo\tblundering\tabout\ttiring\thimself\tout\twith\tno\nhope\t of\t any\t breakfast\t to\t revive\t him.\t So\t he\t sat\t himself\ndown\twith\this\tback\tto\ta\ttree,\tand\tnot\tfor\tthe\tlast\ttime\tfell\nto\tthinking\tof\this\tfar-distant\thobbit-hole\twith\tits\tbeautiful\npantries.\tHe\twas\tdeep\tin\tthoughts\tof\tbacon\tand\teggs\tand\ntoast\t and\t butter\t when\t he\t felt\t something\t touch\t him.\nSomething\tlike\ta\tstrong\tsticky\tstring\twas\tagainst\this\tleft\nhand,\t and\t when\t he\t tried\t to\t move\t he\t found\t that\t his\t legs\nwere\talready\twrapped\tin\tthe\tsame\tstuff,\tso\tthat\twhen\the\ngot\tup\the\tfell\tover.\nThen\tthe\tgreat\tspider,\twho\thad\tbeen\tbusy\ttying\thim\tup\nwhile\the\tdozed,\tcame\tfrom\tbehind\thim\tand\tcame\tat\thim.\nHe\tcould\tonly\tsee\tthe\tthing\u2019s\teyes,\tbut\the\tcould\tfeel\tits\nhairy\tlegs\tas\tit\tstruggled\tto\twind\tits\tabominable\tthreads\nround\tand\tround\thim.\tIt\twas\tlucky\tthat\the\thad\tcome\tto\this\nsenses\t in\t time.\t Soon\t he\t would\t not\t have\t been\t able\t to\nmove\tat\tall.\tAs\tit\twas,\the\thad\ta\tdesperate\tfight\tbefore\the\ngot\tfree.\tHe\tbeat\tthe\tcreature\toff\twith\this\thands\u2014it\twas\ntrying\tto\tpoison\thim\tto\tkeep\thim\tquiet,\tas\tsmall\tspiders\ndo\tto\tflies\u2014until\the\tremembered\this\tsword\tand\tdrew\tit\nout.\tThen\tthe\tspider\tjumped\tback,\tand\the\thad\ttime\tto\tcut\nhis\t legs\t loose.\t After\t that\t it\t was\t his\t turn\t to\t attack.\t The\nspider\tevidently\twas\tnot\tused\tto\tthings\tthat\tcarried\tsuch\nstings\t at\t their\t sides,\t or\t it\t would\t have\t hurried\t away\nquicker.\t Bilbo\t came\t at\t it\t before\t it\t could\t disappear\t and\nstuck\tit\twith\this\tsword\tright\tin\tthe\teyes.\tThen\tit\twent\tmad\nand\tleaped\tand\tdanced\tand\tflung\tout\tits\tlegs\tin\thorrible\njerks,\t until\t he\t killed\t it\t with\t another\t stroke;\t and\t then\t he\nfell\tdown\tand\tremembered\tnothing\tmore\tfor\ta\tlong\twhile.\nThere\t was\t the\t usual\t dim\t grey\t light\t of\t the\t forest-day\nabout\t him\t when\t he\t came\t to\t his\t senses.\t The\t spider\t lay\ndead\tbeside\thim,\tand\this\tsword-blade\twas\tstained\tblack.\nSomehow\t the\t killing\t of\t the\t giant\t spider,\t all\t alone\t by\nhimself\tin\tthe\tdark\twithout\tthe\thelp\tof\tthe\twizard\tor\tthe\ndwarves\tor\tof\tanyone\telse,\tmade\ta\tgreat\tdifference\tto\tMr.",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 4.867112418573987,
+    "t": 1745630173.9676006,
+    "z": 2
+  },
+  "metadata": {
+    "chunk_index": 153,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2227,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 2
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 1571,
+        "end": 1576,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "He\twas\tdeep\tin\tthoughts\tof\tbacon\tand\teggs\tand\ntoas..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Something\tlike\ta\tstrong\tsticky\tstring\twas\tagainst\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Then\tit\twent\tmad\nand\tleaped\tand\tdanced\tand\tflung\to..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "He\twas\tdeep\tin\tthoughts\tof\tbacon\tand\teggs\tand\ntoas...",
+        "description": "He\twas\tdeep\tin\tthoughts\tof\tbacon\tand\teggs\tand\ntoast\t and\t butter\t when\t he\t felt\t something\t touch\t him.\n",
+        "start": 437,
+        "end": 542,
+        "participants": [
+          "Bilbo"
+        ],
+        "location": "Bilbo",
+        "time": null
+      },
+      {
+        "name": "Something\tlike\ta\tstrong\tsticky\tstring\twas\tagainst\t...",
+        "description": "Something\tlike\ta\tstrong\tsticky\tstring\twas\tagainst\this\tleft\nhand,\t and\t when\t he\t tried\t to\t move\t he\t found\t that\t his\t legs\nwere\talready\twrapped\tin\tthe\tsame\tstuff,\tso\tthat\twhen\the\ngot\tup\the\tfell\tover.\n",
+        "start": 542,
+        "end": 744,
+        "participants": [
+          "Bilbo"
+        ],
+        "location": "Bilbo",
+        "time": null
+      },
+      {
+        "name": "Then\tit\twent\tmad\nand\tleaped\tand\tdanced\tand\tflung\to...",
+        "description": "Then\tit\twent\tmad\nand\tleaped\tand\tdanced\tand\tflung\tout\tits\tlegs\tin\thorrible\njerks,\t until\t he\t killed\t it\t with\t another\t stroke;\t and\t then\t he\nfell\tdown\tand\tremembered\tnothing\tmore\tfor\ta\tlong\twhile.\n",
+        "start": 1669,
+        "end": 1868,
+        "participants": [
+          "Bilbo"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 1571,
+        "end": 1576,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "He\twas\tdeep\tin\tthoughts\tof\tbacon\tand\teggs\tand\ntoas..."
+          },
+          {
+            "type": "hosted",
+            "target": "Something\tlike\ta\tstrong\tsticky\tstring\twas\tagainst\t..."
+          },
+          {
+            "type": "hosted",
+            "target": "Then\tit\twent\tmad\nand\tleaped\tand\tdanced\tand\tflung\to..."
+          }
+        ]
+      }
+    ]
+  },
+  "timestamp": 1745715408.381456,
+  "has_embedding": true
+}

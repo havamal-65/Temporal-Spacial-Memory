@@ -1,0 +1,162 @@
+{
+  "id": "a98b6121-9ef5-45f0-b763-8f9c8b5b4dc1",
+  "content": "mistook.\t Lots\t and\t none\t at\t all,\t it\t is,\u201d\t said\t he.\t \u201cNo\nburrahobbits,\tbut\tlots\tof\tthese\there\tdwarves.\tThat\u2019s\tabout\nthe\tshape\tof\tit!\u201d\n\u201cI\treckon\tyou\u2019re\tright,\u201d\tsaid\tBert,\t\u201cand\twe\u2019d\tbest\tget\nout\tof\tthe\tlight.\u201d\nAnd\t so\t they\t did.\t With\t sacks\t in\t their\t hands,\t that\t they\nused\t for\t carrying\t off\t mutton\t and\t other\t plunder,\t they\nwaited\t in\t the\t shadows.\t As\t each\t dwarf\t came\t up\t and\nlooked\t at\t the\t fire,\t and\t the\t spilled\t jugs,\t and\t the\t gnawed\nmutton,\t in\t surprise,\t pop!\t went\t a\t nasty\t smelly\t sack\t over\nhis\t head,\t and\t he\t was\t down.\t Soon\t Dwalin\t lay\t by\t Balin,\nand\tFili\tand\tKili\ttogether,\tand\tDori\tand\tNori\tand\tOri\tall\nin\t a\t heap,\t and\t Oin\t and\t Gloin\t and\t Bifur\t and\t Bofur\t and\nBombur\tpiled\tuncomfortably\tnear\tthe\tfire.\n\u201cThat\u2019ll\tteach\t\u2019em,\u201d\tsaid\tTom;\tfor\tBifur\tand\tBombur\nhad\t given\t a\t lot\t of\t trouble,\t and\t fought\t like\t mad,\t as\ndwarves\twill\twhen\tcornered.\nThorin\tcame\tlast\u2014and\the\twas\tnot\tcaught\tunawares.\tHe\ncame\t expecting\t mischief,\t and\t didn\u2019t\t need\t to\t see\t his\nfriends\u2019\tlegs\tsticking\tout\tof\tsacks\tto\ttell\thim\tthat\tthings\nwere\tnot\tall\twell.\tHe\tstood\toutside\tin\tthe\tshadows\tsome\nway\toff,\tand\tsaid:\t\u201cWhat\u2019s\tall\tthis\ttrouble?\tWho\thas\tbeen\nknocking\tmy\tpeople\tabout?\u201d\n\u201cIt\u2019s\t trolls!\u201d\t said\t Bilbo\t from\t behind\t a\t tree.\t They\t had\nforgotten\t all\t about\t him.\t \u201cThey\u2019re\t hiding\t in\t the\t bushes\nwith\tsacks,\u201d\tsaid\the.\n\u201cO!\tare\tthey?\u201d\tsaid\tThorin,\tand\the\tjumped\tforward\tto\nthe\t fire,\t before\t they\t could\t leap\t on\t him.\t He\t caught\t up\t a\nbig\tbranch\tall\ton\tfire\tat\tone\tend;\tand\tBert\tgot\tthat\tend\tin\nhis\teye\tbefore\the\tcould\tstep\taside.\tThat\tput\thim\tout\tof\tthe\nbattle\t for\t a\t bit.\t Bilbo\t did\t his\t best.\t He\t caught\t hold\t of\nTom\u2019s\tleg\u2014as\twell\tas\the\tcould,\tit\twas\tthick\tas\ta\tyoung\ntree-trunk\u2014but\t he\t was\t sent\t spinning\t up\t into\t the\t top\t of\nsome\tbushes,\twhen\tTom\tkicked\tthe\tsparks\tup\tin\tThorin\u2019s\nface.",
+  "coordinates": {
+    "r": 5.3875,
+    "theta": 0.10524335389525807,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 42,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1845,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bert",
+        "type": "person",
+        "start": 169,
+        "end": 173,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Dwalin",
+        "type": "organization",
+        "start": 567,
+        "end": 573,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Balin",
+        "type": "person",
+        "start": 584,
+        "end": 589,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Kili",
+        "type": "person",
+        "start": 604,
+        "end": 608,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Ori",
+        "type": "organization",
+        "start": 641,
+        "end": 644,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Gloin",
+        "type": "organization",
+        "start": 678,
+        "end": 683,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bifur",
+        "type": "person",
+        "start": 690,
+        "end": 695,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bofur",
+        "type": "administrative",
+        "start": 702,
+        "end": 707,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bombur",
+        "type": "administrative",
+        "start": 713,
+        "end": 719,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Tom",
+        "type": "person",
+        "start": 781,
+        "end": 784,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bilbo",
+        "type": "person",
+        "start": 1233,
+        "end": 1238,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Thorin",
+        "type": "group",
+        "start": 1379,
+        "end": 1385,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Tom\u2019s",
+        "type": "person",
+        "start": 1666,
+        "end": 1671,
+        "mentions": 1,
+        "relationships": []
+      }
+    ],
+    "events": [],
+    "locations": [
+      {
+        "name": "Bofur",
+        "type": "administrative",
+        "start": 702,
+        "end": 707,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bombur",
+        "type": "administrative",
+        "start": 713,
+        "end": 719,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745709004.5494862,
+  "has_embedding": true
+}

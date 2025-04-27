@@ -1,0 +1,58 @@
+{
+  "id": "290c63f7-32a4-41dd-9724-6380682d2385",
+  "content": "town-hall\tthat\twent\tdown\tto\tthe\tlake.\tPeople\tsang\ton\tthe\nquays\t and\t out\t of\t windows.\t The\t white\t oars\t dipped\t and\nsplashed,\tand\toff\tthey\twent\tnorth\tup\tthe\tlake\ton\tthe\tlast\nstage\t of\t their\t long\t journey.\t The\t only\t person\t thoroughly\nunhappy\twas\tBilbo.",
+  "coordinates": {
+    "r": 9.355,
+    "theta": 3.2323061414621983,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 196,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 258,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 252,
+        "end": 257,
+        "mentions": 1,
+        "relationships": []
+      }
+    ],
+    "events": [],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 252,
+        "end": 257,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745709012.9527967,
+  "has_embedding": true
+}

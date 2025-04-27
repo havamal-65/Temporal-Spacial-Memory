@@ -1,0 +1,64 @@
+{
+  "id": "fc2a464e-869b-412e-a586-7ee914f444ab",
+  "content": "under\tthe\tMountain,\tif\tany\tsuch\tperson\thad\tever\texisted.\n\u201cIt\t is\t true\t that\t we\t were\t wrongfully\t waylaid\t by\t the\nElvenking\tand\timprisoned\twithout\tcause\tas\twe\tjourneyed\nback\t to\t our\t own\t land,\u201d\t answered\t Thorin.\t \u201cBut\t lock\t nor\nbar\t may\t hinder\t the\t homecoming\t spoken\t of\t old.\t Nor\t is\nthis\ttown\tin\tthe\tWood-elves\u2019\trealm.\tI\tspeak\tto\tthe\tMaster\nof\tthe\ttown\tof\tthe\tMen\tof\tthe\tLake,\tnot\tto\tthe\traft-men\tof\nthe\tking.\u201d\nThen\tthe\tMaster\thesitated\tand\tlooked\tfrom\tone\tto\tthe\nother.\t The\t Elvenking\t was\t very\t powerful\t in\t those\t parts\nand\tthe\tMaster\twished\tfor\tno\tenmity\twith\thim,\tnor\tdid\the\nthink\t much\t of\t old\t songs,\t giving\t his\t mind\t to\t trade\t and\ntolls,\t to\t cargoes\t and\t gold,\t to\t which\t habit\t he\t owed\t his\nposition.\t Others\t were\t of\t different\t mind,\t however,\t and\nquickly\tthe\tmatter\twas\tsettled\twithout\thim.\tThe\tnews\thad\nspread\tfrom\tthe\tdoors\tof\tthe\thall\tlike\tfire\tthrough\tall\tthe\ntown.\tPeople\twere\tshouting\tinside\tthe\thall\tand\toutside\tit.\nThe\tquays\twere\tthronged\twith\thurrying\tfeet.\tSome\tbegan\nto\tsing\tsnatches\tof\told\tsongs\tconcerning\tthe\treturn\tof\tthe\nKing\t under\t the\t Mountain;\t that\t it\t was\t Thror\u2019s\t grandson\nnot\tThror\thimself\tthat\thad\tcome\tback\tdid\tnot\tbother\tthem\nat\tall.\tOthers\ttook\tup\tthe\tsong\tand\tit\trolled\tloud\tand\thigh\nover\tthe\tlake.\nThe\tKing\tbeneath\tthe\tmountains,\n\t\t\t\tThe\tKing\tof\tcarven\tstone,\nThe\tlord\tof\tsilver\tfountains\n\t\t\t\tShall\tcome\tinto\this\town!\nHis\tcrown\tshall\tbe\tupholden,\n\t\t\t\tHis\tharp\tshall\tbe\trestrung,\nHis\thalls\tshall\techo\tgolden\n\t\t\t\tTo\tsongs\tof\tyore\tre-sung.\nThe\twoods\tshall\twave\ton\tmountains\n\t\t\t\tAnd\tgrass\tbeneath\tthe\tsun;",
+  "coordinates": {
+    "r": 6.0675,
+    "theta": 4.126874649571892,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 192,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1573,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "hash_based",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [],
+    "events": [
+      {
+        "name": "Some\tbegan\nto\tsing\tsnatches\tof\told\tsongs\tconcernin...",
+        "description": "Some\tbegan\nto\tsing\tsnatches\tof\told\tsongs\tconcerning\tthe\treturn\tof\tthe\nKing\t under\t the\t Mountain;\t that\t it\t was\t Thror\u2019s\t grandson\nnot\tThror\thimself\tthat\thad\tcome\tback\tdid\tnot\tbother\tthem\nat\tall.\t",
+        "start": 1006,
+        "end": 1203,
+        "participants": [],
+        "location": "Lake",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Lake",
+        "type": "geographical",
+        "start": 384,
+        "end": 388,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "Some\tbegan\nto\tsing\tsnatches\tof\told\tsongs\tconcernin..."
+          }
+        ]
+      }
+    ]
+  },
+  "timestamp": 1745773095.120699,
+  "has_embedding": true
+}

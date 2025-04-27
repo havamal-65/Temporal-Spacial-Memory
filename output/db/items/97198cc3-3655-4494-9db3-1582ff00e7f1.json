@@ -1,0 +1,66 @@
+{
+  "id": "97198cc3-3655-4494-9db3-1582ff00e7f1",
+  "content": "how\the\twas\tgoing\tto\tget\tdown\tagain\t(except\tby\tfalling).\nIn\tthe\tend\the\tpoked\this\thead\tabove\tthe\troof\tof\tleaves,\nand\t then\t he\t found\t spiders\t all\t right.\t But\t they\t were\t only\nsmall\t ones\t of\t ordinary\t size,\t and\t they\t were\t after\t the\nbutterflies.\tBilbo\u2019s\teyes\twere\tnearly\tblinded\tby\tthe\tlight.\nHe\t could\t hear\t the\t dwarves\t shouting\t up\t at\t him\t from\t far\nbelow,\tbut\the\tcould\tnot\tanswer,\tonly\thold\ton\tand\tblink.\nThe\tsun\twas\tshining\tbrilliantly,\tand\tit\twas\ta\tlong\twhile\nbefore\the\tcould\tbear\tit.\tWhen\the\tcould,\the\tsaw\tall\tround\nhim\t a\t sea\t of\t dark\t green,\t ruffled\t here\t and\t there\t by\t the\nbreeze;\t and\t there\t were\t everywhere\t hundreds\t of\nbutterflies.\tI\texpect\tthey\twere\ta\tkind\tof\t\u201cpurple\temperor\u201d,\na\t butterfly\t that\t loves\t the\t tops\t of\t oak-woods,\t but\t these\nwere\tnot\tpurple\tat\tall,\tthey\twere\ta\tdark\tdark\tvelvety\tblack\nwithout\tany\tmarkings\tto\tbe\tseen.\nHe\tlooked\tat\tthe\t\u201cblack\temperors\u201d\tfor\ta\tlong\ttime,\tand\nenjoyed\tthe\tfeel\tof\tthe\tbreeze\tin\this\thair\tand\ton\this\tface;\nbut\t at\t length\t the\t cries\t of\t the\t dwarves,\t who\t were\t now\nsimply\tstamping\twith\timpatience\tdown\tbelow,\treminded\nhim\tof\this\treal\tbusiness.\tIt\twas\tno\tgood.\tGaze\tas\tmuch\tas\nhe\tmight,\the\tcould\tsee\tno\tend\tto\tthe\ttrees\tand\tthe\tleaves\nin\tany\tdirection.\tHis\theart,\tthat\thad\tbeen\tlightened\tby\tthe\nsight\tof\tthe\tsun\tand\tthe\tfeel\tof\tthe\twind,\tsank\tback\tinto\nhis\ttoes:\tthere\twas\tno\tfood\tto\tgo\tback\tto\tdown\tbelow.\nActually,\tas\tI\thave\ttold\tyou,\tthey\twere\tnot\tfar\toff\tthe\nedge\tof\tthe\tforest;\tand\tif\tBilbo\thad\thad\tthe\tsense\tto\tsee\tit,\nthe\ttree\tthat\the\thad\tclimbed,\tthough\tit\twas\ttall\tin\titself,\nwas\t standing\t near\t the\t bottom\t of\t a\t wide\t valley,\t so\t that\nfrom\tits\ttop\tthe\ttrees\tseemed\tto\tswell\tup\tall\tround\tlike\tthe\nedges\tof\ta\tgreat\tbowl,\tand\the\tcould\tnot\texpect\tto\tsee\thow\nfar\t the\t forest\t lasted.\t Still\t he\t did\t not\t see\t this,\t and\t he\nclimbed\tdown\tfull\tof\tdespair.\tHe\tgot\tto\tthe\tbottom\tagain\nat\tlast,\tscratched,\thot,\tand\tmiserable,\tand\the\tcould\tnot\tsee\nanything\t in\t the\t gloom\t below\t when\t he\t got\t there.\t His\nreport\tsoon\tmade\tthe\tothers\tas\tmiserable\tas\the\twas.\n\u201cThe\t forest\t goes\t on\t for\t ever\t and\t ever\t and\t ever\t in\t all\ndirections!\tWhatever\tshall\twe\tdo?\tAnd\twhat\tis\tthe\tuse\tof\nsending\ta\thobbit!\u201d\tthey\tcried,\tas\tif\tit\twas\this\tfault.\tThey",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 0.9962775702696631,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 147,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2229,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_organization",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "organization",
+        "start": 252,
+        "end": 257,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Gaze",
+        "type": "organization",
+        "start": 1142,
+        "end": 1146,
+        "mentions": 1,
+        "relationships": []
+      }
+    ],
+    "events": [],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 1471,
+        "end": 1476,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745709010.2395306,
+  "has_embedding": true
+}

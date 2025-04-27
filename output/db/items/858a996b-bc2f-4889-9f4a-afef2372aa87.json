@@ -1,0 +1,88 @@
+{
+  "id": "858a996b-bc2f-4889-9f4a-afef2372aa87",
+  "content": "Chapter\n\tX\nA\tWARM\tWELCOME\nThe\tday\tgrew\tlighter\tand\twarmer\tas\tthey\tfloated\talong.\nAfter\ta\twhile\tthe\triver\trounded\ta\tsteep\tshoulder\tof\tland\nthat\tcame\tdown\tupon\ttheir\tleft.\tUnder\tits\trocky\tfeet\tlike\nan\tinland\tcliff\tthe\tdeepest\tstream\thad\tflowed\tlapping\tand\nbubbling.\tSuddenly\tthe\tcliff\tfell\taway.\tThe\tshores\tsank.\nThe\ttrees\tended.\tThen\tBilbo\tsaw\ta\tsight:\nThe\t lands\t opened\t wide\t about\t him,\t filled\t with\t the\nwaters\t of\t the\t river\t which\t broke\t up\t and\t wandered\t in\t a\nhundred\twinding\tcourses,\tor\thalted\tin\tmarshes\tand\tpools\ndotted\t with\t isles\t on\t every\t side;\t but\t still\t a\t strong\t water\nflowed\t on\t steadily\t through\t the\t midst.\t And\t far\t away,\t its\ndark\thead\tin\ta\ttorn\tcloud,\tthere\tloomed\tthe\tMountain!\tIts\nnearest\t neighbours\t to\t the\t North-East\t and\t the\t tumbled\nland\tthat\tjoined\tit\tto\tthem\tcould\tnot\tbe\tseen.\tAll\talone\tit\nrose\t and\t looked\t across\t the\t marshes\t to\t the\t forest.\t The\nLonely\tMountain!\tBilbo\thad\tcome\tfar\tand\tthrough\tmany\nadventures\tto\tsee\tit,\tand\tnow\the\tdid\tnot\tlike\tthe\tlook\tof\tit\nin\tthe\tleast.\nAs\t he\t listened\t to\t the\t talk\t of\t the\t raftmen\t and\t pieced\ntogether\t the\t scraps\t of\t information\t they\t let\t fall,\t he\t soon\nrealized\tthat\the\twas\tvery\tfortunate\tever\tto\thave\tseen\tit\tat\nall,\t even\t from\t this\t distance.\t Dreary\t as\t had\t been\t his\nimprisonment\tand\tunpleasant\tas\twas\this\tposition\t(to\tsay",
+  "coordinates": {
+    "r": 6.657500000000001,
+    "theta": 3.180077163596268,
+    "t": 1745630173.9676006,
+    "z": 3
+  },
+  "metadata": {
+    "chunk_index": 184,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1337,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 3
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 333,
+        "end": 338,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "The\ttrees\tended.\t"
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "The\ttrees\tended.\t",
+        "description": "The\ttrees\tended.\t",
+        "start": 311,
+        "end": 328,
+        "participants": [
+          "Bilbo"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 333,
+        "end": 338,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "The\ttrees\tended.\t"
+          }
+        ]
+      },
+      {
+        "name": "North-East",
+        "type": "geographical",
+        "start": 749,
+        "end": 759,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745773093.779389,
+  "has_embedding": true
+}

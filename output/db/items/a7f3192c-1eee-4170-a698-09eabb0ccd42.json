@@ -1,0 +1,90 @@
+{
+  "id": "a7f3192c-1eee-4170-a698-09eabb0ccd42",
+  "content": "are\tnot\tlikely\tto\tovercome\tthe\thost\tthat\tbesets\tyou;\tand\neven\tif\tthey\tdid\tso,\twhat\twill\tyou\tgain?\tWinter\tand\tsnow\nis\thastening\tbehind\tthem.\tHow\tshall\tyou\tbe\tfed\twithout\nthe\tfriendship\tand\tgoodwill\tof\tthe\tlands\tabout\tyou?\tThe\ntreasure\tis\tlikely\tto\tbe\tyour\tdeath,\tthough\tthe\tdragon\tis\tno\nmore!\u201d\nBut\tThorin\twas\tnot\tmoved.\t\u201cWinter\tand\tsnow\twill\tbite\nboth\t men\t and\t elves,\u201d\t he\t said,\t \u201cand\t they\t may\t find\t their\ndwelling\tin\tthe\twaste\tgrievous\tto\tbear.\tWith\tmy\tfriends\nbehind\tthem\tand\twinter\tupon\tthem,\tthey\twill\tperhaps\tbe\nin\tsofter\tmood\tto\tparley\twith.\u201d\nThat\tnight\tBilbo\tmade\tup\this\tmind.\tThe\tsky\twas\tblack\nand\tmoonless.\tAs\tsoon\tas\tit\twas\tfull\tdark,\the\twent\tto\ta\ncorner\tof\tan\tinner\tchamber\tjust\twithin\tthe\tgate\tand\tdrew\nfrom\this\tbundle\ta\trope,\tand\talso\tthe\tArkenstone\twrapped\nin\t a\t rag.\t Then\t he\t climbed\t to\t the\t top\t of\t the\t wall.\t Only\nBombur\twas\tthere,\tfor\tit\twas\this\tturn\tto\twatch,\tand\tthe\ndwarves\tkept\tonly\tone\twatchman\tat\ta\ttime.\n\u201cIt\t is\t mighty\t cold!\u201d\t said\t Bombur.\t \u201cI\t wish\t we\t could\nhave\ta\tfire\tup\there\tas\tthey\thave\tin\tthe\tcamp!\u201d\n\u201cIt\tis\twarm\tenough\tinside,\u201d\tsaid\tBilbo.\n\u201cI\t daresay;\t but\t I\t am\t bound\t here\t till\t midnight,\u201d\ngrumbled\tthe\tfat\tdwarf.\t\u201cA\tsorry\tbusiness\taltogether.\tNot\nthat\t I\t venture\t to\t disagree\t with\t Thorin,\t may\t his\t beard\ngrow\t ever\t longer;\t yet\t he\t was\t ever\t a\t dwarf\t with\t a\t stiff\nneck.\u201d\n\u201cNot\t as\t stiff\t as\t my\t legs,\u201d\t said\t Bilbo.\t \u201cI\t am\t tired\t of\nstairs\tand\tstone\tpassages.\tI\twould\tgive\ta\tgood\tdeal\tfor\tthe\nfeel\tof\tgrass\tat\tmy\ttoes.\u201d\n\u201cI\twould\tgive\ta\tgood\tdeal\tfor\tthe\tfeel\tof\ta\tstrong\tdrink\nin\tmy\tthroat,\tand\tfor\ta\tsoft\tbed\tafter\ta\tgood\tsupper!\u201d\n\u201cI\tcan\u2019t\tgive\tyou\tthose,\twhile\tthe\tsiege\tis\tgoing\ton.\nBut\tit\tis\tlong\tsince\tI\twatched,\tand\tI\twill\ttake\tyour\tturn\nfor\tyou,\tif\tyou\tlike.\tThere\tis\tno\tsleep\tin\tme\ttonight.\u201d\n\u201cYou\tare\ta\tgood\tfellow,\tMr.\tBaggins,\tand\tI\twill\ttake\nyour\t offer\t kindly.\t If\t there\t should\t be\t anything\t to\t note,\nrouse\tme\tfirst,\tmind\tyou!\tI\twill\tlie\tin\tthe\tinner\tchamber\tto\nthe\tleft,\tnot\tfar\taway.\u201d",
+  "coordinates": {
+    "r": 5.0675,
+    "theta": 3.4977707206905357,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 262,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1973,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Thorin",
+        "type": "group",
+        "start": 297,
+        "end": 303,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 565,
+        "end": 570,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bombur",
+        "type": "person",
+        "start": 843,
+        "end": 849,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Baggins",
+        "type": "person",
+        "start": 1798,
+        "end": 1805,
+        "mentions": 1,
+        "relationships": []
+      }
+    ],
+    "events": [],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 565,
+        "end": 570,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bombur",
+        "type": "administrative",
+        "start": 972,
+        "end": 978,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745773107.466723,
+  "has_embedding": true
+}

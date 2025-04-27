@@ -1,0 +1,74 @@
+{
+  "id": "6e1e4f12-1d44-4879-b4c8-015b6ed66259",
+  "content": "were\ttalking\tabout\tthe\tdwarves!\n\u201cIt\twas\ta\tsharp\tstruggle,\tbut\tworth\tit,\u201d\tsaid\tone.\t\u201cWhat\nnasty\tthick\tskins\tthey\thave\tto\tbe\tsure,\tbut\tI\u2019ll\twager\tthere\nis\tgood\tjuice\tinside.\u201d\n\u201cAye,\t they\u2019ll\t make\t fine\t eating,\t when\t they\u2019ve\t hung\t a\nbit,\u201d\tsaid\tanother.\n\u201cDon\u2019t\thang\t\u2019em\ttoo\tlong,\u201d\tsaid\ta\tthird.\t\u201cThey\u2019re\tnot\nas\t fat\t as\t they\t might\t be.\t Been\t feeding\t none\t too\t well\t of\nlate,\tI\tshould\tguess.\u201d\n\u201cKill\t \u2019em,\t I\t say,\u201d\t hissed\t a\t fourth;\t \u201ckill\t \u2019em\t now\t and\nhang\t\u2019em\tdead\tfor\ta\twhile.\u201d\n\u201cThey\u2019re\tdead\tnow,\tI\u2019ll\twarrant,\u201d\tsaid\tthe\tfirst.\t\u201cThat\nthey\tare\tnot.\tI\tsaw\tone\ta-struggling\tjust\tnow.\tJust\tcoming\nround\t again,\t I\t should\t say,\t after\t a\t bee-autiful\t sleep.\t I\u2019ll\nshow\tyou.\u201d\nWith\tthat\tone\tof\tthe\tfat\tspiders\tran\talong\ta\trope\ttill\tit\ncame\t to\t a\t dozen\t bundles\t hanging\t in\t a\t row\t from\t a\t high\nbranch.\tBilbo\twas\thorrified,\tnow\tthat\the\tnoticed\tthem\tfor\nthe\tfirst\ttime\tdangling\tin\tthe\tshadows,\tto\tsee\ta\tdwarvish\nfoot\tsticking\tout\tof\tthe\tbottoms\tof\tsome\tof\tthe\tbundles,\tor\nhere\tand\tthere\tthe\ttip\tof\ta\tnose,\tor\ta\tbit\tof\tbeard\tor\tof\ta\nhood.\nTo\tthe\tfattest\tof\tthese\tbundles\tthe\tspider\twent\u2014\u201cIt\tis\npoor\t old\t Bombur,\t I\u2019ll\t bet,\u201d\t thought\t Bilbo\u2014and\t nipped\nhard\tat\tthe\tnose\tthat\tstuck\tout.\tThere\twas\ta\tmuffled\tyelp\ninside,\t and\t a\t toe\t shot\t up\t and\t kicked\t the\t spider\t straight\nand\t hard.\t There\t was\t life\t in\t Bombur\t still.\t There\t was\t a\nnoise\t like\t the\t kicking\t of\t a\t flabby\t football,\t and\t the\nenraged\t spider\t fell\t off\t the\t branch,\t only\t catching\t itself\nwith\tits\town\tthread\tjust\tin\ttime.\nThe\tothers\tlaughed.\t\u201cYou\twere\tquite\tright,\u201d\tthey\tsaid,\n\u201cthe\tmeat\u2019s\talive\tand\tkicking!\u201d\n\u201cI\u2019ll\tsoon\tput\tan\tend\tto\tthat,\u201d\thissed\tthe\tangry\tspider\nclimbing\tback\tonto\tthe\tbranch.\nBilbo\t saw\t that\t the\t moment\t had\t come\t when\t he\t must\t do",
+  "coordinates": {
+    "r": 5.637499999999999,
+    "theta": 3.1977486222727105,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 155,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1745,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 812,
+        "end": 817,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bombur",
+        "type": "administrative",
+        "start": 1112,
+        "end": 1118,
+        "mentions": 1,
+        "relationships": []
+      }
+    ],
+    "events": [],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 812,
+        "end": 817,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bombur",
+        "type": "administrative",
+        "start": 1112,
+        "end": 1118,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745715408.5415826,
+  "has_embedding": true
+}

@@ -1,0 +1,145 @@
+{
+  "id": "876c1337-9851-4f78-9ce6-60804e9c46c8",
+  "content": "very\ttaken\taback.\tSo\tfar\tall\this\tthoughts\tand\tenergies\thad\nbeen\tconcentrated\ton\tgetting\tto\tthe\tMountain\tand\tfinding\nthe\tentrance.\tHe\thad\tnever\tbothered\tto\twonder\thow\tthe\ntreasure\twas\tto\tbe\tremoved,\tcertainly\tnever\thow\tany\tpart\nof\tit\tthat\tmight\tfall\tto\this\tshare\twas\tto\tbe\tbrought\tback\tall\nthe\tway\tto\tBag-End\tUnder-Hill.\nNow\ta\tnasty\tsuspicion\tbegan\tto\tgrow\tin\this\tmind\u2014had\nthe\t dwarves\t forgotten\t this\t important\t point\t too,\t or\t were\nthey\tlaughing\tin\ttheir\tsleeves\tat\thim\tall\tthe\ttime?\tThat\tis\nthe\teffect\tthat\tdragon-talk\thas\ton\tthe\tinexperienced.\tBilbo\nof\tcourse\tought\tto\thave\tbeen\ton\this\tguard;\tbut\tSmaug\thad\nrather\tan\toverwhelming\tpersonality.\n\u201cI\ttell\tyou,\u201d\the\tsaid,\tin\tan\teffort\tto\tremain\tloyal\tto\this\nfriends\t and\t to\t keep\t his\t end\t up,\t \u201cthat\t gold\t was\t only\t an\nafterthought\twith\tus.\tWe\tcame\tover\thill\tand\tunder\thill,\tby\nwave\t and\t wind,\t for\t\nRevenge\n.\t Surely,\t O\t Smaug\t the\nunassessably\twealthy,\tyou\tmust\trealize\tthat\tyour\tsuccess\nhas\tmade\tyou\tsome\tbitter\tenemies?\u201d\nThen\t Smaug\t really\t did\t laugh\u2014a\t devastating\t sound\nwhich\tshook\tBilbo\tto\tthe\tfloor,\twhile\tfar\tup\tin\tthe\ttunnel\nthe\t dwarves\t huddled\t together\t and\t imagined\t that\t the\nhobbit\thad\tcome\tto\ta\tsudden\tand\ta\tnasty\tend.\n\u201cRevenge!\u201d\the\tsnorted,\tand\tthe\tlight\tof\this\teyes\tlit\tthe\nhall\tfrom\tfloor\tto\tceiling\tlike\tscarlet\tlightning.\t\u201cRevenge!\nThe\tKing\tunder\tthe\tMountain\tis\tdead\tand\twhere\tare\this\nkin\tthat\tdare\tseek\trevenge?\tGirion\tLord\tof\tDale\tis\tdead,\nand\tI\thave\teaten\this\tpeople\tlike\ta\twolf\tamong\tsheep,\tand\nwhere\t are\t his\t sons\u2019\t sons\t that\t dare\t approach\t me?\t I\t kill\nwhere\tI\twish\tand\tnone\tdare\tresist.\tI\tlaid\tlow\tthe\twarriors\nof\told\tand\ttheir\tlike\tis\tnot\tin\tthe\tworld\ttoday.\tThen\tI\twas\nbut\tyoung\tand\ttender.\tNow\tI\tam\told\tand\tstrong,\tstrong,\nstrong,\tThief\tin\tthe\tShadows!\u201d\the\tgloated.\t\u201cMy\tarmour\tis\nlike\t tenfold\t shields,\t my\t teeth\t are\t swords,\t my\t claws\nspears,\t the\t shock\t of\t my\t tail\t a\t thunderbolt,\t my\t wings\t a\nhurricane,\tand\tmy\tbreath\tdeath!\u201d\n\u201cI\thave\talways\tunderstood,\u201d\tsaid\tBilbo\tin\ta\tfrightened\nsqueak,\t\u201cthat\tdragons\twere\tsofter\tunderneath,\tespecially\nin\t the\t region\t of\t the\u2014er\u2014chest;\t but\t doubtless\t one\t so",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 3.3831025888345083,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 220,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2109,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 550,
+        "end": 555,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "He\thad\tnever\tbothered\tto\twonder\thow\tthe\ntreasure\tw..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Now\ta\tnasty\tsuspicion\tbegan\tto\tgrow\tin\this\tmind\u2014ha..."
+          }
+        ]
+      },
+      {
+        "name": "Smaug",
+        "type": "administrative",
+        "start": 603,
+        "end": 608,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "He\thad\tnever\tbothered\tto\twonder\thow\tthe\ntreasure\tw..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Now\ta\tnasty\tsuspicion\tbegan\tto\tgrow\tin\this\tmind\u2014ha..."
+          }
+        ]
+      },
+      {
+        "name": "Dale",
+        "type": "organization",
+        "start": 1413,
+        "end": 1417,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "He\thad\tnever\tbothered\tto\twonder\thow\tthe\ntreasure\tw..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Now\ta\tnasty\tsuspicion\tbegan\tto\tgrow\tin\this\tmind\u2014ha..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "He\thad\tnever\tbothered\tto\twonder\thow\tthe\ntreasure\tw...",
+        "description": "He\thad\tnever\tbothered\tto\twonder\thow\tthe\ntreasure\twas\tto\tbe\tremoved,\tcertainly\tnever\thow\tany\tpart\nof\tit\tthat\tmight\tfall\tto\this\tshare\twas\tto\tbe\tbrought\tback\tall\nthe\tway\tto\tBag-End\tUnder-Hill.\n",
+        "start": 130,
+        "end": 320,
+        "participants": [
+          "Bilbo",
+          "Smaug",
+          "Dale"
+        ],
+        "location": "Bilbo",
+        "time": null
+      },
+      {
+        "name": "Now\ta\tnasty\tsuspicion\tbegan\tto\tgrow\tin\this\tmind\u2014ha...",
+        "description": "Now\ta\tnasty\tsuspicion\tbegan\tto\tgrow\tin\this\tmind\u2014had\nthe\t dwarves\t forgotten\t this\t important\t point\t too,\t or\t were\nthey\tlaughing\tin\ttheir\tsleeves\tat\thim\tall\tthe\ttime?\t",
+        "start": 320,
+        "end": 488,
+        "participants": [
+          "Bilbo",
+          "Smaug",
+          "Dale"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 550,
+        "end": 555,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "He\thad\tnever\tbothered\tto\twonder\thow\tthe\ntreasure\tw..."
+          },
+          {
+            "type": "hosted",
+            "target": "Now\ta\tnasty\tsuspicion\tbegan\tto\tgrow\tin\this\tmind\u2014ha..."
+          }
+        ]
+      },
+      {
+        "name": "Smaug",
+        "type": "administrative",
+        "start": 603,
+        "end": 608,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745773099.9192421,
+  "has_embedding": true
+}

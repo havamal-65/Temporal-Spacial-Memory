@@ -1,0 +1,120 @@
+{
+  "id": "1c4af23a-20ae-4094-8112-ad51bcfc3024",
+  "content": "turning\tto\this\tgreat\tgilded\tboat,\thoping\tto\trow\taway\tin\tthe\nconfusion\tand\tsave\thimself.\tSoon\tall\tthe\ttown\twould\tbe\ndeserted\tand\tburned\tdown\tto\tthe\tsurface\tof\tthe\tlake.\nThat\t was\t the\t dragon\u2019s\t hope.\t They\t could\t all\t get\t into\nboats\t for\t all\t he\t cared.\t There\t he\t could\t have\t fine\t sport\nhunting\t them,\t or\t they\t could\t stop\t till\t they\t starved.\t Let\nthem\ttry\tto\tget\tto\tland\tand\the\twould\tbe\tready.\tSoon\the\nwould\t set\t all\t the\t shoreland\t woods\t ablaze\t and\t wither\nevery\t field\t and\t pasture.\t Just\t now\t he\t was\t enjoying\t the\nsport\tof\ttown-baiting\tmore\tthan\the\thad\tenjoyed\tanything\nfor\tyears.\nBut\tthere\twas\tstill\ta\tcompany\tof\tarchers\tthat\theld\ttheir\nground\t among\t the\t burning\t houses.\t Their\t captain\t was\nBard,\t grim-voiced\t and\t grim-faced,\t whose\t friends\t had\naccused\t him\t of\t prophesying\t floods\t and\t poisoned\t fish,\nthough\t they\t knew\t his\t worth\t and\t courage.\t He\t was\t a\ndescendant\t in\t long\t line\t of\t Girion,\t Lord\t of\t Dale,\t whose\nwife\tand\tchild\thad\tescaped\tdown\tthe\tRunning\tRiver\tfrom\nthe\truin\tlong\tago.\tNow\the\tshot\twith\ta\tgreat\tyew\tbow,\ttill\nall\this\tarrows\tbut\tone\twere\tspent.\tThe\tflames\twere\tnear\nhim.\tHis\tcompanions\twere\tleaving\thim.\tHe\tbent\this\tbow\nfor\tthe\tlast\ttime.\nSuddenly\t out\t of\t the\t dark\t something\t fluttered\t to\t his\nshoulder.\t He\t started\u2014but\t it\t was\t only\t an\t old\t thrush.\nUnafraid\tit\tperched\tby\this\tear\tand\tit\tbrought\thim\tnews.\nMarvelling\the\tfound\the\tcould\tunderstand\tits\ttongue,\tfor\nhe\twas\tof\tthe\trace\tof\tDale.\n\u201cWait!\tWait!\u201d\tit\tsaid\tto\thim.\t\u201cThe\tmoon\tis\trising.\tLook\nfor\tthe\thollow\tof\tthe\tleft\tbreast\tas\the\tflies\tand\tturns\tabove\nyou!\u201d\t And\t while\t Bard\t paused\t in\t wonder\t it\t told\t him\t of\ntidings\tup\tin\tthe\tMountain\tand\tof\tall\tthat\tit\thad\theard.\nThen\tBard\tdrew\this\tbow-string\tto\this\tear.\tThe\tdragon\nwas\tcircling\tback,\tflying\tlow,\tand\tas\the\tcame\tthe\tmoon\nrose\tabove\tthe\teastern\tshore\tand\tsilvered\this\tgreat\twings.\n\u201cArrow!\u201d\tsaid\tthe\tbowman.\t\u201cBlack\tarrow!\tI\thave\tsaved\nyou\t to\t the\t last.\t You\t have\t never\t failed\t me\t and\t always\t I\nhave\t recovered\t you.\t I\t had\t you\t from\t my\t father\t and\t he\nfrom\tof\told.\tIf\tever\tyou\tcame\tfrom\tthe\tforges\tof\tthe\ttrue",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 4.729667739979433,
+    "t": 1745630173.9676006,
+    "z": 2
+  },
+  "metadata": {
+    "chunk_index": 243,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2104,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_person",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 2
+    },
+    "entities": [
+      {
+        "name": "Bard",
+        "type": "person",
+        "start": 719,
+        "end": 723,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Suddenly\t out\t of\t the\t dark\t something\t fluttered..."
+          },
+          {
+            "type": "participated_in",
+            "target": "He\t started\u2014but\t it\t was\t only\t an\t old\t thrush.\n"
+          },
+          {
+            "type": "participated_in",
+            "target": "And\t while\t Bard\t paused\t in\t wonder\t it\t told\t hi..."
+          }
+        ]
+      },
+      {
+        "name": "Dale",
+        "type": "organization",
+        "start": 946,
+        "end": 950,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Suddenly\t out\t of\t the\t dark\t something\t fluttered..."
+          },
+          {
+            "type": "participated_in",
+            "target": "He\t started\u2014but\t it\t was\t only\t an\t old\t thrush.\n"
+          },
+          {
+            "type": "participated_in",
+            "target": "And\t while\t Bard\t paused\t in\t wonder\t it\t told\t hi..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "Suddenly\t out\t of\t the\t dark\t something\t fluttered...",
+        "description": "Suddenly\t out\t of\t the\t dark\t something\t fluttered\t to\t his\nshoulder.\t ",
+        "start": 1201,
+        "end": 1272,
+        "participants": [
+          "Bard",
+          "Dale"
+        ],
+        "location": null,
+        "time": null
+      },
+      {
+        "name": "He\t started\u2014but\t it\t was\t only\t an\t old\t thrush.\n",
+        "description": "He\t started\u2014but\t it\t was\t only\t an\t old\t thrush.\n",
+        "start": 1272,
+        "end": 1321,
+        "participants": [
+          "Bard",
+          "Dale"
+        ],
+        "location": null,
+        "time": null
+      },
+      {
+        "name": "And\t while\t Bard\t paused\t in\t wonder\t it\t told\t hi...",
+        "description": "And\t while\t Bard\t paused\t in\t wonder\t it\t told\t him\t of\ntidings\tup\tin\tthe\tMountain\tand\tof\tall\tthat\tit\thad\theard.\n",
+        "start": 1586,
+        "end": 1699,
+        "participants": [
+          "Bard",
+          "Dale"
+        ],
+        "location": null,
+        "time": null
+      }
+    ],
+    "locations": []
+  },
+  "timestamp": 1745715415.2789896,
+  "has_embedding": true
+}

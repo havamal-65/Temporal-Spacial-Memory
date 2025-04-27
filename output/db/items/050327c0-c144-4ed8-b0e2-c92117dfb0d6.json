@@ -1,0 +1,108 @@
+{
+  "id": "050327c0-c144-4ed8-b0e2-c92117dfb0d6",
+  "content": "The\tElvenking's\tGate.\nThe\tprisoners\twere\tbrought\tbefore\thim;\tand\tthough\the\nlooked\tgrimly\tat\tthem,\the\ttold\this\tmen\tto\tunbind\tthem,\nfor\t they\t were\t ragged\t and\t weary.\t \u201cBesides\t they\t need\t no\nropes\t in\t here,\u201d\t said\t he.\t \u201cThere\t is\t no\t escape\t from\t my\nmagic\tdoors\tfor\tthose\twho\tare\tonce\tbrought\tinside.\u201d\nLong\tand\tsearchingly\the\tquestioned\tthe\tdwarves\tabout\ntheir\t doings,\t and\t where\t they\t were\t going\t to,\t and\t where\nthey\twere\tcoming\tfrom;\tbut\the\tgot\tlittle\tmore\tnews\tout\tof\nthem\tthan\tout\tof\tThorin.\tThey\twere\tsurly\tand\tangry\tand\ndid\tnot\teven\tpretend\tto\tbe\tpolite.\n\u201cWhat\thave\twe\tdone,\tO\tking?\u201d\tsaid\tBalin,\twho\twas\tthe\neldest\t left.\t \u201cIs\t it\t a\t crime\t to\t be\t lost\t in\t the\t forest,\t to\t be\nhungry\t and\t thirsty,\t to\t be\t trapped\t by\t spiders?\t Are\t the\nspiders\t your\t tame\t beasts\t or\t your\t pets,\t if\t killing\t them\nmakes\tyou\tangry?\u201d\nSuch\ta\tquestion\tof\tcourse\tmade\tthe\tking\tangrier\tthan\never,\t and\t he\t answered:\t \u201cIt\t is\t a\t crime\t to\t wander\t in\t my\nrealm\twithout\tleave.\tDo\tyou\tforget\tthat\tyou\twere\tin\tmy\nkingdom,\tusing\tthe\troad\tthat\tmy\tpeople\tmade?\tDid\tyou\nnot\tthree\ttimes\tpursue\tand\ttrouble\tmy\tpeople\tin\tthe\tforest\nand\trouse\tthe\tspiders\twith\tyour\triot\tand\tclamour?\tAfter\nall\tthe\tdisturbance\tyou\thave\tmade\tI\thave\ta\tright\tto\tknow\nwhat\tbrings\tyou\there,\tand\tif\tyou\twill\tnot\ttell\tme\tnow,\tI\nwill\tkeep\tyou\tall\tin\tprison\tuntil\tyou\thave\tlearned\tsense\nand\tmanners!\u201d\nThen\t he\t ordered\t the\t dwarves\t each\t to\t be\t put\t in\t a\nseparate\tcell\tand\tto\tbe\tgiven\tfood\tand\tdrink,\tbut\tnot\tto\tbe\nallowed\tto\tpass\tthe\tdoors\tof\ttheir\tlittle\tprisons,\tuntil\tone\nat\tleast\tof\tthem\twas\twilling\tto\ttell\thim\tall\the\twanted\tto\nknow.\t But\t he\t did\t not\t tell\t them\t that\t Thorin\t was\t also\t a\nprisoner\twith\thim.\tIt\twas\tBilbo\twho\tfound\tthat\tout.",
+  "coordinates": {
+    "r": 5.695,
+    "theta": 0.8737554567796613,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 169,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1722,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Gate",
+        "type": "organization",
+        "start": 16,
+        "end": 20,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cIs\t it\t a\t crime\t to\t be\t lost\t in\t the\t forest,\t..."
+          }
+        ]
+      },
+      {
+        "name": "Balin",
+        "type": "organization",
+        "start": 606,
+        "end": 611,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cIs\t it\t a\t crime\t to\t be\t lost\t in\t the\t forest,\t..."
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 1697,
+        "end": 1702,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cIs\t it\t a\t crime\t to\t be\t lost\t in\t the\t forest,\t..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "\u201cIs\t it\t a\t crime\t to\t be\t lost\t in\t the\t forest,\t...",
+        "description": "\u201cIs\t it\t a\t crime\t to\t be\t lost\t in\t the\t forest,\t to\t be\nhungry\t and\t thirsty,\t to\t be\t trapped\t by\t spiders?\t ",
+        "start": 640,
+        "end": 752,
+        "participants": [
+          "Gate",
+          "Balin",
+          "Bilbo"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 1697,
+        "end": 1702,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "\u201cIs\t it\t a\t crime\t to\t be\t lost\t in\t the\t forest,\t..."
+          }
+        ]
+      }
+    ]
+  },
+  "timestamp": 1745709011.5045302,
+  "has_embedding": true
+}

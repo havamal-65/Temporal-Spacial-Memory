@@ -1,0 +1,66 @@
+{
+  "id": "28835ec8-bbb2-43cd-b22b-1019b2c2072a",
+  "content": "white\tdeer,\ta\thind\tand\tfawns\tas\tsnowy\twhite\tas\tthe\thart\nhad\t been\t dark.\t They\t glimmered\t in\t the\t shadows.\t Before\nThorin\tcould\tcry\tout\tthree\tof\tthe\tdwarves\thad\tleaped\tto\ntheir\t feet\t and\t loosed\t off\t arrows\t from\t their\t bows.\t None\nseemed\tto\tfind\ttheir\tmark.\tThe\tdeer\tturned\tand\tvanished\nin\tthe\ttrees\tas\tsilently\tas\tthey\thad\tcome,\tand\tin\tvain\tthe\ndwarves\tshot\ttheir\tarrows\tafter\tthem.\n\u201cStop!\t stop!\u201d\t shouted\t Thorin;\t but\t it\t was\t too\t late,\t the\nexcited\tdwarves\thad\twasted\ttheir\tlast\tarrows,\tand\tnow\tthe\nbows\tthat\tBeorn\thad\tgiven\tthem\twere\tuseless.\nThey\t were\t a\t gloomy\t party\t that\t night,\t and\t the\t gloom\ngathered\tstill\tdeeper\ton\tthem\tin\tthe\tfollowing\tdays.\tThey\nhad\tcrossed\tthe\tenchanted\tstream;\tbut\tbeyond\tit\tthe\tpath\nseemed\tto\tstraggle\ton\tjust\tas\tbefore,\tand\tin\tthe\tforest\tthey\ncould\tsee\tno\tchange.\tYet\tif\tthey\thad\tknown\tmore\tabout\tit\nand\t considered\t the\t meaning\t of\t the\t hunt\t and\t the\t white\ndeer\tthat\thad\tappeared\tupon\ttheir\tpath,\tthey\twould\thave\nknown\tthat\tthey\twere\tat\tlast\tdrawing\ttowards\tthe\teastern\nedge,\tand\twould\tsoon\thave\tcome,\tif\tthey\tcould\thave\tkept\nup\t their\t courage\t and\t their\t hope,\t to\t thinner\t trees\t and\nplaces\twhere\tthe\tsunlight\tcame\tagain.\nBut\t they\t did\t not\t know\t this,\t and\t they\t were\t burdened\nwith\tthe\theavy\tbody\tof\tBombur,\twhich\tthey\thad\tto\tcarry\nalong\twith\tthem\tas\tbest\tthey\tcould,\ttaking\tthe\twearisome\ntask\t in\t turns\t of\t four\t each\t while\t the\t others\t shared\t their\npacks.\tIf\tthese\thad\tnot\tbecome\tall\ttoo\tlight\tin\tthe\tlast\tfew\ndays,\t they\t would\t never\t have\t managed\t it;\t but\t a\nslumbering\tand\tsmiling\tBombur\twas\ta\tpoor\texchange\tfor\npacks\t filled\t with\t food\t however\t heavy.\t In\t a\t few\t days\t a\ntime\tcame\twhen\tthere\twas\tpractically\tnothing\tleft\tto\teat\nor\tto\tdrink.\tNothing\twholesome\tcould\tthey\tsee\tgrowing\nin\tthe\twood,\tonly\tfunguses\tand\therbs\twith\tpale\tleaves\tand\nunpleasant\tsmell.\nAbout\tfour\tdays\tfrom\tthe\tenchanted\tstream\tthey\tcame\nto\ta\tpart\twhere\tmost\tof\tthe\ttrees\twere\tbeeches.\tThey\twere\nat\t first\t inclined\t to\t be\t cheered\t by\t the\t change,\t for\t here\nthere\t was\t no\t undergrowth\t and\t the\t shadow\t was\t not\t so\ndeep.\t There\t was\t a\t greenish\t light\t about\t them,\t and\t in",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 3.1612276076747294,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 145,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2137,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Beorn",
+        "type": "person",
+        "start": 522,
+        "end": 527,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bombur",
+        "type": "administrative",
+        "start": 1265,
+        "end": 1271,
+        "mentions": 1,
+        "relationships": []
+      }
+    ],
+    "events": [],
+    "locations": [
+      {
+        "name": "Bombur",
+        "type": "administrative",
+        "start": 1265,
+        "end": 1271,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745709010.1125324,
+  "has_embedding": true
+}

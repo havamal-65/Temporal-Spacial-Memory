@@ -1,0 +1,230 @@
+{
+  "id": "b9164e38-0b80-4b98-b3f8-65d61ce3c507",
+  "content": "The\tMisty\tMountains\tLooking\tWest\tfrom\tthe\tEyrie\ntowards\tGoblin\tGate\nThe\tLord\tof\tthe\tEagles\twould\tnot\ttake\tthem\tanywhere\nnear\twhere\tmen\tlived.\t\u201cThey\twould\tshoot\tat\tus\twith\ttheir\ngreat\t bows\t of\t yew,\u201d\t he\t said,\t \u201cfor\t they\t would\t think\t we\nwere\tafter\ttheir\tsheep.\tAnd\tat\tother\ttimes\tthey\twould\tbe\nright.\tNo!\twe\tare\tglad\tto\tcheat\tthe\tgoblins\tof\ttheir\tsport,\nand\tglad\tto\trepay\tour\tthanks\tto\tyou,\tbut\twe\twill\tnot\trisk\nourselves\tfor\tdwarves\tin\tthe\tsouthward\tplains.\u201d\n\u201cVery\twell,\u201d\tsaid\tGandalf.\t\u201cTake\tus\twhere\tand\tas\tfar\nas\tyou\twill!\tWe\tare\talready\tdeeply\tobliged\tto\tyou.\tBut\tin\nthe\tmeantime\twe\tare\tfamished\twith\thunger.\u201d\n\u201cI\t am\t nearly\t dead\t of\t it,\u201d\t said\t Bilbo\t in\t a\t weak\t little\nvoice\tthat\tnobody\theard.\n\u201cThat\t can\t perhaps\t be\t mended,\u201d\t said\t the\t Lord\t of\t the\nEagles.\nLater\ton\tyou\tmight\thave\tseen\ta\tbright\tfire\ton\tthe\tshelf\nof\trock\tand\tthe\tfigures\tof\tthe\tdwarves\tround\tit\tcooking\nand\tmaking\ta\tfine\troasting\tsmell.\tThe\teagles\thad\tbrought\nup\t dry\t boughs\t for\t fuel,\t and\t they\t had\t brought\t rabbits,\nhares,\t and\t a\t small\t sheep.\t The\t dwarves\t managed\t all\t the\npreparations.\tBilbo\twas\ttoo\tweak\tto\thelp,\tand\tanyway\the\nwas\tnot\tmuch\tgood\tat\tskinning\trabbits\tor\tcutting\tup\tmeat,\nbeing\tused\tto\thaving\tit\tdelivered\tby\tthe\tbutcher\tall\tready\nto\tcook.\tGandalf,\ttoo,\twas\tlying\tdown\tafter\tdoing\this\tpart\nin\t setting\t the\t fire\t going,\t since\t Oin\t and\t Gloin\t had\t lost\ntheir\ttinder-boxes.\t(Dwarves\thave\tnever\ttaken\tto\tmatches\neven\tyet.)\nSo\tended\tthe\tadventures\tof\tthe\tMisty\tMountains.\tSoon\nBilbo\u2019s\tstomach\twas\tfeeling\tfull\tand\tcomfortable\tagain,\nand\t he\t felt\t he\t could\t sleep\t contentedly,\t though\t really\t he\nwould\thave\tliked\ta\tloaf\tand\tbutter\tbetter\tthan\tbits\tof\tmeat\ntoasted\t on\t sticks.\t He\t slept\t curled\t up\t on\t the\t hard\t rock\nmore\tsoundly\tthan\tever\the\thad\tdone\ton\this\tfeather-bed\tin\nhis\town\tlittle\thole\tat\thome.\tBut\tall\tnight\the\tdreamed\tof",
+  "coordinates": {
+    "r": 5.375,
+    "theta": 3.366216528321463,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 111,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1850,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Goblin",
+        "type": "administrative",
+        "start": 56,
+        "end": 62,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cThat\t can\t perhaps\t be\t mended,\u201d\t said\t the\t Lord..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Gandalf,\ttoo,\twas\tlying\tdown\tafter\tdoing\this\tpart\n..."
+          },
+          {
+            "type": "participated_in",
+            "target": "So\tended\tthe\tadventures\tof\tthe\tMisty\tMountains.\t"
+          }
+        ]
+      },
+      {
+        "name": "Eagles",
+        "type": "administrative",
+        "start": 84,
+        "end": 90,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cThat\t can\t perhaps\t be\t mended,\u201d\t said\t the\t Lord..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Gandalf,\ttoo,\twas\tlying\tdown\tafter\tdoing\this\tpart\n..."
+          },
+          {
+            "type": "participated_in",
+            "target": "So\tended\tthe\tadventures\tof\tthe\tMisty\tMountains.\t"
+          }
+        ]
+      },
+      {
+        "name": "Gandalf",
+        "type": "group",
+        "start": 482,
+        "end": 489,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cThat\t can\t perhaps\t be\t mended,\u201d\t said\t the\t Lord..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Gandalf,\ttoo,\twas\tlying\tdown\tafter\tdoing\this\tpart\n..."
+          },
+          {
+            "type": "participated_in",
+            "target": "So\tended\tthe\tadventures\tof\tthe\tMisty\tMountains.\t"
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "person",
+        "start": 656,
+        "end": 661,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cThat\t can\t perhaps\t be\t mended,\u201d\t said\t the\t Lord..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Gandalf,\ttoo,\twas\tlying\tdown\tafter\tdoing\this\tpart\n..."
+          },
+          {
+            "type": "participated_in",
+            "target": "So\tended\tthe\tadventures\tof\tthe\tMisty\tMountains.\t"
+          }
+        ]
+      },
+      {
+        "name": "Gloin",
+        "type": "organization",
+        "start": 1352,
+        "end": 1357,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cThat\t can\t perhaps\t be\t mended,\u201d\t said\t the\t Lord..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Gandalf,\ttoo,\twas\tlying\tdown\tafter\tdoing\this\tpart\n..."
+          },
+          {
+            "type": "participated_in",
+            "target": "So\tended\tthe\tadventures\tof\tthe\tMisty\tMountains.\t"
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "\u201cThat\t can\t perhaps\t be\t mended,\u201d\t said\t the\t Lord...",
+        "description": "\u201cThat\t can\t perhaps\t be\t mended,\u201d\t said\t the\t Lord\t of\t the\nEagles.\n",
+        "start": 708,
+        "end": 776,
+        "participants": [
+          "Goblin",
+          "Eagles",
+          "Gandalf",
+          "Bilbo",
+          "Gloin"
+        ],
+        "location": "Goblin",
+        "time": null
+      },
+      {
+        "name": "Gandalf,\ttoo,\twas\tlying\tdown\tafter\tdoing\this\tpart\n...",
+        "description": "Gandalf,\ttoo,\twas\tlying\tdown\tafter\tdoing\this\tpart\nin\t setting\t the\t fire\t going,\t since\t Oin\t and\t Gloin\t had\t lost\ntheir\ttinder-boxes.\t",
+        "start": 1253,
+        "end": 1389,
+        "participants": [
+          "Goblin",
+          "Eagles",
+          "Gandalf",
+          "Bilbo",
+          "Gloin"
+        ],
+        "location": "Goblin",
+        "time": null
+      },
+      {
+        "name": "So\tended\tthe\tadventures\tof\tthe\tMisty\tMountains.\t",
+        "description": "So\tended\tthe\tadventures\tof\tthe\tMisty\tMountains.\t",
+        "start": 1437,
+        "end": 1485,
+        "participants": [
+          "Goblin",
+          "Eagles",
+          "Gandalf",
+          "Bilbo",
+          "Gloin"
+        ],
+        "location": "Goblin",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Goblin",
+        "type": "administrative",
+        "start": 56,
+        "end": 62,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "\u201cThat\t can\t perhaps\t be\t mended,\u201d\t said\t the\t Lord..."
+          },
+          {
+            "type": "hosted",
+            "target": "Gandalf,\ttoo,\twas\tlying\tdown\tafter\tdoing\this\tpart\n..."
+          },
+          {
+            "type": "hosted",
+            "target": "So\tended\tthe\tadventures\tof\tthe\tMisty\tMountains.\t"
+          }
+        ]
+      },
+      {
+        "name": "Eagles",
+        "type": "administrative",
+        "start": 84,
+        "end": 90,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 1085,
+        "end": 1090,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745773081.8105462,
+  "has_embedding": true
+}

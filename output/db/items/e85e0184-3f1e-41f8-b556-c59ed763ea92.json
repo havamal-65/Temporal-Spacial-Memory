@@ -1,0 +1,82 @@
+{
+  "id": "e85e0184-3f1e-41f8-b556-c59ed763ea92",
+  "content": "Bilbo\t had\t asked\t him\t the\t egg-question.\t He\t hissed\t and\nspluttered\t and\t rocked\t himself\t backwards\t and\t forwards,\nand\t slapped\t his\t feet\t on\t the\t floor,\t and\t wriggled\t and\nsquirmed;\tbut\tstill\the\tdid\tnot\tdare\tto\twaste\this\tlast\tguess.\n\u201cCome\t on!\u201d\t said\t Bilbo.\t \u201cI\t am\t waiting!\u201d\t He\t tried\t to\nsound\t bold\t and\t cheerful,\t but\t he\t did\t not\t feel\t at\t all\t sure\nhow\tthe\tgame\twas\tgoing\tto\tend,\twhether\tGollum\tguessed\nright\tor\tnot.\n\u201cTime\u2019s\tup!\u201d\the\tsaid.\n\u201cString,\tor\tnothing!\u201d\tshrieked\tGollum,\twhich\twas\tnot\nquite\tfair\u2014working\tin\ttwo\tguesses\tat\tonce.\n\u201cBoth\twrong,\u201d\tcried\tBilbo\tvery\tmuch\trelieved;\tand\the\njumped\t at\t once\t to\t his\t feet,\t put\t his\t back\t to\t the\t nearest\nwall,\t and\t held\t out\t his\t little\t sword.\t He\t knew,\t of\t course,\nthat\t the\t riddle-game\t was\t sacred\t and\t of\t immense\nantiquity,\tand\teven\twicked\tcreatures\twere\tafraid\tto\tcheat\nwhen\tthey\tplayed\tat\tit.\tBut\the\tfelt\the\tcould\tnot\ttrust\tthis\nslimy\tthing\tto\tkeep\tany\tpromise\tat\ta\tpinch.\tAny\texcuse\nwould\tdo\tfor\thim\tto\tslide\tout\tof\tit.\tAnd\tafter\tall\tthat\tlast\nquestion\thad\tnot\tbeen\ta\tgenuine\triddle\taccording\tto\tthe\nancient\tlaws.\nBut\tat\tany\trate\tGollum\tdid\tnot\tat\tonce\tattack\thim.\tHe\ncould\t see\t the\t sword\t in\t Bilbo\u2019s\t hand.\t He\t sat\t still,\nshivering\t and\t whispering.\t At\t last\t Bilbo\t could\t wait\t no\nlonger.\n\u201cWell?\u201d\the\tsaid.\t\u201cWhat\tabout\tyour\tpromise?\tI\twant\tto\ngo.\tYou\tmust\tshow\tme\tthe\tway.\u201d\n\u201cDid\t we\t say\t so,\t precious?\t Show\t the\t nassty\t little\nBaggins\tthe\tway\tout,\tyes,\tyes.\tBut\twhat\thas\tit\tgot\tin\tits\npocketses,\teh?\tNot\tstring,\tprecious,\tbut\tnot\tnothing.\tOh\nno!\tgollum!\u201d\n\u201cNever\t you\t mind,\u201d\t said\t Bilbo.\t \u201cA\t promise\t is\t a\npromise.\u201d\n\u201cCross\tit\tis,\timpatient,\tprecious,\u201d\thissed\tGollum.\t\u201cBut\nit\tmust\twait,\tyes\tit\tmust.\tWe\tcan\u2019t\tgo\tup\tthe\ttunnels\tso\nhasty.\tWe\tmust\tgo\tand\tget\tsome\tthings\tfirst,\tyes,\tthings\nto\thelp\tus.\u201d\n\u201cWell,\t hurry\t up!\u201d\t said\t Bilbo,\t relieved\t to\t think\t of",
+  "coordinates": {
+    "r": 5.3525,
+    "theta": 1.1627819809099222,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 82,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1859,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_organization",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "organization",
+        "start": 0,
+        "end": 5,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Time",
+        "type": "organization",
+        "start": 439,
+        "end": 443,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Gollum",
+        "type": "organization",
+        "start": 491,
+        "end": 497,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Baggins",
+        "type": "person",
+        "start": 1426,
+        "end": 1433,
+        "mentions": 1,
+        "relationships": []
+      }
+    ],
+    "events": [],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 261,
+        "end": 266,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745773077.1914175,
+  "has_embedding": true
+}

@@ -1,0 +1,74 @@
+{
+  "id": "d5ab8ff3-6545-47b0-805d-681f8e76fd95",
+  "content": "cellars\tthey\tcrept.\tThey\tpassed\ta\tdoor\tthrough\twhich\tthe\nchief\t guard\t and\t the\t butler\t could\t be\t seen\t still\t happily\nsnoring\t with\t smiles\t upon\t their\t faces.\t The\t wine\t of\nDorwinion\tbrings\tdeep\tand\tpleasant\tdreams.\tThere\twould\nbe\t a\t different\t expression\t on\t the\t face\t of\t the\t chief\t guard\nnext\tday,\teven\tthough\tBilbo,\tbefore\tthey\twent\ton,\tstole\tin\nand\tkind-heartedly\tput\tthe\tkeys\tback\ton\this\tbelt.\n\u201cThat\twill\tsave\thim\tsome\tof\tthe\ttrouble\the\tis\tin\tfor,\u201d\nsaid\tMr.\tBaggins\tto\thimself.\t\u201cHe\twasn\u2019t\ta\tbad\tfellow,\tand\nquite\tdecent\tto\tthe\tprisoners.\tIt\twill\tpuzzle\tthem\tall\ttoo.\nThey\t will\t think\t we\t had\t a\t very\t strong\t magic\t to\t pass\nthrough\tall\tthose\tlocked\tdoors\tand\tdisappear.\tDisappear!\nWe\thave\tgot\tto\tget\tbusy\tvery\tquick,\tif\tthat\tis\tto\thappen!\u201d\nBalin\twas\ttold\toff\tto\twatch\tthe\tguard\tand\tthe\tbutler\tand\ngive\t warning\t if\t they\t stirred.\t The\t rest\t went\t into\t the\nadjoining\tcellar\twith\tthe\ttrapdoors.\tThere\twas\tlittle\ttime\nto\t lose.\t Before\t long,\t as\t Bilbo\t knew,\t some\t elves\t were\nunder\t orders\t to\t come\t down\t and\t help\t the\t butler\t get\t the\nempty\t barrels\t through\t the\t doors\t into\t the\t stream.\t These\nwere\tin\tfact\talready\tstanding\tin\trows\tin\tthe\tmiddle\tof\tthe\nfloor\twaiting\tto\tbe\tpushed\toff.\tSome\tof\tthem\twere\twine-\nbarrels,\tand\tthese\twere\tnot\tmuch\tuse,\tas\tthey\tcould\tnot\neasily\tbe\topened\tat\tthe\tend\twithout\ta\tdeal\tof\tnoise,\tnor\ncould\tthey\teasily\tbe\tsecured\tagain.\tBut\tamong\tthem\twere\nseveral\t others,\t which\t had\t been\t used\t for\t bringing\t other\nstuffs,\tbutter,\tapples,\tand\tall\tsorts\tof\tthings,\tto\tthe\tking\u2019s\npalace.\nThey\t soon\t found\t thirteen\t with\t room\t enough\t for\t a\ndwarf\tin\teach.\tIn\tfact\tsome\twere\ttoo\troomy,\tand\tas\tthey\nclimbed\tin\tthe\tdwarves\tthought\tanxiously\tof\tthe\tshaking\nand\tthe\tbumping\tthey\twould\tget\tinside,\tthough\tBilbo\tdid\nhis\tbest\tto\tfind\tstraw\tand\tother\tstuff\tto\tpack\tthem\tin\tas\ncosily\tas\tcould\tbe\tmanaged\tin\ta\tshort\ttime.\tAt\tlast\ttwelve\ndwarves\twere\tstowed.\tThorin\thad\tgiven\ta\tlot\tof\ttrouble,\nand\t turned\t and\t twisted\t in\t his\t tub\t and\t grumbled\t like\t a",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 3.2421236185046665,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 176,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2005,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 323,
+        "end": 328,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Baggins",
+        "type": "person",
+        "start": 474,
+        "end": 481,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Thorin",
+        "type": "group",
+        "start": 1907,
+        "end": 1913,
+        "mentions": 1,
+        "relationships": []
+      }
+    ],
+    "events": [],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 323,
+        "end": 328,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745773092.4670103,
+  "has_embedding": true
+}

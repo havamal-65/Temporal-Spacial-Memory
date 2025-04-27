@@ -1,0 +1,401 @@
+{
+  "id": "9b532ada-b265-4d70-a4f3-03d1ca113d08",
+  "content": "NOTE\tON\tTHE\tTEXT\nT\nhe\t Hobbit\n\t was\t first\t published\t in\t September\t 1937.\t Its\n1951\t second\t edition\t (fifth\t impression)\t contains\t a\nsignificantly\trevised\tportion\tof\tChapter\tV,\t\u201cRiddles\tin\tthe\nDark,\u201d\twhich\tbrings\tthe\tstory\tof\t\nThe\tHobbit\n\tmore\tin\tline\nwith\tits\tsequel,\t\nThe\tLord\tof\tthe\tRings\n,\tthen\tin\tprogress.\nTolkien\t made\t some\t further\t revisions\t to\t the\t American\nedition\tpublished\tby\tBallantine\tBooks\tin\tFebruary\t1966,\nand\t to\t the\t British\t third\t edition\t (sixteenth\t impression)\npublished\tby\tGeorge\tAllen\t&\tUnwin\tlater\tthat\tsame\tyear.\nFor\t the\t 1995\t British\t hardcover\t edition,\t published\t by\nHarperCollins,\t the\t text\t of\t\nThe\t Hobbit\n\t was\t entered\t into\nword-processing\t files,\t and\t a\t number\t of\t further\ncorrections\t of\t misprints\t and\t errors\t were\t made.\t Since\nthen,\tvarious\teditions\tof\t\nThe\tHobbit\n\thave\tbeen\tgenerated\nfrom\tthat\tcomputerized\ttext\tfile.\tFor\tthe\tpresent\ttext,\tthat\nfile\thas\tbeen\tcompared\tagain,\tline\tby\tline,\twith\tthe\tearlier\neditions,\t and\t a\t number\t of\t further\t corrections\t have\t been\nmade\t to\t present\t a\t text\t that,\t as\t closely\t as\t possible,\nrepresents\tTolkien\u2019s\tfinal\tintended\tform.\nReaders\t interested\t in\t details\t of\t the\t changes\t made\t at\nvarious\t times\t to\t the\t text\t of\t\nThe\t Hobbit\n\t are\t referred\t to\nAppendix\t A,\t \u201cTextual\t and\t Revisional\t Notes,\u201d\t of\t\nThe\nAnnotated\t Hobbit\n\t (1988),\t and\t\nJ.\t R.\t R.\t Tolkien:\t A\nDescriptive\tBibliography\n\t by\t Wayne\t G.\t Hammond,\t with\nthe\tassistance\tof\tDouglas\tA.\tAnderson\t(1993).\nDouglas\tA.\tAnderson\nMay\t2001",
+  "coordinates": {
+    "r": 6.2225,
+    "theta": 0.8576547944300135,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 3,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1511,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_group",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Hobbit\n\t ",
+        "type": "organization",
+        "start": 23,
+        "end": 32,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "NOTE\tON\tTHE\tTEXT\nT\nhe\t Hobbit\n\t was\t first\t publis..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Tolkien\t made\t some\t further\t revisions\t to\t the\t ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "For\t the\t 1995\t British\t hardcover\t edition,\t publ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "For\tthe\tpresent\ttext,\tthat\nfile\thas\tbeen\tcompared\t..."
+          }
+        ]
+      },
+      {
+        "name": "Hobbit",
+        "type": "organization",
+        "start": 235,
+        "end": 241,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "NOTE\tON\tTHE\tTEXT\nT\nhe\t Hobbit\n\t was\t first\t publis..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Tolkien\t made\t some\t further\t revisions\t to\t the\t ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "For\t the\t 1995\t British\t hardcover\t edition,\t publ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "For\tthe\tpresent\ttext,\tthat\nfile\thas\tbeen\tcompared\t..."
+          }
+        ]
+      },
+      {
+        "name": "Tolkien",
+        "type": "organization",
+        "start": 316,
+        "end": 323,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "NOTE\tON\tTHE\tTEXT\nT\nhe\t Hobbit\n\t was\t first\t publis..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Tolkien\t made\t some\t further\t revisions\t to\t the\t ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "For\t the\t 1995\t British\t hardcover\t edition,\t publ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "For\tthe\tpresent\ttext,\tthat\nfile\thas\tbeen\tcompared\t..."
+          }
+        ]
+      },
+      {
+        "name": "American",
+        "type": "group",
+        "start": 366,
+        "end": 374,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "NOTE\tON\tTHE\tTEXT\nT\nhe\t Hobbit\n\t was\t first\t publis..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Tolkien\t made\t some\t further\t revisions\t to\t the\t ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "For\t the\t 1995\t British\t hardcover\t edition,\t publ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "For\tthe\tpresent\ttext,\tthat\nfile\thas\tbeen\tcompared\t..."
+          }
+        ]
+      },
+      {
+        "name": "Ballantine\tBooks",
+        "type": "organization",
+        "start": 396,
+        "end": 412,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "NOTE\tON\tTHE\tTEXT\nT\nhe\t Hobbit\n\t was\t first\t publis..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Tolkien\t made\t some\t further\t revisions\t to\t the\t ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "For\t the\t 1995\t British\t hardcover\t edition,\t publ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "For\tthe\tpresent\ttext,\tthat\nfile\thas\tbeen\tcompared\t..."
+          }
+        ]
+      },
+      {
+        "name": "British",
+        "type": "group",
+        "start": 445,
+        "end": 452,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "NOTE\tON\tTHE\tTEXT\nT\nhe\t Hobbit\n\t was\t first\t publis..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Tolkien\t made\t some\t further\t revisions\t to\t the\t ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "For\t the\t 1995\t British\t hardcover\t edition,\t publ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "For\tthe\tpresent\ttext,\tthat\nfile\thas\tbeen\tcompared\t..."
+          }
+        ]
+      },
+      {
+        "name": "George\tAllen\t&",
+        "type": "person",
+        "start": 507,
+        "end": 521,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "NOTE\tON\tTHE\tTEXT\nT\nhe\t Hobbit\n\t was\t first\t publis..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Tolkien\t made\t some\t further\t revisions\t to\t the\t ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "For\t the\t 1995\t British\t hardcover\t edition,\t publ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "For\tthe\tpresent\ttext,\tthat\nfile\thas\tbeen\tcompared\t..."
+          }
+        ]
+      },
+      {
+        "name": "R.",
+        "type": "group",
+        "start": 1360,
+        "end": 1362,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "NOTE\tON\tTHE\tTEXT\nT\nhe\t Hobbit\n\t was\t first\t publis..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Tolkien\t made\t some\t further\t revisions\t to\t the\t ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "For\t the\t 1995\t British\t hardcover\t edition,\t publ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "For\tthe\tpresent\ttext,\tthat\nfile\thas\tbeen\tcompared\t..."
+          }
+        ]
+      },
+      {
+        "name": "Wayne",
+        "type": "person",
+        "start": 1411,
+        "end": 1416,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "NOTE\tON\tTHE\tTEXT\nT\nhe\t Hobbit\n\t was\t first\t publis..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Tolkien\t made\t some\t further\t revisions\t to\t the\t ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "For\t the\t 1995\t British\t hardcover\t edition,\t publ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "For\tthe\tpresent\ttext,\tthat\nfile\thas\tbeen\tcompared\t..."
+          }
+        ]
+      },
+      {
+        "name": "Anderson",
+        "type": "person",
+        "start": 1466,
+        "end": 1474,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "NOTE\tON\tTHE\tTEXT\nT\nhe\t Hobbit\n\t was\t first\t publis..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Tolkien\t made\t some\t further\t revisions\t to\t the\t ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "For\t the\t 1995\t British\t hardcover\t edition,\t publ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "For\tthe\tpresent\ttext,\tthat\nfile\thas\tbeen\tcompared\t..."
+          }
+        ]
+      },
+      {
+        "name": "Douglas",
+        "type": "person",
+        "start": 1483,
+        "end": 1490,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "NOTE\tON\tTHE\tTEXT\nT\nhe\t Hobbit\n\t was\t first\t publis..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Tolkien\t made\t some\t further\t revisions\t to\t the\t ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "For\t the\t 1995\t British\t hardcover\t edition,\t publ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "For\tthe\tpresent\ttext,\tthat\nfile\thas\tbeen\tcompared\t..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "NOTE\tON\tTHE\tTEXT\nT\nhe\t Hobbit\n\t was\t first\t publis...",
+        "description": "NOTE\tON\tTHE\tTEXT\nT\nhe\t Hobbit\n\t was\t first\t published\t in\t September\t 1937.\t ",
+        "start": 0,
+        "end": 77,
+        "participants": [
+          "Hobbit\n\t ",
+          "Hobbit",
+          "Tolkien",
+          "American",
+          "Ballantine\tBooks",
+          "British",
+          "George\tAllen\t&",
+          "R.",
+          "Wayne",
+          "Anderson",
+          "Douglas"
+        ],
+        "location": null,
+        "time": null
+      },
+      {
+        "name": "Tolkien\t made\t some\t further\t revisions\t to\t the\t ...",
+        "description": "Tolkien\t made\t some\t further\t revisions\t to\t the\t American\nedition\tpublished\tby\tBallantine\tBooks\tin\tFebruary\t1966,\nand\t to\t the\t British\t third\t edition\t (sixteenth\t impression)\npublished\tby\tGeorge\tAllen\t&\tUnwin\tlater\tthat\tsame\tyear.\n",
+        "start": 316,
+        "end": 550,
+        "participants": [
+          "Hobbit\n\t ",
+          "Hobbit",
+          "Tolkien",
+          "American",
+          "Ballantine\tBooks",
+          "British",
+          "George\tAllen\t&",
+          "R.",
+          "Wayne",
+          "Anderson",
+          "Douglas"
+        ],
+        "location": null,
+        "time": null
+      },
+      {
+        "name": "For\t the\t 1995\t British\t hardcover\t edition,\t publ...",
+        "description": "For\t the\t 1995\t British\t hardcover\t edition,\t published\t by\nHarperCollins,\t the\t text\t of\t\nThe\t Hobbit\n\t was\t entered\t into\nword-processing\t files,\t and\t a\t number\t of\t further\ncorrections\t of\t misprints\t and\t errors\t were\t made.\t ",
+        "start": 550,
+        "end": 781,
+        "participants": [
+          "Hobbit\n\t ",
+          "Hobbit",
+          "Tolkien",
+          "American",
+          "Ballantine\tBooks",
+          "British",
+          "George\tAllen\t&",
+          "R.",
+          "Wayne",
+          "Anderson",
+          "Douglas"
+        ],
+        "location": null,
+        "time": null
+      },
+      {
+        "name": "For\tthe\tpresent\ttext,\tthat\nfile\thas\tbeen\tcompared\t...",
+        "description": "For\tthe\tpresent\ttext,\tthat\nfile\thas\tbeen\tcompared\tagain,\tline\tby\tline,\twith\tthe\tearlier\neditions,\t and\t a\t number\t of\t further\t corrections\t have\t been\nmade\t to\t present\t a\t text\t that,\t as\t closely\t as\t possible,\nrepresents\tTolkien\u2019s\tfinal\tintended\tform.\n",
+        "start": 880,
+        "end": 1136,
+        "participants": [
+          "Hobbit\n\t ",
+          "Hobbit",
+          "Tolkien",
+          "American",
+          "Ballantine\tBooks",
+          "British",
+          "George\tAllen\t&",
+          "R.",
+          "Wayne",
+          "Anderson",
+          "Douglas"
+        ],
+        "location": null,
+        "time": null
+      }
+    ],
+    "locations": []
+  },
+  "timestamp": 1745715396.8126094,
+  "has_embedding": true
+}

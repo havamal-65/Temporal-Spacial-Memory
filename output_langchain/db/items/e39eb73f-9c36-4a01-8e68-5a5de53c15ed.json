@@ -1,0 +1,122 @@
+{
+  "id": "e39eb73f-9c36-4a01-8e68-5a5de53c15ed",
+  "content": "begun\t to\t trust\t my\t luck\t more\t than\t I\t used\t to\t in\t the\t old\ndays\u201d\u2014he\tmeant\tlast\tspring\tbefore\the\tleft\this\town\thouse,\nbut\tit\tseemed\tcenturies\tago\u2014\u201cbut\tanyway\tI\tthink\tI\twill\ngo\tand\thave\ta\tpeep\tat\tonce\tand\tget\tit\tover.\tNow\twho\tis\ncoming\twith\tme?\u201d\nHe\tdid\tnot\texpect\ta\tchorus\tof\tvolunteers,\tso\the\twas\tnot\ndisappointed.\t Fili\t and\t Kili\t looked\t uncomfortable\t and\nstood\t on\t one\t leg,\t but\t the\t others\t made\t no\t pretence\t of\noffering\u2014except\t old\t Balin,\t the\t lookout\t man,\t who\t was\nrather\tfond\tof\tthe\thobbit.\tHe\tsaid\the\twould\tcome\tinside\tat\nleast\tand\tperhaps\ta\tbit\tof\tthe\tway\ttoo,\tready\tto\tcall\tfor\nhelp\tif\tnecessary.\nThe\tmost\tthat\tcan\tbe\tsaid\tfor\tthe\tdwarves\tis\tthis:\tthey\nintended\tto\tpay\tBilbo\treally\thandsomely\tfor\this\tservices;\nthey\thad\tbrought\thim\tto\tdo\ta\tnasty\tjob\tfor\tthem,\tand\tthey\ndid\tnot\tmind\tthe\tpoor\tlittle\tfellow\tdoing\tit\tif\the\twould;\nbut\tthey\twould\tall\thave\tdone\ttheir\tbest\tto\tget\thim\tout\tof\ntrouble,\t if\t he\t got\t into\t it,\t as\t they\t did\t in\t the\t case\t of\t the\ntrolls\tat\tthe\tbeginning\tof\ttheir\tadventures\tbefore\tthey\thad\nany\tparticular\treasons\tfor\tbeing\tgrateful\tto\thim.\tThere\tit\nis:\t dwarves\t are\t not\t heroes,\t but\t calculating\t folk\t with\t a\ngreat\t idea\t of\t the\t value\t of\t money;\t some\t are\t tricky\t and\ntreacherous\t and\t pretty\t bad\t lots;\t some\t are\t not,\t but\t are\ndecent\t enough\t people\t like\t Thorin\t and\t Company,\t if\t you\ndon\u2019t\texpect\ttoo\tmuch.\nThe\t stars\t were\t coming\t out\t behind\t him\t in\t a\t pale\t sky\nbarred\t with\t black\t when\t the\t hobbit\t crept\t through\t the\nenchanted\t door\t and\t stole\t into\t the\t Mountain.\t It\t was\t far\neasier\t going\t than\t he\t expected.\t This\t was\t no\t goblin\nentrance,\t or\t rough\t wood-elves\u2019\t cave.\t It\t was\t a\t passage\nmade\tby\tdwarves,\tat\tthe\theight\tof\ttheir\twealth\tand\tskill:\nstraight\t as\t a\t ruler,\t smooth-floored\t and\t smooth-sided,\ngoing\twith\ta\tgentle\tnever-varying\tslope\tdirect\u2014to\tsome\ndistant\tend\tin\tthe\tblackness\tbelow.\nAfter\t a\t while\t Balin\t bade\t Bilbo\t \u201cGood\t luck!\u201d\t and",
+  "coordinates": {
+    "r": 5.13,
+    "theta": 0.04162610266006476,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 208,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1948,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_person",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Kili",
+        "type": "person",
+        "start": 332,
+        "end": 336,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "The\tmost\tthat\tcan\tbe\tsaid\tfor\tthe\tdwarves\tis\tthis:..."
+          }
+        ]
+      },
+      {
+        "name": "Balin",
+        "type": "person",
+        "start": 450,
+        "end": 455,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "The\tmost\tthat\tcan\tbe\tsaid\tfor\tthe\tdwarves\tis\tthis:..."
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 695,
+        "end": 700,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "The\tmost\tthat\tcan\tbe\tsaid\tfor\tthe\tdwarves\tis\tthis:..."
+          }
+        ]
+      },
+      {
+        "name": "Thorin",
+        "type": "group",
+        "start": 1325,
+        "end": 1331,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "The\tmost\tthat\tcan\tbe\tsaid\tfor\tthe\tdwarves\tis\tthis:..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "The\tmost\tthat\tcan\tbe\tsaid\tfor\tthe\tdwarves\tis\tthis:...",
+        "description": "The\tmost\tthat\tcan\tbe\tsaid\tfor\tthe\tdwarves\tis\tthis:\tthey\nintended\tto\tpay\tBilbo\treally\thandsomely\tfor\this\tservices;\nthey\thad\tbrought\thim\tto\tdo\ta\tnasty\tjob\tfor\tthem,\tand\tthey\ndid\tnot\tmind\tthe\tpoor\tlittle\tfellow\tdoing\tit\tif\the\twould;\nbut\tthey\twould\tall\thave\tdone\ttheir\tbest\tto\tget\thim\tout\tof\ntrouble,\t if\t he\t got\t into\t it,\t as\t they\t did\t in\t the\t case\t of\t the\ntrolls\tat\tthe\tbeginning\tof\ttheir\tadventures\tbefore\tthey\thad\nany\tparticular\treasons\tfor\tbeing\tgrateful\tto\thim.\t",
+        "start": 623,
+        "end": 1093,
+        "participants": [
+          "Kili",
+          "Balin",
+          "Bilbo",
+          "Thorin"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 695,
+        "end": 700,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "The\tmost\tthat\tcan\tbe\tsaid\tfor\tthe\tdwarves\tis\tthis:..."
+          }
+        ]
+      }
+    ]
+  },
+  "timestamp": 1745715412.5426307,
+  "has_embedding": true
+}

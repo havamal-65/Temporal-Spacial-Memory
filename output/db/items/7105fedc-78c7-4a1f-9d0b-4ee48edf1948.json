@@ -1,0 +1,82 @@
+{
+  "id": "7105fedc-78c7-4a1f-9d0b-4ee48edf1948",
+  "content": "of\tshort\twhite\tsweet\thoney-smelling\tclover.\tThere\twas\ta\nbuzzing\t and\t a\t whirring\t and\t a\t droning\t in\t the\t air.\t Bees\nwere\tbusy\teverywhere.\tAnd\tsuch\tbees!\tBilbo\thad\tnever\nseen\tanything\tlike\tthem.\n\u201cIf\tone\twas\tto\tsting\tme,\u201d\the\tthought,\t\u201cI\tshould\tswell\tup\nas\tbig\tagain\tas\tI\tam!\u201d\nThey\twere\tbigger\tthan\thornets.\tThe\tdrones\twere\tbigger\nthan\tyour\tthumb,\ta\tgood\tdeal,\tand\tthe\tbands\tof\tyellow\ton\ntheir\tdeep\tblack\tbodies\tshone\tlike\tfiery\tgold.\n\u201cWe\t are\t getting\t near,\u201d\t said\t Gandalf.\t \u201cWe\t are\t on\t the\nedge\tof\this\tbee-pastures.\u201d\nAfter\ta\twhile\tthey\tcame\tto\ta\tbelt\tof\ttall\tand\tvery\tancient\noaks,\t and\t beyond\t these\t to\t a\t high\t thorn-hedge\t through\nwhich\tyou\tcould\tneither\tsee\tnor\tscramble.\n\u201cYou\t had\t better\t wait\t here,\u201d\t said\t the\t wizard\t to\t the\ndwarves;\t\u201cand\twhen\tI\tcall\tor\twhistle\tbegin\tto\tcome\tafter\nme\u2014you\twill\tsee\tthe\tway\tI\tgo\u2014but\tonly\tin\tpairs,\tmind,\nabout\tfive\tminutes\tbetween\teach\tpair\tof\tyou.\tBombur\tis\nfattest\tand\twill\tdo\tfor\ttwo,\the\thad\tbetter\tcome\talone\tand\nlast.\t Come\t on\t Mr.\t Baggins!\t There\t is\t a\t gate\t somewhere\nround\t this\t way.\u201d\t And\t with\t that\t he\t went\t off\t along\t the\nhedge\ttaking\tthe\tfrightened\thobbit\twith\thim.\nThey\t soon\t came\t to\t a\t wooden\t gate,\t high\t and\t broad,\nbeyond\twhich\tthey\tcould\tsee\tgardens\tand\ta\tcluster\tof\tlow\nwooden\tbuildings,\tsome\tthatched\tand\tmade\tof\tunshaped\nlogs:\tbarns,\tstables,\tsheds,\tand\ta\tlong\tlow\twooden\thouse.\nInside\ton\tthe\tsouthward\tside\tof\tthe\tgreat\thedge\twere\trows\nand\t rows\t of\t hives\t with\t bell-shaped\t tops\t made\t of\t straw.\nThe\tnoise\tof\tthe\tgiant\tbees\tflying\tto\tand\tfro\tand\tcrawling\nin\tand\tout\tfilled\tall\tthe\tair.\nThe\t wizard\t and\t the\t hobbit\t pushed\t open\t the\t heavy\ncreaking\t gate\t and\t went\t down\t a\t wide\t track\t towards\t the\nhouse.\tSome\thorses,\tvery\tsleek\tand\twell-groomed,\ttrotted\nup\tacross\tthe\tgrass\tand\tlooked\tat\tthem\tintently\twith\tvery\nintelligent\tfaces;\tthen\toff\tthey\tgalloped\tto\tthe\tbuildings.",
+  "coordinates": {
+    "r": 5.324999999999999,
+    "theta": 3.509158994059799,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 118,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1870,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 157,
+        "end": 162,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bombur",
+        "type": "administrative",
+        "start": 902,
+        "end": 908,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Baggins",
+        "type": "person",
+        "start": 992,
+        "end": 999,
+        "mentions": 1,
+        "relationships": []
+      }
+    ],
+    "events": [],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 157,
+        "end": 162,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bombur",
+        "type": "administrative",
+        "start": 902,
+        "end": 908,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745773082.8530102,
+  "has_embedding": true
+}

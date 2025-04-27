@@ -1,0 +1,65 @@
+{
+  "id": "b5b9f7d8-b26b-4c9c-977d-beca078109fc",
+  "content": "instruments\tregained\tfrom\tthe\thoard,\tand\tmade\tmusic\tto\nsoften\t his\t mood;\t but\t their\t song\t was\t not\t as\t elvish\t song,\nand\twas\tmuch\tlike\tthe\tsong\tthey\thad\tsung\tlong\tbefore\tin\nBilbo\u2019s\tlittle\thobbit-hole.\nUnder\tthe\tMountain\tdark\tand\ttall\nThe\tKing\thas\tcome\tunto\this\thall!\nHis\tfoe\tis\tdead,\tthe\tWorm\tof\tDread,\nAnd\tever\tso\this\tfoes\tshall\tfall.\nThe\tsword\tis\tsharp,\tthe\tspear\tis\tlong,\nThe\tarrow\tswift,\tthe\tGate\tis\tstrong;\nThe\theart\tis\tbold\tthat\tlooks\ton\tgold;\nThe\tdwarves\tno\tmore\tshall\tsuffer\twrong.\nThe\tdwarves\tof\tyore\tmade\tmighty\tspells,\nWhile\thammers\tfell\tlike\tringing\tbells\nIn\tplaces\tdeep,\twhere\tdark\tthings\tsleep,\nIn\thollow\thalls\tbeneath\tthe\tfells.\nOn\tsilver\tnecklaces\tthey\tstrung\nThe\tlight\tof\tstars,\ton\tcrowns\tthey\thung\nThe\tdragon-fire,\tfrom\ttwisted\twire\nThe\tmelody\tof\tharps\tthey\twrung.\nThe\tmountain\tthrone\tonce\tmore\tis\tfreed!\nO!\twandering\tfolk,\tthe\tsummons\theed!\tCome\thaste!\nCome\thaste!\tacross\tthe\twaste!\nThe\tking\tof\tfriend\tand\tkin\thas\tneed.\nNow\tcall\twe\tover\tmountains\tcold,\n\u2018Come\tback\tunto\tthe\tcaverns\told\u2019!\nHere\tat\tthe\tGates\tthe\tking\tawaits,",
+  "coordinates": {
+    "r": 7.39,
+    "theta": 0.9087056750508476,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 256,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1044,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_group",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "elvish",
+        "type": "group",
+        "start": 107,
+        "end": 113,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bilbo",
+        "type": "organization",
+        "start": 177,
+        "end": 182,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Dread",
+        "type": "organization",
+        "start": 300,
+        "end": 305,
+        "mentions": 1,
+        "relationships": []
+      }
+    ],
+    "events": [],
+    "locations": []
+  },
+  "timestamp": 1745709016.1864107,
+  "has_embedding": true
+}

@@ -1,0 +1,122 @@
+{
+  "id": "1753fd81-0fbc-42bf-b75e-72857805c935",
+  "content": "When\the\theard\tthis\tBilbo\twas\tall\tin\ta\tflutter,\tfor\the\tsaw\nthat\tluck\twas\twith\thim\tand\the\thad\ta\tchance\tat\tonce\tto\ttry\nhis\tdesperate\tplan.\tHe\tfollowed\tthe\ttwo\telves,\tuntil\tthey\nentered\t a\t small\t cellar\t and\t sat\t down\t at\t a\t table\t on\t which\ntwo\tlarge\tflagons\twere\tset.\tSoon\tthey\tbegan\tto\tdrink\tand\nlaugh\t merrily.\t Luck\t of\t an\t unusual\t kind\t was\t with\t Bilbo\nthen.\tIt\tmust\tbe\tpotent\twine\tto\tmake\ta\twood-elf\tdrowsy;\nbut\tthis\twine,\tit\twould\tseem,\twas\tthe\theady\tvintage\tof\tthe\ngreat\tgardens\tof\tDorwinion,\tnot\tmeant\tfor\this\tsoldiers\tor\nhis\tservants,\tbut\tfor\tthe\tking\u2019s\tfeasts\tonly,\tand\tfor\tsmaller\nbowls\tnot\tfor\tthe\tbutler\u2019s\tgreat\tflagons.\nVery\tsoon\tthe\tchief\tguard\tnodded\this\thead,\tthen\the\tlaid\nit\t on\t the\t table\t and\t fell\t fast\t asleep.\t The\t butler\t went\t on\ntalking\t and\t laughing\t to\t himself\t for\t a\t while\t without\nseeming\t to\t notice,\t but\t soon\t his\t head\t too\t nodded\t to\t the\ntable,\t and\t he\t fell\t asleep\t and\t snored\t beside\t his\t friend.\nThen\tin\tcrept\tthe\thobbit.\tVery\tsoon\tthe\tchief\tguard\thad\nno\tkeys,\tbut\tBilbo\twas\ttrotting\tas\tfast\tas\the\tcould\talong\nthe\t passages\t towards\t the\t cells.\t The\t great\t bunch\t seemed\nvery\t heavy\t to\t his\t arms,\t and\t his\t heart\t was\t often\t in\t his\nmouth,\t in\t spite\t of\t his\t ring,\t for\t he\t could\t not\t prevent\t the\nkeys\tfrom\tmaking\tevery\tnow\tand\tthen\ta\tloud\tclink\tand\nclank,\twhich\tput\thim\tall\tin\ta\ttremble.\nFirst\t he\t unlocked\t Balin\u2019s\t door,\t and\t locked\t it\t again\ncarefully\t as\t soon\t as\t the\t dwarf\t was\t outside.\t Balin\t was\nmost\tsurprised,\tas\tyou\tcan\timagine;\tbut\tglad\tas\the\twas\tto\nget\tout\tof\this\twearisome\tlittle\tstone\troom,\the\twanted\tto\nstop\tand\task\tquestions,\tand\tknow\twhat\tBilbo\twas\tgoing\nto\tdo,\tand\tall\tabout\tit.\n\u201cNo\ttime\tnow!\u201d\tsaid\tthe\thobbit.\t\u201cYou\tjust\tfollow\tme!\nWe\tmust\tall\tkeep\ttogether\tand\tnot\trisk\tgetting\tseparated.\nAll\tof\tus\tmust\tescape\tor\tnone,\tand\tthis\tis\tour\tlast\tchance.\nIf\tthis\tis\tfound\tout,\tgoodness\tknows\twhere\tthe\tking\twill\nput\t you\t next,\t with\t chains\t on\t your\t hands\t and\t feet\t too,\t I\nexpect.\tDon\u2019t\targue,\tthere\u2019s\ta\tgood\tfellow!\u201d\nThen\toff\the\twent\tfrom\tdoor\tto\tdoor,\tuntil\this\tfollowing\nhad\tgrown\tto\ttwelve\u2014none\tof\tthem\tany\ttoo\tnimble,\twhat\nwith\t the\t dark,\t and\t what\t with\t their\t long\t imprisonment.",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 3.30574086973986,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 174,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2184,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_person",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 19,
+        "end": 24,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Soon\tthey\tbegan\tto\tdrink\tand\nlaugh\t merrily.\t "
+          }
+        ]
+      },
+      {
+        "name": "Luck",
+        "type": "person",
+        "start": 315,
+        "end": 319,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Soon\tthey\tbegan\tto\tdrink\tand\nlaugh\t merrily.\t "
+          }
+        ]
+      },
+      {
+        "name": "Balin\u2019s",
+        "type": "organization",
+        "start": 1377,
+        "end": 1384,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Soon\tthey\tbegan\tto\tdrink\tand\nlaugh\t merrily.\t "
+          }
+        ]
+      },
+      {
+        "name": "Balin",
+        "type": "person",
+        "start": 1468,
+        "end": 1473,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Soon\tthey\tbegan\tto\tdrink\tand\nlaugh\t merrily.\t "
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "Soon\tthey\tbegan\tto\tdrink\tand\nlaugh\t merrily.\t ",
+        "description": "Soon\tthey\tbegan\tto\tdrink\tand\nlaugh\t merrily.\t ",
+        "start": 269,
+        "end": 315,
+        "participants": [
+          "Bilbo",
+          "Luck",
+          "Balin\u2019s",
+          "Balin"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 19,
+        "end": 24,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "Soon\tthey\tbegan\tto\tdrink\tand\nlaugh\t merrily.\t "
+          }
+        ]
+      }
+    ]
+  },
+  "timestamp": 1745715410.074707,
+  "has_embedding": true
+}

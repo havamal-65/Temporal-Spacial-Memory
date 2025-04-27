@@ -1,0 +1,269 @@
+{
+  "id": "3b04eb96-e6c1-4ed7-9da2-9d172d63d9e9",
+  "content": "asked.\t Where\t were\t they,\t and\t where\t was\t their\t path,\t and\nwhere\twas\tthere\tany\tfood,\tand\twhat\twere\tthey\tgoing\tto\ndo\tnext?\tThese\tquestions\tthey\tasked\tover\tand\tover\tagain,\nand\tit\twas\tfrom\tlittle\tBilbo\tthat\tthey\tseemed\tto\texpect\tto\nget\t the\t answers.\t From\t which\t you\t can\t see\t that\t they\t had\nchanged\ttheir\topinion\tof\tMr.\tBaggins\tvery\tmuch,\tand\thad\nbegun\tto\thave\ta\tgreat\trespect\tfor\thim\t(as\tGandalf\thad\tsaid\nthey\twould).\tIndeed\tthey\treally\texpected\thim\tto\tthink\tof\nsome\t wonderful\t plan\t for\t helping\t them,\t and\t were\t not\nmerely\t grumbling.\t They\t knew\t only\t too\t well\t that\t they\nwould\tsoon\tall\thave\tbeen\tdead,\tif\tit\thad\tnot\tbeen\tfor\tthe\nhobbit;\tand\tthey\tthanked\thim\tmany\ttimes.\tSome\tof\tthem\neven\t got\t up\t and\t bowed\t right\t to\t the\t ground\t before\t him,\nthough\tthey\tfell\tover\twith\tthe\teffort,\tand\tcould\tnot\tget\ton\ntheir\tlegs\tagain\tfor\tsome\ttime.\tKnowing\tthe\ttruth\tabout\nthe\tvanishing\tdid\tnot\tlessen\ttheir\topinion\tof\tBilbo\tat\tall;\nfor\tthey\tsaw\tthat\the\thad\tsome\twits,\tas\twell\tas\tluck\tand\ta\nmagic\tring\u2014and\tall\tthree\tare\tvery\tuseful\tpossessions.\tIn\nfact\t they\t praised\t him\t so\t much\t that\t Bilbo\t began\t to\t feel\nthere\t really\t was\t something\t of\t a\t bold\t adventurer\t about\nhimself\tafter\tall,\tthough\the\twould\thave\tfelt\ta\tlot\tbolder\nstill,\tif\tthere\thad\tbeen\tanything\tto\teat.\nBut\tthere\twas\tnothing,\tnothing\tat\tall;\tand\tnone\tof\tthem\nwere\tfit\tto\tgo\tand\tlook\tfor\tanything,\tor\tto\tsearch\tfor\tthe\nlost\tpath.\tThe\tlost\tpath!\tNo\tother\tidea\twould\tcome\tinto\nBilbo\u2019s\ttired\thead.\tHe\tjust\tsat\tstaring\tin\tfront\tof\thim\tat\nthe\t endless\t trees;\t and\t after\t a\t while\t they\t all\t fell\t silent\nagain.\tAll\texcept\tBalin.\tLong\tafter\tthe\tothers\thad\tstopped\ntalking\t and\t shut\t their\t eyes,\t he\t kept\t on\t muttering\t and\nchuckling\tto\thimself.\n\u201cGollum!\t Well\t I\u2019m\t blest!\t So\t that\u2019s\t how\t he\t sneaked\npast\tme,\tis\tit?\tNow\tI\tknow!\tJust\tcrept\tquietly\talong\tdid\nyou,\t Mr.\t Baggins?\t Buttons\t all\t over\t the\t doorstep!\t Good\nold\tBilbo\u2014Bilbo\u2014Bilbo\u2014bo\u2014bo\u2014bo\u2014\u201d\tAnd\tthen\the\nfell\t asleep,\t and\t there\t was\t complete\t silence\t for\t a\t long\nwhile.\nAll\t of\t a\t sudden\t Dwalin\t opened\t an\t eye,\t and\t looked\nround\tat\tthem.\t\u201cWhere\tis\tThorin?\u201d\the\tasked.",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 3.1883238443119413,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 163,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2118,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_person",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 197,
+        "end": 202,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Indeed\tthey\treally\texpected\thim\tto\tthink\tof\nsome\t ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "In\nfact\t they\t praised\t him\t so\t much\t that\t Bilbo..."
+          },
+          {
+            "type": "participated_in",
+            "target": "But\tthere\twas\tnothing,\tnothing\tat\tall;\tand\tnone\tof..."
+          },
+          {
+            "type": "participated_in",
+            "target": "The\tlost\tpath!\t"
+          }
+        ]
+      },
+      {
+        "name": "Baggins",
+        "type": "person",
+        "start": 326,
+        "end": 333,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Indeed\tthey\treally\texpected\thim\tto\tthink\tof\nsome\t ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "In\nfact\t they\t praised\t him\t so\t much\t that\t Bilbo..."
+          },
+          {
+            "type": "participated_in",
+            "target": "But\tthere\twas\tnothing,\tnothing\tat\tall;\tand\tnone\tof..."
+          },
+          {
+            "type": "participated_in",
+            "target": "The\tlost\tpath!\t"
+          }
+        ]
+      },
+      {
+        "name": "Knowing",
+        "type": "administrative",
+        "start": 856,
+        "end": 863,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Indeed\tthey\treally\texpected\thim\tto\tthink\tof\nsome\t ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "In\nfact\t they\t praised\t him\t so\t much\t that\t Bilbo..."
+          },
+          {
+            "type": "participated_in",
+            "target": "But\tthere\twas\tnothing,\tnothing\tat\tall;\tand\tnone\tof..."
+          },
+          {
+            "type": "participated_in",
+            "target": "The\tlost\tpath!\t"
+          }
+        ]
+      },
+      {
+        "name": "Buttons",
+        "type": "organization",
+        "start": 1860,
+        "end": 1867,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Indeed\tthey\treally\texpected\thim\tto\tthink\tof\nsome\t ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "In\nfact\t they\t praised\t him\t so\t much\t that\t Bilbo..."
+          },
+          {
+            "type": "participated_in",
+            "target": "But\tthere\twas\tnothing,\tnothing\tat\tall;\tand\tnone\tof..."
+          },
+          {
+            "type": "participated_in",
+            "target": "The\tlost\tpath!\t"
+          }
+        ]
+      },
+      {
+        "name": "Dwalin",
+        "type": "organization",
+        "start": 2037,
+        "end": 2043,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Indeed\tthey\treally\texpected\thim\tto\tthink\tof\nsome\t ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "In\nfact\t they\t praised\t him\t so\t much\t that\t Bilbo..."
+          },
+          {
+            "type": "participated_in",
+            "target": "But\tthere\twas\tnothing,\tnothing\tat\tall;\tand\tnone\tof..."
+          },
+          {
+            "type": "participated_in",
+            "target": "The\tlost\tpath!\t"
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "Indeed\tthey\treally\texpected\thim\tto\tthink\tof\nsome\t ...",
+        "description": "Indeed\tthey\treally\texpected\thim\tto\tthink\tof\nsome\t wonderful\t plan\t for\t helping\t them,\t and\t were\t not\nmerely\t grumbling.\t ",
+        "start": 425,
+        "end": 548,
+        "participants": [
+          "Bilbo",
+          "Baggins",
+          "Knowing",
+          "Buttons",
+          "Dwalin"
+        ],
+        "location": "Bilbo",
+        "time": null
+      },
+      {
+        "name": "In\nfact\t they\t praised\t him\t so\t much\t that\t Bilbo...",
+        "description": "In\nfact\t they\t praised\t him\t so\t much\t that\t Bilbo\t began\t to\t feel\nthere\t really\t was\t something\t of\t a\t bold\t adventurer\t about\nhimself\tafter\tall,\tthough\the\twould\thave\tfelt\ta\tlot\tbolder\nstill,\tif\tthere\thad\tbeen\tanything\tto\teat.\n",
+        "start": 1052,
+        "end": 1282,
+        "participants": [
+          "Bilbo",
+          "Baggins",
+          "Knowing",
+          "Buttons",
+          "Dwalin"
+        ],
+        "location": "Bilbo",
+        "time": null
+      },
+      {
+        "name": "But\tthere\twas\tnothing,\tnothing\tat\tall;\tand\tnone\tof...",
+        "description": "But\tthere\twas\tnothing,\tnothing\tat\tall;\tand\tnone\tof\tthem\nwere\tfit\tto\tgo\tand\tlook\tfor\tanything,\tor\tto\tsearch\tfor\tthe\nlost\tpath.\t",
+        "start": 1282,
+        "end": 1408,
+        "participants": [
+          "Bilbo",
+          "Baggins",
+          "Knowing",
+          "Buttons",
+          "Dwalin"
+        ],
+        "location": "Bilbo",
+        "time": null
+      },
+      {
+        "name": "The\tlost\tpath!\t",
+        "description": "The\tlost\tpath!\t",
+        "start": 1408,
+        "end": 1423,
+        "participants": [
+          "Bilbo",
+          "Baggins",
+          "Knowing",
+          "Buttons",
+          "Dwalin"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 197,
+        "end": 202,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "Indeed\tthey\treally\texpected\thim\tto\tthink\tof\nsome\t ..."
+          },
+          {
+            "type": "hosted",
+            "target": "In\nfact\t they\t praised\t him\t so\t much\t that\t Bilbo..."
+          },
+          {
+            "type": "hosted",
+            "target": "But\tthere\twas\tnothing,\tnothing\tat\tall;\tand\tnone\tof..."
+          },
+          {
+            "type": "hosted",
+            "target": "The\tlost\tpath!\t"
+          }
+        ]
+      },
+      {
+        "name": "Knowing",
+        "type": "administrative",
+        "start": 856,
+        "end": 863,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Balin",
+        "type": "geographical",
+        "start": 1598,
+        "end": 1603,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745715409.1942904,
+  "has_embedding": true
+}

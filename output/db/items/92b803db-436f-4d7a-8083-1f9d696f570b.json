@@ -1,0 +1,57 @@
+{
+  "id": "92b803db-436f-4d7a-8083-1f9d696f570b",
+  "content": "Chapter\n\tI\nAN\tUNEXPECTED\tPARTY\nIn\ta\thole\tin\tthe\tground\tthere\tlived\ta\thobbit.\tNot\ta\tnasty,\ndirty,\twet\thole,\tfilled\twith\tthe\tends\tof\tworms\tand\tan\toozy\nsmell,\tnor\tyet\ta\tdry,\tbare,\tsandy\thole\twith\tnothing\tin\tit\tto\nsit\tdown\ton\tor\tto\teat:\tit\twas\ta\thobbit-hole,\tand\tthat\tmeans\ncomfort.\nIt\t had\t a\t perfectly\t round\t door\t like\t a\t porthole,\t painted\ngreen,\twith\ta\tshiny\tyellow\tbrass\tknob\tin\tthe\texact\tmiddle.\nThe\tdoor\topened\ton\tto\ta\ttube-shaped\thall\tlike\ta\ttunnel:\ta\nvery\t comfortable\t tunnel\t without\t smoke,\t with\t panelled\nwalls,\t and\t floors\t tiled\t and\t carpeted,\t provided\t with\npolished\t chairs,\t and\t lots\t and\t lots\t of\t pegs\t for\t hats\t and\ncoats\u2014the\thobbit\twas\tfond\tof\tvisitors.\tThe\ttunnel\twound\non\tand\ton,\tgoing\tfairly\tbut\tnot\tquite\tstraight\tinto\tthe\tside\nof\t the\t hill\u2014The\t Hill,\t as\t all\t the\t people\t for\t many\t miles\nround\tcalled\tit\u2014and\tmany\tlittle\tround\tdoors\topened\tout\nof\t it,\t first\t on\t one\t side\t and\t then\t on\t another.\t No\t going\nupstairs\t for\t the\t hobbit:\t bedrooms,\t bathrooms,\t cellars,\npantries\t(lots\tof\tthese),\twardrobes\t(he\thad\twhole\trooms\ndevoted\t to\t clothes),\t kitchens,\t dining-rooms,\t all\t were\t on\nthe\tsame\tfloor,\tand\tindeed\ton\tthe\tsame\tpassage.\tThe\tbest\nrooms\twere\tall\ton\tthe\tleft-hand\tside\t(going\tin),\tfor\tthese\nwere\t the\t only\t ones\t to\t have\t windows,\t deep-set\t round\nwindows\tlooking\tover\this\tgarden,\tand\tmeadows\tbeyond,",
+  "coordinates": {
+    "r": 6.6125,
+    "theta": 0.9923505794526759,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 6,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1355,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_organization",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "UNEXPECTED",
+        "type": "organization",
+        "start": 14,
+        "end": 24,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Hill",
+        "type": "person",
+        "start": 780,
+        "end": 784,
+        "mentions": 1,
+        "relationships": []
+      }
+    ],
+    "events": [],
+    "locations": []
+  },
+  "timestamp": 1745773066.6530805,
+  "has_embedding": true
+}

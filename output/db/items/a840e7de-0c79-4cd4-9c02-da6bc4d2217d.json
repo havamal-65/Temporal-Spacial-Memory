@@ -1,0 +1,164 @@
+{
+  "id": "a840e7de-0c79-4cd4-9c02-da6bc4d2217d",
+  "content": "Chapter\n\tXVII\nTHE\tCLOUDS\tBURST\nNext\t day\t the\t trumpets\t rang\t early\t in\t the\t camp.\t Soon\t a\nsingle\trunner\twas\tseen\thurrying\talong\tthe\tnarrow\tpath.\tAt\na\t distance\t he\t stood\t and\t hailed\t them,\t asking\t whether\nThorin\twould\tnow\tlisten\tto\tanother\tembassy,\tsince\tnew\ntidings\thad\tcome\tto\thand,\tand\tmatters\twere\tchanged.\n\u201cThat\twill\tbe\tDain!\u201d\tsaid\tThorin\twhen\the\theard.\t\u201cThey\nwill\t have\t got\t wind\t of\t his\t coming.\t I\t thought\t that\t would\nalter\t their\t mood!\t Bid\t them\t come\t few\t in\t number\t and\nweaponless,\tand\tI\twill\thear,\u201d\the\tcalled\tto\tthe\tmessenger.\nAbout\tmidday\tthe\tbanners\tof\tthe\tForest\tand\tthe\tLake\nwere\tseen\tto\tbe\tborne\tforth\tagain.\tA\tcompany\tof\ttwenty\nwas\t approaching.\t At\t the\t beginning\t of\t the\t narrow\t way\nthey\tlaid\taside\tsword\tand\tspear,\tand\tcame\ton\ttowards\tthe\nGate.\tWondering,\tthe\tdwarves\tsaw\tthat\tamong\tthem\twere\nboth\t Bard\t and\t the\t Elvenking,\t before\t whom\t an\t old\t man\nwrapped\tin\tcloak\tand\thood\tbore\ta\tstrong\tcasket\tof\tiron-\nbound\twood.\n\u201cHail\t Thorin!\u201d\t said\t Bard.\t \u201cAre\t you\t still\t of\t the\t same\nmind?\u201d\n\u201cMy\tmind\tdoes\tnot\tchange\twith\tthe\trising\tand\tsetting\nof\ta\tfew\tsuns,\u201d\tanswered\tThorin.\t\u201cDid\tyou\tcome\tto\task\nme\tidle\tquestions?\tStill\tthe\telf-host\thas\tnot\tdeparted\tas\tI\nbade!\tTill\tthen\tyou\tcome\tin\tvain\tto\tbargain\twith\tme.\u201d",
+  "coordinates": {
+    "r": 6.875,
+    "theta": 0.19909843442125313,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 268,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1250,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Thorin",
+        "type": "group",
+        "start": 212,
+        "end": 218,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "About\tmidday\tthe\tbanners\tof\tthe\tForest\tand\tthe\tLak..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Wondering,\tthe\tdwarves\tsaw\tthat\tamong\tthem\twere\nbo..."
+          }
+        ]
+      },
+      {
+        "name": "Bid",
+        "type": "person",
+        "start": 458,
+        "end": 461,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "About\tmidday\tthe\tbanners\tof\tthe\tForest\tand\tthe\tLak..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Wondering,\tthe\tdwarves\tsaw\tthat\tamong\tthem\twere\nbo..."
+          }
+        ]
+      },
+      {
+        "name": "Wondering",
+        "type": "administrative",
+        "start": 784,
+        "end": 793,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "About\tmidday\tthe\tbanners\tof\tthe\tForest\tand\tthe\tLak..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Wondering,\tthe\tdwarves\tsaw\tthat\tamong\tthem\twere\nbo..."
+          }
+        ]
+      },
+      {
+        "name": "Bard",
+        "type": "person",
+        "start": 838,
+        "end": 842,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "About\tmidday\tthe\tbanners\tof\tthe\tForest\tand\tthe\tLak..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Wondering,\tthe\tdwarves\tsaw\tthat\tamong\tthem\twere\nbo..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "About\tmidday\tthe\tbanners\tof\tthe\tForest\tand\tthe\tLak...",
+        "description": "About\tmidday\tthe\tbanners\tof\tthe\tForest\tand\tthe\tLake\nwere\tseen\tto\tbe\tborne\tforth\tagain.\t",
+        "start": 554,
+        "end": 641,
+        "participants": [
+          "Thorin",
+          "Bid",
+          "Wondering",
+          "Bard"
+        ],
+        "location": "Lake",
+        "time": null
+      },
+      {
+        "name": "Wondering,\tthe\tdwarves\tsaw\tthat\tamong\tthem\twere\nbo...",
+        "description": "Wondering,\tthe\tdwarves\tsaw\tthat\tamong\tthem\twere\nboth\t Bard\t and\t the\t Elvenking,\t before\t whom\t an\t old\t man\nwrapped\tin\tcloak\tand\thood\tbore\ta\tstrong\tcasket\tof\tiron-\nbound\twood.\n",
+        "start": 784,
+        "end": 961,
+        "participants": [
+          "Thorin",
+          "Bid",
+          "Wondering",
+          "Bard"
+        ],
+        "location": "Lake",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Lake",
+        "type": "geographical",
+        "start": 601,
+        "end": 605,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "About\tmidday\tthe\tbanners\tof\tthe\tForest\tand\tthe\tLak..."
+          },
+          {
+            "type": "hosted",
+            "target": "Wondering,\tthe\tdwarves\tsaw\tthat\tamong\tthem\twere\nbo..."
+          }
+        ]
+      },
+      {
+        "name": "Wondering",
+        "type": "administrative",
+        "start": 784,
+        "end": 793,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745773108.5489087,
+  "has_embedding": true
+}

@@ -1,0 +1,126 @@
+{
+  "id": "754b65f6-3392-49e2-af55-611fc82b1a6b",
+  "content": "flower,\t and\t of\t course\t there\t were\t no\t nuts,\t not\t even\nhawthorn-berries.\tHe\tnibbled\ta\tbit\tof\tsorrel,\tand\the\tdrank\nfrom\ta\tsmall\tmountain-stream\tthat\tcrossed\tthe\tpath,\tand\nhe\tate\tthree\twild\tstrawberries\tthat\the\tfound\ton\tits\tbank,\nbut\tit\twas\tnot\tmuch\tgood.\nThey\tstill\twent\ton\tand\ton.\tThe\trough\tpath\tdisappeared.\nThe\t bushes,\t and\t the\t long\t grasses\t between\t the\t boulders,\nthe\tpatches\tof\trabbit-cropped\tturf,\tthe\tthyme\tand\tthe\tsage\nand\tthe\tmarjoram,\tand\tthe\tyellow\trockroses\tall\tvanished,\nand\tthey\tfound\tthemselves\tat\tthe\ttop\tof\ta\twide\tsteep\tslope\nof\t fallen\t stones,\t the\t remains\t of\t a\t landslide.\t When\t they\nbegan\tto\tgo\tdown\tthis,\trubbish\tand\tsmall\tpebbles\trolled\naway\tfrom\ttheir\tfeet;\tsoon\tlarger\tbits\tof\tsplit\tstone\twent\nclattering\t down\t and\t started\t other\t pieces\t below\t them\nslithering\tand\trolling;\tthen\tlumps\tof\trock\twere\tdisturbed\nand\tbounded\toff,\tcrashing\tdown\twith\ta\tdust\tand\ta\tnoise.\nBefore\tlong\tthe\twhole\tslope\tabove\tthem\tand\tbelow\tthem\nseemed\t on\t the\t move,\t and\t they\t were\t sliding\t away,\nhuddled\t all\t together,\t in\t a\t fearful\t confusion\t of\t slipping,\nrattling,\tcracking\tslabs\tand\tstones.\nIt\t was\t the\t trees\t at\t the\t bottom\t that\t saved\t them.\t They\nslid\tinto\tthe\tedge\tof\ta\tclimbing\twood\tof\tpines\tthat\there\nstood\tright\tup\tthe\tmountain\tslope\tfrom\tthe\tdeeper\tdarker\nforests\t of\t the\t valleys\t below.\t Some\t caught\t hold\t of\t the\ntrunks\tand\tswung\tthemselves\tinto\tlower\tbranches,\tsome\n(like\tthe\tlittle\thobbit)\tgot\tbehind\ta\ttree\tto\tshelter\tfrom\tthe\nonslaught\t of\t the\t rocks.\t Soon\t the\t danger\t was\t over,\t the\nslide\t had\t stopped,\t and\t the\t last\t faint\t crashes\t could\t be\nheard\tas\tthe\tlargest\tof\tthe\tdisturbed\tstones\twent\tbounding\nand\t spinning\t among\t the\t bracken\t and\t the\t pine-roots\t far\nbelow.\n\u201cWell!\t that\t has\t got\t us\t on\t a\t bit,\u201d\t said\t Gandalf;\t \u201cand\neven\t goblins\t tracking\t us\t will\t have\t a\t job\t to\t come\t down\nhere\tquietly.\u201d\n\u201cI\tdaresay,\u201d\tgrumbled\tBombur;\t\u201cbut\tthey\twon\u2019t\tfind\tit\ndifficult\t to\t send\t stones\t bouncing\t down\t on\t our\t heads.\u201d\nThe\t dwarves\t (and\t Bilbo)\t were\t feeling\t far\t from\t happy,\nand\t were\t rubbing\t their\t bruised\t and\t damaged\t legs\t and",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 3.2099222938053713,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 98,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2108,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bombur",
+        "type": "administrative",
+        "start": 1894,
+        "end": 1900,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "When\t they\nbegan\tto\tgo\tdown\tthis,\trubbish\tand\tsmal..."
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cI\tdaresay,\u201d\tgrumbled\tBombur;\t\u201cbut\tthey\twon\u2019t\tfind..."
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 2008,
+        "end": 2013,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "When\t they\nbegan\tto\tgo\tdown\tthis,\trubbish\tand\tsmal..."
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cI\tdaresay,\u201d\tgrumbled\tBombur;\t\u201cbut\tthey\twon\u2019t\tfind..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "When\t they\nbegan\tto\tgo\tdown\tthis,\trubbish\tand\tsmal...",
+        "description": "When\t they\nbegan\tto\tgo\tdown\tthis,\trubbish\tand\tsmall\tpebbles\trolled\naway\tfrom\ttheir\tfeet;\tsoon\tlarger\tbits\tof\tsplit\tstone\twent\nclattering\t down\t and\t started\t other\t pieces\t below\t them\nslithering\tand\trolling;\tthen\tlumps\tof\trock\twere\tdisturbed\nand\tbounded\toff,\tcrashing\tdown\twith\ta\tdust\tand\ta\tnoise.\n",
+        "start": 606,
+        "end": 905,
+        "participants": [
+          "Bombur",
+          "Bilbo"
+        ],
+        "location": "Bombur",
+        "time": null
+      },
+      {
+        "name": "\u201cI\tdaresay,\u201d\tgrumbled\tBombur;\t\u201cbut\tthey\twon\u2019t\tfind...",
+        "description": "\u201cI\tdaresay,\u201d\tgrumbled\tBombur;\t\u201cbut\tthey\twon\u2019t\tfind\tit\ndifficult\t to\t send\t stones\t bouncing\t down\t on\t our\t heads.\u201d\n",
+        "start": 1872,
+        "end": 1988,
+        "participants": [
+          "Bombur",
+          "Bilbo"
+        ],
+        "location": "Bombur",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bombur",
+        "type": "administrative",
+        "start": 1894,
+        "end": 1900,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "When\t they\nbegan\tto\tgo\tdown\tthis,\trubbish\tand\tsmal..."
+          },
+          {
+            "type": "hosted",
+            "target": "\u201cI\tdaresay,\u201d\tgrumbled\tBombur;\t\u201cbut\tthey\twon\u2019t\tfind..."
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 2008,
+        "end": 2013,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745709007.518791,
+  "has_embedding": true
+}

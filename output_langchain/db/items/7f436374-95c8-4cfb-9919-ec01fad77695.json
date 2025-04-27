@@ -1,0 +1,153 @@
+{
+  "id": "7f436374-95c8-4cfb-9919-ec01fad77695",
+  "content": "stopped\t where\t he\t could\t still\t see\t the\t faint\t outline\t of\t the\ndoor,\tand\tby\ta\ttrick\tof\tthe\techoes\tof\tthe\ttunnel\thear\tthe\nrustle\tof\tthe\twhispering\tvoices\tof\tthe\tothers\tjust\toutside.\nThen\t the\t hobbit\t slipped\t on\t his\t ring,\t and\t warned\t by\t the\nechoes\tto\ttake\tmore\tthan\thobbit\u2019s\tcare\tto\tmake\tno\tsound,\nhe\tcrept\tnoiselessly\tdown,\tdown,\tdown\tinto\tthe\tdark.\tHe\nwas\t trembling\t with\t fear,\t but\t his\t little\t face\t was\t set\t and\ngrim.\tAlready\the\twas\ta\tvery\tdifferent\thobbit\tfrom\tthe\tone\nthat\thad\trun\tout\twithout\ta\tpocket-handkerchief\tfrom\tBag-\nEnd\tlong\tago.\tHe\thad\tnot\thad\ta\tpocket-handkerchief\tfor\nages.\tHe\tloosened\this\tdagger\tin\tits\tsheath,\ttightened\this\nbelt,\tand\twent\ton.\n\u201cNow\tyou\tare\tin\tfor\tit\tat\tlast,\tBilbo\tBaggins,\u201d\the\tsaid\tto\nhimself.\t\u201cYou\twent\tand\tput\tyour\tfoot\tright\tin\tit\tthat\tnight\nof\tthe\tparty,\tand\tnow\tyou\thave\tgot\tto\tpull\tit\tout\tand\tpay\nfor\tit!\tDear\tme,\twhat\ta\tfool\tI\twas\tand\tam!\u201d\tsaid\tthe\tleast\nTookish\t part\t of\t him.\t \u201cI\t have\t absolutely\t no\t use\t for\ndragon-guarded\t treasures,\t and\t the\t whole\t lot\t could\t stay\nhere\tfor\tever,\tif\tonly\tI\tcould\twake\tup\tand\tfind\tthis\tbeastly\ntunnel\twas\tmy\town\tfront-hall\tat\thome!\u201d\nHe\tdid\tnot\twake\tup\tof\tcourse,\tbut\twent\tstill\ton\tand\ton,\ntill\t all\t sign\t of\t the\t door\t behind\t had\t faded\t away.\t He\t was\naltogether\talone.\tSoon\the\tthought\tit\twas\tbeginning\tto\tfeel\nwarm.\t\u201cIs\tthat\ta\tkind\tof\ta\tglow\tI\tseem\tto\tsee\tcoming\tright\nahead\tdown\tthere?\u201d\the\tthought.\nIt\twas.\tAs\the\twent\tforward\tit\tgrew\tand\tgrew,\ttill\tthere\nwas\tno\tdoubt\tabout\tit.\tIt\twas\ta\tred\tlight\tsteadily\tgetting\nredder\tand\tredder.\tAlso\tit\twas\tnow\tundoubtedly\thot\tin\tthe\ntunnel.\tWisps\tof\tvapour\tfloated\tup\tand\tpast\thim\tand\the\nbegan\tto\tsweat.\tA\tsound,\ttoo,\tbegan\tto\tthrob\tin\this\tears,\ta\nsort\tof\tbubbling\tlike\tthe\tnoise\tof\ta\tlarge\tpot\tgalloping\ton\nthe\t fire,\t mixed\t with\t a\t rumble\t as\t of\t a\t gigantic\t tom-cat\npurring.\tThis\tgrew\tto\tthe\tunmistakable\tgurgling\tnoise\tof\nsome\t vast\t animal\t snoring\t in\t its\t sleep\t down\t there\t in\t the\nred\tglow\tin\tfront\tof\thim.",
+  "coordinates": {
+    "r": 5.0775,
+    "theta": 3.1792917654328705,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 209,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1969,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 710,
+        "end": 715,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Wisps\tof\tvapour\tfloated\tup\tand\tpast\thim\tand\the\nbeg..."
+          },
+          {
+            "type": "participated_in",
+            "target": "A\tsound,\ttoo,\tbegan\tto\tthrob\tin\this\tears,\ta\nsort\to..."
+          }
+        ]
+      },
+      {
+        "name": "Baggins",
+        "type": "facility",
+        "start": 716,
+        "end": 723,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Wisps\tof\tvapour\tfloated\tup\tand\tpast\thim\tand\the\nbeg..."
+          },
+          {
+            "type": "participated_in",
+            "target": "A\tsound,\ttoo,\tbegan\tto\tthrob\tin\this\tears,\ta\nsort\to..."
+          }
+        ]
+      },
+      {
+        "name": "Wisps",
+        "type": "administrative",
+        "start": 1589,
+        "end": 1594,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Wisps\tof\tvapour\tfloated\tup\tand\tpast\thim\tand\the\nbeg..."
+          },
+          {
+            "type": "participated_in",
+            "target": "A\tsound,\ttoo,\tbegan\tto\tthrob\tin\this\tears,\ta\nsort\to..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "Wisps\tof\tvapour\tfloated\tup\tand\tpast\thim\tand\the\nbeg...",
+        "description": "Wisps\tof\tvapour\tfloated\tup\tand\tpast\thim\tand\the\nbegan\tto\tsweat.\t",
+        "start": 1589,
+        "end": 1652,
+        "participants": [
+          "Bilbo",
+          "Baggins",
+          "Wisps"
+        ],
+        "location": "Bilbo",
+        "time": null
+      },
+      {
+        "name": "A\tsound,\ttoo,\tbegan\tto\tthrob\tin\this\tears,\ta\nsort\to...",
+        "description": "A\tsound,\ttoo,\tbegan\tto\tthrob\tin\this\tears,\ta\nsort\tof\tbubbling\tlike\tthe\tnoise\tof\ta\tlarge\tpot\tgalloping\ton\nthe\t fire,\t mixed\t with\t a\t rumble\t as\t of\t a\t gigantic\t tom-cat\npurring.\t",
+        "start": 1652,
+        "end": 1830,
+        "participants": [
+          "Bilbo",
+          "Baggins",
+          "Wisps"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 710,
+        "end": 715,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "Wisps\tof\tvapour\tfloated\tup\tand\tpast\thim\tand\the\nbeg..."
+          },
+          {
+            "type": "hosted",
+            "target": "A\tsound,\ttoo,\tbegan\tto\tthrob\tin\this\tears,\ta\nsort\to..."
+          }
+        ]
+      },
+      {
+        "name": "Baggins",
+        "type": "facility",
+        "start": 716,
+        "end": 723,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Wisps",
+        "type": "administrative",
+        "start": 1589,
+        "end": 1594,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745715412.6307402,
+  "has_embedding": true
+}

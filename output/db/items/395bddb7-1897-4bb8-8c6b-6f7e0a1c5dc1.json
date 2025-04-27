@@ -1,0 +1,98 @@
+{
+  "id": "395bddb7-1897-4bb8-8c6b-6f7e0a1c5dc1",
+  "content": "wizard\ton\ttheir\thomeward\tway\tor\tin\tthe\thouse\tof\tBeorn;\nbut\t every\t now\t and\t again\t he\t would\t open\t one\t eye,\t and\nlisten,\twhen\ta\tpart\tof\tthe\tstory\twhich\the\tdid\tnot\tyet\tknow\ncame\tin.\nIt\twas\tin\tthis\tway\tthat\the\tlearned\twhere\tGandalf\thad\nbeen\t to;\t for\t he\t overheard\t the\t words\t of\t the\t wizard\t to\nElrond.\t It\t appeared\t that\t Gandalf\t had\t been\t to\t a\t great\ncouncil\t of\t the\t white\t wizards,\t masters\t of\t lore\t and\t good\nmagic;\tand\tthat\tthey\thad\tat\tlast\tdriven\tthe\tNecromancer\nfrom\this\tdark\thold\tin\tthe\tsouth\tof\tMirkwood.\n\u201cEre\tlong\tnow,\u201d\tGandalf\twas\tsaying,\t\u201cthe\tForest\twill\ngrow\t somewhat\t more\t wholesome.\t The\t North\t will\t be\nfreed\tfrom\tthat\thorror\tfor\tmany\tlong\tyears,\tI\thope.\tYet\tI\nwish\the\twere\tbanished\tfrom\tthe\tworld!\u201d\n\u201cIt\twould\tbe\twell\tindeed,\u201d\tsaid\tElrond;\t\u201cbut\tI\tfear\tthat\nwill\tnot\tcome\tabout\tin\tthis\tage\tof\tthe\tworld,\tor\tfor\tmany\nafter.\u201d\nWhen\tthe\ttale\tof\ttheir\tjourneyings\twas\ttold,\tthere\twere\nother\ttales,\tand\tyet\tmore\ttales,\ttales\tof\tlong\tago,\tand\ttales\nof\tnew\tthings,\tand\ttales\tof\tno\ttime\tat\tall,\ttill\tBilbo\u2019s\thead\nfell\tforward\ton\this\tchest,\tand\the\tsnored\tcomfortably\tin\ta\ncorner.\nHe\twoke\tto\tfind\thimself\tin\ta\twhite\tbed,\tand\tthe\tmoon\nshining\t through\t an\t open\t window.\t Below\t it\t many\t elves\nwere\tsinging\tloud\tand\tclear\ton\tthe\tbanks\tof\tthe\tstream.\nSing\tall\tye\tjoyful,\tnow\tsing\tall\ttogether!\nThe\twind\u2019s\tin\tthe\ttree-top,\tthe\twind\u2019s\tin\tthe\theather;\nThe\tstars\tare\tin\tblossom,\tthe\tmoon\tis\tin\tflower,\nAnd\tbright\tare\tthe\twindows\tof\tNight\tin\ther\ttower.\nDance\tall\tye\tjoyful,\tnow\tdance\tall\ttogether!\nSoft\tis\tthe\tgrass,\tand\tlet\tfoot\tbe\tlike\tfeather!\nThe\triver\tis\tsilver,\tthe\tshadows\tare\tfleeting;\nMerry\tis\tMay-time,\tand\tmerry\tour\tmeeting.",
+  "coordinates": {
+    "r": 5.8774999999999995,
+    "theta": 0.9185231520933158,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 291,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1649,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_person",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Beorn",
+        "type": "organization",
+        "start": 48,
+        "end": 53,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Gandalf",
+        "type": "group",
+        "start": 225,
+        "end": 232,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Mirkwood",
+        "type": "organization",
+        "start": 517,
+        "end": 525,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Elrond",
+        "type": "organization",
+        "start": 764,
+        "end": 770,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bilbo",
+        "type": "organization",
+        "start": 1022,
+        "end": 1027,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Merry",
+        "type": "person",
+        "start": 1608,
+        "end": 1613,
+        "mentions": 1,
+        "relationships": []
+      }
+    ],
+    "events": [],
+    "locations": [
+      {
+        "name": "North",
+        "type": "geographical",
+        "start": 619,
+        "end": 624,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745773112.8535938,
+  "has_embedding": true
+}

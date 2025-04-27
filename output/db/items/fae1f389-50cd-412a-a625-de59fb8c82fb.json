@@ -1,0 +1,180 @@
+{
+  "id": "fae1f389-50cd-412a-a625-de59fb8c82fb",
+  "content": "The\tHobbit\n\tis\ta\ttale\tof\thigh\tadventure,\tundertaken\tby\ta\ncompany\t of\t dwarves,\t in\t search\t of\t dragon-guarded\t gold.\nA\treluctant\tpartner\tin\tthis\tperilous\tquest\tis\tBilbo\tBaggins,\na\tcomfort-loving,\tunambitious\thobbit,\twho\tsurprises\teven\nhimself\tby\this\tresourcefulness\tand\this\tskill\tas\ta\tburglar.\nEncounters\t with\t trolls,\t goblins,\t dwarves,\t elves\t and\ngiant\t spiders,\t conversations\t with\t the\t dragon,\t Smaug\t the\nMagnificent,\tand\ta\trather\tunwilling\tpresence\tat\tthe\tBattle\nof\tthe\tFive\tArmies\tare\tsome\tof\tthe\tadventures\tthat\tbefall\nBilbo.\t But\t there\t are\t lighter\t moments\t as\t well:\t good\nfellowship,\twelcome\tmeals,\tlaughter\tand\tsong.\nBilbo\tBaggins\thas\ttaken\this\tplace\tamong\tthe\tranks\tof\nthe\timmortals\tof\tchildren\u2019s\tfiction.\tWritten\tfor\tProfessor\nTolkien\u2019s\t own\t children,\t\nThe\t Hobbit\n\t met\t with\t instant\nacclaim\twhen\tpublished.\tIt\tis\ta\tcomplete\tand\tmarvellous\ntale\tin\titself,\tbut\tit\talso\tforms\ta\tprelude\tto\t\nThe\tLord\tof\tthe\nRings\n.\n\u2018One\tof\tthe\tmost\tinfluential\tbooks\tof\tour\tgeneration\u2019\nThe\tTimes",
+  "coordinates": {
+    "r": 7.4975000000000005,
+    "theta": 3.1981413213544094,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 1,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1001,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Hobbit",
+        "type": "organization",
+        "start": 4,
+        "end": 10,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Written\tfor\tProfessor\nTolkien\u2019s\t own\t children,\t\nT..."
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 164,
+        "end": 169,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Written\tfor\tProfessor\nTolkien\u2019s\t own\t children,\t\nT..."
+          }
+        ]
+      },
+      {
+        "name": "Baggins",
+        "type": "administrative",
+        "start": 170,
+        "end": 177,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Written\tfor\tProfessor\nTolkien\u2019s\t own\t children,\t\nT..."
+          }
+        ]
+      },
+      {
+        "name": "Smaug",
+        "type": "administrative",
+        "start": 405,
+        "end": 410,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Written\tfor\tProfessor\nTolkien\u2019s\t own\t children,\t\nT..."
+          }
+        ]
+      },
+      {
+        "name": "Tolkien",
+        "type": "organization",
+        "start": 750,
+        "end": 757,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Written\tfor\tProfessor\nTolkien\u2019s\t own\t children,\t\nT..."
+          }
+        ]
+      },
+      {
+        "name": "Hobbit\n\t ",
+        "type": "organization",
+        "start": 782,
+        "end": 791,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Written\tfor\tProfessor\nTolkien\u2019s\t own\t children,\t\nT..."
+          }
+        ]
+      },
+      {
+        "name": "Times",
+        "type": "organization",
+        "start": 996,
+        "end": 1001,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Written\tfor\tProfessor\nTolkien\u2019s\t own\t children,\t\nT..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "Written\tfor\tProfessor\nTolkien\u2019s\t own\t children,\t\nT...",
+        "description": "Written\tfor\tProfessor\nTolkien\u2019s\t own\t children,\t\nThe\t Hobbit\n\t met\t with\t instant\nacclaim\twhen\tpublished.\t",
+        "start": 728,
+        "end": 834,
+        "participants": [
+          "Hobbit",
+          "Bilbo",
+          "Baggins",
+          "Smaug",
+          "Tolkien",
+          "Hobbit\n\t ",
+          "Times"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 164,
+        "end": 169,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "Written\tfor\tProfessor\nTolkien\u2019s\t own\t children,\t\nT..."
+          }
+        ]
+      },
+      {
+        "name": "Baggins",
+        "type": "administrative",
+        "start": 170,
+        "end": 177,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Smaug",
+        "type": "administrative",
+        "start": 405,
+        "end": 410,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745773066.0880182,
+  "has_embedding": true
+}

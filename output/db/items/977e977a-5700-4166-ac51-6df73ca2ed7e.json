@@ -1,0 +1,50 @@
+{
+  "id": "977e977a-5700-4166-ac51-6df73ca2ed7e",
+  "content": "his\t own\t house\t and\t wandered\t in\t his\t sleep\t into\t all\t his\ndifferent\trooms\tlooking\tfor\tsomething\tthat\the\tcould\tnot\nfind\tnor\tremember\twhat\tit\tlooked\tlike.",
+  "coordinates": {
+    "r": 9.6075,
+    "theta": 4.7799332224368705,
+    "t": 1745630173.9676006,
+    "z": 2
+  },
+  "metadata": {
+    "chunk_index": 112,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 157,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "hash_based",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 2
+    },
+    "entities": [],
+    "events": [
+      {
+        "name": "his\t own\t house\t and\t wandered\t in\t his\t sleep\t in...",
+        "description": "his\t own\t house\t and\t wandered\t in\t his\t sleep\t into\t all\t his\ndifferent\trooms\tlooking\tfor\tsomething\tthat\the\tcould\tnot\nfind\tnor\tremember\twhat\tit\tlooked\tlike.",
+        "start": 0,
+        "end": 157,
+        "participants": [],
+        "location": null,
+        "time": null
+      }
+    ],
+    "locations": []
+  },
+  "timestamp": 1745773081.9174137,
+  "has_embedding": true
+}

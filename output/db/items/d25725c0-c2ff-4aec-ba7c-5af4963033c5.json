@@ -1,0 +1,107 @@
+{
+  "id": "d25725c0-c2ff-4aec-ba7c-5af4963033c5",
+  "content": "South\taway!\tand\tSouth\taway!\nDown\tthe\tswift\tdark\tstream\tyou\tgo\nBack\tto\tlands\tyou\tonce\tdid\tknow!\nNow\tthe\tvery\tlast\tbarrel\twas\tbeing\trolled\tto\tthe\tdoors!\nIn\t despair\t and\t not\t knowing\t what\t else\t to\t do,\t poor\t little\nBilbo\tcaught\thold\tof\tit\tand\twas\tpushed\tover\tthe\tedge\twith\nit.\tDown\tinto\tthe\twater\the\tfell,\tsplash!\tinto\tthe\tcold\tdark\nwater\twith\tthe\tbarrel\ton\ttop\tof\thim.\nHe\tcame\tup\tagain\tspluttering\tand\tclinging\tto\tthe\twood\nlike\ta\trat,\tbut\tfor\tall\this\tefforts\the\tcould\tnot\tscramble\ton\ntop.\t Every\t time\t he\t tried,\t the\t barrel\t rolled\t round\t and\nducked\thim\tunder\tagain.\tIt\twas\treally\tempty,\tand\tfloated\nlight\t as\t a\t cork.\t Though\t his\t ears\t were\t full\t of\t water,\t he\ncould\thear\tthe\telves\tstill\tsinging\tin\tthe\tcellar\tabove.\tThen\nsuddenly\t the\t trap-doors\t fell\t to\t with\t a\t boom\t and\t their\nvoices\tfaded\taway.\tHe\twas\tin\tthe\tdark\ttunnel\tfloating\tin\nicy\twater,\tall\talone\u2014for\tyou\tcannot\tcount\tfriends\tthat\tare\nall\tpacked\tup\tin\tbarrels.\nVery\tsoon\ta\tgrey\tpatch\tcame\tin\tthe\tdarkness\tahead.\tHe\nheard\tthe\tcreak\tof\tthe\twater-gate\tbeing\thauled\tup,\tand\the\nfound\tthat\the\twas\tin\tthe\tmidst\tof\ta\tbobbing\tand\tbumping\nmass\tof\tcasks\tand\ttubs\tall\tpressing\ttogether\tto\tpass\tunder\nthe\tarch\tand\tget\tout\tinto\tthe\topen\tstream.\tHe\thad\tas\tmuch\nas\the\tcould\tdo\tto\tprevent\thimself\tfrom\tbeing\thustled\tand\nbattered\t to\t bits;\t but\t at\t last\t the\t jostling\t crowd\t began\t to\nbreak\tup\tand\tswing\toff,\tone\tby\tone,\tunder\tthe\tstony\tarch\nand\taway.\tThen\the\tsaw\tthat\tit\twould\thave\tbeen\tno\tgood\neven\tif\the\thad\tmanaged\tto\tget\tastride\this\tbarrel,\tfor\tthere\nwas\tno\troom\tto\tspare,\tnot\teven\tfor\ta\thobbit,\tbetween\tits\ntop\tand\tthe\tsuddenly\tstooping\troof\twhere\tthe\tgate\twas.\nOut\t they\t went\t under\t the\t overhanging\t branches\t of\t the\ntrees\t on\t either\t bank.\t Bilbo\t wondered\t what\t the\t dwarves\nwere\tfeeling\tand\twhether\ta\tlot\tof\twater\twas\tgetting\tinto",
+  "coordinates": {
+    "r": 5.4725,
+    "theta": 3.3002430825960776,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 180,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1811,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 217,
+        "end": 222,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "He\thad\tas\tmuch\nas\the\tcould\tdo\tto\tprevent\thimself\tf..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Bilbo\t wondered\t what\t the\t dwarves\nwere\tfeeling\ta..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "He\thad\tas\tmuch\nas\the\tcould\tdo\tto\tprevent\thimself\tf...",
+        "description": "He\thad\tas\tmuch\nas\the\tcould\tdo\tto\tprevent\thimself\tfrom\tbeing\thustled\tand\nbattered\t to\t bits;\t but\t at\t last\t the\t jostling\t crowd\t began\t to\nbreak\tup\tand\tswing\toff,\tone\tby\tone,\tunder\tthe\tstony\tarch\nand\taway.\t",
+        "start": 1210,
+        "end": 1417,
+        "participants": [
+          "Bilbo"
+        ],
+        "location": "Bilbo",
+        "time": null
+      },
+      {
+        "name": "Bilbo\t wondered\t what\t the\t dwarves\nwere\tfeeling\ta...",
+        "description": "Bilbo\t wondered\t what\t the\t dwarves\nwere\tfeeling\tand\twhether\ta\tlot\tof\twater\twas\tgetting\tinto",
+        "start": 1719,
+        "end": 1811,
+        "participants": [
+          "Bilbo"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "South",
+        "type": "geographical",
+        "start": 0,
+        "end": 5,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 217,
+        "end": 222,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "He\thad\tas\tmuch\nas\the\tcould\tdo\tto\tprevent\thimself\tf..."
+          },
+          {
+            "type": "hosted",
+            "target": "Bilbo\t wondered\t what\t the\t dwarves\nwere\tfeeling\ta..."
+          }
+        ]
+      }
+    ]
+  },
+  "timestamp": 1745709012.1385305,
+  "has_embedding": true
+}

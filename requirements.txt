@@ -1,2 +1,39 @@
-python-dotenv
-# Add other dependencies here as needed 
+# Core Libraries
+langchain>=0.1.0 # Specify a reasonable base version
+langchain-community>=0.0.1 # Specify a reasonable base version
+faiss-cpu>=1.7.4 # Or faiss-gpu
+
+# Embedding / LLM Providers
+langchain-openai>=0.1.0 # Specify a reasonable base version
+# langchain-huggingface
+# sentence-transformers
+# torch
+
+# Utilities
+python-dotenv>=1.0.0
+numpy>=1.20.0
+pytest>=7.0.0 # Example version
+spacy>=3.5.3
+
+# Document Loaders (Add as needed)
+# pypdf
+# python-docx
+# beautifulsoup4
+
+# Additional Libraries
+pypdf>=3.11.0
+docx2txt>=0.8
+markdown>=3.4.3
+html2text>=2020.1.16
+pandas>=1.5.3 # Keep if used
+tiktoken>=0.7.0 # Often needed by OpenAI/other tokenizers
+nltk>=3.8.1 # Keep if used
+scikit-learn>=1.2.2 # Keep if used
+tqdm>=4.65.0
+# transformers>=4.30.0
+# openai>=1.0.0  # For OpenAI embeddings 
+
+# Local Embeddings (Comment out if not using)
+# sentence-transformers>=2.2.2
+# transformers>=4.30.0
+# torch # Or tensorflow, torch typically preferred with sentence-transformers 

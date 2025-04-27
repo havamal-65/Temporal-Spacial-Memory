@@ -1,0 +1,152 @@
+{
+  "id": "19ed8b03-00b2-43d1-915f-f0d9a3eb6bb6",
+  "content": "\u201cA\tlittle\tbeer\twould\tsuit\tme\tbetter,\tif\tit\tis\tall\tthe\tsame\nto\t you,\t my\t good\t sir,\u201d\t said\t Balin\t with\t the\t white\t beard.\n\u201cBut\t I\t don\u2019t\t mind\t some\t cake\u2014seed-cake,\t if\t you\t have\nany.\u201d\n\u201cLots!\u201d\t Bilbo\t found\t himself\t answering,\t to\t his\t own\nsurprise;\t and\t he\t found\t himself\t scuttling\t off,\t too,\t to\t the\ncellar\tto\tfill\ta\tpint\tbeer-mug,\tand\tthen\tto\ta\tpantry\tto\tfetch\ntwo\tbeautiful\tround\tseed-cakes\twhich\the\thad\tbaked\tthat\nafternoon\tfor\this\tafter-supper\tmorsel.\nWhen\the\tgot\tback\tBalin\tand\tDwalin\twere\ttalking\tat\tthe\ntable\t like\t old\t friends\t (as\t a\t matter\t of\t fact\t they\t were\nbrothers).\tBilbo\tplumped\tdown\tthe\tbeer\tand\tthe\tcake\tin\nfront\t of\t them,\t when\t loud\t came\t a\t ring\t at\t the\t bell\t again,\nand\tthen\tanother\tring.\n\u201cGandalf\tfor\tcertain\tthis\ttime,\u201d\the\tthought\tas\the\tpuffed\nalong\t the\t passage.\t But\t it\t was\t not.\t It\t was\t two\t more\ndwarves,\t both\t with\t blue\t hoods,\t silver\t belts,\t and\t yellow\nbeards;\t and\t each\t of\t them\t carried\t a\t bag\t of\t tools\t and\t a\nspade.\tIn\tthey\thopped,\tas\tsoon\tas\tthe\tdoor\tbegan\tto\topen\n\u2014Bilbo\twas\thardly\tsurprised\tat\tall.\n\u201cWhat\tcan\tI\tdo\tfor\tyou,\tmy\tdwarves?\u201d\the\tsaid.\n\u201cKili\tat\tyour\tservice!\u201d\tsaid\tthe\tone.\t\u201cAnd\tFili!\u201d\tadded\nthe\t other;\t and\t they\t both\t swept\t off\t their\t blue\t hoods\t and\nbowed.\n\u201cAt\t yours\t and\t your\t family\u2019s!\u201d\t replied\t Bilbo,\nremembering\this\tmanners\tthis\ttime.\n\u201cDwalin\tand\tBalin\there\talready,\tI\tsee,\u201d\tsaid\tKili.\t\u201cLet\nus\tjoin\tthe\tthrong!\u201d\n\u201cThrong!\u201d\tthought\tMr.\tBaggins.\t\u201cI\tdon\u2019t\tlike\tthe\tsound\nof\tthat.\tI\treally\tmust\tsit\tdown\tfor\ta\tminute\tand\tcollect\tmy\nwits,\t and\t have\t a\t drink.\u201d\t He\t had\t only\t just\t had\t a\t sip\u2014in\nthe\tcorner,\twhile\tthe\tfour\tdwarves\tsat\tround\tthe\ttable,\tand\ntalked\t about\t mines\t and\t gold\t and\t troubles\t with\t the\ngoblins,\tand\tthe\tdepredations\tof\tdragons,\tand\tlots\tof\tother\nthings\twhich\the\tdid\tnot\tunderstand,\tand\tdid\tnot\twant\tto,\nfor\t they\t sounded\t much\t too\t adventurous\u2014when,\t\nding-\ndong-a-ling-dang\n,\this\tbell\trang\tagain,\tas\tif\tsome\tnaughty\nlittle\thobbit-boy\twas\ttrying\tto\tpull\tthe\thandle\toff.",
+  "coordinates": {
+    "r": 5.0175,
+    "theta": 0.3157300616857742,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 13,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1993,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Balin",
+        "type": "person",
+        "start": 92,
+        "end": 97,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "In\tthey\thopped,\tas\tsoon\tas\tthe\tdoor\tbegan\tto\topen\n..."
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "person",
+        "start": 198,
+        "end": 203,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "In\tthey\thopped,\tas\tsoon\tas\tthe\tdoor\tbegan\tto\topen\n..."
+          }
+        ]
+      },
+      {
+        "name": "Kili",
+        "type": "person",
+        "start": 1378,
+        "end": 1382,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "In\tthey\thopped,\tas\tsoon\tas\tthe\tdoor\tbegan\tto\topen\n..."
+          }
+        ]
+      },
+      {
+        "name": "Throng",
+        "type": "administrative",
+        "start": 1411,
+        "end": 1417,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "In\tthey\thopped,\tas\tsoon\tas\tthe\tdoor\tbegan\tto\topen\n..."
+          }
+        ]
+      },
+      {
+        "name": "Baggins",
+        "type": "facility",
+        "start": 1432,
+        "end": 1439,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "In\tthey\thopped,\tas\tsoon\tas\tthe\tdoor\tbegan\tto\topen\n..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "In\tthey\thopped,\tas\tsoon\tas\tthe\tdoor\tbegan\tto\topen\n...",
+        "description": "In\tthey\thopped,\tas\tsoon\tas\tthe\tdoor\tbegan\tto\topen\n\u2014Bilbo\twas\thardly\tsurprised\tat\tall.\n",
+        "start": 986,
+        "end": 1072,
+        "participants": [
+          "Balin",
+          "Bilbo",
+          "Kili",
+          "Throng",
+          "Baggins"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 598,
+        "end": 603,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "In\tthey\thopped,\tas\tsoon\tas\tthe\tdoor\tbegan\tto\topen\n..."
+          }
+        ]
+      },
+      {
+        "name": "Throng",
+        "type": "administrative",
+        "start": 1411,
+        "end": 1417,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Baggins",
+        "type": "facility",
+        "start": 1432,
+        "end": 1439,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745709002.910634,
+  "has_embedding": true
+}

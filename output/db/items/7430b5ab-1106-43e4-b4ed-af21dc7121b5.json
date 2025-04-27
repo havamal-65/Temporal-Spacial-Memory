@@ -1,0 +1,164 @@
+{
+  "id": "7430b5ab-1106-43e4-b4ed-af21dc7121b5",
+  "content": "\u201cI\tsuppose\tyou\tgot\ta\tfair\tprice\tfor\tthat\tcup\tlast\tnight?\u201d\nhe\twent\ton.\t\u201cCome\tnow,\tdid\tyou?\tNothing\tat\tall!\tWell,\nthat\u2019s\t just\t like\t them.\t And\t I\t suppose\t they\t are\t skulking\noutside,\tand\tyour\tjob\tis\tto\tdo\tall\tthe\tdangerous\twork\tand\nget\twhat\tyou\tcan\twhen\tI\u2019m\tnot\tlooking\u2014for\tthem?\tAnd\nyou\twill\tget\ta\tfair\tshare?\tDon\u2019t\tyou\tbelieve\tit!\tIf\tyou\tget\noff\talive,\tyou\twill\tbe\tlucky.\u201d\nBilbo\t was\t now\t beginning\t to\t feel\t really\t uncomfortable.\nWhenever\t Smaug\u2019s\t roving\t eye,\t seeking\t for\t him\t in\t the\nshadows,\t flashed\t across\t him,\t he\t trembled,\t and\t an\nunaccountable\tdesire\tseized\thold\tof\thim\tto\trush\tout\tand\nreveal\thimself\tand\ttell\tall\tthe\ttruth\tto\tSmaug.\tIn\tfact\the\nwas\tin\tgrievous\tdanger\tof\tcoming\tunder\tthe\tdragon-spell.\nBut\tplucking\tup\tcourage\the\tspoke\tagain.\n\u201cYou\t don\u2019t\t know\t everything,\t O\t Smaug\t the\t Mighty,\u201d\nsaid\the.\t\u201cNot\tgold\talone\tbrought\tus\thither.\u201d\n\u201cHa!\tHa!\tYou\tadmit\tthe\t\u2018us\u2019\u201d\tlaughed\tSmaug.\t\u201cWhy\nnot\t say\t \u2018us\t fourteen\u2019\t and\t be\t done\t with\t it,\t Mr.\t Lucky\nNumber?\tI\tam\tpleased\tto\thear\tthat\tyou\thad\tother\tbusiness\nin\t these\t parts\t besides\t my\t gold.\t In\t that\t case\t you\t may,\nperhaps,\tnot\taltogether\twaste\tyour\ttime.\n\u201cI\tdon\u2019t\tknow\tif\tit\thas\toccurred\tto\tyou\tthat,\teven\tif\tyou\ncould\t steal\t the\t gold\t bit\t by\t bit\u2014a\t matter\t of\t a\t hundred\nyears\tor\tso\u2014you\tcould\tnot\tget\tit\tvery\tfar?\tNot\tmuch\tuse\non\tthe\tmountain-side?\tNot\tmuch\tuse\tin\tthe\tforest?\tBless\nme!\t Had\t you\t never\t thought\t of\t the\t catch?\t A\t fourteenth\nshare,\t I\t suppose,\t or\t something\t like\t it,\t those\t were\t the\nterms,\teh?\tBut\twhat\tabout\tdelivery?\tWhat\tabout\tcartage?\nWhat\tabout\tarmed\tguards\tand\ttolls?\u201d\tAnd\tSmaug\tlaughed\naloud.\tHe\thad\ta\twicked\tand\ta\twily\theart,\tand\the\tknew\this\nguesses\t were\t not\t far\t out,\t though\t he\t suspected\t that\t the\nLake-men\twere\tat\tthe\tback\tof\tthe\tplans,\tand\tthat\tmost\tof\nthe\t plunder\t was\t meant\t to\t stop\t there\t in\t the\t town\t by\t the\nshore\tthat\tin\this\tyoung\tdays\thad\tbeen\tcalled\tEsgaroth.\nYou\t will\t hardly\t believe\t it,\t but\t poor\t Bilbo\t was\t really",
+  "coordinates": {
+    "r": 5.07,
+    "theta": 3.2260229561550187,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 219,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1972,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "person",
+        "start": 377,
+        "end": 382,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cI\tdon\u2019t\tknow\tif\tit\thas\toccurred\tto\tyou\tthat,\teven..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Had\t you\t never\t thought\t of\t the\t catch?\t A\t four..."
+          }
+        ]
+      },
+      {
+        "name": "Smaug",
+        "type": "administrative",
+        "start": 651,
+        "end": 656,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cI\tdon\u2019t\tknow\tif\tit\thas\toccurred\tto\tyou\tthat,\teven..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Had\t you\t never\t thought\t of\t the\t catch?\t A\t four..."
+          }
+        ]
+      },
+      {
+        "name": "Mighty",
+        "type": "person",
+        "start": 813,
+        "end": 819,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cI\tdon\u2019t\tknow\tif\tit\thas\toccurred\tto\tyou\tthat,\teven..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Had\t you\t never\t thought\t of\t the\t catch?\t A\t four..."
+          }
+        ]
+      },
+      {
+        "name": "Bless",
+        "type": "administrative",
+        "start": 1369,
+        "end": 1374,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cI\tdon\u2019t\tknow\tif\tit\thas\toccurred\tto\tyou\tthat,\teven..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Had\t you\t never\t thought\t of\t the\t catch?\t A\t four..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "\u201cI\tdon\u2019t\tknow\tif\tit\thas\toccurred\tto\tyou\tthat,\teven...",
+        "description": "\u201cI\tdon\u2019t\tknow\tif\tit\thas\toccurred\tto\tyou\tthat,\teven\tif\tyou\ncould\t steal\t the\t gold\t bit\t by\t bit\u2014a\t matter\t of\t a\t hundred\nyears\tor\tso\u2014you\tcould\tnot\tget\tit\tvery\tfar?\tNot\tmuch\tuse\non\tthe\tmountain-side?\t",
+        "start": 1141,
+        "end": 1341,
+        "participants": [
+          "Bilbo",
+          "Smaug",
+          "Mighty",
+          "Bless"
+        ],
+        "location": "Smaug",
+        "time": null
+      },
+      {
+        "name": "Had\t you\t never\t thought\t of\t the\t catch?\t A\t four...",
+        "description": "Had\t you\t never\t thought\t of\t the\t catch?\t A\t fourteenth\nshare,\t I\t suppose,\t or\t something\t like\t it,\t those\t were\t the\nterms,\teh?\t",
+        "start": 1380,
+        "end": 1512,
+        "participants": [
+          "Bilbo",
+          "Smaug",
+          "Mighty",
+          "Bless"
+        ],
+        "location": "Smaug",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Smaug",
+        "type": "administrative",
+        "start": 651,
+        "end": 656,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "\u201cI\tdon\u2019t\tknow\tif\tit\thas\toccurred\tto\tyou\tthat,\teven..."
+          },
+          {
+            "type": "hosted",
+            "target": "Had\t you\t never\t thought\t of\t the\t catch?\t A\t four..."
+          }
+        ]
+      },
+      {
+        "name": "Bless",
+        "type": "administrative",
+        "start": 1369,
+        "end": 1374,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745709014.1757975,
+  "has_embedding": true
+}

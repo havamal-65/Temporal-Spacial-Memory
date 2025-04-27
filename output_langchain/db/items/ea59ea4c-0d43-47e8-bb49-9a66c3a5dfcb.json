@@ -1,0 +1,214 @@
+{
+  "id": "ea59ea4c-0d43-47e8-bb49-9a66c3a5dfcb",
+  "content": "suppose\tthere\tare\tany\tpeople\tleft\tthere\tthat\ttrouble\twith\nthrush-language.\u201d\n\u201cWhy\twhat\thas\thappened?\u201d\tcried\tthe\tdwarves.\t\u201cDo\tget\non\twith\tyour\ttale!\u201d\nSo\t Bilbo\t told\t them\t all\t he\t could\t remember,\t and\t he\nconfessed\t that\t he\t had\t a\t nasty\t feeling\t that\t the\t dragon\nguessed\t too\t much\t from\t his\t riddles\t added\t to\t the\t camps\nand\tthe\tponies.\t\u201cI\tam\tsure\the\tknows\twe\tcame\tfrom\tLake-\ntown\t and\t had\t help\t from\t there;\t and\t I\t have\t a\t horrible\nfeeling\tthat\this\tnext\tmove\tmay\tbe\tin\tthat\tdirection.\tI\twish\nto\t goodness\t I\t had\t never\t said\t that\t about\t Barrel-rider;\t it\nwould\tmake\teven\ta\tblind\trabbit\tin\tthese\tparts\tthink\tof\tthe\nLake-men.\u201d\n\u201cWell,\twell!\tIt\tcannot\tbe\thelped,\tand\tit\tis\tdifficult\tnot\nto\tslip\tin\ttalking\tto\ta\tdragon,\tor\tso\tI\thave\talways\theard,\u201d\nsaid\tBalin\tanxious\tto\tcomfort\thim.\t\u201cI\tthink\tyou\tdid\tvery\nwell,\tif\tyou\task\tme\u2014you\tfound\tout\tone\tvery\tuseful\tthing\nat\t any\t rate,\t and\t got\t home\t alive,\t and\t that\t is\t more\t than\nmost\t can\t say\t who\t have\t had\t words\t with\t the\t likes\t of\nSmaug.\tIt\tmay\tbe\ta\tmercy\tand\ta\tblessing\tyet\tto\tknow\tof\nthe\tbare\tpatch\tin\tthe\told\tWorm\u2019s\tdiamond\twaistcoat.\u201d\nThat\t turned\t the\t conversation,\t and\t they\t all\t began\ndiscussing\t dragon-slayings\t historical,\t dubious,\t and\nmythical,\t and\t the\t various\t sorts\t of\t stabs\t and\t jabs\t and\nundercuts,\t and\t the\t different\t arts\t devices\t and\t stratagems\nby\t which\t they\t had\t been\t accomplished.\t The\t general\nopinion\t was\t that\t catching\t a\t dragon\t napping\t was\t not\t as\neasy\tas\tit\tsounded,\tand\tthe\tattempt\tto\tstick\tone\tor\tprod\none\tasleep\twas\tmore\tlikely\tto\tend\tin\tdisaster\tthan\ta\tbold\nfrontal\t attack.\t All\t the\t while\t they\t talked\t the\t thrush\nlistened,\ttill\tat\tlast\twhen\tthe\tstars\tbegan\tto\tpeep\tforth,\tit\nsilently\tspread\tits\twings\tand\tflew\taway.\tAnd\tall\tthe\twhile\nthey\t talked\t and\t the\t shadows\t lengthened\t Bilbo\t became\nmore\tand\tmore\tunhappy\tand\this\tforeboding\tgrew.\nAt\t last\t he\t interrupted\t them.\t \u201cI\t am\t sure\t we\t are\t very\nunsafe\there,\u201d\the\tsaid,\t\u201cand\tI\tdon\u2019t\tsee\tthe\tpoint\tof\tsitting\nhere.\tThe\tdragon\thas\twithered\tall\tthe\tpleasant\tgreen,\tand\nanyway\tthe\tnight\thas\tcome\tand\tit\tis\tcold.\tBut\tI\tfeel\tit\tin",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 4.869468613064179,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 223,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2109,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_group",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "person",
+        "start": 152,
+        "end": 157,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cWhy\twhat\thas\thappened?\u201d\tcried\tthe\tdwarves.\t"
+          },
+          {
+            "type": "participated_in",
+            "target": "It\tmay\tbe\ta\tmercy\tand\ta\tblessing\tyet\tto\tknow\tof\nth..."
+          },
+          {
+            "type": "participated_in",
+            "target": "All\t the\t while\t they\t talked\t the\t thrush\nlistene..."
+          }
+        ]
+      },
+      {
+        "name": "Barrel",
+        "type": "organization",
+        "start": 556,
+        "end": 562,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cWhy\twhat\thas\thappened?\u201d\tcried\tthe\tdwarves.\t"
+          },
+          {
+            "type": "participated_in",
+            "target": "It\tmay\tbe\ta\tmercy\tand\ta\tblessing\tyet\tto\tknow\tof\nth..."
+          },
+          {
+            "type": "participated_in",
+            "target": "All\t the\t while\t they\t talked\t the\t thrush\nlistene..."
+          }
+        ]
+      },
+      {
+        "name": "Balin",
+        "type": "group",
+        "start": 767,
+        "end": 772,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cWhy\twhat\thas\thappened?\u201d\tcried\tthe\tdwarves.\t"
+          },
+          {
+            "type": "participated_in",
+            "target": "It\tmay\tbe\ta\tmercy\tand\ta\tblessing\tyet\tto\tknow\tof\nth..."
+          },
+          {
+            "type": "participated_in",
+            "target": "All\t the\t while\t they\t talked\t the\t thrush\nlistene..."
+          }
+        ]
+      },
+      {
+        "name": "Smaug",
+        "type": "administrative",
+        "start": 1001,
+        "end": 1006,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cWhy\twhat\thas\thappened?\u201d\tcried\tthe\tdwarves.\t"
+          },
+          {
+            "type": "participated_in",
+            "target": "It\tmay\tbe\ta\tmercy\tand\ta\tblessing\tyet\tto\tknow\tof\nth..."
+          },
+          {
+            "type": "participated_in",
+            "target": "All\t the\t while\t they\t talked\t the\t thrush\nlistene..."
+          }
+        ]
+      },
+      {
+        "name": "Worm",
+        "type": "organization",
+        "start": 1082,
+        "end": 1086,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cWhy\twhat\thas\thappened?\u201d\tcried\tthe\tdwarves.\t"
+          },
+          {
+            "type": "participated_in",
+            "target": "It\tmay\tbe\ta\tmercy\tand\ta\tblessing\tyet\tto\tknow\tof\nth..."
+          },
+          {
+            "type": "participated_in",
+            "target": "All\t the\t while\t they\t talked\t the\t thrush\nlistene..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "\u201cWhy\twhat\thas\thappened?\u201d\tcried\tthe\tdwarves.\t",
+        "description": "\u201cWhy\twhat\thas\thappened?\u201d\tcried\tthe\tdwarves.\t",
+        "start": 76,
+        "end": 120,
+        "participants": [
+          "Bilbo",
+          "Barrel",
+          "Balin",
+          "Smaug",
+          "Worm"
+        ],
+        "location": "Smaug",
+        "time": null
+      },
+      {
+        "name": "It\tmay\tbe\ta\tmercy\tand\ta\tblessing\tyet\tto\tknow\tof\nth...",
+        "description": "It\tmay\tbe\ta\tmercy\tand\ta\tblessing\tyet\tto\tknow\tof\nthe\tbare\tpatch\tin\tthe\told\tWorm\u2019s\tdiamond\twaistcoat.\u201d\nThat\t turned\t the\t conversation,\t and\t they\t all\t began\ndiscussing\t dragon-slayings\t historical,\t dubious,\t and\nmythical,\t and\t the\t various\t sorts\t of\t stabs\t and\t jabs\t and\nundercuts,\t and\t the\t different\t arts\t devices\t and\t stratagems\nby\t which\t they\t had\t been\t accomplished.\t ",
+        "start": 1008,
+        "end": 1391,
+        "participants": [
+          "Bilbo",
+          "Barrel",
+          "Balin",
+          "Smaug",
+          "Worm"
+        ],
+        "location": "Smaug",
+        "time": null
+      },
+      {
+        "name": "All\t the\t while\t they\t talked\t the\t thrush\nlistene...",
+        "description": "All\t the\t while\t they\t talked\t the\t thrush\nlistened,\ttill\tat\tlast\twhen\tthe\tstars\tbegan\tto\tpeep\tforth,\tit\nsilently\tspread\tits\twings\tand\tflew\taway.\t",
+        "start": 1600,
+        "end": 1746,
+        "participants": [
+          "Bilbo",
+          "Barrel",
+          "Balin",
+          "Smaug",
+          "Worm"
+        ],
+        "location": "Smaug",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Smaug",
+        "type": "administrative",
+        "start": 1001,
+        "end": 1006,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "\u201cWhy\twhat\thas\thappened?\u201d\tcried\tthe\tdwarves.\t"
+          },
+          {
+            "type": "hosted",
+            "target": "It\tmay\tbe\ta\tmercy\tand\ta\tblessing\tyet\tto\tknow\tof\nth..."
+          },
+          {
+            "type": "hosted",
+            "target": "All\t the\t while\t they\t talked\t the\t thrush\nlistene..."
+          }
+        ]
+      }
+    ]
+  },
+  "timestamp": 1745715413.7458606,
+  "has_embedding": true
+}

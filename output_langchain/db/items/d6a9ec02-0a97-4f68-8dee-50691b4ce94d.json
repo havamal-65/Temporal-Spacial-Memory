@@ -1,0 +1,130 @@
+{
+  "id": "d6a9ec02-0a97-4f68-8dee-50691b4ce94d",
+  "content": "hands\t and\t toes.\t Coming\t to\t a\t rise\t he\t could\t see\t his\t own\nHill\tin\tthe\tdistance,\tand\the\tstopped\tsuddenly\tand\tsaid:\nRoads\tgo\tever\tever\ton,\n\t\t\t\t\t\tOver\trock\tand\tunder\ttree,\nBy\tcaves\twhere\tnever\tsun\thas\tshone,\n\t\t\t\t\t\tBy\tstreams\tthat\tnever\tfind\tthe\tsea;\nOver\tsnow\tby\twinter\tsown,\n\t\t\t\t\t\tAnd\tthrough\tthe\tmerry\tflowers\tof\tJune,\nOver\tgrass\tand\tover\tstone,\n\t\t\t\t\t\tAnd\tunder\tmountains\tin\tthe\tmoon.\nRoads\tgo\tever\tever\ton\n\t\t\t\t\t\tUnder\tcloud\tand\tunder\tstar,\nYet\tfeet\tthat\twandering\thave\tgone\n\t\t\t\t\t\tTurn\tat\tlast\tto\thome\tafar.\nEyes\tthat\tfire\tand\tsword\thave\tseen\n\t\t\t\t\t\tAnd\thorror\tin\tthe\thalls\tof\tstone\nLook\tat\tlast\ton\tmeadows\tgreen\n\t\t\t\t\t\tAnd\ttrees\tand\thills\tthey\tlong\thave\tknown.\nGandalf\t looked\t at\t him.\t \u201cMy\t dear\t Bilbo!\u201d\t he\t said.\n\u201cSomething\t is\t the\t matter\t with\t you!\t You\t are\t not\t the\nhobbit\tthat\tyou\twere.\u201d\nAnd\tso\tthey\tcrossed\tthe\tbridge\tand\tpassed\tthe\tmill\tby\nthe\triver\tand\tcame\tright\tback\tto\tBilbo\u2019s\town\tdoor.\n\u201cBless\t me!\t What\u2019s\t going\t on?\u201d\t he\t cried.\t There\t was\t a\ngreat\tcommotion,\tand\tpeople\tof\tall\tsorts,\trespectable\tand\nunrespectable,\twere\tthick\tround\tthe\tdoor,\tand\tmany\twere\ngoing\tin\tand\tout\u2014not\teven\twiping\ttheir\tfeet\ton\tthe\tmat,\nas\tBilbo\tnoticed\twith\tannoyance.\nIf\the\twas\tsurprised,\tthey\twere\tmore\tsurprised\tstill.\tHe\nhad\tarrived\tback\tin\tthe\tmiddle\tof\tan\tauction!\tThere\twas\ta\nlarge\tnotice\tin\tblack\tand\tred\thung\ton\tthe\tgate,\tstating\tthat\non\t June\t the\t Twenty-second\t Messrs\t Grubb,\t Grubb,\t and\nBurrowes\t would\t sell\t by\t auction\t the\t effects\t of\t the\t late",
+  "coordinates": {
+    "r": 6.325,
+    "theta": 3.281393526674539,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 294,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1470,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_person",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Hill",
+        "type": "person",
+        "start": 65,
+        "end": 69,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cSomething\t is\t the\t matter\t with\t you!\t "
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 704,
+        "end": 709,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cSomething\t is\t the\t matter\t with\t you!\t "
+          }
+        ]
+      },
+      {
+        "name": "Messrs",
+        "type": "administrative",
+        "start": 1379,
+        "end": 1385,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cSomething\t is\t the\t matter\t with\t you!\t "
+          }
+        ]
+      },
+      {
+        "name": "Grubb",
+        "type": "person",
+        "start": 1395,
+        "end": 1400,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cSomething\t is\t the\t matter\t with\t you!\t "
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "\u201cSomething\t is\t the\t matter\t with\t you!\t ",
+        "description": "\u201cSomething\t is\t the\t matter\t with\t you!\t ",
+        "start": 723,
+        "end": 764,
+        "participants": [
+          "Hill",
+          "Bilbo",
+          "Messrs",
+          "Grubb"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 704,
+        "end": 709,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "\u201cSomething\t is\t the\t matter\t with\t you!\t "
+          }
+        ]
+      },
+      {
+        "name": "Messrs",
+        "type": "administrative",
+        "start": 1379,
+        "end": 1385,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745715419.0747366,
+  "has_embedding": true
+}

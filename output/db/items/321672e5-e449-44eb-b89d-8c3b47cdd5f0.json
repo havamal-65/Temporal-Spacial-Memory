@@ -1,0 +1,226 @@
+{
+  "id": "321672e5-e449-44eb-b89d-8c3b47cdd5f0",
+  "content": "Victory\thad\tbeen\tassured\tbefore\tthe\tfall\tof\tnight;\tbut\nthe\tpursuit\twas\tstill\ton\tfoot,\twhen\tBilbo\treturned\tto\tthe\ncamp;\t and\t not\t many\t were\t in\t the\t valley\t save\t the\t more\ngrievously\twounded.\n\u201cWhere\t are\t the\t Eagles?\u201d\t he\t asked\t Gandalf\t that\nevening,\tas\the\tlay\twrapped\tin\tmany\twarm\tblankets.\n\u201cSome\tare\tin\tthe\thunt,\u201d\tsaid\tthe\twizard,\t\u201cbut\tmost\thave\ngone\tback\tto\ttheir\teyries.\tThey\twould\tnot\tstay\there,\tand\ndeparted\t with\t the\t first\t light\t of\t morning.\t Dain\t has\ncrowned\ttheir\tchief\twith\tgold,\tand\tsworn\tfriendship\twith\nthem\tforever.\u201d\n\u201cI\t am\t sorry.\t I\t mean,\t I\t should\t have\t liked\t to\t see\t them\nagain,\u201d\tsaid\tBilbo\tsleepily;\t\u201cperhaps\tI\tshall\tsee\tthem\ton\nthe\tway\thome.\tI\tsuppose\tI\tshall\tbe\tgoing\thome\tsoon?\u201d\n\u201cAs\tsoon\tas\tyou\tlike,\u201d\tsaid\tthe\twizard.\nActually\tit\twas\tsome\tdays\tbefore\tBilbo\treally\tset\tout.\nThey\tburied\tThorin\tdeep\tbeneath\tthe\tMountain,\tand\tBard\nlaid\tthe\tArkenstone\tupon\this\tbreast.\n\u201cThere\tlet\tit\tlie\ttill\tthe\tMountain\tfalls!\u201d\the\tsaid.\t\u201cMay\nit\tbring\tgood\tfortune\tto\tall\this\tfolk\tthat\tdwell\there\tafter!\u201d\nUpon\t his\t tomb\t the\t Elvenking\t then\t laid\t Orcrist,\t the\nelvish\tsword\tthat\thad\tbeen\ttaken\tfrom\tThorin\tin\tcaptivity.\nIt\tis\tsaid\tin\tsongs\tthat\tit\tgleamed\tever\tin\tthe\tdark\tif\tfoes\napproached,\tand\tthe\tfortress\tof\tthe\tdwarves\tcould\tnot\tbe\ntaken\tby\tsurprise.\tThere\tnow\tDain\tson\tof\tNain\ttook\tup\nhis\tabode,\tand\the\tbecame\tKing\tunder\tthe\tMountain,\tand\nin\ttime\tmany\tother\tdwarves\tgathered\tto\this\tthrone\tin\tthe\nancient\t halls.\t Of\t the\t twelve\t companions\t of\t Thorin,\t ten\nremained.\t Fili\t and\t Kili\t had\t fallen\t defending\t him\t with\nshield\tand\tbody,\tfor\the\twas\ttheir\tmother\u2019s\telder\tbrother.\nThe\t others\t remained\t with\t Dain;\t for\t Dain\t dealt\t his\ntreasure\twell.\nThere\t was,\t of\t course,\t no\t longer\t any\t question\t of\ndividing\tthe\thoard\tin\tsuch\tshares\tas\thad\tbeen\tplanned,\tto\nBalin\t and\t Dwalin,\t and\t Dori\t and\t Nori\t and\t Ori,\t and\t Oin\nand\t Gloin,\t and\t Bifur\t and\t Bofur\t and\t Bombur\u2014or\t to\nBilbo.\t Yet\t a\t fourteenth\t share\t of\t all\t the\t silver\t and\t gold,\nwrought\tand\tunwrought,\twas\tgiven\tup\tto\tBard;\tfor\tDain",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 3.267256359733385,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 284,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2035,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 91,
+        "end": 96,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Eagles",
+        "type": "administrative",
+        "start": 213,
+        "end": 219,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Gandalf",
+        "type": "group",
+        "start": 234,
+        "end": 241,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Thorin",
+        "type": "group",
+        "start": 824,
+        "end": 830,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bard",
+        "type": "organization",
+        "start": 862,
+        "end": 866,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Orcrist",
+        "type": "person",
+        "start": 1069,
+        "end": 1076,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Nain",
+        "type": "administrative",
+        "start": 1301,
+        "end": 1305,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "King",
+        "type": "person",
+        "start": 1339,
+        "end": 1343,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Kili",
+        "type": "person",
+        "start": 1510,
+        "end": 1514,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Dain",
+        "type": "person",
+        "start": 1637,
+        "end": 1641,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Balin",
+        "type": "person",
+        "start": 1795,
+        "end": 1800,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Dwalin",
+        "type": "organization",
+        "start": 1807,
+        "end": 1813,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Nori",
+        "type": "person",
+        "start": 1832,
+        "end": 1836,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Ori",
+        "type": "organization",
+        "start": 1843,
+        "end": 1846,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Gloin",
+        "type": "organization",
+        "start": 1863,
+        "end": 1868,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bifur",
+        "type": "person",
+        "start": 1876,
+        "end": 1881,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bofur",
+        "type": "administrative",
+        "start": 1888,
+        "end": 1893,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bombur",
+        "type": "administrative",
+        "start": 1900,
+        "end": 1906,
+        "mentions": 1,
+        "relationships": []
+      }
+    ],
+    "events": [],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 91,
+        "end": 96,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Eagles",
+        "type": "administrative",
+        "start": 213,
+        "end": 219,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Nain",
+        "type": "administrative",
+        "start": 1301,
+        "end": 1305,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bofur",
+        "type": "administrative",
+        "start": 1888,
+        "end": 1893,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bombur",
+        "type": "administrative",
+        "start": 1900,
+        "end": 1906,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745773111.5916376,
+  "has_embedding": true
+}

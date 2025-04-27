@@ -1,0 +1,98 @@
+{
+  "id": "963f0f69-bdb5-4876-883e-6e218eeb8bf9",
+  "content": "\u201cTwelve\tyards!\tI\tshould\thave\tthought\tit\twas\tthirty\tat\nleast,\t but\t my\t eyes\t don\u2019t\t see\t as\t well\t as\t they\t used\t a\nhundred\tyears\tago.\tStill\ttwelve\tyards\tis\tas\tgood\tas\ta\tmile.\nWe\tcan\u2019t\tjump\tit,\tand\twe\tdaren\u2019t\ttry\tto\twade\tor\tswim.\u201d\n\u201cCan\tany\tof\tyou\tthrow\ta\trope?\u201d\n\u201cWhat\u2019s\t the\t good\t of\t that?\t The\t boat\t is\t sure\t to\t be\t tied\nup,\teven\tif\twe\tcould\thook\tit,\twhich\tI\tdoubt.\u201d\n\u201cI\t don\u2019t\t believe\t it\t is\t tied,\u201d\t said\t Bilbo,\t \u201cthough\t of\ncourse\tI\tcan\u2019t\tbe\tsure\tin\tthis\tlight;\tbut\tit\tlooks\tto\tme\tas\tif\nit\twas\tjust\tdrawn\tup\ton\tthe\tbank,\twhich\tis\tlow\tjust\tthere\nwhere\tthe\tpath\tgoes\tdown\tinto\tthe\twater.\u201d\n\u201cDori\tis\tthe\tstrongest,\tbut\tFili\tis\tthe\tyoungest\tand\tstill\nhas\tthe\tbest\tsight,\u201d\tsaid\tThorin.\t\u201cCome\there\tFili,\tand\tsee\nif\tyou\tcan\tsee\tthe\tboat\tMr.\tBaggins\tis\ttalking\tabout.\u201d\nFili\t thought\t he\t could;\t so\t when\t he\t had\t stared\t a\t long\nwhile\t to\t get\t an\t idea\t of\t the\t direction,\t the\t others\t brought\nhim\ta\trope.\tThey\thad\tseveral\twith\tthem,\tand\ton\tthe\tend\nof\t the\t longest\t they\t fastened\t one\t of\t the\t large\t iron\t hooks\nthey\thad\tused\tfor\tcatching\ttheir\tpacks\tto\tthe\tstraps\tabout\ntheir\tshoulders.\tFili\ttook\tthis\tin\this\thand,\tbalanced\tit\tfor\ta\nmoment,\tand\tthen\tflung\tit\tacross\tthe\tstream.\nSplash\tit\tfell\tin\tthe\twater!\t\u201cNot\tfar\tenough!\u201d\tsaid\tBilbo\nwho\t was\t peering\t forward.\t \u201cA\t couple\t of\t feet\t and\t you\nwould\thave\tdropped\tit\ton\tto\tthe\tboat.\tTry\tagain.\tI\tdon\u2019t\nsuppose\t the\t magic\t is\t strong\t enough\t to\t hurt\t you,\t if\t you\njust\ttouch\ta\tbit\tof\twet\trope.\u201d\nFili\t picked\t up\t the\t hook\t when\t he\t had\t drawn\t it\t back,\nrather\tdoubtfully\tall\tthe\tsame.\tThis\ttime\the\tthrew\tit\twith\ngreat\tstrength.\n\u201cSteady!\u201d\tsaid\tBilbo,\t\u201cyou\thave\tthrown\tit\tright\tinto\tthe\nwood\t on\t the\t other\t side\t now.\t Draw\t it\t back\t gently.\u201d\t Fili\nhauled\tthe\trope\tback\tslowly,\tand\tafter\ta\twhile\tBilbo\tsaid:\n\u201cCarefully!\tIt\tis\tlying\ton\tthe\tboat;\tlet\u2019s\thope\tthe\thook\twill\ncatch.\u201d\nIt\tdid.\tThe\trope\twent\ttaut,\tand\tFili\tpulled\tin\tvain.\tKili\ncame\t to\t his\t help,\t and\t then\t Oin\t and\t Gloin.\t They\t tugged\nand\ttugged,\tand\tsuddenly\tthey\tall\tfell\tover\ton\ttheir\tbacks.\nBilbo\twas\ton\tthe\tlook\tout,\thowever,\tcaught\tthe\trope,\tand",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 0.1284125997154828,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 142,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2087,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_organization",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 416,
+        "end": 421,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Thorin",
+        "type": "group",
+        "start": 684,
+        "end": 690,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Fili",
+        "type": "person",
+        "start": 703,
+        "end": 707,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Baggins",
+        "type": "person",
+        "start": 745,
+        "end": 752,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Kili",
+        "type": "person",
+        "start": 1902,
+        "end": 1906,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Gloin",
+        "type": "organization",
+        "start": 1950,
+        "end": 1955,
+        "mentions": 1,
+        "relationships": []
+      }
+    ],
+    "events": [],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 416,
+        "end": 421,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745715407.458605,
+  "has_embedding": true
+}

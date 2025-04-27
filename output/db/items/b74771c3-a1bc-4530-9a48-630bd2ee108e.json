@@ -1,0 +1,164 @@
+{
+  "id": "b74771c3-a1bc-4530-9a48-630bd2ee108e",
+  "content": "\u201cThey\thave\tgone\tto\ttell\thim\tof\tthe\tarrival\tof\tstrangers,\u201d\nsaid\tGandalf.\nSoon\t they\t reached\t a\t courtyard,\t three\t walls\t of\t which\nwere\t formed\t by\t the\t wooden\t house\t and\t its\t two\t long\nwings.\t In\t the\t middle\t there\t was\t lying\t a\t great\t oak-trunk\nwith\tmany\tlopped\tbranches\tbeside\tit.\tStanding\tnear\twas\ta\nhuge\t man\t with\t a\t thick\t black\t beard\t and\t hair,\t and\t great\nbare\tarms\tand\tlegs\twith\tknotted\tmuscles.\tHe\twas\tclothed\nin\ta\ttunic\tof\twool\tdown\tto\this\tknees,\tand\twas\tleaning\ton\na\tlarge\taxe.\tThe\thorses\twere\tstanding\tby\thim\twith\ttheir\nnoses\tat\this\tshoulder.\n\u201cUgh!\t here\t they\t are!\u201d\t he\t said\t to\t the\t horses.\t \u201cThey\ndon\u2019t\t look\t dangerous.\t You\t can\t be\t off!\u201d\t He\t laughed\t a\ngreat\trolling\tlaugh,\tput\tdown\this\taxe\tand\tcame\tforward.\n\u201cWho\t are\t you\t and\t what\t do\t you\t want?\u201d\t he\t asked\ngruffly,\tstanding\tin\tfront\tof\tthem\tand\ttowering\ttall\tabove\nGandalf.\t As\t for\t Bilbo\t he\t could\t easily\t have\t trotted\nthrough\t his\t legs\t without\t ducking\t his\t head\t to\t miss\t the\nfringe\tof\tthe\tman\u2019s\tbrown\ttunic.\n\u201cI\tam\tGandalf,\u201d\tsaid\tthe\twizard.\n\u201cNever\theard\tof\thim,\u201d\tgrowled\tthe\tman.\t\u201cAnd\twhat\u2019s\nthis\tlittle\tfellow?\u201d\the\tsaid,\tstooping\tdown\tto\tfrown\tat\tthe\nhobbit\twith\this\tbushy\tblack\teyebrows.\n\u201cThat\t is\t Mr.\t Baggins,\t a\t hobbit\t of\t good\t family\t and\nunimpeachable\t reputation,\u201d\t said\t Gandalf.\t Bilbo\t bowed.\nHe\thad\tno\that\tto\ttake\toff,\tand\twas\tpainfully\tconscious\tof\nhis\t many\t missing\t buttons.\t \u201cI\t am\t a\t wizard,\u201d\t continued\nGandalf.\t\u201cI\thave\theard\tof\tyou,\tif\tyou\thave\tnot\theard\tof\nme;\t but\t perhaps\t you\t have\t heard\t of\t my\t good\t cousin\nRadagast\t who\t lives\t near\t the\t Southern\t borders\t of\nMirkwood?\u201d\n\u201cYes;\tnot\ta\tbad\tfellow\tas\twizards\tgo,\tI\tbelieve.\tI\tused\nto\t see\t him\t now\t and\t again,\u201d\t said\t Beorn.\t \u201cWell,\t now\t I\nknow\twho\tyou\tare,\tor\twho\tyou\tsay\tyou\tare.\tWhat\tdo\tyou\nwant?\u201d\n\u201cTo\t tell\t you\t the\t truth,\t we\t have\t lost\t our\t luggage\t and\nnearly\tlost\tour\tway,\tand\tare\trather\tin\tneed\tof\thelp,\tor\tat\nleast\tof\tadvice.\tI\tmay\tsay\twe\thave\thad\trather\ta\tbad\ttime",
+  "coordinates": {
+    "r": 5.08,
+    "theta": 0.2646791810649401,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 119,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1968,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_person",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Gandalf",
+        "type": "group",
+        "start": 63,
+        "end": 70,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "What\tdo\tyou\nwant?\u201d\n\u201cTo\t tell\t you\t the\t truth,\t we..."
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "person",
+        "start": 876,
+        "end": 881,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "What\tdo\tyou\nwant?\u201d\n\u201cTo\t tell\t you\t the\t truth,\t we..."
+          }
+        ]
+      },
+      {
+        "name": "Baggins",
+        "type": "person",
+        "start": 1210,
+        "end": 1217,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "What\tdo\tyou\nwant?\u201d\n\u201cTo\t tell\t you\t the\t truth,\t we..."
+          }
+        ]
+      },
+      {
+        "name": "Radagast",
+        "type": "organization",
+        "start": 1545,
+        "end": 1553,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "What\tdo\tyou\nwant?\u201d\n\u201cTo\t tell\t you\t the\t truth,\t we..."
+          }
+        ]
+      },
+      {
+        "name": "Southern",
+        "type": "group",
+        "start": 1578,
+        "end": 1586,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "What\tdo\tyou\nwant?\u201d\n\u201cTo\t tell\t you\t the\t truth,\t we..."
+          }
+        ]
+      },
+      {
+        "name": "Mirkwood",
+        "type": "organization",
+        "start": 1600,
+        "end": 1608,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "What\tdo\tyou\nwant?\u201d\n\u201cTo\t tell\t you\t the\t truth,\t we..."
+          }
+        ]
+      },
+      {
+        "name": "Beorn",
+        "type": "person",
+        "start": 1706,
+        "end": 1711,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "What\tdo\tyou\nwant?\u201d\n\u201cTo\t tell\t you\t the\t truth,\t we..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "What\tdo\tyou\nwant?\u201d\n\u201cTo\t tell\t you\t the\t truth,\t we...",
+        "description": "What\tdo\tyou\nwant?\u201d\n\u201cTo\t tell\t you\t the\t truth,\t we\t have\t lost\t our\t luggage\t and\nnearly\tlost\tour\tway,\tand\tare\trather\tin\tneed\tof\thelp,\tor\tat\nleast\tof\tadvice.\t",
+        "start": 1771,
+        "end": 1929,
+        "participants": [
+          "Gandalf",
+          "Bilbo",
+          "Baggins",
+          "Radagast",
+          "Southern",
+          "Mirkwood",
+          "Beorn"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 1298,
+        "end": 1303,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "What\tdo\tyou\nwant?\u201d\n\u201cTo\t tell\t you\t the\t truth,\t we..."
+          }
+        ]
+      }
+    ]
+  },
+  "timestamp": 1745709008.6116,
+  "has_embedding": true
+}

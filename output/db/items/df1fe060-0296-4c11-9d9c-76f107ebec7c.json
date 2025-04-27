@@ -1,0 +1,122 @@
+{
+  "id": "df1fe060-0296-4c11-9d9c-76f107ebec7c",
+  "content": "Tired\t as\t he\t was,\t Bilbo\t would\t have\t liked\t to\t stay\t a\nwhile.\tElvish\tsinging\tis\tnot\ta\tthing\tto\tmiss,\tin\tJune\tunder\nthe\tstars,\tnot\tif\tyou\tcare\tfor\tsuch\tthings.\tAlso\the\twould\nhave\tliked\tto\thave\ta\tfew\tprivate\twords\twith\tthese\tpeople\nthat\t seemed\t to\t know\t his\t names\t and\t all\t about\t him,\nalthough\the\thad\tnever\tseen\tthem\tbefore.\tHe\tthought\ttheir\nopinion\tof\this\tadventure\tmight\tbe\tinteresting.\tElves\tknow\na\tlot\tand\tare\twondrous\tfolk\tfor\tnews,\tand\tknow\twhat\tis\ngoing\ton\tamong\tthe\tpeoples\tof\tthe\tland,\tas\tquick\tas\twater\nflows,\tor\tquicker.\nBut\tthe\tdwarves\twere\tall\tfor\tsupper\tas\tsoon\tas\tpossible\njust\tthen,\tand\twould\tnot\tstay.\tOn\tthey\tall\twent,\tleading\ntheir\tponies,\ttill\tthey\twere\tbrought\tto\ta\tgood\tpath\tand\tso\nat\tlast\tto\tthe\tvery\tbrink\tof\tthe\triver.\tIt\twas\tflowing\tfast\nand\t noisily,\t as\t mountain-streams\t do\t of\t a\t summer\nevening,\t when\t sun\t has\t been\t all\t day\t on\t the\t snow\t far\t up\nabove.\tThere\twas\tonly\ta\tnarrow\tbridge\tof\tstone\twithout\ta\nparapet,\tas\tnarrow\tas\ta\tpony\tcould\twell\twalk\ton;\tand\tover\nthat\t they\t had\t to\t go,\t slow\t and\t careful,\t one\t by\t one,\t each\nleading\t his\t pony\t by\t the\t bridle.\t The\t elves\t had\t brought\nbright\tlanterns\tto\tthe\tshore,\tand\tthey\tsang\ta\tmerry\tsong\tas\nthe\tparty\twent\tacross.\n\u201cDon\u2019t\tdip\tyour\tbeard\tin\tthe\tfoam,\tfather!\u201d\tthey\tcried\nto\t Thorin,\t who\t was\t bent\t almost\t on\t to\t his\t hands\t and\nknees.\t\u201cIt\tis\tlong\tenough\twithout\twatering\tit.\u201d\n\u201cMind\t Bilbo\t doesn\u2019t\t eat\t all\t the\t cakes!\u201d\t they\t called.\n\u201cHe\tis\ttoo\tfat\tto\tget\tthrough\tkey-holes\tyet!\u201d\n\u201cHush,\t hush!\t Good\t People!\t and\t good\t night!\u201d\t said\nGandalf,\t who\t came\t last.\t \u201cValleys\t have\t ears,\t and\t some\nelves\thave\tover\tmerry\ttongues.\tGood\tnight!\u201d\nAnd\tso\tat\tlast\tthey\tall\tcame\tto\tthe\tLast\tHomely\tHouse,\nand\tfound\tits\tdoors\tflung\twide.\nNow\tit\tis\ta\tstrange\tthing,\tbut\tthings\tthat\tare\tgood\tto\nhave\tand\tdays\tthat\tare\tgood\tto\tspend\tare\tsoon\ttold\tabout,\nand\t not\t much\t to\t listen\t to;\t while\t things\t that\t are",
+  "coordinates": {
+    "r": 5.23,
+    "theta": 3.2421236185046665,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 53,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1908,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 21,
+        "end": 26,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Elves\tknow\na\tlot\tand\tare\twondrous\tfolk\tfor\tnews,\ta..."
+          }
+        ]
+      },
+      {
+        "name": "Elvish",
+        "type": "group",
+        "start": 67,
+        "end": 73,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Elves\tknow\na\tlot\tand\tare\twondrous\tfolk\tfor\tnews,\ta..."
+          }
+        ]
+      },
+      {
+        "name": "Hush",
+        "type": "person",
+        "start": 1492,
+        "end": 1496,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Elves\tknow\na\tlot\tand\tare\twondrous\tfolk\tfor\tnews,\ta..."
+          }
+        ]
+      },
+      {
+        "name": "House",
+        "type": "organization",
+        "start": 1699,
+        "end": 1704,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Elves\tknow\na\tlot\tand\tare\twondrous\tfolk\tfor\tnews,\ta..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "Elves\tknow\na\tlot\tand\tare\twondrous\tfolk\tfor\tnews,\ta...",
+        "description": "Elves\tknow\na\tlot\tand\tare\twondrous\tfolk\tfor\tnews,\tand\tknow\twhat\tis\ngoing\ton\tamong\tthe\tpeoples\tof\tthe\tland,\tas\tquick\tas\twater\nflows,\tor\tquicker.\n",
+        "start": 397,
+        "end": 540,
+        "participants": [
+          "Bilbo",
+          "Elvish",
+          "Hush",
+          "House"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 21,
+        "end": 26,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "Elves\tknow\na\tlot\tand\tare\twondrous\tfolk\tfor\tnews,\ta..."
+          }
+        ]
+      }
+    ]
+  },
+  "timestamp": 1745709005.1084867,
+  "has_embedding": true
+}

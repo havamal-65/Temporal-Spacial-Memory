@@ -1,0 +1,82 @@
+{
+  "id": "f45afda0-fae5-46b4-bbc2-6ead1dd87876",
+  "content": "did\tnot\treach\tthe\tother\tside\tin\tsafety.\tThorin\twas\tthe\tonly\none\twho\thad\tkept\this\tfeet\tand\this\twits.\tAs\tsoon\tas\tthey\nhad\t landed\t he\t had\t bent\t his\t bow\t and\t fitted\t an\t arrow\t in\ncase\tany\thidden\tguardian\tof\tthe\tboat\tappeared.\tNow\the\nsent\t a\t swift\t and\t sure\t shot\t into\t the\t leaping\t beast.\t As\t it\nreached\t the\t further\t bank\t it\t stumbled.\t The\t shadows\nswallowed\t it\t up,\t but\t they\t heard\t the\t sound\t of\t hooves\nquickly\tfalter\tand\tthen\tgo\tstill.\nBefore\tthey\tcould\tshout\tin\tpraise\tof\tthe\tshot,\thowever,\na\tdreadful\twail\tfrom\tBilbo\tput\tall\tthoughts\tof\tvenison\tout\nof\t their\t minds.\t \u201cBombur\t has\t fallen\t in!\t Bombur\t is\ndrowning!\u201d\t he\t cried.\t It\t was\t only\t too\t true.\t Bombur\t had\nonly\t one\t foot\t on\t the\t land\t when\t the\t hart\t bore\t down\t on\nhim,\tand\tsprang\tover\thim.\tHe\thad\tstumbled,\tthrusting\tthe\nboat\taway\tfrom\tthe\tbank,\tand\tthen\ttoppled\tback\tinto\tthe\ndark\twater,\this\thands\tslipping\toff\tthe\tslimy\troots\tat\tthe\nedge,\twhile\tthe\tboat\tspan\tslowly\toff\tand\tdisappeared.\nThey\t could\t still\t see\t his\t hood\t above\t the\t water\t when\nthey\t ran\t to\t the\t bank.\t Quickly,\t they\t flung\t a\t rope\t with\t a\nhook\t towards\t him.\t His\t hand\t caught\t it,\t and\t they\t pulled\nhim\tto\tthe\tshore.\tHe\twas\tdrenched\tfrom\thair\tto\tboots,\tof\ncourse,\tbut\tthat\twas\tnot\tthe\tworst.\tWhen\tthey\tlaid\thim\ton\nthe\t bank\t he\t was\t already\t fast\t asleep,\t with\t one\t hand\nclutching\tthe\trope\tso\ttight\tthat\tthey\tcould\tnot\tget\tit\tfrom\nhis\tgrasp;\tand\tfast\tasleep\the\tremained\tin\tspite\tof\tall\tthey\ncould\tdo.\nThey\twere\tstill\tstanding\tover\thim,\tcursing\ttheir\till\tluck,\nand\tBombur\u2019s\tclumsiness,\tand\tlamenting\tthe\tloss\tof\tthe\nboat\t which\t made\t it\t impossible\t for\t them\t to\t go\t back\t and\nlook\t for\t the\t hart,\t when\t they\t became\t aware\t of\t the\t dim\nblowing\tof\thorns\tin\tthe\twood\tand\tthe\tsound\tas\tof\tdogs\nbaying\tfar\toff.\tThen\tthey\tall\tfell\tsilent;\tand\tas\tthey\tsat\tit\nseemed\tthey\tcould\thear\tthe\tnoise\tof\ta\tgreat\thunt\tgoing\tby\nto\tthe\tnorth\tof\tthe\tpath,\tthough\tthey\tsaw\tno\tsign\tof\tit.\nThere\t they\t sat\t for\t a\t long\t while\t and\t did\t not\t dare\t to\nmake\t a\t move.\t Bombur\t slept\t on\t with\t a\t smile\t on\t his\t fat\nface,\t as\t if\t he\t no\t longer\t cared\t for\t all\t the\t troubles\t that\nvexed\tthem.\tSuddenly\ton\tthe\tpath\tahead\tappeared\tsome",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 3.331266310050277,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 144,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2193,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Thorin",
+        "type": "group",
+        "start": 40,
+        "end": 46,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 532,
+        "end": 537,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bombur",
+        "type": "administrative",
+        "start": 590,
+        "end": 596,
+        "mentions": 1,
+        "relationships": []
+      }
+    ],
+    "events": [],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 532,
+        "end": 537,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bombur",
+        "type": "administrative",
+        "start": 590,
+        "end": 596,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745709010.0505314,
+  "has_embedding": true
+}

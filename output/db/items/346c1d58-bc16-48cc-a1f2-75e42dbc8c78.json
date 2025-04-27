@@ -1,0 +1,122 @@
+{
+  "id": "346c1d58-bc16-48cc-a1f2-75e42dbc8c78",
+  "content": "of\t April,\t a\t hundred\t years\t ago\t last\t Thursday,\t and\t has\nnever\tbeen\tseen\tby\tyou\tsince\u2013\u201d\n\u201cTrue,\ttrue,\u201d\tsaid\tThorin.\n\u201cWell,\tyour\tfather\tgave\tme\tthis\tto\tgive\tto\tyou;\tand\tif\tI\nhave\tchosen\tmy\town\ttime\tand\tway\tfor\thanding\tit\tover,\nyou\tcan\thardly\tblame\tme,\tconsidering\tthe\ttrouble\tI\thad\tto\nfind\tyou.\tYour\tfather\tcould\tnot\tremember\this\town\tname\nwhen\the\tgave\tme\tthe\tpaper,\tand\the\tnever\ttold\tme\tyours;\nso\ton\tthe\twhole\tI\tthink\tI\tought\tto\tbe\tpraised\tand\tthanked!\nHere\tit\tis,\u201d\tsaid\the\thanding\tthe\tmap\tto\tThorin.\n\u201cI\t don\u2019t\t understand,\u201d\t said\t Thorin,\t and\t Bilbo\t felt\t he\nwould\thave\tliked\tto\tsay\tthe\tsame.\tThe\texplanation\tdid\tnot\nseem\tto\texplain.\n\u201cYour\tgrandfather,\u201d\tsaid\tthe\twizard\tslowly\tand\tgrimly,\n\u201cgave\tthe\tmap\tto\this\tson\tfor\tsafety\tbefore\the\twent\tto\tthe\nmines\t of\t Moria.\t Your\t father\t went\t away\t to\t try\t his\t luck\nwith\tthe\tmap\tafter\tyour\tgrandfather\twas\tkilled;\tand\tlots\nof\t adventures\t of\t a\t most\t unpleasant\t sort\t he\t had,\t but\t he\nnever\t got\t near\t the\t Mountain.\t How\t he\t got\t there\t I\t don\u2019t\nknow,\tbut\tI\tfound\thim\ta\tprisoner\tin\tthe\tdungeons\tof\tthe\nNecromancer.\u201d\n\u201cWhatever\twere\tyou\tdoing\tthere?\u201d\tasked\tThorin\twith\ta\nshudder,\tand\tall\tthe\tdwarves\tshivered.\n\u201cNever\t you\t mind.\t I\t was\t finding\t things\t out,\t as\t usual;\nand\ta\tnasty\tdangerous\tbusiness\tit\twas.\tEven\tI,\tGandalf,\nonly\t just\t escaped.\t I\t tried\t to\t save\t your\t father,\t but\t it\t was\ntoo\tlate.\tHe\twas\twitless\tand\twandering,\tand\thad\tforgotten\nalmost\teverything\texcept\tthe\tmap\tand\tthe\tkey.\u201d\n\u201cWe\t have\t long\t ago\t paid\t the\t goblins\t of\t Moria,\u201d\t said\nThorin;\t\u201cwe\tmust\tgive\ta\tthought\tto\tthe\tNecromancer.\u201d\n\u201cDon\u2019t\t be\t absurd!\t He\t is\t an\t enemy\t far\t beyond\t the\npowers\tof\tall\tthe\tdwarves\tput\ttogether,\tif\tthey\tcould\tall\nbe\tcollected\tagain\tfrom\tthe\tfour\tcorners\tof\tthe\tworld.\tThe\none\tthing\tyour\tfather\twished\twas\tfor\this\tson\tto\tread\tthe\nmap\tand\tuse\tthe\tkey.\tThe\tdragon\tand\tthe\tMountain\tare\nmore\tthan\tbig\tenough\ttasks\tfor\tyou!\u201d\n\u201cHear,\thear!\u201d\tsaid\tBilbo,\tand\taccidentally\tsaid\tit\taloud.\n\u201cHear\t what?\u201d\t they\t all\t said\t turning\t suddenly\t towards",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 1.6438383559908591,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 29,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2008,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_group",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Thorin",
+        "type": "group",
+        "start": 112,
+        "end": 118,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Your\t father\t went\t away\t to\t try\t his\t luck\nwith\t..."
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "person",
+        "start": 549,
+        "end": 554,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Your\t father\t went\t away\t to\t try\t his\t luck\nwith\t..."
+          }
+        ]
+      },
+      {
+        "name": "Moria",
+        "type": "person",
+        "start": 764,
+        "end": 769,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Your\t father\t went\t away\t to\t try\t his\t luck\nwith\t..."
+          }
+        ]
+      },
+      {
+        "name": "Gandalf",
+        "type": "group",
+        "start": 1274,
+        "end": 1281,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Your\t father\t went\t away\t to\t try\t his\t luck\nwith\t..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "Your\t father\t went\t away\t to\t try\t his\t luck\nwith\t...",
+        "description": "Your\t father\t went\t away\t to\t try\t his\t luck\nwith\tthe\tmap\tafter\tyour\tgrandfather\twas\tkilled;\tand\tlots\nof\t adventures\t of\t a\t most\t unpleasant\t sort\t he\t had,\t but\t he\nnever\t got\t near\t the\t Mountain.\t ",
+        "start": 772,
+        "end": 973,
+        "participants": [
+          "Thorin",
+          "Bilbo",
+          "Moria",
+          "Gandalf"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 1911,
+        "end": 1916,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "Your\t father\t went\t away\t to\t try\t his\t luck\nwith\t..."
+          }
+        ]
+      }
+    ]
+  },
+  "timestamp": 1745773069.8784983,
+  "has_embedding": true
+}

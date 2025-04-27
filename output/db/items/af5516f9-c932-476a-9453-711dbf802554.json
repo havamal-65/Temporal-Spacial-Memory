@@ -1,0 +1,104 @@
+{
+  "id": "af5516f9-c932-476a-9453-711dbf802554",
+  "content": "others\tsat\tnear\tthe\touter\tdoor\tand\tdiscussed\ttheir\tplans.\tIn\nall\t their\t talk\t they\t came\t perpetually\t back\t to\t one\t thing:\nwhere\t was\t Smaug?\t They\t looked\t West\t and\t there\t was\nnothing,\t and\t East\t there\t was\t nothing,\t and\t in\t the\t South\nthere\twas\tno\tsign\tof\tthe\tdragon,\tbut\tthere\twas\ta\tgathering\nof\tvery\tmany\tbirds.\tAt\tthat\tthey\tgazed\tand\twondered;\tbut\nthey\twere\tno\tnearer\tunderstanding\tit,\twhen\tthe\tfirst\tcold\nstars\tcame\tout.",
+  "coordinates": {
+    "r": 8.915,
+    "theta": 3.9320959050493247,
+    "t": 1745630173.9676006,
+    "z": 3
+  },
+  "metadata": {
+    "chunk_index": 239,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 434,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 3
+    },
+    "entities": [
+      {
+        "name": "Smaug",
+        "type": "administrative",
+        "start": 138,
+        "end": 143,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "At\tthat\tthey\tgazed\tand\twondered;\tbut\nthey\twere\tno\t..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "At\tthat\tthey\tgazed\tand\twondered;\tbut\nthey\twere\tno\t...",
+        "description": "At\tthat\tthey\tgazed\tand\twondered;\tbut\nthey\twere\tno\tnearer\tunderstanding\tit,\twhen\tthe\tfirst\tcold\nstars\tcame\tout.",
+        "start": 324,
+        "end": 434,
+        "participants": [
+          "Smaug"
+        ],
+        "location": "Smaug",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Smaug",
+        "type": "administrative",
+        "start": 138,
+        "end": 143,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "At\tthat\tthey\tgazed\tand\twondered;\tbut\nthey\twere\tno\t..."
+          }
+        ]
+      },
+      {
+        "name": "West",
+        "type": "geographical",
+        "start": 160,
+        "end": 164,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "East",
+        "type": "geographical",
+        "start": 197,
+        "end": 201,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "South",
+        "type": "geographical",
+        "start": 239,
+        "end": 244,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745709015.2744107,
+  "has_embedding": true
+}

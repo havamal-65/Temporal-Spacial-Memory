@@ -1,0 +1,122 @@
+{
+  "id": "2b28dbb0-9ddd-43e9-a787-25008bc19d42",
+  "content": "grim.\nTrumpets\t called\t men\t and\t elves\t to\t arms.\t Before\t long\nthe\tdwarves\tcould\tbe\tseen\tcoming\tup\tthe\tvalley\tat\ta\tgreat\npace.\tThey\thalted\tbetween\tthe\triver\tand\tthe\teastern\tspur;\nbut\ta\tfew\theld\ton\ttheir\tway,\tand\tcrossing\tthe\triver\tdrew\nnear\t the\t camp;\t and\t there\t they\t laid\t down\t their\t weapons\nand\theld\tup\ttheir\thands\tin\tsign\tof\tpeace.\tBard\twent\tout\tto\nmeet\tthem,\tand\twith\thim\twent\tBilbo.\n\u201cWe\tare\tsent\tfrom\tDain\tson\tof\tNain,\u201d\tthey\tsaid\twhen\nquestioned.\t \u201cWe\t are\t hastening\t to\t our\t kinsmen\t in\t the\nMountain,\t since\t we\t learn\t that\t the\t kingdom\t of\t old\t is\nrenewed.\t But\t who\t are\t you\t that\t sit\t in\t the\t plain\t as\t foes\nbefore\tdefended\twalls?\u201d\tThis,\tof\tcourse,\tin\tthe\tpolite\tand\nrather\t old-fashioned\t language\t of\t such\t occasions,\t meant\nsimply:\t\u201cYou\thave\tno\tbusiness\there.\tWe\tare\tgoing\ton,\tso\nmake\tway\tor\twe\tshall\tfight\tyou!\u201d\tThey\tmeant\tto\tpush\ton\nbetween\t the\t Mountain\t and\t the\t loop\t of\t the\t river;\t for\t the\nnarrow\tland\tthere\tdid\tnot\tseem\tto\tbe\tstrongly\tguarded.\nBard,\t of\t course,\t refused\t to\t allow\t the\t dwarves\t to\t go\nstraight\t on\t to\t the\t Mountain.\t He\t was\t determined\t to\t wait\nuntil\tthe\tgold\tand\tsilver\thad\tbeen\tbrought\tout\tin\texchange\nfor\tthe\tArkenstone;\tfor\the\tdid\tnot\tbelieve\tthat\tthis\twould\nbe\t done,\t if\t once\t the\t fortress\t was\t manned\t with\t so\t large\nand\t warlike\t a\t company.\t They\t had\t brought\t with\t them\t a\ngreat\t store\t of\t supplies;\t for\t the\t dwarves\t can\t carry\t very\nheavy\tburdens,\tand\tnearly\tall\tof\tDain\u2019s\tfolk,\tin\tspite\tof\ntheir\t rapid\t march,\t bore\t huge\t packs\t on\t their\t backs\t in\naddition\tto\ttheir\tweapons.\tThey\twould\tstand\ta\tsiege\tfor\nweeks,\t and\t by\t that\t time\t yet\t more\t dwarves\t might\t come,\nand\t yet\t more,\t for\t Thorin\t had\t many\t relatives.\t Also\t they\nwould\t be\t able\t to\t reopen\t and\t guard\t some\t other\t gate,\t so\nthat\t the\t besiegers\t would\t have\t to\t encircle\t the\t whole\nmountain;\tand\tfor\tthat\tthey\thad\tnot\tsufficient\tnumbers.\nThese\twere,\tin\tfact,\tprecisely\ttheir\tplans\t(for\tthe\traven-\nmessengers\thad\tbeen\tbusy\tbetween\tThorin\tand\tDain);\tbut\nfor\tthe\tmoment\tthe\tway\twas\tbarred,\tso\tafter\tangry\twords\nthe\t dwarf-messengers\t retired\t muttering\t in\t their\t beards.\nBard\tthen\tsent\tmessengers\tat\tonce\tto\tthe\tGate;\tbut\tthey",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 3.465962095072939,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 272,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2190,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_organization",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 389,
+        "end": 394,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "But\t who\t are\t you\t that\t sit\t in\t the\t plain\t as\t..."
+          }
+        ]
+      },
+      {
+        "name": "Bard",
+        "type": "person",
+        "start": 987,
+        "end": 991,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "But\t who\t are\t you\t that\t sit\t in\t the\t plain\t as\t..."
+          }
+        ]
+      },
+      {
+        "name": "Thorin",
+        "type": "group",
+        "start": 1681,
+        "end": 1687,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "But\t who\t are\t you\t that\t sit\t in\t the\t plain\t as\t..."
+          }
+        ]
+      },
+      {
+        "name": "Gate",
+        "type": "organization",
+        "start": 2176,
+        "end": 2180,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "But\t who\t are\t you\t that\t sit\t in\t the\t plain\t as\t..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "But\t who\t are\t you\t that\t sit\t in\t the\t plain\t as\t...",
+        "description": "But\t who\t are\t you\t that\t sit\t in\t the\t plain\t as\t foes\nbefore\tdefended\twalls?\u201d\t",
+        "start": 579,
+        "end": 659,
+        "participants": [
+          "Bilbo",
+          "Bard",
+          "Thorin",
+          "Gate"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 389,
+        "end": 394,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "But\t who\t are\t you\t that\t sit\t in\t the\t plain\t as\t..."
+          }
+        ]
+      }
+    ]
+  },
+  "timestamp": 1745715417.4519267,
+  "has_embedding": true
+}

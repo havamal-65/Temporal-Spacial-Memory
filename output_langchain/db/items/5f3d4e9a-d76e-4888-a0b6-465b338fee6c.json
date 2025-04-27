@@ -1,0 +1,66 @@
+{
+  "id": "5f3d4e9a-d76e-4888-a0b6-465b338fee6c",
+  "content": "as\tit\twould\thave\tbeen\tfor\tme\tor\tfor\tyou.\tHobbits\tare\tnot\nquite\tlike\tordinary\tpeople;\tand\tafter\tall\tif\ttheir\tholes\tare\nnice\tcheery\tplaces\tand\tproperly\taired,\tquite\tdifferent\tfrom\nthe\t tunnels\t of\t the\t goblins,\t still\t they\t are\t more\t used\t to\ntunnelling\tthan\twe\tare,\tand\tthey\tdo\tnot\teasily\tlose\ttheir\nsense\t of\t direction\t underground\u2014not\t when\t their\t heads\nhave\trecovered\tfrom\tbeing\tbumped.\tAlso\tthey\tcan\tmove\nvery\t quietly,\t and\t hide\t easily,\t and\t recover\t wonderfully\nfrom\tfalls\tand\tbruises,\tand\tthey\thave\ta\tfund\tof\twisdom\nand\t wise\t sayings\t that\t men\t have\t mostly\t never\t heard\t or\nhave\tforgotten\tlong\tago.\nI\tshould\tnot\thave\tliked\tto\thave\tbeen\tin\tMr.\tBaggins\u2019\nplace,\t all\t the\t same.\t The\t tunnel\t seemed\t to\t have\t no\t end.\nAll\t he\t knew\t was\t that\t it\t was\t still\t going\t down\t pretty\nsteadily\t and\t keeping\t in\t the\t same\t direction\t in\t spite\t of\t a\ntwist\tand\ta\tturn\tor\ttwo.\tThere\twere\tpassages\tleading\toff\nto\t the\t side\t every\t now\t and\t then,\t as\t he\t knew\t by\t the\nglimmer\tof\this\tsword,\tor\tcould\tfeel\twith\this\thand\ton\tthe\nwall.\tOf\tthese\the\ttook\tno\tnotice,\texcept\tto\thurry\tpast\tfor\nfear\tof\tgoblins\tor\thalf-imagined\tdark\tthings\tcoming\tout\nof\t them.\t On\t and\t on\t he\t went,\t and\t down\t and\t down;\t and\nstill\the\theard\tno\tsound\tof\tanything\texcept\tthe\toccasional\nwhirr\tof\ta\tbat\tby\this\tears,\twhich\tstartled\thim\tat\tfirst,\ttill\tit\nbecame\ttoo\tfrequent\tto\tbother\tabout.\tI\tdo\tnot\tknow\thow\nlong\the\tkept\ton\tlike\tthis,\thating\tto\tgo\ton,\tnot\tdaring\tto\nstop,\ton,\ton,\tuntil\the\twas\ttireder\tthan\ttired.\tIt\tseemed\tlike\nall\tthe\tway\tto\ttomorrow\tand\tover\tit\tto\tthe\tdays\tbeyond.\nSuddenly\t without\t any\t warning\t he\t trotted\t splash\t into\nwater!\tUgh!\tit\twas\ticy\tcold.\tThat\tpulled\thim\tup\tsharp\tand\nshort.\tHe\tdid\tnot\tknow\twhether\tit\twas\tjust\ta\tpool\tin\tthe\npath,\tor\tthe\tedge\tof\tan\tunderground\tstream\tthat\tcrossed\nthe\tpassage,\tor\tthe\tbrink\tof\ta\tdeep\tdark\tsubterranean\tlake.\nThe\tsword\twas\thardly\tshining\tat\tall.\tHe\tstopped,\tand\the\ncould\t hear,\t when\t he\t listened\t hard,\t drops\t drip-drip-\ndripping\t from\t an\t unseen\t roof\t into\t the\t water\t below;\t but\nthere\tseemed\tno\tother\tsort\tof\tsound.\n\u201cSo\t it\t is\t a\t pool\t or\t a\t lake,\t and\t not\t an\t underground\nriver,\u201d\the\tthought.\tStill\the\tdid\tnot\tdare\tto\twade\tout\tinto",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 0.08560839981032187,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 73,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2196,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_person",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Baggins",
+        "type": "person",
+        "start": 661,
+        "end": 668,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Also\tthey\tcan\tmove\nvery\t quietly,\t and\t hide\t easi..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "Also\tthey\tcan\tmove\nvery\t quietly,\t and\t hide\t easi...",
+        "description": "Also\tthey\tcan\tmove\nvery\t quietly,\t and\t hide\t easily,\t and\t recover\t wonderfully\nfrom\tfalls\tand\tbruises,\tand\tthey\thave\ta\tfund\tof\twisdom\nand\t wise\t sayings\t that\t men\t have\t mostly\t never\t heard\t or\nhave\tforgotten\tlong\tago.\n",
+        "start": 394,
+        "end": 617,
+        "participants": [
+          "Baggins"
+        ],
+        "location": null,
+        "time": null
+      }
+    ],
+    "locations": []
+  },
+  "timestamp": 1745715402.1094139,
+  "has_embedding": true
+}

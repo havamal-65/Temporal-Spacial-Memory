@@ -1,0 +1,57 @@
+{
+  "id": "315f2079-1f1d-41bd-b534-2a90c7c5ff16",
+  "content": "early\tand\tmuddled\tyour\twits!\tYou\thave\tstacked\tsome\tfull\ncasks\there\tinstead\tof\tthe\tempty\tones,\tif\tthere\tis\tanything\nin\tweight.\u201d\n\u201cGet\ton\twith\tthe\twork!\u201d\tgrowled\tthe\tbutler.\t\u201cThere\tis\nnothing\tin\tthe\tfeeling\tof\tweight\tin\tan\tidle\ttoss-pot\u2019s\tarms.\nThese\tare\tthe\tones\tto\tgo\tand\tno\tothers.\tDo\tas\tI\tsay!\u201d\n\u201cVery\t well,\t very\t well,\u201d\t they\t answered\t rolling\t the\nbarrels\tto\tthe\topening.\t\u201cOn\tyour\thead\tbe\tit,\tif\tthe\tking\u2019s\nfull\tbuttertubs\tand\this\tbest\twine\tis\tpushed\tinto\tthe\triver\nfor\tthe\tLake-men\tto\tfeast\ton\tfor\tnothing!\u201d\nRoll\u2014roll\u2014roll\u2014roll,\nroll-roll-rolling\tdown\tthe\thole!\nHeave\tho!\tSplash\tplump!\nDown\tthey\tgo,\tdown\tthey\tbump!\nSo\t they\t sang\t as\t first\t one\t barrel\t and\t then\t another\nrumbled\tto\tthe\tdark\topening\tand\twas\tpushed\tover\tinto\tthe\ncold\t water\t some\t feet\t below.\t Some\t were\t barrels\t really\nempty,\tsome\twere\ttubs\tneatly\tpacked\twith\ta\tdwarf\teach;\nbut\t down\t they\t all\t went,\t one\t after\t another,\t with\t many\t a\nclash\t and\t a\t bump,\t thudding\t on\t top\t of\t ones\t below,\nsmacking\tinto\tthe\twater,\tjostling\tagainst\tthe\twalls\tof\tthe\ntunnel,\t knocking\t into\t one\t another,\t and\t bobbing\t away\ndown\tthe\tcurrent.\nIt\t was\t just\t at\t this\t moment\t that\t Bilbo\t suddenly\ndiscovered\t the\t weak\t point\t in\t his\t plan.\t Most\t likely\t you\nsaw\tit\tsome\ttime\tago\tand\thave\tbeen\tlaughing\tat\thim;\tbut\nI\t don\u2019t\t suppose\t you\t would\t have\t done\t half\t as\t well\nyourselves\tin\this\tplace.\tOf\tcourse\the\twas\tnot\tin\ta\tbarrel\nhimself,\t nor\t was\t there\t anyone\t to\t pack\t him\t in,\t even\t if\nthere\t had\t been\t a\t chance!\t It\t looked\t as\t if\t he\t would\ncertainly\tlose\this\tfriends\tthis\ttime\t(nearly\tall\tof\tthem\thad\nalready\tdisappeared\tthrough\tthe\tdark\ttrap-door),\tand\tget\nutterly\tleft\tbehind\tand\thave\tto\tstay\tlurking\tas\ta\tpermanent\nburglar\t in\t the\t elf-caves\t for\t ever.\t For\t even\t if\t he\t could",
+  "coordinates": {
+    "r": 5.5725,
+    "theta": 0.3463605900582747,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 178,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1771,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_person",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Heave\tho",
+        "type": "person",
+        "start": 568,
+        "end": 576,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bilbo",
+        "type": "person",
+        "start": 1152,
+        "end": 1157,
+        "mentions": 1,
+        "relationships": []
+      }
+    ],
+    "events": [],
+    "locations": []
+  },
+  "timestamp": 1745709012.0425308,
+  "has_embedding": true
+}

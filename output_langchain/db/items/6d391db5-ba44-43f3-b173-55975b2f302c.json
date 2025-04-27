@@ -1,0 +1,80 @@
+{
+  "id": "6d391db5-ba44-43f3-b173-55975b2f302c",
+  "content": "gloaming\tand\tthe\tdusk.\tStill\telves\tthey\twere\tand\tremain,\nand\tthat\tis\tGood\tPeople.\nIn\t a\t great\t cave\t some\t miles\t within\t the\t edge\t of\nMirkwood\ton\tits\teastern\tside\tthere\tlived\tat\tthis\ttime\ttheir\ngreatest\tking.\tBefore\this\thuge\tdoors\tof\tstone\ta\triver\tran\nout\tof\tthe\theights\tof\tthe\tforest\tand\tflowed\ton\tand\tout\tinto\nthe\t marshes\t at\t the\t feet\t of\t the\t high\t wooded\t lands.\t This\ngreat\tcave,\tfrom\twhich\tcountless\tsmaller\tones\topened\tout\non\t every\t side,\t wound\t far\t underground\t and\t had\t many\npassages\t and\t wide\t halls;\t but\t it\t was\t lighter\t and\t more\nwholesome\tthan\tany\tgoblin-dwelling,\tand\tneither\tso\tdeep\nnor\tso\tdangerous.\tIn\tfact\tthe\tsubjects\tof\tthe\tking\tmostly\nlived\t and\t hunted\t in\t the\t open\t woods,\t and\t had\t houses\t or\nhuts\ton\tthe\tground\tand\tin\tthe\tbranches.\tThe\tbeeches\twere\ntheir\tfavourite\ttrees.\tThe\tking\u2019s\tcave\twas\this\tpalace,\tand\nthe\t strong\t place\t of\t his\t treasure,\t and\t the\t fortress\t of\t his\npeople\tagainst\ttheir\tenemies.\nIt\twas\talso\tthe\tdungeon\tof\this\tprisoners.\tSo\tto\tthe\tcave\nthey\t dragged\t Thorin\u2014not\t too\t gently,\t for\t they\t did\t not\nlove\tdwarves,\tand\tthought\the\twas\tan\tenemy.\tIn\tancient\ndays\tthey\thad\thad\twars\twith\tsome\tof\tthe\tdwarves,\twhom\nthey\t accused\t of\t stealing\t their\t treasure.\t It\t is\t only\t fair\t to\nsay\t that\t the\t dwarves\t gave\t a\t different\t account,\t and\t said\nthat\t they\t only\t took\t what\t was\t their\t due,\t for\t the\t elf-king\nhad\tbargained\twith\tthem\tto\tshape\this\traw\tgold\tand\tsilver,\nand\thad\tafterwards\trefused\tto\tgive\tthem\ttheir\tpay.\tIf\tthe\nelf-king\thad\ta\tweakness\tit\twas\tfor\ttreasure,\tespecially\tfor\nsilver\tand\twhite\tgems;\tand\tthough\this\thoard\twas\trich,\the\nwas\tever\teager\tfor\tmore,\tsince\the\thad\tnot\tyet\tas\tgreat\ta\ntreasure\t as\t other\t elf-lords\t of\t old.\t His\t people\t neither\nmined\tnor\tworked\tmetals\tor\tjewels,\tnor\tdid\tthey\tbother\nmuch\twith\ttrade\tor\twith\ttilling\tthe\tearth.\tAll\tthis\twas\twell\nknown\t to\t every\t dwarf,\t though\t Thorin\u2019s\t family\t had\t had\nnothing\t to\t do\t with\t the\t old\t quarrel\t I\t have\t spoken\t of.\nConsequently\tThorin\twas\tangry\tat\ttheir\ttreatment\tof\thim,\nwhen\t they\t took\t their\t spell\t off\t him\t and\t he\t came\t to\t his\nsenses;\tand\talso\the\twas\tdetermined\tthat\tno\tword\tof\tgold\nor\tjewels\tshould\tbe\tdragged\tout\tof\thim.",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 0.7952156404399164,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 165,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2187,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_group",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Mirkwood",
+        "type": "organization",
+        "start": 137,
+        "end": 145,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "His\t people\t neither\nmined\tnor\tworked\tmetals\tor\tje..."
+          }
+        ]
+      },
+      {
+        "name": "Thorin",
+        "type": "group",
+        "start": 1983,
+        "end": 1989,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "His\t people\t neither\nmined\tnor\tworked\tmetals\tor\tje..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "His\t people\t neither\nmined\tnor\tworked\tmetals\tor\tje...",
+        "description": "His\t people\t neither\nmined\tnor\tworked\tmetals\tor\tjewels,\tnor\tdid\tthey\tbother\nmuch\twith\ttrade\tor\twith\ttilling\tthe\tearth.\t",
+        "start": 1709,
+        "end": 1828,
+        "participants": [
+          "Mirkwood",
+          "Thorin"
+        ],
+        "location": null,
+        "time": null
+      }
+    ],
+    "locations": []
+  },
+  "timestamp": 1745715409.3614728,
+  "has_embedding": true
+}

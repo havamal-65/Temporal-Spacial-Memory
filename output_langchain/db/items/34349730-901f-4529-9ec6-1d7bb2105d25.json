@@ -1,0 +1,132 @@
+{
+  "id": "34349730-901f-4529-9ec6-1d7bb2105d25",
+  "content": "As\tsoon\tas\tthe\traft\tof\tbarrels\tcame\tin\tsight\tboats\trowed\nout\tfrom\tthe\tpiles\tof\tthe\ttown,\tand\tvoices\thailed\tthe\traft-\nsteerers.\tThen\tropes\twere\tcast\tand\toars\twere\tpulled,\tand\nsoon\tthe\traft\twas\tdrawn\tout\tof\tthe\tcurrent\tof\tthe\tForest\nRiver\t and\t towed\t away\t round\t the\t high\t shoulder\t of\t rock\ninto\tthe\tlittle\tbay\tof\tLake-town.\tThere\tit\twas\tmoored\tnot\nfar\t from\t the\t shoreward\t head\t of\t the\t great\t bridge.\t Soon\nmen\twould\tcome\tup\tfrom\tthe\tSouth\tand\ttake\tsome\tof\tthe\ncasks\t away,\t and\t others\t they\t would\t fill\t with\t goods\t they\nhad\tbrought\tto\tbe\ttaken\tback\tup\tthe\tstream\tto\tthe\tWood-\nelves\u2019\thome.\tIn\tthe\tmeanwhile\tthe\tbarrels\twere\tleft\tafloat\nwhile\tthe\telves\tof\tthe\traft\tand\tthe\tboatmen\twent\tto\tfeast\nin\tLake-town.\nThey\t would\t have\t been\t surprised,\t if\t they\t could\t have\nseen\t what\t happened\t down\t by\t the\t shore,\t after\t they\t had\ngone\t and\t the\t shades\t of\t night\t had\t fallen.\t First\t of\t all\t a\nbarrel\twas\tcut\tloose\tby\tBilbo\tand\tpushed\tto\tthe\tshore\tand\nopened.\t Groans\t came\t from\t inside,\t and\t out\t crept\t a\t most\nunhappy\tdwarf.\tWet\tstraw\twas\tin\this\tdraggled\tbeard;\the\nwas\t so\t sore\t and\t stiff,\t so\t bruised\t and\t buffeted\t he\t could\nhardly\tstand\tor\tstumble\tthrough\tthe\tshallow\twater\tto\tlie\ngroaning\ton\tthe\tshore.\tHe\thad\ta\tfamished\tand\ta\tsavage\nlook\tlike\ta\tdog\tthat\thas\tbeen\tchained\tand\tforgotten\tin\ta\nkennel\tfor\ta\tweek.\tIt\twas\tThorin,\tbut\tyou\tcould\tonly\thave\ntold\tit\tby\this\tgolden\tchain,\tand\tby\tthe\tcolour\tof\this\tnow\ndirty\tand\ttattered\tsky-blue\thood\twith\tits\ttarnished\tsilver\ntassel.\tIt\twas\tsome\ttime\tbefore\the\twould\tbe\teven\tpolite\tto\nthe\thobbit.\n\u201cWell,\t are\t you\t alive\t or\t are\t you\t dead?\u201d\t asked\t Bilbo\nquite\tcrossly.\tPerhaps\the\thad\tforgotten\tthat\the\thad\thad\tat\nleast\tone\tgood\tmeal\tmore\tthan\tthe\tdwarves,\tand\talso\tthe\nuse\t of\t his\t arms\t and\t legs,\t not\t to\t speak\t of\t a\t greater\nallowance\tof\tair.\t\u201cAre\tyou\tstill\tin\tprison,\tor\tare\tyou\tfree?\nIf\tyou\twant\tfood,\tand\tif\tyou\twant\tto\tgo\ton\twith\tthis\tsilly\nadventure\u2014it\u2019s\t yours\t after\t all\t and\t not\t mine\u2014you\t had\nbetter\tslap\tyour\tarms\tand\trub\tyour\tlegs\tand\ttry\tand\thelp",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 3.1494466352237676,
+    "t": 1745630173.9676006,
+    "z": 3
+  },
+  "metadata": {
+    "chunk_index": 188,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2036,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_group",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 3
+    },
+    "entities": [
+      {
+        "name": "Forest\nRiver",
+        "type": "administrative",
+        "start": 224,
+        "end": 236,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "They\t would\t have\t been\t surprised,\t if\t they\t cou..."
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 931,
+        "end": 936,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "They\t would\t have\t been\t surprised,\t if\t they\t cou..."
+          }
+        ]
+      },
+      {
+        "name": "Groans",
+        "type": "group",
+        "start": 974,
+        "end": 980,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "They\t would\t have\t been\t surprised,\t if\t they\t cou..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "They\t would\t have\t been\t surprised,\t if\t they\t cou...",
+        "description": "They\t would\t have\t been\t surprised,\t if\t they\t could\t have\nseen\t what\t happened\t down\t by\t the\t shore,\t after\t they\t had\ngone\t and\t the\t shades\t of\t night\t had\t fallen.\t ",
+        "start": 719,
+        "end": 889,
+        "participants": [
+          "Forest\nRiver",
+          "Bilbo",
+          "Groans"
+        ],
+        "location": "Forest\nRiver",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Forest\nRiver",
+        "type": "administrative",
+        "start": 224,
+        "end": 236,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "They\t would\t have\t been\t surprised,\t if\t they\t cou..."
+          }
+        ]
+      },
+      {
+        "name": "Lake-town",
+        "type": "geographical",
+        "start": 316,
+        "end": 325,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "South",
+        "type": "geographical",
+        "start": 441,
+        "end": 446,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 931,
+        "end": 936,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745715411.1356142,
+  "has_embedding": true
+}

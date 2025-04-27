@@ -1,0 +1,118 @@
+{
+  "id": "08d3c8d3-40b2-447f-8356-ed8434c987fe",
+  "content": "life,\t by\t watching\t and\t following\t the\t guards\t and\t taking\nwhat\t chances\t he\t could,\t he\t managed\t to\t find\t out\t where\neach\t dwarf\t was\t kept.\t He\t found\t all\t their\t twelve\t cells\t in\ndifferent\t parts\t of\t the\t palace,\t and\t after\t a\t time\t he\t got\t to\nknow\this\tway\tabout\tvery\twell.\tWhat\twas\this\tsurprise\tone\nday\tto\toverhear\tsome\tof\tthe\tguards\ttalking\tand\tto\tlearn\nthat\tthere\twas\tanother\tdwarf\tin\tprison\ttoo,\tin\ta\tspecially\ndeep\tdark\tplace.\tHe\tguessed\tat\tonce,\tof\tcourse,\tthat\tthat\nwas\tThorin;\tand\tafter\ta\twhile\the\tfound\tthat\this\tguess\twas\nright.\t At\t last\t after\t many\t difficulties\t he\t managed\t to\t find\nthe\t place\t when\t no\t one\t was\t about,\t and\t to\t have\t a\t word\nwith\tthe\tchief\tof\tthe\tdwarves.\nThorin\twas\ttoo\twretched\tto\tbe\tangry\tany\tlonger\tat\this\nmisfortunes,\t and\t was\t even\t beginning\t to\t think\t of\t telling\nthe\tking\tall\tabout\this\ttreasure\tand\this\tquest\t(which\tshows\nhow\tlow-spirited\the\thad\tbecome),\twhen\the\theard\tBilbo\u2019s\nlittle\t voice\t at\t his\t keyhole.\t He\t could\t hardly\t believe\t his\nears.\t Soon\t however\t he\t made\t up\t his\t mind\t that\t he\t could\nnot\tbe\tmistaken,\tand\the\tcame\tto\tthe\tdoor\tand\thad\ta\tlong\nwhispered\ttalk\twith\tthe\thobbit\ton\tthe\tother\tside.\nSo\tit\twas\tthat\tBilbo\twas\table\tto\ttake\tsecretly\tThorin\u2019s\nmessage\tto\teach\tof\tthe\tother\timprisoned\tdwarves,\ttelling\nthem\t that\t Thorin\t their\t chief\t was\t also\t in\t prison\t close\t at\nhand,\t and\t that\t no\t one\t was\t to\t reveal\t their\t errand\t to\t the\nking,\t not\t yet,\t nor\t before\t Thorin\t gave\t the\t word.\t For\nThorin\thad\ttaken\theart\tagain\thearing\thow\tthe\thobbit\thad\nrescued\t his\t companions\t from\t the\t spiders,\t and\t was\ndetermined\t once\t more\t not\t to\t ransom\t himself\t with\npromises\t to\t the\t king\t of\t a\t share\t in\t the\t treasure,\t until\t all\nhope\tof\tescaping\tin\tany\tother\tway\thad\tdisappeared;\tuntil\nin\tfact\tthe\tremarkable\tMr.\tInvisible\tBaggins\t(of\twhom\the\nbegan\tto\thave\ta\tvery\thigh\topinion\tindeed)\thad\taltogether\nfailed\tto\tthink\tof\tsomething\tclever.\nThe\t other\t dwarves\t quite\t agreed\t when\t they\t got\t the\nmessage.\tThey\tall\tthought\ttheir\town\tshares\tin\tthe\ttreasure\n(which\t they\t quite\t regarded\t as\t theirs,\t in\t spite\t of\t their\nplight\t and\t the\t still\t unconquered\t dragon)\t would\t suffer\nseriously\tif\tthe\tWood-elves\tclaimed\tpart\tof\tit,\tand\tthey\tall",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 4.876537196534756,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 171,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2228,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_organization",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Thorin",
+        "type": "group",
+        "start": 491,
+        "end": 497,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "For\nThorin\thad\ttaken\theart\tagain\thearing\thow\tthe\th..."
+          },
+          {
+            "type": "participated_in",
+            "target": "The\t other\t dwarves\t quite\t agreed\t when\t they\t go..."
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "organization",
+        "start": 930,
+        "end": 935,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "For\nThorin\thad\ttaken\theart\tagain\thearing\thow\tthe\th..."
+          },
+          {
+            "type": "participated_in",
+            "target": "The\t other\t dwarves\t quite\t agreed\t when\t they\t go..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "For\nThorin\thad\ttaken\theart\tagain\thearing\thow\tthe\th...",
+        "description": "For\nThorin\thad\ttaken\theart\tagain\thearing\thow\tthe\thobbit\thad\nrescued\t his\t companions\t from\t the\t spiders,\t and\t was\ndetermined\t once\t more\t not\t to\t ransom\t himself\t with\npromises\t to\t the\t king\t of\t a\t share\t in\t the\t treasure,\t until\t all\nhope\tof\tescaping\tin\tany\tother\tway\thad\tdisappeared;\tuntil\nin\tfact\tthe\tremarkable\tMr.\tInvisible\tBaggins\t(of\twhom\the\nbegan\tto\thave\ta\tvery\thigh\topinion\tindeed)\thad\taltogether\nfailed\tto\tthink\tof\tsomething\tclever.\n",
+        "start": 1477,
+        "end": 1926,
+        "participants": [
+          "Thorin",
+          "Bilbo"
+        ],
+        "location": "Bilbo",
+        "time": null
+      },
+      {
+        "name": "The\t other\t dwarves\t quite\t agreed\t when\t they\t go...",
+        "description": "The\t other\t dwarves\t quite\t agreed\t when\t they\t got\t the\nmessage.\t",
+        "start": 1926,
+        "end": 1992,
+        "participants": [
+          "Thorin",
+          "Bilbo"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 1188,
+        "end": 1193,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "For\nThorin\thad\ttaken\theart\tagain\thearing\thow\tthe\th..."
+          },
+          {
+            "type": "hosted",
+            "target": "The\t other\t dwarves\t quite\t agreed\t when\t they\t go..."
+          }
+        ]
+      }
+    ]
+  },
+  "timestamp": 1745715409.8259604,
+  "has_embedding": true
+}

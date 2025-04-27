@@ -1,0 +1,221 @@
+{
+  "id": "9a57502d-2fc2-4e2a-a052-a241f7dbb206",
+  "content": "the\tmountains\tthey\tare\tmade\tof,\tand\tnever\tmove\tagain.\nThat\tis\twhat\thad\thappened\tto\tBert\tand\tTom\tand\tWilliam.\n\u201cExcellent!\u201d\tsaid\tGandalf,\tas\the\tstepped\tfrom\tbehind\ta\ntree,\tand\thelped\tBilbo\tto\tclimb\tdown\tout\tof\ta\tthorn-bush.\nThen\tBilbo\tunderstood.\tIt\twas\tthe\twizard\u2019s\tvoice\tthat\thad\nkept\t the\t trolls\t bickering\t and\t quarrelling,\t until\t the\t light\ncame\tand\tmade\tan\tend\tof\tthem.\nThe\t next\t thing\t was\t to\t untie\t the\t sacks\t and\t let\t out\t the\ndwarves.\tThey\twere\tnearly\tsuffocated,\tand\tvery\tannoyed:\nthey\t had\t not\t at\t all\t enjoyed\t lying\t there\t listening\t to\t the\ntrolls\tmaking\tplans\tfor\troasting\tthem\tand\tsquashing\tthem\nand\t mincing\t them.\t They\t had\t to\t hear\t Bilbo\u2019s\t account\t of\nwhat\thad\thappened\tto\thim\ttwice\tover,\tbefore\tthey\twere\nsatisfied.\n\u201cSilly\t time\t to\t go\t practising\t pinching\t and\t pocket-\npicking,\u201d\tsaid\tBombur,\t\u201cwhen\twhat\twe\twanted\twas\tfire\nand\tfood!\u201d\n\u201cAnd\tthat\u2019s\tjust\twhat\tyou\twouldn\u2019t\thave\tgot\tof\tthose\nfellows\t without\t a\t struggle,\t in\t any\t case,\u201d\t said\t Gandalf.\n\u201cAnyhow\t you\t are\t wasting\t time\t now.\t Don\u2019t\t you\t realize\nthat\tthe\ttrolls\tmust\thave\ta\tcave\tor\ta\thole\tdug\tsomewhere\nnear\tto\thide\tfrom\tthe\tsun\tin?\tWe\tmust\tlook\tinto\tit!\u201d\nThey\t searched\t about,\t and\t soon\t found\t the\t marks\t of\ntrolls\u2019\t stony\t boots\t going\t away\t through\t the\t trees.\t They\nfollowed\t the\t tracks\t up\t the\t hill,\t until\t hidden\t by\t bushes\nthey\tcame\ton\ta\tbig\tdoor\tof\tstone\tleading\tto\ta\tcave.\tBut\nthey\tcould\tnot\topen\tit,\tnot\tthough\tthey\tall\tpushed\twhile\nGandalf\ttried\tvarious\tincantations.\n\u201cWould\t this\t be\t any\t good?\u201d\t asked\t Bilbo,\t when\t they\nwere\t getting\t tired\t and\t angry.\t \u201cI\t found\t it\t on\t the\t ground\nwhere\t the\t trolls\t had\t their\t fight.\u201d\t He\t held\t out\t a\t largish\nkey,\tthough\tno\tdoubt\tWilliam\thad\tthought\tit\tvery\tsmall\nand\t secret.\t It\t must\t have\t fallen\t out\t of\t his\t pocket,\t very\nluckily,\tbefore\the\twas\tturned\tto\tstone.\n\u201cWhy\t on\t earth\t didn\u2019t\t you\t mention\t it\t before?\u201d\t they\ncried.\t Gandalf\t grabbed\t it\t and\t fitted\t it\t into\t the\t keyhole.\nThen\tthe\tstone\tdoor\tswung\tback\twith\tone\tbig\tpush,\tand\nthey\tall\twent\tinside.\tThere\twere\tbones\ton\tthe\tfloor\tand\ta",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 0.3683517386334032,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 45,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2079,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bert",
+        "type": "person",
+        "start": 83,
+        "end": 87,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "That\tis\twhat\thad\thappened\tto\tBert\tand\tTom\tand\tWill..."
+          },
+          {
+            "type": "participated_in",
+            "target": "They\t had\t to\t hear\t Bilbo\u2019s\t account\t of\nwhat\thad..."
+          }
+        ]
+      },
+      {
+        "name": "Tom",
+        "type": "person",
+        "start": 92,
+        "end": 95,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "That\tis\twhat\thad\thappened\tto\tBert\tand\tTom\tand\tWill..."
+          },
+          {
+            "type": "participated_in",
+            "target": "They\t had\t to\t hear\t Bilbo\u2019s\t account\t of\nwhat\thad..."
+          }
+        ]
+      },
+      {
+        "name": "William",
+        "type": "person",
+        "start": 100,
+        "end": 107,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "That\tis\twhat\thad\thappened\tto\tBert\tand\tTom\tand\tWill..."
+          },
+          {
+            "type": "participated_in",
+            "target": "They\t had\t to\t hear\t Bilbo\u2019s\t account\t of\nwhat\thad..."
+          }
+        ]
+      },
+      {
+        "name": "Gandalf",
+        "type": "group",
+        "start": 127,
+        "end": 134,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "That\tis\twhat\thad\thappened\tto\tBert\tand\tTom\tand\tWill..."
+          },
+          {
+            "type": "participated_in",
+            "target": "They\t had\t to\t hear\t Bilbo\u2019s\t account\t of\nwhat\thad..."
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 181,
+        "end": 186,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "That\tis\twhat\thad\thappened\tto\tBert\tand\tTom\tand\tWill..."
+          },
+          {
+            "type": "participated_in",
+            "target": "They\t had\t to\t hear\t Bilbo\u2019s\t account\t of\nwhat\thad..."
+          }
+        ]
+      },
+      {
+        "name": "bush",
+        "type": "person",
+        "start": 216,
+        "end": 220,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "That\tis\twhat\thad\thappened\tto\tBert\tand\tTom\tand\tWill..."
+          },
+          {
+            "type": "participated_in",
+            "target": "They\t had\t to\t hear\t Bilbo\u2019s\t account\t of\nwhat\thad..."
+          }
+        ]
+      },
+      {
+        "name": "Bombur",
+        "type": "administrative",
+        "start": 822,
+        "end": 828,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "That\tis\twhat\thad\thappened\tto\tBert\tand\tTom\tand\tWill..."
+          },
+          {
+            "type": "participated_in",
+            "target": "They\t had\t to\t hear\t Bilbo\u2019s\t account\t of\nwhat\thad..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "That\tis\twhat\thad\thappened\tto\tBert\tand\tTom\tand\tWill...",
+        "description": "That\tis\twhat\thad\thappened\tto\tBert\tand\tTom\tand\tWilliam.\n",
+        "start": 54,
+        "end": 109,
+        "participants": [
+          "Bert",
+          "Tom",
+          "William",
+          "Gandalf",
+          "Bilbo",
+          "bush",
+          "Bombur"
+        ],
+        "location": "Bilbo",
+        "time": null
+      },
+      {
+        "name": "They\t had\t to\t hear\t Bilbo\u2019s\t account\t of\nwhat\thad...",
+        "description": "They\t had\t to\t hear\t Bilbo\u2019s\t account\t of\nwhat\thad\thappened\tto\thim\ttwice\tover,\tbefore\tthey\twere\nsatisfied.\n",
+        "start": 643,
+        "end": 750,
+        "participants": [
+          "Bert",
+          "Tom",
+          "William",
+          "Gandalf",
+          "Bilbo",
+          "bush",
+          "Bombur"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 181,
+        "end": 186,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "That\tis\twhat\thad\thappened\tto\tBert\tand\tTom\tand\tWill..."
+          },
+          {
+            "type": "hosted",
+            "target": "They\t had\t to\t hear\t Bilbo\u2019s\t account\t of\nwhat\thad..."
+          }
+        ]
+      },
+      {
+        "name": "Bombur",
+        "type": "administrative",
+        "start": 822,
+        "end": 828,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745709004.7174873,
+  "has_embedding": true
+}

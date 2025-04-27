@@ -1,0 +1,144 @@
+{
+  "id": "940be93c-71cd-4330-a2d5-349db5529f87",
+  "content": "They\tcame\tback\twith\tviols\tas\tbig\tas\tthemselves,\tand\twith\nThorin\u2019s\tharp\twrapped\tin\ta\tgreen\tcloth.\tIt\twas\ta\tbeautiful\ngolden\tharp,\tand\twhen\tThorin\tstruck\tit\tthe\tmusic\tbegan\nall\t at\t once,\t so\t sudden\t and\t sweet\t that\t Bilbo\t forgot\neverything\t else,\t and\t was\t swept\t away\t into\t dark\t lands\nunder\t strange\t moons,\t far\t over\t The\t Water\t and\t very\t far\nfrom\this\thobbit-hole\tunder\tThe\tHill.\nThe\t dark\t came\t into\t the\t room\t from\t the\t little\t window\nthat\topened\tin\tthe\tside\tof\tThe\tHill;\tthe\tfirelight\tflickered\n\u2014it\t was\t April\u2014and\t still\t they\t played\t on,\t while\t the\nshadow\tof\tGandalf\u2019s\tbeard\twagged\tagainst\tthe\twall.\nThe\t dark\t filled\t all\t the\t room,\t and\t the\t fire\t died\t down,\nand\tthe\tshadows\twere\tlost,\tand\tstill\tthey\tplayed\ton.\tAnd\nsuddenly\tfirst\tone\tand\tthen\tanother\tbegan\tto\tsing\tas\tthey\nplayed,\tdeep-throated\tsinging\tof\tthe\tdwarves\tin\tthe\tdeep\nplaces\tof\ttheir\tancient\thomes;\tand\tthis\tis\tlike\ta\tfragment\nof\t their\t song,\t if\t it\t can\t be\t like\t their\t song\t without\t their\nmusic.\nFar\tover\tthe\tmisty\tmountains\tcold\nTo\tdungeons\tdeep\tand\tcaverns\told\nWe\tmust\taway\tere\tbreak\tof\tday\nTo\tseek\tthe\tpale\tenchanted\tgold.\nThe\tdwarves\tof\tyore\tmade\tmighty\tspells,\nWhile\thammers\tfell\tlike\tringing\tbells\nIn\tplaces\tdeep,\twhere\tdark\tthings\tsleep,\nIn\thollow\thalls\tbeneath\tthe\tfells.\nFor\tancient\tking\tand\telvish\tlord\nThere\tmany\ta\tgleaming\tgolden\thoard\nThey\tshaped\tand\twrought,\tand\tlight\tthey\tcaught\nTo\thide\tin\tgems\ton\thilt\tof\tsword.\nOn\tsilver\tnecklaces\tthey\tstrung",
+  "coordinates": {
+    "r": 6.3625,
+    "theta": 4.717886767528472,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 18,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1455,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_group",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Thorin",
+        "type": "group",
+        "start": 57,
+        "end": 63,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "It\twas\ta\tbeautiful\ngolden\tharp,\tand\twhen\tThorin\tst..."
+          },
+          {
+            "type": "participated_in",
+            "target": "The\t dark\t filled\t all\t the\t room,\t and\t the\t fire..."
+          },
+          {
+            "type": "participated_in",
+            "target": "And\nsuddenly\tfirst\tone\tand\tthen\tanother\tbegan\tto\ts..."
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "person",
+        "start": 217,
+        "end": 222,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "It\twas\ta\tbeautiful\ngolden\tharp,\tand\twhen\tThorin\tst..."
+          },
+          {
+            "type": "participated_in",
+            "target": "The\t dark\t filled\t all\t the\t room,\t and\t the\t fire..."
+          },
+          {
+            "type": "participated_in",
+            "target": "And\nsuddenly\tfirst\tone\tand\tthen\tanother\tbegan\tto\ts..."
+          }
+        ]
+      },
+      {
+        "name": "Hill",
+        "type": "organization",
+        "start": 384,
+        "end": 388,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "It\twas\ta\tbeautiful\ngolden\tharp,\tand\twhen\tThorin\tst..."
+          },
+          {
+            "type": "participated_in",
+            "target": "The\t dark\t filled\t all\t the\t room,\t and\t the\t fire..."
+          },
+          {
+            "type": "participated_in",
+            "target": "And\nsuddenly\tfirst\tone\tand\tthen\tanother\tbegan\tto\ts..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "It\twas\ta\tbeautiful\ngolden\tharp,\tand\twhen\tThorin\tst...",
+        "description": "It\twas\ta\tbeautiful\ngolden\tharp,\tand\twhen\tThorin\tstruck\tit\tthe\tmusic\tbegan\nall\t at\t once,\t so\t sudden\t and\t sweet\t that\t Bilbo\t forgot\neverything\t else,\t and\t was\t swept\t away\t into\t dark\t lands\nunder\t strange\t moons,\t far\t over\t The\t Water\t and\t very\t far\nfrom\this\thobbit-hole\tunder\tThe\tHill.\n",
+        "start": 97,
+        "end": 390,
+        "participants": [
+          "Thorin",
+          "Bilbo",
+          "Hill"
+        ],
+        "location": null,
+        "time": null
+      },
+      {
+        "name": "The\t dark\t filled\t all\t the\t room,\t and\t the\t fire...",
+        "description": "The\t dark\t filled\t all\t the\t room,\t and\t the\t fire\t died\t down,\nand\tthe\tshadows\twere\tlost,\tand\tstill\tthey\tplayed\ton.\t",
+        "start": 620,
+        "end": 737,
+        "participants": [
+          "Thorin",
+          "Bilbo",
+          "Hill"
+        ],
+        "location": null,
+        "time": null
+      },
+      {
+        "name": "And\nsuddenly\tfirst\tone\tand\tthen\tanother\tbegan\tto\ts...",
+        "description": "And\nsuddenly\tfirst\tone\tand\tthen\tanother\tbegan\tto\tsing\tas\tthey\nplayed,\tdeep-throated\tsinging\tof\tthe\tdwarves\tin\tthe\tdeep\nplaces\tof\ttheir\tancient\thomes;\tand\tthis\tis\tlike\ta\tfragment\nof\t their\t song,\t if\t it\t can\t be\t like\t their\t song\t without\t their\nmusic.\n",
+        "start": 737,
+        "end": 991,
+        "participants": [
+          "Thorin",
+          "Bilbo",
+          "Hill"
+        ],
+        "location": null,
+        "time": null
+      }
+    ],
+    "locations": []
+  },
+  "timestamp": 1745773068.3158941,
+  "has_embedding": true
+}

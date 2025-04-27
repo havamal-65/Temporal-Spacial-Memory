@@ -1,0 +1,210 @@
+{
+  "id": "8efa26e7-d953-4484-8e90-42c780394ae9",
+  "content": "Bilbo\tBaggins\tEsquire,\tof\tBag-End,\tUnderhill,\tHobbiton.\nSale\tto\tcommence\tat\tten\to\u2019clock\tsharp.\tIt\twas\tnow\tnearly\nlunchtime,\tand\tmost\tof\tthe\tthings\thad\talready\tbeen\tsold,\nfor\tvarious\tprices\tfrom\tnext\tto\tnothing\tto\told\tsongs\t(as\tis\nnot\t unusual\t at\t auctions).\t Bilbo\u2019s\t cousins\t the\t Sackville-\nBagginses\twere,\tin\tfact,\tbusy\tmeasuring\this\trooms\tto\tsee\nif\t their\t own\t furniture\t would\t fit.\t In\t short\t Bilbo\t was\n\u201cPresumed\t Dead\u201d,\t and\t not\t everybody\t that\t said\t so\t was\nsorry\tto\tfind\tthe\tpresumption\twrong.\nThe\t return\t of\t Mr.\t Bilbo\t Baggins\t created\t quite\t a\ndisturbance,\t both\t under\t the\t Hill\t and\t over\t the\t Hill,\t and\nacross\t the\t Water;\t it\t was\t a\t great\t deal\t more\t than\t a\t nine\ndays\u2019\twonder.\tThe\tlegal\tbother,\tindeed,\tlasted\tfor\tyears.\nIt\twas\tquite\ta\tlong\ttime\tbefore\tMr.\tBaggins\twas\tin\tfact\nadmitted\t to\t be\t alive\t again.\t The\t people\t who\t had\t got\nspecially\t good\t bargains\t at\t the\t Sale\t took\t a\t deal\t of\nconvincing;\tand\tin\tthe\tend\tto\tsave\ttime\tBilbo\thad\tto\tbuy\nback\tquite\ta\tlot\tof\this\town\tfurniture.\tMany\tof\this\tsilver\nspoons\t mysteriously\t disappeared\t and\t were\t never\naccounted\t for.\t Personally\t he\t suspected\t the\t Sackville-\nBagginses.\t On\t their\t side\t they\t never\t admitted\t that\t the\nreturned\t Baggins\t was\t genuine,\t and\t they\t were\t not\t on\nfriendly\t terms\t with\t Bilbo\t ever\t after.\t They\t really\t had\nwanted\tto\tlive\tin\this\tnice\thobbit-hole\tso\tvery\tmuch.\nIndeed\tBilbo\tfound\the\thad\tlost\tmore\tthan\tspoons\u2014he\nhad\t lost\t his\t reputation.\t It\t is\t true\t that\t for\t ever\t after\t he\nremained\t an\t elf-friend,\t and\t had\t the\t honour\t of\t dwarves,\nwizards,\tand\tall\tsuch\tfolk\tas\tever\tpassed\tthat\tway;\tbut\the\nwas\tno\tlonger\tquite\trespectable.\tHe\twas\tin\tfact\theld\tby\nall\t the\t hobbits\t of\t the\t neighbourhood\t to\t be\t \u2018queer\u2019\u2014\nexcept\tby\this\tnephews\tand\tnieces\ton\tthe\tTook\tside,\tbut\neven\tthey\twere\tnot\tencouraged\tin\ttheir\tfriendship\tby\ttheir\nelders.\nI\t am\t sorry\t to\t say\t he\t did\t not\t mind.\t He\t was\t quite\ncontent;\tand\tthe\tsound\tof\tthe\tkettle\ton\this\thearth\twas\tever\nafter\tmore\tmusical\tthan\tit\thad\tbeen\teven\tin\tthe\tquiet\tdays\nbefore\tthe\tUnexpected\tParty.\tHis\tsword\the\thung\tover\tthe\nmantelpiece.\tHis\tcoat\tof\tmail\twas\tarranged\ton\ta\tstand\tin",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 0.8592255907568084,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 295,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2165,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_organization",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 0,
+        "end": 5,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Baggins",
+        "type": "administrative",
+        "start": 6,
+        "end": 13,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "The\t return\t of\t Mr.\t Bilbo\t Baggins\t created\t qui..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Indeed\tBilbo\tfound\the\thad\tlost\tmore\tthan\tspoons\u2014he..."
+          }
+        ]
+      },
+      {
+        "name": "Underhill",
+        "type": "organization",
+        "start": 35,
+        "end": 44,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "The\t return\t of\t Mr.\t Bilbo\t Baggins\t created\t qui..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Indeed\tBilbo\tfound\the\thad\tlost\tmore\tthan\tspoons\u2014he..."
+          }
+        ]
+      },
+      {
+        "name": "Hobbiton",
+        "type": "organization",
+        "start": 46,
+        "end": 54,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "The\t return\t of\t Mr.\t Bilbo\t Baggins\t created\t qui..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Indeed\tBilbo\tfound\the\thad\tlost\tmore\tthan\tspoons\u2014he..."
+          }
+        ]
+      },
+      {
+        "name": "Hill",
+        "type": "organization",
+        "start": 598,
+        "end": 602,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "The\t return\t of\t Mr.\t Bilbo\t Baggins\t created\t qui..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Indeed\tBilbo\tfound\the\thad\tlost\tmore\tthan\tspoons\u2014he..."
+          }
+        ]
+      },
+      {
+        "name": "Sale",
+        "type": "organization",
+        "start": 907,
+        "end": 911,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "The\t return\t of\t Mr.\t Bilbo\t Baggins\t created\t qui..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Indeed\tBilbo\tfound\the\thad\tlost\tmore\tthan\tspoons\u2014he..."
+          }
+        ]
+      },
+      {
+        "name": "Unexpected\tParty",
+        "type": "organization",
+        "start": 2064,
+        "end": 2080,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "The\t return\t of\t Mr.\t Bilbo\t Baggins\t created\t qui..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Indeed\tBilbo\tfound\the\thad\tlost\tmore\tthan\tspoons\u2014he..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "The\t return\t of\t Mr.\t Bilbo\t Baggins\t created\t qui...",
+        "description": "The\t return\t of\t Mr.\t Bilbo\t Baggins\t created\t quite\t a\ndisturbance,\t both\t under\t the\t Hill\t and\t over\t the\t Hill,\t and\nacross\t the\t Water;\t it\t was\t a\t great\t deal\t more\t than\t a\t nine\ndays\u2019\twonder.\t",
+        "start": 510,
+        "end": 711,
+        "participants": [
+          "Baggins",
+          "Underhill",
+          "Hobbiton",
+          "Hill",
+          "Sale",
+          "Unexpected\tParty"
+        ],
+        "location": "Baggins",
+        "time": null
+      },
+      {
+        "name": "Indeed\tBilbo\tfound\the\thad\tlost\tmore\tthan\tspoons\u2014he...",
+        "description": "Indeed\tBilbo\tfound\the\thad\tlost\tmore\tthan\tspoons\u2014he\nhad\t lost\t his\t reputation.\t ",
+        "start": 1394,
+        "end": 1474,
+        "participants": [
+          "Baggins",
+          "Underhill",
+          "Hobbiton",
+          "Hill",
+          "Sale",
+          "Unexpected\tParty"
+        ],
+        "location": "Baggins",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 0,
+        "end": 5,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Baggins",
+        "type": "administrative",
+        "start": 6,
+        "end": 13,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "The\t return\t of\t Mr.\t Bilbo\t Baggins\t created\t qui..."
+          },
+          {
+            "type": "hosted",
+            "target": "Indeed\tBilbo\tfound\the\thad\tlost\tmore\tthan\tspoons\u2014he..."
+          }
+        ]
+      }
+    ]
+  },
+  "timestamp": 1745715419.1628623,
+  "has_embedding": true
+}

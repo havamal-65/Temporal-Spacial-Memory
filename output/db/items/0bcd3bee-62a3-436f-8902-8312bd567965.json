@@ -1,0 +1,102 @@
+{
+  "id": "0bcd3bee-62a3-436f-8902-8312bd567965",
+  "content": "king\tunder\tthe\tMountain,\tgo\tnow\tand\tspeed\twell!\u201d\nThe\tdragon\tswooped\tonce\tmore\tlower\tthan\tever,\tand\nas\the\tturned\tand\tdived\tdown\this\tbelly\tglittered\twhite\twith\nsparkling\t fires\t of\t gems\t in\t the\t moon\u2014but\t not\t in\t one\nplace.\t The\t great\t bow\t twanged.\t The\t black\t arrow\t sped\nstraight\tfrom\tthe\tstring,\tstraight\tfor\tthe\thollow\tby\tthe\tleft\nbreast\twhere\tthe\tforeleg\twas\tflung\twide.\tIn\tit\tsmote\tand\nvanished,\tbarb,\tshaft\tand\tfeather,\tso\tfierce\twas\tits\tflight.\nWith\t a\t shriek\t that\t deafened\t men,\t felled\t trees\t and\t split\nstone,\tSmaug\tshot\tspouting\tinto\tthe\tair,\tturned\tover\tand\ncrashed\tdown\tfrom\ton\thigh\tin\truin.\nFull\ton\tthe\ttown\the\tfell.\tHis\tlast\tthroes\tsplintered\tit\tto\nsparks\t and\t gledes.\t The\t lake\t roared\t in.\t A\t vast\t steam\nleaped\t up,\t white\t in\t the\t sudden\t dark\t under\t the\t moon.\nThere\twas\ta\thiss,\ta\tgushing\twhirl,\tand\tthen\tsilence.\tAnd\nthat\twas\tthe\tend\tof\tSmaug\tand\tEsgaroth,\tbut\tnot\tof\tBard.\nThe\t waxing\t moon\t rose\t higher\t and\t higher\t and\t the\t wind\ngrew\tloud\tand\tcold.\tIt\ttwisted\tthe\twhite\tfog\tinto\tbending\npillars\tand\thurrying\tclouds\tand\tdrove\tit\toff\tto\tthe\tWest\tto\nscatter\t in\t tattered\t shreds\t over\t the\t marshes\t before\nMirkwood.\t Then\t the\t many\t boats\t could\t be\t seen\t dotted\ndark\ton\tthe\tsurface\tof\tthe\tlake,\tand\tdown\tthe\twind\tcame\nthe\tvoices\tof\tthe\tpeople\tof\tEsgaroth\tlamenting\ttheir\tlost\ntown\t and\t goods\t and\t ruined\t houses.\t But\t they\t had\t really\nmuch\tto\tbe\tthankful\tfor,\thad\tthey\tthought\tof\tit,\tthough\tit\ncould\thardly\tbe\texpected\tthat\tthey\tshould\tjust\tthen:\tthree\nquarters\t of\t the\t people\t of\t the\t town\t had\t at\t least\t escaped\nalive;\ttheir\twoods\tand\tfields\tand\tpastures\tand\tcattle\tand\nmost\tof\ttheir\tboats\tremained\tundamaged;\tand\tthe\tdragon\nwas\tdead.\tWhat\tthat\tmeant\tthey\thad\tnot\tyet\trealized.\nThey\t gathered\t in\t mournful\t crowds\t upon\t the\t western\nshores,\t shivering\t in\t the\t cold\t wind,\t and\t their\t first\ncomplaints\tand\tanger\twere\tagainst\tthe\tMaster,\twho\thad\nleft\t the\t town\t so\t soon,\t while\t some\t were\t still\t willing\t to\ndefend\tit.",
+  "coordinates": {
+    "r": 5.0525,
+    "theta": 3.348545069645021,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 244,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1979,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Smaug",
+        "type": "administrative",
+        "start": 529,
+        "end": 534,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Then\t the\t many\t boats\t could\t be\t seen\t dotted\nda..."
+          }
+        ]
+      },
+      {
+        "name": "Mirkwood",
+        "type": "organization",
+        "start": 1146,
+        "end": 1154,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Then\t the\t many\t boats\t could\t be\t seen\t dotted\nda..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "Then\t the\t many\t boats\t could\t be\t seen\t dotted\nda...",
+        "description": "Then\t the\t many\t boats\t could\t be\t seen\t dotted\ndark\ton\tthe\tsurface\tof\tthe\tlake,\tand\tdown\tthe\twind\tcame\nthe\tvoices\tof\tthe\tpeople\tof\tEsgaroth\tlamenting\ttheir\tlost\ntown\t and\t goods\t and\t ruined\t houses.\t ",
+        "start": 1157,
+        "end": 1359,
+        "participants": [
+          "Smaug",
+          "Mirkwood"
+        ],
+        "location": "Smaug",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Smaug",
+        "type": "administrative",
+        "start": 529,
+        "end": 534,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "Then\t the\t many\t boats\t could\t be\t seen\t dotted\nda..."
+          }
+        ]
+      },
+      {
+        "name": "West",
+        "type": "geographical",
+        "start": 1080,
+        "end": 1084,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745773104.2200615,
+  "has_embedding": true
+}

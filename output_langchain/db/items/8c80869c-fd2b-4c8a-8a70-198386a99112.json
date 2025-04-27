@@ -1,0 +1,202 @@
+{
+  "id": "8c80869c-fd2b-4c8a-8a70-198386a99112",
+  "content": "The\tGreat\tGoblin\tgave\ta\ttruly\tawful\thowl\tof\trage\twhen\nhe\t looked\t at\t it,\t and\t all\t his\t soldiers\t gnashed\t their\t teeth,\nclashed\ttheir\tshields,\tand\tstamped.\tThey\tknew\tthe\tsword\nat\tonce.\tIt\thad\tkilled\thundreds\tof\tgoblins\tin\tits\ttime,\twhen\nthe\tfair\telves\tof\tGondolin\thunted\tthem\tin\tthe\thills\tor\tdid\nbattle\t before\t their\t walls.\t They\t had\t called\t it\t Orcrist,\nGoblin-cleaver,\t but\t the\t goblins\t called\t it\t simply\t Biter.\nThey\thated\tit\tand\thated\tworse\tany\tone\tthat\tcarried\tit.\n\u201cMurderers\tand\telf-friends!\u201d\tthe\tGreat\tGoblin\tshouted.\n\u201cSlash\t them!\t Beat\t them!\t Bite\t them!\t Gnash\t them!\t Take\nthem\t away\t to\t dark\t holes\t full\t of\t snakes,\t and\t never\t let\nthem\tsee\tthe\tlight\tagain!\u201d\tHe\twas\tin\tsuch\ta\trage\tthat\the\njumped\toff\this\tseat\tand\thimself\trushed\tat\tThorin\twith\this\nmouth\topen.\nJust\t at\t that\t moment\t all\t the\t lights\t in\t the\t cavern\t went\nout,\tand\tthe\tgreat\tfire\twent\toff\tpoof!\tinto\ta\ttower\tof\tblue\nglowing\t smoke,\t right\t up\t to\t the\t roof,\t that\t scattered\npiercing\twhite\tsparks\tall\tamong\tthe\tgoblins.\nThe\t yells\t and\t yammering,\t croaking,\t jibbering\t and\njabbering;\t howls,\t growls\t and\t curses;\t shrieking\t and\nskriking,\tthat\tfollowed\twere\tbeyond\tdescription.\tSeveral\nhundred\twild\tcats\tand\twolves\tbeing\troasted\tslowly\talive\ntogether\t would\t not\t have\t compared\t with\t it.\t The\t sparks\nwere\t burning\t holes\t in\t the\t goblins,\t and\t the\t smoke\t that\nnow\t fell\t from\t the\t roof\t made\t the\t air\t too\t thick\t for\t even\ntheir\teyes\tto\tsee\tthrough.\tSoon\tthey\twere\tfalling\tover\tone\nanother\t and\t rolling\t in\t heaps\t on\t the\t floor,\t biting\t and\nkicking\tand\tfighting\tas\tif\tthey\thad\tall\tgone\tmad.\nSuddenly\ta\tsword\tflashed\tin\tits\town\tlight.\tBilbo\tsaw\tit\ngo\t right\t through\t the\t Great\t Goblin\t as\t he\t stood\ndumbfounded\tin\tthe\tmiddle\tof\this\trage.\tHe\tfell\tdead,\tand\nthe\t goblin\t soldiers\t fled\t before\t the\t sword\t shrieking\t into\nthe\tdarkness.\nThe\t sword\t went\t back\t into\t its\t sheath.\t \u201cFollow\t me\nquick!\u201d\t said\t a\t voice\t fierce\t and\t quiet;\t and\t before\t Bilbo\nunderstood\t what\t had\t happened\t he\t was\t trotting\t along\nagain,\tas\tfast\tas\the\tcould\ttrot,\tat\tthe\tend\tof\tthe\tline,\tdown\nmore\t dark\t passages\t with\t the\t yells\t of\t the\t goblin-hall",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 0.2882411259668635,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 67,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2149,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_person",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Gondolin",
+        "type": "person",
+        "start": 258,
+        "end": 266,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "It\thad\tkilled\thundreds\tof\tgoblins\tin\tits\ttime,\twhe..."
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cFollow\t me\nquick!\u201d\t said\t a\t voice\t fierce\t and\t ..."
+          }
+        ]
+      },
+      {
+        "name": "Orcrist",
+        "type": "person",
+        "start": 353,
+        "end": 360,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "It\thad\tkilled\thundreds\tof\tgoblins\tin\tits\ttime,\twhe..."
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cFollow\t me\nquick!\u201d\t said\t a\t voice\t fierce\t and\t ..."
+          }
+        ]
+      },
+      {
+        "name": "Goblin",
+        "type": "administrative",
+        "start": 362,
+        "end": 368,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "It\thad\tkilled\thundreds\tof\tgoblins\tin\tits\ttime,\twhe..."
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cFollow\t me\nquick!\u201d\t said\t a\t voice\t fierce\t and\t ..."
+          }
+        ]
+      },
+      {
+        "name": "Biter",
+        "type": "person",
+        "start": 418,
+        "end": 423,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "It\thad\tkilled\thundreds\tof\tgoblins\tin\tits\ttime,\twhe..."
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cFollow\t me\nquick!\u201d\t said\t a\t voice\t fierce\t and\t ..."
+          }
+        ]
+      },
+      {
+        "name": "Beat",
+        "type": "person",
+        "start": 550,
+        "end": 554,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "It\thad\tkilled\thundreds\tof\tgoblins\tin\tits\ttime,\twhe..."
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cFollow\t me\nquick!\u201d\t said\t a\t voice\t fierce\t and\t ..."
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 1645,
+        "end": 1650,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "It\thad\tkilled\thundreds\tof\tgoblins\tin\tits\ttime,\twhe..."
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cFollow\t me\nquick!\u201d\t said\t a\t voice\t fierce\t and\t ..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "It\thad\tkilled\thundreds\tof\tgoblins\tin\tits\ttime,\twhe...",
+        "description": "It\thad\tkilled\thundreds\tof\tgoblins\tin\tits\ttime,\twhen\nthe\tfair\telves\tof\tGondolin\thunted\tthem\tin\tthe\thills\tor\tdid\nbattle\t before\t their\t walls.\t ",
+        "start": 188,
+        "end": 330,
+        "participants": [
+          "Gondolin",
+          "Orcrist",
+          "Goblin",
+          "Biter",
+          "Beat",
+          "Bilbo"
+        ],
+        "location": "Goblin",
+        "time": null
+      },
+      {
+        "name": "\u201cFollow\t me\nquick!\u201d\t said\t a\t voice\t fierce\t and\t ...",
+        "description": "\u201cFollow\t me\nquick!\u201d\t said\t a\t voice\t fierce\t and\t quiet;\t and\t before\t Bilbo\nunderstood\t what\t had\t happened\t he\t was\t trotting\t along\nagain,\tas\tfast\tas\the\tcould\ttrot,\tat\tthe\tend\tof\tthe\tline,\tdown\nmore\t dark\t passages\t with\t the\t yells\t of\t the\t goblin-hall",
+        "start": 1892,
+        "end": 2149,
+        "participants": [
+          "Gondolin",
+          "Orcrist",
+          "Goblin",
+          "Biter",
+          "Beat",
+          "Bilbo"
+        ],
+        "location": "Goblin",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Goblin",
+        "type": "administrative",
+        "start": 362,
+        "end": 368,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "It\thad\tkilled\thundreds\tof\tgoblins\tin\tits\ttime,\twhe..."
+          },
+          {
+            "type": "hosted",
+            "target": "\u201cFollow\t me\nquick!\u201d\t said\t a\t voice\t fierce\t and\t ..."
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 1645,
+        "end": 1650,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745715401.6858335,
+  "has_embedding": true
+}

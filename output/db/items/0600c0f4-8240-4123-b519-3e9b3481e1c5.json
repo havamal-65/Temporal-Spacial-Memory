@@ -1,0 +1,144 @@
+{
+  "id": "0600c0f4-8240-4123-b519-3e9b3481e1c5",
+  "content": "\u201cThere\tis\ta\tlong\troad\tyet,\u201d\tsaid\tGandalf.\n\u201cBut\tit\tis\tthe\tlast\troad,\u201d\tsaid\tBilbo.\nThey\tcame\tto\tthe\triver\tthat\tmarked\tthe\tvery\tedge\tof\tthe\nborderland\tof\tthe\tWild,\tand\tto\tthe\tford\tbeneath\tthe\tsteep\nbank,\twhich\tyou\tmay\tremember.\tThe\twater\twas\tswollen\nboth\t with\t the\t melting\t of\t the\t snows\t at\t the\t approach\t of\nsummer,\tand\twith\tthe\tdaylong\train;\tbut\tthey\tcrossed\twith\nsome\tdifficulty,\tand\tpressed\tforward,\tas\tevening\tfell,\ton\nthe\tlast\tstage\tof\ttheir\tjourney.\nThis\t was\t much\t as\t it\t had\t been\t before,\t except\t that\t the\ncompany\t was\t smaller,\t and\t more\t silent;\t also\t this\t time\nthere\t were\t no\t trolls.\t At\t each\t point\t on\t the\t road\t Bilbo\nrecalled\tthe\thappenings\tand\tthe\twords\tof\ta\tyear\tago\u2014it\nseemed\t to\t him\t more\t like\t ten\u2014so\t that,\t of\t course,\t he\nquickly\tnoted\tthe\tplace\twhere\tthe\tpony\thad\tfallen\tin\tthe\nriver,\tand\tthey\thad\tturned\taside\tfor\ttheir\tnasty\tadventure\nwith\tTom\tand\tBert\tand\tBill.\nNot\tfar\tfrom\tthe\troad\tthey\tfound\tthe\tgold\tof\tthe\ttrolls,\nwhich\t they\t had\t buried,\t still\t hidden\t and\t untouched.\t \u201cI\nhave\tenough\tto\tlast\tme\tmy\ttime,\u201d\tsaid\tBilbo,\twhen\tthey\nhad\t dug\t it\t up.\t \u201cYou\t had\t better\t take\t this,\t Gandalf.\t I\ndaresay\tyou\tcan\tfind\ta\tuse\tfor\tit.\u201d\n\u201cIndeed\tI\tcan!\u201d\tsaid\tthe\twizard.\t\u201cBut\tshare\tand\tshare\nalike!\t You\t may\t find\t you\t have\t more\t needs\t than\t you\nexpect.\u201d\nSo\t they\t put\t the\t gold\t in\t bags\t and\t slung\t them\t on\t the\nponies,\t who\t were\t not\t at\t all\t pleased\t about\t it.\t After\t that\ntheir\tgoing\twas\tslower,\tfor\tmost\tof\tthe\ttime\tthey\twalked.\nBut\tthe\tland\twas\tgreen\tand\tthere\twas\tmuch\tgrass\tthrough\nwhich\tthe\thobbit\tstrolled\talong\tcontentedly.\tHe\tmopped\nhis\t face\t with\t a\t red\t silk\t handkerchief\u2014no!\t not\t a\t single\none\t of\t his\t own\t had\t survived,\t he\t had\t borrowed\t this\t one\nfrom\tElrond\u2014for\tnow\tJune\thad\tbrought\tsummer,\tand\tthe\nweather\twas\tbright\tand\thot\tagain.\nAs\t all\t things\t come\t to\t an\t end,\t even\t this\t story,\t a\t day\ncame\tat\tlast\twhen\tthey\twere\tin\tsight\tof\tthe\tcountry\twhere\nBilbo\t had\t been\t born\t and\t bred,\t where\t the\t shapes\t of\t the\nland\t and\t of\t the\t trees\t were\t as\t well\t known\t to\t him\t as\t his",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 3.3418691852561424,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 293,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2065,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Gandalf",
+        "type": "group",
+        "start": 33,
+        "end": 40,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "As\t all\t things\t come\t to\t an\t end,\t even\t this\t s..."
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 74,
+        "end": 79,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "As\t all\t things\t come\t to\t an\t end,\t even\t this\t s..."
+          }
+        ]
+      },
+      {
+        "name": "ford",
+        "type": "organization",
+        "start": 172,
+        "end": 176,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "As\t all\t things\t come\t to\t an\t end,\t even\t this\t s..."
+          }
+        ]
+      },
+      {
+        "name": "Tom",
+        "type": "person",
+        "start": 883,
+        "end": 886,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "As\t all\t things\t come\t to\t an\t end,\t even\t this\t s..."
+          }
+        ]
+      },
+      {
+        "name": "Bill",
+        "type": "person",
+        "start": 900,
+        "end": 904,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "As\t all\t things\t come\t to\t an\t end,\t even\t this\t s..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "As\t all\t things\t come\t to\t an\t end,\t even\t this\t s...",
+        "description": "As\t all\t things\t come\t to\t an\t end,\t even\t this\t story,\t a\t day\ncame\tat\tlast\twhen\tthey\twere\tin\tsight\tof\tthe\tcountry\twhere\nBilbo\t had\t been\t born\t and\t bred,\t where\t the\t shapes\t of\t the\nland\t and\t of\t the\t trees\t were\t as\t well\t known\t to\t him\t as\t his",
+        "start": 1813,
+        "end": 2065,
+        "participants": [
+          "Gandalf",
+          "Bilbo",
+          "ford",
+          "Tom",
+          "Bill"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 74,
+        "end": 79,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "As\t all\t things\t come\t to\t an\t end,\t even\t this\t s..."
+          }
+        ]
+      },
+      {
+        "name": "Wild",
+        "type": "geographical",
+        "start": 155,
+        "end": 159,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745709018.1113725,
+  "has_embedding": true
+}

@@ -1,0 +1,118 @@
+{
+  "id": "78389c94-b64f-4b95-8313-3f7169b80d8e",
+  "content": "sick\tand\tweary,\tand\tthey\tcould\tnot\tgo\tmuch\tbetter\tthan\ta\nhobble\t and\t a\t wobble,\t though\t many\t of\t the\t spiders\t were\nclose\t behind.\t Every\t now\t and\t then\t they\t had\t to\t turn\t and\nfight\tthe\tcreatures\tthat\twere\tovertaking\tthem;\tand\talready\nsome\tspiders\twere\tin\tthe\ttrees\tabove\tthem\tand\tthrowing\ndown\ttheir\tlong\tclinging\tthreads.\nThings\twere\tlooking\tpretty\tbad\tagain,\twhen\tsuddenly\nBilbo\treappeared,\tand\tcharged\tinto\tthe\tastonished\tspiders\nunexpectedly\tfrom\tthe\tside.\n\u201cGo\ton!\tGo\ton!\u201d\the\tshouted.\t\u201cI\twill\tdo\tthe\tstinging!\u201d\nAnd\t he\t did.\t He\t darted\t backwards\t and\t forwards,\nslashing\t at\t spider-threads,\t hacking\t at\t their\t legs,\t and\nstabbing\t at\t their\t fat\t bodies\t if\t they\t came\t too\t near.\t The\nspiders\tswelled\twith\trage,\tand\tspluttered\tand\tfrothed,\tand\nhissed\tout\thorrible\tcurses;\tbut\tthey\thad\tbecome\tmortally\nafraid\tof\tSting,\tand\tdared\tnot\tcome\tvery\tnear,\tnow\tthat\tit\nhad\tcome\tback.\tSo\tcurse\tas\tthey\twould,\ttheir\tprey\tmoved\nslowly\tbut\tsteadily\taway.\tIt\twas\ta\tmost\tterrible\tbusiness,\nand\tseemed\tto\ttake\thours.\tBut\tat\tlast,\tjust\twhen\tBilbo\tfelt\nthat\the\tcould\tnot\tlift\this\thand\tfor\ta\tsingle\tstroke\tmore,\tthe\nspiders\tsuddenly\tgave\tit\tup,\tand\tfollowed\tthem\tno\tmore,\nbut\twent\tback\tdisappointed\tto\ttheir\tdark\tcolony.\nThe\t dwarves\t then\t noticed\t that\t they\t had\t come\t to\t the\nedge\tof\ta\tring\twhere\telf-fires\thad\tbeen.\tWhether\tit\twas\none\t of\t those\t they\t had\t seen\t the\t night\t before,\t they\t could\nnot\ttell.\tBut\tit\tseemed\tthat\tsome\tgood\tmagic\tlingered\tin\nsuch\t spots,\t which\t the\t spiders\t did\t not\t like.\t At\t any\t rate\nhere\tthe\tlight\twas\tgreener,\tand\tthe\tboughs\tless\tthick\tand\nthreatening,\t and\t they\t had\t a\t chance\t to\t rest\t and\t draw\nbreath.\nThere\tthey\tlay\tfor\tsome\ttime,\tpuffing\tand\tpanting.\tBut\nvery\tsoon\tthey\tbegan\tto\task\tquestions.\tThey\thad\tto\thave\nthe\twhole\tvanishing\tbusiness\tcarefully\texplained,\tand\tthe\nfinding\t of\t the\t ring\t interested\t them\t so\t much\t that\t for\t a\nwhile\t they\t forgot\t their\t own\t troubles.\t Balin\t in\t particular\ninsisted\ton\thaving\tthe\tGollum\tstory,\triddles\tand\tall,\ttold\nall\tover\tagain,\twith\tthe\tring\tin\tits\tproper\tplace.\tBut\tafter\ta\ntime\tthe\tlight\tbegan\tto\tfail,\tand\tthen\tother\tquestions\twere",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 3.3163437449457254,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 162,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2134,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_person",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 383,
+        "end": 388,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "But\nvery\tsoon\tthey\tbegan\tto\task\tquestions.\t"
+          },
+          {
+            "type": "participated_in",
+            "target": "But\tafter\ta\ntime\tthe\tlight\tbegan\tto\tfail,\tand\tthen..."
+          }
+        ]
+      },
+      {
+        "name": "Balin",
+        "type": "person",
+        "start": 1931,
+        "end": 1936,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "But\nvery\tsoon\tthey\tbegan\tto\task\tquestions.\t"
+          },
+          {
+            "type": "participated_in",
+            "target": "But\tafter\ta\ntime\tthe\tlight\tbegan\tto\tfail,\tand\tthen..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "But\nvery\tsoon\tthey\tbegan\tto\task\tquestions.\t",
+        "description": "But\nvery\tsoon\tthey\tbegan\tto\task\tquestions.\t",
+        "start": 1704,
+        "end": 1747,
+        "participants": [
+          "Bilbo",
+          "Balin"
+        ],
+        "location": "Bilbo",
+        "time": null
+      },
+      {
+        "name": "But\tafter\ta\ntime\tthe\tlight\tbegan\tto\tfail,\tand\tthen...",
+        "description": "But\tafter\ta\ntime\tthe\tlight\tbegan\tto\tfail,\tand\tthen\tother\tquestions\twere",
+        "start": 2063,
+        "end": 2134,
+        "participants": [
+          "Bilbo",
+          "Balin"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 383,
+        "end": 388,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "But\nvery\tsoon\tthey\tbegan\tto\task\tquestions.\t"
+          },
+          {
+            "type": "hosted",
+            "target": "But\tafter\ta\ntime\tthe\tlight\tbegan\tto\tfail,\tand\tthen..."
+          }
+        ]
+      }
+    ]
+  },
+  "timestamp": 1745715409.1067252,
+  "has_embedding": true
+}

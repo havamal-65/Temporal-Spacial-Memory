@@ -1,0 +1,57 @@
+{
+  "id": "6a72c598-baad-43e4-a88a-79579901231b",
+  "content": "Chapter\n\tXI\nON\tTHE\tDOORSTEP\nIn\ttwo\tdays\tgoing\tthey\trowed\tright\tup\tthe\tLong\tLake\tand\npassed\tout\tinto\tthe\tRiver\tRunning,\tand\tnow\tthey\tcould\tall\nsee\t the\t Lonely\t Mountain\t towering\t grim\t and\t tall\t before\nthem.\tThe\tstream\twas\tstrong\tand\ttheir\tgoing\tslow.\tAt\tthe\nend\tof\tthe\tthird\tday,\tsome\tmiles\tup\tthe\triver,\tthey\tdrew\tin\nto\t the\t left\t or\t western\t bank\t and\t disembarked.\t Here\t they\nwere\t joined\t by\t the\t horses\t with\t other\t provisions\t and\nnecessaries\tand\tthe\tponies\tfor\ttheir\town\tuse\tthat\thad\tbeen\nsent\tto\tmeet\tthem.\tThey\tpacked\twhat\tthey\tcould\ton\tthe\nponies\tand\tthe\trest\twas\tmade\tinto\ta\tstore\tunder\ta\ttent,\tbut\nnone\tof\tthe\tmen\tof\tthe\ttown\twould\tstay\twith\tthem\teven\nfor\tthe\tnight\tso\tnear\tthe\tshadow\tof\tthe\tMountain.\n\u201cNot\tat\tany\trate\tuntil\tthe\tsongs\thave\tcome\ttrue!\u201d\tsaid\nthey.\tIt\twas\teasier\tto\tbelieve\tin\tthe\tDragon\tand\tless\teasy\nto\t believe\t in\t Thorin\t in\t these\t wild\t parts.\t Indeed\t their\nstores\t had\t no\t need\t of\t any\t guard,\t for\t all\t the\t land\t was\ndesolate\tand\tempty.\tSo\ttheir\tescort\tleft\tthem,\tmaking\toff\nswiftly\tdown\tthe\triver\tand\tthe\tshoreward\tpaths,\talthough\nthe\tnight\twas\talready\tdrawing\ton.\nThey\tspent\ta\tcold\tand\tlonely\tnight\tand\ttheir\tspirits\tfell.\nThe\t next\t day\t they\t set\t out\t again.\t Balin\t and\t Bilbo\t rode\nbehind,\t each\t leading\t another\t pony\t heavily\t laden\t beside\nhim;\tthe\tothers\twere\tsome\tway\tahead\tpicking\tout\ta\tslow",
+  "coordinates": {
+    "r": 6.6175,
+    "theta": 0.013351768777756621,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 197,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1353,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_person",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Balin",
+        "type": "person",
+        "start": 1213,
+        "end": 1218,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bilbo",
+        "type": "person",
+        "start": 1225,
+        "end": 1230,
+        "mentions": 1,
+        "relationships": []
+      }
+    ],
+    "events": [],
+    "locations": []
+  },
+  "timestamp": 1745709012.9947968,
+  "has_embedding": true
+}

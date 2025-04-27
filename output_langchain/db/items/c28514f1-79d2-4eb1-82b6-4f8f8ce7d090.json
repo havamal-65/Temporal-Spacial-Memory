@@ -1,0 +1,240 @@
+{
+  "id": "c28514f1-79d2-4eb1-82b6-4f8f8ce7d090",
+  "content": "It\t was\t a\t terrible\t shock.\t Of\t course\t there\t were\t only\nthirteen\tof\tthem,\ttwelve\tdwarves\tand\tthe\thobbit.\tWhere\nindeed\t was\t Thorin?\t They\t wondered\t what\t evil\t fate\t had\nbefallen\thim,\tmagic\tor\tdark\tmonsters;\tand\tshuddered\tas\nthey\tlay\tlost\tin\tthe\tforest.\tThere\tthey\tdropped\toff\tone\tby\none\tinto\tuncomfortable\tsleep\tfull\tof\thorrible\tdreams,\tas\nevening\t wore\t to\t black\t night;\t and\t there\t we\t must\t leave\nthem\tfor\tthe\tpresent,\ttoo\tsick\tand\tweary\tto\tset\tguards\tor\nto\ttake\tturns\tat\twatching.\nThorin\thad\tbeen\tcaught\tmuch\tfaster\tthan\tthey\thad.\tYou\nremember\tBilbo\tfalling\tlike\ta\tlog\tinto\tsleep,\tas\the\tstepped\ninto\t a\t circle\t of\t light?\t The\t next\t time\t it\t had\t been\t Thorin\nwho\t stepped\t forward,\t and\t as\t the\t lights\t went\t out\t he\t fell\nlike\ta\tstone\tenchanted.\tAll\tthe\tnoise\tof\tthe\tdwarves\tlost\nin\t the\t night,\t their\t cries\t as\t the\t spiders\t caught\t them\t and\nbound\tthem,\tand\tall\tthe\tsounds\tof\tthe\tbattle\tnext\tday,\thad\npassed\tover\thim\tunheard.\tThen\tthe\tWood-elves\thad\tcome\nto\thim,\tand\tbound\thim,\tand\tcarried\thim\taway.\nThe\tfeasting\tpeople\twere\tWood-elves,\tof\tcourse.\tThese\nare\tnot\twicked\tfolk.\tIf\tthey\thave\ta\tfault\tit\tis\tdistrust\tof\nstrangers.\tThough\ttheir\tmagic\twas\tstrong,\teven\tin\tthose\ndays\tthey\twere\twary.\tThey\tdiffered\tfrom\tthe\tHigh\tElves\nof\tthe\tWest,\tand\twere\tmore\tdangerous\tand\tless\twise.\tFor\nmost\tof\tthem\t(together\twith\ttheir\tscattered\trelations\tin\tthe\nhills\t and\t mountains)\t were\t descended\t from\t the\t ancient\ntribes\t that\t never\t went\t to\t Faerie\t in\t the\t West.\t There\t the\nLight-elves\t and\t the\t Deep-elves\t and\t the\t Sea-elves\t went\nand\t lived\t for\t ages,\t and\t grew\t fairer\t and\t wiser\t and\t more\nlearned,\tand\tinvented\ttheir\tmagic\tand\ttheir\tcunning\tcraft\nin\tthe\tmaking\tof\tbeautiful\tand\tmarvellous\tthings,\tbefore\nsome\tcame\tback\tinto\tthe\tWide\tWorld.\tIn\tthe\tWide\tWorld\nthe\t Wood-elves\t lingered\t in\t the\t twilight\t of\t our\t Sun\t and\nMoon,\tbut\tloved\tbest\tthe\tstars;\tand\tthey\twandered\tin\tthe\ngreat\tforests\tthat\tgrew\ttall\tin\tlands\tthat\tare\tnow\tlost.\tThey\ndwelt\tmost\toften\tby\tthe\tedges\tof\tthe\twoods,\tfrom\twhich\nthey\tcould\tescape\tat\ttimes\tto\thunt,\tor\tto\tride\tand\trun\tover\nthe\t open\t lands\t by\t moonlight\t or\t starlight;\t and\t after\t the\ncoming\t of\t Men\t they\t took\t ever\t more\t and\t more\t to\t the",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 4.981780550430014,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 164,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2209,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_person",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 556,
+        "end": 561,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Where\nindeed\t was\t Thorin?\t They\t wondered\t what\t ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "All\tthe\tnoise\tof\tthe\tdwarves\tlost\nin\t the\t night,\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "For\nmost\tof\tthem\t(together\twith\ttheir\tscattered\tre..."
+          },
+          {
+            "type": "participated_in",
+            "target": "In\tthe\tWide\tWorld\nthe\t Wood-elves\t lingered\t in\t t..."
+          }
+        ]
+      },
+      {
+        "name": "Faerie",
+        "type": "person",
+        "start": 1457,
+        "end": 1463,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Where\nindeed\t was\t Thorin?\t They\t wondered\t what\t ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "All\tthe\tnoise\tof\tthe\tdwarves\tlost\nin\t the\t night,\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "For\nmost\tof\tthem\t(together\twith\ttheir\tscattered\tre..."
+          },
+          {
+            "type": "participated_in",
+            "target": "In\tthe\tWide\tWorld\nthe\t Wood-elves\t lingered\t in\t t..."
+          }
+        ]
+      },
+      {
+        "name": "Sun",
+        "type": "organization",
+        "start": 1842,
+        "end": 1845,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Where\nindeed\t was\t Thorin?\t They\t wondered\t what\t ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "All\tthe\tnoise\tof\tthe\tdwarves\tlost\nin\t the\t night,\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "For\nmost\tof\tthem\t(together\twith\ttheir\tscattered\tre..."
+          },
+          {
+            "type": "participated_in",
+            "target": "In\tthe\tWide\tWorld\nthe\t Wood-elves\t lingered\t in\t t..."
+          }
+        ]
+      },
+      {
+        "name": "Moon",
+        "type": "person",
+        "start": 1851,
+        "end": 1855,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Where\nindeed\t was\t Thorin?\t They\t wondered\t what\t ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "All\tthe\tnoise\tof\tthe\tdwarves\tlost\nin\t the\t night,\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "For\nmost\tof\tthem\t(together\twith\ttheir\tscattered\tre..."
+          },
+          {
+            "type": "participated_in",
+            "target": "In\tthe\tWide\tWorld\nthe\t Wood-elves\t lingered\t in\t t..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "Where\nindeed\t was\t Thorin?\t They\t wondered\t what\t ...",
+        "description": "Where\nindeed\t was\t Thorin?\t They\t wondered\t what\t evil\t fate\t had\nbefallen\thim,\tmagic\tor\tdark\tmonsters;\tand\tshuddered\tas\nthey\tlay\tlost\tin\tthe\tforest.\t",
+        "start": 109,
+        "end": 259,
+        "participants": [
+          "Bilbo",
+          "Faerie",
+          "Sun",
+          "Moon"
+        ],
+        "location": "Bilbo",
+        "time": null
+      },
+      {
+        "name": "All\tthe\tnoise\tof\tthe\tdwarves\tlost\nin\t the\t night,\t...",
+        "description": "All\tthe\tnoise\tof\tthe\tdwarves\tlost\nin\t the\t night,\t their\t cries\t as\t the\t spiders\t caught\t them\t and\nbound\tthem,\tand\tall\tthe\tsounds\tof\tthe\tbattle\tnext\tday,\thad\npassed\tover\thim\tunheard.\t",
+        "start": 765,
+        "end": 950,
+        "participants": [
+          "Bilbo",
+          "Faerie",
+          "Sun",
+          "Moon"
+        ],
+        "location": "Bilbo",
+        "time": null
+      },
+      {
+        "name": "For\nmost\tof\tthem\t(together\twith\ttheir\tscattered\tre...",
+        "description": "For\nmost\tof\tthem\t(together\twith\ttheir\tscattered\trelations\tin\tthe\nhills\t and\t mountains)\t were\t descended\t from\t the\t ancient\ntribes\t that\t never\t went\t to\t Faerie\t in\t the\t West.\t ",
+        "start": 1301,
+        "end": 1481,
+        "participants": [
+          "Bilbo",
+          "Faerie",
+          "Sun",
+          "Moon"
+        ],
+        "location": "Bilbo",
+        "time": null
+      },
+      {
+        "name": "In\tthe\tWide\tWorld\nthe\t Wood-elves\t lingered\t in\t t...",
+        "description": "In\tthe\tWide\tWorld\nthe\t Wood-elves\t lingered\t in\t the\t twilight\t of\t our\t Sun\t and\nMoon,\tbut\tloved\tbest\tthe\tstars;\tand\tthey\twandered\tin\tthe\ngreat\tforests\tthat\tgrew\ttall\tin\tlands\tthat\tare\tnow\tlost.\t",
+        "start": 1769,
+        "end": 1965,
+        "participants": [
+          "Bilbo",
+          "Faerie",
+          "Sun",
+          "Moon"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 556,
+        "end": 561,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "Where\nindeed\t was\t Thorin?\t They\t wondered\t what\t ..."
+          },
+          {
+            "type": "hosted",
+            "target": "All\tthe\tnoise\tof\tthe\tdwarves\tlost\nin\t the\t night,\t..."
+          },
+          {
+            "type": "hosted",
+            "target": "For\nmost\tof\tthem\t(together\twith\ttheir\tscattered\tre..."
+          },
+          {
+            "type": "hosted",
+            "target": "In\tthe\tWide\tWorld\nthe\t Wood-elves\t lingered\t in\t t..."
+          }
+        ]
+      },
+      {
+        "name": "West",
+        "type": "geographical",
+        "start": 1256,
+        "end": 1260,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Sea",
+        "type": "geographical",
+        "start": 1537,
+        "end": 1540,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745715409.276402,
+  "has_embedding": true
+}

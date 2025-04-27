@@ -1,0 +1,145 @@
+{
+  "id": "f8b4655f-320a-48a1-b69f-99e822f616ef",
+  "content": "\u201cAnd\t what\t brought\t you\t back\t in\t the\t nick\t of\t time?\u201d\n\u201cLooking\tbehind,\u201d\tsaid\the.\n\u201cExactly!\u201d\tsaid\tThorin;\t\u201cbut\tcould\tyou\tbe\tmore\tplain?\u201d\n\u201cI\t went\t on\t to\t spy\t out\t our\t road.\t It\t will\t soon\t become\ndangerous\t and\t difficult.\t Also\t I\t was\t anxious\t about\nreplenishing\tour\tsmall\tstock\tof\tprovisions.\tI\thad\tnot\tgone\nvery\tfar,\thowever,\twhen\tI\tmet\ta\tcouple\tof\tfriends\tof\tmine\nfrom\tRivendell.\u201d\n\u201cWhere\u2019s\tthat?\u201d\tasked\tBilbo.\n\u201cDon\u2019t\tinterrupt!\u201d\tsaid\tGandalf.\t\u201cYou\twill\tget\tthere\tin\na\tfew\tdays\tnow,\tif\twe\u2019re\tlucky,\tand\tfind\tout\tall\tabout\tit.\nAs\tI\twas\tsaying\tI\tmet\ttwo\tof\tElrond\u2019s\tpeople.\tThey\twere\nhurrying\talong\tfor\tfear\tof\tthe\ttrolls.\tIt\twas\tthey\twho\ttold\nme\tthat\tthree\tof\tthem\thad\tcome\tdown\tfrom\tthe\tmountains\nand\tsettled\tin\tthe\twoods\tnot\tfar\tfrom\tthe\troad:\tthey\thad\nfrightened\t everyone\t away\t from\t the\t district,\t and\t they\nwaylaid\tstrangers.\n\u201cI\t immediately\t had\t a\t feeling\t that\t I\t was\t wanted\t back.\nLooking\tbehind\tI\tsaw\ta\tfire\tin\tthe\tdistance\tand\tmade\tfor\nit.\tSo\tnow\tyou\tknow.\tPlease\tbe\tmore\tcareful,\tnext\ttime,\nor\twe\tshall\tnever\tget\tanywhere!\u201d\n\u201cThank\tyou!\u201d\tsaid\tThorin.",
+  "coordinates": {
+    "r": 7.305,
+    "theta": 1.635591675275186,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 47,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1078,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_group",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Thorin",
+        "type": "group",
+        "start": 101,
+        "end": 107,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "I\thad\tnot\tgone\nvery\tfar,\thowever,\twhen\tI\tmet\ta\tcou..."
+          },
+          {
+            "type": "participated_in",
+            "target": "As\tI\twas\tsaying\tI\tmet\ttwo\tof\tElrond\u2019s\tpeople.\t"
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 416,
+        "end": 421,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "I\thad\tnot\tgone\nvery\tfar,\thowever,\twhen\tI\tmet\ta\tcou..."
+          },
+          {
+            "type": "participated_in",
+            "target": "As\tI\twas\tsaying\tI\tmet\ttwo\tof\tElrond\u2019s\tpeople.\t"
+          }
+        ]
+      },
+      {
+        "name": "Gandalf",
+        "type": "group",
+        "start": 447,
+        "end": 454,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "I\thad\tnot\tgone\nvery\tfar,\thowever,\twhen\tI\tmet\ta\tcou..."
+          },
+          {
+            "type": "participated_in",
+            "target": "As\tI\twas\tsaying\tI\tmet\ttwo\tof\tElrond\u2019s\tpeople.\t"
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "I\thad\tnot\tgone\nvery\tfar,\thowever,\twhen\tI\tmet\ta\tcou...",
+        "description": "I\thad\tnot\tgone\nvery\tfar,\thowever,\twhen\tI\tmet\ta\tcouple\tof\tfriends\tof\tmine\nfrom\tRivendell.\u201d\n",
+        "start": 304,
+        "end": 394,
+        "participants": [
+          "Thorin",
+          "Bilbo",
+          "Gandalf"
+        ],
+        "location": "Rivendell",
+        "time": null
+      },
+      {
+        "name": "As\tI\twas\tsaying\tI\tmet\ttwo\tof\tElrond\u2019s\tpeople.\t",
+        "description": "As\tI\twas\tsaying\tI\tmet\ttwo\tof\tElrond\u2019s\tpeople.\t",
+        "start": 538,
+        "end": 584,
+        "participants": [
+          "Thorin",
+          "Bilbo",
+          "Gandalf"
+        ],
+        "location": "Rivendell",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Rivendell",
+        "type": "geographical",
+        "start": 382,
+        "end": 391,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "I\thad\tnot\tgone\nvery\tfar,\thowever,\twhen\tI\tmet\ta\tcou..."
+          },
+          {
+            "type": "hosted",
+            "target": "As\tI\twas\tsaying\tI\tmet\ttwo\tof\tElrond\u2019s\tpeople.\t"
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 416,
+        "end": 421,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745715400.2267025,
+  "has_embedding": true
+}

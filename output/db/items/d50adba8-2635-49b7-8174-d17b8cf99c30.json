@@ -1,0 +1,137 @@
+{
+  "id": "d50adba8-2635-49b7-8174-d17b8cf99c30",
+  "content": "with\thim.\tThey\targued\tabout\tit\tbackwards\tand\tforwards\nfor\ta\tlong\twhile,\tuntil\tthey\tagreed\tat\tlength\tto\tsend\tout\ta\ncouple\tof\tspies,\tto\tcreep\tnear\tthe\tlights\tand\tfind\tout\tmore\nabout\tthem.\tBut\tthen\tthey\tcould\tnot\tagree\ton\twho\twas\tto\nbe\tsent:\tno\tone\tseemed\tanxious\tto\trun\tthe\tchance\tof\tbeing\nlost\t and\t never\t finding\t his\t friends\t again.\t In\t the\t end,\t in\nspite\tof\twarnings,\thunger\tdecided\tthem,\tbecause\tBombur\nkept\t on\t describing\t all\t the\t good\t things\t that\t were\t being\neaten,\taccording\tto\this\tdream,\tin\tthe\twoodland\tfeast;\tso\nthey\tall\tleft\tthe\tpath\tand\tplunged\tinto\tthe\tforest\ttogether.\nAfter\ta\tgood\tdeal\tof\tcreeping\tand\tcrawling\tthey\tpeered\nround\tthe\ttrunks\tand\tlooked\tinto\ta\tclearing\twhere\tsome\ntrees\thad\tbeen\tfelled\tand\tthe\tground\tlevelled.\tThere\twere\nmany\t people\t there,\t elvish-looking\t folk,\t all\t dressed\t in\ngreen\tand\tbrown\tand\tsitting\ton\tsawn\trings\tof\tthe\tfelled\ntrees\tin\ta\tgreat\tcircle.\tThere\twas\ta\tfire\tin\ttheir\tmidst\tand\nthere\t were\t torches\t fastened\t to\t some\t of\t the\t trees\t round\nabout;\tbut\tmost\tsplendid\tsight\tof\tall:\tthey\twere\teating\tand\ndrinking\tand\tlaughing\tmerrily.\nThe\t smell\t of\t the\t roast\t meats\t was\t so\t enchanting\t that,\nwithout\twaiting\tto\tconsult\tone\tanother,\tevery\tone\tof\tthem\ngot\tup\tand\tscrambled\tforwards\tinto\tthe\tring\twith\tthe\tone\nidea\t of\t begging\t for\t some\t food.\t No\t sooner\t had\t the\t first\nstepped\tinto\tthe\tclearing\tthan\tall\tthe\tlights\twent\tout\tas\tif\nby\t magic.\t Somebody\t kicked\t the\t fire\t and\t it\t went\t up\t in\nrockets\tof\tglittering\tsparks\tand\tvanished.\tThey\twere\tlost\nin\t a\t completely\t lightless\t dark\t and\t they\t could\t not\t even\nfind\t one\t another,\t not\t for\t a\t long\t time\t at\t any\t rate.\t After\nblundering\t frantically\t in\t the\t gloom,\t falling\t over\t logs,\nbumping\t crash\t into\t trees,\t and\t shouting\t and\t calling\t till\nthey\tmust\thave\twaked\teverything\tin\tthe\tforest\tfor\tmiles,\nat\tlast\tthey\tmanaged\tto\tgather\tthemselves\tin\ta\tbundle\tand\ncount\t themselves\t by\t touch.\t By\t that\t time\t they\t had,\t of\ncourse,\tquite\tforgotten\tin\twhat\tdirection\tthe\tpath\tlay,\tand\nthey\twere\tall\thopelessly\tlost,\tat\tleast\ttill\tmorning.\nThere\twas\tnothing\tfor\tit\tbut\tto\tsettle\tdown\tfor\tthe\tnight\nwhere\tthey\twere;\tthey\tdid\tnot\teven\tdare\tto\tsearch\ton\tthe\nground\tfor\tscraps\tof\tfood\tfor\tfear\tof\tbecoming\tseparated",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 5.035973023704439,
+    "t": 1745630173.9676006,
+    "z": 2
+  },
+  "metadata": {
+    "chunk_index": 150,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2239,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 2
+    },
+    "entities": [
+      {
+        "name": "Bombur",
+        "type": "administrative",
+        "start": 403,
+        "end": 409,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "They\targued\tabout\tit\tbackwards\tand\tforwards\nfor\ta\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "But\tthen\tthey\tcould\tnot\tagree\ton\twho\twas\tto\nbe\tsen..."
+          },
+          {
+            "type": "participated_in",
+            "target": "They\twere\tlost\nin\t a\t completely\t lightless\t dark\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "By\t that\t time\t they\t had,\t of\ncourse,\tquite\tforgo..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "They\targued\tabout\tit\tbackwards\tand\tforwards\nfor\ta\t...",
+        "description": "They\targued\tabout\tit\tbackwards\tand\tforwards\nfor\ta\tlong\twhile,\tuntil\tthey\tagreed\tat\tlength\tto\tsend\tout\ta\ncouple\tof\tspies,\tto\tcreep\tnear\tthe\tlights\tand\tfind\tout\tmore\nabout\tthem.\t",
+        "start": 10,
+        "end": 186,
+        "participants": [
+          "Bombur"
+        ],
+        "location": "Bombur",
+        "time": null
+      },
+      {
+        "name": "But\tthen\tthey\tcould\tnot\tagree\ton\twho\twas\tto\nbe\tsen...",
+        "description": "But\tthen\tthey\tcould\tnot\tagree\ton\twho\twas\tto\nbe\tsent:\tno\tone\tseemed\tanxious\tto\trun\tthe\tchance\tof\tbeing\nlost\t and\t never\t finding\t his\t friends\t again.\t ",
+        "start": 186,
+        "end": 337,
+        "participants": [
+          "Bombur"
+        ],
+        "location": "Bombur",
+        "time": null
+      },
+      {
+        "name": "They\twere\tlost\nin\t a\t completely\t lightless\t dark\t...",
+        "description": "They\twere\tlost\nin\t a\t completely\t lightless\t dark\t and\t they\t could\t not\t even\nfind\t one\t another,\t not\t for\t a\t long\t time\t at\t any\t rate.\t ",
+        "start": 1503,
+        "end": 1644,
+        "participants": [
+          "Bombur"
+        ],
+        "location": "Bombur",
+        "time": null
+      },
+      {
+        "name": "By\t that\t time\t they\t had,\t of\ncourse,\tquite\tforgo...",
+        "description": "By\t that\t time\t they\t had,\t of\ncourse,\tquite\tforgotten\tin\twhat\tdirection\tthe\tpath\tlay,\tand\nthey\twere\tall\thopelessly\tlost,\tat\tleast\ttill\tmorning.\n",
+        "start": 1923,
+        "end": 2068,
+        "participants": [
+          "Bombur"
+        ],
+        "location": "Bombur",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bombur",
+        "type": "administrative",
+        "start": 403,
+        "end": 409,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "They\targued\tabout\tit\tbackwards\tand\tforwards\nfor\ta\t..."
+          },
+          {
+            "type": "hosted",
+            "target": "But\tthen\tthey\tcould\tnot\tagree\ton\twho\twas\tto\nbe\tsen..."
+          },
+          {
+            "type": "hosted",
+            "target": "They\twere\tlost\nin\t a\t completely\t lightless\t dark\t..."
+          },
+          {
+            "type": "hosted",
+            "target": "By\t that\t time\t they\t had,\t of\ncourse,\tquite\tforgo..."
+          }
+        ]
+      }
+    ]
+  },
+  "timestamp": 1745773088.0630937,
+  "has_embedding": true
+}

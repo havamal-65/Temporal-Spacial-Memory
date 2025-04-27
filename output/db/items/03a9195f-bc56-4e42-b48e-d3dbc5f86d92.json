@@ -1,0 +1,157 @@
+{
+  "id": "03a9195f-bc56-4e42-b48e-d3dbc5f86d92",
+  "content": "grey\tclouds\tthe\tsun\tmust\thave\tgone\tdown,\tfor\tit\tbegan\tto\nget\tdark\tas\tthey\twent\tdown\tinto\ta\tdeep\tvalley\twith\ta\triver\nat\tthe\tbottom.\tWind\tgot\tup,\tand\twillows\talong\tits\tbanks\nbent\t and\t sighed.\t Fortunately\t the\t road\t went\t over\t an\nancient\tstone\tbridge,\tfor\tthe\triver,\tswollen\twith\tthe\trains,\ncame\t rushing\t down\t from\t the\t hills\t and\t mountains\t in\t the\nnorth.\nIt\t was\t nearly\t night\t when\t they\t had\t crossed\t over.\t The\nwind\t broke\t up\t the\t grey\t clouds,\t and\t a\t wandering\t moon\nappeared\t above\t the\t hills\t between\t the\t flying\t rags.\t Then\nthey\t stopped,\t and\t Thorin\t muttered\t something\t about\nsupper,\t\u201cand\twhere\tshall\twe\tget\ta\tdry\tpatch\tto\tsleep\ton?\u201d\nNot\tuntil\tthen\tdid\tthey\tnotice\tthat\tGandalf\twas\tmissing.\nSo\tfar\the\thad\tcome\tall\tthe\tway\twith\tthem,\tnever\tsaying\tif\nhe\twas\tin\tthe\tadventure\tor\tmerely\tkeeping\tthem\tcompany\nfor\ta\twhile.\tHe\thad\teaten\tmost,\ttalked\tmost,\tand\tlaughed\nmost.\tBut\tnow\the\tsimply\twas\tnot\tthere\tat\tall!\n\u201cJust\twhen\ta\twizard\twould\thave\tbeen\tmost\tuseful,\ntoo,\u201d\t groaned\t Dori\t and\t Nori\t (who\t shared\t the\t hobbit\u2019s\nviews\tabout\tregular\tmeals,\tplenty\tand\toften).\nThey\tdecided\tin\tthe\tend\tthat\tthey\twould\thave\tto\tcamp\nwhere\t they\t were.\t They\t moved\t to\t a\t clump\t of\t trees,\t and\nthough\tit\twas\tdrier\tunder\tthem,\tthe\twind\tshook\tthe\train\noff\t the\t leaves,\t and\t the\t drip,\t drip,\t was\t most\t annoying.\nAlso\t the\t mischief\t seemed\t to\t have\t got\t into\t the\t fire.\nDwarves\tcan\tmake\ta\tfire\talmost\tanywhere\tout\tof\talmost\nanything,\twind\tor\tno\twind;\tbut\tthey\tcould\tnot\tdo\tit\tthat\nnight,\tnot\teven\tOin\tand\tGloin,\twho\twere\tspecially\tgood\nat\tit.\nThen\t one\t of\t the\t ponies\t took\t fright\t at\t nothing\t and\nbolted.\tHe\tgot\tinto\tthe\triver\tbefore\tthey\tcould\tcatch\thim;\nand\t before\t they\t could\t get\t him\t out\t again,\t Fili\t and\t Kili\nwere\tnearly\tdrowned,\tand\tall\tthe\tbaggage\tthat\the\tcarried\nwas\twashed\taway\toff\thim.\tOf\tcourse\tit\twas\tmostly\tfood,\nand\t there\t was\t mighty\t little\t left\t for\t supper,\t and\t less\t for",
+  "coordinates": {
+    "r": 5.195,
+    "theta": 1.76361157590897,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 36,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1922,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_group",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Thorin",
+        "type": "group",
+        "start": 568,
+        "end": 574,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "grey\tclouds\tthe\tsun\tmust\thave\tgone\tdown,\tfor\tit\tbe..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Then\nthey\t stopped,\t and\t Thorin\t muttered\t someth..."
+          }
+        ]
+      },
+      {
+        "name": "Gandalf",
+        "type": "group",
+        "start": 697,
+        "end": 704,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "grey\tclouds\tthe\tsun\tmust\thave\tgone\tdown,\tfor\tit\tbe..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Then\nthey\t stopped,\t and\t Thorin\t muttered\t someth..."
+          }
+        ]
+      },
+      {
+        "name": "Nori",
+        "type": "person",
+        "start": 1010,
+        "end": 1014,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "grey\tclouds\tthe\tsun\tmust\thave\tgone\tdown,\tfor\tit\tbe..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Then\nthey\t stopped,\t and\t Thorin\t muttered\t someth..."
+          }
+        ]
+      },
+      {
+        "name": "Gloin",
+        "type": "organization",
+        "start": 1522,
+        "end": 1527,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "grey\tclouds\tthe\tsun\tmust\thave\tgone\tdown,\tfor\tit\tbe..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Then\nthey\t stopped,\t and\t Thorin\t muttered\t someth..."
+          }
+        ]
+      },
+      {
+        "name": "Kili",
+        "type": "person",
+        "start": 1738,
+        "end": 1742,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "grey\tclouds\tthe\tsun\tmust\thave\tgone\tdown,\tfor\tit\tbe..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Then\nthey\t stopped,\t and\t Thorin\t muttered\t someth..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "grey\tclouds\tthe\tsun\tmust\thave\tgone\tdown,\tfor\tit\tbe...",
+        "description": "grey\tclouds\tthe\tsun\tmust\thave\tgone\tdown,\tfor\tit\tbegan\tto\nget\tdark\tas\tthey\twent\tdown\tinto\ta\tdeep\tvalley\twith\ta\triver\nat\tthe\tbottom.\t",
+        "start": 0,
+        "end": 131,
+        "participants": [
+          "Thorin",
+          "Gandalf",
+          "Nori",
+          "Gloin",
+          "Kili"
+        ],
+        "location": null,
+        "time": null
+      },
+      {
+        "name": "Then\nthey\t stopped,\t and\t Thorin\t muttered\t someth...",
+        "description": "Then\nthey\t stopped,\t and\t Thorin\t muttered\t something\t about\nsupper,\t\u201cand\twhere\tshall\twe\tget\ta\tdry\tpatch\tto\tsleep\ton?\u201d\nNot\tuntil\tthen\tdid\tthey\tnotice\tthat\tGandalf\twas\tmissing.\n",
+        "start": 542,
+        "end": 718,
+        "participants": [
+          "Thorin",
+          "Gandalf",
+          "Nori",
+          "Gloin",
+          "Kili"
+        ],
+        "location": null,
+        "time": null
+      }
+    ],
+    "locations": []
+  },
+  "timestamp": 1745773070.770584,
+  "has_embedding": true
+}

@@ -1,0 +1,108 @@
+{
+  "id": "cbd08cdc-3d2a-4de0-a23b-e310075361ae",
+  "content": "stopped\tby\ta\tlow\topening,\ton\ttheir\tleft\tas\tthey\twent\tup.\n\u201cSeven\tright,\tyes.\tSix\tleft,\tyes!\u201d\the\twhispered.\t\u201cThis\tis\nit.\t This\t is\t the\t way\t to\t the\t back-door,\t yes.\t Here\u2019s\t the\npassage!\u201d\nHe\tpeered\tin,\tand\tshrank\tback.\t\u201cBut\twe\tdursn\u2019t\tgo\tin,\nprecious,\t no\t we\t dursn\u2019t.\t Goblinses\t down\t there.\t Lots\t of\ngoblinses.\tWe\tsmells\tthem.\tSsss!\u201d\n\u201cWhat\t shall\t we\t do?\t Curse\t them\t and\t crush\t them!\t We\nmust\twait\there,\tprecious,\twait\ta\tbit\tand\tsee.\u201d\nSo\tthey\tcame\tto\ta\tdead\tstop.\tGollum\thad\tbrought\tBilbo\nto\tthe\tway\tout\tafter\tall,\tbut\tBilbo\tcould\tnot\tget\tin!\tThere\nwas\tGollum\tsitting\thumped\tup\tright\tin\tthe\topening,\tand\nhis\teyes\tgleamed\tcold\tin\this\thead,\tas\the\tswayed\tit\tfrom\nside\tto\tside\tbetween\this\tknees.\nBilbo\t crept\t away\t from\t the\t wall\t more\t quietly\t than\t a\nmouse;\tbut\tGollum\tstiffened\tat\tonce,\tand\tsniffed,\tand\this\neyes\t went\t green.\t He\t hissed\t softly\t but\t menacingly.\t He\ncould\tnot\tsee\tthe\thobbit,\tbut\tnow\the\twas\ton\tthe\talert,\tand\nhe\t had\t other\t senses\t that\t the\t darkness\t had\t sharpened:\nhearing\tand\tsmell.\tHe\tseemed\tto\tbe\tcrouched\tright\tdown\nwith\t his\t flat\t hands\t splayed\t on\t the\t floor,\t and\t his\t head\nthrust\tout,\tnose\talmost\tto\tthe\tstone.\tThough\the\twas\tonly\ta\nblack\tshadow\tin\tthe\tgleam\tof\this\town\teyes,\tBilbo\tcould\nsee\tor\tfeel\tthat\the\twas\ttense\tas\ta\tbowstring,\tgathered\tfor\ta\nspring.\nBilbo\talmost\tstopped\tbreathing,\tand\twent\tstiff\thimself.\nHe\twas\tdesperate.\tHe\tmust\tget\taway,\tout\tof\tthis\thorrible\ndarkness,\t while\t he\t had\t any\t strength\t left.\t He\t must\t fight.\nHe\t must\t stab\t the\t foul\t thing,\t put\t its\t eyes\t out,\t kill\t it.\t It\nmeant\tto\tkill\thim.\tNo,\tnot\ta\tfair\tfight.\tHe\twas\tinvisible\nnow.\t Gollum\t had\t no\t sword.\t Gollum\t had\t not\t actually\nthreatened\t to\t kill\t him,\t or\t tried\t to\t yet.\t And\t he\t was\nmiserable,\t alone,\t lost.\t A\t sudden\t understanding,\t a\t pity\nmixed\twith\thorror,\twelled\tup\tin\tBilbo\u2019s\theart:\ta\tglimpse\nof\t endless\t unmarked\t days\t without\t light\t or\t hope\t of\nbetterment,\t hard\t stone,\t cold\t fish,\t sneaking\t and\nwhispering.\t All\t these\t thoughts\t passed\t in\t a\t flash\t of\t a\nsecond.\tHe\ttrembled.\tAnd\tthen\tquite\tsuddenly\tin\tanother",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 3.341083787092745,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 88,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2081,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Goblinses",
+        "type": "organization",
+        "start": 272,
+        "end": 281,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "And\t he\t was\nmiserable,\t alone,\t lost.\t "
+          }
+        ]
+      },
+      {
+        "name": "Curse",
+        "type": "person",
+        "start": 363,
+        "end": 368,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "And\t he\t was\nmiserable,\t alone,\t lost.\t "
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 493,
+        "end": 498,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "And\t he\t was\nmiserable,\t alone,\t lost.\t "
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "And\t he\t was\nmiserable,\t alone,\t lost.\t ",
+        "description": "And\t he\t was\nmiserable,\t alone,\t lost.\t ",
+        "start": 1719,
+        "end": 1759,
+        "participants": [
+          "Goblinses",
+          "Curse",
+          "Bilbo"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 493,
+        "end": 498,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "And\t he\t was\nmiserable,\t alone,\t lost.\t "
+          }
+        ]
+      }
+    ]
+  },
+  "timestamp": 1745773078.1299586,
+  "has_embedding": true
+}

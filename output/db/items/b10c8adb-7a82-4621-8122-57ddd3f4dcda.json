@@ -1,0 +1,374 @@
+{
+  "id": "b10c8adb-7a82-4621-8122-57ddd3f4dcda",
+  "content": "with\ta\tpiece\tof\tstick\tfended\toff\tthe\tlittle\tblack\tboat\tas\tit\ncame\trushing\tacross\tthe\tstream.\t\u201cHelp!\u201d\the\tshouted,\tand\nBalin\twas\tjust\tin\ttime\tto\tseize\tthe\tboat\tbefore\tit\tfloated\noff\tdown\tthe\tcurrent.\n\u201cIt\twas\ttied\tafter\tall,\u201d\tsaid\the,\tlooking\tat\tthe\tsnapped\npainter\tthat\twas\tstill\tdangling\tfrom\tit.\t\u201cThat\twas\ta\tgood\npull,\t my\t lads;\t and\t a\t good\t job\t that\t our\t rope\t was\t the\nstronger.\u201d\n\u201cWho\u2019ll\tcross\tfirst?\u201d\tasked\tBilbo.\n\u201cI\tshall,\u201d\tsaid\tThorin,\t\u201cand\tyou\twill\tcome\twith\tme,\tand\nFili\tand\tBalin.\tThat\u2019s\tas\tmany\tas\tthe\tboat\twill\thold\tat\ta\ntime.\tAfter\tthat\tKili\tand\tOin\tand\tGloin\tand\tDori;\tnext\tOri\nand\tNori,\tBifur\tand\tBofur;\tand\tlast\tDwalin\tand\tBombur.\u201d\n\u201cI\u2019m\talways\tlast\tand\tI\tdon\u2019t\tlike\tit,\u201d\tsaid\tBombur.\t\u201cIt\u2019s\nsomebody\telse\u2019s\tturn\ttoday.\u201d\n\u201cYou\t should\t not\t be\t so\t fat.\t As\t you\t are,\t you\t must\t be\nwith\tthe\tlast\tand\tlightest\tboatload.\tDon\u2019t\tstart\tgrumbling\nagainst\torders,\tor\tsomething\tbad\twill\thappen\tto\tyou.\u201d\n\u201cThere\taren\u2019t\tany\toars.\tHow\tare\tyou\tgoing\tto\tpush\tthe\nboat\tback\tto\tthe\tfar\tbank?\u201d\tasked\tthe\thobbit.\n\u201cGive\t me\t another\t length\t of\t rope\t and\t another\t hook,\u201d\nsaid\tFili,\tand\twhen\tthey\thad\tgot\tit\tready,\the\tcast\tit\tinto\nthe\tdarkness\tahead\tand\tas\thigh\tas\the\tcould\tthrow\tit.\tSince\nit\t did\t not\t fall\t down\t again,\t they\t saw\t that\t it\t must\t have\nstuck\tin\tthe\tbranches.\t\u201cGet\tin\tnow,\u201d\tsaid\tFili,\t\u201cand\tone\tof\nyou\thaul\ton\tthe\trope\tthat\tis\tstuck\tin\ta\ttree\ton\tthe\tother\nside.\t One\t of\t the\t others\t must\t keep\t hold\t of\t the\t hook\t we\nused\tat\tfirst,\tand\twhen\twe\tare\tsafe\ton\tthe\tother\tside\the\ncan\thook\tit\ton,\tand\tyou\tcan\tdraw\tthe\tboat\tback.\u201d\nIn\t this\t way\t they\t were\t all\t soon\t on\t the\t far\t bank\t safe\nacross\t the\t enchanted\t stream.\t Dwalin\t had\t just\t scrambled\nout\t with\t the\t coiled\t rope\t on\t his\t arm,\t and\t Bombur\t (still\ngrumbling)\twas\tgetting\tready\tto\tfollow,\twhen\tsomething\nbad\tdid\thappen.\tThere\twas\ta\tflying\tsound\tof\thooves\ton\nthe\t path\t ahead.\t Out\t of\t the\t gloom\t came\t suddenly\t the\nshape\t of\t a\t flying\t deer.\t It\t charged\t into\t the\t dwarves\t and\nbowled\tthem\tover,\tthen\tgathered\titself\tfor\ta\tleap.\tHigh\tit\nsprang\tand\tcleared\tthe\twater\twith\ta\tmighty\tjump.\tBut\tit",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 3.291211003717007,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 143,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2084,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 415,
+        "end": 420,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "with\ta\tpiece\tof\tstick\tfended\toff\tthe\tlittle\tblack\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Don\u2019t\tstart\tgrumbling\nagainst\torders,\tor\tsomething..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Dwalin\t had\t just\t scrambled\nout\t with\t the\t coile..."
+          }
+        ]
+      },
+      {
+        "name": "Thorin",
+        "type": "group",
+        "start": 438,
+        "end": 444,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "with\ta\tpiece\tof\tstick\tfended\toff\tthe\tlittle\tblack\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Don\u2019t\tstart\tgrumbling\nagainst\torders,\tor\tsomething..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Dwalin\t had\t just\t scrambled\nout\t with\t the\t coile..."
+          }
+        ]
+      },
+      {
+        "name": "Balin",
+        "type": "group",
+        "start": 487,
+        "end": 492,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "with\ta\tpiece\tof\tstick\tfended\toff\tthe\tlittle\tblack\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Don\u2019t\tstart\tgrumbling\nagainst\torders,\tor\tsomething..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Dwalin\t had\t just\t scrambled\nout\t with\t the\t coile..."
+          }
+        ]
+      },
+      {
+        "name": "Kili",
+        "type": "person",
+        "start": 553,
+        "end": 557,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "with\ta\tpiece\tof\tstick\tfended\toff\tthe\tlittle\tblack\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Don\u2019t\tstart\tgrumbling\nagainst\torders,\tor\tsomething..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Dwalin\t had\t just\t scrambled\nout\t with\t the\t coile..."
+          }
+        ]
+      },
+      {
+        "name": "Ori",
+        "type": "organization",
+        "start": 591,
+        "end": 594,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "with\ta\tpiece\tof\tstick\tfended\toff\tthe\tlittle\tblack\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Don\u2019t\tstart\tgrumbling\nagainst\torders,\tor\tsomething..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Dwalin\t had\t just\t scrambled\nout\t with\t the\t coile..."
+          }
+        ]
+      },
+      {
+        "name": "Nori",
+        "type": "person",
+        "start": 599,
+        "end": 603,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "with\ta\tpiece\tof\tstick\tfended\toff\tthe\tlittle\tblack\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Don\u2019t\tstart\tgrumbling\nagainst\torders,\tor\tsomething..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Dwalin\t had\t just\t scrambled\nout\t with\t the\t coile..."
+          }
+        ]
+      },
+      {
+        "name": "Bifur",
+        "type": "group",
+        "start": 605,
+        "end": 610,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "with\ta\tpiece\tof\tstick\tfended\toff\tthe\tlittle\tblack\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Don\u2019t\tstart\tgrumbling\nagainst\torders,\tor\tsomething..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Dwalin\t had\t just\t scrambled\nout\t with\t the\t coile..."
+          }
+        ]
+      },
+      {
+        "name": "Bofur",
+        "type": "administrative",
+        "start": 615,
+        "end": 620,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "with\ta\tpiece\tof\tstick\tfended\toff\tthe\tlittle\tblack\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Don\u2019t\tstart\tgrumbling\nagainst\torders,\tor\tsomething..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Dwalin\t had\t just\t scrambled\nout\t with\t the\t coile..."
+          }
+        ]
+      },
+      {
+        "name": "Bombur",
+        "type": "administrative",
+        "start": 642,
+        "end": 648,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "with\ta\tpiece\tof\tstick\tfended\toff\tthe\tlittle\tblack\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Don\u2019t\tstart\tgrumbling\nagainst\torders,\tor\tsomething..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Dwalin\t had\t just\t scrambled\nout\t with\t the\t coile..."
+          }
+        ]
+      },
+      {
+        "name": "Fili",
+        "type": "person",
+        "start": 1077,
+        "end": 1081,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "with\ta\tpiece\tof\tstick\tfended\toff\tthe\tlittle\tblack\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Don\u2019t\tstart\tgrumbling\nagainst\torders,\tor\tsomething..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Dwalin\t had\t just\t scrambled\nout\t with\t the\t coile..."
+          }
+        ]
+      },
+      {
+        "name": "Dwalin",
+        "type": "organization",
+        "start": 1641,
+        "end": 1647,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "with\ta\tpiece\tof\tstick\tfended\toff\tthe\tlittle\tblack\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Don\u2019t\tstart\tgrumbling\nagainst\torders,\tor\tsomething..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Dwalin\t had\t just\t scrambled\nout\t with\t the\t coile..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "with\ta\tpiece\tof\tstick\tfended\toff\tthe\tlittle\tblack\t...",
+        "description": "with\ta\tpiece\tof\tstick\tfended\toff\tthe\tlittle\tblack\tboat\tas\tit\ncame\trushing\tacross\tthe\tstream.\t",
+        "start": 0,
+        "end": 93,
+        "participants": [
+          "Bilbo",
+          "Thorin",
+          "Balin",
+          "Kili",
+          "Ori",
+          "Nori",
+          "Bifur",
+          "Bofur",
+          "Bombur",
+          "Fili",
+          "Dwalin"
+        ],
+        "location": "Bilbo",
+        "time": null
+      },
+      {
+        "name": "Don\u2019t\tstart\tgrumbling\nagainst\torders,\tor\tsomething...",
+        "description": "Don\u2019t\tstart\tgrumbling\nagainst\torders,\tor\tsomething\tbad\twill\thappen\tto\tyou.\u201d\n",
+        "start": 837,
+        "end": 913,
+        "participants": [
+          "Bilbo",
+          "Thorin",
+          "Balin",
+          "Kili",
+          "Ori",
+          "Nori",
+          "Bifur",
+          "Bofur",
+          "Bombur",
+          "Fili",
+          "Dwalin"
+        ],
+        "location": "Bilbo",
+        "time": null
+      },
+      {
+        "name": "Dwalin\t had\t just\t scrambled\nout\t with\t the\t coile...",
+        "description": "Dwalin\t had\t just\t scrambled\nout\t with\t the\t coiled\t rope\t on\t his\t arm,\t and\t Bombur\t (still\ngrumbling)\twas\tgetting\tready\tto\tfollow,\twhen\tsomething\nbad\tdid\thappen.\t",
+        "start": 1641,
+        "end": 1806,
+        "participants": [
+          "Bilbo",
+          "Thorin",
+          "Balin",
+          "Kili",
+          "Ori",
+          "Nori",
+          "Bifur",
+          "Bofur",
+          "Bombur",
+          "Fili",
+          "Dwalin"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 415,
+        "end": 420,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "with\ta\tpiece\tof\tstick\tfended\toff\tthe\tlittle\tblack\t..."
+          },
+          {
+            "type": "hosted",
+            "target": "Don\u2019t\tstart\tgrumbling\nagainst\torders,\tor\tsomething..."
+          },
+          {
+            "type": "hosted",
+            "target": "Dwalin\t had\t just\t scrambled\nout\t with\t the\t coile..."
+          }
+        ]
+      },
+      {
+        "name": "Bofur",
+        "type": "administrative",
+        "start": 615,
+        "end": 620,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bombur",
+        "type": "administrative",
+        "start": 642,
+        "end": 648,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745709009.985533,
+  "has_embedding": true
+}

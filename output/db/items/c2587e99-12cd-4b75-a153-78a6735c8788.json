@@ -1,0 +1,137 @@
+{
+  "id": "c2587e99-12cd-4b75-a153-78a6735c8788",
+  "content": "large\tdog\tin\ta\tsmall\tkennel;\twhile\tBalin,\twho\tcame\tlast,\nmade\t a\t great\t fuss\t about\t his\t air-holes\t and\t said\t he\t was\nstifling,\teven\tbefore\this\tlid\twas\ton.\tBilbo\thad\tdone\twhat\nhe\tcould\tto\tclose\tholes\tin\tthe\tsides\tof\tthe\tbarrels,\tand\tto\nfix\ton\tall\tthe\tlids\tas\tsafely\tas\tcould\tbe\tmanaged,\tand\tnow\nhe\t was\t left\t alone\t again,\t running\t round\t putting\t the\nfinishing\ttouches\tto\tthe\tpacking,\tand\thoping\tagainst\thope\nthat\this\tplan\twould\tcome\toff.\nIt\thad\tnot\tbeen\tdone\ta\tbit\ttoo\tsoon.\tOnly\ta\tminute\tor\ntwo\t after\t Balin\u2019s\t lid\t had\t been\t fitted\t on\t there\t came\t the\nsound\t of\t voices\t and\t the\t flicker\t of\t lights.\t A\t number\t of\nelves\t came\t laughing\t and\t talking\t into\t the\t cellars\t and\nsinging\tsnatches\tof\tsong.\tThey\thad\tleft\ta\tmerry\tfeast\tin\none\t of\t the\t halls\t and\t were\t bent\t on\t returning\t as\t soon\t as\nthey\tcould.\n\u201cWhere\u2019s\told\tGalion,\tthe\tbutler?\u201d\tsaid\tone.\t\u201cI\thaven\u2019t\nseen\thim\tat\tthe\ttables\ttonight.\tHe\tought\tto\tbe\there\tnow\tto\nshow\tus\twhat\tis\tto\tbe\tdone.\u201d\n\u201cI\t shall\t be\t angry\t if\t the\t old\t slowcoach\t is\t late,\u201d\t said\nanother.\t\u201cI\thave\tno\twish\tto\twaste\ttime\tdown\there\twhile\nthe\tsong\tis\tup!\u201d\n\u201cHa,\tha!\u201d\tcame\ta\tcry.\t\u201cHere\u2019s\tthe\told\tvillain\twith\this\nhead\t on\t a\t jug!\t He\u2019s\t been\t having\t a\t little\t feast\t all\t to\nhimself\tand\this\tfriend\tthe\tcaptain.\u201d\n\u201cShake\t him!\t Wake\t him!\u201d\t shouted\t the\t others\nimpatiently.\nGalion\t was\t not\t at\t all\t pleased\t at\t being\t shaken\t or\nwakened,\t and\t still\t less\t at\t being\t laughed\t at.\t \u201cYou\u2019re\t all\nlate,\u201d\the\tgrumbled.\t\u201cHere\tam\tI\twaiting\tand\twaiting\tdown\nhere,\twhile\tyou\tfellows\tdrink\tand\tmake\tmerry\tand\tforget\nyour\ttasks.\tSmall\twonder\tif\tI\tfall\tasleep\tfrom\tweariness!\u201d\n\u201cSmall\t wonder,\u201d\t said\t they,\t \u201cwhen\t the\t explanation\nstands\tclose\tat\thand\tin\ta\tjug!\tCome\tgive\tus\ta\ttaste\tof\tyour\nsleeping-draught\tbefore\twe\tfall\tto!\tNo\tneed\tto\twake\tthe\nturnkey\tyonder.\tHe\thas\thad\this\tshare\tby\tthe\tlooks\tof\tit.\u201d\nThen\tthey\tdrank\tonce\tround\tand\tbecame\tmighty\tmerry\nall\t of\t a\t sudden.\t But\t they\t did\t not\t quite\t lose\t their\t wits.\n\u201cSave\tus,\tGalion!\u201d\tcried\tsome,\t\u201cyou\tbegan\tyour\tfeasting",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 0.8564766971849174,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 177,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2021,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Balin",
+        "type": "organization",
+        "start": 35,
+        "end": 40,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Small\twonder\tif\tI\tfall\tasleep\tfrom\tweariness!\u201d\n\u201cSm..."
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cSave\tus,\tGalion!\u201d\tcried\tsome,\t\u201cyou\tbegan\tyour\tfea..."
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 159,
+        "end": 164,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Small\twonder\tif\tI\tfall\tasleep\tfrom\tweariness!\u201d\n\u201cSm..."
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cSave\tus,\tGalion!\u201d\tcried\tsome,\t\u201cyou\tbegan\tyour\tfea..."
+          }
+        ]
+      },
+      {
+        "name": "Balin\u2019s",
+        "type": "organization",
+        "start": 511,
+        "end": 518,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Small\twonder\tif\tI\tfall\tasleep\tfrom\tweariness!\u201d\n\u201cSm..."
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cSave\tus,\tGalion!\u201d\tcried\tsome,\t\u201cyou\tbegan\tyour\tfea..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "Small\twonder\tif\tI\tfall\tasleep\tfrom\tweariness!\u201d\n\u201cSm...",
+        "description": "Small\twonder\tif\tI\tfall\tasleep\tfrom\tweariness!\u201d\n\u201cSmall\t wonder,\u201d\t said\t they,\t \u201cwhen\t the\t explanation\nstands\tclose\tat\thand\tin\ta\tjug!\t",
+        "start": 1571,
+        "end": 1704,
+        "participants": [
+          "Balin",
+          "Bilbo",
+          "Balin\u2019s"
+        ],
+        "location": "Bilbo",
+        "time": null
+      },
+      {
+        "name": "\u201cSave\tus,\tGalion!\u201d\tcried\tsome,\t\u201cyou\tbegan\tyour\tfea...",
+        "description": "\u201cSave\tus,\tGalion!\u201d\tcried\tsome,\t\u201cyou\tbegan\tyour\tfeasting",
+        "start": 1966,
+        "end": 2021,
+        "participants": [
+          "Balin",
+          "Bilbo",
+          "Balin\u2019s"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 159,
+        "end": 164,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "Small\twonder\tif\tI\tfall\tasleep\tfrom\tweariness!\u201d\n\u201cSm..."
+          },
+          {
+            "type": "hosted",
+            "target": "\u201cSave\tus,\tGalion!\u201d\tcried\tsome,\t\u201cyou\tbegan\tyour\tfea..."
+          }
+        ]
+      }
+    ]
+  },
+  "timestamp": 1745709011.9905303,
+  "has_embedding": true
+}

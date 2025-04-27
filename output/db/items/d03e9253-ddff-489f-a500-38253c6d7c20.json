@@ -1,0 +1,367 @@
+{
+  "id": "d03e9253-ddff-489f-a500-38253c6d7c20",
+  "content": "of\tyour\tway\tnorth,\tand\ttwice\tthat\tsouth.\tBut\tyou\twouldn\u2019t\nget\ta\tsafe\tpath\teven\tthen.\tThere\tare\tno\tsafe\tpaths\tin\tthis\npart\tof\tthe\tworld.\tRemember\tyou\tare\tover\tthe\tEdge\tof\tthe\nWild\t now,\t and\t in\t for\t all\t sorts\t of\t fun\t wherever\t you\t go.\nBefore\tyou\tcould\tget\tround\tMirkwood\tin\tthe\tNorth\tyou\nwould\tbe\tright\tamong\tthe\tslopes\tof\tthe\tGrey\tMountains,\nand\t they\t are\t simply\t stiff\t with\t goblins,\t hobgoblins,\t and\norcs\tof\tthe\tworst\tdescription.\tBefore\tyou\tcould\tget\tround\nit\t in\t the\t South,\t you\t would\t get\t into\t the\t land\t of\t the\nNecromancer;\tand\teven\tyou,\tBilbo,\twon\u2019t\tneed\tme\tto\ttell\nyou\ttales\tof\tthat\tblack\tsorcerer.\tI\tdon\u2019t\tadvise\tyou\tto\tgo\nanywhere\tnear\tthe\tplaces\toverlooked\tby\this\tdark\ttower!\nStick\tto\tthe\tforest-track,\tkeep\tyour\tspirits\tup,\thope\tfor\tthe\nbest,\tand\twith\ta\ttremendous\tslice\tof\tluck\tyou\t\nmay\n\tcome\nout\tone\tday\tand\tsee\tthe\tLong\nMarshes\tlying\tbelow\tyou,\tand\tbeyond\tthem,\thigh\tin\tthe\nEast,\tthe\tLonely\tMountain\twhere\tdear\told\tSmaug\tlives,\nthough\tI\thope\the\tis\tnot\texpecting\tyou.\u201d\n\u201cVery\tcomforting\tyou\tare\tto\tbe\tsure,\u201d\tgrowled\tThorin.\n\u201cGood-bye!\tIf\tyou\twon\u2019t\tcome\twith\tus,\tyou\thad\tbetter\tget\noff\twithout\tany\tmore\ttalk!\u201d\n\u201cGood-bye\t then,\t and\t really\t good-bye!\u201d\t said\t Gandalf,\nand\the\tturned\this\thorse\tand\trode\tdown\tinto\tthe\tWest.\tBut\nhe\tcould\tnot\tresist\tthe\ttemptation\tto\thave\tthe\tlast\tword.\nBefore\the\thad\tpassed\tquite\tout\tof\thearing\the\tturned\tand\nput\this\thands\tto\this\tmouth\tand\tcalled\tto\tthem.\tThey\theard\nhis\tvoice\tcome\tfaintly:\t\u201cGood-bye!\tBe\tgood,\ttake\tcare\tof\nyourselves\u2014and\tDON\u2019T\tLEAVE\tTHE\tPATH!\u201d\nThen\the\tgalloped\taway\tand\twas\tsoon\tlost\tto\tsight.\t\u201cO\ngood-bye\t and\t go\t away!\u201d\t grunted\t the\t dwarves,\t all\t the\nmore\tangry\tbecause\tthey\twere\treally\tfilled\twith\tdismay\tat\nlosing\thim.\tNow\tbegan\tthe\tmost\tdangerous\tpart\tof\tall\tthe\njourney.\t They\t each\t shouldered\t the\t heavy\t pack\t and\t the\nwater-skin\t which\t was\t their\t share,\t and\t turned\t from\t the\nlight\t that\t lay\t on\t the\t lands\t outside\t and\t plunged\t into\t the\nforest.",
+  "coordinates": {
+    "r": 5.1375,
+    "theta": 3.3171291431091228,
+    "t": 1745630173.9676006,
+    "z": 3
+  },
+  "metadata": {
+    "chunk_index": 138,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1945,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 3
+    },
+    "entities": [
+      {
+        "name": "Mirkwood",
+        "type": "administrative",
+        "start": 267,
+        "end": 275,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Before\tyou\tcould\tget\tround\nit\t in\t the\t South,\t yo..."
+          },
+          {
+            "type": "participated_in",
+            "target": "If\tyou\twon\u2019t\tcome\twith\tus,\tyou\thad\tbetter\tget\noff\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Then\the\tgalloped\taway\tand\twas\tsoon\tlost\tto\tsight.\t"
+          },
+          {
+            "type": "participated_in",
+            "target": "Now\tbegan\tthe\tmost\tdangerous\tpart\tof\tall\tthe\njourn..."
+          }
+        ]
+      },
+      {
+        "name": "Grey\tMountains",
+        "type": "organization",
+        "start": 332,
+        "end": 346,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Before\tyou\tcould\tget\tround\nit\t in\t the\t South,\t yo..."
+          },
+          {
+            "type": "participated_in",
+            "target": "If\tyou\twon\u2019t\tcome\twith\tus,\tyou\thad\tbetter\tget\noff\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Then\the\tgalloped\taway\tand\twas\tsoon\tlost\tto\tsight.\t"
+          },
+          {
+            "type": "participated_in",
+            "target": "Now\tbegan\tthe\tmost\tdangerous\tpart\tof\tall\tthe\njourn..."
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 560,
+        "end": 565,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Before\tyou\tcould\tget\tround\nit\t in\t the\t South,\t yo..."
+          },
+          {
+            "type": "participated_in",
+            "target": "If\tyou\twon\u2019t\tcome\twith\tus,\tyou\thad\tbetter\tget\noff\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Then\the\tgalloped\taway\tand\twas\tsoon\tlost\tto\tsight.\t"
+          },
+          {
+            "type": "participated_in",
+            "target": "Now\tbegan\tthe\tmost\tdangerous\tpart\tof\tall\tthe\njourn..."
+          }
+        ]
+      },
+      {
+        "name": "Stick",
+        "type": "facility",
+        "start": 703,
+        "end": 708,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Before\tyou\tcould\tget\tround\nit\t in\t the\t South,\t yo..."
+          },
+          {
+            "type": "participated_in",
+            "target": "If\tyou\twon\u2019t\tcome\twith\tus,\tyou\thad\tbetter\tget\noff\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Then\the\tgalloped\taway\tand\twas\tsoon\tlost\tto\tsight.\t"
+          },
+          {
+            "type": "participated_in",
+            "target": "Now\tbegan\tthe\tmost\tdangerous\tpart\tof\tall\tthe\njourn..."
+          }
+        ]
+      },
+      {
+        "name": "Smaug",
+        "type": "administrative",
+        "start": 946,
+        "end": 951,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Before\tyou\tcould\tget\tround\nit\t in\t the\t South,\t yo..."
+          },
+          {
+            "type": "participated_in",
+            "target": "If\tyou\twon\u2019t\tcome\twith\tus,\tyou\thad\tbetter\tget\noff\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Then\the\tgalloped\taway\tand\twas\tsoon\tlost\tto\tsight.\t"
+          },
+          {
+            "type": "participated_in",
+            "target": "Now\tbegan\tthe\tmost\tdangerous\tpart\tof\tall\tthe\njourn..."
+          }
+        ]
+      },
+      {
+        "name": "Gandalf",
+        "type": "group",
+        "start": 1187,
+        "end": 1194,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Before\tyou\tcould\tget\tround\nit\t in\t the\t South,\t yo..."
+          },
+          {
+            "type": "participated_in",
+            "target": "If\tyou\twon\u2019t\tcome\twith\tus,\tyou\thad\tbetter\tget\noff\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Then\the\tgalloped\taway\tand\twas\tsoon\tlost\tto\tsight.\t"
+          },
+          {
+            "type": "participated_in",
+            "target": "Now\tbegan\tthe\tmost\tdangerous\tpart\tof\tall\tthe\njourn..."
+          }
+        ]
+      },
+      {
+        "name": "PATH",
+        "type": "organization",
+        "start": 1513,
+        "end": 1517,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Before\tyou\tcould\tget\tround\nit\t in\t the\t South,\t yo..."
+          },
+          {
+            "type": "participated_in",
+            "target": "If\tyou\twon\u2019t\tcome\twith\tus,\tyou\thad\tbetter\tget\noff\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Then\the\tgalloped\taway\tand\twas\tsoon\tlost\tto\tsight.\t"
+          },
+          {
+            "type": "participated_in",
+            "target": "Now\tbegan\tthe\tmost\tdangerous\tpart\tof\tall\tthe\njourn..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "Before\tyou\tcould\tget\tround\nit\t in\t the\t South,\t yo...",
+        "description": "Before\tyou\tcould\tget\tround\nit\t in\t the\t South,\t you\t would\t get\t into\t the\t land\t of\t the\nNecromancer;\tand\teven\tyou,\tBilbo,\twon\u2019t\tneed\tme\tto\ttell\nyou\ttales\tof\tthat\tblack\tsorcerer.\t",
+        "start": 443,
+        "end": 623,
+        "participants": [
+          "Mirkwood",
+          "Grey\tMountains",
+          "Bilbo",
+          "Stick",
+          "Smaug",
+          "Gandalf",
+          "PATH"
+        ],
+        "location": "Mirkwood",
+        "time": null
+      },
+      {
+        "name": "If\tyou\twon\u2019t\tcome\twith\tus,\tyou\thad\tbetter\tget\noff\t...",
+        "description": "If\tyou\twon\u2019t\tcome\twith\tus,\tyou\thad\tbetter\tget\noff\twithout\tany\tmore\ttalk!\u201d\n",
+        "start": 1064,
+        "end": 1138,
+        "participants": [
+          "Mirkwood",
+          "Grey\tMountains",
+          "Bilbo",
+          "Stick",
+          "Smaug",
+          "Gandalf",
+          "PATH"
+        ],
+        "location": "Mirkwood",
+        "time": null
+      },
+      {
+        "name": "Then\the\tgalloped\taway\tand\twas\tsoon\tlost\tto\tsight.\t",
+        "description": "Then\the\tgalloped\taway\tand\twas\tsoon\tlost\tto\tsight.\t",
+        "start": 1520,
+        "end": 1570,
+        "participants": [
+          "Mirkwood",
+          "Grey\tMountains",
+          "Bilbo",
+          "Stick",
+          "Smaug",
+          "Gandalf",
+          "PATH"
+        ],
+        "location": "Mirkwood",
+        "time": null
+      },
+      {
+        "name": "Now\tbegan\tthe\tmost\tdangerous\tpart\tof\tall\tthe\njourn...",
+        "description": "Now\tbegan\tthe\tmost\tdangerous\tpart\tof\tall\tthe\njourney.\t ",
+        "start": 1703,
+        "end": 1758,
+        "participants": [
+          "Mirkwood",
+          "Grey\tMountains",
+          "Bilbo",
+          "Stick",
+          "Smaug",
+          "Gandalf",
+          "PATH"
+        ],
+        "location": "Mirkwood",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Mirkwood",
+        "type": "administrative",
+        "start": 267,
+        "end": 275,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "Before\tyou\tcould\tget\tround\nit\t in\t the\t South,\t yo..."
+          },
+          {
+            "type": "hosted",
+            "target": "If\tyou\twon\u2019t\tcome\twith\tus,\tyou\thad\tbetter\tget\noff\t..."
+          },
+          {
+            "type": "hosted",
+            "target": "Then\the\tgalloped\taway\tand\twas\tsoon\tlost\tto\tsight.\t"
+          },
+          {
+            "type": "hosted",
+            "target": "Now\tbegan\tthe\tmost\tdangerous\tpart\tof\tall\tthe\njourn..."
+          }
+        ]
+      },
+      {
+        "name": "North",
+        "type": "geographical",
+        "start": 283,
+        "end": 288,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "South",
+        "type": "geographical",
+        "start": 483,
+        "end": 488,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 560,
+        "end": 565,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Stick",
+        "type": "facility",
+        "start": 703,
+        "end": 708,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "East",
+        "type": "geographical",
+        "start": 905,
+        "end": 909,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Smaug",
+        "type": "administrative",
+        "start": 946,
+        "end": 951,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "West",
+        "type": "geographical",
+        "start": 1243,
+        "end": 1247,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745773086.0486875,
+  "has_embedding": true
+}

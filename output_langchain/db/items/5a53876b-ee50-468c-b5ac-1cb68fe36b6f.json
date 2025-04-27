@@ -1,0 +1,377 @@
+{
+  "id": "5a53876b-ee50-468c-b5ac-1cb68fe36b6f",
+  "content": "\u201cNot\t till\t he\t says\t what\t he\t means\t by\t\nlots\n\t and\t\nnone\tat\nall\n,\u201d\tsaid\tBert.\t\u201cI\tdon\u2019t\twant\tto\thave\tme\tthroat\tcut\tin\tme\nsleep!\tHold\this\ttoes\tin\tthe\tfire,\ttill\the\ttalks!\u201d\n\u201cI\t won\u2019t\t have\t it,\u201d\t said\t William.\t \u201cI\t caught\t him\nanyway.\u201d\n\u201cYou\u2019re\t a\t fat\t fool,\t William,\u201d\t said\t Bert,\t \u201cas\t I\u2019ve\t said\nafore\tthis\tevening.\u201d\n\u201cAnd\tyou\u2019re\ta\tlout!\u201d\n\u201cAnd\tI\twon\u2019t\ttake\tthat\tfrom\tyou,\tBill\tHuggins,\u201d\tsays\nBert,\tand\tputs\this\tfist\tin\tWilliam\u2019s\teye.\nThen\tthere\twas\ta\tgorgeous\trow.\tBilbo\thad\tjust\tenough\nwits\t left,\t when\t Bert\t dropped\t him\t on\t the\t ground,\t to\nscramble\t out\t of\t the\t way\t of\t their\t feet,\t before\t they\t were\nfighting\t like\t dogs,\t and\t calling\t one\t another\t all\t sorts\t of\nperfectly\ttrue\tand\tapplicable\tnames\tin\tvery\tloud\tvoices.\nSoon\tthey\twere\tlocked\tin\tone\tanother\u2019s\tarms,\tand\trolling\nnearly\t into\t the\t fire\t kicking\t and\t thumping,\t while\t Tom\nwhacked\tat\tthem\tboth\twith\ta\tbranch\tto\tbring\tthem\tto\ttheir\nsenses\u2014and\tthat\tof\tcourse\tonly\tmade\tthem\tmadder\tthan\never.\nThat\twould\thave\tbeen\tthe\ttime\tfor\tBilbo\tto\thave\tleft.\nBut\this\tpoor\tlittle\tfeet\thad\tbeen\tvery\tsquashed\tin\tBert\u2019s\nbig\tpaw,\tand\the\thad\tno\tbreath\tin\this\tbody,\tand\this\thead\nwas\tgoing\tround;\tso\tthere\the\tlay\tfor\ta\twhile\tpanting,\tjust\noutside\tthe\tcircle\tof\tfirelight.\nRight\t in\t the\t middle\t of\t the\t fight\t up\t came\t Balin.\t The\ndwarves\t had\t heard\t noises\t from\t a\t distance,\t and\t after\nwaiting\tfor\tsome\ttime\tfor\tBilbo\tto\tcome\tback,\tor\tto\thoot\nlike\tan\towl,\tthey\tstarted\toff\tone\tby\tone\tto\tcreep\ttowards\nthe\tlight\tas\tquietly\tas\tthey\tcould.\tNo\tsooner\tdid\tTom\tsee\nBalin\t come\t into\t the\t light\t than\t he\t gave\t an\t awful\t howl.\nTrolls\t simply\t detest\t the\t very\t sight\t of\t dwarves\n(uncooked).\t Bert\t and\t Bill\t stopped\t fighting\t immediately,\nand\t\u201ca\tsack,\tTom,\tquick!\u201d\tthey\tsaid.\tBefore\tBalin,\twho\nwas\t wondering\t where\t in\t all\t this\t commotion\t Bilbo\t was,\nknew\twhat\twas\thappening,\ta\tsack\twas\tover\this\thead,\tand\nhe\twas\tdown.\n\u201cThere\u2019s\tmore\tto\tcome\tyet,\u201d\tsaid\tTom,\t\u201cor\tI\u2019m\tmighty",
+  "coordinates": {
+    "r": 5.135,
+    "theta": 0.254861704022472,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 41,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1946,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_person",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bert",
+        "type": "person",
+        "start": 75,
+        "end": 79,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cI\t won\u2019t\t have\t it,\u201d\t said\t William.\t "
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cAnd\tI\twon\u2019t\ttake\tthat\tfrom\tyou,\tBill\tHuggins,\u201d\tsa..."
+          },
+          {
+            "type": "participated_in",
+            "target": "The\ndwarves\t had\t heard\t noises\t from\t a\t distance..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Before\tBalin,\twho\nwas\t wondering\t where\t in\t all\t ..."
+          }
+        ]
+      },
+      {
+        "name": "William",
+        "type": "person",
+        "start": 202,
+        "end": 209,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cI\t won\u2019t\t have\t it,\u201d\t said\t William.\t "
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cAnd\tI\twon\u2019t\ttake\tthat\tfrom\tyou,\tBill\tHuggins,\u201d\tsa..."
+          },
+          {
+            "type": "participated_in",
+            "target": "The\ndwarves\t had\t heard\t noises\t from\t a\t distance..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Before\tBalin,\twho\nwas\t wondering\t where\t in\t all\t ..."
+          }
+        ]
+      },
+      {
+        "name": "Bill\tHuggins",
+        "type": "person",
+        "start": 376,
+        "end": 388,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cI\t won\u2019t\t have\t it,\u201d\t said\t William.\t "
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cAnd\tI\twon\u2019t\ttake\tthat\tfrom\tyou,\tBill\tHuggins,\u201d\tsa..."
+          },
+          {
+            "type": "participated_in",
+            "target": "The\ndwarves\t had\t heard\t noises\t from\t a\t distance..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Before\tBalin,\twho\nwas\t wondering\t where\t in\t all\t ..."
+          }
+        ]
+      },
+      {
+        "name": "William\u2019s",
+        "type": "person",
+        "start": 423,
+        "end": 432,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cI\t won\u2019t\t have\t it,\u201d\t said\t William.\t "
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cAnd\tI\twon\u2019t\ttake\tthat\tfrom\tyou,\tBill\tHuggins,\u201d\tsa..."
+          },
+          {
+            "type": "participated_in",
+            "target": "The\ndwarves\t had\t heard\t noises\t from\t a\t distance..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Before\tBalin,\twho\nwas\t wondering\t where\t in\t all\t ..."
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 469,
+        "end": 474,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cI\t won\u2019t\t have\t it,\u201d\t said\t William.\t "
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cAnd\tI\twon\u2019t\ttake\tthat\tfrom\tyou,\tBill\tHuggins,\u201d\tsa..."
+          },
+          {
+            "type": "participated_in",
+            "target": "The\ndwarves\t had\t heard\t noises\t from\t a\t distance..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Before\tBalin,\twho\nwas\t wondering\t where\t in\t all\t ..."
+          }
+        ]
+      },
+      {
+        "name": "Tom",
+        "type": "person",
+        "start": 854,
+        "end": 857,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cI\t won\u2019t\t have\t it,\u201d\t said\t William.\t "
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cAnd\tI\twon\u2019t\ttake\tthat\tfrom\tyou,\tBill\tHuggins,\u201d\tsa..."
+          },
+          {
+            "type": "participated_in",
+            "target": "The\ndwarves\t had\t heard\t noises\t from\t a\t distance..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Before\tBalin,\twho\nwas\t wondering\t where\t in\t all\t ..."
+          }
+        ]
+      },
+      {
+        "name": "Bert\u2019s",
+        "type": "person",
+        "start": 1080,
+        "end": 1086,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cI\t won\u2019t\t have\t it,\u201d\t said\t William.\t "
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cAnd\tI\twon\u2019t\ttake\tthat\tfrom\tyou,\tBill\tHuggins,\u201d\tsa..."
+          },
+          {
+            "type": "participated_in",
+            "target": "The\ndwarves\t had\t heard\t noises\t from\t a\t distance..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Before\tBalin,\twho\nwas\t wondering\t where\t in\t all\t ..."
+          }
+        ]
+      },
+      {
+        "name": "Balin",
+        "type": "person",
+        "start": 1530,
+        "end": 1535,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cI\t won\u2019t\t have\t it,\u201d\t said\t William.\t "
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cAnd\tI\twon\u2019t\ttake\tthat\tfrom\tyou,\tBill\tHuggins,\u201d\tsa..."
+          },
+          {
+            "type": "participated_in",
+            "target": "The\ndwarves\t had\t heard\t noises\t from\t a\t distance..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Before\tBalin,\twho\nwas\t wondering\t where\t in\t all\t ..."
+          }
+        ]
+      },
+      {
+        "name": "Bill",
+        "type": "person",
+        "start": 1672,
+        "end": 1676,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cI\t won\u2019t\t have\t it,\u201d\t said\t William.\t "
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cAnd\tI\twon\u2019t\ttake\tthat\tfrom\tyou,\tBill\tHuggins,\u201d\tsa..."
+          },
+          {
+            "type": "participated_in",
+            "target": "The\ndwarves\t had\t heard\t noises\t from\t a\t distance..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Before\tBalin,\twho\nwas\t wondering\t where\t in\t all\t ..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "\u201cI\t won\u2019t\t have\t it,\u201d\t said\t William.\t ",
+        "description": "\u201cI\t won\u2019t\t have\t it,\u201d\t said\t William.\t ",
+        "start": 173,
+        "end": 212,
+        "participants": [
+          "Bert",
+          "William",
+          "Bill\tHuggins",
+          "William\u2019s",
+          "Bilbo",
+          "Tom",
+          "Bert\u2019s",
+          "Balin",
+          "Bill"
+        ],
+        "location": "Bilbo",
+        "time": null
+      },
+      {
+        "name": "\u201cAnd\tI\twon\u2019t\ttake\tthat\tfrom\tyou,\tBill\tHuggins,\u201d\tsa...",
+        "description": "\u201cAnd\tI\twon\u2019t\ttake\tthat\tfrom\tyou,\tBill\tHuggins,\u201d\tsays\nBert,\tand\tputs\this\tfist\tin\tWilliam\u2019s\teye.\n",
+        "start": 343,
+        "end": 438,
+        "participants": [
+          "Bert",
+          "William",
+          "Bill\tHuggins",
+          "William\u2019s",
+          "Bilbo",
+          "Tom",
+          "Bert\u2019s",
+          "Balin",
+          "Bill"
+        ],
+        "location": "Bilbo",
+        "time": null
+      },
+      {
+        "name": "The\ndwarves\t had\t heard\t noises\t from\t a\t distance...",
+        "description": "The\ndwarves\t had\t heard\t noises\t from\t a\t distance,\t and\t after\nwaiting\tfor\tsome\ttime\tfor\tBilbo\tto\tcome\tback,\tor\tto\thoot\nlike\tan\towl,\tthey\tstarted\toff\tone\tby\tone\tto\tcreep\ttowards\nthe\tlight\tas\tquietly\tas\tthey\tcould.\t",
+        "start": 1293,
+        "end": 1508,
+        "participants": [
+          "Bert",
+          "William",
+          "Bill\tHuggins",
+          "William\u2019s",
+          "Bilbo",
+          "Tom",
+          "Bert\u2019s",
+          "Balin",
+          "Bill"
+        ],
+        "location": "Bilbo",
+        "time": null
+      },
+      {
+        "name": "Before\tBalin,\twho\nwas\t wondering\t where\t in\t all\t ...",
+        "description": "Before\tBalin,\twho\nwas\t wondering\t where\t in\t all\t this\t commotion\t Bilbo\t was,\nknew\twhat\twas\thappening,\ta\tsack\twas\tover\this\thead,\tand\nhe\twas\tdown.\n",
+        "start": 1747,
+        "end": 1894,
+        "participants": [
+          "Bert",
+          "William",
+          "Bill\tHuggins",
+          "William\u2019s",
+          "Bilbo",
+          "Tom",
+          "Bert\u2019s",
+          "Balin",
+          "Bill"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 469,
+        "end": 474,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "\u201cI\t won\u2019t\t have\t it,\u201d\t said\t William.\t "
+          },
+          {
+            "type": "hosted",
+            "target": "\u201cAnd\tI\twon\u2019t\ttake\tthat\tfrom\tyou,\tBill\tHuggins,\u201d\tsa..."
+          },
+          {
+            "type": "hosted",
+            "target": "The\ndwarves\t had\t heard\t noises\t from\t a\t distance..."
+          },
+          {
+            "type": "hosted",
+            "target": "Before\tBalin,\twho\nwas\t wondering\t where\t in\t all\t ..."
+          }
+        ]
+      },
+      {
+        "name": "Balin",
+        "type": "geographical",
+        "start": 1285,
+        "end": 1290,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745715399.7767859,
+  "has_embedding": true
+}

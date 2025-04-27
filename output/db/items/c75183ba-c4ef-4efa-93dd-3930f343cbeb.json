@@ -1,0 +1,118 @@
+{
+  "id": "c75183ba-c4ef-4efa-93dd-3930f343cbeb",
+  "content": "him,\tand\the\twas\tso\tflustered\tthat\the\tanswered\t\u201cHear\twhat\nI\thave\tgot\tto\tsay!\u201d\n\u201cWhat\u2019s\tthat?\u201d\tthey\tasked.\n\u201cWell,\tI\tshould\tsay\tthat\tyou\tought\tto\tgo\tEast\tand\thave\na\tlook\tround.\tAfter\tall\tthere\tis\tthe\tSide-door,\tand\tdragons\nmust\tsleep\tsometimes,\tI\tsuppose.\tIf\tyou\tsit\ton\tthe\tdoor-\nstep\tlong\tenough,\tI\tdaresay\tyou\twill\tthink\tof\tsomething.\nAnd\t well,\t don\u2019t\t you\t know,\t I\t think\t we\t have\t talked\t long\nenough\tfor\tone\tnight,\tif\tyou\tsee\twhat\tI\tmean.\tWhat\tabout\nbed,\tand\tan\tearly\tstart,\tand\tall\tthat?\tI\twill\tgive\tyou\ta\tgood\nbreakfast\tbefore\tyou\tgo.\u201d\n\u201cBefore\t\nwe\n\t go,\t I\t suppose\t you\t mean,\u201d\t said\t Thorin.\n\u201cAren\u2019t\t you\t the\t burglar?\t And\t isn\u2019t\t sitting\t on\t the\t door-\nstep\tyour\tjob,\tnot\tto\tspeak\tof\tgetting\tinside\tthe\tdoor?\tBut\nI\tagree\tabout\tbed\tand\tbreakfast.\tI\tlike\tsix\teggs\twith\tmy\nham,\twhen\tstarting\ton\ta\tjourney:\tfried\tnot\tpoached,\tand\nmind\tyou\tdon\u2019t\tbreak\t\u2019em.\u201d\nAfter\tall\tthe\tothers\thad\tordered\ttheir\tbreakfasts\twithout\nso\t much\t as\t a\t please\t (which\t annoyed\t Bilbo\t very\t much),\nthey\tall\tgot\tup.\tThe\thobbit\thad\tto\tfind\troom\tfor\tthem\tall,\nand\t filled\t all\t his\t spare-rooms\t and\t made\t beds\t on\t chairs\nand\tsofas,\tbefore\the\tgot\tthem\tall\tstowed\tand\twent\tto\this\nown\t little\t bed\t very\t tired\t and\t not\t altogether\t happy.\t One\nthing\the\tdid\tmake\this\tmind\tup\tabout\twas\tnot\tto\tbother\tto\nget\t up\t very\t early\t and\t cook\t everybody\t else\u2019s\t wretched\nbreakfast.\tThe\tTookishness\twas\twearing\toff,\tand\the\twas\nnot\tnow\tquite\tso\tsure\tthat\the\twas\tgoing\ton\tany\tjourney\tin\nthe\tmorning.\nAs\the\tlay\tin\tbed\the\tcould\thear\tThorin\tstill\thumming\tto\nhimself\tin\tthe\tbest\tbedroom\tnext\tto\thim:\nFar\tover\tthe\tmisty\tmountains\tcold\nTo\tdungeons\tdeep\tand\tcaverns\told\nWe\tmust\taway,\tere\tbreak\tof\tday,\nTo\tfind\tour\tlong-forgotten\tgold.",
+  "coordinates": {
+    "r": 5.7475,
+    "theta": 4.943688739505238,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 30,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1701,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_person",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "person",
+        "start": 965,
+        "end": 970,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "After\tall\tthere\tis\tthe\tSide-door,\tand\tdragons\nmust..."
+          },
+          {
+            "type": "participated_in",
+            "target": "If\tyou\tsit\ton\tthe\tdoor-\nstep\tlong\tenough,\tI\tdaresa..."
+          }
+        ]
+      },
+      {
+        "name": "Thorin",
+        "type": "group",
+        "start": 1505,
+        "end": 1511,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "After\tall\tthere\tis\tthe\tSide-door,\tand\tdragons\nmust..."
+          },
+          {
+            "type": "participated_in",
+            "target": "If\tyou\tsit\ton\tthe\tdoor-\nstep\tlong\tenough,\tI\tdaresa..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "After\tall\tthere\tis\tthe\tSide-door,\tand\tdragons\nmust...",
+        "description": "After\tall\tthere\tis\tthe\tSide-door,\tand\tdragons\nmust\tsleep\tsometimes,\tI\tsuppose.\t",
+        "start": 173,
+        "end": 252,
+        "participants": [
+          "Bilbo",
+          "Thorin"
+        ],
+        "location": "East",
+        "time": null
+      },
+      {
+        "name": "If\tyou\tsit\ton\tthe\tdoor-\nstep\tlong\tenough,\tI\tdaresa...",
+        "description": "If\tyou\tsit\ton\tthe\tdoor-\nstep\tlong\tenough,\tI\tdaresay\tyou\twill\tthink\tof\tsomething.\n",
+        "start": 252,
+        "end": 333,
+        "participants": [
+          "Bilbo",
+          "Thorin"
+        ],
+        "location": "East",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "East",
+        "type": "geographical",
+        "start": 145,
+        "end": 149,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "After\tall\tthere\tis\tthe\tSide-door,\tand\tdragons\nmust..."
+          },
+          {
+            "type": "hosted",
+            "target": "If\tyou\tsit\ton\tthe\tdoor-\nstep\tlong\tenough,\tI\tdaresa..."
+          }
+        ]
+      }
+    ]
+  },
+  "timestamp": 1745709003.9044855,
+  "has_embedding": true
+}

@@ -1,0 +1,126 @@
+{
+  "id": "fc7e1629-dfd9-4739-8783-613e0c4c29ed",
+  "content": "as\tof\tfire\tor\tlantern,\tbut\ta\tpale\tout-of-doors\tsort\tof\tlight.\nThen\tBilbo\tbegan\tto\trun.\nScuttling\tas\tfast\tas\this\tlegs\twould\tcarry\thim\the\tturned\nthe\t last\t corner\t and\t came\t suddenly\t right\t into\t an\t open\nspace,\t where\t the\t light,\t after\t all\t that\t time\t in\t the\t dark,\nseemed\t dazzlingly\t bright.\t Really\t it\t was\t only\t a\t leak\t of\nsunshine\t in\t through\t a\t doorway,\t where\t a\t great\t door,\t a\nstone\tdoor,\twas\tleft\tstanding\topen.\nBilbo\t blinked,\t and\t then\t suddenly\t he\t saw\t the\t goblins:\ngoblins\t in\t full\t armour\t with\t drawn\t swords\t sitting\t just\ninside\t the\t door,\t and\t watching\t it\t with\t wide\t eyes,\t and\nwatching\t the\t passage\t that\t led\t to\t it.\t They\t were\t aroused,\nalert,\tready\tfor\tanything.\nThey\tsaw\thim\tsooner\tthan\the\tsaw\tthem.\tYes,\tthey\tsaw\nhim.\tWhether\tit\twas\tan\taccident,\tor\ta\tlast\ttrick\tof\tthe\tring\nbefore\tit\ttook\ta\tnew\tmaster,\tit\twas\tnot\ton\this\tfinger.\tWith\nyells\tof\tdelight\tthe\tgoblins\trushed\tupon\thim.\nA\t pang\t of\t fear\t and\t loss,\t like\t an\t echo\t of\t Gollum\u2019s\nmisery,\t smote\t Bilbo,\t and\t forgetting\t even\t to\t draw\t his\nsword\the\tstruck\this\thands\tinto\this\tpockets.\tAnd\tthere\twas\nthe\t ring\t still,\t in\t his\t left\t pocket,\t and\t it\t slipped\t on\t his\nfinger.\t The\t goblins\t stopped\t short.\t They\t could\t not\t see\t a\nsign\tof\thim.\tHe\thad\tvanished.\tThey\tyelled\ttwice\tas\tloud\nas\tbefore,\tbut\tnot\tso\tdelightedly.\n\u201cWhere\tis\tit?\u201d\tthey\tcried.\n\u201cGo\tback\tup\tthe\tpassage!\u201d\tsome\tshouted.\n\u201cThis\t way!\u201d\t some\t yelled.\t \u201cThat\t way!\u201d\t others\t yelled.\n\u201cLook\tout\tfor\tthe\tdoor,\u201d\tbellowed\tthe\tcaptain.\tWhistles\nblew,\tarmour\tclashed,\tswords\trattled,\tgoblins\tcursed\tand\nswore\tand\tran\thither\tand\tthither,\tfalling\tover\tone\tanother\nand\tgetting\tvery\tangry.\tThere\twas\ta\tterrible\toutcry,\tto-do,\nand\tdisturbance.\nBilbo\twas\tdreadfully\tfrightened,\tbut\the\thad\tthe\tsense\nto\tunderstand\twhat\thad\thappened\tand\tto\tsneak\tbehind\ta\nbig\tbarrel\twhich\theld\tdrink\tfor\tthe\tgoblin-guards,\tand\tso\nget\tout\tof\tthe\tway\tand\tavoid\tbeing\tbumped\tinto,\ttrampled\nto\tdeath,\tor\tcaught\tby\tfeel.\n\u201cI\tmust\tget\tto\tthe\tdoor,\tI\tmust\tget\tto\tthe\tdoor!\u201d\the\tkept",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 3.4907021372199587,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 90,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2018,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 67,
+        "end": 72,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Then\tBilbo\tbegan\tto\trun.\n"
+          },
+          {
+            "type": "participated_in",
+            "target": "Bilbo\twas\tdreadfully\tfrightened,\tbut\the\thad\tthe\tse..."
+          }
+        ]
+      },
+      {
+        "name": "Whistles",
+        "type": "administrative",
+        "start": 1507,
+        "end": 1515,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Then\tBilbo\tbegan\tto\trun.\n"
+          },
+          {
+            "type": "participated_in",
+            "target": "Bilbo\twas\tdreadfully\tfrightened,\tbut\the\thad\tthe\tse..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "Then\tBilbo\tbegan\tto\trun.\n",
+        "description": "Then\tBilbo\tbegan\tto\trun.\n",
+        "start": 62,
+        "end": 87,
+        "participants": [
+          "Bilbo",
+          "Whistles"
+        ],
+        "location": "Bilbo",
+        "time": null
+      },
+      {
+        "name": "Bilbo\twas\tdreadfully\tfrightened,\tbut\the\thad\tthe\tse...",
+        "description": "Bilbo\twas\tdreadfully\tfrightened,\tbut\the\thad\tthe\tsense\nto\tunderstand\twhat\thad\thappened\tand\tto\tsneak\tbehind\ta\nbig\tbarrel\twhich\theld\tdrink\tfor\tthe\tgoblin-guards,\tand\tso\nget\tout\tof\tthe\tway\tand\tavoid\tbeing\tbumped\tinto,\ttrampled\nto\tdeath,\tor\tcaught\tby\tfeel.\n",
+        "start": 1709,
+        "end": 1961,
+        "participants": [
+          "Bilbo",
+          "Whistles"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 67,
+        "end": 72,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "Then\tBilbo\tbegan\tto\trun.\n"
+          },
+          {
+            "type": "hosted",
+            "target": "Bilbo\twas\tdreadfully\tfrightened,\tbut\the\thad\tthe\tse..."
+          }
+        ]
+      },
+      {
+        "name": "Whistles",
+        "type": "administrative",
+        "start": 1507,
+        "end": 1515,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745715403.443223,
+  "has_embedding": true
+}

@@ -1,0 +1,220 @@
+{
+  "id": "63bd0cae-eec8-4733-bb14-74c5d29641aa",
+  "content": "my\t kin.\t They\t were\t made\t in\t Gondolin\t for\t the\t Goblin-\nwars.\t They\t must\t have\t come\t from\t a\t dragon\u2019s\t hoard\t or\ngoblin\t plunder,\t for\t dragons\t and\t goblins\t destroyed\t that\ncity\tmany\tages\tago.\tThis,\tThorin,\tthe\trunes\tname\tOrcrist,\nthe\tGoblin-cleaver\tin\tthe\tancient\ttongue\tof\tGondolin;\tit\nwas\ta\tfamous\tblade.\tThis,\tGandalf,\twas\tGlamdring,\tFoe-\nhammer\tthat\tthe\tking\tof\tGondolin\tonce\twore.\tKeep\tthem\nwell!\u201d\n\u201cWhence\t did\t the\t trolls\t get\t them,\t I\t wonder?\u201d\t said\nThorin\tlooking\tat\this\tsword\twith\tnew\tinterest.\n\u201cI\tcould\tnot\tsay,\u201d\tsaid\tElrond,\t\u201cbut\tone\tmay\tguess\tthat\nyour\t trolls\t had\t plundered\t other\t plunderers,\t or\t come\t on\nthe\t remnants\t of\t old\t robberies\t in\t some\t hold\t in\t the\nmountains.\t I\t have\t heard\t that\t there\t are\t still\t forgotten\ntreasures\tof\told\tto\tbe\tfound\tin\tthe\tdeserted\tcaverns\tof\tthe\nmines\tof\tMoria,\tsince\tthe\tdwarf\tand\tgoblin\twar.\u201d\nThorin\tpondered\tthese\twords.\t\u201cI\twill\tkeep\tthis\tsword\nin\t honour,\u201d\t he\t said.\t \u201cMay\t it\t soon\t cleave\t goblins\t once\nagain!\u201d\n\u201cA\twish\tthat\tis\tlikely\tto\tbe\tgranted\tsoon\tenough\tin\tthe\nmountains!\u201d\tsaid\tElrond.\t\u201cBut\tshow\tme\tnow\tyour\tmap!\u201d\nHe\ttook\tit\tand\tgazed\tlong\tat\tit,\tand\the\tshook\this\thead;\nfor\tif\the\tdid\tnot\taltogether\tapprove\tof\tdwarves\tand\ttheir\nlove\tof\tgold,\the\thated\tdragons\tand\ttheir\tcruel\twickedness,\nand\the\tgrieved\tto\tremember\tthe\truin\tof\tthe\ttown\tof\tDale\nand\t its\t merry\t bells,\t and\t the\t burned\t banks\t of\t the\t bright\nRiver\tRunning.\tThe\tmoon\twas\tshining\tin\ta\tbroad\tsilver\ncrescent.\t He\t held\t up\t the\t map\t and\t the\t white\t light\t shone\nthrough\t it.\t \u201cWhat\t is\t this?\u201d\t he\t said.\t \u201cThere\t are\t moon-\nletters\t here,\t beside\t the\t plain\t runes\t which\t say\t \u2018five\t feet\nhigh\tthe\tdoor\tand\tthree\tmay\twalk\tabreast.\u2019\u201d\n\u201cWhat\t are\t moon-letters?\u201d\t asked\t the\t hobbit\t full\t of\nexcitement.\tHe\tloved\tmaps,\tas\tI\thave\ttold\tyou\tbefore;\tand\nhe\talso\tliked\trunes\tand\tletters\tand\tcunning\thandwriting,\nthough\t when\t he\t wrote\t himself\t it\t was\t a\t bit\t thin\t and\nspidery.\n\u201cMoon-letters\t are\t rune-letters,\t but\t you\t cannot\t see\nthem,\u201d\tsaid\tElrond,\t\u201cnot\twhen\tyou\tlook\tstraight\tat\tthem.",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 0.1040652566501619,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 55,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2043,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Gondolin",
+        "type": "person",
+        "start": 32,
+        "end": 40,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cWhence\t did\t the\t trolls\t get\t them,\t I\t wonder?\u201d..."
+          }
+        ]
+      },
+      {
+        "name": "Orcrist",
+        "type": "group",
+        "start": 231,
+        "end": 238,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cWhence\t did\t the\t trolls\t get\t them,\t I\t wonder?\u201d..."
+          }
+        ]
+      },
+      {
+        "name": "Goblin",
+        "type": "administrative",
+        "start": 244,
+        "end": 250,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cWhence\t did\t the\t trolls\t get\t them,\t I\t wonder?\u201d..."
+          }
+        ]
+      },
+      {
+        "name": "Gandalf",
+        "type": "group",
+        "start": 323,
+        "end": 330,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cWhence\t did\t the\t trolls\t get\t them,\t I\t wonder?\u201d..."
+          }
+        ]
+      },
+      {
+        "name": "Glamdring",
+        "type": "person",
+        "start": 336,
+        "end": 345,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cWhence\t did\t the\t trolls\t get\t them,\t I\t wonder?\u201d..."
+          }
+        ]
+      },
+      {
+        "name": "Keep",
+        "type": "organization",
+        "start": 396,
+        "end": 400,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cWhence\t did\t the\t trolls\t get\t them,\t I\t wonder?\u201d..."
+          }
+        ]
+      },
+      {
+        "name": "Thorin",
+        "type": "group",
+        "start": 470,
+        "end": 476,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cWhence\t did\t the\t trolls\t get\t them,\t I\t wonder?\u201d..."
+          }
+        ]
+      },
+      {
+        "name": "Elrond",
+        "type": "organization",
+        "start": 541,
+        "end": 547,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cWhence\t did\t the\t trolls\t get\t them,\t I\t wonder?\u201d..."
+          }
+        ]
+      },
+      {
+        "name": "Moria",
+        "type": "person",
+        "start": 827,
+        "end": 832,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cWhence\t did\t the\t trolls\t get\t them,\t I\t wonder?\u201d..."
+          }
+        ]
+      },
+      {
+        "name": "Dale",
+        "type": "organization",
+        "start": 1324,
+        "end": 1328,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cWhence\t did\t the\t trolls\t get\t them,\t I\t wonder?\u201d..."
+          }
+        ]
+      },
+      {
+        "name": "Moon",
+        "type": "person",
+        "start": 1931,
+        "end": 1935,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cWhence\t did\t the\t trolls\t get\t them,\t I\t wonder?\u201d..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "\u201cWhence\t did\t the\t trolls\t get\t them,\t I\t wonder?\u201d...",
+        "description": "\u201cWhence\t did\t the\t trolls\t get\t them,\t I\t wonder?\u201d\t said\nThorin\tlooking\tat\this\tsword\twith\tnew\tinterest.\n",
+        "start": 413,
+        "end": 517,
+        "participants": [
+          "Gondolin",
+          "Orcrist",
+          "Goblin",
+          "Gandalf",
+          "Glamdring",
+          "Keep",
+          "Thorin",
+          "Elrond",
+          "Moria",
+          "Dale",
+          "Moon"
+        ],
+        "location": "Goblin",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Goblin",
+        "type": "administrative",
+        "start": 244,
+        "end": 250,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "\u201cWhence\t did\t the\t trolls\t get\t them,\t I\t wonder?\u201d..."
+          }
+        ]
+      }
+    ]
+  },
+  "timestamp": 1745709005.235487,
+  "has_embedding": true
+}

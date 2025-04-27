@@ -1,0 +1,66 @@
+{
+  "id": "62e73f1c-98d9-4fae-909f-f9994d3e815a",
+  "content": "twilight.\tThe\tlast\tgreen\thad\talmost\tfaded\tout\tof\tthe\tgrass,\nwhen\tthey\tcame\tat\tlength\tto\tan\topen\tglade\tnot\tfar\tabove\nthe\tbanks\tof\tthe\tstream.\n\u201cHmmm!\t it\t smells\t like\t elves!\u201d\t thought\t Bilbo,\t and\t he\nlooked\tup\tat\tthe\tstars.\tThey\twere\tburning\tbright\tand\tblue.\nJust\tthen\tthere\tcame\ta\tburst\tof\tsong\tlike\tlaughter\tin\tthe\ntrees:\nO!\tWhat\tare\tyou\tdoing,\nAnd\twhere\tare\tyou\tgoing?\nYour\tponies\tneed\tshoeing!\nThe\triver\tis\tflowing!\n\t\t\t\tO!\ttra-la-la-lally\n\t\t\t\t\t\t\t\there\tdown\tin\tthe\tvalley!\nO!\tWhat\tare\tyou\tseeking,\nAnd\twhere\tare\tyou\tmaking?\nThe\tfaggots\tare\treeking,\nThe\tbannocks\tare\tbaking!\n\t\t\t\tO!\ttril-lil-lil-lolly\n\t\t\t\t\t\t\t\tthe\tvalley\tis\tjolly,\n\t\t\t\t\t\t\t\t\t\t\t\tha!\tha!\nO!\tWhere\tare\tyou\tgoing\nWith\tbeards\tall\ta-wagging?\nNo\tknowing,\tno\tknowing\nWhat\tbrings\tMister\tBaggins\n\t\t\t\tAnd\tBalin\tand\tDwalin\n\t\t\t\t\t\t\t\tdown\tinto\tthe\tvalley\n\t\t\t\t\t\t\t\t\t\t\t\tin\tJune\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tha!\tha!\nO!\tWill\tyou\tbe\tstaying,\nOr\twill\tyou\tbe\tflying?\nYour\tponies\tare\tstraying!",
+  "coordinates": {
+    "r": 7.6925,
+    "theta": 3.4785284656872983,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 51,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 923,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 185,
+        "end": 190,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Dwalin",
+        "type": "organization",
+        "start": 771,
+        "end": 777,
+        "mentions": 1,
+        "relationships": []
+      }
+    ],
+    "events": [],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 185,
+        "end": 190,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745709004.9994855,
+  "has_embedding": true
+}

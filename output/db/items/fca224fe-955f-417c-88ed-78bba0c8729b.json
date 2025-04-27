@@ -1,0 +1,108 @@
+{
+  "id": "fca224fe-955f-417c-88ed-78bba0c8729b",
+  "content": "excellent\tlittle\tponies,\tincluding\ta\tjolly\tsturdy\tlittle\twhite\nfellow\t that\t Elrond\t had\t lent\t to\t Gandalf,\t since\t his\t horse\nwas\tnot\tsuitable\tfor\tthe\tmountain-paths.\tFor\tgoblins\teat\nhorses\t and\t ponies\t and\t donkeys\t (and\t other\t much\t more\ndreadful\t things),\t and\t they\t are\t always\t hungry.\t Just\t now\nhowever\tthe\tprisoners\twere\tthinking\tonly\tof\tthemselves.\nThe\t goblins\t chained\t their\t hands\t behind\t their\t backs\t and\nlinked\tthem\tall\ttogether\tin\ta\tline,\tand\tdragged\tthem\tto\tthe\nfar\tend\tof\tthe\tcavern\twith\tlittle\tBilbo\ttugging\tat\tthe\tend\nof\tthe\trow.\nThere\t in\t the\t shadows\t on\t a\t large\t flat\t stone\t sat\t a\ntremendous\tgoblin\twith\ta\thuge\thead,\tand\tarmed\tgoblins\nwere\tstanding\tround\thim\tcarrying\tthe\taxes\tand\tthe\tbent\nswords\tthat\tthey\tuse.\tNow\tgoblins\tare\tcruel,\twicked,\tand\nbad-hearted.\t They\t make\t no\t beautiful\t things,\t but\t they\nmake\t many\t clever\t ones.\t They\t can\t tunnel\t and\t mine\t as\nwell\tas\tany\tbut\tthe\tmost\tskilled\tdwarves,\twhen\tthey\ttake\nthe\t trouble,\t though\t they\t are\t usually\t untidy\t and\t dirty.\nHammers,\t axes,\t swords,\t daggers,\t pickaxes,\t tongs,\t and\nalso\t instruments\t of\t torture,\t they\t make\t very\t well,\t or\t get\nother\tpeople\tto\tmake\tto\ttheir\tdesign,\tprisoners\tand\tslaves\nthat\thave\tto\twork\ttill\tthey\tdie\tfor\twant\tof\tair\tand\tlight.\tIt\nis\t not\t unlikely\t that\t they\t invented\t some\t of\t the\t machines\nthat\t have\t since\t troubled\t the\t world,\t especially\t the\ningenious\tdevices\tfor\tkilling\tlarge\tnumbers\tof\tpeople\tat\nonce,\t for\t wheels\t and\t engines\t and\t explosions\t always\ndelighted\t them,\t and\t also\t not\t working\t with\t their\t own\nhands\t more\t than\t they\t could\t help;\t but\t in\t those\t days\t and\nthose\twild\tparts\tthey\thad\tnot\tadvanced\t(as\tit\tis\tcalled)\tso\nfar.\tThey\tdid\tnot\thate\tdwarves\tespecially,\tno\tmore\tthan\nthey\thated\teverybody\tand\teverything,\tand\tparticularly\tthe\norderly\t and\t prosperous;\t in\t some\t parts\t wicked\t dwarves\nhad\t even\t made\t alliances\t with\t them.\t But\t they\t had\t a\nspecial\t grudge\t against\t Thorin\u2019s\t people,\t because\t of\t the\nwar\twhich\tyou\thave\theard\tmentioned,\tbut\twhich\tdoes\tnot\ncome\tinto\tthis\ttale;\tand\tanyway\tgoblins\tdon\u2019t\tcare\twho\nthey\tcatch,\tas\tlong\tas\tit\tis\tdone\tsmart\tand\tsecret,\tand\tthe\nprisoners\tare\tnot\table\tto\tdefend\tthemselves.",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 3.3473669723999246,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 65,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2200,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Gandalf",
+        "type": "group",
+        "start": 100,
+        "end": 107,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "They\t can\t tunnel\t and\t mine\t as\nwell\tas\tany\tbut\tt..."
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 520,
+        "end": 525,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "They\t can\t tunnel\t and\t mine\t as\nwell\tas\tany\tbut\tt..."
+          }
+        ]
+      },
+      {
+        "name": "Hammers",
+        "type": "organization",
+        "start": 1022,
+        "end": 1029,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "They\t can\t tunnel\t and\t mine\t as\nwell\tas\tany\tbut\tt..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "They\t can\t tunnel\t and\t mine\t as\nwell\tas\tany\tbut\tt...",
+        "description": "They\t can\t tunnel\t and\t mine\t as\nwell\tas\tany\tbut\tthe\tmost\tskilled\tdwarves,\twhen\tthey\ttake\nthe\t trouble,\t though\t they\t are\t usually\t untidy\t and\t dirty.\n",
+        "start": 869,
+        "end": 1022,
+        "participants": [
+          "Gandalf",
+          "Bilbo",
+          "Hammers"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 520,
+        "end": 525,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "They\t can\t tunnel\t and\t mine\t as\nwell\tas\tany\tbut\tt..."
+          }
+        ]
+      }
+    ]
+  },
+  "timestamp": 1745709005.7057905,
+  "has_embedding": true
+}

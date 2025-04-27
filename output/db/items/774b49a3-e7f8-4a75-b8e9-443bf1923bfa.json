@@ -1,0 +1,82 @@
+{
+  "id": "774b49a3-e7f8-4a75-b8e9-443bf1923bfa",
+  "content": "and\tpassed\tinto\ta\tproverb.\t\u201cYou\taren\u2019t\tnearly\tthrough\tthis\nadventure\tyet,\u201d\the\tadded,\tand\tthat\twas\tpretty\ttrue\tas\twell.\nThe\tafternoon\twas\tturning\tinto\tevening\twhen\the\tcame\tout\nagain\tand\tstumbled\tand\tfell\tin\ta\tfaint\ton\tthe\t\u2018doorstep\u2019.\nThe\t dwarves\t revived\t him,\t and\t doctored\t his\t scorches\t as\nwell\tas\tthey\tcould;\tbut\tit\twas\ta\tlong\ttime\tbefore\tthe\thair\non\tthe\tback\tof\this\thead\tand\this\theels\tgrew\tproperly\tagain:\nit\thad\tall\tbeen\tsinged\tand\tfrizzled\tright\tdown\tto\tthe\tskin.\nIn\tthe\tmeanwhile\this\tfriends\tdid\ttheir\tbest\tto\tcheer\thim\nup;\tand\tthey\twere\teager\tfor\this\tstory,\tespecially\twanting\nto\tknow\twhy\tthe\tdragon\thad\tmade\tsuch\tan\tawful\tnoise,\nand\thow\tBilbo\thad\tescaped.\nBut\t the\t hobbit\t was\t worried\t and\t uncomfortable,\t and\nthey\t had\t difficulty\t in\t getting\t anything\t out\t of\t him.\t On\nthinking\t things\t over\t he\t was\t now\t regretting\t some\t of\t the\nthings\t he\t had\t said\t to\t the\t dragon,\t and\t was\t not\t eager\t to\nrepeat\tthem.\tThe\told\tthrush\twas\tsitting\ton\ta\trock\tnear\tby\nwith\this\thead\tcocked\ton\tone\tside,\tlistening\tto\tall\tthat\twas\nsaid.\tIt\tshows\twhat\tan\till\ttemper\tBilbo\twas\tin:\the\tpicked\nup\t a\t stone\t and\t threw\t it\t at\t the\t thrush,\t which\t merely\nfluttered\taside\tand\tcame\tback.\n\u201cDrat\t the\t bird!\u201d\t said\t Bilbo\t crossly.\t \u201cI\t believe\t he\t is\nlistening,\tand\tI\tdon\u2019t\tlike\tthe\tlook\tof\thim.\u201d\n\u201cLeave\t him\t alone!\u201d\t said\t Thorin.\t \u201cThe\t thrushes\t are\ngood\tand\tfriendly\u2014this\tis\ta\tvery\told\tbird\tindeed,\tand\tis\nmaybe\tthe\tlast\tleft\tof\tthe\tancient\tbreed\tthat\tused\tto\tlive\nabout\t here,\t tame\t to\t the\t hands\t of\t my\t father\t and\ngrandfather.\t They\t were\t a\t long-lived\t and\t magical\t race,\nand\tthis\tmight\teven\tbe\tone\tof\tthose\tthat\twere\talive\tthen,\ta\ncouple\t of\t hundreds\t of\t years\t or\t more\t ago.\t The\t Men\t of\nDale\t used\t to\t have\t the\t trick\t of\t understanding\t their\nlanguage,\tand\tused\tthem\tfor\tmessengers\tto\tfly\tto\tthe\tMen\nof\tthe\tLake\tand\telsewhere.\u201d\n\u201cWell,\the\u2019ll\thave\tnews\tto\ttake\tto\tLake-town\tall\tright,\tif\nthat\t is\t what\t he\t is\t after,\u201d\t said\t Bilbo;\t \u201cthough\t I\t don\u2019t",
+  "coordinates": {
+    "r": 5.0625,
+    "theta": 3.4314045758834517,
+    "t": 1745630173.9676006,
+    "z": 3
+  },
+  "metadata": {
+    "chunk_index": 222,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1975,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 3
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 649,
+        "end": 654,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Drat",
+        "type": "person",
+        "start": 1189,
+        "end": 1193,
+        "mentions": 1,
+        "relationships": []
+      }
+    ],
+    "events": [],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 649,
+        "end": 654,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Lake",
+        "type": "geographical",
+        "start": 1832,
+        "end": 1836,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Lake-town",
+        "type": "geographical",
+        "start": 1887,
+        "end": 1896,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745773100.281446,
+  "has_embedding": true
+}

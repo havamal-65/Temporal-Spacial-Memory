@@ -1,0 +1,144 @@
+{
+  "id": "801b6e10-c6a4-4ac6-97fa-472486eefa47",
+  "content": "He\tstopped\tand\tlistened.\tIt\tdid\tnot\tsound\tlike\tgoblins;\nso\t he\t crept\t forward\t carefully.\t He\t was\t on\t a\t stony\t path\nwinding\tdownwards\twith\ta\trocky\twall\ton\tthe\tleft\thand;\non\tthe\tother\tside\tthe\tground\tsloped\taway\tand\tthere\twere\ndells\t below\t the\t level\t of\t the\t path\t overhung\t with\t bushes\nand\t low\t trees.\t In\t one\t of\t these\t dells\t under\t the\t bushes\npeople\twere\ttalking.\nHe\t crept\t still\t nearer,\t and\t suddenly\t he\t saw\t peering\nbetween\ttwo\tbig\tboulders\ta\thead\twith\ta\tred\thood\ton:\tit\nwas\t Balin\t doing\t look-out.\t He\t could\t have\t clapped\t and\nshouted\tfor\tjoy,\tbut\the\tdid\tnot.\tHe\thad\tstill\tgot\tthe\tring\non,\t for\t fear\t of\t meeting\t something\t unexpected\t and\nunpleasant,\tand\the\tsaw\tthat\tBalin\twas\tlooking\tstraight\tat\nhim\twithout\tnoticing\thim.\n\u201cI\t will\t give\t them\t all\t a\t surprise,\u201d\t he\t thought,\t as\t he\ncrawled\tinto\tthe\tbushes\tat\tthe\tedge\tof\tthe\tdell.\tGandalf\nwas\targuing\twith\tthe\tdwarves.\tThey\twere\tdiscussing\tall\nthat\thad\thappened\tto\tthem\tin\tthe\ttunnels,\tand\twondering\nand\t debating\t what\t they\t were\t to\t do\t now.\t The\t dwarves\nwere\tgrumbling,\tand\tGandalf\twas\tsaying\tthat\tthey\tcould\nnot\tpossibly\tgo\ton\twith\ttheir\tjourney\tleaving\tMr.\tBaggins\nin\tthe\thands\tof\tthe\tgoblins,\twithout\ttrying\tto\tfind\tout\tif\the\nwas\talive\tor\tdead,\tand\twithout\ttrying\tto\trescue\thim.\n\u201cAfter\tall\the\tis\tmy\tfriend,\u201d\tsaid\tthe\twizard,\t\u201cand\tnot\ta\nbad\t little\t chap.\t I\t feel\t responsible\t for\t him.\t I\t wish\t to\ngoodness\tyou\thad\tnot\tlost\thim.\u201d\nThe\t dwarves\t wanted\t to\t know\t why\t he\t had\t ever\t been\nbrought\tat\tall,\twhy\the\tcould\tnot\tstick\tto\this\tfriends\tand\ncome\t along\t with\t them,\t and\t why\t the\t wizard\t had\t not\nchosen\t someone\t with\t more\t sense.\t \u201cHe\t has\t been\t more\ntrouble\tthan\tuse\tso\tfar,\u201d\tsaid\tone.\t\u201cIf\twe\thave\tgot\tto\tgo\nback\tnow\tinto\tthose\tabominable\ttunnels\tto\tlook\tfor\thim,\nthen\tdrat\thim,\tI\tsay.\u201d\nGandalf\tanswered\tangrily:\t\u201cI\tbrought\thim,\tand\tI\tdon\u2019t\nbring\tthings\tthat\tare\tof\tno\tuse.\tEither\tyou\thelp\tme\tto\tlook\nfor\thim,\tor\tI\tgo\tand\tleave\tyou\there\tto\tget\tout\tof\tthe\tmess\nas\tbest\tyou\tcan\tyourselves.\tIf\twe\tcan\tonly\tfind\thim\tagain,\nyou\t will\t thank\t me\t before\t all\t is\t over.\t Whatever\t did\t you",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 4.974711966959437,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 93,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2089,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_group",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Balin",
+        "type": "person",
+        "start": 498,
+        "end": 503,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "He\thad\tstill\tgot\tthe\tring\non,\t for\t fear\t of\t meet..."
+          },
+          {
+            "type": "participated_in",
+            "target": "They\twere\tdiscussing\tall\nthat\thad\thappened\tto\tthem..."
+          },
+          {
+            "type": "participated_in",
+            "target": "I\t wish\t to\ngoodness\tyou\thad\tnot\tlost\thim.\u201d\n"
+          }
+        ]
+      },
+      {
+        "name": "Gandalf",
+        "type": "group",
+        "start": 864,
+        "end": 871,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "He\thad\tstill\tgot\tthe\tring\non,\t for\t fear\t of\t meet..."
+          },
+          {
+            "type": "participated_in",
+            "target": "They\twere\tdiscussing\tall\nthat\thad\thappened\tto\tthem..."
+          },
+          {
+            "type": "participated_in",
+            "target": "I\t wish\t to\ngoodness\tyou\thad\tnot\tlost\thim.\u201d\n"
+          }
+        ]
+      },
+      {
+        "name": "Baggins",
+        "type": "person",
+        "start": 1148,
+        "end": 1155,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "He\thad\tstill\tgot\tthe\tring\non,\t for\t fear\t of\t meet..."
+          },
+          {
+            "type": "participated_in",
+            "target": "They\twere\tdiscussing\tall\nthat\thad\thappened\tto\tthem..."
+          },
+          {
+            "type": "participated_in",
+            "target": "I\t wish\t to\ngoodness\tyou\thad\tnot\tlost\thim.\u201d\n"
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "He\thad\tstill\tgot\tthe\tring\non,\t for\t fear\t of\t meet...",
+        "description": "He\thad\tstill\tgot\tthe\tring\non,\t for\t fear\t of\t meeting\t something\t unexpected\t and\nunpleasant,\tand\the\tsaw\tthat\tBalin\twas\tlooking\tstraight\tat\nhim\twithout\tnoticing\thim.\n",
+        "start": 586,
+        "end": 752,
+        "participants": [
+          "Balin",
+          "Gandalf",
+          "Baggins"
+        ],
+        "location": null,
+        "time": null
+      },
+      {
+        "name": "They\twere\tdiscussing\tall\nthat\thad\thappened\tto\tthem...",
+        "description": "They\twere\tdiscussing\tall\nthat\thad\thappened\tto\tthem\tin\tthe\ttunnels,\tand\twondering\nand\t debating\t what\t they\t were\t to\t do\t now.\t ",
+        "start": 902,
+        "end": 1030,
+        "participants": [
+          "Balin",
+          "Gandalf",
+          "Baggins"
+        ],
+        "location": null,
+        "time": null
+      },
+      {
+        "name": "I\t wish\t to\ngoodness\tyou\thad\tnot\tlost\thim.\u201d\n",
+        "description": "I\t wish\t to\ngoodness\tyou\thad\tnot\tlost\thim.\u201d\n",
+        "start": 1381,
+        "end": 1425,
+        "participants": [
+          "Balin",
+          "Gandalf",
+          "Baggins"
+        ],
+        "location": null,
+        "time": null
+      }
+    ],
+    "locations": []
+  },
+  "timestamp": 1745773078.870855,
+  "has_embedding": true
+}

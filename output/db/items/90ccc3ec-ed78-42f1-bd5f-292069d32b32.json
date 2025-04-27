@@ -1,0 +1,40 @@
+{
+  "id": "90ccc3ec-ed78-42f1-bd5f-292069d32b32",
+  "content": "hole\t in\t the\t mountain-side,\t and\t deep\t darkness\t in\t which\nnothing\t could\t be\t seen\t lay\t before\t their\t eyes,\t a\t yawning\nmouth\tleading\tin\tand\tdown.",
+  "coordinates": {
+    "r": 9.62,
+    "theta": 0.47123889803846897,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 206,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 152,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "hash_based",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [],
+    "events": [],
+    "locations": []
+  },
+  "timestamp": 1745709013.445798,
+  "has_embedding": true
+}

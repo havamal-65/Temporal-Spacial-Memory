@@ -1,0 +1,99 @@
+{
+  "id": "56b9e350-501c-474a-bc76-fb18df803f79",
+  "content": "have\t escaped\t through\t the\t upper\t gates\t at\t once,\t he\t had\nprecious\tsmall\tchance\tof\tever\tfinding\tthe\tdwarves\tagain.\nHe\tdid\tnot\tknow\tthe\tway\tby\tland\tto\tthe\tplace\twhere\tthe\nbarrels\twere\tcollected.\tHe\twondered\twhat\ton\tearth\twould\nhappen\tto\tthem\twithout\thim;\tfor\the\thad\tnot\thad\ttime\tto\ntell\t the\t dwarves\t all\t that\t he\t had\t learned,\t or\t what\t he\t had\nmeant\tto\tdo,\tonce\tthey\twere\tout\tof\tthe\twood.\nWhile\t all\t these\t thoughts\t were\t passing\t through\t his\nmind,\t the\t elves\t being\t very\t merry\t began\t to\t sing\t a\t song\nround\tthe\triver-door.\tSome\thad\talready\tgone\tto\thaul\ton\nthe\tropes\twhich\tpulled\tup\tthe\tportcullis\tat\tthe\twater-gate\nso\tas\tto\tlet\tout\tthe\tbarrels\tas\tsoon\tas\tthey\twere\tall\tafloat\nbelow.\nDown\tthe\tswift\tdark\tstream\tyou\tgo\nBack\tto\tlands\tyou\tonce\tdid\tknow!\nLeave\tthe\thalls\tand\tcaverns\tdeep,\nLeave\tthe\tnorthern\tmountains\tsteep,\nWhere\tthe\tforest\twide\tand\tdim\nStoops\tin\tshadow\tgrey\tand\tgrim!\nFloat\tbeyond\tthe\tworld\tof\ttrees\nOut\tinto\tthe\twhispering\tbreeze,\nPast\tthe\trushes,\tpast\tthe\treeds,\nPast\tthe\tmarsh\u2019s\twaving\tweeds,\nThrough\tthe\tmist\tthat\triseth\twhite\nUp\tfrom\tmere\tand\tpool\tat\tnight!\nFollow,\tfollow\tstars\tthat\tleap\nUp\tthe\theavens\tcold\tand\tsteep;\nTurn\twhen\tdawn\tcomes\tover\tland,\nOver\trapid,\tover\tsand,\nSouth\taway!\tand\tSouth\taway!\nSeek\tthe\tsunlight\tand\tthe\tday,\nBack\tto\tpasture,\tback\tto\tmead,\nWhere\tthe\tkine\tand\toxen\tfeed!\nBack\tto\tgardens\ton\tthe\thills\nWhere\tthe\tberry\tswells\tand\tfills\nUnder\tsunlight,\tunder\tday!",
+  "coordinates": {
+    "r": 6.45,
+    "theta": 4.949971924812417,
+    "t": 1745630173.9676006,
+    "z": 2
+  },
+  "metadata": {
+    "chunk_index": 179,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1420,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_person",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 2
+    },
+    "entities": [
+      {
+        "name": "Seek",
+        "type": "person",
+        "start": 1240,
+        "end": 1244,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "He\twondered\twhat\ton\tearth\twould\nhappen\tto\tthem\twit..."
+          },
+          {
+            "type": "participated_in",
+            "target": "While\t all\t these\t thoughts\t were\t passing\t throug..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "He\twondered\twhat\ton\tearth\twould\nhappen\tto\tthem\twit...",
+        "description": "He\twondered\twhat\ton\tearth\twould\nhappen\tto\tthem\twithout\thim;\tfor\the\thad\tnot\thad\ttime\tto\ntell\t the\t dwarves\t all\t that\t he\t had\t learned,\t or\t what\t he\t had\nmeant\tto\tdo,\tonce\tthey\twere\tout\tof\tthe\twood.\n",
+        "start": 198,
+        "end": 398,
+        "participants": [
+          "Seek"
+        ],
+        "location": "South",
+        "time": null
+      },
+      {
+        "name": "While\t all\t these\t thoughts\t were\t passing\t throug...",
+        "description": "While\t all\t these\t thoughts\t were\t passing\t through\t his\nmind,\t the\t elves\t being\t very\t merry\t began\t to\t sing\t a\t song\nround\tthe\triver-door.\t",
+        "start": 398,
+        "end": 541,
+        "participants": [
+          "Seek"
+        ],
+        "location": "South",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "South",
+        "type": "geographical",
+        "start": 1212,
+        "end": 1217,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "He\twondered\twhat\ton\tearth\twould\nhappen\tto\tthem\twit..."
+          },
+          {
+            "type": "hosted",
+            "target": "While\t all\t these\t thoughts\t were\t passing\t throug..."
+          }
+        ]
+      }
+    ]
+  },
+  "timestamp": 1745715410.4687128,
+  "has_embedding": true
+}

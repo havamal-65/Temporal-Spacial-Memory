@@ -1,0 +1,74 @@
+{
+  "id": "892e04b8-6271-4ce2-8078-b3163bc0485a",
+  "content": "and\tthere\thad\tbeen\twars\tand\tdeeds\twhich\twere\tnow\tonly\na\tlegend.\tThe\trotting\tpiles\tof\ta\tgreater\ttown\tcould\tstill\tbe\nseen\talong\tthe\tshores\twhen\tthe\twaters\tsank\tin\ta\tdrought.\nBut\tmen\tremembered\tlittle\tof\tall\tthat,\tthough\tsome\tstill\nsang\told\tsongs\tof\tthe\tdwarf-kings\tof\tthe\tMountain,\tThror\nand\tThrain\tof\tthe\trace\tof\tDurin,\tand\tof\tthe\tcoming\tof\tthe\nDragon,\tand\tthe\tfall\tof\tthe\tlords\tof\tDale.\tSome\tsang\ttoo\nthat\tThror\tand\tThrain\twould\tcome\tback\tone\tday\tand\tgold\nwould\tflow\tin\trivers,\tthrough\tthe\tmountain-gates,\tand\tall\nthat\tland\twould\tbe\tfilled\twith\tnew\tsong\tand\tnew\tlaughter.\nBut\t this\t pleasant\t legend\t did\t not\t much\t affect\t their\t daily\nbusiness.",
+  "coordinates": {
+    "r": 8.3825,
+    "theta": 3.4718525812984202,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 187,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 647,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_organization",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Thrain",
+        "type": "administrative",
+        "start": 290,
+        "end": 296,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Durin",
+        "type": "organization",
+        "start": 312,
+        "end": 317,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Dale",
+        "type": "organization",
+        "start": 381,
+        "end": 385,
+        "mentions": 1,
+        "relationships": []
+      }
+    ],
+    "events": [],
+    "locations": [
+      {
+        "name": "Thrain",
+        "type": "administrative",
+        "start": 290,
+        "end": 296,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745715411.050551,
+  "has_embedding": true
+}

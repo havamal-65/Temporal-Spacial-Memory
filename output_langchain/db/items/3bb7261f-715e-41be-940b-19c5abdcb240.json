@@ -1,0 +1,94 @@
+{
+  "id": "3bb7261f-715e-41be-940b-19c5abdcb240",
+  "content": "to\t bring\t hundreds\t and\t hundreds\t of\t eyes\t all\t round\t them,\nthough\t the\t creatures,\t whatever\t they\t were,\t were\t careful\nnever\t to\t let\t their\t bodies\t show\t in\t the\t little\t flicker\t of\t the\nflames.\tWorse\tstill\tit\tbrought\tthousands\tof\tdark-grey\tand\nblack\t moths,\t some\t nearly\t as\t big\t as\t your\t hand,\t flapping\nand\twhirring\tround\ttheir\tears.\tThey\tcould\tnot\tstand\tthat,\nnor\tthe\thuge\tbats,\tblack\tas\ta\ttop-hat,\teither;\tso\tthey\tgave\nup\t fires\t and\t sat\t at\t night\t and\t dozed\t in\t the\t enormous\nuncanny\tdarkness.\nAll\t this\t went\t on\t for\t what\t seemed\t to\t the\t hobbit\t ages\nupon\t ages;\t and\t he\t was\t always\t hungry,\t for\t they\t were\nextremely\tcareful\twith\ttheir\tprovisions.\tEven\tso,\tas\tdays\nfollowed\tdays,\tand\tstill\tthe\tforest\tseemed\tjust\tthe\tsame,\nthey\t began\t to\t get\t anxious.\t The\t food\t would\t not\t last\t for\never:\t it\t was\t in\t fact\t already\t beginning\t to\t get\t low.\t They\ntried\t shooting\t at\t the\t squirrels,\t and\t they\t wasted\t many\narrows\t before\t they\t managed\t to\t bring\t one\t down\t on\t the\npath.\tBut\twhen\tthey\troasted\tit,\tit\tproved\thorrible\tto\ttaste,\nand\tthey\tshot\tno\tmore\tsquirrels.\nThey\t were\t thirsty\t too,\t for\t they\t had\t none\t too\t much\nwater,\tand\tin\tall\tthe\ttime\tthey\thad\tseen\tneither\tspring\tnor\nstream.\t This\t was\t their\t state\t when\t one\t day\t they\t found\ntheir\tpath\tblocked\tby\ta\trunning\twater.\tIt\tflowed\tfast\tand\nstrong\tbut\tnot\tvery\twide\tright\tacross\tthe\tway,\tand\tit\twas\nblack,\t or\t looked\t it\t in\t the\t gloom.\t It\t was\t well\t that\t Beorn\nhad\t warned\t them\t against\t it,\t or\t they\t would\t have\t drunk\nfrom\t it,\t whatever\t its\t colour,\t and\t filled\t some\t of\t their\nemptied\tskins\tat\tits\tbank.\tAs\tit\twas\tthey\tonly\tthought\tof\nhow\t to\t cross\t it\t without\t wetting\t themselves\t in\t its\t water.\nThere\thad\tbeen\ta\tbridge\tof\twood\tacross,\tbut\tit\thad\trotted\nand\tfallen\tleaving\tonly\tthe\tbroken\tposts\tnear\tthe\tbank.\nBilbo\tkneeling\ton\tthe\tbrink\tand\tpeering\tforward\tcried:\n\u201cThere\tis\ta\tboat\tagainst\tthe\tfar\tbank!\tNow\twhy\tcouldn\u2019t\nit\thave\tbeen\tthis\tside!\u201d\n\u201cHow\tfar\taway\tdo\tyou\tthink\tit\tis?\u201d\tasked\tThorin,\tfor\nby\t now\t they\t knew\t Bilbo\t had\t the\t sharpest\t eyes\t among\nthem.\n\u201cNot\tat\tall\tfar.\tI\tshouldn\u2019t\tthink\tabove\ttwelve\tyards.\u201d",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 0.3286891313818321,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 141,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2142,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_person",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Beorn",
+        "type": "person",
+        "start": 1462,
+        "end": 1467,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Even\tso,\tas\tdays\nfollowed\tdays,\tand\tstill\tthe\tfore..."
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "person",
+        "start": 1832,
+        "end": 1837,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Even\tso,\tas\tdays\nfollowed\tdays,\tand\tstill\tthe\tfore..."
+          }
+        ]
+      },
+      {
+        "name": "Thorin",
+        "type": "group",
+        "start": 2009,
+        "end": 2015,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Even\tso,\tas\tdays\nfollowed\tdays,\tand\tstill\tthe\tfore..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "Even\tso,\tas\tdays\nfollowed\tdays,\tand\tstill\tthe\tfore...",
+        "description": "Even\tso,\tas\tdays\nfollowed\tdays,\tand\tstill\tthe\tforest\tseemed\tjust\tthe\tsame,\nthey\t began\t to\t get\t anxious.\t ",
+        "start": 680,
+        "end": 787,
+        "participants": [
+          "Beorn",
+          "Bilbo",
+          "Thorin"
+        ],
+        "location": null,
+        "time": null
+      }
+    ],
+    "locations": []
+  },
+  "timestamp": 1745715407.3679662,
+  "has_embedding": true
+}

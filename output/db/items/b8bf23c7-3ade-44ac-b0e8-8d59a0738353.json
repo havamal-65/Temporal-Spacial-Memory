@@ -1,0 +1,202 @@
+{
+  "id": "b8bf23c7-3ade-44ac-b0e8-8d59a0738353",
+  "content": "their\tranks.\nAlready\tbehind\thim\tamong\tthe\tgoblin\tdead\tlay\tmany\nmen\tand\tmany\tdwarves,\tand\tmany\ta\tfair\telf\tthat\tshould\nhave\tlived\tyet\tlong\tages\tmerrily\tin\tthe\twood.\tAnd\tas\tthe\nvalley\twidened\this\tonset\tgrew\tever\tslower.\tHis\tnumbers\nwere\t too\t few.\t His\t flanks\t were\t unguarded.\t Soon\t the\nattackers\twere\tattacked,\tand\tthey\twere\tforced\tinto\ta\tgreat\nring,\t facing\t every\t way,\t hemmed\t all\t about\t with\t goblins\nand\t wolves\t returning\t to\t the\t assault.\t The\t bodyguard\t of\nBolg\tcame\thowling\tagainst\tthem,\tand\tdrove\tin\tupon\ttheir\nranks\tlike\twaves\tupon\tcliffs\tof\tsand.\tTheir\tfriends\tcould\nnot\t help\t them,\t for\t the\t assault\t from\t the\t Mountain\t was\nrenewed\twith\tredoubled\tforce,\tand\tupon\teither\tside\tmen\nand\telves\twere\tbeing\tslowly\tbeaten\tdown.\nOn\tall\tthis\tBilbo\tlooked\twith\tmisery.\tHe\thad\ttaken\this\nstand\t on\t Ravenhill\t among\t the\t Elves\u2014partly\t because\nthere\t was\t more\t chance\t of\t escape\t from\t that\t point,\t and\npartly\t(with\tthe\tmore\tTookish\tpart\tof\this\tmind)\tbecause\tif\nhe\twas\tgoing\tto\tbe\tin\ta\tlast\tdesperate\tstand,\the\tpreferred\non\tthe\twhole\tto\tdefend\tthe\tElvenking.\tGandalf,\ttoo,\tI\tmay\nsay,\twas\tthere,\tsitting\ton\tthe\tground\tas\tif\tin\tdeep\tthought,\npreparing,\tI\tsuppose,\tsome\tlast\tblast\tof\tmagic\tbefore\tthe\nend.\nThat\t did\t not\t seem\t far\t off.\t \u201cIt\t will\t not\t be\t long\t now,\u201d\nthought\tBilbo,\t\u201cbefore\tthe\tgoblins\twin\tthe\tGate,\tand\twe\nare\tall\tslaughtered\tor\tdriven\tdown\tand\tcaptured.\tReally\tit\nis\t enough\t to\t make\t one\t weep,\t after\t all\t one\t has\t gone\nthrough.\tI\twould\trather\told\tSmaug\thad\tbeen\tleft\twith\tall\nthe\t wretched\t treasure,\t than\t that\t these\t vile\t creatures\nshould\t get\t it,\t and\t poor\t old\t Bombur,\t and\t Balin\t and\t Fili\nand\tKili\tand\tall\tthe\trest\tcome\tto\ta\tbad\tend;\tand\tBard\ttoo,\nand\tthe\tLake-men\tand\tthe\tmerry\telves.\tMisery\tme!\tI\thave\nheard\t songs\t of\t many\t battles,\t and\t I\t have\t always\nunderstood\t that\t defeat\t may\t be\t glorious.\t It\t seems\t very\nuncomfortable,\t not\t to\t say\t distressing.\t I\t wish\t I\t was\t well\nout\tof\tit.\u201d\nThe\t clouds\t were\t torn\t by\t the\t wind,\t and\t a\t red\t sunset\nslashed\tthe\tWest.\tSeeing\tthe\tsudden\tgleam\tin\tthe\tgloom",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 3.31791454127252,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 278,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2064,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 754,
+        "end": 759,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Soon\t the\nattackers\twere\tattacked,\tand\tthey\twere\tf..."
+          }
+        ]
+      },
+      {
+        "name": "Tookish",
+        "type": "group",
+        "start": 937,
+        "end": 944,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Soon\t the\nattackers\twere\tattacked,\tand\tthey\twere\tf..."
+          }
+        ]
+      },
+      {
+        "name": "Gandalf",
+        "type": "group",
+        "start": 1071,
+        "end": 1078,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Soon\t the\nattackers\twere\tattacked,\tand\tthey\twere\tf..."
+          }
+        ]
+      },
+      {
+        "name": "Gate",
+        "type": "organization",
+        "start": 1323,
+        "end": 1327,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Soon\t the\nattackers\twere\tattacked,\tand\tthey\twere\tf..."
+          }
+        ]
+      },
+      {
+        "name": "Smaug",
+        "type": "administrative",
+        "start": 1484,
+        "end": 1489,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Soon\t the\nattackers\twere\tattacked,\tand\tthey\twere\tf..."
+          }
+        ]
+      },
+      {
+        "name": "Bombur",
+        "type": "administrative",
+        "start": 1608,
+        "end": 1614,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Soon\t the\nattackers\twere\tattacked,\tand\tthey\twere\tf..."
+          }
+        ]
+      },
+      {
+        "name": "Balin",
+        "type": "person",
+        "start": 1622,
+        "end": 1627,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Soon\t the\nattackers\twere\tattacked,\tand\tthey\twere\tf..."
+          }
+        ]
+      },
+      {
+        "name": "Kili",
+        "type": "person",
+        "start": 1643,
+        "end": 1647,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Soon\t the\nattackers\twere\tattacked,\tand\tthey\twere\tf..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "Soon\t the\nattackers\twere\tattacked,\tand\tthey\twere\tf...",
+        "description": "Soon\t the\nattackers\twere\tattacked,\tand\tthey\twere\tforced\tinto\ta\tgreat\nring,\t facing\t every\t way,\t hemmed\t all\t about\t with\t goblins\nand\t wolves\t returning\t to\t the\t assault.\t ",
+        "start": 277,
+        "end": 451,
+        "participants": [
+          "Bilbo",
+          "Tookish",
+          "Gandalf",
+          "Gate",
+          "Smaug",
+          "Bombur",
+          "Balin",
+          "Kili"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 754,
+        "end": 759,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "Soon\t the\nattackers\twere\tattacked,\tand\tthey\twere\tf..."
+          }
+        ]
+      },
+      {
+        "name": "Smaug",
+        "type": "administrative",
+        "start": 1484,
+        "end": 1489,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bombur",
+        "type": "administrative",
+        "start": 1608,
+        "end": 1614,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "West",
+        "type": "geographical",
+        "start": 2022,
+        "end": 2026,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745773110.4761734,
+  "has_embedding": true
+}

@@ -1,0 +1,137 @@
+{
+  "id": "af16605e-4e6c-4e8d-a5f4-dcf09ec8a8b0",
+  "content": "listening\tto\tthe\ttalk\tof\tthe\tking\u2019s\tservants,\the\tlearned\thow\nthe\twine\tand\tother\tgoods\tcame\tup\tthe\trivers,\tor\tover\tland,\nto\t the\t Long\t Lake.\t It\t seemed\t a\t town\t of\t Men\t still\t throve\nthere,\t built\t out\t on\t bridges\t far\t into\t the\t water\t as\t a\nprotection\t against\t enemies\t of\t all\t sorts,\t and\t especially\nagainst\tthe\tdragon\tof\tthe\tMountain.\tFrom\tLake-town\tthe\nbarrels\twere\tbrought\tup\tthe\tForest\tRiver.\tOften\tthey\twere\njust\ttied\ttogether\tlike\tbig\trafts\tand\tpoled\tor\trowed\tup\tthe\nstream;\tsometimes\tthey\twere\tloaded\ton\tto\tflat\tboats.\nWhen\t the\t barrels\t were\t empty\t the\t elves\t cast\t them\nthrough\tthe\ttrapdoors,\topened\tthe\twater-gate,\tand\tout\tthe\nbarrels\t floated\t on\t the\t stream,\t bobbing\t along,\t until\t they\nwere\tcarried\tby\tthe\tcurrent\tto\ta\tplace\tfar\tdown\tthe\triver\nwhere\tthe\tbank\tjutted\tout,\tnear\tto\tthe\tvery\teastern\tedge\tof\nMirkwood.\t There\t they\t were\t collected\t and\t tied\t together\nand\tfloated\tback\tto\tLake-town,\twhich\tstood\tclose\tto\tthe\npoint\twhere\tthe\tForest\tRiver\tflowed\tinto\tthe\tLong\tLake.\nFor\t some\t time\t Bilbo\t sat\t and\t thought\t about\t this\t water-\ngate,\tand\twondered\tif\tit\tcould\tbe\tused\tfor\tthe\tescape\tof\nhis\tfriends,\tand\tat\tlast\the\thad\tthe\tdesperate\tbeginnings\tof\na\tplan.\nThe\tevening\tmeal\thad\tbeen\ttaken\tto\tthe\tprisoners.\tThe\nguards\twere\ttramping\taway\tdown\tthe\tpassages\ttaking\tthe\ntorchlight\twith\tthem\tand\tleaving\teverything\tin\tdarkness.\nThen\t Bilbo\t heard\t the\t king\u2019s\t butler\t bidding\t the\t chief\t of\nthe\tguards\tgood-night.\n\u201cNow\tcome\twith\tme,\u201d\the\tsaid,\t\u201cand\ttaste\tthe\tnew\twine\nthat\t has\t just\t come\t in.\t I\t shall\t be\t hard\t at\t work\t tonight\nclearing\tthe\tcellars\tof\tthe\tempty\twood,\tso\tlet\tus\thave\ta\ndrink\tfirst\tto\thelp\tthe\tlabour.\u201d\n\u201cVery\tgood,\u201d\tlaughed\tthe\tchief\tof\tthe\tguards.\t\u201cI\u2019ll\ttaste\nwith\tyou,\tand\tsee\tif\tit\tis\tfit\tfor\tthe\tking\u2019s\ttable.\tThere\tis\ta\nfeast\ttonight\tand\tit\twould\tnot\tdo\tto\tsend\tup\tpoor\tstuff!\u201d",
+  "coordinates": {
+    "r": 5.4075,
+    "theta": 1.081885970079985,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 173,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1837,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_organization",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Forest\tRiver",
+        "type": "organization",
+        "start": 394,
+        "end": 406,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Often\tthey\twere\njust\ttied\ttogether\tlike\tbig\trafts\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "For\t some\t time\t Bilbo\t sat\t and\t thought\t about\t ..."
+          }
+        ]
+      },
+      {
+        "name": "Mirkwood",
+        "type": "organization",
+        "start": 834,
+        "end": 842,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Often\tthey\twere\njust\ttied\ttogether\tlike\tbig\trafts\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "For\t some\t time\t Bilbo\t sat\t and\t thought\t about\t ..."
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "person",
+        "start": 1024,
+        "end": 1029,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Often\tthey\twere\njust\ttied\ttogether\tlike\tbig\trafts\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "For\t some\t time\t Bilbo\t sat\t and\t thought\t about\t ..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "Often\tthey\twere\njust\ttied\ttogether\tlike\tbig\trafts\t...",
+        "description": "Often\tthey\twere\njust\ttied\ttogether\tlike\tbig\trafts\tand\tpoled\tor\trowed\tup\tthe\nstream;\tsometimes\tthey\twere\tloaded\ton\tto\tflat\tboats.\n",
+        "start": 408,
+        "end": 537,
+        "participants": [
+          "Forest\tRiver",
+          "Mirkwood",
+          "Bilbo"
+        ],
+        "location": "Lake-town",
+        "time": null
+      },
+      {
+        "name": "For\t some\t time\t Bilbo\t sat\t and\t thought\t about\t ...",
+        "description": "For\t some\t time\t Bilbo\t sat\t and\t thought\t about\t this\t water-\ngate,\tand\twondered\tif\tit\tcould\tbe\tused\tfor\tthe\tescape\tof\nhis\tfriends,\tand\tat\tlast\the\thad\tthe\tdesperate\tbeginnings\tof\na\tplan.\n",
+        "start": 1007,
+        "end": 1195,
+        "participants": [
+          "Forest\tRiver",
+          "Mirkwood",
+          "Bilbo"
+        ],
+        "location": "Lake-town",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Lake-town",
+        "type": "geographical",
+        "start": 915,
+        "end": 924,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "Often\tthey\twere\njust\ttied\ttogether\tlike\tbig\trafts\t..."
+          },
+          {
+            "type": "hosted",
+            "target": "For\t some\t time\t Bilbo\t sat\t and\t thought\t about\t ..."
+          }
+        ]
+      }
+    ]
+  },
+  "timestamp": 1745773091.938856,
+  "has_embedding": true
+}

@@ -1,0 +1,264 @@
+{
+  "id": "f666639c-fd98-4373-a418-472eab766a31",
+  "content": "road,\t for\t there\t were\t no\t paths.\t They\t made\t north-west,\nslanting\taway\tfrom\tthe\tRiver\tRunning,\tand\tdrawing\tever\nnearer\tand\tnearer\tto\ta\tgreat\tspur\tof\tthe\tMountain\tthat\twas\nflung\tout\tsouthwards\ttowards\tthem.\nIt\t was\t a\t weary\t journey,\t and\t a\t quiet\t and\t stealthy\t one.\nThere\twas\tno\tlaughter\tor\tsong\tor\tsound\tof\tharps,\tand\tthe\npride\t and\t hopes\t which\t had\t stirred\t in\t their\t hearts\t at\t the\nsinging\tof\told\tsongs\tby\tthe\tlake\tdied\taway\tto\ta\tplodding\ngloom.\tThey\tknew\tthat\tthey\twere\tdrawing\tnear\tto\tthe\tend\nof\ttheir\tjourney,\tand\tthat\tit\tmight\tbe\ta\tvery\thorrible\tend.\nThe\tland\tabout\tthem\tgrew\tbleak\tand\tbarren,\tthough\tonce,\nas\tThorin\ttold\tthem,\tit\thad\tbeen\tgreen\tand\tfair.\tThere\twas\nlittle\t grass,\t and\t before\t long\t there\t was\t neither\t bush\t nor\ntree,\tand\tonly\tbroken\tand\tblackened\tstumps\tto\tspeak\tof\nones\tlong\tvanished.\tThey\twere\tcome\tto\tthe\tDesolation\tof\nthe\t Dragon,\t and\t they\t were\t come\t at\t the\t waning\t of\t the\nyear.\nThey\t reached\t the\t skirts\t of\t the\t Mountain\t all\t the\t same\nwithout\t meeting\t any\t danger\t or\t any\t sign\t of\t the\t Dragon\nother\tthan\tthe\twilderness\the\thad\tmade\tabout\this\tlair.\tThe\nMountain\tlay\tdark\tand\tsilent\tbefore\tthem\tand\tever\thigher\nabove\t them.\t They\t made\t their\t first\t camp\t on\t the\t western\nside\tof\tthe\tgreat\tsouthern\tspur,\twhich\tended\tin\ta\theight\ncalled\t Ravenhill.\t On\t this\t there\t had\t been\t an\t old\t watch-\npost;\tbut\tthey\tdared\tnot\tclimb\tit\tyet,\tit\twas\ttoo\texposed.\nBefore\t setting\t out\t to\t search\t the\t western\t spurs\t of\t the\nMountain\t for\t the\t hidden\t door,\t on\t which\t all\t their\t hopes\nrested,\t Thorin\t sent\t out\t a\t scouting\t expedition\t to\t spy\t out\nthe\tland\tto\tthe\tSouth\twhere\tthe\tFront\nGate\t stood.\t For\t this\t purpose\t he\t chose\t Balin\t and\t Fili\nand\tKili,\tand\twith\tthem\twent\tBilbo.\tThey\tmarched\tunder\nthe\t grey\t and\t silent\t cliffs\t to\t the\t feet\t of\t Ravenhill.\t There\nthe\t river,\t after\t winding\t a\t wide\t loop\t over\t the\t valley\t of\nDale,\tturned\tfrom\tthe\tMountain\ton\tits\troad\tto\tthe\tLake,\nflowing\t swift\t and\t noisily.\t Its\t bank\t was\t bare\t and\t rocky,",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 3.4726379794618176,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 198,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2016,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_organization",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Thorin",
+        "type": "group",
+        "start": 630,
+        "end": 636,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "There\twas\tno\tlaughter\tor\tsong\tor\tsound\tof\tharps,\ta..."
+          },
+          {
+            "type": "participated_in",
+            "target": "They\t made\t their\t first\t camp\t on\t the\t western\ns..."
+          }
+        ]
+      },
+      {
+        "name": "bush",
+        "type": "person",
+        "start": 742,
+        "end": 746,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "There\twas\tno\tlaughter\tor\tsong\tor\tsound\tof\tharps,\ta..."
+          },
+          {
+            "type": "participated_in",
+            "target": "They\t made\t their\t first\t camp\t on\t the\t western\ns..."
+          }
+        ]
+      },
+      {
+        "name": "Desolation",
+        "type": "administrative",
+        "start": 849,
+        "end": 859,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "There\twas\tno\tlaughter\tor\tsong\tor\tsound\tof\tharps,\ta..."
+          },
+          {
+            "type": "participated_in",
+            "target": "They\t made\t their\t first\t camp\t on\t the\t western\ns..."
+          }
+        ]
+      },
+      {
+        "name": "Dragon",
+        "type": "organization",
+        "start": 868,
+        "end": 874,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "There\twas\tno\tlaughter\tor\tsong\tor\tsound\tof\tharps,\ta..."
+          },
+          {
+            "type": "participated_in",
+            "target": "They\t made\t their\t first\t camp\t on\t the\t western\ns..."
+          }
+        ]
+      },
+      {
+        "name": "Front\nGate",
+        "type": "organization",
+        "start": 1638,
+        "end": 1648,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "There\twas\tno\tlaughter\tor\tsong\tor\tsound\tof\tharps,\ta..."
+          },
+          {
+            "type": "participated_in",
+            "target": "They\t made\t their\t first\t camp\t on\t the\t western\ns..."
+          }
+        ]
+      },
+      {
+        "name": "Balin",
+        "type": "person",
+        "start": 1689,
+        "end": 1694,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "There\twas\tno\tlaughter\tor\tsong\tor\tsound\tof\tharps,\ta..."
+          },
+          {
+            "type": "participated_in",
+            "target": "They\t made\t their\t first\t camp\t on\t the\t western\ns..."
+          }
+        ]
+      },
+      {
+        "name": "Kili",
+        "type": "person",
+        "start": 1710,
+        "end": 1714,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "There\twas\tno\tlaughter\tor\tsong\tor\tsound\tof\tharps,\ta..."
+          },
+          {
+            "type": "participated_in",
+            "target": "They\t made\t their\t first\t camp\t on\t the\t western\ns..."
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 1735,
+        "end": 1740,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "There\twas\tno\tlaughter\tor\tsong\tor\tsound\tof\tharps,\ta..."
+          },
+          {
+            "type": "participated_in",
+            "target": "They\t made\t their\t first\t camp\t on\t the\t western\ns..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "There\twas\tno\tlaughter\tor\tsong\tor\tsound\tof\tharps,\ta...",
+        "description": "There\twas\tno\tlaughter\tor\tsong\tor\tsound\tof\tharps,\tand\tthe\npride\t and\t hopes\t which\t had\t stirred\t in\t their\t hearts\t at\t the\nsinging\tof\told\tsongs\tby\tthe\tlake\tdied\taway\tto\ta\tplodding\ngloom.\t",
+        "start": 274,
+        "end": 462,
+        "participants": [
+          "Thorin",
+          "bush",
+          "Desolation",
+          "Dragon",
+          "Front\nGate",
+          "Balin",
+          "Kili",
+          "Bilbo"
+        ],
+        "location": "Desolation",
+        "time": null
+      },
+      {
+        "name": "They\t made\t their\t first\t camp\t on\t the\t western\ns...",
+        "description": "They\t made\t their\t first\t camp\t on\t the\t western\nside\tof\tthe\tgreat\tsouthern\tspur,\twhich\tended\tin\ta\theight\ncalled\t Ravenhill.\t ",
+        "start": 1184,
+        "end": 1310,
+        "participants": [
+          "Thorin",
+          "bush",
+          "Desolation",
+          "Dragon",
+          "Front\nGate",
+          "Balin",
+          "Kili",
+          "Bilbo"
+        ],
+        "location": "Desolation",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Desolation",
+        "type": "administrative",
+        "start": 849,
+        "end": 859,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "There\twas\tno\tlaughter\tor\tsong\tor\tsound\tof\tharps,\ta..."
+          },
+          {
+            "type": "hosted",
+            "target": "They\t made\t their\t first\t camp\t on\t the\t western\ns..."
+          }
+        ]
+      },
+      {
+        "name": "Ravenhill",
+        "type": "geographical",
+        "start": 1298,
+        "end": 1307,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "South",
+        "type": "geographical",
+        "start": 1622,
+        "end": 1627,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 1735,
+        "end": 1740,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Lake",
+        "type": "geographical",
+        "start": 1946,
+        "end": 1950,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745715411.844384,
+  "has_embedding": true
+}

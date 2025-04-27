@@ -1,0 +1,214 @@
+{
+  "id": "6ec391ae-67a6-4f3e-92dd-33b3b31c4c04",
+  "content": "bowls\tand\tplatters\tand\tknives\tand\twooden\tspoons,\twhich\nthe\tdogs\ttook\tand\tquickly\tlaid\ton\tthe\ttrestle-tables.\tThese\nwere\t very\t low,\t low\t enough\t even\t for\t Bilbo\t to\t sit\t at\ncomfortably.\tBeside\tthem\ta\tpony\tpushed\ttwo\tlow-seated\nbenches\twith\twide\trush-bottoms\tand\tlittle\tshort\tthick\tlegs\nfor\t Gandalf\t and\t Thorin,\t while\t at\t the\t far\t end\t he\t put\nBeorn\u2019s\tbig\tblack\tchair\tof\tthe\tsame\tsort\t(in\twhich\the\tsat\nwith\t his\t great\t legs\t stuck\t far\t out\t under\t the\t table).\t These\nwere\tall\tthe\tchairs\the\thad\tin\this\thall,\tand\the\tprobably\thad\nthem\t low\t like\t the\t tables\t for\t the\t convenience\t of\t the\nwonderful\tanimals\tthat\twaited\ton\thim.\tWhat\tdid\tthe\trest\nsit\ton?\tThey\twere\tnot\tforgotten.\tThe\tother\tponies\tcame\tin\nrolling\tround\tdrum-shaped\tsections\tof\tlogs,\tsmoothed\tand\npolished,\t and\t low\t enough\t even\t for\t Bilbo;\t so\t soon\t they\nwere\tall\tseated\tat\tBeorn\u2019s\ttable,\tand\tthe\thall\thad\tnot\tseen\nsuch\ta\tgathering\tfor\tmany\ta\tyear.\nThere\tthey\thad\ta\tsupper,\tor\ta\tdinner,\tsuch\tas\tthey\thad\nnot\t had\t since\t they\t left\t the\t Last\t Homely\t House\t in\t the\nWest\t and\t said\t good-bye\t to\t Elrond.\t The\t light\t of\t the\ntorches\tand\tthe\tfire\tflickered\tabout\tthem,\tand\ton\tthe\ttable\nwere\ttwo\ttall\tred\tbeeswax\tcandles.\tAll\tthe\ttime\tthey\tate,\nBeorn\tin\this\tdeep\trolling\tvoice\ttold\ttales\tof\tthe\twild\tlands\non\tthis\tside\tof\tthe\tmountains,\tand\tespecially\tof\tthe\tdark\nand\t dangerous\t wood,\t that\t lay\t outstretched\t far\t to\t North\nand\tSouth\ta\tday\u2019s\tride\tbefore\tthem,\tbarring\ttheir\tway\tto\nthe\tEast,\tthe\tterrible\tforest\tof\tMirkwood.\nThe\tdwarves\tlistened\tand\tshook\ttheir\tbeards,\tfor\tthey\nknew\tthat\tthey\tmust\tsoon\tventure\tinto\tthat\tforest\tand\tthat\nafter\tthe\tmountains\tit\twas\tthe\tworst\tof\tthe\tperils\tthey\thad\nto\t pass\t before\t they\t came\t to\t the\t dragon\u2019s\t stronghold.\nWhen\t dinner\t was\t over\t they\t began\t to\t tell\t tales\t of\t their\nown,\t but\t Beorn\t seemed\t to\t be\t growing\t drowsy\t and\t paid\nlittle\t heed\t to\t them.\t They\t spoke\t most\t of\t gold\t and\t silver\nand\tjewels\tand\tthe\tmaking\tof\tthings\tby\tsmith-craft,\tand\nBeorn\tdid\tnot\tappear\tto\tcare\tfor\tsuch\tthings:\tthere\twere\nno\tthings\tof\tgold\tor\tsilver\tin\this\thall,\tand\tfew\tsave\tthe\nknives\twere\tmade\tof\tmetal\tat\tall.\nThey\tsat\tlong\tat\tthe\ttable\twith\ttheir\twooden\tdrinking-",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 4.31537020878728,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 126,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2189,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_person",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "person",
+        "start": 157,
+        "end": 162,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "These\nwere\tall\tthe\tchairs\the\thad\tin\this\thall,\tand\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "When\t dinner\t was\t over\t they\t began\t to\t tell\t ta..."
+          },
+          {
+            "type": "participated_in",
+            "target": "They\t spoke\t most\t of\t gold\t and\t silver\nand\tjewel..."
+          }
+        ]
+      },
+      {
+        "name": "Beorn",
+        "type": "person",
+        "start": 351,
+        "end": 356,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "These\nwere\tall\tthe\tchairs\the\thad\tin\this\thall,\tand\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "When\t dinner\t was\t over\t they\t began\t to\t tell\t ta..."
+          },
+          {
+            "type": "participated_in",
+            "target": "They\t spoke\t most\t of\t gold\t and\t silver\nand\tjewel..."
+          }
+        ]
+      },
+      {
+        "name": "House",
+        "type": "organization",
+        "start": 1029,
+        "end": 1034,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "These\nwere\tall\tthe\tchairs\the\thad\tin\this\thall,\tand\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "When\t dinner\t was\t over\t they\t began\t to\t tell\t ta..."
+          },
+          {
+            "type": "participated_in",
+            "target": "They\t spoke\t most\t of\t gold\t and\t silver\nand\tjewel..."
+          }
+        ]
+      },
+      {
+        "name": "Mirkwood",
+        "type": "organization",
+        "start": 1494,
+        "end": 1502,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "These\nwere\tall\tthe\tchairs\the\thad\tin\this\thall,\tand\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "When\t dinner\t was\t over\t they\t began\t to\t tell\t ta..."
+          },
+          {
+            "type": "participated_in",
+            "target": "They\t spoke\t most\t of\t gold\t and\t silver\nand\tjewel..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "These\nwere\tall\tthe\tchairs\the\thad\tin\this\thall,\tand\t...",
+        "description": "These\nwere\tall\tthe\tchairs\the\thad\tin\this\thall,\tand\the\tprobably\thad\nthem\t low\t like\t the\t tables\t for\t the\t convenience\t of\t the\nwonderful\tanimals\tthat\twaited\ton\thim.\t",
+        "start": 471,
+        "end": 636,
+        "participants": [
+          "Bilbo",
+          "Beorn",
+          "House",
+          "Mirkwood"
+        ],
+        "location": "Bilbo",
+        "time": null
+      },
+      {
+        "name": "When\t dinner\t was\t over\t they\t began\t to\t tell\t ta...",
+        "description": "When\t dinner\t was\t over\t they\t began\t to\t tell\t tales\t of\t their\nown,\t but\t Beorn\t seemed\t to\t be\t growing\t drowsy\t and\t paid\nlittle\t heed\t to\t them.\t ",
+        "start": 1738,
+        "end": 1889,
+        "participants": [
+          "Bilbo",
+          "Beorn",
+          "House",
+          "Mirkwood"
+        ],
+        "location": "Bilbo",
+        "time": null
+      },
+      {
+        "name": "They\t spoke\t most\t of\t gold\t and\t silver\nand\tjewel...",
+        "description": "They\t spoke\t most\t of\t gold\t and\t silver\nand\tjewels\tand\tthe\tmaking\tof\tthings\tby\tsmith-craft,\tand\nBeorn\tdid\tnot\tappear\tto\tcare\tfor\tsuch\tthings:\tthere\twere\nno\tthings\tof\tgold\tor\tsilver\tin\this\thall,\tand\tfew\tsave\tthe\nknives\twere\tmade\tof\tmetal\tat\tall.\n",
+        "start": 1889,
+        "end": 2135,
+        "participants": [
+          "Bilbo",
+          "Beorn",
+          "House",
+          "Mirkwood"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 809,
+        "end": 814,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "These\nwere\tall\tthe\tchairs\the\thad\tin\this\thall,\tand\t..."
+          },
+          {
+            "type": "hosted",
+            "target": "When\t dinner\t was\t over\t they\t began\t to\t tell\t ta..."
+          },
+          {
+            "type": "hosted",
+            "target": "They\t spoke\t most\t of\t gold\t and\t silver\nand\tjewel..."
+          }
+        ]
+      },
+      {
+        "name": "North",
+        "type": "geographical",
+        "start": 1398,
+        "end": 1403,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "South",
+        "type": "geographical",
+        "start": 1408,
+        "end": 1413,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "East",
+        "type": "geographical",
+        "start": 1465,
+        "end": 1469,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745715406.163019,
+  "has_embedding": true
+}

@@ -1,0 +1,186 @@
+{
+  "id": "d523457e-be82-4fc0-9952-fd68d604854d",
+  "content": "Dump\tthe\tcrocks\tin\ta\tboiling\tbowl;\nPound\tthem\tup\twith\ta\tthumping\tpole;\nAnd\twhen\tyou\u2019ve\tfinished,\tif\tany\tare\twhole,\nSend\tthem\tdown\tthe\thall\tto\troll!\nThat\u2019s\twhat\tBilbo\tBaggins\thates!\nSo,\tcarefully!\tcarefully\twith\tthe\tplates!\nAnd\tof\tcourse\tthey\tdid\tnone\tof\tthese\tdreadful\tthings,\nand\teverything\twas\tcleaned\tand\tput\taway\tsafe\tas\tquick\tas\nlightning,\twhile\tthe\thobbit\twas\tturning\tround\tand\tround\nin\tthe\tmiddle\tof\tthe\tkitchen\ttrying\tto\tsee\twhat\tthey\twere\ndoing.\t Then\t they\t went\t back,\t and\t found\t Thorin\t with\t his\nfeet\t on\t the\t fender\t smoking\t a\t pipe.\t He\t was\t blowing\t the\nmost\tenormous\tsmoke-rings,\tand\twherever\the\ttold\tone\tto\ngo,\tit\twent\u2014up\tthe\tchimney,\tor\tbehind\tthe\tclock\ton\tthe\nmantelpiece,\t or\t under\t the\t table,\t or\t round\t and\t round\t the\nceiling;\tbut\twherever\tit\twent\tit\twas\tnot\tquick\tenough\tto\nescape\tGandalf.\tPop!\the\tsent\ta\tsmaller\tsmoke-ring\tfrom\nhis\tshort\tclay-pipe\tstraight\tthrough\teach\tone\tof\tThorin\u2019s.\nThen\t Gandalf\u2019s\t smoke-ring\t would\t go\t green\t and\t come\nback\tto\thover\tover\tthe\twizard\u2019s\thead.\tHe\thad\ta\tcloud\tof\nthem\tabout\thim\talready,\tand\tin\tthe\tdim\tlight\tit\tmade\thim\nlook\tstrange\tand\tsorcerous.\tBilbo\tstood\tstill\tand\twatched\n\u2014he\t loved\t smoke-rings\u2014and\t then\t he\t blushed\t to\t think\nhow\tproud\the\thad\tbeen\tyesterday\tmorning\tof\tthe\tsmoke-\nrings\the\thad\tsent\tup\tthe\twind\tover\tThe\tHill.\n\u201cNow\t for\t some\t music!\u201d\t said\t Thorin.\t \u201cBring\t out\t the\ninstruments!\u201d\nKili\t and\t Fili\t rushed\t for\t their\t bags\t and\t brought\t back\nlittle\tfiddles;\tDori,\tNori,\tand\tOri\tbrought\tout\tflutes\tfrom\nsomewhere\t inside\t their\t coats;\t Bombur\t produced\t a\t drum\nfrom\t the\t hall;\t Bifur\t and\t Bofur\t went\t out\t too,\t and\t came\nback\twith\tclarinets\tthat\tthey\thad\tleft\tamong\tthe\twalking-\nsticks.\tDwalin\tand\tBalin\tsaid:\t\u201cExcuse\tme,\tI\tleft\tmine\tin\nthe\t porch!\u201d\t \u201cJust\t bring\t mine\t in\t with\t you!\u201d\t said\t Thorin.",
+  "coordinates": {
+    "r": 5.49,
+    "theta": 3.4443636455795095,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 17,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1804,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_facility",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 160,
+        "end": 165,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Baggins",
+        "type": "facility",
+        "start": 166,
+        "end": 173,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Thorin",
+        "type": "group",
+        "start": 493,
+        "end": 499,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Gandalf",
+        "type": "group",
+        "start": 814,
+        "end": 821,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Hill",
+        "type": "organization",
+        "start": 1300,
+        "end": 1304,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Kili",
+        "type": "person",
+        "start": 1378,
+        "end": 1382,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Nori",
+        "type": "person",
+        "start": 1462,
+        "end": 1466,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Ori",
+        "type": "organization",
+        "start": 1472,
+        "end": 1475,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bombur",
+        "type": "administrative",
+        "start": 1534,
+        "end": 1540,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bifur",
+        "type": "person",
+        "start": 1578,
+        "end": 1583,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bofur",
+        "type": "administrative",
+        "start": 1590,
+        "end": 1595,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Dwalin",
+        "type": "administrative",
+        "start": 1690,
+        "end": 1696,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Balin",
+        "type": "group",
+        "start": 1701,
+        "end": 1706,
+        "mentions": 1,
+        "relationships": []
+      }
+    ],
+    "events": [],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 160,
+        "end": 165,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Baggins",
+        "type": "facility",
+        "start": 166,
+        "end": 173,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bombur",
+        "type": "administrative",
+        "start": 1534,
+        "end": 1540,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bofur",
+        "type": "administrative",
+        "start": 1590,
+        "end": 1595,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Dwalin",
+        "type": "administrative",
+        "start": 1690,
+        "end": 1696,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745715397.9118695,
+  "has_embedding": true
+}

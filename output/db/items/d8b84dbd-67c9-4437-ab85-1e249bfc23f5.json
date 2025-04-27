@@ -1,0 +1,106 @@
+{
+  "id": "d8b84dbd-67c9-4437-ab85-1e249bfc23f5",
+  "content": "bow.\tBard\tis\the,\tof\tthe\trace\tof\tDale,\tof\tthe\tline\tof\tGirion;\nhe\tis\ta\tgrim\tman\tbut\ttrue.\tWe\twould\tsee\tpeace\tonce\tmore\namong\t dwarves\t and\t men\t and\t elves\t after\t the\t long\ndesolation;\t but\t it\t may\t cost\t you\t dear\t in\t gold.\t I\t have\nspoken.\u201d\nThen\t Thorin\t burst\t forth\t in\t anger:\t \u201cOur\t thanks,\t Ro\u00e4c\nCarc\u2019s\tson.\tYou\tand\tyour\tpeople\tshall\tnot\tbe\tforgotten.\nBut\t none\t of\t our\t gold\t shall\t thieves\t take\t or\t the\t violent\ncarry\toff\twhile\twe\tare\talive.\tIf\tyou\twould\tearn\tour\tthanks\nstill\t more,\t bring\t us\t news\t of\t any\t that\t draw\t near.\t Also\t I\nwould\tbeg\tof\tyou,\tif\tany\tof\tyou\tare\tstill\tyoung\tand\tstrong\nof\twing,\tthat\tyou\twould\tsend\tmessengers\tto\tour\tkin\tin\tthe\nmountains\tof\tthe\tNorth,\tboth\twest\tfrom\there\tand\teast,\tand\ntell\t them\t of\t our\t plight.\t But\t go\t specially\t to\t my\t cousin\nDain\t in\t the\t Iron\t Hills,\t for\t he\t has\t many\t people\t well-\narmed,\tand\tdwells\tnearest\tto\tthis\tplace.\tBid\thim\thasten!\u201d\n\u201cI\twill\tnot\tsay\tif\tthis\tcounsel\tbe\tgood\tor\tbad,\u201d\tcroaked\nRo\u00e4c,\t \u201cbut\t I\t will\t do\t what\t can\t be\t done.\u201d\t Then\t off\t he\nslowly\tflew.\n\u201cBack\tnow\tto\tthe\tMountain!\u201d\tcried\tThorin.\t\u201cWe\thave\nlittle\ttime\tto\tlose.\u201d\n\u201cAnd\tlittle\tfood\tto\tuse!\u201d\tcried\tBilbo,\talways\tpractical\non\tsuch\tpoints.\tIn\tany\tcase\the\tfelt\tthat\tthe\tadventure\twas,\nproperly\tspeaking,\tover\twith\tthe\tdeath\tof\tthe\tdragon\u2014in\nwhich\the\twas\tmuch\tmistaken\u2014and\the\twould\thave\tgiven\nmost\tof\this\tshare\tof\tthe\tprofits\tfor\tthe\tpeaceful\twinding\nup\tof\tthese\taffairs.\n\u201cBack\tto\tthe\tMountain!\u201d\tcried\tthe\tdwarves\tas\tif\tthey\nhad\tnot\theard\thim;\tso\tback\the\thad\tto\tgo\twith\tthem.\nAs\tyou\thave\theard\tsome\tof\tthe\tevents\talready,\tyou\twill\nsee\t that\t the\t dwarves\t still\t had\t some\t days\t before\t them.\nThey\texplored\tthe\tcaverns\tonce\tmore,\tand\tfound,\tas\tthey\nexpected,\tthat\tonly\tthe\tFront\tGate\tremained\topen;\tall\tthe\nother\tgates\t(except,\tof\tcourse,\tthe\tsmall\tsecret\tdoor)\thad\nlong\tago\tbeen\tbroken\tand\tblocked\tby\tSmaug,\tand\tno\tsign",
+  "coordinates": {
+    "r": 5.3275,
+    "theta": 3.49659262344544,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 253,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1869,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Dale",
+        "type": "organization",
+        "start": 32,
+        "end": 36,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bid",
+        "type": "person",
+        "start": 895,
+        "end": 898,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 1150,
+        "end": 1155,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Front\tGate",
+        "type": "organization",
+        "start": 1722,
+        "end": 1732,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Smaug",
+        "type": "administrative",
+        "start": 1851,
+        "end": 1856,
+        "mentions": 1,
+        "relationships": []
+      }
+    ],
+    "events": [],
+    "locations": [
+      {
+        "name": "North",
+        "type": "geographical",
+        "start": 685,
+        "end": 690,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 1150,
+        "end": 1155,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Smaug",
+        "type": "administrative",
+        "start": 1851,
+        "end": 1856,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745709016.0384107,
+  "has_embedding": true
+}

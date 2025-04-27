@@ -1,0 +1,114 @@
+{
+  "id": "8e6940ed-98ff-4926-9e29-6811d0e36943",
+  "content": "me\twhat\tyou\twant\tdone,\tand\tI\twill\ttry\tit,\tif\tI\thave\tto\twalk\nfrom\t here\t to\t the\t East\t of\t East\t and\t fight\t the\t wild\t Were-\nworms\tin\tthe\tLast\tDesert.\tI\thad\ta\tgreat-great-great-grand-\nuncle\tonce,\tBullroarer\tTook,\tand\u2014\u201d\n\u201cYes,\tyes,\tbut\tthat\twas\tlong\tago,\u201d\tsaid\tGloin.\t\u201cI\twas\ntalking\t about\t\nyou\n.\t And\t I\t assure\t you\t there\t is\t a\t mark\t on\nthis\t door\u2014the\t usual\t one\t in\t the\t trade,\t or\t used\t to\t be.\nBurglar\t wants\t a\t good\t job,\t plenty\t of\t Excitement\t and\nreasonable\tReward\n,\tthat\u2019s\thow\tit\tis\tusually\tread.\tYou\tcan\nsay\t\nExpert\tTreasure-hunter\n\tinstead\tof\t\nBurglar\n\tif\tyou\tlike.\nSome\tof\tthem\tdo.\tIt\u2019s\tall\tthe\tsame\tto\tus.\tGandalf\ttold\tus\nthat\tthere\twas\ta\tman\tof\tthe\tsort\tin\tthese\tparts\tlooking\tfor\na\tJob\tat\tonce,\tand\tthat\the\thad\tarranged\tfor\ta\tmeeting\there\nthis\tWednesday\ttea-time.\u201d\n\u201cOf\t course\t there\t is\t a\t mark,\u201d\t said\t Gandalf.\t \u201cI\t put\t it\nthere\t myself.\t For\t very\t good\t reasons.\t You\t asked\t me\t to\nfind\tthe\tfourteenth\tman\tfor\tyour\texpedition,\tand\tI\tchose\nMr.\tBaggins.\tJust\tlet\tany\tone\tsay\tI\tchose\tthe\twrong\tman\nor\tthe\twrong\thouse,\tand\tyou\tcan\tstop\tat\tthirteen\tand\thave\nall\tthe\tbad\tluck\tyou\tlike,\tor\tgo\tback\tto\tdigging\tcoal.\u201d\nHe\tscowled\tso\tangrily\tat\tGloin\tthat\tthe\tdwarf\thuddled\nback\tin\this\tchair;\tand\twhen\tBilbo\ttried\tto\topen\this\tmouth\nto\task\ta\tquestion,\the\tturned\tand\tfrowned\tat\thim\tand\tstuck\nout\t his\t bushy\t eyebrows,\t till\t Bilbo\t shut\t his\t mouth\t tight\nwith\ta\tsnap.\t\u201cThat\u2019s\tright,\u201d\tsaid\tGandalf.\t\u201cLet\u2019s\thave\tno\nmore\targument.\tI\thave\tchosen\tMr.\tBaggins\tand\tthat\tought\nto\t be\t enough\t for\t all\t of\t you.\t If\t I\t say\t he\t is\t a\t Burglar,\t a\nBurglar\the\tis,\tor\twill\tbe\twhen\tthe\ttime\tcomes.\tThere\tis\ta\nlot\tmore\tin\thim\tthan\tyou\tguess,\tand\ta\tdeal\tmore\tthan\the\nhas\t any\t idea\t of\t himself.\t You\t may\t (possibly)\t all\t live\t to\nthank\t me\t yet.\t Now\t Bilbo,\t my\t boy,\t fetch\t the\t lamp,\t and\nlet\u2019s\thave\ta\tlittle\tlight\ton\tthis!\u201d\nOn\tthe\ttable\tin\tthe\tlight\tof\ta\tbig\tlamp\twith\ta\tred\tshade\nhe\tspread\ta\tpiece\tof\tparchment\trather\tlike\ta\tmap.\n\u201cThis\t was\t made\t by\t Thror,\t your\t grandfather,\t Thorin,\u201d\nhe\tsaid\tin\tanswer\tto\tthe\tdwarves\u2019\texcited\tquestions.\t\u201cIt\tis\na\tplan\tof\tthe\tMountain.\u201d\n\u201cI\tdon\u2019t\tsee\tthat\tthis\twill\thelp\tus\tmuch,\u201d\tsaid\tThorin",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 0.23679754626433064,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 23,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2144,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bullroarer",
+        "type": "person",
+        "start": 197,
+        "end": 207,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Gloin",
+        "type": "organization",
+        "start": 260,
+        "end": 265,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Burglar",
+        "type": "organization",
+        "start": 404,
+        "end": 411,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Gandalf",
+        "type": "group",
+        "start": 627,
+        "end": 634,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Baggins",
+        "type": "person",
+        "start": 974,
+        "end": 981,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 1222,
+        "end": 1227,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Thorin",
+        "type": "group",
+        "start": 2138,
+        "end": 2144,
+        "mentions": 1,
+        "relationships": []
+      }
+    ],
+    "events": [],
+    "locations": [
+      {
+        "name": "East",
+        "type": "geographical",
+        "start": 81,
+        "end": 85,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 1222,
+        "end": 1227,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745773069.0132825,
+  "has_embedding": true
+}

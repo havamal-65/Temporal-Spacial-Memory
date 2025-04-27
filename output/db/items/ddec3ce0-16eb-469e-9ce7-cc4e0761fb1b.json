@@ -1,0 +1,106 @@
+{
+  "id": "ddec3ce0-16eb-469e-9ce7-cc4e0761fb1b",
+  "content": "Chapter\n\tXII\nINSIDE\tINFORMATION\nFor\ta\tlong\ttime\tthe\tdwarves\tstood\tin\tthe\tdark\tbefore\tthe\ndoor\tand\tdebated,\tuntil\tat\tlast\tThorin\tspoke:\n\u201cNow\tis\tthe\ttime\tfor\tour\testeemed\tMr.\tBaggins,\twho\nhas\tproved\thimself\ta\tgood\tcompanion\ton\tour\tlong\troad,\nand\t a\t hobbit\t full\t of\t courage\t and\t resource\t far\t exceeding\nhis\tsize,\tand\tif\tI\tmay\tsay\tso\tpossessed\tof\tgood\tluck\tfar\nexceeding\tthe\tusual\tallowance\u2014now\tis\tthe\ttime\tfor\thim\nto\tperform\tthe\tservice\tfor\twhich\the\twas\tincluded\tin\tour\nCompany;\tnow\tis\tthe\ttime\tfor\thim\tto\tearn\this\tReward.\u201d\nYou\t are\t familiar\t with\t Thorin\u2019s\t style\t on\t important\noccasions,\tso\tI\twill\tnot\tgive\tyou\tany\tmore\tof\tit,\tthough\the\nwent\ton\ta\tgood\tdeal\tlonger\tthan\tthis.\tIt\tcertainly\twas\tan\nimportant\toccasion,\tbut\tBilbo\tfelt\timpatient.\tBy\tnow\the\nwas\tquite\tfamiliar\twith\tThorin\ttoo,\tand\the\tknew\twhat\the\nwas\tdriving\tat.\n\u201cIf\tyou\tmean\tyou\tthink\tit\tis\tmy\tjob\tto\tgo\tinto\tthe\tsecret\npassage\t first,\t O\t Thorin\t Thrain\u2019s\t son\t Oakenshield,\t may\nyour\tbeard\tgrow\tever\tlonger,\u201d\the\tsaid\tcrossly,\t\u201csay\tso\tat\nonce\tand\thave\tdone!\tI\tmight\trefuse.\tI\thave\tgot\tyou\tout\tof\ntwo\t messes\t already,\t which\t were\t hardly\t in\t the\t original\nbargain,\tso\tthat\tI\tam,\tI\tthink,\talready\towed\tsome\treward.\nBut\t\u2018third\ttime\tpays\tfor\tall\u2019\tas\tmy\tfather\tused\tto\tsay,\tand\nsomehow\t I\t don\u2019t\t think\t I\t shall\t refuse.\t Perhaps\t I\t have",
+  "coordinates": {
+    "r": 6.737500000000001,
+    "theta": 3.356791750360694,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 207,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1305,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Thorin",
+        "type": "group",
+        "start": 121,
+        "end": 127,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Baggins",
+        "type": "person",
+        "start": 173,
+        "end": 180,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Reward",
+        "type": "administrative",
+        "start": 517,
+        "end": 523,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 725,
+        "end": 730,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Oakenshield",
+        "type": "administrative",
+        "start": 930,
+        "end": 941,
+        "mentions": 1,
+        "relationships": []
+      }
+    ],
+    "events": [],
+    "locations": [
+      {
+        "name": "Reward",
+        "type": "administrative",
+        "start": 517,
+        "end": 523,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 725,
+        "end": 730,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Oakenshield",
+        "type": "administrative",
+        "start": 930,
+        "end": 941,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745773097.5936844,
+  "has_embedding": true
+}

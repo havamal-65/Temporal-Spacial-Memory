@@ -1,0 +1,164 @@
+{
+  "id": "c693b8bb-38f6-45b9-a37b-72834bd6c3d0",
+  "content": "he\tcould.\t\u201cYer\tcan\u2019t\texpect\tfolk\tto\tstop\there\tfor\tever\tjust\nto\tbe\tet\tby\tyou\tand\tBert.\tYou\u2019ve\tet\ta\tvillage\tand\ta\thalf\nbetween\t yer,\t since\t we\t come\t down\t from\t the\t mountains.\nHow\t much\t more\t d\u2019yer\t want?\t And\t time\u2019s\t been\t up\t our\nway,\twhen\tyer\u2019d\thave\tsaid\t\u2018thank\tyer\tBill\u2019\tfor\ta\tnice\tbit\no\u2019\tfat\tvalley\tmutton\tlike\twhat\tthis\tis.\u201d\tHe\ttook\ta\tbig\tbite\noff\ta\tsheep\u2019s\tleg\the\twas\troasting,\tand\twiped\this\tlips\ton\nhis\tsleeve.\nYes,\tI\tam\tafraid\ttrolls\tdo\tbehave\tlike\tthat,\teven\tthose\nwith\t only\t one\t head\t each.\t After\t hearing\t all\t this\t Bilbo\nought\tto\thave\tdone\tsomething\tat\tonce.\tEither\the\tshould\nhave\tgone\tback\tquietly\tand\twarned\this\tfriends\tthat\tthere\nwere\tthree\tfair-sized\ttrolls\tat\thand\tin\ta\tnasty\tmood,\tquite\nlikely\tto\ttry\troasted\tdwarf,\tor\teven\tpony,\tfor\ta\tchange;\tor\nelse\the\tshould\thave\tdone\ta\tbit\tof\tgood\tquick\tburgling.\tA\nreally\tfirst-class\tand\tlegendary\tburglar\twould\tat\tthis\tpoint\nhave\tpicked\tthe\ttrolls\u2019\tpockets\u2014it\tis\tnearly\talways\tworth\nwhile,\tif\tyou\tcan\tmanage\tit\u2014,\tpinched\tthe\tvery\tmutton\noff\tthe\tspits,\tpurloined\tthe\tbeer,\tand\twalked\toff\twithout\ntheir\t noticing\t him.\t Others\t more\t practical\t but\t with\t less\nprofessional\tpride\twould\tperhaps\thave\tstuck\ta\tdagger\tinto\neach\t of\t them\t before\t they\t observed\t it.\t Then\t the\t night\ncould\thave\tbeen\tspent\tcheerily.\nBilbo\tknew\tit.\tHe\thad\tread\tof\ta\tgood\tmany\tthings\the\nhad\t never\t seen\t or\t done.\t He\t was\t very\t much\t alarmed,\t as\nwell\t as\t disgusted;\t he\t wished\t himself\t a\t hundred\t miles\naway,\tand\tyet\u2014and\tyet\tsomehow\the\tcould\tnot\tgo\tstraight\nback\tto\tThorin\tand\tCompany\temptyhanded.\tSo\the\tstood\nand\thesitated\tin\tthe\tshadows.\tOf\tthe\tvarious\tburglarious\nproceedings\t he\t had\t heard\t of\t picking\t the\t trolls\u2019\t pockets\nseemed\tthe\tleast\tdifficult,\tso\tat\tlast\the\tcrept\tbehind\ta\ttree\njust\tbehind\tWilliam.\nBert\t and\t Tom\t went\t off\t to\t the\t barrel.\t William\t was\nhaving\tanother\tdrink.\tThen\tBilbo\tplucked\tup\tcourage\tand\nput\t his\t little\t hand\t in\t William\u2019s\t enormous\t pocket.\t There\nwas\ta\tpurse\tin\tit,\tas\tbig\tas\ta\tbag\tto\tBilbo.\t\u201cHa!\u201d\tthought\nhe,\twarming\tto\this\tnew\twork\tas\the\tlifted\tit\tcarefully\tout,\n\u201cthis\tis\ta\tbeginning!\u201d",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 0.17043140145724628,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 39,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2082,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_person",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bert",
+        "type": "person",
+        "start": 80,
+        "end": 84,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "After\t hearing\t all\t this\t Bilbo\nought\tto\thave\tdon..."
+          }
+        ]
+      },
+      {
+        "name": "Bill",
+        "type": "person",
+        "start": 272,
+        "end": 276,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "After\t hearing\t all\t this\t Bilbo\nought\tto\thave\tdon..."
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 535,
+        "end": 540,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "After\t hearing\t all\t this\t Bilbo\nought\tto\thave\tdon..."
+          }
+        ]
+      },
+      {
+        "name": "Thorin",
+        "type": "group",
+        "start": 1516,
+        "end": 1522,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "After\t hearing\t all\t this\t Bilbo\nought\tto\thave\tdon..."
+          }
+        ]
+      },
+      {
+        "name": "William",
+        "type": "person",
+        "start": 1755,
+        "end": 1762,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "After\t hearing\t all\t this\t Bilbo\nought\tto\thave\tdon..."
+          }
+        ]
+      },
+      {
+        "name": "Tom",
+        "type": "person",
+        "start": 1775,
+        "end": 1778,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "After\t hearing\t all\t this\t Bilbo\nought\tto\thave\tdon..."
+          }
+        ]
+      },
+      {
+        "name": "William\u2019s",
+        "type": "person",
+        "start": 1906,
+        "end": 1915,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "After\t hearing\t all\t this\t Bilbo\nought\tto\thave\tdon..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "After\t hearing\t all\t this\t Bilbo\nought\tto\thave\tdon...",
+        "description": "After\t hearing\t all\t this\t Bilbo\nought\tto\thave\tdone\tsomething\tat\tonce.\t",
+        "start": 508,
+        "end": 579,
+        "participants": [
+          "Bert",
+          "Bill",
+          "Bilbo",
+          "Thorin",
+          "William",
+          "Tom",
+          "William\u2019s"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 535,
+        "end": 540,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "After\t hearing\t all\t this\t Bilbo\nought\tto\thave\tdon..."
+          }
+        ]
+      }
+    ]
+  },
+  "timestamp": 1745715399.6145864,
+  "has_embedding": true
+}

@@ -1,0 +1,232 @@
+{
+  "id": "98710b4c-6645-4058-8c7d-aa034dad12b9",
+  "content": "him,\tcursing\tand\twhispering\tas\the\tran.\nWhat\t could\t it\t mean?\t Gollum\t could\t see\t in\t the\t dark.\nBilbo\tcould\tsee\tthe\tlight\tof\this\teyes\tpalely\tshining\teven\nfrom\tbehind.\tPainfully\the\tgot\tup,\tand\tsheathed\this\tsword,\nwhich\t was\t now\t glowing\t faintly\t again,\t then\t very\ncautiously\the\tfollowed.\tThere\tseemed\tnothing\telse\tto\tdo.\nIt\t was\t no\t good\t crawling\t back\t down\t to\t Gollum\u2019s\t water.\nPerhaps\t if\t he\t followed\t him,\t Gollum\t might\t lead\t him\t to\nsome\tway\tof\tescape\twithout\tmeaning\tto.\n\u201cCurse\tit!\tcurse\tit!\tcurse\tit!\u201d\thissed\tGollum.\t\u201cCurse\tthe\nBaggins!\tIt\u2019s\tgone!\tWhat\thas\tit\tgot\tin\tits\tpocketses?\tOh\nwe\t guess,\t we\t guess,\t my\t precious.\t He\u2019s\t found\t it,\t yes\t he\nmust\thave.\tMy\tbirthday-present.\u201d\nBilbo\tpricked\tup\this\tears.\tHe\twas\tat\tlast\tbeginning\tto\nguess\t himself.\t He\t hurried\t a\t little,\t getting\t as\t close\t as\t he\ndared\t behind\t Gollum,\t who\t was\t still\t going\t quickly,\t not\nlooking\t back,\t but\t turning\t his\t head\t from\t side\t to\t side,\t as\nBilbo\tcould\tsee\tfrom\tthe\tfaint\tglimmer\ton\tthe\twalls.\n\u201cMy\tbirthday-present!\tCurse\tit!\tHow\tdid\twe\tlose\tit,\tmy\nprecious?\t Yes,\t that\u2019s\t it.\t When\t we\t came\t this\t way\t last,\nwhen\t we\t twisted\t that\t nassty\t young\t squeaker.\t That\u2019s\t it.\nCurse\tit!\tIt\tslipped\tfrom\tus,\tafter\tall\tthese\tages\tand\tages!\nIt\u2019s\tgone,\tgollum.\u201d\nSuddenly\t Gollum\t sat\t down\t and\t began\t to\t weep,\t a\nwhistling\tand\tgurgling\tsound\thorrible\tto\tlisten\tto.\tBilbo\nhalted\tand\tflattened\thimself\tagainst\tthe\ttunnel-wall.\tAfter\na\t while\t Gollum\t stopped\t weeping\t and\t began\t to\t talk.\t He\nseemed\tto\tbe\thaving\tan\targument\twith\thimself.\n\u201cIt\u2019s\t no\t good\t going\t back\t there\t to\t search,\t no.\t We\ndoesn\u2019t\t remember\t all\t the\t places\t we\u2019ve\t visited.\t And\t it\u2019s\nno\tuse.\tThe\tBaggins\thas\tgot\tit\tin\tits\tpocketses;\tthe\tnassty\nnoser\thas\tfound\tit,\twe\tsays.\u201d\n\u201cWe\t guesses,\t precious,\t only\t guesses.\t We\t can\u2019t\t know\ntill\t we\t find\t the\t nassty\t creature\t and\t squeezes\t it.\t But\t it\ndoesn\u2019t\tknow\twhat\tthe\tpresent\tcan\tdo,\tdoes\tit?\tIt\u2019ll\tjust\nkeep\tit\tin\tits\tpocketses.\tIt\tdoesn\u2019t\tknow,\tand\tit\tcan\u2019t\tgo\nfar.\tIt\u2019s\tlost\titself,\tthe\tnassty\tnosey\tthing.\tIt\tdoesn\u2019t\tknow\nthe\tway\tout.\tIt\tsaid\tso.\u201d",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 5.102339168511523,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 86,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2091,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_person",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "person",
+        "start": 98,
+        "end": 103,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Suddenly\t Gollum\t sat\t down\t and\t began\t to\t weep,..."
+          },
+          {
+            "type": "participated_in",
+            "target": "After\na\t while\t Gollum\t stopped\t weeping\t and\t beg..."
+          },
+          {
+            "type": "participated_in",
+            "target": "We\ndoesn\u2019t\t remember\t all\t the\t places\t we\u2019ve\t vis..."
+          },
+          {
+            "type": "participated_in",
+            "target": "It\u2019s\tlost\titself,\tthe\tnassty\tnosey\tthing.\t"
+          }
+        ]
+      },
+      {
+        "name": "Gollum",
+        "type": "organization",
+        "start": 527,
+        "end": 533,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Suddenly\t Gollum\t sat\t down\t and\t began\t to\t weep,..."
+          },
+          {
+            "type": "participated_in",
+            "target": "After\na\t while\t Gollum\t stopped\t weeping\t and\t beg..."
+          },
+          {
+            "type": "participated_in",
+            "target": "We\ndoesn\u2019t\t remember\t all\t the\t places\t we\u2019ve\t vis..."
+          },
+          {
+            "type": "participated_in",
+            "target": "It\u2019s\tlost\titself,\tthe\tnassty\tnosey\tthing.\t"
+          }
+        ]
+      },
+      {
+        "name": "Curse",
+        "type": "person",
+        "start": 1029,
+        "end": 1034,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Suddenly\t Gollum\t sat\t down\t and\t began\t to\t weep,..."
+          },
+          {
+            "type": "participated_in",
+            "target": "After\na\t while\t Gollum\t stopped\t weeping\t and\t beg..."
+          },
+          {
+            "type": "participated_in",
+            "target": "We\ndoesn\u2019t\t remember\t all\t the\t places\t we\u2019ve\t vis..."
+          },
+          {
+            "type": "participated_in",
+            "target": "It\u2019s\tlost\titself,\tthe\tnassty\tnosey\tthing.\t"
+          }
+        ]
+      },
+      {
+        "name": "Baggins",
+        "type": "facility",
+        "start": 1683,
+        "end": 1690,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Suddenly\t Gollum\t sat\t down\t and\t began\t to\t weep,..."
+          },
+          {
+            "type": "participated_in",
+            "target": "After\na\t while\t Gollum\t stopped\t weeping\t and\t beg..."
+          },
+          {
+            "type": "participated_in",
+            "target": "We\ndoesn\u2019t\t remember\t all\t the\t places\t we\u2019ve\t vis..."
+          },
+          {
+            "type": "participated_in",
+            "target": "It\u2019s\tlost\titself,\tthe\tnassty\tnosey\tthing.\t"
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "Suddenly\t Gollum\t sat\t down\t and\t began\t to\t weep,...",
+        "description": "Suddenly\t Gollum\t sat\t down\t and\t began\t to\t weep,\t a\nwhistling\tand\tgurgling\tsound\thorrible\tto\tlisten\tto.\t",
+        "start": 1269,
+        "end": 1375,
+        "participants": [
+          "Bilbo",
+          "Gollum",
+          "Curse",
+          "Baggins"
+        ],
+        "location": "Bilbo",
+        "time": null
+      },
+      {
+        "name": "After\na\t while\t Gollum\t stopped\t weeping\t and\t beg...",
+        "description": "After\na\t while\t Gollum\t stopped\t weeping\t and\t began\t to\t talk.\t ",
+        "start": 1435,
+        "end": 1500,
+        "participants": [
+          "Bilbo",
+          "Gollum",
+          "Curse",
+          "Baggins"
+        ],
+        "location": "Bilbo",
+        "time": null
+      },
+      {
+        "name": "We\ndoesn\u2019t\t remember\t all\t the\t places\t we\u2019ve\t vis...",
+        "description": "We\ndoesn\u2019t\t remember\t all\t the\t places\t we\u2019ve\t visited.\t ",
+        "start": 1604,
+        "end": 1661,
+        "participants": [
+          "Bilbo",
+          "Gollum",
+          "Curse",
+          "Baggins"
+        ],
+        "location": "Bilbo",
+        "time": null
+      },
+      {
+        "name": "It\u2019s\tlost\titself,\tthe\tnassty\tnosey\tthing.\t",
+        "description": "It\u2019s\tlost\titself,\tthe\tnassty\tnosey\tthing.\t",
+        "start": 2008,
+        "end": 2050,
+        "participants": [
+          "Bilbo",
+          "Gollum",
+          "Curse",
+          "Baggins"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 701,
+        "end": 706,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "Suddenly\t Gollum\t sat\t down\t and\t began\t to\t weep,..."
+          },
+          {
+            "type": "hosted",
+            "target": "After\na\t while\t Gollum\t stopped\t weeping\t and\t beg..."
+          },
+          {
+            "type": "hosted",
+            "target": "We\ndoesn\u2019t\t remember\t all\t the\t places\t we\u2019ve\t vis..."
+          },
+          {
+            "type": "hosted",
+            "target": "It\u2019s\tlost\titself,\tthe\tnassty\tnosey\tthing.\t"
+          }
+        ]
+      },
+      {
+        "name": "Baggins",
+        "type": "facility",
+        "start": 1683,
+        "end": 1690,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745709006.8277912,
+  "has_embedding": true
+}

@@ -1,0 +1,280 @@
+{
+  "id": "6af7d5cb-9888-4e1a-bdc1-b9383ede6ab0",
+  "content": "place,\u201d\the\tmuttered,\tas\the\tlay\tdown\tbeside\tthe\tdwarves\nand\t tried\t to\t go\t back\t to\t sleep\t and\t find\t his\t dream\t again.\nBut\tthat\twas\tnot\tthe\tlast\tof\tthe\tlights\tin\tthe\tforest.\tLater\nwhen\tthe\tnight\tmust\thave\tbeen\tgetting\told,\tKili\twho\twas\nwatching\tthen,\tcame\tand\troused\tthem\tall\tagain,\tsaying:\n\u201cThere\u2019s\ta\tregular\tblaze\tof\tlight\tbegun\tnot\tfar\taway\u2014\nhundreds\t of\t torches\t and\t many\t fires\t must\t have\t been\t lit\nsuddenly\tand\tby\tmagic.\tAnd\thark\tto\tthe\tsinging\tand\tthe\nharps!\u201d\nAfter\tlying\tand\tlistening\tfor\ta\twhile,\tthey\tfound\tthey\ncould\tnot\tresist\tthe\tdesire\tto\tgo\tnearer\tand\ttry\tonce\tmore\nto\tget\thelp.\tUp\tthey\tgot\tagain;\tand\tthis\ttime\tthe\tresult\twas\ndisastrous.\tThe\tfeast\tthat\tthey\tnow\tsaw\twas\tgreater\tand\nmore\tmagnificent\tthan\tbefore;\tand\tat\tthe\thead\tof\ta\tlong\nline\t of\t feasters\t sat\t a\t woodland\t king\t with\t a\t crown\t of\nleaves\t upon\t his\t golden\t hair,\t very\t much\t as\t Bombur\t had\ndescribed\t the\t figure\t in\t his\t dream.\t The\t elvish\t folk\t were\npassing\tbowls\tfrom\thand\tto\thand\tand\tacross\tthe\tfires,\tand\nsome\t were\t harping\t and\t many\t were\t singing.\t Their\ngleaming\thair\twas\ttwined\twith\tflowers;\tgreen\tand\twhite\ngems\t glinted\t on\t their\t collars\t and\t their\t belts;\t and\t their\nfaces\t and\t their\t songs\t were\t filled\t with\t mirth.\t Loud\t and\nclear\tand\tfair\twere\tthose\tsongs,\tand\tout\tstepped\tThorin\tin\nto\ttheir\tmidst.\nDead\tsilence\tfell\tin\tthe\tmiddle\tof\ta\tword.\tOut\twent\tall\nlight.\t The\t fires\t leaped\t up\t in\t black\t smokes.\t Ashes\t and\ncinders\t were\t in\t the\t eyes\t of\t the\t dwarves,\t and\t the\t wood\nwas\tfilled\tagain\twith\ttheir\tclamour\tand\ttheir\tcries.\nBilbo\t found\t himself\t running\t round\t and\t round\t (as\t he\nthought)\t and\t calling\t and\t calling:\t \u201cDori,\t Nori,\t Ori,\t Oin,\nGloin,\t Fili,\t Kili,\t Bombur,\t Bifur,\t Bofur,\t Dwalin,\t Balin,\nThorin\t Oakenshield,\u201d\t while\t people\t he\t could\t not\t see\t or\nfeel\t were\t doing\t the\t same\t all\t round\t him\t (with\t an\noccasional\t\u201cBilbo!\u201d\tthrown\tin).\tBut\tthe\tcries\tof\tthe\tothers\ngot\tsteadily\tfurther\tand\tfainter,\tand\tthough\tafter\ta\twhile\tit\nseemed\tto\thim\tthey\tchanged\tto\tyells\tand\tcries\tfor\thelp\tin\nthe\tfar\tdistance,\tall\tnoise\tat\tlast\tdied\tright\taway,\tand\the\nwas\tleft\talone\tin\tcomplete\tsilence\tand\tdarkness.",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 3.14866123706037,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 152,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2153,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Kili",
+        "type": "person",
+        "start": 226,
+        "end": 230,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "But\tthe\tcries\tof\tthe\tothers\ngot\tsteadily\tfurther\ta..."
+          }
+        ]
+      },
+      {
+        "name": "Bombur",
+        "type": "administrative",
+        "start": 874,
+        "end": 880,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "But\tthe\tcries\tof\tthe\tothers\ngot\tsteadily\tfurther\ta..."
+          }
+        ]
+      },
+      {
+        "name": "Thorin",
+        "type": "group",
+        "start": 1297,
+        "end": 1303,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "But\tthe\tcries\tof\tthe\tothers\ngot\tsteadily\tfurther\ta..."
+          }
+        ]
+      },
+      {
+        "name": "Ashes",
+        "type": "person",
+        "start": 1431,
+        "end": 1436,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "But\tthe\tcries\tof\tthe\tothers\ngot\tsteadily\tfurther\ta..."
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "person",
+        "start": 1559,
+        "end": 1564,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "But\tthe\tcries\tof\tthe\tothers\ngot\tsteadily\tfurther\ta..."
+          }
+        ]
+      },
+      {
+        "name": "Nori",
+        "type": "person",
+        "start": 1665,
+        "end": 1669,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "But\tthe\tcries\tof\tthe\tothers\ngot\tsteadily\tfurther\ta..."
+          }
+        ]
+      },
+      {
+        "name": "Ori",
+        "type": "organization",
+        "start": 1672,
+        "end": 1675,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "But\tthe\tcries\tof\tthe\tothers\ngot\tsteadily\tfurther\ta..."
+          }
+        ]
+      },
+      {
+        "name": "Fili",
+        "type": "person",
+        "start": 1691,
+        "end": 1695,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "But\tthe\tcries\tof\tthe\tothers\ngot\tsteadily\tfurther\ta..."
+          }
+        ]
+      },
+      {
+        "name": "Bifur",
+        "type": "person",
+        "start": 1714,
+        "end": 1719,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "But\tthe\tcries\tof\tthe\tothers\ngot\tsteadily\tfurther\ta..."
+          }
+        ]
+      },
+      {
+        "name": "Bofur",
+        "type": "administrative",
+        "start": 1722,
+        "end": 1727,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "But\tthe\tcries\tof\tthe\tothers\ngot\tsteadily\tfurther\ta..."
+          }
+        ]
+      },
+      {
+        "name": "Dwalin",
+        "type": "administrative",
+        "start": 1730,
+        "end": 1736,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "But\tthe\tcries\tof\tthe\tothers\ngot\tsteadily\tfurther\ta..."
+          }
+        ]
+      },
+      {
+        "name": "Balin",
+        "type": "person",
+        "start": 1739,
+        "end": 1744,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "But\tthe\tcries\tof\tthe\tothers\ngot\tsteadily\tfurther\ta..."
+          }
+        ]
+      },
+      {
+        "name": "Oakenshield",
+        "type": "administrative",
+        "start": 1754,
+        "end": 1765,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "But\tthe\tcries\tof\tthe\tothers\ngot\tsteadily\tfurther\ta..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "But\tthe\tcries\tof\tthe\tothers\ngot\tsteadily\tfurther\ta...",
+        "description": "But\tthe\tcries\tof\tthe\tothers\ngot\tsteadily\tfurther\tand\tfainter,\tand\tthough\tafter\ta\twhile\tit\nseemed\tto\thim\tthey\tchanged\tto\tyells\tand\tcries\tfor\thelp\tin\nthe\tfar\tdistance,\tall\tnoise\tat\tlast\tdied\tright\taway,\tand\the\nwas\tleft\talone\tin\tcomplete\tsilence\tand\tdarkness.",
+        "start": 1897,
+        "end": 2153,
+        "participants": [
+          "Kili",
+          "Bombur",
+          "Thorin",
+          "Ashes",
+          "Bilbo",
+          "Nori",
+          "Ori",
+          "Fili",
+          "Bifur",
+          "Bofur",
+          "Dwalin",
+          "Balin",
+          "Oakenshield"
+        ],
+        "location": "Bombur",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bombur",
+        "type": "administrative",
+        "start": 874,
+        "end": 880,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "But\tthe\tcries\tof\tthe\tothers\ngot\tsteadily\tfurther\ta..."
+          }
+        ]
+      },
+      {
+        "name": "Bofur",
+        "type": "administrative",
+        "start": 1722,
+        "end": 1727,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Dwalin",
+        "type": "administrative",
+        "start": 1730,
+        "end": 1736,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Oakenshield",
+        "type": "administrative",
+        "start": 1754,
+        "end": 1765,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 1877,
+        "end": 1882,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745773088.3990338,
+  "has_embedding": true
+}

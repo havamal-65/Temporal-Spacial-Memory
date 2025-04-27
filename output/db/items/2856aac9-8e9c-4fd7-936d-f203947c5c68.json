@@ -1,0 +1,314 @@
+{
+  "id": "2856aac9-8e9c-4fd7-936d-f203947c5c68",
+  "content": "in\t a\t cave,\t the\t hobbit\t and\t I\t and\t several\t of\t our\ncompanions...\u201d\n\u201cDo\tyou\tcall\ttwo\tseveral?\u201d\n\u201cWell,\t no.\t As\t a\t matter\t of\t fact\t there\t were\t more\t than\ntwo.\u201d\n\u201cWhere\t are\t they?\t Killed,\t eaten,\t gone\t home?\u201d\t \u201cWell,\nno.\t They\t don\u2019t\t seem\t all\t to\t have\t come\t when\t I\t whistled.\nShy,\tI\texpect.\tYou\tsee,\twe\tare\tvery\tmuch\tafraid\tthat\twe\nare\trather\ta\tlot\tfor\tyou\tto\tentertain.\u201d\n\u201cGo\ton,\twhistle\tagain!\tI\tam\tin\tfor\ta\tparty,\tit\tseems,\tand\none\tor\ttwo\tmore\twon\u2019t\tmake\tmuch\tdifference,\u201d\tgrowled\nBeorn.\nGandalf\t whistled\t again;\t but\t Nori\t and\t Ori\t were\t there\nalmost\t before\t he\t had\t stopped,\t for,\t if\t you\t remember,\nGandalf\t had\t told\t them\t to\t come\t in\t pairs\t every\t five\nminutes.\n\u201cHullo!\u201d\tsaid\tBeorn.\t\u201cYou\tcame\tpretty\tquick\u2014where\nwere\tyou\thiding?\tCome\ton\tmy\tjack-in-the-boxes!\u201d\n\u201cNori\tat\tyour\tservice,\tOri\tat...\u201d\tthey\tbegan;\tbut\tBeorn\ninterrupted\tthem.\n\u201cThank\tyou!\tWhen\tI\twant\tyour\thelp\tI\twill\task\tfor\tit.\nSit\t down,\t and\t let\u2019s\t get\t on\t with\t this\t tale,\t or\t it\t will\t be\nsupper-time\tbefore\tit\tis\tended.\u201d\n\u201cAs\t soon\t as\t we\t were\t asleep,\u201d\t went\t on\t Gandalf,\t \u201ca\ncrack\t at\t the\t back\t of\t the\t cave\t opened;\t goblins\t came\t out\nand\tgrabbed\tthe\thobbit\tand\tthe\tdwarves\tand\tour\ttroop\tof\nponies\u2014\u201d\n\u201cTroop\tof\tponies?\tWhat\twere\tyou\u2014a\ttravelling\tcircus?\nOr\t were\t you\t carrying\t lots\t of\t goods?\t Or\t do\t you\t always\ncall\tsix\ta\ttroop?\u201d\n\u201cO\t no!\t As\t a\t matter\t of\t fact\t there\t were\t more\t than\t six\nponies,\tfor\tthere\twere\tmore\tthan\tsix\tof\tus\u2014and\twell,\there\nare\t two\t more!\u201d\t Just\t at\t that\t moment\t Balin\t and\t Dwalin\nappeared\t and\t bowed\t so\t low\t that\t their\t beards\t swept\t the\nstone\tfloor.\tThe\tbig\tman\twas\tfrowning\tat\tfirst,\tbut\tthey\ndid\ttheir\tbest\tto\tbe\tfrightfully\tpolite,\tand\tkept\ton\tnodding\nand\tbending\tand\tbowing\tand\twaving\ttheir\thoods\tbefore\ntheir\t knees\t (in\t proper\t dwarf-fashion),\t till\t he\t stopped",
+  "coordinates": {
+    "r": 5.455,
+    "theta": 0.3746349239405828,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 122,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1818,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_person",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Killed",
+        "type": "person",
+        "start": 187,
+        "end": 193,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Killed,\t eaten,\t gone\t home?\u201d\t \u201cWell,\nno.\t "
+          },
+          {
+            "type": "participated_in",
+            "target": "I\tam\tin\tfor\ta\tparty,\tit\tseems,\tand\none\tor\ttwo\tmore..."
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cYou\tcame\tpretty\tquick\u2014where\nwere\tyou\thiding?\tCome..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Sit\t down,\t and\t let\u2019s\t get\t on\t with\t this\t tale,..."
+          }
+        ]
+      },
+      {
+        "name": "Beorn",
+        "type": "person",
+        "start": 496,
+        "end": 501,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Killed,\t eaten,\t gone\t home?\u201d\t \u201cWell,\nno.\t "
+          },
+          {
+            "type": "participated_in",
+            "target": "I\tam\tin\tfor\ta\tparty,\tit\tseems,\tand\none\tor\ttwo\tmore..."
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cYou\tcame\tpretty\tquick\u2014where\nwere\tyou\thiding?\tCome..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Sit\t down,\t and\t let\u2019s\t get\t on\t with\t this\t tale,..."
+          }
+        ]
+      },
+      {
+        "name": "Nori",
+        "type": "person",
+        "start": 535,
+        "end": 539,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Killed,\t eaten,\t gone\t home?\u201d\t \u201cWell,\nno.\t "
+          },
+          {
+            "type": "participated_in",
+            "target": "I\tam\tin\tfor\ta\tparty,\tit\tseems,\tand\none\tor\ttwo\tmore..."
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cYou\tcame\tpretty\tquick\u2014where\nwere\tyou\thiding?\tCome..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Sit\t down,\t and\t let\u2019s\t get\t on\t with\t this\t tale,..."
+          }
+        ]
+      },
+      {
+        "name": "Ori",
+        "type": "organization",
+        "start": 546,
+        "end": 549,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Killed,\t eaten,\t gone\t home?\u201d\t \u201cWell,\nno.\t "
+          },
+          {
+            "type": "participated_in",
+            "target": "I\tam\tin\tfor\ta\tparty,\tit\tseems,\tand\none\tor\ttwo\tmore..."
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cYou\tcame\tpretty\tquick\u2014where\nwere\tyou\thiding?\tCome..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Sit\t down,\t and\t let\u2019s\t get\t on\t with\t this\t tale,..."
+          }
+        ]
+      },
+      {
+        "name": "Gandalf",
+        "type": "group",
+        "start": 623,
+        "end": 630,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Killed,\t eaten,\t gone\t home?\u201d\t \u201cWell,\nno.\t "
+          },
+          {
+            "type": "participated_in",
+            "target": "I\tam\tin\tfor\ta\tparty,\tit\tseems,\tand\none\tor\ttwo\tmore..."
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cYou\tcame\tpretty\tquick\u2014where\nwere\tyou\thiding?\tCome..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Sit\t down,\t and\t let\u2019s\t get\t on\t with\t this\t tale,..."
+          }
+        ]
+      },
+      {
+        "name": "Hullo",
+        "type": "organization",
+        "start": 692,
+        "end": 697,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Killed,\t eaten,\t gone\t home?\u201d\t \u201cWell,\nno.\t "
+          },
+          {
+            "type": "participated_in",
+            "target": "I\tam\tin\tfor\ta\tparty,\tit\tseems,\tand\none\tor\ttwo\tmore..."
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cYou\tcame\tpretty\tquick\u2014where\nwere\tyou\thiding?\tCome..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Sit\t down,\t and\t let\u2019s\t get\t on\t with\t this\t tale,..."
+          }
+        ]
+      },
+      {
+        "name": "Balin",
+        "type": "person",
+        "start": 1504,
+        "end": 1509,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Killed,\t eaten,\t gone\t home?\u201d\t \u201cWell,\nno.\t "
+          },
+          {
+            "type": "participated_in",
+            "target": "I\tam\tin\tfor\ta\tparty,\tit\tseems,\tand\none\tor\ttwo\tmore..."
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cYou\tcame\tpretty\tquick\u2014where\nwere\tyou\thiding?\tCome..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Sit\t down,\t and\t let\u2019s\t get\t on\t with\t this\t tale,..."
+          }
+        ]
+      },
+      {
+        "name": "Dwalin",
+        "type": "organization",
+        "start": 1516,
+        "end": 1522,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Killed,\t eaten,\t gone\t home?\u201d\t \u201cWell,\nno.\t "
+          },
+          {
+            "type": "participated_in",
+            "target": "I\tam\tin\tfor\ta\tparty,\tit\tseems,\tand\none\tor\ttwo\tmore..."
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cYou\tcame\tpretty\tquick\u2014where\nwere\tyou\thiding?\tCome..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Sit\t down,\t and\t let\u2019s\t get\t on\t with\t this\t tale,..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "Killed,\t eaten,\t gone\t home?\u201d\t \u201cWell,\nno.\t ",
+        "description": "Killed,\t eaten,\t gone\t home?\u201d\t \u201cWell,\nno.\t ",
+        "start": 187,
+        "end": 230,
+        "participants": [
+          "Killed",
+          "Beorn",
+          "Nori",
+          "Ori",
+          "Gandalf",
+          "Hullo",
+          "Balin",
+          "Dwalin"
+        ],
+        "location": null,
+        "time": null
+      },
+      {
+        "name": "I\tam\tin\tfor\ta\tparty,\tit\tseems,\tand\none\tor\ttwo\tmore...",
+        "description": "I\tam\tin\tfor\ta\tparty,\tit\tseems,\tand\none\tor\ttwo\tmore\twon\u2019t\tmake\tmuch\tdifference,\u201d\tgrowled\nBeorn.\n",
+        "start": 408,
+        "end": 503,
+        "participants": [
+          "Killed",
+          "Beorn",
+          "Nori",
+          "Ori",
+          "Gandalf",
+          "Hullo",
+          "Balin",
+          "Dwalin"
+        ],
+        "location": null,
+        "time": null
+      },
+      {
+        "name": "\u201cYou\tcame\tpretty\tquick\u2014where\nwere\tyou\thiding?\tCome...",
+        "description": "\u201cYou\tcame\tpretty\tquick\u2014where\nwere\tyou\thiding?\tCome\ton\tmy\tjack-in-the-boxes!\u201d\n\u201cNori\tat\tyour\tservice,\tOri\tat...\u201d\tthey\tbegan;\tbut\tBeorn\ninterrupted\tthem.\n",
+        "start": 712,
+        "end": 863,
+        "participants": [
+          "Killed",
+          "Beorn",
+          "Nori",
+          "Ori",
+          "Gandalf",
+          "Hullo",
+          "Balin",
+          "Dwalin"
+        ],
+        "location": null,
+        "time": null
+      },
+      {
+        "name": "Sit\t down,\t and\t let\u2019s\t get\t on\t with\t this\t tale,...",
+        "description": "Sit\t down,\t and\t let\u2019s\t get\t on\t with\t this\t tale,\t or\t it\t will\t be\nsupper-time\tbefore\tit\tis\tended.\u201d\n",
+        "start": 916,
+        "end": 1018,
+        "participants": [
+          "Killed",
+          "Beorn",
+          "Nori",
+          "Ori",
+          "Gandalf",
+          "Hullo",
+          "Balin",
+          "Dwalin"
+        ],
+        "location": null,
+        "time": null
+      }
+    ],
+    "locations": []
+  },
+  "timestamp": 1745709008.7565987,
+  "has_embedding": true
+}

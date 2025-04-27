@@ -1,0 +1,114 @@
+{
+  "id": "d5b64e48-c978-49d7-b2ae-96cfd65f0a6c",
+  "content": "\u201cI\twill\tnot\tparley,\tas\tI\thave\tsaid,\twith\tarmed\tmen\tat\tmy\ngate.\tNor\tat\tall\twith\tthe\tpeople\tof\tthe\tElvenking,\twhom\tI\nremember\twith\tsmall\tkindness.\tIn\tthis\tdebate\tthey\thave\nno\t place.\t Begone\t now\t ere\t our\t arrows\t fly!\t And\t if\t you\nwould\tspeak\twith\tme\tagain,\tfirst\tdismiss\tthe\telvish\thost\nto\t the\t woods\t where\t it\t belongs,\t and\t then\t return,\t laying\ndown\tyour\tarms\tbefore\tyou\tapproach\tthe\tthreshold.\u201d\n\u201cThe\tElvenking\tis\tmy\tfriend,\tand\the\thas\tsuccoured\tthe\npeople\t of\t the\t Lake\t in\t their\t need,\t though\t they\t had\t no\nclaim\t but\t friendship\t on\t him,\u201d\t answered\t Bard.\t \u201cWe\t will\ngive\tyou\ttime\tto\trepent\tyour\twords.\tGather\tyour\twisdom\nere\t we\t return!\u201d\t Then\t he\t departed\t and\t went\t back\t to\t the\ncamp.\nEre\tmany\thours\twere\tpast,\tthe\tbanner-bearers\treturned,\nand\ttrumpeters\tstood\tforth\tand\tblew\ta\tblast:\n\u201cIn\t the\t name\t of\t Esgaroth\t and\t the\t Forest,\u201d\t one\t cried,\n\u201cwe\tspeak\tunto\tThorin\tThrain\u2019s\tson\tOakenshield,\tcalling\nhimself\t the\t King\t under\t the\t Mountain,\t and\t we\t bid\t him\nconsider\t well\t the\t claims\t that\t have\t been\t urged,\t or\t be\ndeclared\tour\tfoe.\tAt\tthe\tleast\the\tshall\tdeliver\tone\ttwelfth\nportion\t of\t the\t treasure\t unto\t Bard,\t as\t the\t dragon-slayer,\nand\t as\t the\t heir\t of\t Girion.\t From\t that\t portion\t Bard\t will\nhimself\t contribute\t to\t the\t aid\t of\t Esgaroth;\t but\t if\t Thorin\nwould\thave\tthe\tfriendship\tand\thonour\tof\tthe\tlands\tabout,\nas\this\tsires\thad\tof\told,\tthen\the\twill\tgive\talso\tsomewhat\tof\nhis\town\tfor\tthe\tcomfort\tof\tthe\tmen\tof\tthe\tLake.\u201d\nThen\tThorin\tseized\ta\tbow\tof\thorn\tand\tshot\tan\tarrow\tat\nthe\t speaker.\t It\t smote\t into\t his\t shield\t and\t stuck\t there\nquivering.\n\u201cSince\t such\t is\t your\t answer,\u201d\t he\t called\t in\t return,\t \u201cI\ndeclare\tthe\tMountain\tbesieged.\tYou\tshall\tnot\tdepart\tfrom\nit,\tuntil\tyou\tcall\ton\tyour\tside\tfor\ta\ttruce\tand\ta\tparley.\tWe\nwill\t bear\t no\t weapons\t against\t you,\t but\t we\t leave\t you\t to\nyour\tgold.\tYou\tmay\teat\tthat,\tif\tyou\twill!\u201d\nWith\t that\t the\t messengers\t departed\t swiftly,\t and\t the\ndwarves\t were\t left\t to\t consider\t their\t case.\t So\t grim\t had\nThorin\tbecome,\tthat\teven\tif\tthey\thad\twished,\tthe\tothers\nwould\tnot\thave\tdared\tto\tfind\tfault\twith\thim;\tbut\tindeed",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 3.1953924277825183,
+    "t": 1745630173.9676006,
+    "z": 3
+  },
+  "metadata": {
+    "chunk_index": 259,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2118,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_person",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 3
+    },
+    "entities": [
+      {
+        "name": "Thorin",
+        "type": "group",
+        "start": 885,
+        "end": 891,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Oakenshield",
+        "type": "administrative",
+        "start": 905,
+        "end": 916,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bard",
+        "type": "person",
+        "start": 1143,
+        "end": 1147,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "parley",
+        "type": "administrative",
+        "start": 1768,
+        "end": 1774,
+        "mentions": 1,
+        "relationships": []
+      }
+    ],
+    "events": [],
+    "locations": [
+      {
+        "name": "Lake",
+        "type": "geographical",
+        "start": 475,
+        "end": 479,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bard",
+        "type": "geographical",
+        "start": 566,
+        "end": 570,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Oakenshield",
+        "type": "administrative",
+        "start": 905,
+        "end": 916,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Mountain",
+        "type": "geographical",
+        "start": 958,
+        "end": 966,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "parley",
+        "type": "administrative",
+        "start": 1768,
+        "end": 1774,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745715416.4993284,
+  "has_embedding": true
+}

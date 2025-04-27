@@ -1,0 +1,162 @@
+{
+  "id": "361d4470-beb8-4d1c-81c6-ad9d01526041",
+  "content": "said:\t\u201cWe\twill\thonour\tthe\tagreement\tof\tthe\tdead,\tand\the\nhas\tnow\tthe\tArkenstone\tin\this\tkeeping.\u201d\nEven\ta\tfourteenth\tshare\twas\twealth\texceedingly\tgreat,\ngreater\tthan\tthat\tof\tmany\tmortal\tkings.\tFrom\tthat\ttreasure\nBard\tsent\tmuch\tgold\tto\tthe\tMaster\tof\tLake-town;\tand\the\nrewarded\t his\t followers\t and\t friends\t freely.\t To\t the\nElvenking\the\tgave\tthe\temeralds\tof\tGirion,\tsuch\tjewels\tas\nhe\tmost\tloved,\twhich\tDain\thad\trestored\tto\thim.\nTo\tBilbo\the\tsaid:\t\u201cThis\ttreasure\tis\tas\tmuch\tyours\tas\tit\nis\t mine;\t though\t old\t agreements\t cannot\t stand,\t since\t so\nmany\thave\ta\tclaim\tin\tits\twinning\tand\tdefence.\tYet\teven\nthough\t you\t were\t willing\t to\t lay\t aside\t all\t your\t claim,\t I\nshould\t wish\t that\t the\t words\t of\t Thorin,\t of\t which\t he\nrepented,\tshould\tnot\tprove\ttrue:\tthat\twe\tshould\tgive\tyou\nlittle.\tI\twould\treward\tyou\tmost\trichly\tof\tall.\u201d\n\u201cVery\tkind\tof\tyou,\u201d\tsaid\tBilbo.\t\u201cBut\treally\tit\tis\ta\trelief\nto\t me.\t How\t on\t earth\t should\t I\t have\t got\t all\t that\t treasure\nhome\twithout\twar\tand\tmurder\tall\talong\tthe\tway,\tI\tdon\u2019t\nknow.\tAnd\tI\tdon\u2019t\tknow\twhat\tI\tshould\thave\tdone\twith\tit\nwhen\tI\tgot\thome.\tI\tam\tsure\tit\tis\tbetter\tin\tyour\thands.\u201d\nIn\t the\t end\t he\t would\t only\t take\t two\t small\t chests,\t one\nfilled\t with\t silver,\t and\t the\t other\t with\t gold,\t such\t as\t one\nstrong\tpony\tcould\tcarry.\t\u201cThat\twill\tbe\tquite\tas\tmuch\tas\tI\ncan\tmanage,\u201d\tsaid\the.\nAt\t last\t the\t time\t came\t for\t him\t to\t say\t good-bye\t to\t his\nfriends.\t \u201cFarewell,\t Balin!\u201d\t he\t said;\t \u201cand\t farewell,\nDwalin;\tand\tfarewell\tDori,\tNori,\tOri,\tOin,\tGloin,\tBifur,\nBofur,\tand\tBombur!\tMay\tyour\tbeards\tnever\tgrow\tthin!\u201d\nAnd\t turning\t towards\t the\t Mountain\t he\t added:\t \u201cFarewell\nThorin\t Oakenshield!\t And\t Fili\t and\t Kili!\t May\t your\nmemory\tnever\tfade!\u201d\nThen\t the\t dwarves\t bowed\t low\t before\t their\t Gate,\t but\nwords\t stuck\t in\t their\t throats.\t \u201cGood-bye\t and\t good\t luck,\nwherever\tyou\tfare!\u201d\tsaid\tBalin\tat\tlast.\t\u201cIf\tever\tyou\tvisit\nus\t again,\t when\t our\t halls\t are\t made\t fair\t once\t more,\t then\nthe\tfeast\tshall\tindeed\tbe\tsplendid!\u201d\n\u201cIf\t ever\t you\t are\t passing\t my\t way,\u201d\t said\t Bilbo,\t \u201cdon\u2019t\nwait\tto\tknock!\tTea\tis\tat\tfour;\tbut\tany\tof\tyou\tare\twelcome",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 3.4160893116972013,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 285,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2096,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 428,
+        "end": 433,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Dwalin",
+        "type": "organization",
+        "start": 1450,
+        "end": 1456,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Nori",
+        "type": "person",
+        "start": 1477,
+        "end": 1481,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Ori",
+        "type": "organization",
+        "start": 1483,
+        "end": 1486,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Oin",
+        "type": "organization",
+        "start": 1488,
+        "end": 1491,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Gloin",
+        "type": "organization",
+        "start": 1493,
+        "end": 1498,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bifur",
+        "type": "administrative",
+        "start": 1500,
+        "end": 1505,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bofur",
+        "type": "administrative",
+        "start": 1507,
+        "end": 1512,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bombur",
+        "type": "administrative",
+        "start": 1518,
+        "end": 1524,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Gate",
+        "type": "organization",
+        "start": 1742,
+        "end": 1746,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Balin",
+        "type": "person",
+        "start": 1841,
+        "end": 1846,
+        "mentions": 1,
+        "relationships": []
+      }
+    ],
+    "events": [],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 428,
+        "end": 433,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bifur",
+        "type": "administrative",
+        "start": 1500,
+        "end": 1505,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bofur",
+        "type": "administrative",
+        "start": 1507,
+        "end": 1512,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bombur",
+        "type": "administrative",
+        "start": 1518,
+        "end": 1524,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745773111.793305,
+  "has_embedding": true
+}

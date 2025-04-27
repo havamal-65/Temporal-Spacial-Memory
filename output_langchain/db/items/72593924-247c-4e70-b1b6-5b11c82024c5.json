@@ -1,0 +1,90 @@
+{
+  "id": "72593924-247c-4e70-b1b6-5b11c82024c5",
+  "content": "branches\tand\tbracken.\tSoon\tthey\thad\ta\tring\tof\tsmoke\tand\nflame\tall\tround\tthe\tdwarves,\ta\tring\twhich\tthey\tkept\tfrom\nspreading\t outwards;\t but\t it\t closed\t slowly\t in,\t till\t the\nrunning\t fire\t was\t licking\t the\t fuel\t piled\t under\t the\t trees.\nSmoke\twas\tin\tBilbo\u2019s\teyes,\the\tcould\tfeel\tthe\theat\tof\tthe\nflames;\t and\t through\t the\t reek\t he\t could\t see\t the\t goblins\ndancing\tround\tand\tround\tin\ta\tcircle\tlike\tpeople\tround\ta\nmidsummer\tbonfire.\tOutside\tthe\tring\tof\tdancing\twarriors\nwith\t spears\t and\t axes\t stood\t the\t wolves\t at\t a\t respectful\ndistance,\twatching\tand\twaiting.\nHe\tcould\thear\tthe\tgoblins\tbeginning\ta\thorrible\tsong:\nFifteen\tbirds\tin\tfive\tfir-trees,\ntheir\tfeathers\twere\tfanned\tin\ta\tfiery\tbreeze!\nBut,\tfunny\tlittle\tbirds,\tthey\thad\tno\twings!\nO\t what\t shall\t we\t do\t with\t the\t funny\t little\t things?\nRoast\t\u2019em\talive,\tor\tstew\tthem\tin\ta\tpot;\nfry\tthem,\tboil\tthem\tand\teat\tthem\thot?\nThen\t they\t stopped\t and\t shouted\t out:\t \u201cFly\t away\t little\nbirds!\t Fly\t away\t if\t you\t can!\t Come\t down\t little\t birds,\t or\nyou\twill\tget\troasted\tin\tyour\tnests!\tSing,\tsing\tlittle\tbirds!\nWhy\tdon\u2019t\tyou\tsing?\u201d\n\u201cGo\taway!\tlittle\tboys!\u201d\tshouted\tGandalf\tin\tanswer.\t\u201cIt\nisn\u2019t\tbird-nesting\ttime.\tAlso\tnaughty\tlittle\tboys\tthat\tplay\nwith\t fire\t get\t punished.\u201d\t He\t said\t it\t to\t make\t them\t angry,\nand\tto\tshow\tthem\the\twas\tnot\tfrightened\tof\tthem\u2014though\nof\tcourse\the\twas,\twizard\tthough\the\twas.\tBut\tthey\ttook\tno\nnotice,\tand\tthey\twent\ton\tsinging.\nBurn,\tburn\ttree\tand\tfern!\nShrivel\tand\tscorch!\tA\tfizzling\ttorch\nTo\tlight\tthe\tnight\tfor\tour\tdelight,\n\t\t\t\tYa\they!\nBake\tand\ttoast\t\u2019em,\tfry\tand\troast\t\u2019em!\ntill\tbeards\tblaze,\tand\teyes\tglaze;",
+  "coordinates": {
+    "r": 6.0075,
+    "theta": 0.32122784882955635,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 106,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1597,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_person",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 254,
+        "end": 259,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Sing",
+        "type": "person",
+        "start": 1041,
+        "end": 1045,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Gandalf",
+        "type": "group",
+        "start": 1119,
+        "end": 1126,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Burn",
+        "type": "person",
+        "start": 1413,
+        "end": 1417,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bake",
+        "type": "person",
+        "start": 1524,
+        "end": 1528,
+        "mentions": 1,
+        "relationships": []
+      }
+    ],
+    "events": [],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 254,
+        "end": 259,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745715404.7105289,
+  "has_embedding": true
+}

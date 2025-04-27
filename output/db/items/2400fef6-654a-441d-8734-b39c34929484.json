@@ -1,0 +1,94 @@
+{
+  "id": "2400fef6-654a-441d-8734-b39c34929484",
+  "content": "part\t of\t his\t dream\t was\t true.\t A\t crack\t had\t opened\t at\t the\nback\tof\tthe\tcave,\tand\twas\talready\ta\twide\tpassage.\tHe\twas\njust\tin\ttime\tto\tsee\tthe\tlast\tof\tthe\tponies\u2019\ttails\tdisappearing\ninto\tit.\tOf\tcourse\the\tgave\ta\tvery\tloud\tyell,\tas\tloud\ta\tyell\nas\ta\thobbit\tcan\tgive,\twhich\tis\tsurprising\tfor\ttheir\tsize.\nOut\tjumped\tthe\tgoblins,\tbig\tgoblins,\tgreat\tugly-looking\ngoblins,\tlots\tof\tgoblins,\tbefore\tyou\tcould\tsay\t\nrocks\t and\nblocks\n.\t There\t were\t six\t to\t each\t dwarf,\t at\t least,\t and\t two\neven\t for\t Bilbo;\t and\t they\t were\t all\t grabbed\t and\t carried\nthrough\tthe\tcrack,\tbefore\tyou\tcould\tsay\t\ntinder\tand\tflint\n.\nBut\tnot\tGandalf.\tBilbo\u2019s\tyell\thad\tdone\tthat\tmuch\tgood.\tIt\nhad\t wakened\t him\t up\t wide\t in\t a\t splintered\t second,\t and\nwhen\tgoblins\tcame\tto\tgrab\thim,\tthere\twas\ta\tterrific\tflash\nlike\t lightning\t in\t the\t cave,\t a\t smell\t like\t gunpowder,\t and\nseveral\tof\tthem\tfell\tdead.\nThe\t crack\t closed\t with\t a\t snap,\t and\t Bilbo\t and\t the\ndwarves\t were\t on\t the\t wrong\t side\t of\t it!\t Where\t was\nGandalf?\t Of\t that\t neither\t they\t nor\t the\t goblins\t had\t any\nidea,\tand\tthe\tgoblins\tdid\tnot\twait\tto\tfind\tout.\tThey\tseized\nBilbo\t and\t the\t dwarves\t and\t hurried\t them\t along.\t It\t was\ndeep,\tdeep,\tdark,\tsuch\tas\tonly\tgoblins\tthat\thave\ttaken\tto\nliving\tin\tthe\theart\tof\tthe\tmountains\tcan\tsee\tthrough.\tThe\npassages\tthere\twere\tcrossed\tand\ttangled\tin\tall\tdirections,\nbut\tthe\tgoblins\tknew\ttheir\tway,\tas\twell\tas\tyou\tdo\tto\tthe\nnearest\t post-office;\t and\t the\t way\t went\t down\t and\t down,\nand\t it\t was\t most\t horribly\t stuffy.\t The\t goblins\t were\t very\nrough,\t and\t pinched\t unmercifully,\t and\t chuckled\t and\nlaughed\t in\t their\t horrible\t stony\t voices;\t and\t Bilbo\t was\nmore\t unhappy\t even\t than\t when\t the\t troll\t had\t picked\t him\nup\t by\t his\t toes.\t He\t wished\t again\t and\t again\t for\t his\t nice\nbright\thobbit-hole.\tNot\tfor\tthe\tlast\ttime.\nNow\tthere\tcame\ta\tglimmer\tof\ta\tred\tlight\tbefore\tthem.\nThe\t goblins\t began\t to\t sing,\t or\t croak,\t keeping\t time\t with\nthe\tflap\tof\ttheir\tflat\tfeet\ton\tthe\tstone,\tand\tshaking\ttheir\nprisoners\tas\twell.\nClap!\tSnap!\tthe\tblack\tcrack!",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 3.439258557517426,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 63,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2046,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 496,
+        "end": 501,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "The\t goblins\t began\t to\t sing,\t or\t croak,\t keepin..."
+          }
+        ]
+      },
+      {
+        "name": "Gandalf",
+        "type": "group",
+        "start": 616,
+        "end": 623,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "The\t goblins\t began\t to\t sing,\t or\t croak,\t keepin..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "The\t goblins\t began\t to\t sing,\t or\t croak,\t keepin...",
+        "description": "The\t goblins\t began\t to\t sing,\t or\t croak,\t keeping\t time\t with\nthe\tflap\tof\ttheir\tflat\tfeet\ton\tthe\tstone,\tand\tshaking\ttheir\nprisoners\tas\twell.\n",
+        "start": 1875,
+        "end": 2018,
+        "participants": [
+          "Bilbo",
+          "Gandalf"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 496,
+        "end": 501,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "The\t goblins\t began\t to\t sing,\t or\t croak,\t keepin..."
+          }
+        ]
+      }
+    ]
+  },
+  "timestamp": 1745773074.5040483,
+  "has_embedding": true
+}

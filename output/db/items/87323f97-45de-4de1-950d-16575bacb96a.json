@@ -1,0 +1,118 @@
+{
+  "id": "87323f97-45de-4de1-950d-16575bacb96a",
+  "content": "did\tnot\tcare\ttuppence\tabout\tthe\tbutterflies,\tand\twere\tonly\nmade\t more\t angry\t when\t he\t told\t them\t of\t the\t beautiful\nbreeze,\twhich\tthey\twere\ttoo\theavy\tto\tclimb\tup\tand\tfeel.\nThat\t night\t they\t ate\t their\t very\t last\t scraps\t and\t crumbs\t of\nfood;\t and\t next\t morning\t when\t they\t woke\t the\t first\t thing\nthey\t noticed\t was\t that\t they\t were\t still\t gnawingly\t hungry,\nand\t the\t next\t thing\t was\t that\t it\t was\t raining\t and\t that\t here\nand\tthere\tthe\tdrip\tof\tit\twas\tdropping\theavily\ton\tthe\tforest\nfloor.\t That\t only\t reminded\t them\t that\t they\t were\t also\nparchingly\t thirsty,\t without\t doing\t anything\t to\t relieve\nthem:\t you\t cannot\t quench\t a\t terrible\t thirst\t by\t standing\nunder\tgiant\toaks\tand\twaiting\tfor\ta\tchance\tdrip\tto\tfall\ton\nyour\ttongue.\tThe\tonly\tscrap\tof\tcomfort\tthere\twas\tcame\nunexpectedly\tfrom\tBombur.\nHe\twoke\tup\tsuddenly\tand\tsat\tup\tscratching\this\thead.\nHe\tcould\tnot\tmake\tout\twhere\the\twas\tat\tall,\tnor\twhy\the\nfelt\t so\t hungry;\t for\t he\t had\t forgotten\t everything\t that\t had\nhappened\t since\t they\t started\t their\t journey\t that\t May\nmorning\tlong\tago.\tThe\tlast\tthing\tthat\the\tremembered\twas\nthe\t party\t at\t the\t hobbit\u2019s\t house,\t and\t they\t had\t great\ndifficulty\tin\tmaking\thim\tbelieve\ttheir\ttale\tof\tall\tthe\tmany\nadventures\tthey\thad\thad\tsince.\nWhen\t he\t heard\t that\t there\t was\t nothing\t to\t eat,\t he\t sat\ndown\tand\twept,\tfor\the\tfelt\tvery\tweak\tand\twobbly\tin\tthe\nlegs.\t\u201cWhy\tever\tdid\tI\twake\tup!\u201d\the\tcried.\t\u201cI\twas\thaving\nsuch\t beautiful\t dreams.\t I\t dreamed\t I\t was\t walking\t in\t a\nforest\t rather\t like\t this\t one,\t only\t lit\t with\t torches\t on\t the\ntrees\t and\t lamps\t swinging\t from\t the\t branches\t and\t fires\nburning\ton\tthe\tground;\tand\tthere\twas\ta\tgreat\tfeast\tgoing\non,\tgoing\ton\tfor\tever.\tA\twoodland\tking\twas\tthere\twith\ta\ncrown\t of\t leaves,\t and\t there\t was\t a\t merry\t singing,\t and\t I\ncould\t not\t count\t or\t describe\t the\t things\t there\t were\t to\t eat\nand\tdrink.\u201d\n\u201cYou\tneed\tnot\ttry,\u201d\tsaid\tThorin.\t\u201cIn\tfact\tif\tyou\tcan\u2019t\ntalk\t about\t something\t else,\t you\t had\t better\t be\t silent.\t We",
+  "coordinates": {
+    "r": 5.02,
+    "theta": 3.500912313344126,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 148,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1992,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bombur",
+        "type": "administrative",
+        "start": 808,
+        "end": 814,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "He\tcould\tnot\tmake\tout\twhere\the\twas\tat\tall,\tnor\twhy..."
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cIn\tfact\tif\tyou\tcan\u2019t\ntalk\t about\t something\t else..."
+          }
+        ]
+      },
+      {
+        "name": "Thorin",
+        "type": "group",
+        "start": 1898,
+        "end": 1904,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "He\tcould\tnot\tmake\tout\twhere\the\twas\tat\tall,\tnor\twhy..."
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cIn\tfact\tif\tyou\tcan\u2019t\ntalk\t about\t something\t else..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "He\tcould\tnot\tmake\tout\twhere\the\twas\tat\tall,\tnor\twhy...",
+        "description": "He\tcould\tnot\tmake\tout\twhere\the\twas\tat\tall,\tnor\twhy\the\nfelt\t so\t hungry;\t for\t he\t had\t forgotten\t everything\t that\t had\nhappened\t since\t they\t started\t their\t journey\t that\t May\nmorning\tlong\tago.\t",
+        "start": 868,
+        "end": 1064,
+        "participants": [
+          "Bombur",
+          "Thorin"
+        ],
+        "location": "Bombur",
+        "time": null
+      },
+      {
+        "name": "\u201cIn\tfact\tif\tyou\tcan\u2019t\ntalk\t about\t something\t else...",
+        "description": "\u201cIn\tfact\tif\tyou\tcan\u2019t\ntalk\t about\t something\t else,\t you\t had\t better\t be\t silent.\t ",
+        "start": 1906,
+        "end": 1990,
+        "participants": [
+          "Bombur",
+          "Thorin"
+        ],
+        "location": "Bombur",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bombur",
+        "type": "administrative",
+        "start": 808,
+        "end": 814,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "He\tcould\tnot\tmake\tout\twhere\the\twas\tat\tall,\tnor\twhy..."
+          },
+          {
+            "type": "hosted",
+            "target": "\u201cIn\tfact\tif\tyou\tcan\u2019t\ntalk\t about\t something\t else..."
+          }
+        ]
+      }
+    ]
+  },
+  "timestamp": 1745709010.2935314,
+  "has_embedding": true
+}

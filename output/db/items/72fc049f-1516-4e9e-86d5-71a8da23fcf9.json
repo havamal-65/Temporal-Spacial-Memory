@@ -1,0 +1,94 @@
+{
+  "id": "72fc049f-1516-4e9e-86d5-71a8da23fcf9",
+  "content": "Chapter\n\tXVIII\nTHE\tRETURN\tJOURNEY\nWhen\tBilbo\tcame\tto\thimself,\the\twas\tliterally\tby\thimself.\nHe\twas\tlying\ton\tthe\tflat\tstones\tof\tRavenhill,\tand\tno\tone\nwas\t near.\t A\t cloudless\t day,\t but\t cold,\t was\t broad\t above\nhim.\tHe\twas\tshaking,\tand\tas\tchilled\tas\tstone,\tbut\this\thead\nburned\twith\tfire.\n\u201cNow\t I\t wonder\t what\t has\t happened?\u201d\t he\t said\t to\nhimself.\t \u201cAt\t any\t rate\t I\t am\t not\t yet\t one\t of\t the\t fallen\nheroes;\tbut\tI\tsuppose\tthere\tis\tstill\ttime\tenough\tfor\tthat!\u201d\nHe\tsat\tup\tpainfully.\tLooking\tinto\tthe\tvalley\the\tcould\nsee\tno\tliving\tgoblins.\tAfter\ta\twhile\tas\this\thead\tcleared\ta\nlittle,\the\tthought\the\tcould\tsee\telves\tmoving\tin\tthe\trocks\nbelow.\tHe\trubbed\this\teyes.\tSurely\tthere\twas\ta\tcamp\tstill\nin\t the\t plain\t some\t distance\t off;\t and\t there\t was\t a\t coming\nand\t going\t about\t the\t Gate?\t Dwarves\t seemed\t to\t be\t busy\nremoving\tthe\twall.\tBut\tall\twas\tdeadly\tstill.\tThere\twas\tno\ncall\tand\tno\techo\tof\ta\tsong.\tSorrow\tseemed\tto\tbe\tin\tthe\nair.\n\u201cVictory\t after\t all,\t I\t suppose!\u201d\t he\t said,\t feeling\t his\naching\thead.\t\u201cWell,\tit\tseems\ta\tvery\tgloomy\tbusiness.\u201d\nSuddenly\t he\t was\t aware\t of\t a\t man\t climbing\t up\t and\ncoming\ttowards\thim.\n\u201cHullo\t there!\u201d\t he\t called\t with\t a\t shaky\t voice.\t \u201cHullo\nthere!\tWhat\tnews?\u201d",
+  "coordinates": {
+    "r": 6.9875,
+    "theta": 3.2405528221778717,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 280,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1205,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 39,
+        "end": 44,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cNow\t I\t wonder\t what\t has\t happened?\u201d\t he\t said\t ..."
+          }
+        ]
+      },
+      {
+        "name": "Sorrow",
+        "type": "person",
+        "start": 904,
+        "end": 910,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cNow\t I\t wonder\t what\t has\t happened?\u201d\t he\t said\t ..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "\u201cNow\t I\t wonder\t what\t has\t happened?\u201d\t he\t said\t ...",
+        "description": "\u201cNow\t I\t wonder\t what\t has\t happened?\u201d\t he\t said\t to\nhimself.\t ",
+        "start": 287,
+        "end": 350,
+        "participants": [
+          "Bilbo",
+          "Sorrow"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 39,
+        "end": 44,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "\u201cNow\t I\t wonder\t what\t has\t happened?\u201d\t he\t said\t ..."
+          }
+        ]
+      }
+    ]
+  },
+  "timestamp": 1745709017.4444182,
+  "has_embedding": true
+}

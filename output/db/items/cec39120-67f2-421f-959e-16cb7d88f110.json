@@ -1,0 +1,90 @@
+{
+  "id": "cec39120-67f2-421f-959e-16cb7d88f110",
+  "content": "Chapter\n\tVII\nQUEER\tLODGINGS\nThe\tnext\tmorning\tBilbo\twoke\tup\twith\tthe\tearly\tsun\tin\this\neyes.\tHe\tjumped\tup\tto\tlook\tat\tthe\ttime\tand\tto\tgo\tand\tput\nhis\tkettle\ton\u2014and\tfound\the\twas\tnot\thome\tat\tall.\tSo\the\tsat\ndown\tand\twished\tin\tvain\tfor\ta\twash\tand\ta\tbrush.\tHe\tdid\nnot\t get\t either,\t nor\t tea\t nor\t toast\t nor\t bacon\t for\t his\nbreakfast,\tonly\tcold\tmutton\tand\trabbit.\tAnd\tafter\tthat\the\nhad\tto\tget\tready\tfor\ta\tfresh\tstart.\nThis\t time\t he\t was\t allowed\t to\t climb\t on\t to\t an\t eagle\u2019s\nback\t and\t cling\t between\t his\t wings.\t The\t air\t rushed\t over\nhim\t and\t he\t shut\t his\t eyes.\t The\t dwarves\t were\t crying\nfarewells\tand\tpromising\tto\trepay\tthe\tLord\tof\tthe\tEagles\tif\never\t they\t could,\t as\t off\t rose\t fifteen\t great\t birds\t from\t the\nmountain\u2019s\t side.\t The\t sun\t was\t still\t close\t to\t the\t eastern\nedge\tof\tthings.\tThe\tmorning\twas\tcool,\tand\tmists\twere\tin\nthe\tvalleys\tand\thollows\tand\ttwined\there\tand\tthere\tabout\nthe\tpeaks\tand\tpinnacles\tof\tthe\thills.\tBilbo\topened\tan\teye\nto\tpeep\tand\tsaw\tthat\tthe\tbirds\twere\talready\thigh\tup\tand\nthe\tworld\twas\tfar\taway,\tand\tthe\tmountains\twere\tfalling\nback\t behind\t them\t into\t the\t distance.\t He\t shut\t his\t eyes\nagain\tand\theld\ton\ttighter.\n\u201cDon\u2019t\t pinch!\u201d\t said\t his\t eagle.\t \u201cYou\t need\t not\t be\nfrightened\tlike\ta\trabbit,\teven\tif\tyou\tlook\trather\tlike\tone.\tIt\nis\t a\t fair\t morning\t with\t little\t wind.\t What\t is\t finer\t than",
+  "coordinates": {
+    "r": 6.6525,
+    "theta": 3.4612497060925547,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 113,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1339,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "LODGINGS",
+        "type": "administrative",
+        "start": 19,
+        "end": 27,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 45,
+        "end": 50,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Eagles",
+        "type": "administrative",
+        "start": 643,
+        "end": 649,
+        "mentions": 1,
+        "relationships": []
+      }
+    ],
+    "events": [],
+    "locations": [
+      {
+        "name": "LODGINGS",
+        "type": "administrative",
+        "start": 19,
+        "end": 27,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 45,
+        "end": 50,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Eagles",
+        "type": "administrative",
+        "start": 643,
+        "end": 649,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745773082.0543718,
+  "has_embedding": true
+}

@@ -1,0 +1,108 @@
+{
+  "id": "aa90c3dd-c2b2-45d7-8875-7edd7733d16c",
+  "content": "breakfast.\nThere\tthey\tall\tsat\tglum\tand\twet\tand\tmuttering,\twhile\nOin\t and\t Gloin\t went\t on\t trying\t to\t light\t the\t fire,\t and\nquarrelling\t about\t it.\t Bilbo\t was\t sadly\t reflecting\t that\nadventures\tare\tnot\tall\tpony-rides\tin\tMay-sunshine,\twhen\nBalin,\twho\twas\talways\ttheir\tlook-out\tman,\tsaid:\t\u201cThere\u2019s\na\tlight\tover\tthere!\u201d\tThere\twas\ta\thill\tsome\tway\toff\twith\ntrees\ton\tit,\tpretty\tthick\tin\tparts.\tOut\tof\tthe\tdark\tmass\tof\nthe\t trees\t they\t could\t now\t see\t a\t light\t shining,\t a\t reddish\ncomfortable-looking\tlight,\tas\tit\tmight\tbe\ta\tfire\tor\ttorches\ntwinkling.\nWhen\tthey\thad\tlooked\tat\tit\tfor\tsome\twhile,\tthey\tfell\tto\narguing.\tSome\tsaid\t\u201cno\u201d\tand\tsome\tsaid\t\u201cyes\u201d.\tSome\tsaid\nthey\tcould\tbut\tgo\tand\tsee,\tand\tanything\twas\tbetter\tthan\nlittle\tsupper,\tless\tbreakfast,\tand\twet\tclothes\tall\tthe\tnight.\nOthers\tsaid:\t\u201cThese\tparts\tare\tnone\ttoo\twell\tknown,\tand\nare\ttoo\tnear\tthe\tmountains.\tTravellers\tseldom\tcome\tthis\nway\tnow.\tThe\told\tmaps\tare\tno\tuse:\tthings\thave\tchanged\nfor\t the\t worse\t and\t the\t road\t is\t unguarded.\t They\t have\nseldom\t even\t heard\t of\t the\t king\t round\t here,\t and\t the\t less\ninquisitive\tyou\tare\tas\tyou\tgo\talong,\tthe\tless\ttrouble\tyou\nare\t likely\t to\t find.\u201d\t Some\t said:\t \u201cAfter\t all\t there\t are\nfourteen\tof\tus.\u201d\tOthers\tsaid:\t\u201cWhere\thas\tGandalf\tgot\tto?\u201d\nThis\t remark\t was\t repeated\t by\t everybody.\t Then\t the\t rain\nbegan\tto\tpour\tdown\tworse\tthan\tever,\tand\tOin\tand\tGloin\nbegan\tto\tfight.\nThat\t settled\t it.\t \u201cAfter\t all\t we\t have\t got\t a\t burglar\t with\nus,\u201d\tthey\tsaid;\tand\tso\tthey\tmade\toff,\tleading\ttheir\tponies\n(with\t all\t due\t and\t proper\t caution)\t in\t the\t direction\t of\t the\nlight.\tThey\tcame\tto\tthe\thill\tand\twere\tsoon\tin\tthe\twood.\nUp\tthe\thill\tthey\twent;\tbut\tthere\twas\tno\tproper\tpath\tto\tbe\nseen,\t such\t as\t might\t lead\t to\t a\t house\t or\t a\t farm;\t and\t do\nwhat\t they\t could\t they\t made\t a\t deal\t of\t rustling\t and\ncrackling\tand\tcreaking\t(and\ta\tgood\tdeal\tof\tgrumbling\tand\ndratting),\tas\tthey\twent\tthrough\tthe\ttrees\tin\tthe\tpitch\tdark.\nSuddenly\t the\t red\t light\t shone\t out\t very\t bright\t through\nthe\ttree-trunks\tnot\tfar\tahead.\n\u201cNow\t it\t is\t the\t burglar\u2019s\t turn,\u201d\t they\t said,\t meaning",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 0.20224002707484293,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 37,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2079,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_person",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Gloin",
+        "type": "organization",
+        "start": 74,
+        "end": 79,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Then\t the\t rain\nbegan\tto\tpour\tdown\tworse\tthan\tever..."
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "person",
+        "start": 151,
+        "end": 156,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Then\t the\t rain\nbegan\tto\tpour\tdown\tworse\tthan\tever..."
+          }
+        ]
+      },
+      {
+        "name": "Balin",
+        "type": "person",
+        "start": 243,
+        "end": 248,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Then\t the\t rain\nbegan\tto\tpour\tdown\tworse\tthan\tever..."
+          }
+        ]
+      },
+      {
+        "name": "Gandalf",
+        "type": "group",
+        "start": 1233,
+        "end": 1240,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Then\t the\t rain\nbegan\tto\tpour\tdown\tworse\tthan\tever..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "Then\t the\t rain\nbegan\tto\tpour\tdown\tworse\tthan\tever...",
+        "description": "Then\t the\t rain\nbegan\tto\tpour\tdown\tworse\tthan\tever,\tand\tOin\tand\tGloin\nbegan\tto\tfight.\n",
+        "start": 1295,
+        "end": 1381,
+        "participants": [
+          "Gloin",
+          "Bilbo",
+          "Balin",
+          "Gandalf"
+        ],
+        "location": null,
+        "time": null
+      }
+    ],
+    "locations": []
+  },
+  "timestamp": 1745709004.2454855,
+  "has_embedding": true
+}

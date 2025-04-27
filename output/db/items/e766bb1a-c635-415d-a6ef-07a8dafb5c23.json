@@ -1,0 +1,73 @@
+{
+  "id": "e766bb1a-c635-415d-a6ef-07a8dafb5c23",
+  "content": "tall\t and\t steep\t above\t the\t stream;\t and\t gazing\t out\t from\t it\nover\t the\t narrow\t water,\t foaming\t and\t splashing\t among\nmany\t boulders,\t they\t could\t see\t in\t the\t wide\t valley\nshadowed\t by\t the\t Mountain\u2019s\t arms\t the\t grey\t ruins\t of\nancient\thouses,\ttowers,\tand\twalls.\n\u201cThere\t lies\t all\t that\t is\t left\t of\t Dale,\u201d\t said\t Balin.\t \u201cThe\nmountain\u2019s\t sides\t were\t green\t with\t woods\t and\t all\t the\nsheltered\t valley\t rich\t and\t pleasant\t in\t the\t days\t when\t the\nbells\trang\tin\tthat\ttown.\u201d\tHe\tlooked\tboth\tsad\tand\tgrim\tas\nhe\tsaid\tthis:\the\thad\tbeen\tone\tof\tThorin\u2019s\tcompanions\ton\nthe\tday\tthe\tDragon\tcame.\nThey\t did\t not\t dare\t to\t follow\t the\t river\t much\t further\ntowards\tthe\tGate;\tbut\tthey\twent\ton\tbeyond\tthe\tend\tof\tthe\nsouthern\tspur,\tuntil\tlying\thidden\tbehind\ta\trock\tthey\tcould\nlook\t out\t and\t see\t the\t dark\t cavernous\t opening\t in\t a\t great\ncliff-wall\tbetween\tthe\tarms\tof\tthe\tMountain.\tOut\tof\tit\tthe\nwaters\t of\t the\t Running\t River\t sprang;\t and\t out\t of\t it\t too\nthere\tcame\ta\tsteam\tand\ta\tdark\tsmoke.\tNothing\tmoved\tin\nthe\twaste,\tsave\tthe\tvapour\tand\tthe\twater,\tand\tevery\tnow\nand\tagain\ta\tblack\tand\tominous\tcrow.\tThe\tonly\tsound\twas\nthe\tsound\tof\tthe\tstony\twater,\tand\tevery\tnow\tand\tagain\tthe\nharsh\tcroak\tof\ta\tbird.\tBalin\tshuddered.\n\u201cLet\t us\t return!\u201d\t he\t said.\t \u201cWe\t can\t do\t no\t good\t here!\nAnd\tI\tdon\u2019t\tlike\tthese\tdark\tbirds,\tthey\tlook\tlike\tspies\tof\nevil.\u201d",
+  "coordinates": {
+    "r": 6.6125,
+    "theta": 1.070497696710722,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 199,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1355,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_organization",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Dale",
+        "type": "organization",
+        "start": 313,
+        "end": 317,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Balin",
+        "type": "person",
+        "start": 327,
+        "end": 332,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Thorin",
+        "type": "group",
+        "start": 554,
+        "end": 560,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Gate",
+        "type": "organization",
+        "start": 674,
+        "end": 678,
+        "mentions": 1,
+        "relationships": []
+      }
+    ],
+    "events": [],
+    "locations": []
+  },
+  "timestamp": 1745773096.2466831,
+  "has_embedding": true
+}

@@ -1,0 +1,270 @@
+{
+  "id": "20750fb9-b128-4193-9a26-57c8079958de",
+  "content": "clear\t and\t stony\t at\t the\t ford.\t When\t they\t had\t dried\t in\t the\nsun,\t which\t was\t now\t strong\t and\t warm,\t they\t were\nrefreshed,\t if\t still\t sore\t and\t a\t little\t hungry.\t Soon\t they\ncrossed\tthe\tford\t(carrying\tthe\thobbit),\tand\tthen\tbegan\tto\nmarch\tthrough\tthe\tlong\tgreen\tgrass\tand\tdown\tthe\tlines\tof\nthe\twide-armed\toaks\tand\tthe\ttall\telms.\n\u201cAnd\twhy\tis\tit\tcalled\tthe\tCarrock?\u201d\tasked\tBilbo\tas\the\nwent\talong\tat\tthe\twizard\u2019s\tside.\n\u201cHe\tcalled\tit\tthe\tCarrock,\tbecause\tcarrock\tis\this\tword\nfor\tit.\tHe\tcalls\tthings\tlike\tthat\tcarrocks,\tand\tthis\tone\tis\t\nthe\nCarrock\tbecause\tit\tis\tthe\tonly\tone\tnear\this\thome\tand\the\nknows\tit\twell.\u201d\n\u201cWho\tcalls\tit?\tWho\tknows\tit?\u201d\n\u201cThe\tSomebody\tI\tspoke\tof\u2014a\tvery\tgreat\tperson.\tYou\nmust\t all\t be\t very\t polite\t when\t I\t introduce\t you.\t I\t shall\nintroduce\tyou\tslowly,\ttwo\tby\ttwo,\tI\tthink;\tand\tyou\t\nmust\nbe\tcareful\tnot\tto\tannoy\thim,\tor\theaven\tknows\twhat\twill\nhappen.\tHe\tcan\tbe\tappalling\twhen\the\tis\tangry,\tthough\the\nis\t kind\t enough\t if\t humoured.\t Still\t I\t warn\t you\t he\t gets\nangry\teasily.\u201d\nThe\t dwarves\t all\t gathered\t round\t when\t they\t heard\t the\nwizard\ttalking\tlike\tthis\tto\tBilbo.\t\u201cIs\tthat\tthe\tperson\tyou\nare\t taking\t us\t to\t now?\u201d\t they\t asked.\t \u201cCouldn\u2019t\t you\t find\nsomeone\tmore\teasy-tempered?\tHadn\u2019t\tyou\tbetter\texplain\nit\tall\ta\tbit\tclearer?\u201d\u2014and\tso\ton.\n\u201cYes\t it\t certainly\t is!\t No\t I\t could\t not!\t And\t I\t was\nexplaining\tvery\tcarefully,\u201d\tanswered\tthe\twizard\tcrossly.\n\u201cIf\tyou\tmust\tknow\tmore,\this\tname\tis\tBeorn.\tHe\tis\tvery\nstrong,\tand\the\tis\ta\tskin-changer.\u201d\n\u201cWhat!\ta\tfurrier,\ta\tman\tthat\tcalls\trabbits\tconies,\twhen\nhe\tdoesn\u2019t\tturn\ttheir\tskins\tinto\tsquirrels?\u201d\tasked\tBilbo.\n\u201cGood\t gracious\t heavens,\t no,\t no,\t NO,\t NO!\u201d\t said\nGandalf.\t\u201cDon\u2019t\tbe\ta\tfool\tMr.\tBaggins\tif\tyou\tcan\thelp\tit;\nand\t in\t the\t name\t of\t all\t wonder\t don\u2019t\t mention\t the\t word\nfurrier\tagain\tas\tlong\tas\tyou\tare\twithin\ta\thundred\tmiles\tof\nhis\thouse,\tnor\trug,\tcape,\ttippet,\tmuff,\tnor\tany\tother\tsuch\nunfortunate\tword!\tHe\tis\ta\tskin-changer.\tHe\tchanges\this\nskin:\tsometimes\the\tis\ta\thuge\tblack\tbear,\tsometimes\the\tis",
+  "coordinates": {
+    "r": 5.0024999999999995,
+    "theta": 3.275895739530757,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 116,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1999,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "ford",
+        "type": "organization",
+        "start": 28,
+        "end": 32,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Soon\t they\ncrossed\tthe\tford\t(carrying\tthe\thobbit),..."
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cDon\u2019t\tbe\ta\tfool\tMr.\tBaggins\tif\tyou\tcan\thelp\tit;\na..."
+          },
+          {
+            "type": "participated_in",
+            "target": "He\tchanges\this\nskin:\tsometimes\the\tis\ta\thuge\tblack\t..."
+          }
+        ]
+      },
+      {
+        "name": "Carrock",
+        "type": "administrative",
+        "start": 366,
+        "end": 373,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Soon\t they\ncrossed\tthe\tford\t(carrying\tthe\thobbit),..."
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cDon\u2019t\tbe\ta\tfool\tMr.\tBaggins\tif\tyou\tcan\thelp\tit;\na..."
+          },
+          {
+            "type": "participated_in",
+            "target": "He\tchanges\this\nskin:\tsometimes\the\tis\ta\thuge\tblack\t..."
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 382,
+        "end": 387,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Soon\t they\ncrossed\tthe\tford\t(carrying\tthe\thobbit),..."
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cDon\u2019t\tbe\ta\tfool\tMr.\tBaggins\tif\tyou\tcan\thelp\tit;\na..."
+          },
+          {
+            "type": "participated_in",
+            "target": "He\tchanges\this\nskin:\tsometimes\the\tis\ta\thuge\tblack\t..."
+          }
+        ]
+      },
+      {
+        "name": "clearer?\u201d\u2014and",
+        "type": "organization",
+        "start": 1257,
+        "end": 1270,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Soon\t they\ncrossed\tthe\tford\t(carrying\tthe\thobbit),..."
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cDon\u2019t\tbe\ta\tfool\tMr.\tBaggins\tif\tyou\tcan\thelp\tit;\na..."
+          },
+          {
+            "type": "participated_in",
+            "target": "He\tchanges\this\nskin:\tsometimes\the\tis\ta\thuge\tblack\t..."
+          }
+        ]
+      },
+      {
+        "name": "Beorn",
+        "type": "organization",
+        "start": 1429,
+        "end": 1434,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Soon\t they\ncrossed\tthe\tford\t(carrying\tthe\thobbit),..."
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cDon\u2019t\tbe\ta\tfool\tMr.\tBaggins\tif\tyou\tcan\thelp\tit;\na..."
+          },
+          {
+            "type": "participated_in",
+            "target": "He\tchanges\this\nskin:\tsometimes\the\tis\ta\thuge\tblack\t..."
+          }
+        ]
+      },
+      {
+        "name": "Gandalf",
+        "type": "group",
+        "start": 1649,
+        "end": 1656,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Soon\t they\ncrossed\tthe\tford\t(carrying\tthe\thobbit),..."
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cDon\u2019t\tbe\ta\tfool\tMr.\tBaggins\tif\tyou\tcan\thelp\tit;\na..."
+          },
+          {
+            "type": "participated_in",
+            "target": "He\tchanges\this\nskin:\tsometimes\the\tis\ta\thuge\tblack\t..."
+          }
+        ]
+      },
+      {
+        "name": "Baggins",
+        "type": "person",
+        "start": 1679,
+        "end": 1686,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Soon\t they\ncrossed\tthe\tford\t(carrying\tthe\thobbit),..."
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cDon\u2019t\tbe\ta\tfool\tMr.\tBaggins\tif\tyou\tcan\thelp\tit;\na..."
+          },
+          {
+            "type": "participated_in",
+            "target": "He\tchanges\this\nskin:\tsometimes\the\tis\ta\thuge\tblack\t..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "Soon\t they\ncrossed\tthe\tford\t(carrying\tthe\thobbit),...",
+        "description": "Soon\t they\ncrossed\tthe\tford\t(carrying\tthe\thobbit),\tand\tthen\tbegan\tto\nmarch\tthrough\tthe\tlong\tgreen\tgrass\tand\tdown\tthe\tlines\tof\nthe\twide-armed\toaks\tand\tthe\ttall\telms.\n",
+        "start": 175,
+        "end": 340,
+        "participants": [
+          "ford",
+          "Carrock",
+          "Bilbo",
+          "clearer?\u201d\u2014and",
+          "Beorn",
+          "Gandalf",
+          "Baggins"
+        ],
+        "location": "Carrock",
+        "time": null
+      },
+      {
+        "name": "\u201cDon\u2019t\tbe\ta\tfool\tMr.\tBaggins\tif\tyou\tcan\thelp\tit;\na...",
+        "description": "\u201cDon\u2019t\tbe\ta\tfool\tMr.\tBaggins\tif\tyou\tcan\thelp\tit;\nand\t in\t the\t name\t of\t all\t wonder\t don\u2019t\t mention\t the\t word\nfurrier\tagain\tas\tlong\tas\tyou\tare\twithin\ta\thundred\tmiles\tof\nhis\thouse,\tnor\trug,\tcape,\ttippet,\tmuff,\tnor\tany\tother\tsuch\nunfortunate\tword!\t",
+        "start": 1658,
+        "end": 1906,
+        "participants": [
+          "ford",
+          "Carrock",
+          "Bilbo",
+          "clearer?\u201d\u2014and",
+          "Beorn",
+          "Gandalf",
+          "Baggins"
+        ],
+        "location": "Carrock",
+        "time": null
+      },
+      {
+        "name": "He\tchanges\this\nskin:\tsometimes\the\tis\ta\thuge\tblack\t...",
+        "description": "He\tchanges\this\nskin:\tsometimes\the\tis\ta\thuge\tblack\tbear,\tsometimes\the\tis",
+        "start": 1928,
+        "end": 1999,
+        "participants": [
+          "ford",
+          "Carrock",
+          "Bilbo",
+          "clearer?\u201d\u2014and",
+          "Beorn",
+          "Gandalf",
+          "Baggins"
+        ],
+        "location": "Carrock",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Carrock",
+        "type": "administrative",
+        "start": 366,
+        "end": 373,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "Soon\t they\ncrossed\tthe\tford\t(carrying\tthe\thobbit),..."
+          },
+          {
+            "type": "hosted",
+            "target": "\u201cDon\u2019t\tbe\ta\tfool\tMr.\tBaggins\tif\tyou\tcan\thelp\tit;\na..."
+          },
+          {
+            "type": "hosted",
+            "target": "He\tchanges\this\nskin:\tsometimes\the\tis\ta\thuge\tblack\t..."
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 382,
+        "end": 387,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745773082.5326734,
+  "has_embedding": true
+}

@@ -1,0 +1,164 @@
+{
+  "id": "d8480696-ad0a-411c-8a28-30550a22c7fb",
+  "content": "running\twater\tat\tthe\tbottom.\tThere\twere\tgullies\tthat\tthey\ncould\talmost\tleap\tover,\tbut\tvery\tdeep\twith\twaterfalls\tin\nthem.\t There\t were\t dark\t ravines\t that\t one\t could\t neither\njump\tover\tnor\tclimb\tinto.\tThere\twere\tbogs,\tsome\tof\tthem\ngreen\t pleasant\t places\t to\t look\t at,\t with\t flowers\t growing\nbright\tand\ttall;\tbut\ta\tpony\tthat\twalked\tthere\twith\ta\tpack\non\tits\tback\twould\tnever\thave\tcome\tout\tagain.\nIt\twas\tindeed\ta\tmuch\twider\tland\tfrom\tthe\tford\tto\tthe\nmountains\tthan\tever\tyou\twould\thave\tguessed.\tBilbo\twas\nastonished.\tThe\tonly\tpath\twas\tmarked\twith\twhite\tstones,\nsome\tof\twhich\twere\tsmall,\tand\tothers\twere\thalf\tcovered\nwith\t moss\t or\t heather.\t Altogether\t it\t was\t a\t very\t slow\nbusiness\t following\t the\t track,\t even\t guided\t by\t Gandalf,\nwho\tseemed\tto\tknow\this\tway\tabout\tpretty\twell.\nHis\t head\t and\t beard\t wagged\t this\t way\t and\t that\t as\t he\nlooked\tfor\tthe\tstones,\tand\tthey\tfollowed\this\tlead,\tbut\tthey\nseemed\tno\tnearer\tto\tthe\tend\tof\tthe\tsearch\twhen\tthe\tday\nbegan\tto\tfail.\tTea-time\thad\tlong\tgone\tby,\tand\tit\tseemed\nsupper-time\twould\tsoon\tdo\tthe\tsame.\tThere\twere\tmoths\nfluttering\t about,\t and\t the\t light\t became\t very\t dim,\t for\t the\nmoon\thad\tnot\trisen.\tBilbo\u2019s\tpony\tbegan\tto\tstumble\tover\nroots\tand\tstones.\tThey\tcame\tto\tthe\tedge\tof\ta\tsteep\tfall\tin\nthe\t ground\t so\t suddenly\t that\t Gandalf\u2019s\t horse\t nearly\nslipped\tdown\tthe\tslope.\n\u201cHere\tit\tis\tat\tlast!\u201d\the\tcalled,\tand\tthe\tothers\tgathered\nround\thim\tand\tlooked\tover\tthe\tedge.\tThey\tsaw\ta\tvalley\nfar\tbelow.\tThey\tcould\thear\tthe\tvoice\tof\thurrying\twater\tin\na\trocky\tbed\tat\tthe\tbottom;\tthe\tscent\tof\ttrees\twas\tin\tthe\nair;\t and\t there\t was\t a\t light\t on\t the\t valley-side\t across\t the\nwater.\nBilbo\tnever\tforgot\tthe\tway\tthey\tslithered\tand\tslipped\tin\nthe\t dusk\t down\t the\t steep\t zig-zag\t path\t into\t the\t secret\nvalley\t of\t Rivendell.\t The\t air\t grew\t warmer\t as\t they\t got\nlower,\tand\tthe\tsmell\tof\tthe\tpine-trees\tmade\thim\tdrowsy,\nso\tthat\tevery\tnow\tand\tagain\the\tnodded\tand\tnearly\tfell\toff,\nor\tbumped\this\tnose\ton\tthe\tpony\u2019s\tneck.\tTheir\tspirits\trose\nas\tthey\twent\tdown\tand\tdown.\tThe\ttrees\tchanged\tto\tbeech\nand\t oak,\t and\t there\t was\t a\t comfortable\t feeling\t in\t the",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 0.9947067739428682,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 50,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2099,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_group",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "ford",
+        "type": "organization",
+        "start": 439,
+        "end": 443,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "His\t head\t and\t beard\t wagged\t this\t way\t and\t tha..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Bilbo\u2019s\tpony\tbegan\tto\tstumble\tover\nroots\tand\tstone..."
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 495,
+        "end": 500,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "His\t head\t and\t beard\t wagged\t this\t way\t and\t tha..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Bilbo\u2019s\tpony\tbegan\tto\tstumble\tover\nroots\tand\tstone..."
+          }
+        ]
+      },
+      {
+        "name": "Gandalf",
+        "type": "group",
+        "start": 729,
+        "end": 736,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "His\t head\t and\t beard\t wagged\t this\t way\t and\t tha..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Bilbo\u2019s\tpony\tbegan\tto\tstumble\tover\nroots\tand\tstone..."
+          }
+        ]
+      },
+      {
+        "name": "Tea",
+        "type": "organization",
+        "start": 974,
+        "end": 977,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "His\t head\t and\t beard\t wagged\t this\t way\t and\t tha..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Bilbo\u2019s\tpony\tbegan\tto\tstumble\tover\nroots\tand\tstone..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "His\t head\t and\t beard\t wagged\t this\t way\t and\t tha...",
+        "description": "His\t head\t and\t beard\t wagged\t this\t way\t and\t that\t as\t he\nlooked\tfor\tthe\tstones,\tand\tthey\tfollowed\this\tlead,\tbut\tthey\nseemed\tno\tnearer\tto\tthe\tend\tof\tthe\tsearch\twhen\tthe\tday\nbegan\tto\tfail.\t",
+        "start": 784,
+        "end": 974,
+        "participants": [
+          "ford",
+          "Bilbo",
+          "Gandalf",
+          "Tea"
+        ],
+        "location": "Bilbo",
+        "time": null
+      },
+      {
+        "name": "Bilbo\u2019s\tpony\tbegan\tto\tstumble\tover\nroots\tand\tstone...",
+        "description": "Bilbo\u2019s\tpony\tbegan\tto\tstumble\tover\nroots\tand\tstones.\t",
+        "start": 1154,
+        "end": 1207,
+        "participants": [
+          "ford",
+          "Bilbo",
+          "Gandalf",
+          "Tea"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 495,
+        "end": 500,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "His\t head\t and\t beard\t wagged\t this\t way\t and\t tha..."
+          },
+          {
+            "type": "hosted",
+            "target": "Bilbo\u2019s\tpony\tbegan\tto\tstumble\tover\nroots\tand\tstone..."
+          }
+        ]
+      },
+      {
+        "name": "Rivendell",
+        "type": "geographical",
+        "start": 1761,
+        "end": 1770,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745715400.450944,
+  "has_embedding": true
+}

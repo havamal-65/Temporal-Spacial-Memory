@@ -1,0 +1,294 @@
+{
+  "id": "3daad813-3734-4230-a9c2-7ba3f390d003",
+  "content": "To\thunt\tthe\twhole\tmountain\ttill\the\thad\tcaught\tthe\tthief\nand\thad\ttorn\tand\ttrampled\thim\twas\this\tone\tthought.\tHe\nissued\tfrom\tthe\tGate,\tthe\twaters\trose\tin\tfierce\twhistling\nsteam,\tand\tup\the\tsoared\tblazing\tinto\tthe\tair\tand\tsettled\ton\nthe\t mountain-top\t in\t a\t spout\t of\t green\t and\t scarlet\t flame.\nThe\t dwarves\t heard\t the\t awful\t rumour\t of\t his\t flight,\t and\nthey\t crouched\t against\t the\t walls\t of\t the\t grassy\t terrace\ncringing\t under\t boulders,\t hoping\t somehow\t to\t escape\t the\nfrightful\teyes\tof\tthe\thunting\tdragon.\nThere\t they\t would\t have\t all\t been\t killed,\t if\t it\t had\t not\nbeen\t for\t Bilbo\t once\t again.\t \u201cQuick!\t Quick!\u201d\t he\t gasped.\n\u201cThe\tdoor!\tThe\ttunnel!\tIt\u2019s\tno\tgood\there.\u201d\nRoused\t by\t these\t words\t they\t were\t just\t about\t to\t creep\ninside\t the\t tunnel\t when\t Bifur\t gave\t a\t cry:\t \u201cMy\t cousins!\nBombur\t and\t Bofur\u2014we\t have\t forgotten\t them,\t they\t are\ndown\tin\tthe\tvalley!\u201d\n\u201cThey\twill\tbe\tslain,\tand\tall\tour\tponies\ttoo,\tand\tall\tour\nstores\tlost,\u201d\tmoaned\tthe\tothers.\t\u201cWe\tcan\tdo\tnothing.\u201d\n\u201cNonsense!\u201d\tsaid\tThorin,\trecovering\this\tdignity.\t\u201cWe\ncannot\tleave\tthem.\tGet\tinside\tMr.\tBaggins\tand\tBalin,\tand\nyou\ttwo\tFili\tand\tKili\u2014the\tdragon\tshan\u2019t\thave\tall\tof\tus.\nNow\tyou\tothers,\twhere\tare\tthe\tropes?\tBe\tquick!\u201d\nThose\twere\tperhaps\tthe\tworst\tmoments\tthey\thad\tbeen\nthrough\tyet.\tThe\thorrible\tsounds\tof\tSmaug\u2019s\tanger\twere\nechoing\tin\tthe\tstony\thollows\tfar\tabove;\tat\tany\tmoment\the\nmight\tcome\tblazing\tdown\tor\tfly\twhirling\tround\tand\tfind\nthem\t there,\t near\t the\t perilous\t cliff\u2019s\t edge\t hauling\t madly\non\t the\t ropes.\t Up\t came\t Bofur,\t and\t still\t all\t was\t safe.\t Up\ncame\t Bombur,\t puffing\t and\t blowing\t while\t the\t ropes\ncreaked,\tand\tstill\tall\twas\tsafe.\tUp\tcame\tsome\ttools\tand\nbundles\tof\tstores,\tand\tthen\tdanger\twas\tupon\tthem.\nA\t whirring\t noise\t was\t heard.\t A\t red\t light\t touched\t the\npoints\tof\tstanding\trocks.\tThe\tdragon\tcame.\nThey\thad\tbarely\ttime\tto\tfly\tback\tto\tthe\ttunnel,\tpulling\nand\tdragging\tin\ttheir\tbundles,\twhen\tSmaug\tcame\thurtling\nfrom\t the\t North,\t licking\t the\t mountain-sides\t with\t flame,\nbeating\this\tgreat\twings\twith\ta\tnoise\tlike\ta\troaring\twind.\nHis\t hot\t breath\t shrivelled\t the\t grass\t before\t the\t door,\t and",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 3.3159510458640264,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 213,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2125,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_group",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Gate",
+        "type": "organization",
+        "start": 126,
+        "end": 130,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "There\t they\t would\t have\t all\t been\t killed,\t if\t ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cThey\twill\tbe\tslain,\tand\tall\tour\tponies\ttoo,\tand\ta..."
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "person",
+        "start": 591,
+        "end": 596,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "There\t they\t would\t have\t all\t been\t killed,\t if\t ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cThey\twill\tbe\tslain,\tand\tall\tour\tponies\ttoo,\tand\ta..."
+          }
+        ]
+      },
+      {
+        "name": "Bifur",
+        "type": "person",
+        "start": 773,
+        "end": 778,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "There\t they\t would\t have\t all\t been\t killed,\t if\t ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cThey\twill\tbe\tslain,\tand\tall\tour\tponies\ttoo,\tand\ta..."
+          }
+        ]
+      },
+      {
+        "name": "Bombur",
+        "type": "administrative",
+        "start": 809,
+        "end": 815,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "There\t they\t would\t have\t all\t been\t killed,\t if\t ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cThey\twill\tbe\tslain,\tand\tall\tour\tponies\ttoo,\tand\ta..."
+          }
+        ]
+      },
+      {
+        "name": "Bofur",
+        "type": "administrative",
+        "start": 822,
+        "end": 827,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "There\t they\t would\t have\t all\t been\t killed,\t if\t ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cThey\twill\tbe\tslain,\tand\tall\tour\tponies\ttoo,\tand\ta..."
+          }
+        ]
+      },
+      {
+        "name": "Thorin",
+        "type": "group",
+        "start": 1015,
+        "end": 1021,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "There\t they\t would\t have\t all\t been\t killed,\t if\t ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cThey\twill\tbe\tslain,\tand\tall\tour\tponies\ttoo,\tand\ta..."
+          }
+        ]
+      },
+      {
+        "name": "Baggins",
+        "type": "person",
+        "start": 1085,
+        "end": 1092,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "There\t they\t would\t have\t all\t been\t killed,\t if\t ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cThey\twill\tbe\tslain,\tand\tall\tour\tponies\ttoo,\tand\ta..."
+          }
+        ]
+      },
+      {
+        "name": "Balin",
+        "type": "organization",
+        "start": 1097,
+        "end": 1102,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "There\t they\t would\t have\t all\t been\t killed,\t if\t ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cThey\twill\tbe\tslain,\tand\tall\tour\tponies\ttoo,\tand\ta..."
+          }
+        ]
+      },
+      {
+        "name": "Kili",
+        "type": "person",
+        "start": 1125,
+        "end": 1129,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "There\t they\t would\t have\t all\t been\t killed,\t if\t ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cThey\twill\tbe\tslain,\tand\tall\tour\tponies\ttoo,\tand\ta..."
+          }
+        ]
+      },
+      {
+        "name": "Smaug",
+        "type": "administrative",
+        "start": 1299,
+        "end": 1304,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "There\t they\t would\t have\t all\t been\t killed,\t if\t ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cThey\twill\tbe\tslain,\tand\tall\tour\tponies\ttoo,\tand\ta..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "There\t they\t would\t have\t all\t been\t killed,\t if\t ...",
+        "description": "There\t they\t would\t have\t all\t been\t killed,\t if\t it\t had\t not\nbeen\t for\t Bilbo\t once\t again.\t ",
+        "start": 517,
+        "end": 612,
+        "participants": [
+          "Gate",
+          "Bilbo",
+          "Bifur",
+          "Bombur",
+          "Bofur",
+          "Thorin",
+          "Baggins",
+          "Balin",
+          "Kili",
+          "Smaug"
+        ],
+        "location": "Bombur",
+        "time": null
+      },
+      {
+        "name": "\u201cThey\twill\tbe\tslain,\tand\tall\tour\tponies\ttoo,\tand\ta...",
+        "description": "\u201cThey\twill\tbe\tslain,\tand\tall\tour\tponies\ttoo,\tand\tall\tour\nstores\tlost,\u201d\tmoaned\tthe\tothers.\t",
+        "start": 887,
+        "end": 977,
+        "participants": [
+          "Gate",
+          "Bilbo",
+          "Bifur",
+          "Bombur",
+          "Bofur",
+          "Thorin",
+          "Baggins",
+          "Balin",
+          "Kili",
+          "Smaug"
+        ],
+        "location": "Bombur",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bombur",
+        "type": "administrative",
+        "start": 809,
+        "end": 815,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "There\t they\t would\t have\t all\t been\t killed,\t if\t ..."
+          },
+          {
+            "type": "hosted",
+            "target": "\u201cThey\twill\tbe\tslain,\tand\tall\tour\tponies\ttoo,\tand\ta..."
+          }
+        ]
+      },
+      {
+        "name": "Bofur",
+        "type": "administrative",
+        "start": 822,
+        "end": 827,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Smaug",
+        "type": "administrative",
+        "start": 1299,
+        "end": 1304,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "North",
+        "type": "geographical",
+        "start": 1951,
+        "end": 1956,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745715412.9415038,
+  "has_embedding": true
+}

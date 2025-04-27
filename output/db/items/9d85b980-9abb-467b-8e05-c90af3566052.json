@@ -1,0 +1,176 @@
+{
+  "id": "9d85b980-9abb-467b-8e05-c90af3566052",
+  "content": "in\tthe\tEast\twhere\tSmaug\tlies\ton\tour\ttreasure.\u201d\n\u201cO!\u201d\tsaid\tBilbo,\tand\tjust\tat\tthat\tmoment\the\tfelt\tmore\ntired\t than\t he\t ever\t remembered\t feeling\t before.\t He\t was\nthinking\t once\t again\t of\t his\t comfortable\t chair\t before\t the\nfire\tin\this\tfavourite\tsitting-room\tin\this\thobbit-hole,\tand\tof\nthe\tkettle\tsinging.\tNot\tfor\tthe\tlast\ttime!\nNow\tGandalf\tled\tthe\tway.\t\u201cWe\tmust\tnot\tmiss\tthe\troad,\tor\nwe\t shall\t be\t done\t for,\u201d\t he\t said.\t \u201cWe\t need\t food,\t for\t one\nthing,\t\nand\n\t rest\t in\t reasonable\t safety\u2014also\t it\t is\t very\nnecessary\t to\t tackle\t the\t Misty\t Mountains\t by\t the\t proper\npath,\tor\telse\tyou\twill\tget\tlost\tin\tthem,\tand\thave\tto\tcome\nback\tand\tstart\tat\tthe\tbeginning\tagain\t(if\tyou\tever\tget\tback\nat\tall).\u201d\nThey\t asked\t him\t where\t he\t was\t making\t for,\t and\t he\nanswered:\t\u201cYou\tare\tcome\tto\tthe\tvery\tedge\tof\tthe\tWild,\tas\nsome\tof\tyou\tmay\tknow.\tHidden\tsomewhere\tahead\tof\tus\nis\t the\t fair\t valley\t of\t Rivendell\t where\t Elrond\t lives\t in\t the\nLast\tHomely\tHouse.\tI\tsent\ta\tmessage\tby\tmy\tfriends,\tand\nwe\tare\texpected.\u201d\nThat\tsounded\tnice\tand\tcomforting,\tbut\tthey\thad\tnot\tgot\nthere\tyet,\tand\tit\twas\tnot\tso\teasy\tas\tit\tsounds\tto\tfind\tthe\nLast\tHomely\tHouse\twest\tof\tthe\tMountains.\tThere\tseemed\nto\t be\t no\t trees\t and\t no\t valleys\t and\t no\t hills\t to\t break\t the\nground\tin\tfront\tof\tthem,\tonly\tone\tvast\tslope\tgoing\tslowly\nup\tand\tup\tto\tmeet\tthe\tfeet\tof\tthe\tnearest\tmountain,\ta\twide\nland\t the\t colour\t of\t heather\t and\t crumbling\t rock,\t with\npatches\t and\t slashes\t of\t grass-green\t and\t moss-green\nshowing\twhere\twater\tmight\tbe.\nMorning\t passed,\t afternoon\t came;\t but\t in\t all\t the\t silent\nwaste\t there\t was\t no\t sign\t of\t any\t dwelling.\t They\t were\ngrowing\tanxious,\tfor\tthey\tsaw\tnow\tthat\tthe\thouse\tmight\nbe\t hidden\t almost\t anywhere\t between\t them\t and\t the\nmountains.\t They\t came\t on\t unexpected\t valleys,\t narrow\nwith\t steep\t sides,\t that\t opened\t suddenly\t at\t their\t feet,\t and\nthey\tlooked\tdown\tsurprised\tto\tsee\ttrees\tbelow\tthem\tand",
+  "coordinates": {
+    "r": 5.205,
+    "theta": 3.4482906363964965,
+    "t": 1745630173.9676006,
+    "z": 3
+  },
+  "metadata": {
+    "chunk_index": 49,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1918,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 3
+    },
+    "entities": [
+      {
+        "name": "Smaug",
+        "type": "administrative",
+        "start": 18,
+        "end": 23,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cWe\t need\t food,\t for\t one\nthing,\t\nand\n\t rest\t in\t..."
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 57,
+        "end": 62,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cWe\t need\t food,\t for\t one\nthing,\t\nand\n\t rest\t in\t..."
+          }
+        ]
+      },
+      {
+        "name": "Hidden",
+        "type": "administrative",
+        "start": 840,
+        "end": 846,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cWe\t need\t food,\t for\t one\nthing,\t\nand\n\t rest\t in\t..."
+          }
+        ]
+      },
+      {
+        "name": "Rivendell",
+        "type": "organization",
+        "start": 896,
+        "end": 905,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cWe\t need\t food,\t for\t one\nthing,\t\nand\n\t rest\t in\t..."
+          }
+        ]
+      },
+      {
+        "name": "House",
+        "type": "organization",
+        "start": 949,
+        "end": 954,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "\u201cWe\t need\t food,\t for\t one\nthing,\t\nand\n\t rest\t in\t..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "\u201cWe\t need\t food,\t for\t one\nthing,\t\nand\n\t rest\t in\t...",
+        "description": "\u201cWe\t need\t food,\t for\t one\nthing,\t\nand\n\t rest\t in\t reasonable\t safety\u2014also\t it\t is\t very\nnecessary\t to\t tackle\t the\t Misty\t Mountains\t by\t the\t proper\npath,\tor\telse\tyou\twill\tget\tlost\tin\tthem,\tand\thave\tto\tcome\nback\tand\tstart\tat\tthe\tbeginning\tagain\t(if\tyou\tever\tget\tback\nat\tall).\u201d\n",
+        "start": 426,
+        "end": 705,
+        "participants": [
+          "Smaug",
+          "Bilbo",
+          "Hidden",
+          "Rivendell",
+          "House"
+        ],
+        "location": "East",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "East",
+        "type": "geographical",
+        "start": 7,
+        "end": 11,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "\u201cWe\t need\t food,\t for\t one\nthing,\t\nand\n\t rest\t in\t..."
+          }
+        ]
+      },
+      {
+        "name": "Smaug",
+        "type": "administrative",
+        "start": 18,
+        "end": 23,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 57,
+        "end": 62,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Wild",
+        "type": "geographical",
+        "start": 809,
+        "end": 813,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Hidden",
+        "type": "administrative",
+        "start": 840,
+        "end": 846,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Mountains",
+        "type": "geographical",
+        "start": 1154,
+        "end": 1163,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745773072.5994132,
+  "has_embedding": true
+}

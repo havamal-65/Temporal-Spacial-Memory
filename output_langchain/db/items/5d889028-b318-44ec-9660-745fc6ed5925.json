@@ -1,0 +1,114 @@
+{
+  "id": "5d889028-b318-44ec-9660-745fc6ed5925",
+  "content": "there?\u201d\nNothing\telse\tcould,\tof\tcourse,\tbe\tsuggested;\tso\tleaving\nthe\t others\t Thorin\t and\t Fili\t and\t Kili\t and\t the\t hobbit\t went\nalong\tthe\tshore\tto\tthe\tgreat\tbridge.\tThere\twere\tguards\tat\nthe\t head\t of\t it,\t but\t they\t were\t not\t keeping\t very\t careful\nwatch,\t for\t it\t was\t so\t long\t since\t there\t had\t been\t any\t real\nneed.\t Except\t for\t occasional\t squabbles\t about\t river-tolls\nthey\twere\tfriends\twith\tthe\tWood-elves.\tOther\tfolk\twere\nfar\t away;\t and\t some\t of\t the\t younger\t people\t in\t the\t town\nopenly\t doubted\t the\t existence\t of\t any\t dragon\t in\t the\nmountain,\t and\t laughed\t at\t the\t greybeards\t and\t gammers\nwho\tsaid\tthat\tthey\thad\tseen\thim\tflying\tin\tthe\tsky\tin\ttheir\nyoung\t days.\t That\t being\t so\t it\t is\t not\t surprising\t that\t the\nguards\twere\tdrinking\tand\tlaughing\tby\ta\tfire\tin\ttheir\thut,\nand\t did\t not\t hear\t the\t noise\t of\t the\t unpacking\t of\t the\ndwarves\t or\t the\t footsteps\t of\t the\t four\t scouts.\t Their\nastonishment\t was\t enormous\t when\t Thorin\t Oakenshield\nstepped\tin\tthrough\tthe\tdoor.\n\u201cWho\t are\t you\t and\t what\t do\t you\t want?\u201d\t they\t shouted\nleaping\tto\ttheir\tfeet\tand\tgroping\tfor\tweapons.\n\u201cThorin\t son\t of\t Thrain\t son\t of\t Thror\t King\t under\t the\nMountain!\u201d\tsaid\tthe\tdwarf\tin\ta\tloud\tvoice,\tand\the\tlooked\nit,\tin\tspite\tof\this\ttorn\tclothes\tand\tdraggled\thood.\tThe\tgold\ngleamed\t on\t his\t neck\t and\t waist;\t his\t eyes\t were\t dark\t and\ndeep.\t\u201cI\thave\tcome\tback.\tI\twish\tto\tsee\tthe\tMaster\tof\tyour\ntown!\u201d\nThen\t there\t was\t tremendous\t excitement.\t Some\t of\t the\nmore\t foolish\t ran\t out\t of\t the\t hut\t as\t if\t they\t expected\t the\nMountain\tto\tgo\tgolden\tin\tthe\tnight\tand\tall\tthe\twaters\tof\nthe\tlake\tturn\tyellow\tright\taway.\tThe\tcaptain\tof\tthe\tguard\ncame\tforward.\n\u201cAnd\t who\t are\t these?\u201d\t he\t asked,\t pointing\t to\t Fili\t and\nKili\tand\tBilbo.\n\u201cThe\tsons\tof\tmy\tfather\u2019s\tdaughter,\u201d\tanswered\tThorin,\n\u201cFili\tand\tKili\tof\tthe\trace\tof\tDurin,\tand\tMr.\tBaggins\twho\nhas\ttravelled\twith\tus\tout\tof\tthe\tWest.\u201d\n\u201cIf\tyou\tcome\tin\tpeace\tlay\tdown\tyour\tarms!\u201d\tsaid\tthe\ncaptain.",
+  "coordinates": {
+    "r": 5.1125,
+    "theta": 3.4145185153704065,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 190,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1955,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_organization",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Thorin",
+        "type": "group",
+        "start": 77,
+        "end": 83,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Kili",
+        "type": "person",
+        "start": 101,
+        "end": 105,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Oakenshield",
+        "type": "administrative",
+        "start": 963,
+        "end": 974,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 1738,
+        "end": 1743,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Durin",
+        "type": "organization",
+        "start": 1828,
+        "end": 1833,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Baggins",
+        "type": "person",
+        "start": 1843,
+        "end": 1850,
+        "mentions": 1,
+        "relationships": []
+      }
+    ],
+    "events": [],
+    "locations": [
+      {
+        "name": "Oakenshield",
+        "type": "administrative",
+        "start": 963,
+        "end": 974,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 1738,
+        "end": 1743,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "West",
+        "type": "geographical",
+        "start": 1888,
+        "end": 1892,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745715411.2937164,
+  "has_embedding": true
+}

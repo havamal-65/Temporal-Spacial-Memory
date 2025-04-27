@@ -1,0 +1,80 @@
+{
+  "id": "a74b417b-ff32-414d-90d0-594f9a5fe072",
+  "content": "And\telves\tare\tyet\tsinging\n\t\t\t\tCome!\tTra-la-la-lally!\n\t\t\t\tCome\tback\tto\tthe\tvalley!\nThe\tstars\tare\tfar\tbrighter\nThan\tgems\twithout\tmeasure,\nThe\tmoon\tis\tfar\twhiter\nThan\tsilver\tin\ttreasure;\nThe\tfire\tis\tmore\tshining\nOn\thearth\tin\tthe\tgloaming\nThan\tgold\twon\tby\tmining,\nSo\twhy\tgo\ta-roaming?\n\t\t\t\tO!\tTra-la-la-lally\n\t\t\t\tCome\tback\tto\tthe\tValley.\nO!\tWhere\tare\tyou\tgoing,\nSo\tlate\tin\treturning?\nThe\triver\tis\tflowing,\nThe\tstars\tare\tall\tburning!\nO!\tWhither\tso\tladen,\nSo\tsad\tand\tso\tdreary?\nHere\telf\tand\telf-maiden\nNow\twelcome\tthe\tweary\n\t\t\t\tWith\tTra-la-la-lally\n\t\t\t\tCome\tback\tto\tthe\tValley,\n\t\t\t\t\t\t\t\t\t\tTra-la-la-lally\n\t\t\t\t\t\t\t\t\t\tFa-la-la-lally\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tFa-la!\nThen\tthe\telves\tof\tthe\tvalley\tcame\tout\tand\tgreeted\tthem\nand\t led\t them\t across\t the\t water\t to\t the\t house\t of\t Elrond.\nThere\ta\twarm\twelcome\twas\tmade\tthem,\tand\tthere\twere\nmany\t eager\t ears\t that\t evening\t to\t hear\t the\t tale\t of\t their\nadventures.\t Gandalf\t it\t was\t who\t spoke,\t for\t Bilbo\t was\nfallen\tquiet\tand\tdrowsy.\tMost\tof\tthe\ttale\the\tknew,\tfor\the\nhad\t been\t in\t it,\t and\t had\t himself\t told\t much\t of\t it\t to\t the",
+  "coordinates": {
+    "r": 7.345,
+    "theta": 0.1511891464540088,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 290,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1062,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_person",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "person",
+        "start": 927,
+        "end": 932,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "The\tstars\tare\tfar\tbrighter\nThan\tgems\twithout\tmeasu..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "The\tstars\tare\tfar\tbrighter\nThan\tgems\twithout\tmeasu...",
+        "description": "The\tstars\tare\tfar\tbrighter\nThan\tgems\twithout\tmeasure,\nThe\tmoon\tis\tfar\twhiter\nThan\tsilver\tin\ttreasure;\nThe\tfire\tis\tmore\tshining\nOn\thearth\tin\tthe\tgloaming\nThan\tgold\twon\tby\tmining,\n",
+        "start": 82,
+        "end": 260,
+        "participants": [
+          "Bilbo"
+        ],
+        "location": "Valley",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Valley",
+        "type": "geographical",
+        "start": 325,
+        "end": 331,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "The\tstars\tare\tfar\tbrighter\nThan\tgems\twithout\tmeasu..."
+          }
+        ]
+      }
+    ]
+  },
+  "timestamp": 1745709017.9483712,
+  "has_embedding": true
+}

@@ -1,0 +1,183 @@
+{
+  "id": "16b0ce01-0959-4a28-9448-a556961d63f2",
+  "content": "Actually\tGollum\tlived\ton\ta\tslimy\tisland\tof\trock\tin\tthe\nmiddle\tof\tthe\tlake.\tHe\twas\twatching\tBilbo\tnow\tfrom\tthe\ndistance\t with\t his\t pale\t eyes\t like\t telescopes.\t Bilbo\t could\nnot\tsee\thim,\tbut\the\twas\twondering\ta\tlot\tabout\tBilbo,\tfor\nhe\tcould\tsee\tthat\the\twas\tno\tgoblin\tat\tall.\nGollum\tgot\tinto\this\tboat\tand\tshot\toff\tfrom\tthe\tisland,\nwhile\t Bilbo\t was\t sitting\t on\t the\t brink\t altogether\nflummoxed\t and\t at\t the\t end\t of\t his\t way\t and\t his\t wits.\nSuddenly\tup\tcame\tGollum\tand\twhispered\tand\thissed:\n\u201cBless\tus\tand\tsplash\tus,\tmy\tprecioussss!\tI\tguess\tit\u2019s\ta\nchoice\tfeast;\tat\tleast\ta\ttasty\tmorsel\tit\u2019d\tmake\tus,\tgollum!\u201d\nAnd\twhen\the\tsaid\t\ngollum\n\the\tmade\ta\thorrible\tswallowing\nnoise\tin\this\tthroat.\tThat\tis\thow\the\tgot\this\tname,\tthough\nhe\talways\tcalled\thimself\t\u2018my\tprecious\u2019.\nThe\thobbit\tjumped\tnearly\tout\tof\this\tskin\twhen\tthe\thiss\ncame\t in\t his\t ears,\t and\t he\t suddenly\t saw\t the\t pale\t eyes\nsticking\tout\tat\thim.\n\u201cWho\tare\tyou?\u201d\the\tsaid,\tthrusting\this\tdagger\tin\tfront\tof\nhim.\n\u201cWhat\tiss\the,\tmy\tpreciouss?\u201d\twhispered\tGollum\t(who\nalways\t spoke\t to\t himself\t through\t never\t having\t anyone\nelse\tto\tspeak\tto).\tThis\tis\twhat\the\thad\tcome\tto\tfind\tout,\tfor\nhe\t was\t not\t really\t very\t hungry\t at\t the\t moment,\t only\ncurious;\t otherwise\t he\t would\t have\t grabbed\t first\t and\nwhispered\tafterwards.\n\u201cI\tam\tMr.\tBilbo\tBaggins.\tI\thave\tlost\tthe\tdwarves\tand\tI\nhave\tlost\tthe\twizard,\tand\tI\tdon\u2019t\tknow\twhere\tI\tam;\tand\tI\ndon\u2019t\twant\tto\tknow,\tif\tonly\tI\tcan\tget\taway.\u201d\n\u201cWhat\u2019s\the\tgot\tin\this\thandses?\u201d\tsaid\tGollum,\tlooking\nat\tthe\tsword,\twhich\the\tdid\tnot\tquite\tlike.\n\u201cA\t sword,\t a\t blade\t which\t came\t out\t of\t Gondolin!\u201d\n\u201cSssss\u201d\tsaid\tGollum,\tand\tbecame\tquite\tpolite.\t\u201cPraps\tye\nsits\there\tand\tchats\twith\tit\ta\tbitsy,\tmy\tpreciousss.\tIt\tlikes\nriddles,\tpraps\tit\tdoes,\tdoes\tit?\u201d\tHe\twas\tanxious\tto\tappear\nfriendly,\tat\tany\trate\tfor\tthe\tmoment,\tand\tuntil\the\tfound\nout\tmore\tabout\tthe\tsword\tand\tthe\thobbit,\twhether\the\twas\nquite\t alone\t really,\t whether\t he\t was\t good\t to\t eat,\t and\nwhether\t Gollum\t was\t really\t hungry.\t Riddles\t were\t all\t he",
+  "coordinates": {
+    "r": 5.015,
+    "theta": 3.215420080949153,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 75,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1994,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 91,
+        "end": 96,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Bilbo\t could\nnot\tsee\thim,\tbut\the\twas\twondering\ta\tl..."
+          },
+          {
+            "type": "participated_in",
+            "target": "I\thave\tlost\tthe\tdwarves\tand\tI\nhave\tlost\tthe\twizard..."
+          }
+        ]
+      },
+      {
+        "name": "Baggins",
+        "type": "administrative",
+        "start": 1291,
+        "end": 1298,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Bilbo\t could\nnot\tsee\thim,\tbut\the\twas\twondering\ta\tl..."
+          },
+          {
+            "type": "participated_in",
+            "target": "I\thave\tlost\tthe\tdwarves\tand\tI\nhave\tlost\tthe\twizard..."
+          }
+        ]
+      },
+      {
+        "name": "Gollum",
+        "type": "organization",
+        "start": 1469,
+        "end": 1475,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Bilbo\t could\nnot\tsee\thim,\tbut\the\twas\twondering\ta\tl..."
+          },
+          {
+            "type": "participated_in",
+            "target": "I\thave\tlost\tthe\tdwarves\tand\tI\nhave\tlost\tthe\twizard..."
+          }
+        ]
+      },
+      {
+        "name": "Gondolin",
+        "type": "person",
+        "start": 1572,
+        "end": 1580,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Bilbo\t could\nnot\tsee\thim,\tbut\the\twas\twondering\ta\tl..."
+          },
+          {
+            "type": "participated_in",
+            "target": "I\thave\tlost\tthe\tdwarves\tand\tI\nhave\tlost\tthe\twizard..."
+          }
+        ]
+      },
+      {
+        "name": "Riddles",
+        "type": "person",
+        "start": 1972,
+        "end": 1979,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Bilbo\t could\nnot\tsee\thim,\tbut\the\twas\twondering\ta\tl..."
+          },
+          {
+            "type": "participated_in",
+            "target": "I\thave\tlost\tthe\tdwarves\tand\tI\nhave\tlost\tthe\twizard..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "Bilbo\t could\nnot\tsee\thim,\tbut\the\twas\twondering\ta\tl...",
+        "description": "Bilbo\t could\nnot\tsee\thim,\tbut\the\twas\twondering\ta\tlot\tabout\tBilbo,\tfor\nhe\tcould\tsee\tthat\the\twas\tno\tgoblin\tat\tall.\n",
+        "start": 162,
+        "end": 275,
+        "participants": [
+          "Bilbo",
+          "Baggins",
+          "Gollum",
+          "Gondolin",
+          "Riddles"
+        ],
+        "location": "Bilbo",
+        "time": null
+      },
+      {
+        "name": "I\thave\tlost\tthe\tdwarves\tand\tI\nhave\tlost\tthe\twizard...",
+        "description": "I\thave\tlost\tthe\tdwarves\tand\tI\nhave\tlost\tthe\twizard,\tand\tI\tdon\u2019t\tknow\twhere\tI\tam;\tand\tI\ndon\u2019t\twant\tto\tknow,\tif\tonly\tI\tcan\tget\taway.\u201d\n",
+        "start": 1300,
+        "end": 1432,
+        "participants": [
+          "Bilbo",
+          "Baggins",
+          "Gollum",
+          "Gondolin",
+          "Riddles"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 91,
+        "end": 96,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "Bilbo\t could\nnot\tsee\thim,\tbut\the\twas\twondering\ta\tl..."
+          },
+          {
+            "type": "hosted",
+            "target": "I\thave\tlost\tthe\tdwarves\tand\tI\nhave\tlost\tthe\twizard..."
+          }
+        ]
+      },
+      {
+        "name": "Baggins",
+        "type": "administrative",
+        "start": 1291,
+        "end": 1298,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745709006.2527914,
+  "has_embedding": true
+}

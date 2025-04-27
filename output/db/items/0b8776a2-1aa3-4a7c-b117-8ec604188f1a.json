@@ -1,0 +1,94 @@
+{
+  "id": "0b8776a2-1aa3-4a7c-b117-8ec604188f1a",
+  "content": "\u201cWhich\tking?\u201d\tsaid\tanother\twith\ta\tgrim\tvoice.\t\u201cAs\tlike\nas\tnot\tit\tis\tthe\tmarauding\tfire\tof\tthe\tDragon,\tthe\tonly\tking\nunder\tthe\tMountain\twe\thave\tever\tknown.\u201d\n\u201cYou\t are\t always\t foreboding\t gloomy\t things!\u201d\t said\t the\nothers.\t\u201cAnything\tfrom\tfloods\tto\tpoisoned\tfish.\tThink\tof\nsomething\tcheerful!\u201d\nThen\tsuddenly\ta\tgreat\tlight\tappeared\tin\tthe\tlow\tplace\nin\tthe\thills\tand\tthe\tnorthern\tend\tof\tthe\tlake\tturned\tgolden.\n\u201cThe\t King\t beneath\t the\t Mountain!\u201d\t they\t shouted.\t \u201cHis\nwealth\tis\tlike\tthe\tSun,\this\tsilver\tlike\ta\tfountain,\this\trivers\ngolden\t run!\t The\t river\t is\t running\t gold\t from\t the\nMountain!\u201d\t they\t cried,\t and\t everywhere\t windows\t were\nopening\tand\tfeet\twere\thurrying.\nThere\t was\t once\t more\t a\t tremendous\t excitement\t and\nenthusiasm.\tBut\tthe\tgrim-voiced\tfellow\tran\thotfoot\tto\tthe\nMaster.\t\u201cThe\tdragon\tis\tcoming\tor\tI\tam\ta\tfool!\u201d\the\tcried.\n\u201cCut\tthe\tbridges!\tTo\tarms!\tTo\tarms!\u201d\nThen\t warning\t trumpets\t were\t suddenly\t sounded,\t and\nechoed\talong\tthe\trocky\tshores.\tThe\tcheering\tstopped\tand\nthe\tjoy\twas\tturned\tto\tdread.\tSo\tit\twas\tthat\tthe\tdragon\tdid\nnot\tfind\tthem\tquite\tunprepared.\nBefore\tlong,\tso\tgreat\twas\this\tspeed,\tthey\tcould\tsee\thim\nas\ta\tspark\tof\tfire\trushing\ttowards\tthem\tand\tgrowing\tever\nhuger\tand\tmore\tbright,\tand\tnot\tthe\tmost\tfoolish\tdoubted\nthat\tthe\tprophecies\thad\tgone\trather\twrong.\tStill\tthey\thad\na\t little\t time.\t Every\t vessel\t in\t the\t town\t was\t filled\t with\nwater,\tevery\twarrior\twas\tarmed,\tevery\tarrow\tand\tdart\twas\nready,\t and\t the\t bridge\t to\t the\t land\t was\t thrown\t down\t and\ndestroyed,\t before\t the\t roar\t of\t Smaug\u2019s\t terrible\t approach\ngrew\t loud,\t and\t the\t lake\t rippled\t red\t as\t fire\t beneath\t the\nawful\tbeating\tof\this\twings.\tAmid\tshrieks\tand\twailing\tand\nthe\tshouts\tof\tmen\the\tcame\tover\tthem,\tswept\ttowards\tthe\nbridges\t and\t was\t foiled!\t The\t bridge\t was\t gone,\t and\t his\nenemies\twere\ton\tan\tisland\tin\tdeep\twater\u2014too\tdeep\tand\ndark\tand\tcool\tfor\this\tliking.\tIf\the\tplunged\tinto\tit,\ta\tvapour\nand\ta\tsteam\twould\tarise\tenough\tto\tcover\tall\tthe\tland\twith\na\t mist\t for\t days;\t but\t the\t lake\t was\t mightier\t than\t he,\t it\nwould\tquench\thim\tbefore\the\tcould\tpass\tthrough.",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 1.0508627426257857,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 241,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2085,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_organization",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Dragon",
+        "type": "organization",
+        "start": 94,
+        "end": 100,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Think\tof\nsomething\tcheerful!\u201d\n"
+          }
+        ]
+      },
+      {
+        "name": "Sun",
+        "type": "organization",
+        "start": 486,
+        "end": 489,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Think\tof\nsomething\tcheerful!\u201d\n"
+          }
+        ]
+      },
+      {
+        "name": "Smaug",
+        "type": "organization",
+        "start": 1532,
+        "end": 1537,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Think\tof\nsomething\tcheerful!\u201d\n"
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "Think\tof\nsomething\tcheerful!\u201d\n",
+        "description": "Think\tof\nsomething\tcheerful!\u201d\n",
+        "start": 263,
+        "end": 293,
+        "participants": [
+          "Dragon",
+          "Sun",
+          "Smaug"
+        ],
+        "location": null,
+        "time": null
+      }
+    ],
+    "locations": []
+  },
+  "timestamp": 1745709015.3724113,
+  "has_embedding": true
+}

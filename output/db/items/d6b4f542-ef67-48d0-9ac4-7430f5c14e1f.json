@@ -1,0 +1,106 @@
+{
+  "id": "d6b4f542-ef67-48d0-9ac4-7430f5c14e1f",
+  "content": "There\t came\t a\t night\t when\t suddenly\t there\t were\t many\nlights\t as\t of\t fires\t and\t torches\t away\t south\t in\t Dale\t before\nthem.\n\u201cThey\t have\t come!\u201d\t called\t Balin.\t \u201cAnd\t their\t camp\t is\nvery\tgreat.\tThey\tmust\thave\tcome\tinto\tthe\tvalley\tunder\tthe\ncover\tof\tdusk\talong\tboth\tbanks\tof\tthe\triver.\u201d\nThat\t night\t the\t dwarves\t slept\t little.\t The\t morning\t was\nstill\t pale\t when\t they\t saw\t a\t company\t approaching.\t From\nbehind\t their\t wall\t they\t watched\t them\t come\t up\t to\t the\nvalley\u2019s\t head\t and\t climb\t slowly\t up.\t Before\t long\t they\ncould\tsee\tthat\tboth\tmen\tof\tthe\tlake\tarmed\tas\tif\tfor\twar\nand\t elvish\t bowmen\t were\t among\t them.\t At\t length\t the\nforemost\t of\t these\t climbed\t the\t tumbled\t rocks\t and\nappeared\tat\tthe\ttop\tof\tthe\tfalls;\tand\tvery\tgreat\twas\ttheir\nsurprise\tto\tsee\tthe\tpool\tbefore\tthem\tand\tthe\tGate\tblocked\nwith\ta\twall\tof\tnew-hewn\tstone.\nAs\t they\t stood\t pointing\t and\t speaking\t to\t one\t another\nThorin\thailed\tthem:\t\u201cWho\tare\tyou,\u201d\the\tcalled\tin\ta\tvery\nloud\tvoice,\t\u201cthat\tcome\tas\tif\tin\twar\tto\tthe\tgates\tof\tThorin\nson\tof\tThrain,\tKing\tunder\tthe\tMountain,\tand\twhat\tdo\tyou\ndesire?\u201d\nBut\tthey\tanswered\tnothing.\tSome\tturned\tswiftly\tback,\nand\tthe\tothers\tafter\tgazing\tfor\ta\twhile\tat\tthe\tGate\tand\tits\ndefences\t soon\t followed\t them.\t That\t day\t the\t camp\t was\nmoved\tto\tthe\teast\tof\tthe\triver,\tright\tbetween\tthe\tarms\tof\nthe\t Mountain.\t The\t rocks\t echoed\t then\t with\t voices\t and\nwith\t song,\t as\t they\t had\t not\t done\t for\t many\t a\t day.\t There\nwas\t the\t sound,\t too,\t of\t elven-harps\t and\t of\t sweet\t music;\nand\tas\tit\techoed\tup\ttowards\tthem\tit\tseemed\tthat\tthe\tchill\nof\t the\t air\t was\t warmed,\t and\t they\t caught\t faintly\t the\nfragrance\tof\twoodland\tflowers\tblossoming\tin\tspring.\nThen\tBilbo\tlonged\tto\tescape\tfrom\tthe\tdark\tfortress\tand\nto\tgo\tdown\tand\tjoin\tin\tthe\tmirth\tand\tfeasting\tby\tthe\tfires.\nSome\tof\tthe\tyounger\tdwarves\twere\tmoved\tin\ttheir\thearts,\ntoo,\tand\tthey\tmuttered\tthat\tthey\twished\tthings\thad\tfallen\nout\totherwise\tand\tthat\tthey\tmight\twelcome\tsuch\tfolk\tas\nfriends;\tbut\tThorin\tscowled.\nThen\tthe\tdwarves\tthemselves\tbrought\tforth\tharps\tand",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 3.492272933546754,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 255,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2042,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Dale",
+        "type": "organization",
+        "start": 111,
+        "end": 115,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Gate",
+        "type": "organization",
+        "start": 807,
+        "end": 811,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Thorin",
+        "type": "group",
+        "start": 910,
+        "end": 916,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Thrain",
+        "type": "administrative",
+        "start": 1031,
+        "end": 1037,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 1683,
+        "end": 1688,
+        "mentions": 1,
+        "relationships": []
+      }
+    ],
+    "events": [],
+    "locations": [
+      {
+        "name": "Balin",
+        "type": "geographical",
+        "start": 159,
+        "end": 164,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Thrain",
+        "type": "administrative",
+        "start": 1031,
+        "end": 1037,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 1683,
+        "end": 1688,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745709016.1514113,
+  "has_embedding": true
+}

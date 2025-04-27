@@ -1,0 +1,80 @@
+{
+  "id": "06704448-8144-43a3-8ea3-f98e9256dc54",
+  "content": "days\twhen\the\thad\tbeen\tless\tlonely\tand\tsneaky\tand\tnasty,\nand\tthat\tput\thim\tout\tof\ttemper.\tWhat\tis\tmore\tthey\tmade\nhim\t hungry;\t so\t this\t time\t he\t tried\t something\t a\t bit\t more\ndifficult\tand\tmore\tunpleasant:\nIt\tcannot\tbe\tseen,\tcannot\tbe\tfelt,\nCannot\tbe\theard,\tcannot\tbe\tsmelt.\nIt\tlies\tbehind\tstars\tand\tunder\thills,\n\t\t\t\tAnd\tempty\tholes\tit\tfills.\nIt\tcomes\tfirst\tand\tfollows\tafter,\n\t\t\t\tEnds\tlife,\tkills\tlaughter.\nUnfortunately\tfor\tGollum\tBilbo\thad\theard\tthat\tsort\tof\nthing\tbefore;\tand\tthe\tanswer\twas\tall\tround\thim\tany\tway.\n\u201cDark!\u201d\t he\t said\t without\t even\t scratching\t his\t head\t or\nputting\ton\this\tthinking\tcap.\nA\tbox\twithout\thinges,\tkey,\tor\tlid,\nYet\tgolden\ttreasure\tinside\tis\thid,\nhe\tasked\tto\tgain\ttime,\tuntil\the\tcould\tthink\tof\ta\treally\thard\none.\t This\t he\t thought\t a\t dreadfully\t easy\t chestnut,\t though\nhe\t had\t not\t asked\t it\t in\t the\t usual\t words.\t But\t it\t proved\t a\nnasty\tposer\tfor\tGollum.\tHe\thissed\tto\thimself,\tand\tstill\the\ndid\tnot\tanswer;\the\twhispered\tand\tspluttered.\nAfter\tsome\twhile\tBilbo\tbecame\timpatient.\t\u201cWell,\twhat\nis\tit?\u201d\the\tsaid.\t\u201cThe\tanswer\u2019s\tnot\ta\tkettle\tboiling\tover,\tas\nyou\tseem\tto\tthink\tfrom\tthe\tnoise\tyou\tare\tmaking.\u201d\n\u201cGive\tus\ta\tchance;\tlet\tit\tgive\tus\ta\tchance,\tmy\tpreciouss\n\u2014ss\u2014ss.\u201d\n\u201cWell,\u201d\t said\t Bilbo\t after\t giving\t him\t a\t long\t chance,\n\u201cwhat\tabout\tyour\tguess?\u201d\nBut\tsuddenly\tGollum\tremembered\tthieving\tfrom\tnests\nlong\t ago,\t and\t sitting\t under\t the\t river\t bank\t teaching\t his\ngrandmother,\t teaching\t his\t grandmother\t to\t suck",
+  "coordinates": {
+    "r": 6.3625,
+    "theta": 3.174186677370787,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 78,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1455,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 992,
+        "end": 997,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "What\tis\tmore\tthey\tmade\nhim\t hungry;\t so\t this\t tim..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "What\tis\tmore\tthey\tmade\nhim\t hungry;\t so\t this\t tim...",
+        "description": "What\tis\tmore\tthey\tmade\nhim\t hungry;\t so\t this\t time\t he\t tried\t something\t a\t bit\t more\ndifficult\tand\tmore\tunpleasant:\nIt\tcannot\tbe\tseen,\tcannot\tbe\tfelt,\nCannot\tbe\theard,\tcannot\tbe\tsmelt.\n",
+        "start": 88,
+        "end": 276,
+        "participants": [
+          "Bilbo"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 992,
+        "end": 997,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "What\tis\tmore\tthey\tmade\nhim\t hungry;\t so\t this\t tim..."
+          }
+        ]
+      }
+    ]
+  },
+  "timestamp": 1745773076.6174703,
+  "has_embedding": true
+}

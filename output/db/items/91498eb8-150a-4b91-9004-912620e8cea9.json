@@ -1,0 +1,152 @@
+{
+  "id": "91498eb8-150a-4b91-9004-912620e8cea9",
+  "content": "Bard\twill\tremember\tme,\tand\tit\tis\tBard\tI\tparticularly\twant\nto\tsee.\u201d\n\u201cIndeed!\u201d\tsaid\tthey,\t\u201cand\twhat\tmay\tbe\tyour\tbusiness?\u201d\n\u201cWhatever\tit\tis,\tit\u2019s\tmy\town,\tmy\tgood\telves.\tBut\tif\tyou\nwish\tever\tto\tget\tback\tto\tyour\town\twoods\tfrom\tthis\tcold\ncheerless\t place,\u201d\t he\t answered\t shivering,\t \u201cyou\t will\t take\nme\talong\tquick\tto\ta\tfire,\twhere\tI\tcan\tdry\u2014and\tthen\tyou\nwill\t let\t me\t speak\t to\t your\t chiefs\t as\t quick\t as\t may\t be.\t I\nhave\tonly\tan\thour\tor\ttwo\tto\tspare.\u201d\nThat\tis\thow\tit\tcame\tabout\tthat\tsome\ttwo\thours\tafter\this\nescape\t from\t the\t Gate,\t Bilbo\t was\t sitting\t beside\t a\t warm\nfire\t in\t front\t of\t a\t large\t tent,\t and\t there\t sat\t too,\t gazing\ncuriously\tat\thim,\tboth\tthe\tElvenking\tand\tBard.\tA\thobbit\nin\t elvish\t armour,\t partly\t wrapped\t in\t an\t old\t blanket,\t was\nsomething\tnew\tto\tthem.\n\u201cReally\t you\t know,\u201d\t Bilbo\t was\t saying\t in\t his\t best\nbusiness\tmanner,\t\u201cthings\tare\timpossible.\tPersonally\tI\tam\ntired\tof\tthe\twhole\taffair.\tI\twish\tI\twas\tback\tin\tthe\tWest\tin\nmy\t own\t home,\t where\t folk\t are\t more\t reasonable.\t But\t I\nhave\tan\tinterest\tin\tthis\tmatter\u2014one\tfourteenth\tshare,\tto\nbe\t precise,\t according\t to\t a\t letter,\t which\t fortunately\t I\nbelieve\t I\t have\t kept.\u201d\t He\t drew\t from\t a\t pocket\t in\t his\t old\njacket\t(which\the\tstill\twore\tover\this\tmail),\tcrumpled\tand\nmuch\tfolded,\tThorin\u2019s\tletter\tthat\thad\tbeen\tput\tunder\tthe\nclock\ton\this\tmantelpiece\tin\tMay!\n\u201cA\tshare\tin\tthe\t\nprofits\n,\tmind\tyou,\u201d\the\twent\ton.\t\u201cI\tam\naware\tof\tthat.\tPersonally\tI\tam\tonly\ttoo\tready\tto\tconsider\nall\t your\t claims\t carefully,\t and\t deduct\t what\t is\t right\t from\nthe\t total\t before\t putting\t in\t my\t own\t claim.\t However\t you\ndon\u2019t\t know\t Thorin\t Oakenshield\t as\t well\t as\t I\t do\t now.\t I\nassure\tyou,\the\tis\tquite\tready\tto\tsit\ton\ta\theap\tof\tgold\tand\nstarve,\tas\tlong\tas\tyou\tsit\there.\u201d\n\u201cWell,\t let\t him!\u201d\t said\t Bard.\t \u201cSuch\t a\t fool\t deserves\t to\nstarve.\u201d\n\u201cQuite\tso,\u201d\tsaid\tBilbo.\t\u201cI\tsee\tyour\tpoint\tof\tview.\tAt\tthe",
+  "coordinates": {
+    "r": 5.3075,
+    "theta": 3.279822730347744,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 264,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1877,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Gate",
+        "type": "organization",
+        "start": 528,
+        "end": 532,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "A\thobbit\nin\t elvish\t armour,\t partly\t wrapped\t in\t..."
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "person",
+        "start": 535,
+        "end": 540,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "A\thobbit\nin\t elvish\t armour,\t partly\t wrapped\t in\t..."
+          }
+        ]
+      },
+      {
+        "name": "Bard",
+        "type": "administrative",
+        "start": 681,
+        "end": 685,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "A\thobbit\nin\t elvish\t armour,\t partly\t wrapped\t in\t..."
+          }
+        ]
+      },
+      {
+        "name": "elvish",
+        "type": "group",
+        "start": 700,
+        "end": 706,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "A\thobbit\nin\t elvish\t armour,\t partly\t wrapped\t in\t..."
+          }
+        ]
+      },
+      {
+        "name": "Thorin",
+        "type": "group",
+        "start": 1273,
+        "end": 1279,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "A\thobbit\nin\t elvish\t armour,\t partly\t wrapped\t in\t..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "A\thobbit\nin\t elvish\t armour,\t partly\t wrapped\t in\t...",
+        "description": "A\thobbit\nin\t elvish\t armour,\t partly\t wrapped\t in\t an\t old\t blanket,\t was\nsomething\tnew\tto\tthem.\n",
+        "start": 687,
+        "end": 784,
+        "participants": [
+          "Gate",
+          "Bilbo",
+          "Bard",
+          "elvish",
+          "Thorin"
+        ],
+        "location": "Bard",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bard",
+        "type": "administrative",
+        "start": 681,
+        "end": 685,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "A\thobbit\nin\t elvish\t armour,\t partly\t wrapped\t in\t..."
+          }
+        ]
+      },
+      {
+        "name": "West",
+        "type": "geographical",
+        "start": 949,
+        "end": 953,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 1837,
+        "end": 1842,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745709016.6084125,
+  "has_embedding": true
+}

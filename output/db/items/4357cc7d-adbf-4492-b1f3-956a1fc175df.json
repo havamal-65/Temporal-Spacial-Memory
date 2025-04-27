@@ -1,0 +1,174 @@
+{
+  "id": "4357cc7d-adbf-4492-b1f3-956a1fc175df",
+  "content": "Bilbo\t was\t dancing\t about\t and\t waving\t his\t Sting;\t and\nhundreds\t of\t angry\t spiders\t were\t goggling\t at\t them\t all\nround\tand\tabout\tand\tabove.\tIt\tlooked\tpretty\thopeless.\nThen\t the\t battle\t began.\t Some\t of\t the\t dwarves\t had\nknives,\tand\tsome\thad\tsticks,\tand\tall\tof\tthem\tcould\tget\tat\nstones;\tand\tBilbo\thad\this\telvish\tdagger.\tAgain\tand\tagain\nthe\t spiders\t were\t beaten\t off,\t and\t many\t of\t them\t were\nkilled.\tBut\tit\tcould\tnot\tgo\ton\tfor\tlong.\tBilbo\twas\tnearly\ntired\t out;\t only\t four\t of\t the\t dwarves\t were\t able\t to\t stand\nfirmly,\t and\t soon\t they\t would\t all\t be\t overpowered\t like\nweary\tflies.\tAlready\tthe\tspiders\twere\tbeginning\tto\tweave\ntheir\twebs\tall\tround\tthem\tagain\tfrom\ttree\tto\ttree.\nIn\tthe\tend\tBilbo\tcould\tthink\tof\tno\tplan\texcept\tto\tlet\tthe\ndwarves\t into\t the\t secret\t of\t his\t ring.\t He\t was\t rather\t sorry\nabout\tit,\tbut\tit\tcould\tnot\tbe\thelped.\n\u201cI\t am\t going\t to\t disappear,\u201d\t he\t said.\t \u201cI\t shall\t draw\t the\nspiders\toff,\tif\tI\tcan;\tand\tyou\tmust\tkeep\ttogether\tand\tmake\nin\tthe\topposite\tdirection.\tTo\tthe\tleft\tthere,\tthat\tis\tmore\tor\nless\tthe\tway\ttowards\tthe\tplace\twhere\twe\tlast\tsaw\tthe\telf-\nfires.\u201d\nIt\t was\t difficult\t to\t get\t them\t to\t understand,\t what\t with\ntheir\t dizzy\t heads,\t and\t the\t shouts,\t and\t the\t whacking\t of\nsticks\tand\tthe\tthrowing\tof\tstones;\tbut\tat\tlast\tBilbo\tfelt\the\ncould\t delay\t no\t longer\u2014the\t spiders\t were\t drawing\t their\ncircle\tever\tcloser.\tHe\tsuddenly\tslipped\ton\this\tring,\tand\tto\nthe\tgreat\tastonishment\tof\tthe\tdwarves\the\tvanished.\nSoon\t there\t came\t the\t sound\t of\t \u201cLazy\t Lob\u201d\t and\n\u201cAttercop\u201d\tfrom\tamong\tthe\ttrees\taway\ton\tthe\tright.\tThat\nupset\t the\t spiders\t greatly.\t They\t stopped\t advancing,\t and\nsome\t went\t off\t in\t the\t direction\t of\t the\t voice.\t \u201cAttercop\u201d\nmade\tthem\tso\tangry\tthat\tthey\tlost\ttheir\twits.\tThen\tBalin,\nwho\thad\tgrasped\tBilbo\u2019s\tplan\tbetter\tthan\tthe\trest,\tled\tan\nattack.\t The\t dwarves\t huddled\t together\t in\t a\t knot,\t and\nsending\ta\tshower\tof\tstones\tthey\tdrove\tat\tthe\tspiders\ton\nthe\t left,\t and\t burst\t through\t the\t ring.\t Away\t behind\t them\nnow\tthe\tshouting\tand\tsinging\tsuddenly\tstopped.\nHoping\tdesperately\tthat\tBilbo\thad\tnot\tbeen\tcaught\tthe\ndwarves\t went\t on.\t Not\t fast\t enough,\t though.\t They\t were",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 4.735950925286613,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 161,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2157,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_person",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "organization",
+        "start": 0,
+        "end": 5,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Sting",
+        "type": "person",
+        "start": 46,
+        "end": 51,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Then\t the\t battle\t began.\t "
+          },
+          {
+            "type": "participated_in",
+            "target": "Again\tand\tagain\nthe\t spiders\t were\t beaten\t off,\t ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cAttercop\u201d\nmade\tthem\tso\tangry\tthat\tthey\tlost\ttheir..."
+          }
+        ]
+      },
+      {
+        "name": "elvish",
+        "type": "group",
+        "start": 311,
+        "end": 317,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Then\t the\t battle\t began.\t "
+          },
+          {
+            "type": "participated_in",
+            "target": "Again\tand\tagain\nthe\t spiders\t were\t beaten\t off,\t ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cAttercop\u201d\nmade\tthem\tso\tangry\tthat\tthey\tlost\ttheir..."
+          }
+        ]
+      },
+      {
+        "name": "Away",
+        "type": "person",
+        "start": 1978,
+        "end": 1982,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Then\t the\t battle\t began.\t "
+          },
+          {
+            "type": "participated_in",
+            "target": "Again\tand\tagain\nthe\t spiders\t were\t beaten\t off,\t ..."
+          },
+          {
+            "type": "participated_in",
+            "target": "\u201cAttercop\u201d\nmade\tthem\tso\tangry\tthat\tthey\tlost\ttheir..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "Then\t the\t battle\t began.\t ",
+        "description": "Then\t the\t battle\t began.\t ",
+        "start": 172,
+        "end": 199,
+        "participants": [
+          "Sting",
+          "elvish",
+          "Away"
+        ],
+        "location": "Bilbo",
+        "time": null
+      },
+      {
+        "name": "Again\tand\tagain\nthe\t spiders\t were\t beaten\t off,\t ...",
+        "description": "Again\tand\tagain\nthe\t spiders\t were\t beaten\t off,\t and\t many\t of\t them\t were\nkilled.\t",
+        "start": 326,
+        "end": 410,
+        "participants": [
+          "Sting",
+          "elvish",
+          "Away"
+        ],
+        "location": "Bilbo",
+        "time": null
+      },
+      {
+        "name": "\u201cAttercop\u201d\nmade\tthem\tso\tangry\tthat\tthey\tlost\ttheir...",
+        "description": "\u201cAttercop\u201d\nmade\tthem\tso\tangry\tthat\tthey\tlost\ttheir\twits.\t",
+        "start": 1690,
+        "end": 1747,
+        "participants": [
+          "Sting",
+          "elvish",
+          "Away"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 297,
+        "end": 302,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "Then\t the\t battle\t began.\t "
+          },
+          {
+            "type": "hosted",
+            "target": "Again\tand\tagain\nthe\t spiders\t were\t beaten\t off,\t ..."
+          },
+          {
+            "type": "hosted",
+            "target": "\u201cAttercop\u201d\nmade\tthem\tso\tangry\tthat\tthey\tlost\ttheir..."
+          }
+        ]
+      }
+    ]
+  },
+  "timestamp": 1745709011.0705304,
+  "has_embedding": true
+}

@@ -1,0 +1,49 @@
+{
+  "id": "3cbd6e34-9a9f-4f12-84cf-15625195eea4",
+  "content": " THE\tHOBBIT\nOR\t\nTHERE\tAND\tBACK\tAGAIN\nBY\nJ.R.R.\tTOLKIEN",
+  "coordinates": {
+    "r": 9.865,
+    "theta": 1.0901326507956584,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 0,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 54,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_organization",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "TOLKIEN",
+        "type": "organization",
+        "start": 47,
+        "end": 54,
+        "mentions": 1,
+        "relationships": []
+      }
+    ],
+    "events": [],
+    "locations": []
+  },
+  "timestamp": 1745709002.2516356,
+  "has_embedding": true
+}

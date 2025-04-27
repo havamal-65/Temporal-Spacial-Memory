@@ -1,0 +1,130 @@
+{
+  "id": "377f0b72-a179-450a-9f17-ddc3d4f2828f",
+  "content": "Chapter\n\tXVI\nA\tTHIEF\tIN\tTHE\tNIGHT\nNow\t the\t days\t passed\t slowly\t and\t wearily.\t Many\t of\t the\ndwarves\tspent\ttheir\ttime\tpiling\tand\tordering\tthe\ttreasure;\nand\tnow\tThorin\tspoke\tof\tthe\tArkenstone\tof\tThrain,\tand\nbade\tthem\teagerly\tto\tlook\tfor\tit\tin\tevery\tcorner.\n\u201cFor\tthe\tArkenstone\tof\tmy\tfather,\u201d\the\tsaid,\t\u201cis\tworth\nmore\tthan\ta\triver\tof\tgold\tin\titself,\tand\tto\tme\tit\tis\tbeyond\nprice.\tThat\tstone\tof\tall\tthe\ttreasure\tI\tname\tunto\tmyself,\nand\t I\t will\t be\t avenged\t on\t anyone\t who\t finds\t it\t and\nwithholds\tit.\u201d\nBilbo\theard\tthese\twords\tand\the\tgrew\tafraid,\twondering\nwhat\twould\thappen,\tif\tthe\tstone\twas\tfound\u2014wrapped\tin\nan\t old\t bundle\t of\t tattered\t oddments\t that\t he\t used\t as\t a\npillow.\t All\t the\t same\t he\t did\t not\t speak\t of\t it,\t for\t as\t the\nweariness\tof\tthe\tdays\tgrew\theavier,\tthe\tbeginnings\tof\ta\nplan\thad\tcome\tinto\this\tlittle\thead.\nThings\thad\tgone\ton\tlike\tthis\tfor\tsome\ttime,\twhen\tthe\nravens\t brought\t news\t that\t Dain\t and\t more\t than\t five\nhundred\tdwarves,\thurrying\tfrom\tthe\tIron\tHills,\twere\tnow\nwithin\tabout\ttwo\tdays\u2019\tmarch\tof\tDale,\tcoming\tfrom\tthe\nNorth-East.\n\u201cBut\tthey\tcannot\treach\tthe\tMountain\tunmarked,\u201d\tsaid\nRo\u00e4c,\t\u201cand\tI\tfear\tlest\tthere\tbe\tbattle\tin\tthe\tvalley.\tI\tdo\tnot\ncall\tthis\tcounsel\tgood.\tThough\tthey\tare\ta\tgrim\tfolk,\tthey",
+  "coordinates": {
+    "r": 6.905,
+    "theta": 3.3045627724947635,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 261,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1238,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Thorin",
+        "type": "group",
+        "start": 162,
+        "end": 168,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "That\tstone\tof\tall\tthe\ttreasure\tI\tname\tunto\tmyself,..."
+          }
+        ]
+      },
+      {
+        "name": "Thrain",
+        "type": "administrative",
+        "start": 196,
+        "end": 202,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "That\tstone\tof\tall\tthe\ttreasure\tI\tname\tunto\tmyself,..."
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "person",
+        "start": 504,
+        "end": 509,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "That\tstone\tof\tall\tthe\ttreasure\tI\tname\tunto\tmyself,..."
+          }
+        ]
+      },
+      {
+        "name": "Dale",
+        "type": "organization",
+        "start": 1032,
+        "end": 1036,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "That\tstone\tof\tall\tthe\ttreasure\tI\tname\tunto\tmyself,..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "That\tstone\tof\tall\tthe\ttreasure\tI\tname\tunto\tmyself,...",
+        "description": "That\tstone\tof\tall\tthe\ttreasure\tI\tname\tunto\tmyself,\nand\t I\t will\t be\t avenged\t on\t anyone\t who\t finds\t it\t and\nwithholds\tit.\u201d\nBilbo\theard\tthese\twords\tand\the\tgrew\tafraid,\twondering\nwhat\twould\thappen,\tif\tthe\tstone\twas\tfound\u2014wrapped\tin\nan\t old\t bundle\t of\t tattered\t oddments\t that\t he\t used\t as\t a\npillow.\t ",
+        "start": 379,
+        "end": 683,
+        "participants": [
+          "Thorin",
+          "Thrain",
+          "Bilbo",
+          "Dale"
+        ],
+        "location": "Thrain",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Thrain",
+        "type": "administrative",
+        "start": 196,
+        "end": 202,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "That\tstone\tof\tall\tthe\ttreasure\tI\tname\tunto\tmyself,..."
+          }
+        ]
+      },
+      {
+        "name": "North-East",
+        "type": "geographical",
+        "start": 1054,
+        "end": 1064,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745709016.4204109,
+  "has_embedding": true
+}

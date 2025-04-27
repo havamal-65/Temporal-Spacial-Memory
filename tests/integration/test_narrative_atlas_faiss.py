@@ -1,7 +1,10 @@
 import os
 import shutil
 import pytest
+from dotenv import load_dotenv
 from src.models.narrative_atlas import NarrativeAtlas
+
+load_dotenv()
 
 def test_faiss_integration(tmp_path):
     """Test the FAISS integration by verifying add → save → load → search workflow."""

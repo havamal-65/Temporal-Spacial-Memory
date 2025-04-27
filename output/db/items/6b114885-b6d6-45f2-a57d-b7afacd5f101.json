@@ -1,0 +1,214 @@
+{
+  "id": "6b114885-b6d6-45f2-a57d-b7afacd5f101",
+  "content": "The\tMountain-path\n\u201cWell,\tif\tyou\tknow\tof\tanywhere\tbetter,\ttake\tus\tthere!\u201d\nsaid\tGandalf,\twho\twas\tfeeling\tvery\tgrumpy,\tand\twas\tfar\nfrom\thappy\tabout\tthe\tgiants\thimself.\nThe\tend\tof\ttheir\targument\twas\tthat\tthey\tsent\tFili\tand\nKili\tto\tlook\tfor\ta\tbetter\tshelter.\tThey\thad\tvery\tsharp\teyes,\nand\t being\t the\t youngest\t of\t the\t dwarves\t by\t some\t fifty\nyears\tthey\tusually\tgot\tthese\tsort\tof\tjobs\t(when\teverybody\ncould\t see\t that\t it\t was\t absolutely\t no\t use\t sending\t Bilbo).\nThere\t is\t nothing\t like\t looking,\t if\t you\t want\t to\t find\nsomething\t(or\tso\tThorin\tsaid\tto\tthe\tyoung\tdwarves).\tYou\ncertainly\tusually\tfind\tsomething,\tif\tyou\tlook,\tbut\tit\tis\tnot\nalways\tquite\tthe\tsomething\tyou\twere\tafter.\tSo\tit\tproved\non\tthis\toccasion.\nSoon\tFili\tand\tKili\tcame\tcrawling\tback,\tholding\ton\tto\nthe\trocks\tin\tthe\twind.\t\u201cWe\thave\tfound\ta\tdry\tcave,\u201d\tthey\nsaid,\t \u201cnot\t far\t round\t the\t next\t corner;\t and\t ponies\t and\t all\ncould\tget\tinside.\u201d\n\u201cHave\t you\t\nthoroughly\n\t explored\t it?\u201d\t said\t the\t wizard,\nwho\t knew\t that\t caves\t up\t in\t the\t mountains\t were\t seldom\nunoccupied.\n\u201cYes,\t yes!\u201d\t they\t said,\t though\t everybody\t knew\t they\ncould\t not\t have\t been\t long\t about\t it;\t they\t had\t come\t back\ntoo\t quick.\t \u201cIt\t isn\u2019t\t all\t that\t big,\t and\t it\t does\t not\t go\t far\nback.\u201d\nThat,\tof\tcourse,\tis\tthe\tdangerous\tpart\tabout\tcaves:\tyou\ndon\u2019t\tknow\thow\tfar\tthey\tgo\tback,\tsometimes,\tor\twhere\ta\npassage\t behind\t may\t lead\t to,\t or\t what\t is\t waiting\t for\t you\ninside.\t But\t now\t Fili\t and\t Kili\u2019s\t news\t seemed\t good\nenough.\t So\t they\t all\t got\t up\t and\t prepared\t to\t move.\t The\nwind\t was\t howling\t and\t the\t thunder\t still\t growling,\t and\nthey\t had\t a\t business\t getting\t themselves\t and\t their\t ponies\nalong.\tStill\tit\twas\tnot\tvery\tfar\tto\tgo,\tand\tbefore\tlong\tthey\ncame\t to\t a\t big\t rock\t standing\t out\t into\t the\t path.\t If\t you\nstepped\tbehind,\tyou\tfound\ta\tlow\tarch\tin\tthe\tside\tof\tthe",
+  "coordinates": {
+    "r": 5.3925,
+    "theta": 4.925624581747097,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 61,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1843,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Gandalf",
+        "type": "group",
+        "start": 78,
+        "end": 85,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "There\t is\t nothing\t like\t looking,\t if\t you\t want\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "You\ncertainly\tusually\tfind\tsomething,\tif\tyou\tlook,..."
+          },
+          {
+            "type": "participated_in",
+            "target": "That,\tof\tcourse,\tis\tthe\tdangerous\tpart\tabout\tcaves..."
+          }
+        ]
+      },
+      {
+        "name": "Kili",
+        "type": "person",
+        "start": 219,
+        "end": 223,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "There\t is\t nothing\t like\t looking,\t if\t you\t want\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "You\ncertainly\tusually\tfind\tsomething,\tif\tyou\tlook,..."
+          },
+          {
+            "type": "participated_in",
+            "target": "That,\tof\tcourse,\tis\tthe\tdangerous\tpart\tabout\tcaves..."
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 456,
+        "end": 461,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "There\t is\t nothing\t like\t looking,\t if\t you\t want\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "You\ncertainly\tusually\tfind\tsomething,\tif\tyou\tlook,..."
+          },
+          {
+            "type": "participated_in",
+            "target": "That,\tof\tcourse,\tis\tthe\tdangerous\tpart\tabout\tcaves..."
+          }
+        ]
+      },
+      {
+        "name": "Thorin",
+        "type": "group",
+        "start": 541,
+        "end": 547,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "There\t is\t nothing\t like\t looking,\t if\t you\t want\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "You\ncertainly\tusually\tfind\tsomething,\tif\tyou\tlook,..."
+          },
+          {
+            "type": "participated_in",
+            "target": "That,\tof\tcourse,\tis\tthe\tdangerous\tpart\tabout\tcaves..."
+          }
+        ]
+      },
+      {
+        "name": "Fili",
+        "type": "person",
+        "start": 1436,
+        "end": 1440,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "There\t is\t nothing\t like\t looking,\t if\t you\t want\t..."
+          },
+          {
+            "type": "participated_in",
+            "target": "You\ncertainly\tusually\tfind\tsomething,\tif\tyou\tlook,..."
+          },
+          {
+            "type": "participated_in",
+            "target": "That,\tof\tcourse,\tis\tthe\tdangerous\tpart\tabout\tcaves..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "There\t is\t nothing\t like\t looking,\t if\t you\t want\t...",
+        "description": "There\t is\t nothing\t like\t looking,\t if\t you\t want\t to\t find\nsomething\t(or\tso\tThorin\tsaid\tto\tthe\tyoung\tdwarves).\t",
+        "start": 464,
+        "end": 576,
+        "participants": [
+          "Gandalf",
+          "Kili",
+          "Bilbo",
+          "Thorin",
+          "Fili"
+        ],
+        "location": "Bilbo",
+        "time": null
+      },
+      {
+        "name": "You\ncertainly\tusually\tfind\tsomething,\tif\tyou\tlook,...",
+        "description": "You\ncertainly\tusually\tfind\tsomething,\tif\tyou\tlook,\tbut\tit\tis\tnot\nalways\tquite\tthe\tsomething\tyou\twere\tafter.\t",
+        "start": 576,
+        "end": 684,
+        "participants": [
+          "Gandalf",
+          "Kili",
+          "Bilbo",
+          "Thorin",
+          "Fili"
+        ],
+        "location": "Bilbo",
+        "time": null
+      },
+      {
+        "name": "That,\tof\tcourse,\tis\tthe\tdangerous\tpart\tabout\tcaves...",
+        "description": "That,\tof\tcourse,\tis\tthe\tdangerous\tpart\tabout\tcaves:\tyou\ndon\u2019t\tknow\thow\tfar\tthey\tgo\tback,\tsometimes,\tor\twhere\ta\npassage\t behind\t may\t lead\t to,\t or\t what\t is\t waiting\t for\t you\ninside.\t ",
+        "start": 1241,
+        "end": 1426,
+        "participants": [
+          "Gandalf",
+          "Kili",
+          "Bilbo",
+          "Thorin",
+          "Fili"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 456,
+        "end": 461,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "There\t is\t nothing\t like\t looking,\t if\t you\t want\t..."
+          },
+          {
+            "type": "hosted",
+            "target": "You\ncertainly\tusually\tfind\tsomething,\tif\tyou\tlook,..."
+          },
+          {
+            "type": "hosted",
+            "target": "That,\tof\tcourse,\tis\tthe\tdangerous\tpart\tabout\tcaves..."
+          }
+        ]
+      }
+    ]
+  },
+  "timestamp": 1745773074.2069793,
+  "has_embedding": true
+}

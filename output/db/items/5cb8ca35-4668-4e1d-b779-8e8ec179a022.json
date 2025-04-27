@@ -1,0 +1,237 @@
+{
+  "id": "5cb8ca35-4668-4e1d-b779-8e8ec179a022",
+  "content": "exactly;\tbut,\twell,\tI\tam\twilling\tto\tlet\tit\tstand\tagainst\tall\nmy\t claim,\t don\u2019t\t you\t know.\t I\t may\t be\t a\t burglar\u2014or\t so\nthey\tsay:\tpersonally\tI\tnever\treally\tfelt\tlike\tone\u2014but\tI\tam\nan\thonest\tone,\tI\thope,\tmore\tor\tless.\tAnyway\tI\tam\tgoing\nback\tnow,\tand\tthe\tdwarves\tcan\tdo\twhat\tthey\tlike\tto\tme.\tI\nhope\tyou\twill\tfind\tit\tuseful.\u201d\nThe\t Elvenking\t looked\t at\t Bilbo\t with\t a\t new\t wonder.\n\u201cBilbo\tBaggins!\u201d\the\tsaid.\t\u201cYou\tare\tmore\tworthy\tto\twear\nthe\t armour\t of\t elf-princes\t than\t many\t that\t have\t looked\nmore\t comely\t in\t it.\t But\t I\t wonder\t if\t Thorin\t Oakenshield\nwill\t see\t it\t so.\t I\t have\t more\t knowledge\t of\t dwarves\t in\ngeneral\t than\t you\t have\t perhaps.\t I\t advise\t you\t to\t remain\nwith\t us,\t and\t here\t you\t shall\t be\t honoured\t and\t thrice\nwelcome.\u201d\n\u201cThank\t you\t very\t much\t I\t am\t sure,\u201d\t said\t Bilbo\t with\t a\nbow.\t\u201cBut\tI\tdon\u2019t\tthink\tI\tought\tto\tleave\tmy\tfriends\tlike\nthis,\t after\t all\t we\t have\t gone\t through\t together.\t And\t I\npromised\tto\twake\told\tBombur\tat\tmidnight,\ttoo!\tReally\tI\nmust\tbe\tgoing,\tand\tquickly.\u201d\nNothing\t they\t could\t say\t would\t stop\t him;\t so\t an\t escort\nwas\tprovided\tfor\thim,\tand\tas\the\twent\tboth\tthe\tking\tand\nBard\tsaluted\thim\twith\thonour.\tAs\tthey\tpassed\tthrough\tthe\ncamp\tan\told\tman,\twrapped\tin\ta\tdark\tcloak,\trose\tfrom\ta\ntent\tdoor\twhere\the\twas\tsitting\tand\tcame\ttowards\tthem.\n\u201cWell\tdone!\tMr.\tBaggins!\u201d\the\tsaid,\tclapping\tBilbo\ton\nthe\tback.\t\u201cThere\tis\talways\tmore\tabout\tyou\tthan\tanyone\nexpects!\u201d\tIt\twas\tGandalf.\nFor\t the\t first\t time\t for\t many\t a\t day\t Bilbo\t was\t really\ndelighted.\tBut\tthere\twas\tno\ttime\tfor\tall\tthe\tquestions\tthat\nhe\timmediately\twished\tto\task.\n\u201cAll\tin\tgood\ttime!\u201d\tsaid\tGandalf.\t\u201cThings\tare\tdrawing\ntowards\tthe\tend\tnow,\tunless\tI\tam\tmistaken.\tThere\tis\tan\nunpleasant\ttime\tjust\tin\tfront\tof\tyou;\tbut\tkeep\tyour\theart\nup!\t You\t\nmay\n\t come\t through\t all\t right.\t There\t is\t news\nbrewing\t that\t even\t the\t ravens\t have\t not\t heard.\t Good\nnight!\u201d\nPuzzled\tbut\tcheered,\tBilbo\thurried\ton.\tHe\twas\tguided\nto\ta\tsafe\tford\tand\tset\tacross\tdry,\tand\tthen\the\tsaid\tfarewell",
+  "coordinates": {
+    "r": 5.025,
+    "theta": 3.281393526674539,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 266,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1990,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Anyway",
+        "type": "administrative",
+        "start": 218,
+        "end": 224,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "The\t Elvenking\t looked\t at\t Bilbo\t with\t a\t new\t w..."
+          },
+          {
+            "type": "participated_in",
+            "target": "But\t I\t wonder\t if\t Thorin\t Oakenshield\nwill\t see\t..."
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 352,
+        "end": 357,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "The\t Elvenking\t looked\t at\t Bilbo\t with\t a\t new\t w..."
+          },
+          {
+            "type": "participated_in",
+            "target": "But\t I\t wonder\t if\t Thorin\t Oakenshield\nwill\t see\t..."
+          }
+        ]
+      },
+      {
+        "name": "Oakenshield",
+        "type": "administrative",
+        "start": 548,
+        "end": 559,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "The\t Elvenking\t looked\t at\t Bilbo\t with\t a\t new\t w..."
+          },
+          {
+            "type": "participated_in",
+            "target": "But\t I\t wonder\t if\t Thorin\t Oakenshield\nwill\t see\t..."
+          }
+        ]
+      },
+      {
+        "name": "Bombur",
+        "type": "administrative",
+        "start": 956,
+        "end": 962,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "The\t Elvenking\t looked\t at\t Bilbo\t with\t a\t new\t w..."
+          },
+          {
+            "type": "participated_in",
+            "target": "But\t I\t wonder\t if\t Thorin\t Oakenshield\nwill\t see\t..."
+          }
+        ]
+      },
+      {
+        "name": "Baggins",
+        "type": "person",
+        "start": 1316,
+        "end": 1323,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "The\t Elvenking\t looked\t at\t Bilbo\t with\t a\t new\t w..."
+          },
+          {
+            "type": "participated_in",
+            "target": "But\t I\t wonder\t if\t Thorin\t Oakenshield\nwill\t see\t..."
+          }
+        ]
+      },
+      {
+        "name": "Gandalf",
+        "type": "group",
+        "start": 1424,
+        "end": 1431,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "The\t Elvenking\t looked\t at\t Bilbo\t with\t a\t new\t w..."
+          },
+          {
+            "type": "participated_in",
+            "target": "But\t I\t wonder\t if\t Thorin\t Oakenshield\nwill\t see\t..."
+          }
+        ]
+      },
+      {
+        "name": "ford",
+        "type": "organization",
+        "start": 1940,
+        "end": 1944,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "The\t Elvenking\t looked\t at\t Bilbo\t with\t a\t new\t w..."
+          },
+          {
+            "type": "participated_in",
+            "target": "But\t I\t wonder\t if\t Thorin\t Oakenshield\nwill\t see\t..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "The\t Elvenking\t looked\t at\t Bilbo\t with\t a\t new\t w...",
+        "description": "The\t Elvenking\t looked\t at\t Bilbo\t with\t a\t new\t wonder.\n",
+        "start": 324,
+        "end": 381,
+        "participants": [
+          "Anyway",
+          "Bilbo",
+          "Oakenshield",
+          "Bombur",
+          "Baggins",
+          "Gandalf",
+          "ford"
+        ],
+        "location": "Anyway",
+        "time": null
+      },
+      {
+        "name": "But\t I\t wonder\t if\t Thorin\t Oakenshield\nwill\t see\t...",
+        "description": "But\t I\t wonder\t if\t Thorin\t Oakenshield\nwill\t see\t it\t so.\t ",
+        "start": 520,
+        "end": 580,
+        "participants": [
+          "Anyway",
+          "Bilbo",
+          "Oakenshield",
+          "Bombur",
+          "Baggins",
+          "Gandalf",
+          "ford"
+        ],
+        "location": "Anyway",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Anyway",
+        "type": "administrative",
+        "start": 218,
+        "end": 224,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "The\t Elvenking\t looked\t at\t Bilbo\t with\t a\t new\t w..."
+          },
+          {
+            "type": "hosted",
+            "target": "But\t I\t wonder\t if\t Thorin\t Oakenshield\nwill\t see\t..."
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 352,
+        "end": 357,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Oakenshield",
+        "type": "administrative",
+        "start": 548,
+        "end": 559,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bombur",
+        "type": "administrative",
+        "start": 956,
+        "end": 962,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745773108.2257974,
+  "has_embedding": true
+}

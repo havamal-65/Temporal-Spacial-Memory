@@ -1,0 +1,122 @@
+{
+  "id": "85adcdb3-7788-4965-ac67-c9b27ef7357e",
+  "content": "eating\twas\trather\ton\this\tmind.\tIt\twas\trather\tan\told\tone,\ntoo,\tand\tGollum\tknew\tthe\tanswer\tas\twell\tas\tyou\tdo.\n\u201cChestnuts,\t chestnuts,\u201d\t he\t hissed.\t \u201cTeeth!\t teeth!\t my\npreciousss;\t but\t we\t has\t only\t six!\u201d\t Then\t he\t asked\t his\nsecond:\nVoiceless\tit\tcries,\nWingless\tflutters,\nToothless\tbites,\nMouthless\tmutters.\n\u201cHalf\ta\tmoment!\u201d\tcried\tBilbo,\twho\twas\tstill\tthinking\nuncomfortably\t about\t eating.\t Fortunately\t he\t had\t once\nheard\t something\t rather\t like\t this\t before,\t and\t getting\t his\nwits\t back\t he\t thought\t of\t the\t answer.\t \u201cWind,\t wind\t of\ncourse,\u201d\the\tsaid,\tand\the\twas\tso\tpleased\tthat\the\tmade\tup\none\t on\t the\t spot.\t \u201cThis\u2019ll\t puzzle\t the\t nasty\t little\nunderground\tcreature,\u201d\the\tthought:\nAn\teye\tin\ta\tblue\tface\nSaw\tan\teye\tin\ta\tgreen\tface.\n\u201cThat\teye\tis\tlike\tto\tthis\teye\u201d\nSaid\tthe\tfirst\teye,\n\u201cBut\tin\tlow\tplace\nNot\tin\thigh\tplace.\u201d\n\u201cSs,\tss,\tss,\u201d\tsaid\tGollum.\tHe\thad\tbeen\tunderground\ta\nlong\tlong\ttime,\tand\twas\tforgetting\tthis\tsort\tof\tthing.\tBut\njust\tas\tBilbo\twas\tbeginning\tto\thope\tthat\tthe\twretch\twould\nnot\t be\t able\t to\t answer,\t Gollum\t brought\t up\t memories\t of\nages\t and\t ages\t and\t ages\t before,\t when\t he\t lived\t with\t his\ngrandmother\tin\ta\thole\tin\ta\tbank\tby\ta\triver,\t\u201cSss,\tsss,\tmy\npreciouss,\u201d\the\tsaid.\t\u201cSun\ton\tthe\tdaisies\tit\tmeans,\tit\tdoes.\u201d\nBut\t these\t ordinary\t above\t ground\t everyday\t sort\t of\nriddles\t were\t tiring\t for\t him.\t Also\t they\t reminded\t him\t of",
+  "coordinates": {
+    "r": 6.577500000000001,
+    "theta": 1.0041315519036376,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 77,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1369,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_person",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Voiceless",
+        "type": "organization",
+        "start": 236,
+        "end": 245,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Fortunately\t he\t had\t once\nheard\t something\t rathe..."
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 334,
+        "end": 339,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Fortunately\t he\t had\t once\nheard\t something\t rathe..."
+          }
+        ]
+      },
+      {
+        "name": "Said",
+        "type": "person",
+        "start": 777,
+        "end": 781,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Fortunately\t he\t had\t once\nheard\t something\t rathe..."
+          }
+        ]
+      },
+      {
+        "name": "Gollum",
+        "type": "organization",
+        "start": 854,
+        "end": 860,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Fortunately\t he\t had\t once\nheard\t something\t rathe..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "Fortunately\t he\t had\t once\nheard\t something\t rathe...",
+        "description": "Fortunately\t he\t had\t once\nheard\t something\t rather\t like\t this\t before,\t and\t getting\t his\nwits\t back\t he\t thought\t of\t the\t answer.\t ",
+        "start": 395,
+        "end": 530,
+        "participants": [
+          "Voiceless",
+          "Bilbo",
+          "Said",
+          "Gollum"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 334,
+        "end": 339,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "Fortunately\t he\t had\t once\nheard\t something\t rathe..."
+          }
+        ]
+      }
+    ]
+  },
+  "timestamp": 1745715402.4042416,
+  "has_embedding": true
+}

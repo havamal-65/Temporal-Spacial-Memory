@@ -1,0 +1,130 @@
+{
+  "id": "960f4bd7-8354-4a1e-a778-9e4d0d32246c",
+  "content": "\u201cDear\tme!\tDear\tme!\u201d\tsaid\tBilbo.\t\u201cI\tam\tsure\tthis\tis\tall\nvery\t uncomfortable.\t You\t may\t remember\t saying\t that\t I\nmight\tchoose\tmy\town\tfourteenth\tshare?\tPerhaps\tI\ttook\tit\ntoo\t literally\u2014I\t have\t been\t told\t that\t dwarves\t are\nsometimes\tpoliter\tin\tword\tthan\tin\tdeed.\tThe\ttime\twas,\tall\nthe\t same,\t when\t you\t seemed\t to\t think\t that\t I\t had\t been\t of\nsome\t service.\t Descendant\t of\t rats,\t indeed!\t Is\t this\t all\t the\nservice\t of\t you\t and\t your\t family\t that\t I\t was\t promised,\nThorin?\t Take\t it\t that\t I\t have\t disposed\t of\t my\t share\t as\t I\nwished,\tand\tlet\tit\tgo\tat\tthat!\u201d\n\u201cI\twill,\u201d\tsaid\tThorin\tgrimly.\t\u201cAnd\tI\twill\tlet\tyou\tgo\tat\nthat\u2014and\tmay\twe\tnever\tmeet\tagain!\u201d\tThen\the\tturned\tand\nspoke\t over\t the\t wall.\t \u201cI\t am\t betrayed,\u201d\t he\t said.\t \u201cIt\t was\nrightly\t guessed\t that\t I\t could\t not\t forbear\t to\t redeem\t the\nArkenstone,\t the\t treasure\t of\t my\t house.\t For\t it\t I\t will\t give\none\t fourteenth\t share\t of\t the\t hoard\t in\t silver\t and\t gold,\nsetting\t aside\t the\t gems;\t but\t that\t shall\t be\t accounted\t the\npromised\t share\t of\t this\t traitor,\t and\t with\t that\t reward\t he\nshall\tdepart,\tand\tyou\tcan\tdivide\tit\tas\tyou\twill.\tHe\twill\tget\nlittle\tenough,\tI\tdoubt\tnot.\tTake\thim,\tif\tyou\twish\thim\tto\nlive;\tand\tno\tfriendship\tof\tmine\tgoes\twith\thim.\n\u201cGet\tdown\tnow\tto\tyour\tfriends!\u201d\the\tsaid\tto\tBilbo,\t\u201cor\tI\nwill\tthrow\tyou\tdown.\u201d\n\u201cWhat\tabout\tthe\tgold\tand\tsilver?\u201d\tasked\tBilbo.\t\u201cThat\nshall\t follow\t after,\t as\t can\t be\t arranged,\u201d\t said\t he.\t \u201cGet\ndown!\u201d\n\u201cUntil\tthen\twe\tkeep\tthe\tstone,\u201d\tcried\tBard.\n\u201cYou\t are\t not\t making\t a\t very\t splendid\t figure\t as\t King\nunder\t the\t Mountain,\u201d\t said\t Gandalf.\t \u201cBut\t things\t may\nchange\tyet.\u201d\n\u201cThey\t may\t indeed,\u201d\t said\t Thorin.\t And\t already,\t so\nstrong\twas\tthe\tbewilderment\tof\tthe\ttreasure\tupon\thim,\the\nwas\tpondering\twhether\tby\tthe\thelp\tof\tDain\the\tmight\tnot\nrecapture\t the\t Arkenstone\t and\t withhold\t the\t share\t of\t the\nreward.\nAnd\t so\t Bilbo\t was\t swung\t down\t from\t the\t wall,\t and\ndeparted\t with\t nothing\t for\t all\t his\t trouble,\t except\t the\narmour\twhich\tThorin\thad\tgiven\thim\talready.\tMore\tthan",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 3.3933127649586754,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 270,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2021,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_person",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 25,
+        "end": 30,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Perhaps\tI\ttook\tit\ntoo\t literally\u2014I\t have\t been\t to..."
+          }
+        ]
+      },
+      {
+        "name": "Thorin",
+        "type": "group",
+        "start": 587,
+        "end": 593,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Perhaps\tI\ttook\tit\ntoo\t literally\u2014I\t have\t been\t to..."
+          }
+        ]
+      },
+      {
+        "name": "Bard",
+        "type": "administrative",
+        "start": 1476,
+        "end": 1480,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Perhaps\tI\ttook\tit\ntoo\t literally\u2014I\t have\t been\t to..."
+          }
+        ]
+      },
+      {
+        "name": "King",
+        "type": "person",
+        "start": 1537,
+        "end": 1541,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Perhaps\tI\ttook\tit\ntoo\t literally\u2014I\t have\t been\t to..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "Perhaps\tI\ttook\tit\ntoo\t literally\u2014I\t have\t been\t to...",
+        "description": "Perhaps\tI\ttook\tit\ntoo\t literally\u2014I\t have\t been\t told\t that\t dwarves\t are\nsometimes\tpoliter\tin\tword\tthan\tin\tdeed.\t",
+        "start": 151,
+        "end": 264,
+        "participants": [
+          "Bilbo",
+          "Thorin",
+          "Bard",
+          "King"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 25,
+        "end": 30,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "Perhaps\tI\ttook\tit\ntoo\t literally\u2014I\t have\t been\t to..."
+          }
+        ]
+      },
+      {
+        "name": "Bard",
+        "type": "administrative",
+        "start": 1476,
+        "end": 1480,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745715417.2807908,
+  "has_embedding": true
+}

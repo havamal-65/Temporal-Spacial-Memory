@@ -1,0 +1,90 @@
+{
+  "id": "d29257f6-c848-4aa5-9771-58878211c3a2",
+  "content": "with\tregret,\tfor\tthe\tflowers\tof\tthe\tgardens\tof\tBeorn\twere\nin\tspringtime\tno\tless\tmarvellous\tthan\tin\thigh\tsummer.\nAt\t last\t they\t came\t up\t the\t long\t road,\t and\t reached\t the\nvery\t pass\t where\t the\t goblins\t had\t captured\t them\t before.\nBut\tthey\tcame\tto\tthat\thigh\tpoint\tat\tmorning,\tand\tlooking\nbackward\t they\t saw\t a\t white\t sun\t shining\t over\t the\noutstretched\t lands.\t There\t behind\t lay\t Mirkwood,\t blue\t in\nthe\tdistance,\tand\tdarkly\tgreen\tat\tthe\tnearer\tedge\teven\tin\nthe\tspring.\tThere\tfar\taway\twas\tthe\tLonely\tMountain\ton\nthe\t edge\t of\t eyesight.\t On\t its\t highest\t peak\t snow\t yet\nunmelted\twas\tgleaming\tpale.\n\u201cSo\tcomes\tsnow\tafter\tfire,\tand\teven\tdragons\thave\ttheir\nending!\u201d\t said\t Bilbo,\t and\t he\t turned\t his\t back\t on\t his\nadventure.\t The\t Tookish\t part\t was\t getting\t very\t tired,\t and\nthe\tBaggins\twas\tdaily\tgetting\tstronger.\t\u201cI\twish\tnow\tonly\nto\tbe\tin\tmy\town\tarmchair!\u201d\the\tsaid.",
+  "coordinates": {
+    "r": 7.797499999999999,
+    "theta": 0.9833185005736053,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 288,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 881,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Beorn",
+        "type": "organization",
+        "start": 47,
+        "end": 52,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Mirkwood",
+        "type": "organization",
+        "start": 390,
+        "end": 398,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 681,
+        "end": 686,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Baggins",
+        "type": "facility",
+        "start": 793,
+        "end": 800,
+        "mentions": 1,
+        "relationships": []
+      }
+    ],
+    "events": [],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 681,
+        "end": 686,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Baggins",
+        "type": "facility",
+        "start": 793,
+        "end": 800,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745709017.8843732,
+  "has_embedding": true
+}

@@ -1,0 +1,194 @@
+{
+  "id": "e25787d7-7f83-430d-8de3-5dec2d874544",
+  "content": "\u201cSomeone\tat\tthe\tdoor!\u201d\the\tsaid,\tblinking.\n\u201cSome\t four,\t I\t should\t say\t by\t the\t sound,\u201d\t said\t Fili.\n\u201cBesides,\t we\t saw\t them\t coming\t along\t behind\t us\t in\t the\ndistance.\u201d\nThe\tpoor\tlittle\thobbit\tsat\tdown\tin\tthe\thall\tand\tput\this\nhead\tin\this\thands,\tand\twondered\twhat\thad\thappened,\tand\nwhat\t was\t going\t to\t happen,\t and\t whether\t they\t would\t all\nstay\tto\tsupper.\tThen\tthe\tbell\trang\tagain\tlouder\tthan\tever,\nand\the\thad\tto\trun\tto\tthe\tdoor.\tIt\twas\tnot\tfour\tafter\tall,\tit\nwas\t five.\t Another\t dwarf\t had\t come\t along\t while\t he\t was\nwondering\t in\t the\t hall.\t He\t had\t hardly\t turned\t the\t knob,\nbefore\tthey\twere\tall\tinside,\tbowing\tand\tsaying\t\u201cat\tyour\nservice\u201d\tone\tafter\tanother.\tDori,\tNori,\tOri,\tOin,\tand\tGloin\nwere\ttheir\tnames;\tand\tvery\tsoon\ttwo\tpurple\thoods,\ta\tgrey\nhood,\ta\tbrown\thood,\tand\ta\twhite\thood\twere\thanging\ton\nthe\t pegs,\t and\t off\t they\t marched\t with\t their\t broad\t hands\nstuck\t in\t their\t gold\t and\t silver\t belts\t to\t join\t the\t others.\nAlready\tit\thad\talmost\tbecome\ta\tthrong.\tSome\tcalled\tfor\nale,\t and\t some\t for\t porter,\t and\t one\t for\t coffee,\t and\t all\t of\nthem\t for\t cakes;\t so\t the\t hobbit\t was\t kept\t very\t busy\t for\t a\nwhile.\nA\tbig\tjug\tof\tcoffee\thad\tjust\tbeen\tset\tin\tthe\thearth,\tthe\nseed-cakes\twere\tgone,\tand\tthe\tdwarves\twere\tstarting\ton\ta\nround\t of\t buttered\t scones,\t when\t there\t came\u2014a\t loud\nknock.\t Not\t a\t ring,\t but\t a\t hard\t rat-tat\t on\t the\t hobbit\u2019s\nbeautiful\t green\t door.\t Somebody\t was\t banging\t with\t a\nstick!\nBilbo\t rushed\t along\t the\t passage,\t very\t angry,\t and\naltogether\tbewildered\tand\tbewuthered\u2014this\twas\tthe\tmost\nawkward\t Wednesday\t he\t ever\t remembered.\t He\t pulled\nopen\tthe\tdoor\twith\ta\tjerk,\tand\tthey\tall\tfell\tin,\tone\ton\ttop\nof\t the\t other.\t More\t dwarves,\t four\t more!\t And\t there\t was\nGandalf\tbehind,\tleaning\ton\this\tstaff\tand\tlaughing.\tHe\thad\nmade\tquite\ta\tdent\ton\tthe\tbeautiful\tdoor;\the\thad\talso,\tby\nthe\t way,\t knocked\t out\t the\t secret\t mark\t that\t he\t had\t put\nthere\tthe\tmorning\tbefore.\n\u201cCarefully!\t Carefully!\u201d\t he\t said.\t \u201cIt\t is\t not\t like\t you,\nBilbo,\tto\tkeep\tfriends\twaiting\ton\tthe\tmat,\tand\tthen\topen",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 0.1303760951239764,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 14,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2049,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_organization",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Fili",
+        "type": "person",
+        "start": 96,
+        "end": 100,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "The\tpoor\tlittle\thobbit\tsat\tdown\tin\tthe\thall\tand\tpu..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Another\t dwarf\t had\t come\t along\t while\t he\t was\nw..."
+          }
+        ]
+      },
+      {
+        "name": "Nori",
+        "type": "person",
+        "start": 681,
+        "end": 685,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "The\tpoor\tlittle\thobbit\tsat\tdown\tin\tthe\thall\tand\tpu..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Another\t dwarf\t had\t come\t along\t while\t he\t was\nw..."
+          }
+        ]
+      },
+      {
+        "name": "Ori",
+        "type": "organization",
+        "start": 687,
+        "end": 690,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "The\tpoor\tlittle\thobbit\tsat\tdown\tin\tthe\thall\tand\tpu..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Another\t dwarf\t had\t come\t along\t while\t he\t was\nw..."
+          }
+        ]
+      },
+      {
+        "name": "Oin",
+        "type": "organization",
+        "start": 692,
+        "end": 695,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "The\tpoor\tlittle\thobbit\tsat\tdown\tin\tthe\thall\tand\tpu..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Another\t dwarf\t had\t come\t along\t while\t he\t was\nw..."
+          }
+        ]
+      },
+      {
+        "name": "Gloin",
+        "type": "organization",
+        "start": 701,
+        "end": 706,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "The\tpoor\tlittle\thobbit\tsat\tdown\tin\tthe\thall\tand\tpu..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Another\t dwarf\t had\t come\t along\t while\t he\t was\nw..."
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "person",
+        "start": 1441,
+        "end": 1446,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "The\tpoor\tlittle\thobbit\tsat\tdown\tin\tthe\thall\tand\tpu..."
+          },
+          {
+            "type": "participated_in",
+            "target": "Another\t dwarf\t had\t come\t along\t while\t he\t was\nw..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "The\tpoor\tlittle\thobbit\tsat\tdown\tin\tthe\thall\tand\tpu...",
+        "description": "The\tpoor\tlittle\thobbit\tsat\tdown\tin\tthe\thall\tand\tput\this\nhead\tin\this\thands,\tand\twondered\twhat\thad\thappened,\tand\nwhat\t was\t going\t to\t happen,\t and\t whether\t they\t would\t all\nstay\tto\tsupper.\t",
+        "start": 174,
+        "end": 363,
+        "participants": [
+          "Fili",
+          "Nori",
+          "Ori",
+          "Oin",
+          "Gloin",
+          "Bilbo"
+        ],
+        "location": "Bilbo",
+        "time": null
+      },
+      {
+        "name": "Another\t dwarf\t had\t come\t along\t while\t he\t was\nw...",
+        "description": "Another\t dwarf\t had\t come\t along\t while\t he\t was\nwondering\t in\t the\t hall.\t ",
+        "start": 479,
+        "end": 555,
+        "participants": [
+          "Fili",
+          "Nori",
+          "Ori",
+          "Oin",
+          "Gloin",
+          "Bilbo"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 1993,
+        "end": 1998,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "The\tpoor\tlittle\thobbit\tsat\tdown\tin\tthe\thall\tand\tpu..."
+          },
+          {
+            "type": "hosted",
+            "target": "Another\t dwarf\t had\t come\t along\t while\t he\t was\nw..."
+          }
+        ]
+      }
+    ]
+  },
+  "timestamp": 1745773067.7823074,
+  "has_embedding": true
+}

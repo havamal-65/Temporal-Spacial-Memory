@@ -1,0 +1,166 @@
+{
+  "id": "f099cafb-aec2-463a-8355-3c0ff32b83b2",
+  "content": "nothing\tof\tthe\tpoor\tdwarves\tunderneath\thim)\tstill,\the\thad\nbeen\tmore\tlucky\tthan\the\thad\tguessed.\tThe\ttalk\twas\tall\tof\nthe\t trade\t that\t came\t and\t went\t on\t the\t waterways\t and\t the\ngrowth\tof\tthe\ttraffic\ton\tthe\triver,\tas\tthe\troads\tout\tof\tthe\nEast\ttowards\tMirkwood\tvanished\tor\tfell\tinto\tdisuse;\tand\nof\t the\t bickerings\t of\t the\t Lake-men\t and\t the\t Wood-elves\nabout\tthe\tupkeep\tof\tthe\tForest\tRiver\tand\tthe\tcare\tof\tthe\nbanks.\t Those\t lands\t had\t changed\t much\t since\t the\t days\nwhen\t dwarves\t dwelt\t in\t the\t Mountain,\t days\t which\t most\npeople\t now\t remembered\t only\t as\t a\t very\t shadowy\ntradition.\t They\t had\t changed\t even\t in\t recent\t years,\t and\nsince\tthe\tlast\tnews\tthat\tGandalf\thad\thad\tof\tthem.\tGreat\nfloods\tand\trains\thad\tswollen\tthe\twaters\tthat\tflowed\teast;\nand\t there\t had\t been\t an\t earthquake\t or\t two\t (which\t some\nwere\tinclined\tto\tattribute\tto\tthe\tdragon\u2014alluding\tto\thim\nchiefly\twith\ta\tcurse\tand\tan\tominous\tnod\tin\tthe\tdirection\nof\tthe\tMountain).\tThe\tmarshes\tand\tbogs\thad\tspread\twider\nand\twider\ton\teither\tside.\tPaths\thad\tvanished,\tand\tmany\ta\nrider\tand\twanderer\ttoo,\tif\tthey\thad\ttried\tto\tfind\tthe\tlost\nways\t across.\t The\t elf-road\t through\t the\t wood\t which\t the\ndwarves\thad\tfollowed\ton\tthe\tadvice\tof\tBeorn\tnow\tcame\nto\ta\tdoubtful\tand\tlittle\tused\tend\tat\tthe\teastern\tedge\tof\tthe\nforest;\tonly\tthe\triver\toffered\tany\tlonger\ta\tsafe\tway\tfrom\nthe\t skirts\t of\t Mirkwood\t in\t the\t North\t to\t the\t mountain-\nshadowed\t plains\t beyond,\t and\t the\t river\t was\t guarded\t by\nthe\tWood-elves\u2019\tking.\nSo\tyou\tsee\tBilbo\thad\tcome\tin\tthe\tend\tby\tthe\tonly\troad\nthat\twas\tany\tgood.\tIt\tmight\thave\tbeen\tsome\tcomfort\tto\nMr.\t Baggins\t shivering\t on\t the\t barrels,\t if\t he\t had\t known\nthat\tnews\tof\tthis\thad\treached\tGandalf\tfar\taway\tand\tgiven\nhim\t great\t anxiety,\t and\t that\t he\t was\t in\t fact\t finishing\t his\nother\t business\t (which\t does\t not\t come\t into\t this\t tale)\t and\ngetting\tready\tto\tcome\tin\tsearch\tof\tThorin\u2019s\tcompany.\tBut\nBilbo\tdid\tnot\tknow\tit.\nAll\the\tknew\twas\tthat\tthe\triver\tseemed\tto\tgo\ton\tand\ton\nand\ton\tfor\tever,\tand\the\twas\thungry,\tand\thad\ta\tnasty\tcold\nin\t the\t nose,\t and\t did\t not\t like\t the\t way\t the\t Mountain\nseemed\tto\tfrown\tat\thim\tand\tthreaten\thim\tas\tit\tdrew\tever",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 1.6108516331281664,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 185,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2152,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_group",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Mirkwood",
+        "type": "organization",
+        "start": 252,
+        "end": 260,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Paths\thad\tvanished,\tand\tmany\ta\nrider\tand\twanderer\t..."
+          }
+        ]
+      },
+      {
+        "name": "Gandalf",
+        "type": "group",
+        "start": 671,
+        "end": 678,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Paths\thad\tvanished,\tand\tmany\ta\nrider\tand\twanderer\t..."
+          }
+        ]
+      },
+      {
+        "name": "Beorn",
+        "type": "person",
+        "start": 1206,
+        "end": 1211,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Paths\thad\tvanished,\tand\tmany\ta\nrider\tand\twanderer\t..."
+          }
+        ]
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 1496,
+        "end": 1501,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Paths\thad\tvanished,\tand\tmany\ta\nrider\tand\twanderer\t..."
+          }
+        ]
+      },
+      {
+        "name": "Baggins",
+        "type": "person",
+        "start": 1598,
+        "end": 1605,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Paths\thad\tvanished,\tand\tmany\ta\nrider\tand\twanderer\t..."
+          }
+        ]
+      },
+      {
+        "name": "Thorin",
+        "type": "group",
+        "start": 1880,
+        "end": 1886,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Paths\thad\tvanished,\tand\tmany\ta\nrider\tand\twanderer\t..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "Paths\thad\tvanished,\tand\tmany\ta\nrider\tand\twanderer\t...",
+        "description": "Paths\thad\tvanished,\tand\tmany\ta\nrider\tand\twanderer\ttoo,\tif\tthey\thad\ttried\tto\tfind\tthe\tlost\nways\t across.\t ",
+        "start": 1017,
+        "end": 1122,
+        "participants": [
+          "Mirkwood",
+          "Gandalf",
+          "Beorn",
+          "Bilbo",
+          "Baggins",
+          "Thorin"
+        ],
+        "location": "East",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "East",
+        "type": "geographical",
+        "start": 239,
+        "end": 243,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "Paths\thad\tvanished,\tand\tmany\ta\nrider\tand\twanderer\t..."
+          }
+        ]
+      },
+      {
+        "name": "North",
+        "type": "geographical",
+        "start": 1376,
+        "end": 1381,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 1496,
+        "end": 1501,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745715410.9212692,
+  "has_embedding": true
+}

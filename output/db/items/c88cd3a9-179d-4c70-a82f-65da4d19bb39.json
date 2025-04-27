@@ -1,0 +1,94 @@
+{
+  "id": "c88cd3a9-179d-4c70-a82f-65da4d19bb39",
+  "content": "They\t had\t not\t been\t riding\t very\t long,\t when\t up\t came\nGandalf\tvery\tsplendid\ton\ta\twhite\thorse.\tHe\thad\tbrought\ta\nlot\t of\t pocket-handkerchiefs,\t and\t Bilbo\u2019s\t pipe\t and\ntobacco.\tSo\tafter\tthat\tthe\tparty\twent\talong\tvery\tmerrily,\nand\tthey\ttold\tstories\tor\tsang\tsongs\tas\tthey\trode\tforward\nall\t day,\t except\t of\t course\t when\t they\t stopped\t for\t meals.\nThese\t didn\u2019t\t come\t quite\t as\t often\t as\t Bilbo\t would\t have\nliked\tthem,\tbut\tstill\the\tbegan\tto\tfeel\tthat\tadventures\twere\nnot\tso\tbad\tafter\tall.\nAt\t first\t they\t had\t passed\t through\t hobbit-lands,\t a\t wide\nrespectable\t country\t inhabited\t by\t decent\t folk,\t with\t good\nroads,\t an\t inn\t or\t two,\t and\t now\t and\t then\t a\t dwarf\t or\t a\nfarmer\tambling\tby\ton\tbusiness.\tThen\tthey\tcame\tto\tlands\nwhere\tpeople\tspoke\tstrangely,\tand\tsang\tsongs\tBilbo\thad\nnever\t heard\t before.\t Now\t they\t had\t gone\t on\t far\t into\t the\nLone-lands,\twhere\tthere\twere\tno\tpeople\tleft,\tno\tinns,\tand\nthe\troads\tgrew\tsteadily\tworse.\tNot\tfar\tahead\twere\tdreary\nhills,\trising\thigher\tand\thigher,\tdark\twith\ttrees.\tOn\tsome\nof\tthem\twere\told\tcastles\twith\tan\tevil\tlook,\tas\tif\tthey\thad\nbeen\tbuilt\tby\twicked\tpeople.\tEverything\tseemed\tgloomy,\nfor\tthe\tweather\tthat\tday\thad\ttaken\ta\tnasty\tturn.\tMostly\tit\nhad\tbeen\tas\tgood\tas\tMay\tcan\tbe,\tcan\tbe,\teven\tin\tmerry\ntales,\tbut\tnow\tit\twas\tcold\tand\twet.\tIn\tthe\tLone-lands\tthey\nhad\tbeen\tobliged\tto\tcamp\twhen\tthey\tcould,\tbut\tat\tleast\tit\nhad\tbeen\tdry.\n\u201cTo\tthink\tit\twill\tsoon\tbe\tJune!\u201d\tgrumbled\tBilbo,\tas\the\nsplashed\talong\tbehind\tthe\tothers\tin\ta\tvery\tmuddy\ttrack.\tIt\nwas\tafter\ttea-time;\tit\twas\tpouring\twith\train,\tand\thad\tbeen\nall\tday;\this\thood\twas\tdripping\tinto\this\teyes,\this\tcloak\twas\nfull\tof\twater;\tthe\tpony\twas\ttired\tand\tstumbled\ton\tstones;\nthe\t others\t were\t too\t grumpy\t to\t talk.\t \u201cAnd\t I\u2019m\t sure\t the\nrain\thas\tgot\tinto\tthe\tdry\tclothes\tand\tinto\tthe\tfood-bags,\u201d\nthought\t Bilbo.\t \u201cBother\t burgling\t and\t everything\t to\t do\nwith\tit!\tI\twish\tI\twas\tat\thome\tin\tmy\tnice\thole\tby\tthe\tfire,\nwith\tthe\tkettle\tjust\tbeginning\tto\tsing!\u201d\tIt\twas\tnot\tthe\tlast\ntime\tthat\the\twished\tthat!\nStill\t the\t dwarves\t jogged\t on,\t never\t turning\t round\t or\ntaking\t any\t notice\t of\t the\t hobbit.\t Somewhere\t behind\t the",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 0.9416923979135405,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 35,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2129,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_group",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "organization",
+        "start": 152,
+        "end": 157,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "These\t didn\u2019t\t come\t quite\t as\t often\t as\t Bilbo\t ..."
+          }
+        ]
+      },
+      {
+        "name": "Lone-lands",
+        "type": "group",
+        "start": 1300,
+        "end": 1310,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "These\t didn\u2019t\t come\t quite\t as\t often\t as\t Bilbo\t ..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "These\t didn\u2019t\t come\t quite\t as\t often\t as\t Bilbo\t ...",
+        "description": "These\t didn\u2019t\t come\t quite\t as\t often\t as\t Bilbo\t would\t have\nliked\tthem,\tbut\tstill\the\tbegan\tto\tfeel\tthat\tadventures\twere\nnot\tso\tbad\tafter\tall.\n",
+        "start": 350,
+        "end": 494,
+        "participants": [
+          "Bilbo",
+          "Lone-lands"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 393,
+        "end": 398,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "These\t didn\u2019t\t come\t quite\t as\t often\t as\t Bilbo\t ..."
+          }
+        ]
+      }
+    ]
+  },
+  "timestamp": 1745709004.1244876,
+  "has_embedding": true
+}

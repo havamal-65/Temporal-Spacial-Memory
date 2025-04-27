@@ -1,0 +1,94 @@
+{
+  "id": "3b14e7ff-f302-443d-90e6-466777a01302",
+  "content": "Lazy\tLob\tand\tcrazy\tCob\nare\tweaving\twebs\tto\twind\tme.\nI\tam\tfar\tmore\tsweet\tthan\tother\tmeat,\nbut\tstill\tthey\tcannot\tfind\tme!\nHere\tam\tI,\tnaughty\tlittle\tfly;\nyou\tare\tfat\tand\tlazy.\nYou\tcannot\ttrap\tme,\tthough\tyou\ttry,\nin\tyour\tcobwebs\tcrazy.\nWith\t that\t he\t turned\t and\t found\t that\t the\t last\t space\nbetween\ttwo\ttall\ttrees\thad\tbeen\tclosed\twith\ta\tweb\u2014but\nluckily\t not\t a\t proper\t web,\t only\t great\t strands\t of\t double-\nthick\t spider-rope\t run\t hastily\t backwards\t and\t forwards\nfrom\ttrunk\tto\ttrunk.\tOut\tcame\this\tlittle\tsword.\tHe\tslashed\nthe\tthreads\tto\tpieces\tand\twent\toff\tsinging.\nThe\tspiders\tsaw\tthe\tsword,\tthough\tI\tdon\u2019t\tsuppose\tthey\nknew\twhat\tit\twas,\tand\tat\tonce\tthe\twhole\tlot\tof\tthem\tcame\nhurrying\t after\t the\t hobbit\t along\t the\t ground\t and\t the\nbranches,\t hairy\t legs\t waving,\t nippers\t and\t spinners\nsnapping,\t eyes\t popping,\t full\t of\t froth\t and\t rage.\t They\nfollowed\thim\tinto\tthe\tforest\tuntil\tBilbo\thad\tgone\tas\tfar\tas\nhe\tdared.\tThen\tquieter\tthan\ta\tmouse\the\tstole\tback.\nHe\thad\tprecious\tlittle\ttime,\the\tknew,\tbefore\tthe\tspiders\nwere\t disgusted\t and\t came\t back\t to\t their\t trees\t where\t the\ndwarves\t were\t hung.\t In\t the\t meanwhile\t he\t had\t to\t rescue\nthem.\tThe\tworst\tpart\tof\tthe\tjob\twas\tgetting\tup\ton\tto\tthe\nlong\t branch\t where\t the\t bundles\t were\t dangling.\t I\t don\u2019t\nsuppose\t he\t would\t have\t managed\t it,\t if\t a\t spider\t had\t not\nluckily\tleft\ta\trope\thanging\tdown;\twith\tits\thelp,\tthough\tit\nstuck\tto\this\thand\tand\thurt\thim,\the\tscrambled\tup\u2014only\tto\nmeet\t an\t old\t slow\t wicked\t fat-bodied\t spider\t who\t had\nremained\t behind\t to\t guard\t the\t prisoners,\t and\t had\t been\nbusy\tpinching\tthem\tto\tsee\twhich\twas\tthe\tjuiciest\tto\teat.\tIt\nhad\t thought\t of\t starting\t the\t feast\t while\t the\t others\t were\naway,\t but\t Mr.\t Baggins\t was\t in\t a\t hurry,\t and\t before\t the",
+  "coordinates": {
+    "r": 5.61,
+    "theta": 3.1808625617596658,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 158,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 1756,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_person",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 895,
+        "end": 900,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "I\t don\u2019t\nsuppose\t he\t would\t have\t managed\t it,\t i..."
+          }
+        ]
+      },
+      {
+        "name": "Baggins",
+        "type": "person",
+        "start": 1711,
+        "end": 1718,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "I\t don\u2019t\nsuppose\t he\t would\t have\t managed\t it,\t i..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "I\t don\u2019t\nsuppose\t he\t would\t have\t managed\t it,\t i...",
+        "description": "I\t don\u2019t\nsuppose\t he\t would\t have\t managed\t it,\t if\t a\t spider\t had\t not\nluckily\tleft\ta\trope\thanging\tdown;\twith\tits\thelp,\tthough\tit\nstuck\tto\this\thand\tand\thurt\thim,\the\tscrambled\tup\u2014only\tto\nmeet\t an\t old\t slow\t wicked\t fat-bodied\t spider\t who\t had\nremained\t behind\t to\t guard\t the\t prisoners,\t and\t had\t been\nbusy\tpinching\tthem\tto\tsee\twhich\twas\tthe\tjuiciest\tto\teat.\t",
+        "start": 1262,
+        "end": 1626,
+        "participants": [
+          "Bilbo",
+          "Baggins"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 895,
+        "end": 900,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "I\t don\u2019t\nsuppose\t he\t would\t have\t managed\t it,\t i..."
+          }
+        ]
+      }
+    ]
+  },
+  "timestamp": 1745715408.7738438,
+  "has_embedding": true
+}

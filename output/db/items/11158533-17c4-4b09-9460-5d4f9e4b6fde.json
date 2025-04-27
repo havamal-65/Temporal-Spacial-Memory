@@ -1,0 +1,122 @@
+{
+  "id": "11158533-17c4-4b09-9460-5d4f9e4b6fde",
+  "content": "own\t since\t they\t were\t all\t small\t hobbit-boys\t and\t hobbit-\ngirls.\nAll\tthat\tthe\tunsuspecting\tBilbo\tsaw\tthat\tmorning\twas\nan\told\tman\twith\ta\tstaff.\tHe\thad\ta\ttall\tpointed\tblue\that,\ta\nlong\tgrey\tcloak,\ta\tsilver\tscarf\tover\twhich\this\tlong\twhite\nbeard\t hung\t down\t below\t his\t waist,\t and\t immense\t black\nboots.\n\u201cGood\tMorning!\u201d\tsaid\tBilbo,\tand\the\tmeant\tit.\tThe\tsun\nwas\tshining,\tand\tthe\tgrass\twas\tvery\tgreen.\tBut\tGandalf\nlooked\tat\thim\tfrom\tunder\tlong\tbushy\teyebrows\tthat\tstuck\nout\tfurther\tthan\tthe\tbrim\tof\this\tshady\that.\n\u201cWhat\t do\t you\t mean?\u201d\t he\t said.\t \u201cDo\t you\t wish\t me\t a\ngood\tmorning,\tor\tmean\tthat\tit\tis\ta\tgood\tmorning\twhether\nI\twant\tit\tor\tnot;\tor\tthat\tyou\tfeel\tgood\tthis\tmorning;\tor\tthat\nit\tis\ta\tmorning\tto\tbe\tgood\ton?\u201d\n\u201cAll\t of\t them\t at\t once,\u201d\t said\t Bilbo.\t \u201cAnd\t a\t very\t fine\nmorning\t for\t a\t pipe\t of\t tobacco\t out\t of\t doors,\t into\t the\nbargain.\tIf\tyou\thave\ta\tpipe\tabout\tyou,\tsit\tdown\tand\thave\na\t fill\t of\t mine!\t There\u2019s\t no\t hurry,\t we\t have\t all\t the\t day\nbefore\t us!\u201d\t Then\t Bilbo\t sat\t down\t on\t a\t seat\t by\t his\t door,\ncrossed\t his\t legs,\t and\t blew\t out\t a\t beautiful\t grey\t ring\t of\nsmoke\t that\t sailed\t up\t into\t the\t air\t without\t breaking\t and\nfloated\taway\tover\tThe\tHill.\n\u201cVery\t pretty!\u201d\t said\t Gandalf.\t \u201cBut\t I\t have\t no\t time\t to\nblow\t smoke-rings\t this\t morning.\t I\t am\t looking\t for\nsomeone\tto\tshare\tin\tan\tadventure\tthat\tI\tam\tarranging,\tand\nit\u2019s\tvery\tdifficult\tto\tfind\tanyone.\u201d\n\u201cI\tshould\tthink\tso\u2014in\tthese\tparts!\tWe\tare\tplain\tquiet\nfolk\t and\t have\t no\t use\t for\t adventures.\t Nasty\t disturbing\nuncomfortable\t things!\t Make\t you\t late\t for\t dinner!\t I\t can\u2019t\nthink\twhat\tanybody\tsees\tin\tthem,\u201d\tsaid\tour\tMr.\tBaggins,\nand\t stuck\t one\t thumb\t behind\t his\t braces,\t and\t blew\t out\nanother\t even\t bigger\t smokering.\t Then\t he\t took\t out\t his\nmorning\tletters,\tand\tbegan\tto\tread,\tpretending\tto\ttake\tno\nmore\tnotice\tof\tthe\told\tman.\tHe\thad\tdecided\tthat\the\twas\nnot\tquite\this\tsort,\tand\twanted\thim\tto\tgo\taway.\tBut\tthe\told\nman\t did\t not\t move.\t He\t stood\t leaning\t on\t his\t stick\t and\ngazing\t at\t the\t hobbit\t without\t saying\t anything,\t till\t Bilbo",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 3.45025413180499,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 9,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2057,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "hobbit",
+      "tolkien",
+      "hobbit tolkien"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 95,
+        "end": 100,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Then\t he\t took\t out\t his\nmorning\tletters,\tand\tbega..."
+          }
+        ]
+      },
+      {
+        "name": "Hill",
+        "type": "organization",
+        "start": 1185,
+        "end": 1189,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Then\t he\t took\t out\t his\nmorning\tletters,\tand\tbega..."
+          }
+        ]
+      },
+      {
+        "name": "Nasty",
+        "type": "person",
+        "start": 1500,
+        "end": 1505,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Then\t he\t took\t out\t his\nmorning\tletters,\tand\tbega..."
+          }
+        ]
+      },
+      {
+        "name": "Baggins",
+        "type": "person",
+        "start": 1629,
+        "end": 1636,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "participated_in",
+            "target": "Then\t he\t took\t out\t his\nmorning\tletters,\tand\tbega..."
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "Then\t he\t took\t out\t his\nmorning\tletters,\tand\tbega...",
+        "description": "Then\t he\t took\t out\t his\nmorning\tletters,\tand\tbegan\tto\tread,\tpretending\tto\ttake\tno\nmore\tnotice\tof\tthe\told\tman.\t",
+        "start": 1734,
+        "end": 1845,
+        "participants": [
+          "Bilbo",
+          "Hill",
+          "Nasty",
+          "Baggins"
+        ],
+        "location": "Bilbo",
+        "time": null
+      }
+    ],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 95,
+        "end": 100,
+        "mentions": 1,
+        "relationships": [
+          {
+            "type": "hosted",
+            "target": "Then\t he\t took\t out\t his\nmorning\tletters,\tand\tbega..."
+          }
+        ]
+      }
+    ]
+  },
+  "timestamp": 1745773067.0776925,
+  "has_embedding": true
+}

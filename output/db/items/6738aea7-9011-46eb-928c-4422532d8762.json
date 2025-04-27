@@ -1,0 +1,66 @@
+{
+  "id": "6738aea7-9011-46eb-928c-4422532d8762",
+  "content": "mountain.\tThere\twas\tjust\troom\tto\tget\tthe\tponies\tthrough\nwith\t a\t squeeze,\t when\t they\t had\t been\t unpacked\t and\nunsaddled.\tAs\tthey\tpassed\tunder\tthe\tarch,\tit\twas\tgood\tto\nhear\t the\t wind\t and\t the\t rain\t outside\t instead\t of\t all\t about\nthem,\tand\tto\tfeel\tsafe\tfrom\tthe\tgiants\tand\ttheir\trocks.\tBut\nthe\twizard\twas\ttaking\tno\trisks.\tHe\tlit\tup\this\twand\u2014as\the\ndid\tthat\tday\tin\tBilbo\u2019s\tdining-room\tthat\tseemed\tso\tlong\nago,\tif\tyou\tremember\u2014,\tand\tby\tits\tlight\tthey\texplored\tthe\ncave\tfrom\tend\tto\tend.\nIt\t seemed\t quite\t a\t fair\t size,\t but\t not\t too\t large\t and\nmysterious.\t It\t had\t a\t dry\t floor\t and\t some\t comfortable\nnooks.\t At\t one\t end\t there\t was\t room\t for\t the\t ponies;\t and\nthere\t they\t stood\t (mighty\t glad\t of\t the\t change)\t steaming,\nand\tchamping\tin\ttheir\tnosebags.\tOin\tand\tGloin\twanted\tto\nlight\t a\t fire\t at\t the\t door\t to\t dry\t their\t clothes,\t but\t Gandalf\nwould\tnot\thear\tof\tit.\tSo\tthey\tspread\tout\ttheir\twet\tthings\non\tthe\tfloor,\tand\tgot\tdry\tones\tout\tof\ttheir\tbundles;\tthen\nthey\tmade\ttheir\tblankets\tcomfortable,\tgot\tout\ttheir\tpipes\nand\t blew\t smoke\t rings,\t which\t Gandalf\t turned\t into\ndifferent\tcolours\tand\tset\tdancing\tup\tby\tthe\troof\tto\tamuse\nthem.\tThey\ttalked\tand\ttalked,\tand\tforgot\tabout\tthe\tstorm,\nand\tdiscussed\twhat\teach\twould\tdo\twith\this\tshare\tof\tthe\ntreasure\t(when\tthey\tgot\tit,\twhich\tat\tthe\tmoment\tdid\tnot\nseem\tso\timpossible);\tand\tso\tthey\tdropped\toff\tto\tsleep\tone\nby\t one.\t And\t that\t was\t the\t last\t time\t that\t they\t used\t the\nponies,\tpackages,\tbaggages,\ttools\tand\tparaphernalia\tthat\nthey\thad\tbrought\twith\tthem.\nIt\t turned\t out\t a\t good\t thing\t that\t night\t that\t they\t had\nbrought\tlittle\tBilbo\twith\tthem,\tafter\tall.\tFor,\tsomehow,\the\ncould\tnot\tgo\tto\tsleep\tfor\ta\tlong\twhile;\tand\twhen\the\tdid\nsleep,\the\thad\tvery\tnasty\tdreams.\tHe\tdreamed\tthat\ta\tcrack\nin\tthe\twall\tat\tthe\tback\tof\tthe\tcave\tgot\tbigger\tand\tbigger,\nand\topened\twider\tand\twider,\tand\the\twas\tvery\tafraid\tbut\ncould\tnot\tcall\tout\tor\tdo\tanything\tbut\tlie\tand\tlook.\tThen\the\ndreamed\tthat\tthe\tfloor\tof\tthe\tcave\twas\tgiving\tway,\tand\the\nwas\t slipping\u2014beginning\t to\t fall\t down,\t down,\t goodness\nknows\twhere\tto.\nAt\tthat\the\twoke\tup\twith\ta\thorrible\tstart,\tand\tfound\tthat",
+  "coordinates": {
+    "r": 5.0,
+    "theta": 3.3375494953574565,
+    "t": 1745630173.9676006,
+    "z": 1
+  },
+  "metadata": {
+    "chunk_index": 62,
+    "chunk_count": 302,
+    "chunk_method": "paragraph",
+    "chunk_size": 2122,
+    "title": "The Hobbit: Or There and Back Again",
+    "author": "J. R. R. Tolkien",
+    "pages": 322,
+    "source": "input\\the_hobbit_tolkien.pdf",
+    "filename": "the_hobbit_tolkien.pdf",
+    "content_type": "application/pdf",
+    "size": 4146290,
+    "last_modified": 1745630173.9676006,
+    "keywords": [
+      "tolkien",
+      "hobbit tolkien",
+      "hobbit"
+    ],
+    "mapping_details": {
+      "radial_basis": "computed_relevance",
+      "angular_basis": "entity_type_administrative",
+      "temporal_basis": "metadata_last_modified",
+      "context_basis": 1
+    },
+    "entities": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 368,
+        "end": 373,
+        "mentions": 1,
+        "relationships": []
+      },
+      {
+        "name": "Gandalf",
+        "type": "group",
+        "start": 1068,
+        "end": 1075,
+        "mentions": 1,
+        "relationships": []
+      }
+    ],
+    "events": [],
+    "locations": [
+      {
+        "name": "Bilbo",
+        "type": "administrative",
+        "start": 368,
+        "end": 373,
+        "mentions": 1,
+        "relationships": []
+      }
+    ]
+  },
+  "timestamp": 1745773074.3593311,
+  "has_embedding": true
+}

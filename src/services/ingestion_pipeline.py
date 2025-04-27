@@ -1,0 +1,314 @@
+"""
+Ingestion Pipeline Service
+
+This module provides the main ingestion pipeline for processing documents into the 4D polar-temporal database.
+It orchestrates document loading, chunking, entity extraction, and coordinate mapping.
+"""
+
+import os
+import logging
+import time
+import uuid
+import dotenv
+from typing import List, Dict, Any, Optional
+from pathlib import Path
+import numpy as np
+
+# Local imports
+from src.utils.document_loader import DocumentLoader
+from src.utils.text_chunker import TextChunker
+from src.utils.entity_extractor import EntityExtractor
+from src.utils.coordinate_mapper import CoordinateMapper
+from src.utils.embedding_service import create_embedding_service
+# Import NarrativeAtlas
+from src.models.narrative_atlas import NarrativeAtlas 
+
+# Load environment variables
+dotenv.load_dotenv()
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger('IngestionPipeline')
+
+
+class IngestionPipeline:
+    """
+    Pipeline for ingesting documents into the 4D polar-temporal database.
+    """
+    
+    def __init__(self, 
+                narrative_atlas: NarrativeAtlas, 
+                input_dir: str = 'input',
+                output_dir: str = 'output',
+                chunk_size: int = None,
+                chunk_overlap: int = None,
+                embedding_service_type: str = None,
+                embedding_model_name: str = None,
+                embedding_cache_size: int = None):
+        """
+        Initialize the ingestion pipeline.
+        
+        Args:
+            narrative_atlas: Instance of NarrativeAtlas for storage and indexing
+            input_dir: Directory for input documents
+            output_dir: Directory for processed output
+            chunk_size: Maximum size of text chunks
+            chunk_overlap: Overlap between chunks
+            embedding_service_type: Type of embedding service ('mock', 'langchain', or 'cascading')
+            embedding_model_name: Name of the embedding model (if using langchain)
+            embedding_cache_size: Size of the embedding cache (if using langchain)
+        """
+        self.narrative_atlas = narrative_atlas 
+        self.input_dir = input_dir
+        self.output_dir = output_dir
+        
+        # Load configuration from environment variables, with fallbacks
+        self.chunk_size = chunk_size or int(os.getenv('CHUNK_SIZE', 1000))
+        self.chunk_overlap = chunk_overlap or int(os.getenv('CHUNK_OVERLAP', 200))
+        embedding_service_type = embedding_service_type or os.getenv('EMBEDDING_SERVICE_TYPE', 'mock')
+        embedding_model_name = embedding_model_name or os.getenv('EMBEDDING_MODEL_NAME', 'all-MiniLM-L6-v2')
+        embedding_cache_size = embedding_cache_size or int(os.getenv('EMBEDDING_CACHE_SIZE', 1000))
+        
+        logger.info(f"Using embedding service: {embedding_service_type}, model: {embedding_model_name}")
+        
+        # Create directories if they don't exist
+        os.makedirs(input_dir, exist_ok=True)
+        os.makedirs(output_dir, exist_ok=True)
+        
+        # Initialize components
+        self.document_loader = DocumentLoader()
+        self.text_chunker = TextChunker()
+        self.entity_extractor = EntityExtractor()
+        
+        # Initialize embedding service with appropriate parameters
+        kwargs = {}
+        if embedding_service_type == 'langchain':
+            kwargs['model_name'] = embedding_model_name
+            kwargs['cache_size'] = embedding_cache_size
+            
+        self.embedding_service = create_embedding_service(
+            service_type=embedding_service_type,
+            **kwargs
+        )
+        
+        # Initialize coordinate mapper
+        self.coordinate_mapper = CoordinateMapper(
+            embedding_service=self.embedding_service,
+        )
+        
+        # Statistics for tracking ingestion
+        self.stats = {
+            'documents_processed': 0,
+            'total_chunks_created': 0,
+            'entities_extracted': 0,
+            'errors': 0,
+            'processing_time': 0
+        }
+        
+        logger.info(f"Initialized ingestion pipeline with input_dir='{input_dir}', output_dir='{output_dir}'")
+    
+    def ingest_document(self, file_path: str) -> bool:
+        """
+        Process a single document through the full ingestion pipeline.
+        Handles multi-page documents (like PDFs) by processing page by page.
+        
+        Args:
+            file_path: Path to the document file
+            
+        Returns:
+            True if processing was successful, False otherwise
+        """
+        start_time = time.time()
+        total_chunks_in_doc = 0
+        
+        try:
+            logger.info(f"Starting ingestion of document: {file_path}")
+            
+            # Step 1: Load the document (returns list of pages/docs)
+            pages = self.document_loader.load_document(file_path)
+            if not pages:
+                logger.warning(f"No content loaded from document: {file_path}")
+                return False # Indicate failure if no pages loaded
+            
+            all_processed_chunks = [] # Collect chunks from all pages
+            
+            # --- Process Page by Page ---
+            for page_data in pages:
+                page_content = page_data['content']
+                page_metadata = page_data['metadata']
+                page_number = page_metadata.get('page_number', 0) # Get page number (0 if not PDF)
+                
+                if not page_content:
+                    logger.debug(f"Skipping empty page {page_number} in {file_path}")
+                    continue
+                
+                # Step 2: Split the current page content into chunks
+                page_chunks = self.text_chunker.chunk_text(
+                    text=page_content,
+                    chunk_size=self.chunk_size,
+                    chunk_overlap=self.chunk_overlap,
+                    metadata=page_metadata # Pass page metadata to chunker
+                )
+                
+                # Add page-specific chunk index to each chunk's metadata
+                for i, chunk in enumerate(page_chunks):
+                    chunk['metadata']['chunk_index_on_page'] = i # 0-based index within the page
+                    all_processed_chunks.append(chunk) # Add to the overall list
+            
+            total_chunks_in_doc = len(all_processed_chunks)
+            self.stats['total_chunks_created'] += total_chunks_in_doc # Update total count
+            logger.info(f"Document '{os.path.basename(file_path)}' split into {total_chunks_in_doc} chunks across {len(pages)} pages.")
+            
+            # --- Process All Chunks for the Document ---
+            if not all_processed_chunks:
+                logger.warning(f"No chunks generated for document: {file_path}")
+                return False # Indicate failure if no chunks generated
+            
+            for chunk_data in all_processed_chunks:
+                chunk_content = chunk_data['content']
+                chunk_metadata = chunk_data['metadata']
+                page_num = chunk_metadata.get('page_number', 0) # Retrieve page number
+                chunk_idx_on_page = chunk_metadata.get('chunk_index_on_page', -1) # Retrieve chunk index
+                
+                # Step 3: Extract entities from the chunk (Optional - currently used for metadata)
+                extracted_data = self.entity_extractor.extract_entities(chunk_content)
+                
+                # Count entities
+                entity_count = (
+                    len(extracted_data['entities']) + 
+                    len(extracted_data['events']) + 
+                    len(extracted_data['locations'])
+                )
+                self.stats['entities_extracted'] += entity_count
+                
+                # Step 4: Map to 4D coordinates (using the refactored CoordinateMapper)
+                # This now primarily calculates structural coordinates and gets keywords.
+                # It also requires the embedding to be passed in if pre-calculated,
+                # or it can calculate it internally (though currently add_node does this).
+                # Let's calculate the embedding here first.
+                embedding_vector = self.embedding_service.embed_query(chunk_content)
+                embedding_np = np.array(embedding_vector, dtype=np.float32)
+
+                # Call the refactored mapper (mainly for keywords now, coords are calculated in add_node)
+                mapping_result = self.coordinate_mapper.map_to_coordinates(
+                    content=chunk_content,
+                    metadata=chunk_metadata, # Pass structural info
+                    embedding=embedding_np # Pass embedding for completeness / potential future use
+                )
+
+                # Step 5: Store node in the NarrativeAtlas
+                base_filename = os.path.basename(chunk_metadata.get('source', 'unknown_source'))
+                chunk_node_id = f"chunk_{base_filename}_p{page_num}_c{chunk_idx_on_page}"
+
+                # Prepare content dictionary for the node
+                node_content_dict = {'text': chunk_content}
+
+                # Prepare combined metadata for the node
+                # This will be passed to add_node, which uses it for coordinate calculation
+                # and stores the rest within the node's content field.
+                chunk_node_metadata = {
+                    **chunk_metadata, # Includes page_number, chunk_index_on_page, source, etc.
+                    'keywords': mapping_result['keywords'], # Add keywords from mapper
+                    # Extracted entities can also be included here if desired
+                    'entities': extracted_data['entities'],
+                    'events': extracted_data['events'],
+                    'locations': extracted_data['locations']
+                }
+
+                # --- Call narrative_atlas.add_node (Refactored) ---
+                # The add_node method now takes structural info via metadata and calculates coordinates internally.
+                # It also handles embedding calculation if not provided.
+                self.narrative_atlas.add_node(
+                    node_id=chunk_node_id,
+                    content=node_content_dict, # Pass the text content
+                    # Context layer is now determined internally by the Atlas's mapper instance based on metadata
+                    context_layer=self.coordinate_mapper.default_chunk_layer, # Pass the default layer for now, add_node might ignore it if mapper sets it
+                    embedding=embedding_np, # Pass the pre-computed embedding
+                    metadata=chunk_node_metadata # Pass the combined metadata (structural, keywords, entities)
+                    # parent_node_id could be added here if tracking sequential links
+                )
+                # --- End Add Node Call ---
+            
+            # Mark document as successfully processed
+            self.stats['documents_processed'] += 1
+            
+            # Save processing time
+            elapsed_time = time.time() - start_time
+            self.stats['processing_time'] += elapsed_time
+            
+            logger.info(f"Successfully ingested document: {file_path} ({total_chunks_in_doc} chunks) in {elapsed_time:.2f} seconds")
+            
+            return True
+            
+        except Exception as e:
+            logger.error(f"Error ingesting document {file_path}: {e}", exc_info=True) # Log traceback
+            self.stats['errors'] += 1
+            # Decide whether to re-raise or just return False
+            return False # Indicate failure but allow processing of other files
+    
+    def ingest_directory(self, directory: str = None) -> Dict[str, Any]:
+        """
+        Process all documents in a directory.
+        
+        Args:
+            directory: Path to directory of documents (defaults to self.input_dir)
+            
+        Returns:
+            Statistics dictionary with processing results
+        """
+        directory = directory or self.input_dir
+        directory_path = Path(directory)
+        
+        if not directory_path.exists():
+            logger.error(f"Directory does not exist: {directory}")
+            return self.stats
+        
+        # Reset statistics
+        self.stats = {
+            'documents_processed': 0,
+            'total_chunks_created': 0, # Use updated name
+            'entities_extracted': 0,
+            'errors': 0,
+            'processing_time': 0,
+            'files_attempted': 0,
+            'files_skipped': 0
+        }
+        
+        start_time = time.time()
+        
+        # Find all files in the directory
+        for file_path in directory_path.glob('**/*'):
+            if file_path.is_file():
+                self.stats['files_attempted'] += 1
+                
+                # Check if the file extension is supported
+                ext = file_path.suffix.lower()
+                if ext not in self.document_loader.extension_mapping:
+                    logger.warning(f"Skipping unsupported file type: {file_path}")
+                    self.stats['files_skipped'] += 1
+                    continue
+                
+                # Process the file - returns True/False
+                success = self.ingest_document(str(file_path))
+                if not success:
+                    logger.warning(f"Failed to fully process document: {file_path}")
+                    # Error already counted in ingest_document
+        
+        # Update total processing time
+        self.stats['total_time'] = time.time() - start_time
+        
+        logger.info(f"Completed directory ingestion: {self.stats}")
+        
+        return self.stats
+    
+    def get_stats(self) -> Dict[str, Any]:
+        """
+        Get current ingestion statistics.
+        
+        Returns:
+            Statistics dictionary
+        """
+        return self.stats 
