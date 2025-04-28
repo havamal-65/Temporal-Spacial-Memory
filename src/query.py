@@ -170,31 +170,59 @@ class QueryEngine:
         Returns:
             Formatted result dictionary
         """
-        item_node = result.get('item')
-        if not item_node or not isinstance(item_node, Node):
-             return {"error": "Invalid result item format"}
+        # Access dictionary using keys, not tuple unpacking
+        item_node = result.get('item') 
+        score = result.get('score')
+        
+        if not item_node or score is None:
+            print(f"Skipping invalid result item: {result}")
+            return None # Indicate skipping
+
+        # Convert score before adding to dict
+        try:
+            formatted_score = float(score)
+        except (ValueError, TypeError) as e:
+            print(f"Warning: Could not convert score '{score}' to float for node {item_node.id if item_node else 'N/A'}. Error: {e}")
+            formatted_score = -1.0 # Assign default/error value
 
         formatted = {
             'id': item_node.id,
-            'type': item_node.type,
-            # Include score or distance based on what's available
-            # --- Convert score/distance to standard float --- 
-            **({'score': float(result['score'])} if 'score' in result else {}),
-            **({'distance': float(result['distance'])} if 'distance' in result else {}),
-            # --- End Conversion --- 
-            'metadata': { # Attempt to reconstruct metadata from node structure
-                'temporal_coordinate': item_node.temporal_coordinate,
-                'spatial_coordinates': item_node.spatial_coordinates,
-                # Add content attributes if they exist
-                **(item_node.content if isinstance(item_node.content, dict) else {})
-            }
+            'score': formatted_score, 
+            # Access coordinate dict correctly
+            'temporal_coordinate': item_node.coordinates.get('t', None), 
+            'node_type': item_node.type, # Use correct attribute name
+            'coordinates': item_node.coordinates, # Include full coordinates dict
+            # Include relevant metadata directly from the node's metadata field
+            'metadata': item_node.metadata 
         }
-        
-        if include_content and isinstance(item_node.content, dict):
-            # Assuming main text is in node.content['text'] for chunks
-            formatted['content'] = item_node.content.get('text', '')
-        
+
+        # Optionally include content
+        if include_content:
+            # Assuming content is stored under 'text' key in node.content dict
+            formatted['content'] = item_node.content.get('text', json.dumps(item_node.content))
+
         return formatted
+
+    def print_results(self, results: List[Dict]):
+        """Print formatted query results."""
+        if not results:
+            print("No results found.")
+            return
+            
+        print("\n--- Query Results ---")
+        for i, res in enumerate(results):
+            if res is None: continue # Skip if format_result returned None
+            
+            print(f"--- Result {i+1} ---")
+            print(f"ID: {res.get('id')}")
+            print(f"Type: {res.get('node_type')}")
+            if 'score' in res: print(f"Score: {res['score']:.4f}")
+            print(f"Temporal Coordinate (t): {res.get('temporal_coordinate', 'N/A')}")
+            print(f"Coordinates: {res.get('coordinates', {})}")
+            print(f"Metadata: {res.get('metadata', {})}")
+            if 'content' in res:
+                 print(f"Content: {res['content']}")
+            print("-" * 20)
 
 
 def parse_args():
@@ -272,20 +300,16 @@ def main():
          sys.exit(1)
     # --- End NarrativeAtlas Initialization --- 
     
-    # Initialize Query Engine with NarrativeAtlas
     query_engine = QueryEngine(narrative_atlas=narrative_atlas)
     
-    results = []
+    results_data = []
     query_type = "None"
     
     # Perform query based on arguments
     if args.text_query:
         query_type = "Text"
-        results = query_engine.query_by_text(
-            query_text=args.text_query,
-            max_results=args.max_results
-            # Add min_relevance handling if needed based on score interpretation
-        )
+        raw_results = query_engine.query_by_text(args.text_query, args.max_results)
+        results_data = raw_results
     elif args.coord_query:
         query_type = "Coordinate"
         try:
@@ -293,7 +317,7 @@ def main():
             if len(coords) != 4:
                 raise ValueError("Coordinate query must have 4 values: r,theta,t,z")
             target_coord = PolarTemporalCoordinate(r=coords[0], theta=coords[1], t=coords[2], z=coords[3])
-            results = query_engine.query_by_coordinates(
+            results_data = query_engine.query_by_coordinates(
                 coordinate=target_coord,
                 max_distance=args.max_distance,
                 max_results=args.max_results
@@ -306,26 +330,14 @@ def main():
         return
 
     # Format and print results
-    formatted_results = [
-        query_engine.format_result(r, include_content=not args.hide_content) 
-        for r in results
-    ]
-    
-    logger.info(f"Query Type: {query_type}, Results Found: {len(formatted_results)}")
-    
-    if args.output_format == 'json':
-        print(json.dumps(formatted_results, indent=2))
-    elif args.output_format == 'pretty':
-        for i, res in enumerate(formatted_results):
-            print(f"--- Result {i+1} ---")
-            print(f"ID: {res.get('id')}")
-            print(f"Type: {res.get('type')}")
-            if 'score' in res: print(f"Score: {res['score']:.4f} (Lower is better)")
-            if 'distance' in res: print(f"Distance: {res['distance']:.4f}")
-            print(f"Metadata: {res.get('metadata')}")
-            if 'content' in res and res['content']:
-                print(f"Content: {res['content'][:200]}...") # Truncate content
-            print("-" * 20)
+    formatted_results = []
+    if results_data:
+         for result_dict in results_data: # Iterate through result dictionaries
+             formatted = query_engine.format_result(result_dict, include_content=not args.hide_content)
+             if formatted and 'error' not in formatted: # Check for errors from format_result
+                 formatted_results.append(formatted)
+        
+    query_engine.print_results(formatted_results)
 
 
 if __name__ == '__main__':

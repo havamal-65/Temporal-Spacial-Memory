@@ -62,12 +62,16 @@ class TextChunker:
             logger.warning(f"Unknown chunking method: {chunk_method}, using 'paragraph'")
             chunks = self._chunk_by_paragraph(text, chunk_size, chunk_overlap)
         
+        # --- Calculate total chunks for this input text (page) --- 
+        num_chunks_on_page = len(chunks)
+        # --- End Calculation --- 
+        
         # Create result with metadata
         result = []
         for i, chunk in enumerate(chunks):
             chunk_metadata = {
                 'chunk_index': i,
-                'chunk_count': len(chunks),
+                'total_chunks_on_page': num_chunks_on_page,
                 'chunk_method': chunk_method,
                 'chunk_size': len(chunk)
             }

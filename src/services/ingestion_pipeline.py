@@ -199,38 +199,35 @@ class IngestionPipeline:
                     embedding=embedding_np # Pass embedding for completeness / potential future use
                 )
 
-                # Step 5: Store node in the NarrativeAtlas
-                base_filename = os.path.basename(chunk_metadata.get('source', 'unknown_source'))
-                chunk_node_id = f"chunk_{base_filename}_p{page_num}_c{chunk_idx_on_page}"
+                # Step 5: Add the node to the Narrative Atlas
+                node_id = f"{Path(file_path).stem}_p{page_num}_c{chunk_idx_on_page}"
+                
+                # Extract coordinates object and keywords from mapping result
+                coordinates_obj = mapping_result.get('coordinate') # Get the PolarTemporalCoordinate object
+                keywords_list = mapping_result.get('keywords', [])
+                mapping_details_dict = mapping_result.get('mapping_details', {})
+                
+                # Ensure coordinates object exists before proceeding
+                if coordinates_obj is None:
+                    logger.error(f"Coordinate calculation failed for chunk {node_id}. Skipping node addition.")
+                    self.stats['errors'] += 1
+                    continue # Skip adding this node
 
-                # Prepare content dictionary for the node
-                node_content_dict = {'text': chunk_content}
-
-                # Prepare combined metadata for the node
-                # This will be passed to add_node, which uses it for coordinate calculation
-                # and stores the rest within the node's content field.
-                chunk_node_metadata = {
-                    **chunk_metadata, # Includes page_number, chunk_index_on_page, source, etc.
-                    'keywords': mapping_result['keywords'], # Add keywords from mapper
-                    # Extracted entities can also be included here if desired
-                    'entities': extracted_data['entities'],
-                    'events': extracted_data['events'],
-                    'locations': extracted_data['locations']
-                }
-
-                # --- Call narrative_atlas.add_node (Refactored) ---
-                # The add_node method now takes structural info via metadata and calculates coordinates internally.
-                # It also handles embedding calculation if not provided.
                 self.narrative_atlas.add_node(
-                    node_id=chunk_node_id,
-                    content=node_content_dict, # Pass the text content
-                    # Context layer is now determined internally by the Atlas's mapper instance based on metadata
-                    context_layer=self.coordinate_mapper.default_chunk_layer, # Pass the default layer for now, add_node might ignore it if mapper sets it
-                    embedding=embedding_np, # Pass the pre-computed embedding
-                    metadata=chunk_node_metadata # Pass the combined metadata (structural, keywords, entities)
-                    # parent_node_id could be added here if tracking sequential links
+                    node_id=node_id,
+                    # Pass content as a dictionary with a 'text' key
+                    content={'text': chunk_content}, 
+                    embedding=embedding_np, # Use the pre-calculated embedding
+                    metadata=chunk_metadata, # Pass full metadata
+                    # Pass the PolarTemporalCoordinate object directly
+                    coordinates=coordinates_obj, 
+                    keywords=keywords_list, # Pass the list of keywords
+                    mapping_details=mapping_details_dict, # Pass mapping details
+                    parent_node_id=chunk_metadata.get('parent_node_id'), 
+                    # Pass timestamp from metadata if available, otherwise None (add_node will handle default)
+                    explicit_timestamp=chunk_metadata.get('timestamp') 
+                    # context_layer is now derived from coordinates.z within add_node/Node creation
                 )
-                # --- End Add Node Call ---
             
             # Mark document as successfully processed
             self.stats['documents_processed'] += 1

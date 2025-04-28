@@ -24,15 +24,18 @@ The system is being developed in phases:
     *   Use LLM insights to refine the semantic coordinates (`r` and `theta`) based on content relevance and thematic classification.
     *   Update nodes in the `NarrativeAtlas` with these refined coordinates, adding a layer of semantic understanding.
 
-## Current Status (Post-Phase 1)
+## Current Status (Post-Phase 2 Refinement Debugging)
 
-*   Phase 1 refactoring is complete and tested.
-*   The system successfully ingests documents (tested with PDFs).
-*   It performs page-by-page chunking and assigns unique node IDs (`chunk_<filename>_p<page_num>_c<chunk_index>`).
-*   `CoordinateMapper` calculates initial coordinates based on structure (`t`, `theta`, `z`) and extracts keywords.
-*   `NarrativeAtlas` stores nodes with these coordinates and manages a FAISS index for vector search.
-*   Basic text-based querying via `run.py --mode query` is functional.
-*   A Phase 1 completion report is available in `docs/phase_1_completion_report.md`.
+*   **Phase 1 (Structural Backbone):** Complete and functional.
+*   **Phase 2 (Semantic Refinement):**
+    *   The `refine_coordinates.py` script has been developed and debugged.
+    *   It successfully loads the atlas data created by the ingestion phase.
+    *   It utilizes an LLM (`gpt-4o-mini` by default) via LangChain to analyze node content.
+    *   It correctly assigns semantic coordinates (`r` for relevance, `theta` for topic) based on LLM output.
+    *   **Batch processing** is implemented using `refinement_chain.batch()` for improved performance.
+    *   **Known Issue:** The script currently hits OpenAI API rate limits (`RateLimitError`) when processing large batches due to exceeding Tokens Per Minute (TPM). A retry mechanism needs to be added to handle this robustly.
+    *   Partial refinement (up to the point of rate limiting) is successful, and the updated nodes are saved.
+    *   A progress report is available: `planning/progress_report_phase2_refinement.md`.
 
 ## Components
 
@@ -124,12 +127,13 @@ Environment variables can be set (e.g., in a `.env` file):
 *   `CHUNK_SIZE`: Default text chunk size (default: 1000).
 *   `CHUNK_OVERLAP`: Default chunk overlap (default: 200).
 
-## Next Steps (Phase 2)
+## Next Steps
 
-*   Integrate an LLM into the `CoordinateMapper` or a new refinement service.
-*   Develop prompts for the LLM to assess chunk relevance (`r`) and thematic category (`theta`).
-*   Implement logic to update node coordinates post-ingestion or during a separate refinement step.
-*   Evaluate the effectiveness of semantic coordinate refinement.
+1.  **Address Rate Limiting:** Implement retry logic (e.g., with exponential backoff) in `refine_coordinates.py` to handle `RateLimitError` during batch processing.
+2.  **Complete Refinement:** Run the finalized `refine_coordinates.py` script to process all nodes and generate the full set of semantic coordinates.
+3.  **Phase 3 (Querying & Visualization):**
+    *   Develop advanced querying mechanisms that leverage the refined `r` and `theta` coordinates.
+    *   Implement visualization tools to explore the 4D Narrative Atlas.
 
 ## License
 

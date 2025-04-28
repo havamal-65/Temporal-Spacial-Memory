@@ -54,12 +54,12 @@ class CoordinateMapper:
         self.default_chunk_layer = default_chunk_layer
         self.base_radius = base_radius
         self.base_angle_spread = base_angle_spread
-        # TF-IDF for keywords can remain if desired
-        self.tfidf = TfidfVectorizer(
-            max_features=1000,
-            stop_words='english',
-            ngram_range=(1, 2)
-        )
+        # TF-IDF for keywords can remain if desired - removing instance variable
+        # self.tfidf = TfidfVectorizer(
+        #     max_features=1000,
+        #     stop_words='english',
+        #     ngram_range=(1, 2)
+        # )
 
     def map_to_coordinates(self,
                          content: str,
@@ -83,7 +83,7 @@ class CoordinateMapper:
         # --- Calculate Coordinates (Phase 1: Structure-based) ---
         coordinates = self._calculate_structural_coordinates(metadata)
 
-        # --- Generate Keywords (Optional, can remain) ---
+        # --- Generate Keywords (Using local TF calculation) ---
         keywords = self._extract_keywords(content)
 
         # --- Prepare Mapping Details ---
@@ -95,7 +95,7 @@ class CoordinateMapper:
             'layer_basis': f"default layer {self.default_chunk_layer}"
         }
 
-        # --- Construct Result --- 
+        # --- Construct Result ---
         return {
             'coordinate': coordinates,
             'keywords': keywords,
@@ -115,97 +115,103 @@ class CoordinateMapper:
         page_number = metadata.get('page_number', 1) # Default to 1 if missing
         chunk_index = metadata.get('chunk_index_on_page', 0) # Default to 0
         # Ideally, we'd know the total chunks on the page for normalization
-        total_chunks_on_page = metadata.get('total_chunks_on_page', 10) # Estimate if missing
+        # --- Get total_chunks_on_page from metadata --- 
+        total_chunks_on_page = metadata.get('total_chunks_on_page', 1) # Default to 1 if missing
+        if total_chunks_on_page <= 0:
+            logger.warning(f"Invalid total_chunks_on_page ({total_chunks_on_page}) in metadata for page {page_number}, defaulting to 1.")
+            total_chunks_on_page = 1 # Ensure it's at least 1
+        # --- End Get --- 
 
-        # --- 1. Temporal Coordinate (t) --- 
+        # --- 1. Temporal Coordinate (t) ---
         # Maps page number and chunk index to a continuous time value.
         # Add a small fraction for chunk index to ensure order within page.
-        t = float(page_number - 1) + (float(chunk_index) / float(total_chunks_on_page + 1)) # Avoid division by zero, ensure fraction < 1
+        # Avoid division by zero, ensure fraction < 1
+        # Use the retrieved total_chunks_on_page
+        t = float(page_number - 1) + (float(chunk_index) / float(total_chunks_on_page))
 
-        # --- 2. Context Layer (z) --- 
+        # --- 2. Context Layer (z) ---
         # Use the default layer defined during initialization.
         z = float(self.default_chunk_layer)
 
-        # --- 3. Radial Distance (r) --- 
+        # --- 3. Radial Distance (r) ---
         # Assign the fixed base radius for Phase 1.
         r = float(self.base_radius)
 
-        # --- 4. Angular Position (theta) --- 
+        # --- 4. Angular Position (theta) ---
         # Simple mapping based on page number for initial spread.
         # Add tiny offset based on chunk index to avoid exact overlap.
         base_angle_deg = (page_number -1) % 360
-        chunk_offset_deg = (float(chunk_index) / float(total_chunks_on_page + 1)) * self.base_angle_spread
-        theta_deg = (base_angle_deg + chunk_offset_deg) % 360
-        theta_rad = np.radians(theta_deg)
+        # Use base_angle_spread for the offset magnitude
+        chunk_offset_rad = (float(chunk_index) / float(max(1, total_chunks_on_page))) * self.base_angle_spread
+        base_angle_rad = np.radians(base_angle_deg)
+        theta_rad = (base_angle_rad + chunk_offset_rad) % (2 * np.pi) # Ensure stays within 0-2pi
 
         return PolarTemporalCoordinate(r=r, theta=theta_rad, t=t, z=z)
 
-
-    # Keep keyword extraction if needed
-    def _extract_keywords(self, content: str, max_keywords: int = 10) -> List[str]:
+    def _extract_keywords(self, text: str, top_n: int = 5) -> List[str]:
         """
-        Extract keywords from content using TF-IDF.
+        Extracts top terms based on Term Frequency (TF) within the given text.
+        Uses a local TfidfVectorizer instance for calculation on the single text.
+        Note: This simplification uses TF only, as fitting IDF requires a broader corpus context.
 
         Args:
-            content: Text content
-            max_keywords: Maximum number of keywords to extract
+            text: The input text content.
+            top_n: The maximum number of keywords to return.
 
         Returns:
-            List of extracted keywords
+            A list of the top N keywords based on TF score, or an empty list if errors occur.
         """
-        if not content:
+        if not text or not isinstance(text, str) or len(text.strip()) == 0:
+            logger.debug("Skipping keyword extraction for empty or non-string content.")
             return []
+
         try:
-            # Ensure the vectorizer is fitted, even if just on this single doc
-            try:
-                self.tfidf.vocabulary_
-            except AttributeError:
-                 logger.debug("Fitting TF-IDF vectorizer on first call.")
-                 self.tfidf.fit([content]) # Fit on the first piece of content it sees
+            # Use a local vectorizer for TF calculation on the single document
+            # Set use_idf=False to calculate only Term Frequency.
+            # Add other parameters like max_features if needed.
+            local_tfidf = TfidfVectorizer(
+                stop_words='english',
+                use_idf=False,
+                ngram_range=(1, 2), # Keep ngram range if desired
+                max_features=1000   # Keep max features if desired
+            )
+            response = local_tfidf.fit_transform([text])
+            feature_names = local_tfidf.get_feature_names_out()
 
-            # Check again if vocabulary exists after trying to fit
-            if not hasattr(self.tfidf, 'vocabulary_') or not self.tfidf.vocabulary_:
-                 # Handle case where fitting might fail on very short/weird content
-                 logger.warning(f"TF-IDF vocabulary empty after fitting on content: '{content[:50]}...'")
-                 return []
-
-            # Transform the content
-            tfidf_matrix = self.tfidf.transform([content])
-
-            # Check if the matrix is empty (can happen with stop words only)
-            if tfidf_matrix.nnz == 0:
+            # Check if any features were generated (might be empty after stop words)
+            if not feature_names.any():
+                logger.debug(f"No features found after TF vectorization for content: '{text[:50]}...'")
                 return []
 
-            feature_names = self.tfidf.get_feature_names_out()
-            # Handle potential index out of bounds if matrix is weird
-            if tfidf_matrix.shape[1] != len(feature_names):
-                 logger.warning(f"TF-IDF shape mismatch: matrix columns {tfidf_matrix.shape[1]}, features {len(feature_names)}")
-                 # Try to refit, maybe? Or just return empty
-                 self.tfidf.fit([content]) # Attempt refit
-                 if not hasattr(self.tfidf, 'vocabulary_') or not self.tfidf.vocabulary_:
-                     return []
-                 tfidf_matrix = self.tfidf.transform([content])
-                 if tfidf_matrix.nnz == 0: return []
-                 feature_names = self.tfidf.get_feature_names_out()
-                 if tfidf_matrix.shape[1] != len(feature_names): return [] # Give up if refit didn't fix it
+            # Get TF scores for the single document
+            # response is a sparse matrix (1, num_features)
+            tf_scores = response.toarray().flatten() # Convert sparse matrix row to dense numpy array
 
+            # Ensure feature_names and tf_scores align correctly
+            if len(feature_names) != len(tf_scores):
+                 logger.error(f"Keyword Extraction: Mismatch between feature names ({len(feature_names)}) and scores ({len(tf_scores)}).")
+                 return []
 
-            # Get the top terms
-            scores = tfidf_matrix.toarray()[0]
-            top_indices = np.argsort(scores)[-max_keywords:][::-1]
-            # Filter out indices that might be out of bounds after checks
-            valid_indices = [i for i in top_indices if i < len(feature_names)]
-            top_terms = [feature_names[i] for i in valid_indices if scores[i] > 0] # Only include terms with score > 0
+            # Sort indices by score in descending order
+            sorted_indices = np.argsort(tf_scores)[::-1]
 
-            return top_terms
+            # Get top N keywords with score > 0
+            keywords = [
+                feature_names[i]
+                for i in sorted_indices[:top_n]
+                if i < len(feature_names) and tf_scores[i] > 0 # Check bounds and score
+            ]
+
+            logger.debug(f"Extracted TF keywords: {keywords}")
+            return keywords
         except ValueError as ve:
             # Catch specific TF-IDF errors like empty vocabulary after stop words
             if "empty vocabulary" in str(ve):
-                logger.debug(f"Skipping keyword extraction due to empty vocabulary for content: '{content[:50]}...'")
+                logger.debug(f"Skipping keyword extraction due to empty vocabulary for content: '{text[:50]}...'")
                 return []
             else:
-                logger.warning(f"TF-IDF ValueError extracting keywords: {ve}")
+                logger.warning(f"TF ValueError extracting keywords: {ve} for content: '{text[:50]}...'")
                 return []
         except Exception as e:
-            logger.warning(f"Error extracting keywords: {e}", exc_info=True)
+            logger.error(f"Unexpected error extracting keywords: {e}", exc_info=True)
             return [] 

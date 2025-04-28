@@ -10,28 +10,25 @@ This module defines the fundamental 4D polar-temporal coordinate system:
 
 import numpy as np
 from typing import Tuple, List, Union, Dict, Optional
+from dataclasses import dataclass
 
 
+@dataclass
 class PolarTemporalCoordinate:
     """
-    Represents a point in the 4D polar-temporal space.
+    Represents a point in the 4D polar-temporal space using dataclass.
     """
-    
-    def __init__(self, r: float, theta: float, t: float, z: int):
-        """
-        Initialize a coordinate in 4D polar-temporal space.
-        
-        Args:
-            r: Radial distance (relevance), where 0 is most relevant
-            theta: Angular position in radians [0, 2π)
-            t: Temporal position as timestamp or sequence number
-            z: Context layer (discrete integer)
-        """
-        self.r = r
-        self.theta = theta % (2 * np.pi)  # Normalize to [0, 2π)
-        self.t = t
-        self.z = z
-    
+    r: float
+    theta: float
+    t: float
+    z: int
+
+    def __post_init__(self):
+        """Post-initialization checks/normalization."""
+        self.theta = self.theta % (2 * np.pi)  # Ensure [0, 2π)
+        if self.r < 0:
+            raise ValueError("Radial distance 'r' cannot be negative.")
+
     def __repr__(self) -> str:
         return f"PolarTemporalCoordinate(r={self.r:.2f}, θ={self.theta:.2f}, t={self.t:.2f}, z={self.z})"
     
@@ -45,23 +42,15 @@ class PolarTemporalCoordinate:
         x = self.r * np.cos(self.theta)
         y = self.r * np.sin(self.theta)
         return (x, y, self.t, self.z)
-    
-    @classmethod
-    def from_cartesian(cls, x: float, y: float, t: float, z: int) -> 'PolarTemporalCoordinate':
-        """
-        Create a polar-temporal coordinate from Cartesian coordinates.
-        
-        Args:
-            x, y: Cartesian coordinates in the polar plane
-            t: Temporal position
-            z: Context layer
-            
-        Returns:
-            A new PolarTemporalCoordinate
-        """
-        r = np.sqrt(x**2 + y**2)
-        theta = np.arctan2(y, x) % (2 * np.pi)  # Ensure [0, 2π)
-        return cls(r, theta, t, z)
+
+
+def coordinates_from_cartesian(x: float, y: float, t: float, z: int) -> PolarTemporalCoordinate:
+    """
+    Create a polar-temporal coordinate from Cartesian coordinates.
+    """
+    r = np.sqrt(x**2 + y**2)
+    theta = np.arctan2(y, x) % (2 * np.pi)  # Ensure [0, 2π)
+    return PolarTemporalCoordinate(r, theta, t, z)
 
 
 class PolarTemporalSpace:

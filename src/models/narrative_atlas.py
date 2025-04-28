@@ -4,44 +4,61 @@ import faiss
 import numpy as np
 import shutil
 import pickle
-from typing import Dict, List, Tuple, Optional, Any
-from dataclasses import dataclass
+from typing import Dict, List, Tuple, Optional, Any, TYPE_CHECKING
+from dataclasses import dataclass, field, asdict
 from langchain_community.vectorstores import FAISS
-from langchain_openai import OpenAIEmbeddings
 from langchain_community.docstore.in_memory import InMemoryDocstore
-from src.models.spatial_temporal_db import SpatialTemporalDB, Node
+from src.models.spatial_temporal_db import SpatialTemporalDB
 from src.utils.embedding_service import EmbeddingService
-from src.utils.coordinate_mapper import CoordinateMapper
+from src.models.coordinate_system import PolarTemporalCoordinate
 import time
 import hashlib
+import logging
+from langchain_core.embeddings import Embeddings
+from langchain_core.documents import Document
+
+# --- Add Logger Setup ---
+logging.basicConfig(
+    level=logging.INFO, # Or use level from env var/config
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger('NarrativeAtlas') # Create logger instance
+# --- End Logger Setup ---
+
+if TYPE_CHECKING:
+    from src.services.embedding_service import EmbeddingService
+    from src.utils.coordinate_mapper import CoordinateMapper
 
 @dataclass
 class Node:
     id: str
     type: str
     content: dict
-    temporal_coordinate: float
-    spatial_coordinates: List[float]
+    coordinates: dict
+    embedding: np.ndarray
+    keywords: Optional[List[str]]
+    metadata: dict
+    parent_node_id: Optional[str]
+    timestamp: float
+    mapping_details: dict
 
 class NarrativeAtlas:
     def __init__(self, storage_path: str, embedding_service: EmbeddingService):
         self.storage_path = storage_path
         self.db = SpatialTemporalDB()
         self.embedding_service = embedding_service
+        from src.utils.coordinate_mapper import CoordinateMapper
         self.coordinate_mapper = CoordinateMapper(
             embedding_service=self.embedding_service,
-            default_chunk_layer=2,
-            base_radius=0.9
+            default_chunk_layer=int(os.getenv('DEFAULT_CHUNK_LAYER', 2)),
+            base_radius=float(os.getenv('BASE_RADIUS', 0.9))
         )
         self.embedding_dim = self.embedding_service.embedding_dim
         self.vector_store: Optional[FAISS] = None
         self.node_id_to_doc_id: Dict[str, str] = {}
         self.doc_id_to_node_id: Dict[str, str] = {}
         
-        # Initialize vector store (loads FAISS index and ID maps if they exist)
         self._initialize_vector_store()
-        
-        # Explicitly load the DB nodes after initializing
         self.load()
     
     def _create_new_hnsw_index(self) -> FAISS:
@@ -126,8 +143,13 @@ class NarrativeAtlas:
                 id=node_id,
                 type="character",
                 content={"name": name},
-                temporal_coordinate=temporal_coordinate,
-                spatial_coordinates=[0.0, 0.0, 0.0] # Placeholder coords
+                coordinates={"t": temporal_coordinate, "r": 0.0, "theta": 0.0, "z": 0.0},
+                embedding=np.zeros(self.embedding_dim, dtype=np.float32),
+                keywords=None,
+                metadata={"node_type": "character"},
+                parent_node_id=None,
+                timestamp=time.time(),
+                mapping_details={}
             )
             self.db.nodes[node_id] = node
             # No call to _add_or_update_embedding here
@@ -146,8 +168,13 @@ class NarrativeAtlas:
             id=node_id,
             type="event",
             content={"description": description, "participant_names": participant_names},
-            temporal_coordinate=temporal_coordinate,
-            spatial_coordinates=[0.0, 0.0, 0.0] # Placeholder coords
+            coordinates={"t": temporal_coordinate, "r": 0.0, "theta": 0.0, "z": 0.0},
+            embedding=np.zeros(self.embedding_dim, dtype=np.float32),
+            keywords=None,
+            metadata={"node_type": "event"},
+            parent_node_id=None,
+            timestamp=time.time(),
+            mapping_details={}
         )
         self.db.nodes[node_id] = node
         # No call to _add_or_update_embedding here
@@ -161,8 +188,13 @@ class NarrativeAtlas:
                 id=node_id,
                 type="location",
                 content={"name": name},
-                temporal_coordinate=temporal_coordinate,
-                spatial_coordinates=[0.0, 0.0, 0.0] # Placeholder coords
+                coordinates={"t": temporal_coordinate, "r": 0.0, "theta": 0.0, "z": 0.0},
+                embedding=np.zeros(self.embedding_dim, dtype=np.float32),
+                keywords=None,
+                metadata={"node_type": "location"},
+                parent_node_id=None,
+                timestamp=time.time(),
+                mapping_details={}
             )
             self.db.nodes[node_id] = node
             # No call to _add_or_update_embedding here
@@ -251,84 +283,84 @@ class NarrativeAtlas:
     def add_node(self,
                  node_id: str,
                  content: Dict[str, Any],
-                 context_layer: int,
-                 embedding: Optional[np.ndarray] = None,
-                 metadata: Optional[Dict] = None,
+                 embedding: np.ndarray,
+                 metadata: Dict,
+                 coordinates: PolarTemporalCoordinate,
+                 keywords: Optional[List[str]],
+                 mapping_details: Dict,
                  parent_node_id: Optional[str] = None,
                  explicit_timestamp: Optional[float] = None
                 ) -> str:
         """
-        Adds a node to the database and vector store, calculating coordinates based on structure.
+        Adds a node with pre-calculated coordinates and embedding to the database and vector store.
 
         Args:
             node_id: Unique ID for the new node.
             content: Dictionary representing the node's primary content (e.g., {'text': '...'}).
-            context_layer: The explicit Z-layer for this node.
-            embedding: Optional pre-computed embedding.
+            embedding: Pre-computed embedding (numpy array).
             metadata: Dictionary containing structural info (page_number, chunk_index_on_page, etc.)
                       and any other relevant metadata.
-            parent_node_id: Optional ID of the parent node for structural linking (future use).
-            explicit_timestamp: Optional timestamp to override sequential calculation.
+            coordinates: Pre-calculated PolarTemporalCoordinate object for the node.
+            keywords: List of extracted keywords for the node.
+            mapping_details: Dictionary describing how coordinates were mapped.
+            parent_node_id: Optional ID of the parent node for structural linking.
+            explicit_timestamp: Optional timestamp to override node creation time.
 
         Returns:
             The ID of the added node.
         """
         if node_id in self.db.nodes:
-             print(f"Warning: Node {node_id} already exists. Overwriting.")
-             # Consider deleting old vector/node data first if needed
+            # Log or handle overwrites more explicitly if needed
+            logger.warning(f"Node {node_id} already exists. Overwriting.")
+            # Potential: Delete existing vector store entry before adding new?
+            # self.delete_node(node_id) # Could call delete here
 
-        # Ensure metadata exists
-        if metadata is None:
-            metadata = {}
+        # 1. Validate required inputs (basic checks)
+        if embedding is None:
+            logger.error(f"Cannot add node {node_id}: Missing required embedding.")
+            # raise ValueError(f"Embedding is required for node {node_id}") # Or raise
+            return "" # Indicate failure
+        if coordinates is None:
+            logger.error(f"Cannot add node {node_id}: Missing required coordinates.")
+            # raise ValueError(f"Coordinates are required for node {node_id}")
+            return "" # Indicate failure
 
-        # 1. Ensure embedding exists (calculate if needed and not provided)
-        final_embedding = embedding
-        if final_embedding is None:
-             text_to_embed = content.get('text', json.dumps(content)) # Get text or stringify dict
-             if text_to_embed:
-                 embedding_list = self.embedding_service.embed_query(text_to_embed)
-                 final_embedding = np.array(embedding_list, dtype=np.float32)
-             else:
-                 print(f"Warning: Cannot generate embedding for node {node_id} due to missing content.")
-                 # Assign a zero embedding? Or handle error?
-                 final_embedding = np.zeros(self.embedding_dim, dtype=np.float32)
-
-        # 2. Calculate Coordinates using CoordinateMapper (Phase 1 - Structural)
-        # The mapper now primarily uses metadata for coordinate calculation
-        # Pass content mainly for keyword extraction, pass the calculated embedding
-        text_content_for_mapper = content.get('text', '') # Mapper might need text for keywords
-        mapping_result = self.coordinate_mapper.map_to_coordinates(
-            content=text_content_for_mapper,
-            metadata=metadata, # Pass combined metadata (structural etc.)
-            embedding=final_embedding # Pass embedding mainly for passthrough
-        )
-        new_coordinates = mapping_result['coordinate']
-
-        # 3. Create Node Object
-        # Combine core content with all metadata for storage in the node
-        combined_content = {**content, **metadata, 'keywords': mapping_result['keywords']}
+        # 2. Create Node Object
+        node_timestamp = explicit_timestamp if explicit_timestamp is not None else time.time()
+        node_type = metadata.get('node_type', 'chunk') # Default to 'chunk' if not specified
 
         node = Node(
             id=node_id,
-            type=metadata.get('node_type', 'chunk'), # Get type from metadata or default
-            content=combined_content,
-            temporal_coordinate=new_coordinates.t,
-            spatial_coordinates=[new_coordinates.r, new_coordinates.theta, new_coordinates.z]
+            type=node_type,
+            content=content, # Store the provided content dict
+            coordinates=asdict(coordinates), # Convert coordinate object to dict for storage
+            embedding=embedding, # Use the provided embedding
+            keywords=keywords, # Store the provided keywords
+            metadata=metadata, # Store the provided metadata
+            parent_node_id=parent_node_id,
+            timestamp=node_timestamp,
+            mapping_details=mapping_details # Store the provided mapping details
         )
         self.db.nodes[node_id] = node
+        logger.debug(f"Node {node_id} added to internal DB.")
 
-        # 4. Add/Update Embedding in Vector Store
-        # Pass the node, its primary text content, and the embedding
+        # 3. Add/Update Embedding in Vector Store
+        # Extract primary text content for FAISS document storage
+        text_for_vector_store = content.get('text', json.dumps(content))
+        if not text_for_vector_store:
+             logger.warning(f"Node {node_id} content for vector store is empty. Using stringified dict.")
+             text_for_vector_store = json.dumps(content)
+
         self._add_or_update_embedding(
             node=node,
-            text_to_embed=content.get('text', json.dumps(content)), # Use primary text or stringified content
-            precomputed_embedding=final_embedding
+            text_to_embed=text_for_vector_store,
+            precomputed_embedding=embedding # Pass the provided embedding
         )
+        logger.debug(f"Embedding update requested for node {node_id} in vector store.")
 
-        # Optional: Link to parent (for future graph operations)
-        if parent_node_id and parent_node_id in self.db.nodes:
-             # self.db.add_relationship(parent_node_id, node_id, type="SEQUENTIAL" or "BRANCH")
-             pass # Requires SpatialTemporalDB to support relationships
+        # Optional: Link to parent (placeholder for future graph logic)
+        # if parent_node_id and parent_node_id in self.db.nodes:
+        #     pass
 
         return node_id
 
@@ -494,7 +526,7 @@ class NarrativeAtlas:
             formatted_context += f"Node ID: {node.id}\n"
             content_str = json.dumps(node.content, indent=2)
             formatted_context += f"Content:\n{content_str}\n"
-            formatted_context += f"Temporal Coordinate: {node.temporal_coordinate}\n"
+            formatted_context += f"Temporal Coordinate: {node.coordinates['t']}\n"
             #formatted_context += f"(Similarity Score: {score:.4f})\n"
             formatted_context += "---"
         
