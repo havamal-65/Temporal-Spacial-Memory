@@ -132,8 +132,9 @@ Environment variables can be set (e.g., in a `.env` file):
 
 1.  ~~**Address Rate Limiting:** Implement retry logic (e.g., with exponential backoff) in `refine_coordinates.py` to handle `RateLimitError` during batch processing.~~ (DONE)
 2.  ~~**Complete Refinement:** Run the finalized `refine_coordinates.py` script to process all nodes and generate the full set of semantic coordinates.~~ (DONE - Verified)
-3.  **Phase 3 (Querying & Visualization):**
+3.  **Phase 3 (Querying Mechanisms):**
     *   Develop advanced querying mechanisms that leverage the refined `r` and `theta` coordinates.
+4.  **Phase 4 (Visualization):**
     *   Implement visualization tools to explore the 4D Narrative Atlas.
 
 ## License

@@ -32,4 +32,5 @@ This report details the debugging and enhancement process for the `refine_coordi
 *   ~~Alternatively, experiment with a smaller `--batch-size` argument as a temporary workaround.~~ (Retry logic preferred and implemented)
 *   ~~Once rate limiting is handled, run the script to fully process all nodes and generate the complete set of refined coordinates.~~ (DONE - verified in test run)
 *   Commit the changes related to the retry logic.
-*   Proceed to Phase 3 (Querying and Visualization). 
+*   Proceed to **Phase 3 (Querying Mechanisms)**.
+*   Plan **Phase 4 (Visualization)**. 
