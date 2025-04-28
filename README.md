@@ -33,9 +33,10 @@ The system is being developed in phases:
     *   It utilizes an LLM (`gpt-4o-mini` by default) via LangChain to analyze node content.
     *   It correctly assigns semantic coordinates (`r` for relevance, `theta` for topic) based on LLM output.
     *   **Batch processing** is implemented using `refinement_chain.batch()` for improved performance.
-    *   **Known Issue:** The script currently hits OpenAI API rate limits (`RateLimitError`) when processing large batches due to exceeding Tokens Per Minute (TPM). A retry mechanism needs to be added to handle this robustly.
-    *   Partial refinement (up to the point of rate limiting) is successful, and the updated nodes are saved.
-    *   A progress report is available: `planning/progress_report_phase2_refinement.md`.
+    *   **Retry logic** with exponential backoff is implemented in `refine_coordinates.py` to handle potential OpenAI API rate limits.
+    *   The script now successfully processes all nodes in testing, handling potential rate limits.
+    *   The updated nodes with refined coordinates are saved to `spatial_temporal_db.pkl`.
+    *   A progress report is available: `docs/planning/progress_report_phase2_refinement.md`.
 
 ## Components
 
@@ -129,12 +130,12 @@ Environment variables can be set (e.g., in a `.env` file):
 
 ## Next Steps
 
-1.  **Address Rate Limiting:** Implement retry logic (e.g., with exponential backoff) in `refine_coordinates.py` to handle `RateLimitError` during batch processing.
-2.  **Complete Refinement:** Run the finalized `refine_coordinates.py` script to process all nodes and generate the full set of semantic coordinates.
+1.  ~~**Address Rate Limiting:** Implement retry logic (e.g., with exponential backoff) in `refine_coordinates.py` to handle `RateLimitError` during batch processing.~~ (DONE)
+2.  ~~**Complete Refinement:** Run the finalized `refine_coordinates.py` script to process all nodes and generate the full set of semantic coordinates.~~ (DONE - Verified)
 3.  **Phase 3 (Querying & Visualization):**
     *   Develop advanced querying mechanisms that leverage the refined `r` and `theta` coordinates.
     *   Implement visualization tools to explore the 4D Narrative Atlas.
 
 ## License
 
-MIT License. 
+MIT License.

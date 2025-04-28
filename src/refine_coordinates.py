@@ -11,6 +11,7 @@ from dotenv import load_dotenv
 from pydantic import BaseModel, Field # For structured LLM output
 import traceback
 import pickle # For saving updated nodes
+from openai import RateLimitError
 
 # Add src to path
 sys.path.insert(0, os.path.abspath(os.path.dirname(os.path.dirname(__file__))))
@@ -224,53 +225,83 @@ if __name__ == "__main__":
             logger.info("Skipping empty batch.")
             continue
 
-        # 2. Call the LLM refinement chain in batch
-        try:
-            start_time_batch_llm = time.time()
-            # Use refinement_chain.batch() instead of invoke()
-            # The `config` argument can specify how errors are handled, e.g., return exceptions
-            batch_results = refinement_chain.batch(batch_inputs, config={"return_exceptions": True})
-            batch_llm_time = time.time() - start_time_batch_llm
-            logger.info(f"Batch LLM call completed in {batch_llm_time:.2f}s for {len(batch_inputs)} nodes.")
+        # 2. Call the LLM refinement chain in batch with retry logic
+        max_retries = 5
+        base_delay = 5 # seconds
+        current_retry = 0
+        batch_results = None
+        while current_retry < max_retries:
+            try:
+                start_time_batch_llm = time.time()
+                # Use refinement_chain.batch() instead of invoke()
+                # The `config` argument can specify how errors are handled, e.g., return exceptions
+                batch_results = refinement_chain.batch(batch_inputs, config={"return_exceptions": True})
+                batch_llm_time = time.time() - start_time_batch_llm
+                logger.info(f"Batch LLM call successful in {batch_llm_time:.2f}s after {current_retry} retries.")
+                break # Exit retry loop on success
 
-            # 3. Process the results for the batch
-            for node, result in zip(batch_nodes_valid, batch_results):
-                actual_index = node_ids.index(node.id) # Get original index for logging
-                processed_count += 1
+            except RateLimitError as rle:
+                current_retry += 1
+                if current_retry >= max_retries:
+                    logger.error(f"Rate limit error persisted after {max_retries} retries. Aborting batch. Error: {rle}")
+                    # Mark all nodes in this batch as errors
+                    errors_count += len(batch_inputs)
+                    batch_results = [rle] * len(batch_inputs) # Fill results with the error for downstream handling
+                    break # Exit loop
+                else:
+                    # Exponential backoff
+                    delay = base_delay * (2 ** current_retry)
+                    logger.warning(f"Rate limit error encountered. Retrying in {delay:.1f} seconds... (Attempt {current_retry}/{max_retries})")
+                    time.sleep(delay)
 
-                # Check if the result for this node is an exception
-                if isinstance(result, Exception):
-                    logger.error(f"[{actual_index + 1}/{len(node_ids)}] Error processing node {node.id} in batch: {result}", exc_info=(isinstance(result, OutputParserException)))
-                    errors_count += 1
-                    continue
+            except Exception as e: # Catch other errors during the batch call itself
+                logger.error(f"Fatal non-rate-limit error during batch LLM call (attempt {current_retry+1}/{max_retries}) for nodes {start_node_index + i} to {start_node_index + i + len(batch_node_ids) - 1}: {e}", exc_info=True)
+                # Mark all nodes in this specific batch attempt as errored
+                errors_count += len(batch_inputs)
+                batch_results = [e] * len(batch_inputs) # Fill results with the error
+                break # Exit loop after non-rate-limit error
 
-                # Process successful result
-                try:
-                    new_r = result.relevance_score
-                    topic = result.topic_category
-                    new_theta = get_theta_for_topic(topic)
+        # Check if batch_results were populated (could be None if loop finishes unexpectedly, though break should prevent this)
+        if batch_results is None:
+             logger.error(f"Batch processing failed for nodes {start_node_index + i} to {start_node_index + i + len(batch_node_ids) - 1} after retries. Marking as errors.")
+             errors_count += len(batch_inputs)
+             continue # Move to the next batch
 
-                    # Update the node's coordinates dictionary
-                    if node.coordinates is None:
-                        node.coordinates = {}
-                    node.coordinates['r'] = new_r
-                    node.coordinates['theta'] = new_theta
+        # 3. Process the results for the batch
+        for node, result in zip(batch_nodes_valid, batch_results):
+            actual_index = node_ids.index(node.id) # Get original index for logging
+            processed_count += 1
 
-                    logger.info(f"[{actual_index + 1}/{len(node_ids)}] Updated node {node.id}: r={new_r:.2f}, theta={np.degrees(new_theta):.1f} ({topic}).")
-                    if result.reasoning:
-                        logger.debug(f"Reasoning: {result.reasoning}")
-                    updated_count += 1
-                except Exception as e: # Catch potential errors accessing result attributes
-                    logger.error(f"[{actual_index + 1}/{len(node_ids)}] Error processing successful LLM result for node {node.id}: {e}")
-                    logger.debug(f"LLM Result object: {result}") # Log the problematic result object
-                    errors_count += 1
+            # Check if the result for this node is an exception (including RateLimitError after retries)
+            if isinstance(result, Exception):
+                logger.error(f"[{actual_index + 1}/{len(node_ids)}] Error processing node {node.id} in batch (result was exception: {type(result).__name__}): {result}", exc_info=(isinstance(result, OutputParserException)))
+                # errors_count was already incremented if the whole batch failed due to RateLimitError or other fatal error
+                # Only increment here if an individual result within a *successful* batch call was an exception returned by config={"return_exceptions": True}
+                # and it wasn't a RateLimitError that caused the whole batch to fail
+                if not isinstance(result, RateLimitError): # Avoid double counting if batch failed due to RLE
+                     errors_count += 1
+                continue
 
-        except Exception as e: # Catch errors during the batch call itself
-            logger.error(f"Fatal error during batch LLM call for nodes {start_node_index + i} to {start_node_index + i + len(batch_node_ids) - 1}: {e}", exc_info=True)
-            # Mark all nodes in this specific batch attempt as errored
-            errors_count += len(batch_inputs)
+            # Process successful result
+            try:
+                new_r = result.relevance_score
+                topic = result.topic_category
+                new_theta = get_theta_for_topic(topic)
 
-        # Optional: Intermediate saving could be added here if needed, but saving at the end is usually fine.
+                # Update the node's coordinates dictionary
+                if node.coordinates is None:
+                    node.coordinates = {}
+                node.coordinates['r'] = new_r
+                node.coordinates['theta'] = new_theta
+
+                logger.info(f"[{actual_index + 1}/{len(node_ids)}] Updated node {node.id}: r={new_r:.2f}, theta={np.degrees(new_theta):.1f} ({topic}).")
+                if result.reasoning:
+                    logger.debug(f"Reasoning: {result.reasoning}")
+                updated_count += 1
+            except Exception as e: # Catch potential errors accessing result attributes
+                logger.error(f"[{actual_index + 1}/{len(node_ids)}] Error processing successful LLM result for node {node.id}: {e}")
+                logger.debug(f"LLM Result object: {result}") # Log the problematic result object
+                errors_count += 1
 
     # --- End Node Iteration and Processing ---
 

@@ -16,16 +16,20 @@ This report details the debugging and enhancement process for the `refine_coordi
 6.  **Batch Processing Implemented:** Refactored the script to use `refinement_chain.batch()` with a configurable `--batch-size`, significantly improving potential throughput.
 7.  **Rate Limiting Encountered:** Running the batch processing with the default size (50) resulted in OpenAI `RateLimitError (429 Too Many Requests)` for the TPM (Tokens Per Minute) limit, preventing full processing. The internal retry mechanism in the OpenAI library was insufficient on its own.
 8.  **Partial Success:** The script successfully processed and saved updates for the nodes completed *before* the rate limit was hit.
+9.  **Retry Logic Implemented:** Added a `while` loop with exponential backoff (5 retries, starting delay 5s) around the `refinement_chain.batch()` call to specifically handle `openai.RateLimitError`.
+10. **Successful Test Run:** Executing the script with the retry logic resulted in successful processing of all 308 nodes without encountering blocking rate limit errors.
 
 ## Current Status
 
 *   The `refine_coordinates.py` script now correctly loads and identifies nodes from the pickle file created by the ingestion process.
 *   Batch processing via LangChain's `.batch()` method is implemented.
-*   The script is functional but reliably hits OpenAI rate limits with the current batch size.
+*   **A retry mechanism with exponential backoff is implemented to handle `RateLimitError` during batch processing.**
+*   **The script has successfully processed all nodes in a test run, overcoming previous rate limiting issues.**
 
 ## Next Steps
 
-*   Implement a retry mechanism with exponential backoff specifically for `RateLimitError` around the `refinement_chain.batch()` call.
-*   Alternatively, experiment with a smaller `--batch-size` argument as a temporary workaround.
-*   Once rate limiting is handled, run the script to fully process all nodes and generate the complete set of refined coordinates.
+*   ~~Implement a retry mechanism with exponential backoff specifically for `RateLimitError` around the `refinement_chain.batch()` call.~~ (DONE)
+*   ~~Alternatively, experiment with a smaller `--batch-size` argument as a temporary workaround.~~ (Retry logic preferred and implemented)
+*   ~~Once rate limiting is handled, run the script to fully process all nodes and generate the complete set of refined coordinates.~~ (DONE - verified in test run)
+*   Commit the changes related to the retry logic.
 *   Proceed to Phase 3 (Querying and Visualization). 
