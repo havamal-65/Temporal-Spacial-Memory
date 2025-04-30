@@ -5,10 +5,10 @@ This module provides utilities for generating vector embeddings from text.
 It supports multiple embedding services including local models and API-based ones.
 """
 
+import os
 import numpy as np
 import logging
 import hashlib
-import os
 import time
 from typing import List, Dict, Any, Optional, Union
 from functools import lru_cache
@@ -60,55 +60,11 @@ class EmbeddingService(Embeddings): # Inherit from langchain_core.embeddings.Emb
         """
         raise NotImplementedError
 
-
-class MockEmbeddingService(EmbeddingService):
-    """
-    Mock embedding service that generates deterministic embeddings based on text hashing.
-    This is used for testing and development when a real embedding service is not available.
-    """
-    
-    def __init__(self, embedding_dim: int = 384):
-        """
-        Initialize the mock embedding service.
-        
-        Args:
-            embedding_dim: Dimension of the embedding vectors
-        """
-        super().__init__(embedding_dim)
-        logger.info(f"Initialized MockEmbeddingService with dimension {embedding_dim}")
-    
-    # Implement embed_query (renamed from get_embedding)
-    def embed_query(self, text: str) -> List[float]:
-        """
-        Generate a mock embedding for a single query text.
-        Conforms to Langchain Embeddings interface.
-        """
-        if not text:
-            return [0.0] * self.embedding_dim # Return list of floats
-        
-        # Create a hash of the text
-        text_hash = hashlib.md5(text.encode()).hexdigest()
-        
-        # Use the hash to seed the random number generator for deterministic output
-        seed = int(text_hash, 16) % (2**32)
-        rng = np.random.RandomState(seed)
-        
-        # Generate a random vector
-        vector = rng.randn(self.embedding_dim)
-        
-        # Normalize to unit length
-        vector = vector / np.linalg.norm(vector)
-        
-        return vector.tolist() # Convert numpy array to list of floats
-    
-    # Implement embed_documents (renamed from get_embeddings)
-    def embed_documents(self, texts: List[str]) -> List[List[float]]:
-        """
-        Generate mock embeddings for multiple texts.
-        Conforms to Langchain Embeddings interface.
-        """
-        # Use the single embed_query logic for each text
-        return [self.embed_query(text) for text in texts]
+    # Add necessary methods from Langchain Embeddings interface
+    # These might be needed if the service is passed directly to Langchain components
+    # that expect these methods.
+    def __call__(self, text: str) -> List[float]:
+        return self.embed_query(text)
 
 
 class LangchainEmbeddingService(EmbeddingService):
@@ -117,98 +73,115 @@ class LangchainEmbeddingService(EmbeddingService):
     This provides an interface to various embedding services through LangChain.
     """
     
-    def __init__(self, model_name: str = "all-MiniLM-L6-v2", cache_size: int = 1000):
-        """
-        Initialize the LangChain embedding service.
+    def __init__(self, 
+                 model_provider: str = 'openai', # Default or specify (openai, ollama, sentence_transformer)
+                 model_name: Optional[str] = None, 
+                 cache_dir: str = './cache/embeddings', 
+                 cache_size: int = 1000, 
+                 **kwargs):
         
-        Args:
-            model_name: Name of the embedding model to use (default: all-MiniLM-L6-v2)
-            cache_size: Size of the LRU cache for embeddings
-        """
-        # Set up model-specific dimensions
-        model_dimensions = {
-            "all-MiniLM-L6-v2": 384,
-            "text-embedding-3-small": 1536,
-            "text-embedding-3-large": 3072,
-            "all-mpnet-base-v2": 768,
-            "paraphrase-multilingual-MiniLM-L12-v2": 384
-        }
+        self.model_provider = model_provider.lower()
+        self.model_name = model_name
+        self.cache_dir = cache_dir
+        self.cache_size = cache_size # Note: Cache size might not be directly applicable to all stores
+        self.kwargs = kwargs
         
-        # Get embedding dimension based on model
-        embedding_dim = model_dimensions.get(model_name, 384)
-        super().__init__(embedding_dim)
-        
-        # Initialize cache for embeddings (now caching embed_query)
-        self._cache_embed_query = lru_cache(maxsize=cache_size)(self._embed_query_uncached)
-        
+        # --- Dynamic Imports ---
         try:
-            if "text-embedding" in model_name.lower():
-                # OpenAI embeddings
-                from langchain_openai import OpenAIEmbeddings
-                api_key = os.environ.get("OPENAI_API_KEY")
-                
-                if not api_key:
-                    logger.warning("OPENAI_API_KEY not found in environment variables")
-                
-                self.embeddings = OpenAIEmbeddings(
-                    model=model_name,
-                    openai_api_key=api_key
-                )
-                logger.info(f"Initialized OpenAI embedding model: {model_name}")
-            else:
-                # Sentence-Transformers using HuggingFace
-                from langchain_huggingface import HuggingFaceEmbeddings
-                
-                self.embeddings = HuggingFaceEmbeddings(model_name=model_name)
-                logger.info(f"Initialized HuggingFace embedding model: {model_name}")
-            
+            from langchain.embeddings import CacheBackedEmbeddings
+            from langchain.storage import LocalFileStore
         except ImportError:
-            logger.error("Required dependencies not available. Install with 'pip install langchain-community langchain-huggingface transformers sentence-transformers'")
+            logger.error("Langchain or required storage components not installed. Please install langchain, langchain-community, langchain-openai etc.")
             raise
+        # --- End Dynamic Imports ---
+        
+        # Initialize the underlying embedding model
+        underlying_embedder = self._initialize_underlying_embedder()
+        
+        # Determine embedding dimension (crucial for base class)
+        # This often requires a trial embedding or checking model metadata if available
+        try:
+            # Attempt to get dimension from the underlying model if attribute exists
+            if hasattr(underlying_embedder, 'client') and hasattr(underlying_embedder.client, 'dimensions'):
+                 _embedding_dim = underlying_embedder.client.dimensions
+            elif hasattr(underlying_embedder, 'embedding_dim'): # Some models might have it directly
+                 _embedding_dim = underlying_embedder.embedding_dim
+            else:
+                # Fallback: embed a dummy text to find dimension
+                logger.warning("Could not directly determine embedding dimension. Performing trial embedding.")
+                dummy_embedding = underlying_embedder.embed_query("dimension_check")
+                _embedding_dim = len(dummy_embedding)
+            logger.info(f"Determined embedding dimension: {_embedding_dim}")
         except Exception as e:
-            logger.error(f"Error initializing embedding model: {str(e)}")
-            raise
-    
-    # Implement embed_query using cache
-    def embed_query(self, text: str) -> List[float]:
-        """Generate embedding for a single query text using cache."""
-        # Use the cached version of the internal method
-        return self._cache_embed_query(text)
-
-    # Internal method for uncached query embedding
-    def _embed_query_uncached(self, text: str) -> List[float]:
-        """
-        Generate embedding for query without using cache.
-        """
-        if not text:
-            return [0.0] * self.embedding_dim
-        
-        # Use the embed_query method of the underlying Langchain model
-        embedding = self.embeddings.embed_query(text) 
-        
-        # Ensure it's a list of floats (should be, but good practice)
-        if isinstance(embedding, np.ndarray):
-            embedding = embedding.tolist()
-        
-        return embedding
-    
-    # Implement embed_documents
-    def embed_documents(self, texts: List[str]) -> List[List[float]]:
-        """
-        Generate embeddings for multiple documents.
-        Uses the embed_documents method of the underlying Langchain model.
-        """
-        if not texts:
-             return []
-        
-        # Use the embed_documents method of the underlying Langchain model
-        embeddings = self.embeddings.embed_documents(texts)
-        
-        # Ensure it's a list of lists of floats
-        if embeddings and isinstance(embeddings[0], np.ndarray):
-             embeddings = [e.tolist() for e in embeddings]
+            logger.error(f"Failed to determine embedding dimension: {e}", exc_info=True)
+            raise ValueError("Could not determine embedding dimension for the selected model.") from e
             
+        # Initialize the base class with the determined dimension
+        super().__init__(embedding_dim=_embedding_dim)
+        
+        # --- Setup Cache --- 
+        # Ensure cache directory exists
+        os.makedirs(self.cache_dir, exist_ok=True)
+        
+        # Initialize the cache store
+        # Note: LocalFileStore doesn't have a size limit; cache management is manual or based on access time
+        store = LocalFileStore(self.cache_dir)
+        
+        # Initialize the cached embedder
+        self.cached_embedder = CacheBackedEmbeddings.from_bytes_store(
+            underlying_embedder,
+            store,
+            namespace=f"{self.model_provider}_{self.model_name or 'default'}" # Use model details for namespace
+        )
+        # --- End Cache Setup ---
+
+    def _initialize_underlying_embedder(self):
+        """Initialize the specific Langchain embedder based on provider."""
+        logger.info(f"Initializing underlying embedder: provider={self.model_provider}, model={self.model_name}")
+        if self.model_provider == 'openai':
+            try:
+                from langchain_openai import OpenAIEmbeddings
+                # Pass model_name if provided, otherwise let Langchain use its default
+                return OpenAIEmbeddings(model=self.model_name) if self.model_name else OpenAIEmbeddings()
+            except ImportError:
+                logger.error("langchain-openai not installed. Run 'pip install langchain-openai'")
+                raise
+        elif self.model_provider == 'ollama':
+            try:
+                from langchain_community.embeddings import OllamaEmbeddings
+                # Pass model_name if provided, otherwise let Langchain use its default
+                # Check Ollama documentation for relevant kwargs
+                return OllamaEmbeddings(model=self.model_name) if self.model_name else OllamaEmbeddings()
+            except ImportError:
+                logger.error("langchain-community (for Ollama) not installed. Run 'pip install langchain-community'")
+                raise
+        elif self.model_provider == 'sentence_transformer' or self.model_provider == 'huggingface':
+            try:
+                from langchain_community.embeddings import SentenceTransformerEmbeddings
+                # Default to a common SentenceTransformer model if none specified
+                model_name_to_use = self.model_name or 'all-MiniLM-L6-v2' 
+                logger.info(f"Using SentenceTransformer model: {model_name_to_use}")
+                # Check SentenceTransformerEmbeddings documentation for relevant kwargs (e.g., device)
+                return SentenceTransformerEmbeddings(model_name=model_name_to_use, **self.kwargs)
+            except ImportError:
+                 logger.error("langchain-community and sentence-transformers not installed. Run 'pip install langchain-community sentence-transformers'")
+                 raise
+        else:
+            raise ValueError(f"Unsupported embedding model provider: {self.model_provider}")
+
+    def embed_documents(self, texts: List[str]) -> List[List[float]]:
+        """Embed search docs using the cached embedder."""
+        logger.debug(f"Embedding {len(texts)} documents...")
+        embeddings = self.cached_embedder.embed_documents(texts)
+        logger.debug("Document embedding complete.")
         return embeddings
+
+    def embed_query(self, text: str) -> List[float]:
+        """Embed query text using the cached embedder."""
+        logger.debug("Embedding query...")
+        embedding = self.cached_embedder.embed_query(text)
+        logger.debug("Query embedding complete.")
+        return embedding
 
 
 class CascadingEmbeddingService(EmbeddingService):
@@ -277,34 +250,69 @@ class CascadingEmbeddingService(EmbeddingService):
 
 
 # Factory function to create the appropriate embedding service
-def create_embedding_service(service_type: str = "mock", **kwargs) -> EmbeddingService:
+def create_embedding_service(service_type: str = 'langchain', **kwargs) -> EmbeddingService:
     """
     Create an embedding service of the specified type.
     
     Args:
-        service_type: Type of embedding service to create ("mock", "langchain", or "cascading")
+        service_type: Type of embedding service to create ("langchain", or "cascading")
         **kwargs: Additional arguments to pass to the embedding service constructor
+            - model_provider: Provider of the embedding model (for 'langchain')
             - model_name: Name of the embedding model to use (for 'langchain')
+            - cache_dir: Directory for caching embeddings (for 'langchain')
             - cache_size: Size of the LRU cache (for 'langchain')
-            - embedding_dim: Dimension of the embedding vectors (for 'mock')
             - services: List of services to cascade through (for 'cascading')
         
     Returns:
         An embedding service instance
     """
-    if service_type.lower() == "mock":
-        return MockEmbeddingService(**kwargs)
-    elif service_type.lower() == "langchain":
-        return LangchainEmbeddingService(**kwargs)
-    elif service_type.lower() == "cascading":
+    service_type = service_type.lower()
+    logger.info(f"Creating embedding service of type: {service_type}")
+    
+    if service_type == 'langchain':
+        # Extract relevant kwargs for LangchainEmbeddingService
+        # Default provider can be set here or based on environment
+        provider = kwargs.get('model_provider', os.getenv('EMBEDDING_PROVIDER', 'sentence_transformer'))
+        model = kwargs.get('model_name', os.getenv('EMBEDDING_MODEL_NAME'))
+        cache_dir = kwargs.get('cache_dir', os.getenv('EMBEDDING_CACHE_DIR', './cache/embeddings'))
+        cache_size = kwargs.get('cache_size', int(os.getenv('EMBEDDING_CACHE_SIZE', 1000)))
+        
+        # Prepare remaining kwargs, removing the ones explicitly handled
+        remaining_kwargs = kwargs.copy()
+        remaining_kwargs.pop('model_provider', None)
+        remaining_kwargs.pop('model_name', None)
+        remaining_kwargs.pop('cache_dir', None)
+        remaining_kwargs.pop('cache_size', None)
+        
+        logger.info(f"Creating LangchainEmbeddingService: provider={provider}, model={model}, cache={cache_dir}")
+        
+        return LangchainEmbeddingService(
+            model_provider=provider,
+            model_name=model,
+            cache_dir=cache_dir,
+            cache_size=cache_size,
+            # Pass only the *remaining* kwargs
+            **remaining_kwargs 
+        )
+    elif service_type == 'cascading':
         services = kwargs.pop("services", [])
         if not services:
             # Create default cascade: try langchain first, fall back to mock
+            # Ensure base EmbeddingService is used for fallback if needed, 
+            # or raise error if cascade requires multiple functional services.
+            # For now, assume LangchainEmbeddingService is the primary.
+            default_kwargs = kwargs.copy() # Use remaining kwargs for default Langchain
             services = [
-                LangchainEmbeddingService(**kwargs),
-                MockEmbeddingService(embedding_dim=kwargs.get("embedding_dim", 384))
+                LangchainEmbeddingService(**default_kwargs),
+                # Consider if a *simple* base EmbeddingService as fallback makes sense,
+                # or if cascading implies multiple *functional* services are expected.
+                # Using a base EmbeddingService here might hide errors if Langchain fails.
+                # Let's assume cascading implies multiple *configured* services passed in.
+                # Raising an error if services list is empty might be better.
+                 # EmbeddingService(embedding_dim=kwargs.get("embedding_dim", 384))
             ]
+            if not services[0]: # Check if default Langchain could be created
+                 raise ValueError("Cascading service requires at least one functional service configuration.")
         return CascadingEmbeddingService(services=services)
     else:
-        logger.warning(f"Unknown embedding service type '{service_type}'. Defaulting to mock.")
-        return MockEmbeddingService() 
+        raise ValueError(f"Unsupported embedding service type: {service_type}") 

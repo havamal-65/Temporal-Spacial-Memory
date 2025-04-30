@@ -1,0 +1,32 @@
+[
+  {
+    "fragment_id": "frag_001",
+    "timestamp": "2024-01-15T10:00:00Z",
+    "text": "The protagonist, Alex, woke up to the sound of rain drumming against the windowpane. A sense of unease lingered from the previous night's strange dream.",
+    "metadata": {
+      "source": "Chapter 1",
+      "author": "AI Narrator",
+      "keywords": ["start", "morning", "rain", "dream"]
+    }
+  },
+  {
+    "fragment_id": "frag_002",
+    "timestamp": "2024-01-15T10:05:00Z",
+    "text": "Downstairs, the old grandfather clock chimed ten times. Alex remembered the cryptic message found tucked inside its casing days ago.",
+    "metadata": {
+      "source": "Chapter 1",
+      "author": "AI Narrator",
+      "keywords": ["clock", "message", "mystery"]
+    }
+  },
+  {
+    "fragment_id": "frag_003",
+    "timestamp": "2024-01-16T14:30:00Z",
+    "text": "Later, Alex met with Dr. Aris Thorne at the university library. Thorne, an expert in ancient symbols, seemed unusually nervous.",
+    "metadata": {
+      "source": "Chapter 2",
+      "author": "AI Narrator",
+      "keywords": ["meeting", "expert", "symbols", "library"]
+    }
+  }
+] 

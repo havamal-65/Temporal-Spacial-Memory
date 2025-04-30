@@ -10,12 +10,13 @@ from langchain_community.vectorstores import FAISS
 from langchain_community.docstore.in_memory import InMemoryDocstore
 from src.models.spatial_temporal_db import SpatialTemporalDB
 from src.utils.embedding_service import EmbeddingService
-from src.models.coordinate_system import PolarTemporalCoordinate
+from src.coordinates import PolarTemporalCoordinate
 import time
 import hashlib
 import logging
 from langchain_core.embeddings import Embeddings
 from langchain_core.documents import Document
+from src.nl_parser import CoordinateFilters, NlQueryParser, ParsedQuery
 
 # --- Add Logger Setup ---
 logging.basicConfig(
@@ -34,8 +35,8 @@ class Node:
     id: str
     type: str
     content: dict
-    coordinates: dict
-    embedding: np.ndarray
+    coordinates: PolarTemporalCoordinate
+    embedding: Optional[np.ndarray]
     keywords: Optional[List[str]]
     metadata: dict
     parent_node_id: Optional[str]
@@ -54,86 +55,110 @@ class NarrativeAtlas:
             base_radius=float(os.getenv('BASE_RADIUS', 0.9))
         )
         self.embedding_dim = self.embedding_service.embedding_dim
+        
+        # Langchain FAISS wrapper (still used for search/docstore)
         self.vector_store: Optional[FAISS] = None
-        self.node_id_to_doc_id: Dict[str, str] = {}
-        self.doc_id_to_node_id: Dict[str, str] = {}
+        # Raw FAISS index (for direct adding)
+        self.raw_faiss_index: Optional[faiss.Index] = None
+        
+        # Mappings for direct FAISS interaction
+        self.node_id_to_faiss_id: Dict[str, int] = {}
+        self.faiss_id_to_node_id: Dict[int, str] = {}
+        self.next_faiss_id: int = 0 # Counter for next available FAISS integer ID
+
+        # Keep NL Parser
+        self.nl_parser = NlQueryParser()
         
         self._initialize_vector_store()
         self.load()
     
-    def _create_new_hnsw_index(self) -> FAISS:
-        """Creates a new FAISS vector store with an HNSW index."""
+    def _create_new_hnsw_index(self) -> Tuple[faiss.Index, FAISS]:
+        """Creates a new raw FAISS HNSW index and its Langchain wrapper."""
         print("Creating new FAISS index with HNSW.")
         M = 32  # Number of connections for HNSW
-        # ef_construction = 64 # Optional: Index build quality
-        # ef_search = 32 # Optional: Search quality
         
         # Define the HNSW index
-        base_index = faiss.IndexHNSWFlat(self.embedding_dim, M, faiss.METRIC_L2)
-        # Optional: Set construction parameter
-        # base_index.hnsw.efConstruction = ef_construction
+        raw_index = faiss.IndexHNSWFlat(self.embedding_dim, M, faiss.METRIC_L2)
         
-        # --- Remove IndexIDMap2 wrapper --- 
-        # new_faiss_index = faiss.IndexIDMap2(base_index)
+        # --- IMPORTANT: FAISS requires an ID map for add_with_ids --- 
+        # Wrap the HNSW index with IndexIDMap2. This maps external 64-bit IDs
+        # to internal sequential IDs used by the HNSW structure.
+        index_with_ids = faiss.IndexIDMap2(raw_index)
         
-        # Create an empty docstore
+        # Create an empty docstore for the Langchain wrapper
         docstore = InMemoryDocstore()
         
-        # Initialize the LangChain FAISS wrapper using the base index
-        vector_store = FAISS(
+        # Initialize the LangChain FAISS wrapper
+        vector_store_wrapper = FAISS(
             embedding_function=self.embedding_service, 
-            # Use the base HNSW index directly
-            index=base_index, 
+            index=index_with_ids, # Pass the index wrapped with IDMap2
             docstore=docstore,
             index_to_docstore_id={}
         )
-        # Optional: Set search parameter (can also be done per-search)
-        # vector_store.index.hnsw.efSearch = ef_search
-        return vector_store
+        return index_with_ids, vector_store_wrapper # Return both
 
     def _initialize_vector_store(self):
-        """Initialize or load the FAISS vector store."""
+        """Initialize or load the FAISS vector store (raw index and Langchain wrapper)."""
         index_folder = os.path.join(self.storage_path)
-        index_file = os.path.join(index_folder, "index.faiss") # Default Langchain FAISS file
+        index_file = os.path.join(index_folder, "index.faiss") # Path for raw FAISS index
         id_maps_path = os.path.join(self.storage_path, "id_maps.json")
-        
+        docstore_file = os.path.join(index_folder, "index.pkl") # Default Langchain FAISS docstore file
+
         try:
-            # Check if the specific index file exists, not just the folder
-            if os.path.exists(index_file):
-                print(f"Loading existing FAISS index from {index_folder}")
-                self.vector_store = FAISS.load_local(
-                    folder_path=index_folder,
-                    embeddings=self.embedding_service,
-                    index_name="index", # Langchain default index base name
-                    allow_dangerous_deserialization=True
+            if os.path.exists(index_file) and os.path.exists(docstore_file):
+                print(f"Loading existing FAISS index from {index_file}")
+                # Load raw FAISS index directly
+                self.raw_faiss_index = faiss.read_index(index_file)
+                self.next_faiss_id = self.raw_faiss_index.ntotal
+                print(f"Raw index loaded. ntotal: {self.next_faiss_id}")
+
+                # Load the Langchain wrapper (primarily for docstore and search methods)
+                # We pass the *already loaded* raw index to avoid re-reading
+                # Also need to load the docstore and index_to_docstore_id mapping explicitly
+                # because load_local usually handles this.
+                print(f"Loading Langchain FAISS wrapper components from {index_folder}")
+                with open(docstore_file, "rb") as f:
+                     docstore, index_to_docstore_id = pickle.load(f)
+                     
+                self.vector_store = FAISS(
+                     embedding_function=self.embedding_service,
+                     index=self.raw_faiss_index, # Use the loaded raw index
+                     docstore=docstore,
+                     index_to_docstore_id=index_to_docstore_id
                 )
-                # Load ID maps
+                print(f"Langchain wrapper initialized with loaded index and docstore (docstore size: {len(index_to_docstore_id)}).")
+
+                # Load ID maps (node_id <-> faiss_id)
                 if os.path.exists(id_maps_path):
                     with open(id_maps_path, 'r') as f:
                         maps = json.load(f)
-                        self.node_id_to_doc_id = maps.get('node_id_to_doc_id', {})
-                        self.doc_id_to_node_id = maps.get('doc_id_to_node_id', {})
+                        self.node_id_to_faiss_id = maps.get('node_id_to_faiss_id', {})
+                        # Convert JSON string keys back to integers for faiss_id_to_node_id
+                        self.faiss_id_to_node_id = {int(k): v for k, v in maps.get('faiss_id_to_node_id', {}).items()}
+                        # Load the next ID counter if saved (optional, recalculating from ntotal is safer)
+                        # self.next_faiss_id = maps.get('next_faiss_id', self.raw_faiss_index.ntotal)
                 else:
-                     print("Warning: Index found but id_maps.json missing.")
-                     self.node_id_to_doc_id = {}
-                     self.doc_id_to_node_id = {}
-
-                # Optional: Configure HNSW search parameters on load if needed
-                # if isinstance(self.vector_store.index, faiss.IndexHNSW):
-                #    self.vector_store.index.hnsw.efSearch = 64
-                
+                     print("Warning: Index files found but id_maps.json missing.")
+                     # Attempt to reconstruct maps if possible? Risky.
+                     self.node_id_to_faiss_id = {}
+                     self.faiss_id_to_node_id = {}
+                     # Reset next_faiss_id based on loaded index size
+                     self.next_faiss_id = self.raw_faiss_index.ntotal
             else:
-                # Create a new index if the file doesn't exist
-                self.vector_store = self._create_new_hnsw_index()
-                self.node_id_to_doc_id = {}
-                self.doc_id_to_node_id = {}
+                print("Index files not found, creating new HNSW index.")
+                # Create a new index and wrapper
+                self.raw_faiss_index, self.vector_store = self._create_new_hnsw_index()
+                self.node_id_to_faiss_id = {}
+                self.faiss_id_to_node_id = {}
+                self.next_faiss_id = 0 # Start counter at 0 for new index
                 
         except Exception as e:
             print(f"Error loading or creating vector store: {e}. Creating new HNSW index.")
-            # If any error occurs (loading or creating), fallback to creating a new index
-            self.vector_store = self._create_new_hnsw_index()
-            self.node_id_to_doc_id = {}
-            self.doc_id_to_node_id = {}
+            # Fallback to creating a new index and wrapper
+            self.raw_faiss_index, self.vector_store = self._create_new_hnsw_index()
+            self.node_id_to_faiss_id = {}
+            self.faiss_id_to_node_id = {}
+            self.next_faiss_id = 0
     
     def _get_or_create_character(self, name: str, temporal_coordinate: float) -> str:
         """Get or create a character node (stores in DB only)."""
@@ -143,7 +168,7 @@ class NarrativeAtlas:
                 id=node_id,
                 type="character",
                 content={"name": name},
-                coordinates={"t": temporal_coordinate, "r": 0.0, "theta": 0.0, "z": 0.0},
+                coordinates={"t": temporal_coordinate, "r": 0.0, "theta": 0.0},
                 embedding=np.zeros(self.embedding_dim, dtype=np.float32),
                 keywords=None,
                 metadata={"node_type": "character"},
@@ -168,7 +193,7 @@ class NarrativeAtlas:
             id=node_id,
             type="event",
             content={"description": description, "participant_names": participant_names},
-            coordinates={"t": temporal_coordinate, "r": 0.0, "theta": 0.0, "z": 0.0},
+            coordinates={"t": temporal_coordinate, "r": 0.0, "theta": 0.0},
             embedding=np.zeros(self.embedding_dim, dtype=np.float32),
             keywords=None,
             metadata={"node_type": "event"},
@@ -188,7 +213,7 @@ class NarrativeAtlas:
                 id=node_id,
                 type="location",
                 content={"name": name},
-                coordinates={"t": temporal_coordinate, "r": 0.0, "theta": 0.0, "z": 0.0},
+                coordinates={"t": temporal_coordinate, "r": 0.0, "theta": 0.0},
                 embedding=np.zeros(self.embedding_dim, dtype=np.float32),
                 keywords=None,
                 metadata={"node_type": "location"},
@@ -204,86 +229,135 @@ class NarrativeAtlas:
                                node: Node,
                                text_to_embed: Optional[str] = None,
                                precomputed_embedding: Optional[np.ndarray] = None):
-        """Add or update a node's embedding in the vector store."""
-        # If specific text isn't provided, use node content
-        if text_to_embed is None:
-             # Assuming content dict has 'text' for chunks, or make generic
-             text_to_embed = node.content.get('text', json.dumps(node.content))
-
-        # Ensure text_to_embed is not empty for embedding calculation
-        if not text_to_embed and precomputed_embedding is None:
-            print(f"Warning: Cannot add embedding for node {node.id} with empty text and no precomputed embedding.")
+        """
+        Adds or updates the node's embedding in the FAISS index and the node object itself.
+        Handles both precomputed embeddings and generating them from text.
+        Uses direct FAISS index manipulation (add_with_ids).
+        Also updates the Langchain FAISS docstore for compatibility.
+        """
+        if self.raw_faiss_index is None or self.vector_store is None:
+            logger.error("FAISS index or vector store not initialized. Cannot add embedding.")
             return
 
-        doc_id_to_use = f"doc_{node.id}" # Use node ID for consistency
-        # Basic metadata for FAISS doc
-        metadata_for_doc = {"node_id": node.id, "node_type": node.type}
-
-        # Check if node already exists in the vector store mappings
-        existing_doc_id = self.node_id_to_doc_id.get(node.id)
-        if existing_doc_id:
-            # We ideally need a way to *update* vectors in FAISS via Langchain,
-            # or delete and re-add. `add_texts` might handle overwrites if `ids` are stable.
-            # For simplicity, we assume add_texts with the same ID updates or handles it.
-            # If duplicates appear, a delete mechanism would be needed.
-            print(f"Info: Node {node.id} might already exist in vector store (doc_id: {existing_doc_id}). Attempting update/add.")
-            # Clean up old mapping just in case ID changed (shouldn't with doc_{node.id})
-            del self.node_id_to_doc_id[node.id]
-            if existing_doc_id in self.doc_id_to_node_id:
-                del self.doc_id_to_node_id[existing_doc_id]
-
-        # --- Add new document to FAISS --- 
-        target_embedding: Optional[np.ndarray] = None
+        embedding_to_add = None
         if precomputed_embedding is not None:
-            if isinstance(precomputed_embedding, list):
-                target_embedding = np.array(precomputed_embedding, dtype=np.float32)
-            else:
-                 target_embedding = precomputed_embedding # Assume it's already ndarray
-            # Ensure embedding has the correct shape (N, D)
-            if target_embedding is not None and target_embedding.ndim == 1:
-                target_embedding = np.expand_dims(target_embedding, axis=0)
-        elif text_to_embed: # Only calculate if no precomputed one exists
-            embedding_list = self.embedding_service.embed_query(text_to_embed)
-            target_embedding = np.array(embedding_list, dtype=np.float32)
-            if target_embedding.ndim == 1:
-                 target_embedding = np.expand_dims(target_embedding, axis=0)
-        else:
-             print(f"Warning: Skipping embedding addition for node {node.id} due to missing text/embedding.")
-             return # Don't update mappings if nothing was added
+            embedding_to_add = precomputed_embedding
+        elif text_to_embed:
+            try:
+                # Get embedding from service
+                embedding_to_add = self.embedding_service.get_embedding(text_to_embed)
+                # Ensure it's a numpy array of float32
+                if embedding_to_add is not None:
+                    embedding_to_add = np.array(embedding_to_add, dtype=np.float32)
+            except Exception as e:
+                logger.error(f"Error getting embedding for node {node.id}: {e}")
+                # Decide if we should proceed without embedding or raise error
+                return # Do not proceed without embedding
+        
+        # Ensure we have an embedding vector
+        if embedding_to_add is None:
+            logger.warning(f"No embedding available for node {node.id}. Cannot add to FAISS.")
+            return
+            
+        # Ensure embedding dimension matches index
+        if embedding_to_add.shape[0] != self.embedding_dim:
+             logger.error(f"Embedding dimension mismatch for node {node.id}. Expected {self.embedding_dim}, got {embedding_to_add.shape[0]}.")
+             return
 
-        # Add text and embedding using add_embeddings for direct control
-        if target_embedding is not None and text_to_embed is not None:
-             # Langchain's add_embeddings expects list of texts and list of embeddings
-             # Correction: It likely expects a list of (text, embedding) tuples
-             try:
-                 # Ensure embedding is a list of floats
-                 embedding_list = target_embedding.tolist()[0]
-                 # Format as list of tuples: [(text, embedding)]
-                 text_embedding_pair = (text_to_embed, embedding_list)
-                 
-                 # Use the explicit IDs feature
-                 added_ids = self.vector_store.add_embeddings(
-                     # Pass the list of (text, embedding) tuples
-                     text_embeddings=[text_embedding_pair], 
-                     metadatas=[metadata_for_doc],
-                     ids=[doc_id_to_use]
-                 )
-                 # Update mappings only if addition seems successful
-                 if added_ids and added_ids[0] == doc_id_to_use:
-                      self.node_id_to_doc_id[node.id] = doc_id_to_use
-                      self.doc_id_to_node_id[doc_id_to_use] = node.id
-                 else:
-                     # This case might indicate an issue with add_embeddings or ID handling
-                     print(f"Warning: add_embeddings did not return expected ID for node {node.id}. Mappings not updated.")
-             except Exception as e:
-                 print(f"Error adding embedding for node {node.id} via add_embeddings: {e}")
+        # Update the node object with the embedding
+        node.embedding = embedding_to_add
+
+        # Assign or get the FAISS integer ID for this node_id
+        if node.id in self.node_id_to_faiss_id:
+            faiss_id = self.node_id_to_faiss_id[node.id]
+            # FAISS HNSW doesn't easily support updates, so we treat this as an add
+            # Note: This means duplicate vectors if called multiple times for the same node.id
+            # Proper update would require removing the old ID and adding the new one.
+            logger.warning(f"Node {node.id} already has FAISS ID {faiss_id}. Re-adding (potential duplicate vector).")
+            # For simplicity in this example, we just add it again with the same ID
         else:
-             print(f"Warning: Could not add embedding for node {node.id} due to missing embedding or text.")
+            # Assign the next available integer ID
+            faiss_id = self.next_faiss_id
+            self.node_id_to_faiss_id[node.id] = faiss_id
+            self.faiss_id_to_node_id[faiss_id] = node.id
+            self.next_faiss_id += 1 # Increment for the next node
+
+        # Add the vector to the raw FAISS index using the assigned integer ID
+        vector_np = embedding_to_add.reshape(1, -1) # Reshape for FAISS
+        ids_np = np.array([faiss_id], dtype=np.int64)
+        try:
+            self.raw_faiss_index.add_with_ids(vector_np, ids_np)
+            logger.debug(f"Added embedding for node {node.id} with FAISS ID {faiss_id}")
+        except Exception as e:
+            logger.error(f"FAISS add_with_ids failed for node {node.id} (FAISS ID {faiss_id}): {e}", exc_info=True)
+            # Should we revert the ID mapping if add fails?
+            # For now, log the error and continue, but the mappings might be inconsistent.
+            return
+        
+        # === Update Langchain Docstore ===
+        # Create/update the Document object for Langchain's docstore
+        # This ensures metadata filtering works correctly with Langchain methods
+        # and keeps the docstore consistent with the raw index.
+        doc_metadata = node.metadata.copy() if node.metadata else {}
+        # Add coordinate info to the document metadata
+        doc_metadata["coord_r"] = node.coordinates.r
+        doc_metadata["coord_theta"] = node.coordinates.theta
+        doc_metadata["coord_t"] = node.coordinates.t
+        doc_metadata["coord_z"] = node.coordinates.z
+        doc_metadata["coord_z_type"] = node.coordinates.z_type
+        doc_metadata["node_type"] = node.type # Ensure node type is in metadata
+        doc_metadata["timestamp"] = node.timestamp
+        doc_metadata["keywords"] = ",".join(node.keywords) if node.keywords else ""
+        # Add other potentially useful fields from Node
+        doc_metadata["mapping_details"] = json.dumps(node.mapping_details) # Serialize dict
+        if node.parent_node_id:
+             doc_metadata["parent_node_id"] = node.parent_node_id
+
+        # Determine page_content for the Document (use 'text' field if available)
+        page_content = node.content.get('text', json.dumps(node.content))
+        
+        # Create the Langchain Document
+        doc = Document(page_content=page_content, metadata=doc_metadata)
+        
+        # Add/update the document in the docstore using the node.id
+        # and map the Langchain internal index ID to this node.id
+        internal_docstore_id = node.id # Use node.id as the key for Langchain's docstore
+        self.vector_store.docstore.add({internal_docstore_id: doc})
+        
+        # Map the FAISS integer ID (faiss_id) to the Langchain docstore ID (node.id)
+        # Find the internal index (sequential ID) used by FAISS wrapper for the given faiss_id.
+        # This mapping is tricky because Langchain's FAISS wrapper assumes sequential integer IDs
+        # starting from 0 when adding documents via its own add_documents method.
+        # Since we are using add_with_ids on the raw index, the Langchain wrapper's internal
+        # index_to_docstore_id map might not naturally align with our faiss_id.
+        
+        # WORKAROUND: We directly manage the index_to_docstore_id map.
+        # This map links the sequential index position (0, 1, 2...) assumed by Langchain 
+        # search results to our node.id (which is used as the docstore key).
+        # However, the raw FAISS index returns our custom `faiss_id` during search. 
+        # There's a mismatch here. Langchain's standard FAISS assumes the index position
+        # *is* the ID added, or maps it sequentially.
+        
+        # Let's update index_to_docstore_id assuming the size implies the next sequential index.
+        # This relies on the assumption that adds happen sequentially, which is true
+        # with our self.next_faiss_id counter *if* no deletes occur or IDs are reused.
+        current_lc_index_count = len(self.vector_store.index_to_docstore_id)
+        # Check if the faiss_id matches the expected next sequential ID
+        # If not, log a warning, as Langchain search might return unexpected docstore IDs
+        if faiss_id != current_lc_index_count:
+            logger.warning(f"FAISS ID {faiss_id} does not match expected next Langchain index {current_lc_index_count}. Langchain search results mapping might be inconsistent.")
+            # Option: Try to find an existing entry for faiss_id and update? Risky.
+            # Option: Force the mapping anyway? Might overwrite existing map entry.
+        
+        # Update the mapping - associating the current sequential position with the node.id
+        self.vector_store.index_to_docstore_id[current_lc_index_count] = internal_docstore_id
+        # logger.debug(f"Updated Langchain index_to_docstore_id: map[{current_lc_index_count}] = {internal_docstore_id}")
+        # === End Update Langchain Docstore ===
 
     def add_node(self,
                  node_id: str,
                  content: Dict[str, Any],
-                 embedding: np.ndarray,
+                 embedding: Optional[np.ndarray],
                  metadata: Dict,
                  coordinates: PolarTemporalCoordinate,
                  keywords: Optional[List[str]],
@@ -292,7 +366,8 @@ class NarrativeAtlas:
                  explicit_timestamp: Optional[float] = None
                 ) -> str:
         """
-        Adds a node with pre-calculated coordinates and embedding to the database and vector store.
+        Adds a node to the Narrative Atlas, storing it in the DB and adding/updating
+        its embedding in the vector store with coordinates in metadata.
 
         Args:
             node_id: Unique ID for the new node.
@@ -309,59 +384,39 @@ class NarrativeAtlas:
         Returns:
             The ID of the added node.
         """
-        if node_id in self.db.nodes:
-            # Log or handle overwrites more explicitly if needed
-            logger.warning(f"Node {node_id} already exists. Overwriting.")
-            # Potential: Delete existing vector store entry before adding new?
-            # self.delete_node(node_id) # Could call delete here
+        print(f"--- NARRATIVE ATLAS: ADDING NODE {node_id} ---") # DEBUG
+        # Validate coordinates
+        if not isinstance(coordinates, PolarTemporalCoordinate):
+            raise TypeError(f"Expected PolarTemporalCoordinate for coordinates, got {type(coordinates)}")
 
-        # 1. Validate required inputs (basic checks)
-        if embedding is None:
-            logger.error(f"Cannot add node {node_id}: Missing required embedding.")
-            # raise ValueError(f"Embedding is required for node {node_id}") # Or raise
-            return "" # Indicate failure
-        if coordinates is None:
-            logger.error(f"Cannot add node {node_id}: Missing required coordinates.")
-            # raise ValueError(f"Coordinates are required for node {node_id}")
-            return "" # Indicate failure
-
-        # 2. Create Node Object
-        node_timestamp = explicit_timestamp if explicit_timestamp is not None else time.time()
-        node_type = metadata.get('node_type', 'chunk') # Default to 'chunk' if not specified
-
-        node = Node(
+        # Create Node object
+        timestamp = explicit_timestamp if explicit_timestamp is not None else time.time()
+        node_obj = Node(
             id=node_id,
-            type=node_type,
-            content=content, # Store the provided content dict
-            coordinates=asdict(coordinates), # Convert coordinate object to dict for storage
-            embedding=embedding, # Use the provided embedding
-            keywords=keywords, # Store the provided keywords
-            metadata=metadata, # Store the provided metadata
+            type=metadata.get("node_type", "unknown"), # Extract type from metadata if possible
+            content=content,
+            coordinates=coordinates, # Store the coordinate object
+            embedding=embedding, # Store the embedding (can be None)
+            keywords=keywords,
+            metadata=metadata, # Store original metadata
             parent_node_id=parent_node_id,
-            timestamp=node_timestamp,
-            mapping_details=mapping_details # Store the provided mapping details
+            timestamp=timestamp,
+            mapping_details=mapping_details
         )
-        self.db.nodes[node_id] = node
-        logger.debug(f"Node {node_id} added to internal DB.")
 
-        # 3. Add/Update Embedding in Vector Store
-        # Extract primary text content for FAISS document storage
-        text_for_vector_store = content.get('text', json.dumps(content))
-        if not text_for_vector_store:
-             logger.warning(f"Node {node_id} content for vector store is empty. Using stringified dict.")
-             text_for_vector_store = json.dumps(content)
+        # Store node data in the spatial-temporal DB
+        self.db.nodes[node_id] = node_obj
+        print(f"--- NARRATIVE ATLAS: Node {node_id} added to self.db.nodes ---") # DEBUG
 
-        self._add_or_update_embedding(
-            node=node,
-            text_to_embed=text_for_vector_store,
-            precomputed_embedding=embedding # Pass the provided embedding
-        )
-        logger.debug(f"Embedding update requested for node {node_id} in vector store.")
+        # Add/update embedding in the vector store
+        # Determine text to embed (e.g., from content['text'])
+        text_for_embedding = content.get("text", json.dumps(content)) # Fallback to json
+        if text_for_embedding or embedding is not None: # Only add if there's text or precomputed embedding
+             self._add_or_update_embedding(node=node_obj, text_to_embed=text_for_embedding, precomputed_embedding=embedding)
+        else:
+             print(f"Warning: Node {node_id} has no text content or precomputed embedding; skipping vector store add.")
 
-        # Optional: Link to parent (placeholder for future graph logic)
-        # if parent_node_id and parent_node_id in self.db.nodes:
-        #     pass
-
+        print(f"--- NARRATIVE ATLAS: Finished adding node {node_id} ---") # DEBUG
         return node_id
 
     def find_similar_nodes(self, query_text: str, k: int = 5) -> List[Tuple[Node, float]]:
@@ -404,8 +459,8 @@ class NarrativeAtlas:
             # Save ID maps
             with open(id_maps_path, 'w') as f:
                 json.dump({
-                    'node_id_to_doc_id': self.node_id_to_doc_id,
-                    'doc_id_to_node_id': self.doc_id_to_node_id
+                    'node_id_to_faiss_id': self.node_id_to_faiss_id,
+                    'faiss_id_to_node_id': self.faiss_id_to_node_id
                 }, f)
             
             # Save SpatialTemporalDB nodes (simple pickle for now)
@@ -446,12 +501,13 @@ class NarrativeAtlas:
         
         # 1. Clear in-memory data
         self.db.nodes = {}
-        self.node_id_to_doc_id = {}
-        self.doc_id_to_node_id = {}
+        self.node_id_to_faiss_id = {}
+        self.faiss_id_to_node_id = {}
         
         # 2. Reset FAISS index to a new empty one
         print("Resetting FAISS index...")
-        self.vector_store = self._create_new_hnsw_index()
+        self.raw_faiss_index, self.vector_store = self._create_new_hnsw_index()
+        self.next_faiss_id = 0 # Reset counter for new index
         
         # 3. Delete physical files/directory
         if os.path.exists(self.storage_path):
@@ -476,8 +532,8 @@ class NarrativeAtlas:
         del self.db.nodes[node_id]
 
         # 2. Remove from FAISS index
-        if node_id in self.node_id_to_doc_id:
-            doc_id = self.node_id_to_doc_id[node_id]
+        if node_id in self.node_id_to_faiss_id:
+            doc_id = self.node_id_to_faiss_id[node_id]
             try:
                 # Deletion in Langchain FAISS might need the internal docstore ID.
                 # This simplified version assumes `doc_id` works or deletion isn't critical.
@@ -490,14 +546,174 @@ class NarrativeAtlas:
                 print(f"Warning: Error deleting vector for node {node_id} (doc_id {doc_id}): {e}")
             
             # 3. Remove from mappings
-            del self.node_id_to_doc_id[node_id]
-            if doc_id in self.doc_id_to_node_id:
-                 del self.doc_id_to_node_id[doc_id]
+            del self.node_id_to_faiss_id[node_id]
+            if doc_id in self.faiss_id_to_node_id:
+                 del self.faiss_id_to_node_id[doc_id]
             
             return True
         else:
             print(f"Warning: Node {node_id} found in DB but not in FAISS mappings.")
             return True # Node deleted from DB, but vector inconsistency noted
+
+    def _get_ids_matching_filters(self, filters: CoordinateFilters) -> Optional[List[str]]:
+        """
+        Filters node IDs based on coordinate ranges (r, theta, t, z) and z_type.
+        Returns a list of node IDs that match the filters, or None if no store.
+        """
+        if self.vector_store is None:
+            logger.warning("Vector store not initialized, cannot filter IDs.")
+            return None
+        
+        matching_ids = []
+        # Check if docstore exists and has the _dict attribute
+        if not hasattr(self.vector_store.docstore, '_dict'):
+            logger.warning("Docstore is not the expected InMemoryDocstore or lacks _dict.")
+            return []
+            
+        # Iterate through the Langchain docstore to access metadata
+        for node_id, doc in self.vector_store.docstore._dict.items():
+            # Ensure doc has metadata
+            if not hasattr(doc, 'metadata') or not isinstance(doc.metadata, dict):
+                logger.debug(f"Skipping node {node_id} due to missing or invalid metadata.")
+                continue
+            
+            metadata = doc.metadata
+            match = True # Assume match initially
+            
+            # Retrieve coordinates from metadata
+            coord_r = metadata.get('coord_r')
+            coord_theta = metadata.get('coord_theta')
+            coord_t = metadata.get('coord_t')
+            coord_z = metadata.get('coord_z')
+            coord_z_type = metadata.get('coord_z_type')
+            
+            # --- Apply Filters --- 
+            # R filter
+            if filters.r_min is not None and (coord_r is None or coord_r < filters.r_min):
+                match = False
+            if match and filters.r_max is not None and (coord_r is None or coord_r > filters.r_max):
+                match = False
+                
+            # T filter
+            if match and filters.t_min is not None and (coord_t is None or coord_t < filters.t_min):
+                match = False
+            if match and filters.t_max is not None and (coord_t is None or coord_t > filters.t_max):
+                match = False
+                
+            # Theta filter (handle wraparound if necessary - simple check here)
+            if match and filters.theta_min is not None and (coord_theta is None or coord_theta < filters.theta_min):
+                 match = False # Simplified check, assumes no range wraps around 2pi
+            if match and filters.theta_max is not None and (coord_theta is None or coord_theta > filters.theta_max):
+                 match = False # Simplified check
+                 
+            # Z filter
+            if match and filters.z_min is not None and (coord_z is None or coord_z < filters.z_min):
+                 match = False
+            if match and filters.z_max is not None and (coord_z is None or coord_z > filters.z_max):
+                 match = False
+                 
+            # Z Type filter
+            if match and filters.z_type is not None and (coord_z_type is None or coord_z_type != filters.z_type):
+                 match = False
+            # --- End Filters --- 
+            
+            if match:
+                matching_ids.append(node_id)
+                
+        logger.info(f"Filter matched {len(matching_ids)} nodes out of {len(self.vector_store.docstore._dict)} total.")
+        return matching_ids
+    
+    def search_with_nl_query(self, nl_query: str, k: int = 10) -> List[Tuple[Node, float]]:
+        """Processes a natural language query, applies coordinate filters, 
+           and performs vector search on the filtered results.
+
+        Args:
+            nl_query: The natural language query string.
+            k: The maximum number of final results to return after filtering and ranking.
+
+        Returns:
+            A list of (Node, score) tuples representing the final ranked results.
+        """
+        print(f"--- NARRATIVE ATLAS: Starting NL Query Search for: '{nl_query}' with k={k} ---")
+        
+        # 1. Parse the Natural Language Query
+        try:
+            parsed_params: ParsedQuery = self.nl_parser.parse(nl_query)
+            print(f"--- NARRATIVE ATLAS: Parsed Query Params: {parsed_params} ---")
+        except Exception as e:
+            print(f"Error parsing NL query: {e}. Returning empty results.")
+            # logger.error(f"Error parsing NL query '{nl_query}': {e}", exc_info=True)
+            return []
+
+        # 2. Get Candidate IDs matching Coordinate Filters
+        # This returns None if no filters are specified, meaning use all docs.
+        candidate_doc_ids: Optional[List[str]] = self._get_ids_matching_filters(parsed_params.filters)
+        
+        if candidate_doc_ids is not None and not candidate_doc_ids:
+            print("--- NARRATIVE ATLAS: No documents matched coordinate filters. Returning empty results. ---")
+            return [] # No candidates survived filtering
+
+        # 3. Perform Vector Search (Potentially Restricted)
+        query_embedding = self.embedding_service.embed_query(parsed_params.query_text)
+        
+        # Prepare for FAISS search
+        # FAISS similarity_search_with_score_by_vector expects the vector itself.
+        # We need a way to filter by the `candidate_doc_ids`.
+        # Langchain's default FAISS wrapper doesn't directly support filtering by arbitrary IDs during search.
+        # We might need to retrieve a larger set and then filter *after* the similarity search,
+        # or potentially use a more advanced FAISS feature/wrapper if available.
+
+        # --- Option A: Search broadly, then filter (Simpler for now) ---
+        # Retrieve more results initially to account for filtering post-search
+        initial_k = k * 5 # Heuristic: Retrieve more initially
+        if candidate_doc_ids:
+            # If we have candidates, maybe fetch even more initially?
+            # This is inefficient but works with current LC FAISS limitations.
+            initial_k = max(initial_k, len(candidate_doc_ids)) 
+        
+        print(f"--- NARRATIVE ATLAS: Performing initial vector search with k={initial_k} ---")
+        try:
+            # Use similarity_search_by_vector_with_scores if embedding is precomputed
+            initial_docs_with_scores = self.vector_store.similarity_search_by_vector_with_relevance_scores(
+                embedding=query_embedding,
+                k=initial_k
+            )
+            print(f"--- NARRATIVE ATLAS: Initial vector search returned {len(initial_docs_with_scores)} results ---")
+        except Exception as e:
+            print(f"Error during initial vector search: {e}. Returning empty results.")
+            # logger.error(f"Error during vector search for '{parsed_params.query_text}': {e}", exc_info=True)
+            return []
+
+        # --- Filter the initial results based on candidate_doc_ids (if applicable) ---
+        filtered_results_with_scores = []
+        if candidate_doc_ids is None: # No coordinate filtering was done
+            filtered_results_with_scores = initial_docs_with_scores
+        else:
+            candidate_set = set(candidate_doc_ids)
+            for doc, score in initial_docs_with_scores:
+                doc_id = doc.metadata.get("id") # Langchain FAISS might store the ID here
+                if doc_id and doc_id in candidate_set:
+                     filtered_results_with_scores.append((doc, score))
+            print(f"--- NARRATIVE ATLAS: Filtered vector search results down to {len(filtered_results_with_scores)} based on coordinate filters ---")
+
+        # --- Limit to final k and format results ---
+        final_results = []
+        # Sort by score (relevance scores: higher is better, distances: lower is better - check score type)
+        # Assuming similarity_search_..._relevance_scores returns higher=better
+        # Sort descending by score
+        filtered_results_with_scores.sort(key=lambda item: item[1], reverse=True) 
+        
+        for doc, score in filtered_results_with_scores[:k]: # Take top k
+            node_id = doc.metadata.get("node_id")
+            if node_id and node_id in self.db.nodes:
+                final_results.append((self.db.nodes[node_id], float(score)))
+            elif node_id:
+                 print(f"Warning: Found node_id {node_id} in final results but not in DB.")
+            else:
+                 print(f"Warning: Final result metadata missing 'node_id': {doc.metadata}")
+
+        print(f"--- NARRATIVE ATLAS: Returning {len(final_results)} final results for NL Query ---")
+        return final_results
 
     def answer_query_with_context(self, user_query: str, k: int = 3) -> str:
         """Find relevant nodes, format context, and construct a prompt for RAG.

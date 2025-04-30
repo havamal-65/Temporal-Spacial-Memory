@@ -11,6 +11,11 @@ import sys
 import logging
 import argparse
 import subprocess
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+print("--- RUN.PY .env LOADED ---") # DEBUG
 
 # Configure logging
 logging.basicConfig(
@@ -41,8 +46,8 @@ def parse_args():
     parser.add_argument('--clear-db', action='store_true',
                         help='Clear the database before ingestion')
     
-    parser.add_argument('--text-query', type=str,
-                        help='Query by text similarity')
+    parser.add_argument('--nl-query', type=str, default="What is the story about?",
+                        help='Natural language query to run in query or all mode (default: What is the story about?)')
     
     parser.add_argument('--max-results', type=int, default=10,
                         help='Maximum number of results to return (default: 10)')
@@ -99,18 +104,14 @@ def main():
         print("--- RUN.PY ENTERING QUERY MODE ---") # DEBUG
         logger.info("Running query engine...")
         
-        # Check if text query is provided
-        if args.text_query is None and args.mode == 'query':
-            logger.error("Text query is required in query mode")
+        # Use the --nl-query argument
+        query_text = args.nl_query 
+        # No need to check if it's None in 'all' mode because it has a default
+        if query_text is None and args.mode == 'query': # Still require it if only running query mode
+            logger.error("Natural language query (--nl-query) is required in query mode")
             return
         
-        # In 'all' mode, use a default query if none provided
-        query_text = args.text_query
-        if query_text is None and args.mode == 'all':
-            query_text = "What is the story about?"
-            logger.info(f"Using default query: '{query_text}'")
-        
-        # Build command
+        # Build command for src/query.py
         cmd = [
             sys.executable,
             "src/query.py",
@@ -119,9 +120,9 @@ def main():
             "--embedding-service", args.embedding_service
         ]
         
-        # Add text query
+        # Add the natural language query using the correct argument name for src/query.py
         if query_text:
-            cmd.extend(["--text-query", query_text])
+            cmd.extend(["--query", query_text]) # Use --query here
         
         print(f"--- RUN.PY SUBPROCESS CMD (Query): {cmd} ---") # DEBUG
         # Run query

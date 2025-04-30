@@ -110,18 +110,31 @@ class DocumentLoader:
         
         # --- Process handler output ---
         results = []
-        if content_type == 'application/pdf':
-            # PDF handler returns a list of page results
-            total_pages = len(handler_output)
-            for page_content, page_specific_metadata in handler_output:
-                # Merge base file metadata with page-specific metadata
-                combined_metadata = {**base_file_metadata, **page_specific_metadata, 'total_pages': total_pages}
+        # --- Handle list outputs (PDF, JSON) --- 
+        if content_type in ['application/pdf', 'application/json']:
+            # PDF and JSON handlers return a list of (content, page/fragment_metadata) tuples/dicts
+            total_items = len(handler_output) # Could be pages or fragments
+            for item_data in handler_output:
+                if content_type == 'application/pdf':
+                     page_content, page_specific_metadata = item_data # Unpack tuple for PDF
+                     # Add total pages for PDF context
+                     page_specific_metadata['total_pages'] = total_items 
+                elif content_type == 'application/json':
+                     # JSON handler returns list of dicts: {'content':..., 'metadata':...}
+                     page_content = item_data['content']
+                     page_specific_metadata = item_data['metadata']
+                else: # Should not happen given the if condition, but for safety
+                    continue 
+                    
+                # Merge base file metadata with item-specific metadata
+                combined_metadata = {**base_file_metadata, **page_specific_metadata}
                 results.append({
                     'content': page_content,
                     'metadata': combined_metadata
                 })
-        else:
-            # Other handlers return a single result
+        # --- Handle single output handlers (TXT, MD, HTML, DOCX, CSV) ---
+        else: 
+            # Other handlers return a single tuple: (content, specific_metadata)
             content, specific_metadata = handler_output
             # Merge base file metadata with handler-specific metadata
             combined_metadata = {**base_file_metadata, **specific_metadata}
@@ -286,30 +299,55 @@ class DocumentLoader:
                 except Exception as unlink_e:
                     logger.error(f"Error removing temporary DOCX file {temp_path}: {unlink_e}")
     
-    def _load_json(self, file_obj: BinaryIO) -> tuple[str, Dict[str, Any]]:
+    def _load_json(self, file_obj: BinaryIO) -> List[Dict[str, Any]]:
         """
-        Load JSON content. Assumes JSON represents a single document or record.
-        Converts the JSON structure to a string representation for embedding/chunking.
+        Load JSON content. Assumes JSON is a list of fragment objects.
+        Each fragment object should have a 'text' key and optionally other keys for metadata.
         
         Args:
             file_obj: File-like object
             
         Returns:
-            Tuple of (content_string, metadata)
+            A list of dictionaries, each containing fragment content and metadata.
         """
+        results = []
         try:
             data = json.load(file_obj)
-            # Convert JSON data to a pretty-printed string
-            content_string = json.dumps(data, indent=2)
-            # Metadata could potentially include keys from the JSON object itself
-            metadata = {'json_keys': list(data.keys())} if isinstance(data, dict) else {}
-            return content_string, metadata
+            
+            # Check if data is a list
+            if not isinstance(data, list):
+                logger.error("JSON data is not a list of fragments as expected.")
+                return [] # Return empty list if format is wrong
+            
+            # Iterate through each fragment object in the list
+            for fragment in data:
+                if not isinstance(fragment, dict):
+                    logger.warning(f"Skipping non-dictionary item in JSON list: {fragment}")
+                    continue
+                
+                # Extract text content
+                content = fragment.get('text')
+                if not content or not isinstance(content, str):
+                    logger.warning(f"Skipping fragment with missing or invalid 'text' field: {fragment.get('fragment_id', 'UnknownID')}")
+                    continue
+                    
+                # Prepare metadata: include all keys except 'text'
+                metadata = {k: v for k, v in fragment.items() if k != 'text'}
+                
+                # Append the processed fragment to results
+                results.append({
+                    'content': content,
+                    'metadata': metadata
+                })
+                
+            return results
+            
         except json.JSONDecodeError as e:
             logger.error(f"Error decoding JSON: {e}", exc_info=True)
-            return "", {"error": f"Failed to decode JSON: {e}"}
+            return [] # Return empty list on decode error
         except Exception as e:
             logger.error(f"Error processing JSON file: {e}", exc_info=True)
-            return "", {"error": f"Failed to process JSON: {e}"}
+            return [] # Return empty list on other errors
     
     def _load_csv(self, file_obj: BinaryIO) -> tuple[str, Dict[str, Any]]:
         """

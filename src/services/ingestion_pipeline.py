@@ -14,6 +14,11 @@ from typing import List, Dict, Any, Optional
 from pathlib import Path
 import numpy as np
 
+# Import LLM and Pydantic for structural analysis
+from langchain_openai import ChatOpenAI
+# Using V1BaseModel consistent with NlQueryParser in this project
+from pydantic.v1 import BaseModel as V1BaseModel, Field as V1Field 
+
 # Local imports
 from src.utils.document_loader import DocumentLoader
 from src.utils.text_chunker import TextChunker
@@ -32,6 +37,16 @@ logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
 logger = logging.getLogger('IngestionPipeline')
+
+
+# --- Schema for LLM Structural Analysis Output ---
+class StructuralMetadata(V1BaseModel):
+    """Schema for extracting structural elements from a text chunk."""
+    perspective: Optional[str] = V1Field(None, description="Identify the narrator's perspective or viewpoint, if explicitly different from the main narrative (e.g., 'Character A's view', 'Author's note').")
+    layer_type: Optional[str] = V1Field(None, description="Classify the chunk's role if it deviates from the main narrative flow (e.g., 'FOOTNOTE', 'COMMENTARY', 'APPENDIX', 'MAIN'). Default to 'MAIN' if unsure.")
+    version: Optional[str] = V1Field(None, description="Identify if this chunk represents a specific version or draft, if indicated (e.g., 'Draft 1', 'Final Version').")
+    abstraction_level: Optional[str] = V1Field(None, description="Determine if this chunk is a summary or abstract of other content (e.g., 'SUMMARY', 'ABSTRACT', 'DETAILED'). Default to 'DETAILED'.")
+    # Add other potential structural elements as needed based on analysis
 
 
 class IngestionPipeline:
@@ -71,6 +86,20 @@ class IngestionPipeline:
         embedding_service_type = embedding_service_type or os.getenv('EMBEDDING_SERVICE_TYPE', 'mock')
         embedding_model_name = embedding_model_name or os.getenv('EMBEDDING_MODEL_NAME', 'all-MiniLM-L6-v2')
         embedding_cache_size = embedding_cache_size or int(os.getenv('EMBEDDING_CACHE_SIZE', 1000))
+        
+        # --- LLM for Structural Analysis ---
+        # Ensure API key is loaded (should be done at entry point or via dotenv)
+        if not os.getenv("OPENAI_API_KEY"):
+             # Consider raising an error or logging a warning depending on whether analysis is critical
+             logger.warning("OPENAI_API_KEY not set. Structural analysis via LLM will be skipped.")
+             self.structural_analysis_llm = None
+             self.structural_analysis_runnable = None
+        else:
+             # Using a capable but potentially faster/cheaper model for chunk analysis if possible
+             self.structural_analysis_llm = ChatOpenAI(model=os.getenv("STRUCTURAL_ANALYSIS_MODEL", "gpt-3.5-turbo"), temperature=0) 
+             # Create the runnable using the Pydantic schema
+             self.structural_analysis_runnable = self.structural_analysis_llm.with_structured_output(StructuralMetadata)
+        # --- End LLM Setup ---
         
         logger.info(f"Using embedding service: {embedding_service_type}, model: {embedding_model_name}")
         
@@ -170,8 +199,55 @@ class IngestionPipeline:
             for chunk_data in all_processed_chunks:
                 chunk_content = chunk_data['content']
                 chunk_metadata = chunk_data['metadata']
-                page_num = chunk_metadata.get('page_number', 0) # Retrieve page number
                 chunk_idx_on_page = chunk_metadata.get('chunk_index_on_page', -1) # Retrieve chunk index
+                
+                # === START: Step 2.5 - Structural Analysis using LLM ===
+                if self.structural_analysis_runnable:
+                    try:
+                        # Define a simple prompt (can be refined)
+                        prompt = f"Analyze the following text chunk and identify its structural role based on the provided schema. Focus on perspective shifts, explicit layers (like footnotes), versions, or abstraction levels mentioned in the text itself.\n\nText Chunk:\n{chunk_content[:1500]} # Limit context sent to LLM if needed"
+                        
+                        logger.debug(f"Running structural analysis for chunk {chunk_idx_on_page}...")
+                        structured_output = self.structural_analysis_runnable.invoke(prompt)
+                        logger.debug(f"Structural analysis raw output: {structured_output}")
+
+                        # Add extracted metadata to the chunk's metadata dictionary
+                        if isinstance(structured_output, StructuralMetadata):
+                            chunk_metadata['structural_perspective'] = structured_output.perspective
+                            # Use a specific prefix to avoid potential key collisions
+                            chunk_metadata['structural_layer_type'] = structured_output.layer_type if structured_output.layer_type else 'MAIN' # Default to MAIN
+                            chunk_metadata['structural_version'] = structured_output.version
+                            chunk_metadata['structural_abstraction_level'] = structured_output.abstraction_level if structured_output.abstraction_level else 'DETAILED' # Default to DETAILED
+                            # Add others as needed
+                            logger.debug(f"Updated chunk metadata with structural info: {chunk_metadata}")
+                        else:
+                            logger.warning(f"Structural analysis did not return expected StructuralMetadata object for chunk {chunk_idx_on_page}. Type was: {type(structured_output)}")
+                    except Exception as e:
+                        logger.error(f"Error during structural analysis for chunk {chunk_idx_on_page}: {e}", exc_info=True)
+                        self.stats['errors'] += 1
+                        # Assign default values if analysis fails?
+                        chunk_metadata['structural_layer_type'] = 'MAIN' # Default
+                        chunk_metadata['structural_abstraction_level'] = 'DETAILED' # Default
+                else:
+                    # If LLM is not configured, assign defaults
+                    logger.debug("Structural analysis LLM not configured, assigning defaults.")
+                    chunk_metadata['structural_layer_type'] = 'MAIN'
+                    chunk_metadata['structural_abstraction_level'] = 'DETAILED'
+                # === END: Step 2.5 - Structural Analysis using LLM ===
+                
+                # --- New Node ID Logic ---
+                fragment_id = chunk_metadata.get('fragment_id')
+                file_stem = Path(file_path).stem
+
+                if fragment_id:
+                    # If fragment_id exists (likely from JSON), use it for uniqueness
+                    # Include chunk index if a fragment spans multiple chunks
+                    node_id = f"frag_{fragment_id}_c{chunk_idx_on_page}"
+                else:
+                    # Fallback for non-JSON files or files without fragment_id
+                    page_num = chunk_metadata.get('page_number', 0)
+                    node_id = f"{file_stem}_p{page_num}_c{chunk_idx_on_page}"
+                # --- End New Node ID Logic ---
                 
                 # Step 3: Extract entities from the chunk (Optional - currently used for metadata)
                 extracted_data = self.entity_extractor.extract_entities(chunk_content)
@@ -195,13 +271,11 @@ class IngestionPipeline:
                 # Call the refactored mapper (mainly for keywords now, coords are calculated in add_node)
                 mapping_result = self.coordinate_mapper.map_to_coordinates(
                     content=chunk_content,
-                    metadata=chunk_metadata, # Pass structural info
+                    metadata=chunk_metadata, # Pass AUGMENTED structural info
                     embedding=embedding_np # Pass embedding for completeness / potential future use
                 )
 
                 # Step 5: Add the node to the Narrative Atlas
-                node_id = f"{Path(file_path).stem}_p{page_num}_c{chunk_idx_on_page}"
-                
                 # Extract coordinates object and keywords from mapping result
                 coordinates_obj = mapping_result.get('coordinate') # Get the PolarTemporalCoordinate object
                 keywords_list = mapping_result.get('keywords', [])
@@ -218,7 +292,7 @@ class IngestionPipeline:
                     # Pass content as a dictionary with a 'text' key
                     content={'text': chunk_content}, 
                     embedding=embedding_np, # Use the pre-calculated embedding
-                    metadata=chunk_metadata, # Pass full metadata
+                    metadata=chunk_metadata, # Pass AUGMENTED metadata
                     # Pass the PolarTemporalCoordinate object directly
                     coordinates=coordinates_obj, 
                     keywords=keywords_list, # Pass the list of keywords
@@ -241,10 +315,9 @@ class IngestionPipeline:
             return True
             
         except Exception as e:
-            logger.error(f"Error ingesting document {file_path}: {e}", exc_info=True) # Log traceback
+            logger.error(f"Failed to ingest document {file_path}: {e}", exc_info=True)
             self.stats['errors'] += 1
-            # Decide whether to re-raise or just return False
-            return False # Indicate failure but allow processing of other files
+            return False # Indicate failure
     
     def ingest_directory(self, directory: str = None) -> Dict[str, Any]:
         """
