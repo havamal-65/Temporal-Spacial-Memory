@@ -2,13 +2,14 @@ import os
 import json
 import logging
 from typing import List, Dict, Any, Tuple, Optional
+import tiktoken
 
 from langchain_openai import ChatOpenAI
 from langchain_core.messages import SystemMessage, HumanMessage
 from langchain_core.output_parsers import JsonOutputParser
 from langchain_core.pydantic_v1 import BaseModel, Field
 
-from src.models.polar_temporal_coordinate import PolarTemporalCoordinate
+from src.coordinates import PolarTemporalCoordinate
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -65,6 +66,39 @@ class StewardAnalyzer:
              self.parser = None
              self.chain = None
 
+    # Define a constant for the token limit threshold
+    MAX_CONTEXT_TOKENS = 100_000 # Set a safe margin below the model's limit (e.g., 128k for gpt-4o)
+
+    def _get_token_count(self, text: str) -> int:
+        """Estimates the token count for a given text using tiktoken."""
+        try:
+            # Assuming encoding for gpt-4o, adjust if model changes
+            # Using cl100k_base as it's common for GPT-4/3.5
+            encoding = tiktoken.get_encoding("cl100k_base") 
+            num_tokens = len(encoding.encode(text))
+            return num_tokens
+        except Exception as e:
+            logger.warning(f"Could not estimate token count with tiktoken: {e}. Returning char count.")
+            # Fallback to character count if tiktoken fails
+            return len(text)
+
+    def _simplify_context(self, document_context: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """Creates a simplified version of the context, keeping essential fields."""
+        simplified = []
+        for item in document_context:
+            # Extract coordinate details safely
+            coords = item.get('metadata', {}).get('coordinates', {})
+            z = coords.get('z')
+            z_type = coords.get('z_type')
+
+            simplified.append({
+                "node_id": item.get("node_id"),
+                "z": z, # Directly include z
+                "z_type": z_type, # Directly include z_type
+                "content_snippet": item.get("content_snippet", "") # Include snippet if available
+            })
+        return simplified
+
     def _create_prompt(self, document_context: List[Dict[str, Any]]) -> List[SystemMessage | HumanMessage]:
         """
         Creates the system and human prompts for the Steward LLM based on Phase 1 results.
@@ -78,8 +112,35 @@ class StewardAnalyzer:
         """
         # TODO: Implement Map-Reduce summarization if context exceeds limits.
         # For now, assume the context fits and format it directly.
+        # --- START: Context Size Check & Simplification ---
+        initial_formatted_context = json.dumps(document_context, indent=2)
+        initial_token_count = self._get_token_count(initial_formatted_context)
+        logger.debug(f"Initial Steward context token count estimate: {initial_token_count}")
 
-        formatted_context = json.dumps(document_context, indent=2)
+        final_formatted_context = initial_formatted_context
+        context_was_simplified = False
+
+        if initial_token_count > self.MAX_CONTEXT_TOKENS:
+            context_was_simplified = True
+            logger.warning(
+                f"Initial context token count ({initial_token_count}) exceeds threshold ({self.MAX_CONTEXT_TOKENS}). "
+                f"Simplifying context for Steward LLM."
+            )
+            simplified_context_data = self._simplify_context(document_context)
+            final_formatted_context = json.dumps(simplified_context_data, indent=2)
+            simplified_token_count = self._get_token_count(final_formatted_context)
+            logger.info(f"Simplified context token count estimate: {simplified_token_count}")
+            # Optional: Check if simplification was sufficient
+            if simplified_token_count > self.MAX_CONTEXT_TOKENS:
+                 logger.error(
+                     f"Simplified context ({simplified_token_count} tokens) still exceeds threshold. "
+                     f"Steward analysis might fail or be inaccurate. Consider Map-Reduce."
+                 )
+        # --- END: Context Size Check & Simplification ---
+
+        # formatted_context = json.dumps(document_context, indent=2)
+        # Use the potentially simplified context for the prompt
+        formatted_context_for_prompt = final_formatted_context
 
         system_prompt = f"""
 You are a Steward LLM responsible for analyzing the structural narrative assignments across multiple text chunks from a single document.
@@ -107,7 +168,7 @@ Do not explain your reasoning in the output, only provide the JSON.
 Here is the structural metadata collected from Phase 1 analysis for the document chunks:
 
 ```json
-{formatted_context}
+{formatted_context_for_prompt}
 ```
 
 Please analyze this metadata globally and provide the necessary coordinate updates in the specified JSON format. Remember to include the original r, theta, and t values along with the updated z and z_type in the 'new_coordinates' object for each update.

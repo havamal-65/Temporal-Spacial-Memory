@@ -27,7 +27,7 @@ from src.utils.coordinate_mapper import CoordinateMapper
 from src.utils.embedding_service import create_embedding_service
 # Import NarrativeAtlas
 from src.models.narrative_atlas import NarrativeAtlas
-from src.models.polar_temporal_coordinate import PolarTemporalCoordinate # Import needed for updates
+from src.coordinates import PolarTemporalCoordinate # Import needed for updates
 from src.services.steward_analyzer import StewardAnalyzer # <-- Added import
 
 # Load environment variables

@@ -10,6 +10,7 @@ import os
 import sys
 import logging
 import argparse
+from datetime import datetime  # for run-specific output folder
 import subprocess
 from dotenv import load_dotenv
 
@@ -56,6 +57,10 @@ def parse_args():
                         choices=['mock', 'langchain', 'cascading'],
                         help='Embedding backend to use for ingestion (default: mock)')
     
+    # Descriptor for this run's output subfolder
+    parser.add_argument('--run-name', type=str, default='run',
+                        help='Descriptor to append to the date for this run; used to name the output subfolder')
+    
     return parser.parse_args()
 
 
@@ -66,26 +71,30 @@ def main():
     args = parse_args()
     print(f"--- RUN.PY ARGS: {args} ---") # DEBUG
     
+    # Compute a timestamped subfolder under output_dir for this run
+    timestamp = datetime.now().strftime('%Y%m%d')
+    run_folder = f"{timestamp}_{args.run_name}"
+    # Use output_dir + run_folder as the storage path for this run
+    storage_path = os.path.join(args.output_dir, run_folder)
+    os.makedirs(storage_path, exist_ok=True)
+    
     # Check if input directory exists
     if not os.path.exists(args.input_dir):
         logger.error(f"Input directory '{args.input_dir}' does not exist")
         return
-    
-    # Create output directory if it doesn't exist
-    os.makedirs(args.output_dir, exist_ok=True)
     
     # Run in the specified mode
     if args.mode in ['ingest', 'all']:
         print("--- RUN.PY ENTERING INGEST MODE ---") # DEBUG
         logger.info("Running ingestion pipeline...")
         
-        # Build command
+        # Build command: override storage-path with our timestamped folder
         cmd = [
             sys.executable,
             "src/main.py",
             "--input-dir", args.input_dir,
             "--output-dir", args.output_dir,
-            "--storage-path", args.storage_path
+            "--storage-path", storage_path
         ]
         
         # Add clear-db flag if specified
@@ -111,11 +120,11 @@ def main():
             logger.error("Natural language query (--nl-query) is required in query mode")
             return
         
-        # Build command for src/query.py
+        # Build query command using the same storage_path
         cmd = [
             sys.executable,
             "src/query.py",
-            "--storage-path", args.storage_path,
+            "--storage-path", storage_path,
             "--max-results", str(args.max_results),
             "--embedding-service", args.embedding_service
         ]
