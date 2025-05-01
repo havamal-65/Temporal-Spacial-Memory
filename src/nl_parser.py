@@ -93,16 +93,7 @@ class NlQueryParser:
         """
         print(f"--- NL PARSER: Parsing query: '{query}' ---") # DEBUG
         
-        # Prepare the prompt/input for the LLM
-        # The description fields in the Pydantic models guide the extraction
-        # We could also add a system message for more complex instructions
-        
-        # --- Example System Message --- 
-        # This provides more explicit instructions to the LLM on how to interpret terms.
-        # While `with_structured_output` primarily uses Pydantic descriptions, 
-        # a system message can offer further guidance, especially for complex heuristics.
-        # Actual integration depends on how `with_structured_output` or the underlying
-        # LLM call chain is configured.
+        # Modified system message to be less aggressive on z_type filtering
         system_message = f"""You are an expert query analyst. Parse the user's query about documents.
         Extract the core semantic meaning into 'query_text'.
         Extract any specified filters for coordinates (r, theta, t, z, z_type).
@@ -112,17 +103,30 @@ class NlQueryParser:
         - 'low relevance' means r_min=1.5.
         - Interpret positional terms like 'start', 'beginning', 'middle', 'end' for the temporal/sequence coordinate 't'. Assume 't' ranges from 0 upwards. E.g., 'beginning' -> t_max=1.0, 'middle' -> t_min=1.0, t_max=10.0 (estimate). 'Near page X' -> derive approximate t value.
         - Interpret time expressions like 'last month', 'yesterday', 'today', 'specific dates' relative to the current date ({datetime.date.today()}). These might inform 't' filters IF the document has timestamps, otherwise focus on sequence (page/chunk) based 't'.
-        - Interpret structural terms like 'perspective of X', 'in the footnotes', 'version 2', 'summary section', 'document ID Y'. Map these to appropriate z_min, z_max, or z_type filters based on their meaning. Allowed z_types: {list(Z_TYPES.__args__)}.
+        
+        - **IMPORTANT**: Only extract a `z_type` filter if the query explicitly mentions structural document parts using keywords like 'perspective', 'footnote', 'commentary', 'appendix', 'version', 'summary', 'abstract', 'document ID', or 'layer'. Do NOT infer a `z_type` from general descriptive terms like 'technical layer' or 'narrative flow'. If no explicit structural term is mentioned, leave `z_type` as null/None. Allowed z_types: {list(Z_TYPES.__args__)}.
+        - If a structural term IS mentioned (e.g., 'Character A perspective', 'version 2'), try to map it to a specific `z` value filter (z_min/z_max) or the corresponding `z_type`.
+        
         - Do NOT attempt to derive theta (topic angle) filters from the topic words in the query for now. Set theta_min/theta_max only if explicit angles/directions (e.g., 'topics around 90 degrees') are mentioned.
         - If a single value is given for a coordinate (e.g., 'relevance 0.2', 'layer 1' mapped to z=1.0), set both min and max for that coordinate filter (e.g., r_min=0.2, r_max=0.2 or z_min=1.0, z_max=1.0).
         Return the extracted information structured according to the ParsedQuery schema."""
-        # --- End Example System Message --- 
         
         try:
-            # Invoke the LLM with the query, relying on the schema for guidance
-            # If using system message: self.extraction_runnable.invoke({"input": query, "system_message": system_message})
-            # or configure it when creating the runnable/chain.
-            structured_output = self.extraction_runnable.invoke(query)
+            # Pass the query and the system message (if the runnable supports it directly,
+            # otherwise, you might need to format it into the user message or use a chain)
+            # Assuming .invoke() takes a simple string for now, need to check Langchain docs for best way
+            # to include system message with with_structured_output
+            # ---> For now, we rely on the LLM understanding the instructions within the query itself
+            # ---> or implicitly via the Pydantic descriptions. Adjusting the system message *might* work
+            # ---> depending on the exact Langchain implementation details.
+            
+            # Let's try prepending a simplified instruction to the user query for the LLM
+            # This is a less robust way than a proper system message but might work.
+            prompt_for_llm = f"{system_message}\n\nUser Query: {query}"
+            
+            # structured_output = self.extraction_runnable.invoke(query) # Original call
+            structured_output = self.extraction_runnable.invoke(prompt_for_llm) # Call with combined prompt
+            
             print(f"--- NL PARSER: Raw LLM Output: {structured_output} ---") # DEBUG
             
             # Langchain's with_structured_output should directly return the Pydantic object

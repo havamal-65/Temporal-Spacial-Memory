@@ -10,7 +10,7 @@ from langchain_community.vectorstores import FAISS
 from langchain_community.docstore.in_memory import InMemoryDocstore
 from src.models.spatial_temporal_db import SpatialTemporalDB
 from src.utils.embedding_service import EmbeddingService
-from src.coordinates import PolarTemporalCoordinate
+from src.data_models import PolarTemporalCoordinate
 import time
 import hashlib
 import logging
@@ -51,7 +51,6 @@ class NarrativeAtlas:
         from src.utils.coordinate_mapper import CoordinateMapper
         self.coordinate_mapper = CoordinateMapper(
             embedding_service=self.embedding_service,
-            default_chunk_layer=int(os.getenv('DEFAULT_CHUNK_LAYER', 2)),
             base_radius=float(os.getenv('BASE_RADIUS', 0.9))
         )
         self.embedding_dim = self.embedding_service.embedding_dim
@@ -673,8 +672,8 @@ class NarrativeAtlas:
         
         print(f"--- NARRATIVE ATLAS: Performing initial vector search with k={initial_k} ---")
         try:
-            # Use similarity_search_by_vector_with_scores if embedding is precomputed
-            initial_docs_with_scores = self.vector_store.similarity_search_by_vector_with_relevance_scores(
+            # Use the standard method that returns distances/scores with vector search
+            initial_docs_with_scores = self.vector_store.similarity_search_by_vector_with_scores(
                 embedding=query_embedding,
                 k=initial_k
             )
@@ -691,17 +690,18 @@ class NarrativeAtlas:
         else:
             candidate_set = set(candidate_doc_ids)
             for doc, score in initial_docs_with_scores:
-                doc_id = doc.metadata.get("id") # Langchain FAISS might store the ID here
+                # Assuming Langchain FAISS stores original node_id in metadata['node_id']
+                # This was added during _add_or_update_embedding
+                doc_id = doc.metadata.get("node_id") 
                 if doc_id and doc_id in candidate_set:
                      filtered_results_with_scores.append((doc, score))
             print(f"--- NARRATIVE ATLAS: Filtered vector search results down to {len(filtered_results_with_scores)} based on coordinate filters ---")
 
         # --- Limit to final k and format results ---
         final_results = []
-        # Sort by score (relevance scores: higher is better, distances: lower is better - check score type)
-        # Assuming similarity_search_..._relevance_scores returns higher=better
-        # Sort descending by score
-        filtered_results_with_scores.sort(key=lambda item: item[1], reverse=True) 
+        # Sort by score (similarity_search_by_vector_with_scores returns distance, lower is better)
+        # Sort ascending by score
+        filtered_results_with_scores.sort(key=lambda item: item[1], reverse=False) # <-- Changed reverse to False
         
         for doc, score in filtered_results_with_scores[:k]: # Take top k
             node_id = doc.metadata.get("node_id")

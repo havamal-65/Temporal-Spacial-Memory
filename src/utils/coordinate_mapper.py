@@ -179,13 +179,25 @@ class CoordinateMapper:
                  z_type = 'DEFAULT' # Fallback if generated type isn't valid
         elif version:
              # Example: Use version directly (or mapped)
+             numeric_part = None
              try:
-                 z = float(version) * self.version_z_multiplier # Scale version number
+                 # Attempt to extract a year or number from the version string
+                 match = re.search(r'\b(\d{4}|\d+\.?\d*)\b', version)
+                 if match:
+                     numeric_part = float(match.group(1))
+                     
+                 if numeric_part is not None:
+                     z = numeric_part * self.version_z_multiplier # Scale extracted number
+                     logger.debug(f"Mapped version '{version}' to z={z} based on numeric part {numeric_part}")
+                 else:
+                     # If no number found, fall back to hashing the whole string
+                     logger.debug(f"No clear numeric part in version '{version}'. Using hash for z-mapping.")
+                     z = self._hash_to_z(f"version_{version}", (200.0, 300.0))
                  z_type = 'VERSION'
-             except ValueError:
-                 logger.warning(f"Could not convert version '{version}' to float for z-mapping.")
-                 # Fallback to default or hash?
-                 z = self._hash_to_z(f"version_{version}", (200.0, 300.0)) # Example hash fallback
+             except Exception as e: # Catch potential errors during regex or float conversion
+                 logger.warning(f"Error processing version '{version}' for z-mapping: {e}. Falling back to hash.")
+                 # Fallback to hashing the whole string on any error
+                 z = self._hash_to_z(f"version_{version}", (200.0, 300.0))
                  z_type = 'VERSION'
         elif abstraction_level and abstraction_level != 'DETAILED': # Check against default
              z = self._map_abstraction_to_z(abstraction_level)
