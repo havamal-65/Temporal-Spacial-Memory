@@ -672,41 +672,42 @@ class NarrativeAtlas:
         
         print(f"--- NARRATIVE ATLAS: Performing initial vector search with k={initial_k} ---")
         try:
-            # Use the standard method that returns distances/scores with vector search
-            initial_docs_with_scores = self.vector_store.similarity_search_by_vector_with_scores(
+            # Use the base similarity search by vector method
+            initial_docs = self.vector_store.similarity_search_by_vector(
                 embedding=query_embedding,
                 k=initial_k
             )
-            print(f"--- NARRATIVE ATLAS: Initial vector search returned {len(initial_docs_with_scores)} results ---")
+            print(f"--- NARRATIVE ATLAS: Initial vector search returned {len(initial_docs)} results ---")
         except Exception as e:
             print(f"Error during initial vector search: {e}. Returning empty results.")
             # logger.error(f"Error during vector search for '{parsed_params.query_text}': {e}", exc_info=True)
             return []
 
         # --- Filter the initial results based on candidate_doc_ids (if applicable) ---
-        filtered_results_with_scores = []
+        # Need to handle that we only have docs now, not (doc, score) tuples
+        filtered_docs = []
         if candidate_doc_ids is None: # No coordinate filtering was done
-            filtered_results_with_scores = initial_docs_with_scores
+            filtered_docs = initial_docs
         else:
             candidate_set = set(candidate_doc_ids)
-            for doc, score in initial_docs_with_scores:
+            for doc in initial_docs: # Iterate through docs directly
                 # Assuming Langchain FAISS stores original node_id in metadata['node_id']
-                # This was added during _add_or_update_embedding
                 doc_id = doc.metadata.get("node_id") 
                 if doc_id and doc_id in candidate_set:
-                     filtered_results_with_scores.append((doc, score))
-            print(f"--- NARRATIVE ATLAS: Filtered vector search results down to {len(filtered_results_with_scores)} based on coordinate filters ---")
+                     filtered_docs.append(doc) # Append the matching doc
+            print(f"--- NARRATIVE ATLAS: Filtered vector search results down to {len(filtered_docs)} based on coordinate filters ---")
 
         # --- Limit to final k and format results ---
         final_results = []
         # Sort by score (similarity_search_by_vector_with_scores returns distance, lower is better)
         # Sort ascending by score
-        filtered_results_with_scores.sort(key=lambda item: item[1], reverse=False) # <-- Changed reverse to False
+        # filtered_results_with_scores.sort(key=lambda item: item[1], reverse=False) # <-- Comment out sorting as we have no scores
         
-        for doc, score in filtered_results_with_scores[:k]: # Take top k
+        # Iterate through filtered docs up to k
+        for doc in filtered_docs[:k]: 
             node_id = doc.metadata.get("node_id")
             if node_id and node_id in self.db.nodes:
-                final_results.append((self.db.nodes[node_id], float(score)))
+                final_results.append((self.db.nodes[node_id], 0.0)) # Append node and placeholder score (0.0)
             elif node_id:
                  print(f"Warning: Found node_id {node_id} in final results but not in DB.")
             else:

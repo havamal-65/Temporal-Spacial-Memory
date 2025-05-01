@@ -15,7 +15,6 @@ import numpy as np
 from typing import List, Dict, Any, Optional, Tuple
 from pathlib import Path
 from dotenv import load_dotenv
-from dataclasses import asdict
 
 # Load environment variables from .env file
 load_dotenv()
@@ -103,7 +102,7 @@ class QueryEngine:
             'score': formatted_score,
             'node_type': item_node.type,
              # Directly access coordinates from the Node object
-            'coordinates': asdict(item_node.coordinates) if item_node.coordinates else None, 
+            'coordinates': item_node.coordinates.model_dump() if item_node.coordinates else None,
             'temporal_coordinate': item_node.coordinates.t if item_node.coordinates else None, 
             'metadata': item_node.metadata
         }
