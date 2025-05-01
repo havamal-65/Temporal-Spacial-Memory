@@ -26,7 +26,9 @@ from src.utils.entity_extractor import EntityExtractor
 from src.utils.coordinate_mapper import CoordinateMapper
 from src.utils.embedding_service import create_embedding_service
 # Import NarrativeAtlas
-from src.models.narrative_atlas import NarrativeAtlas 
+from src.models.narrative_atlas import NarrativeAtlas
+from src.models.polar_temporal_coordinate import PolarTemporalCoordinate # Import needed for updates
+from src.services.steward_analyzer import StewardAnalyzer # <-- Added import
 
 # Load environment variables
 dotenv.load_dotenv()
@@ -94,11 +96,14 @@ class IngestionPipeline:
              logger.warning("OPENAI_API_KEY not set. Structural analysis via LLM will be skipped.")
              self.structural_analysis_llm = None
              self.structural_analysis_runnable = None
+             self.steward_analyzer = None # <-- Initialize as None here too
         else:
              # Using a capable but potentially faster/cheaper model for chunk analysis if possible
              self.structural_analysis_llm = ChatOpenAI(model=os.getenv("STRUCTURAL_ANALYSIS_MODEL", "gpt-3.5-turbo"), temperature=0) 
              # Create the runnable using the Pydantic schema
              self.structural_analysis_runnable = self.structural_analysis_llm.with_structured_output(StructuralMetadata)
+             # Initialize StewardAnalyzer here as well, using the designated model
+             self.steward_analyzer = StewardAnalyzer(llm_model=os.getenv("STEWARD_ANALYSIS_MODEL", "gpt-4o")) # <-- Initialize StewardAnalyzer
         # --- End LLM Setup ---
         
         logger.info(f"Using embedding service: {embedding_service_type}, model: {embedding_model_name}")
@@ -163,6 +168,7 @@ class IngestionPipeline:
                 return False # Indicate failure if no pages loaded
             
             all_processed_chunks = [] # Collect chunks from all pages
+            phase1_results = [] # <-- Initialize list to store phase 1 data for Steward LLM
             
             # --- Process Page by Page ---
             for page_data in pages:
@@ -249,6 +255,15 @@ class IngestionPipeline:
                     node_id = f"{file_stem}_p{page_num}_c{chunk_idx_on_page}"
                 # --- End New Node ID Logic ---
                 
+                # === Store Phase 1 data for potential Steward Analysis ===
+                phase1_results.append({
+                    "node_id": node_id,
+                    "metadata": chunk_metadata.copy(), # Store a copy of metadata
+                    # Optional: Add chunk_content snippet if needed by Steward
+                    "content_snippet": chunk_content[:200] # Example: first 200 chars
+                })
+                # === End Storing Phase 1 data ===
+                
                 # Step 3: Extract entities from the chunk (Optional - currently used for metadata)
                 extracted_data = self.entity_extractor.extract_entities(chunk_content)
                 
@@ -312,6 +327,57 @@ class IngestionPipeline:
             
             logger.info(f"Successfully ingested document: {file_path} ({total_chunks_in_doc} chunks) in {elapsed_time:.2f} seconds")
             
+            # === START: Step 5 - Steward LLM Reconfiguration ===
+            if self.steward_analyzer and phase1_results:
+                logger.info(f"Starting Steward LLM analysis for {len(phase1_results)} chunks in {os.path.basename(file_path)}...")
+                try:
+                    # Call the StewardAnalyzer to get reconfiguration suggestions
+                    reconfiguration_updates = self.steward_analyzer.analyze_and_recommend_updates(phase1_results)
+                    
+                    if reconfiguration_updates and reconfiguration_updates.get("updates"):
+                        updates_list = reconfiguration_updates["updates"]
+                        logger.info(f"Steward LLM proposed {len(updates_list)} structural updates.")
+                        
+                        # Apply the updates
+                        for update in updates_list:
+                            node_id_to_update = update.get("node_id")
+                            new_coords_dict = update.get("new_coordinates")
+                            
+                            if node_id_to_update and new_coords_dict:
+                                try:
+                                    # Create a new coordinate object from the dictionary
+                                    # Ensure all required fields (r, theta, t, z, z_type) are present
+                                    if all(k in new_coords_dict for k in ('r', 'theta', 't', 'z', 'z_type')):
+                                        new_coordinate = PolarTemporalCoordinate(
+                                            r=new_coords_dict['r'],
+                                            theta=new_coords_dict['theta'],
+                                            t=new_coords_dict['t'],
+                                            z=new_coords_dict['z'],
+                                            z_type=new_coords_dict['z_type']
+                                        )
+                                        
+                                        # Call the actual update method directly now
+                                        self.narrative_atlas.update_node_coordinates(node_id_to_update, new_coordinate)
+                                        logger.debug(f"Applied Steward update to node {node_id_to_update}")
+                                    else:
+                                        logger.warning(f"Skipping update for node {node_id_to_update}: new_coordinates dictionary is missing required keys.")
+
+                                except Exception as update_err:
+                                    logger.error(f"Error applying Steward update to node {node_id_to_update}: {update_err}", exc_info=True)
+                                    self.stats['errors'] += 1
+                            else:
+                                logger.warning(f"Skipping invalid update suggestion: {update}")
+                    else:
+                        logger.info("Steward LLM analysis completed, no updates proposed.")
+
+                except Exception as steward_err:
+                    logger.error(f"Error during Steward LLM analysis for document {file_path}: {steward_err}", exc_info=True)
+                    self.stats['errors'] += 1
+                    logger.warning("Skipping structural reconfiguration due to Steward LLM error. Using Phase 1 results.")
+            elif not self.steward_analyzer:
+                logger.info("Steward analyzer not configured. Skipping post-chunk reconfiguration.")
+            # === END: Step 5 - Steward LLM Reconfiguration ===
+
             return True
             
         except Exception as e:

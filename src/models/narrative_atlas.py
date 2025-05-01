@@ -761,3 +761,57 @@ Answer the question: {user_query}
         # return llm_response
         
         return prompt 
+
+    def update_node_coordinates(self, node_id: str, new_coordinates: PolarTemporalCoordinate) -> bool:
+        """
+        Updates the coordinates of an existing node and its metadata in the docstore.
+
+        Args:
+            node_id: The ID of the node to update.
+            new_coordinates: The new PolarTemporalCoordinate object.
+
+        Returns:
+            True if the update was successful, False otherwise.
+        """
+        if node_id not in self.db.nodes:
+            logger.warning(f"Attempted to update coordinates for non-existent node: {node_id}")
+            return False
+
+        if self.vector_store is None or not hasattr(self.vector_store, 'docstore'):
+            logger.error("Vector store or docstore not initialized. Cannot update node coordinates.")
+            return False
+            
+        node_to_update = self.db.nodes[node_id]
+
+        # 1. Update Node object's coordinates
+        node_to_update.coordinates = new_coordinates
+        logger.debug(f"Updated node {node_id} coordinates in internal DB.")
+
+        # 2. Update coordinate metadata in the Node's metadata dict
+        # Ensure metadata exists
+        if not isinstance(node_to_update.metadata, dict):
+             node_to_update.metadata = {} # Initialize if somehow missing/wrong type
+
+        node_to_update.metadata['coord_r'] = new_coordinates.r
+        node_to_update.metadata['coord_theta'] = new_coordinates.theta
+        node_to_update.metadata['coord_t'] = new_coordinates.t
+        node_to_update.metadata['coord_z'] = new_coordinates.z
+        node_to_update.metadata['coord_z_type'] = new_coordinates.z_type
+        logger.debug(f"Updated node {node_id} coordinate metadata.")
+
+        # 3. Reconstruct the Document object with updated metadata
+        # Assuming content is stored under 'text' key
+        page_content = node_to_update.content.get('text', '') 
+        updated_metadata = node_to_update.metadata 
+        
+        updated_document = Document(page_content=page_content, metadata=updated_metadata)
+
+        # 4. Update the document in the docstore using its add method
+        # For InMemoryDocstore, adding with an existing ID overwrites.
+        try:
+            self.vector_store.docstore.add({node_id: updated_document})
+            logger.info(f"Successfully updated coordinates and metadata for node {node_id} in docstore.")
+            return True
+        except Exception as e:
+            logger.error(f"Error updating docstore for node {node_id}: {e}", exc_info=True)
+            return False 

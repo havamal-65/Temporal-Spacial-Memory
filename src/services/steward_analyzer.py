@@ -8,7 +8,7 @@ from langchain_core.messages import SystemMessage, HumanMessage
 from langchain_core.output_parsers import JsonOutputParser
 from langchain_core.pydantic_v1 import BaseModel, Field
 
-from src.models.coordinate import PolarTemporalCoordinate
+from src.models.polar_temporal_coordinate import PolarTemporalCoordinate
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -30,26 +30,40 @@ class StewardAnalyzer:
     Analyzes structural assignments (z, z_type) across a document's chunks
     using an LLM to identify global patterns and suggest refinements.
     """
-    def __init__(self, api_key: str, model_name: str = "gpt-4o"):
+    def __init__(self, llm_model: str = "gpt-4o"):
         """
         Initializes the StewardAnalyzer.
 
         Args:
-            api_key: The OpenAI API key.
-            model_name: The name of the OpenAI model to use (default: "gpt-4o").
+            llm_model: The name of the OpenAI model to use (default: "gpt-4o").
         """
-        if not api_key:
-            raise ValueError("OpenAI API key is required.")
+        self.model_name = llm_model
+        self.llm = None
+        self.parser = None
+        self.chain = None
 
-        self.model_name = model_name
-        self.llm = ChatOpenAI(
-            openai_api_key=api_key,
-            model=self.model_name,
-            temperature=0.1, # Lower temperature for more deterministic structural analysis
-            model_kwargs={"response_format": {"type": "json_object"}} # Enforce JSON output
-        )
-        self.parser = JsonOutputParser(pydantic_object=StewardUpdates)
-        logger.info(f"StewardAnalyzer initialized with model: {self.model_name}")
+        api_key = os.getenv("OPENAI_API_KEY")
+        if not api_key:
+            logger.warning("OPENAI_API_KEY not set. Steward analysis via LLM will be skipped.")
+            # Keep self.llm and self.chain as None
+            return # Stop initialization here if no key
+
+        try:
+            self.llm = ChatOpenAI(
+                openai_api_key=api_key,
+                model=self.model_name,
+                temperature=0.1, # Lower temperature for more deterministic structural analysis
+                model_kwargs={"response_format": {"type": "json_object"}} # Enforce JSON output
+            )
+            self.parser = JsonOutputParser(pydantic_object=StewardUpdates)
+            self.chain = self.llm | self.parser # Define the chain here
+            logger.info(f"StewardAnalyzer initialized with model: {self.model_name}")
+        except Exception as e:
+             logger.error(f"Error initializing StewardAnalyzer LLM or Parser: {e}", exc_info=True)
+             # Ensure chain is None if initialization fails
+             self.llm = None
+             self.parser = None
+             self.chain = None
 
     def _create_prompt(self, document_context: List[Dict[str, Any]]) -> List[SystemMessage | HumanMessage]:
         """
@@ -104,7 +118,7 @@ Please analyze this metadata globally and provide the necessary coordinate updat
             HumanMessage(content=human_prompt_content)
         ]
 
-    def analyze_and_suggest_updates(self, document_context: List[Dict[str, Any]]) -> Optional[StewardUpdates]:
+    def analyze_and_recommend_updates(self, document_context: List[Dict[str, Any]]) -> Optional[StewardUpdates]:
         """
         Analyzes the collected Phase 1 structural metadata for a document and suggests
         coordinate updates using the Steward LLM.
@@ -123,6 +137,11 @@ Please analyze this metadata globally and provide the necessary coordinate updat
             logger.warning("Received empty document context for Steward analysis. Skipping.")
             return StewardUpdates(updates=[]) # Return empty updates if context is empty
 
+        # Check if LLM/chain was initialized successfully
+        if not self.chain:
+            logger.warning("StewardAnalyzer chain not initialized (likely missing API key or init error). Skipping analysis.")
+            return StewardUpdates(updates=[]) # Return empty updates
+            
         logger.info(f"Starting Steward analysis for {len(document_context)} chunks.")
 
         # --- Context Size Check & Potential Summarization (Map-Reduce) ---
@@ -138,9 +157,9 @@ Please analyze this metadata globally and provide the necessary coordinate updat
 
         # --- LLM Invocation & Parsing ---
         try:
-            chain = self.llm | self.parser
-            logger.debug("Invoking Steward LLM...")
-            result = chain.invoke(prompt_messages)
+            # Use the chain defined in __init__
+            logger.debug("Invoking Steward LLM chain...")
+            result = self.chain.invoke(prompt_messages)
             logger.info(f"Steward LLM analysis complete. Suggested {len(result.updates)} updates.")
             logger.debug(f"Steward LLM raw output (parsed): {result}")
             return result
