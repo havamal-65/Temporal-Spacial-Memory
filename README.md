@@ -35,29 +35,33 @@ The system uses an initial analysis pass followed by a "Steward LLM" phase, whic
 
 1.  **Clone the repository:**
     ```bash
-    git clone <repository-url>
+    git clone <repository-url> # Replace <repository-url> with the actual URL
     cd Temporal-Spacial\ Memory
     ```
-2.  **Create and activate a virtual environment:**
+2.  **Run the setup script:**
+    This script will create a virtual environment (if it doesn't exist), install dependencies from `requirements.txt`, and download the necessary spaCy model.
     ```bash
-    # Windows
-    python -m venv venv
-    .\venv\Scripts\activate
-
-    # Linux/macOS
-    python3 -m venv venv
-    source venv/bin/activate
+    python setup.py
     ```
-3.  **Install dependencies:**
+3.  **Activate the virtual environment:**
+    After the setup script finishes, activate the created environment. The script will print the correct command for your OS (Windows or Linux/macOS).
     ```bash
-    pip install -r requirements.txt
+    # Example for Windows (Command Prompt/PowerShell)
+    .\venv\Scripts\activate
+    
+    # Example for Linux/macOS (bash/zsh)
+    source venv/bin/activate 
     ```
 4.  **Configure Environment Variables:**
-    Create a `.env` file in the project root and add necessary variables, such as your OpenAI API key:
-    ```dotenv
-    OPENAI_API_KEY='your_openai_api_key_here'
-    # Add other necessary environment variables
+    The setup script will remind you, but ensure you have a `.env` file in the project root. If you don't, copy the `.env copy.txt` file to `.env` and add your OpenAI API key and any other required variables:
+    ```bash
+    # Example for Windows
+    copy ".env copy.txt" .env 
+    
+    # Example for Linux/macOS
+    cp ".env copy.txt" .env
     ```
+    Then, edit the `.env` file to add your credentials.
 
 ## Usage
 
@@ -111,106 +115,4 @@ The system is being developed in phases:
     *   It utilizes an LLM (`gpt-4o-mini` by default) via LangChain to analyze node content.
     *   It correctly assigns semantic coordinates (`r` for relevance, `theta` for topic) based on LLM output.
     *   **Batch processing** is implemented using `refinement_chain.batch()` for improved performance.
-    *   **Retry logic** with exponential backoff is implemented in `refine_coordinates.py` to handle potential OpenAI API rate limits.
-    *   The script now successfully processes all nodes in testing, handling potential rate limits.
-    *   The updated nodes with refined coordinates are saved to `spatial_temporal_db.pkl`.
-    *   A progress report is available: `docs/planning/progress_report_phase2_refinement.md`.
-
-## Components
-
-The system is organized into several key components:
-
-1.  **Models (`src/models`)**:
-    *   `SpatialTemporalDB`: Basic in-memory node storage.
-    *   `Node`: Dataclass representing a text chunk or other entity.
-    *   `CoordinateSystem`: Defines the `PolarTemporalCoordinate`.
-    *   `NarrativeAtlas`: High-level interface for managing nodes, coordinates, and the FAISS vector store. Orchestrates coordinate calculation and storage.
-2.  **Services (`src/services`)**:
-    *   `IngestionPipeline`: Orchestrates document loading, chunking, embedding generation, and adding nodes to the `NarrativeAtlas`.
-3.  **Utilities (`src/utils`)**:
-    *   `DocumentLoader`: Loads various document types (PDF, DOCX, TXT, etc.).
-    *   `TextChunker`: Splits text into manageable chunks.
-    *   `EntityExtractor`: Extracts named entities, events, and locations using spaCy.
-    *   `CoordinateMapper`: Calculates coordinates (primarily structural in Phase 1) and extracts keywords.
-    *   `EmbeddingService`: Handles text embedding generation (supports mock, LangChain models).
-
-## Installation
-
-1.  Clone the repository:
-    ```bash
-    git clone <your-repo-url>
-    cd Temporal-Spacial Memory
-    ```
-2.  Create a virtual environment (recommended) and activate it.
-3.  Install dependencies:
-    ```bash
-    pip install -r requirements.txt
-    ```
-4.  Download the spaCy model (required for entity extraction):
-    ```bash
-    python -m spacy download en_core_web_sm
-    ```
-5.  (Optional) Create a `.env` file to configure `OPENAI_API_KEY` if using OpenAI embeddings, or other settings like `CHUNK_SIZE`, `CHUNK_OVERLAP`.
-
-## Usage
-
-Use the `run.py` script for primary operations:
-
-**1. Ingest Documents:**
-
-*   Place documents in the `input/` directory (or a subdirectory).
-*   Run the ingestion command, specifying the storage path and input directory.
-
-    ```bash
-    # Example: Ingest documents from 'input/' into 'output/my_atlas'
-    python run.py --mode ingest --storage-path output/my_atlas --input-dir input
-    ```
-*   Use `--clear-db` flag to remove existing data at the storage path before ingesting.
-
-    ```bash
-    # Example: Clear and ingest into 'output/test_atlas'
-    python run.py --mode ingest --storage-path output/test_atlas --input-dir input --clear-db
-    ```
-
-**2. Query the Atlas:**
-
-*   Run the query command, specifying the storage path and your text query.
-
-    ```bash
-    # Example: Query 'output/my_atlas'
-    python run.py --mode query --storage-path output/my_atlas --text-query "Search for this information"
-    ```
-*   Adjust the number of results with `--max-results` (default: 10).
-
-### Command-line Options (`run.py`)
-
-*   `--mode`: Operation mode (`ingest`, `query`, default: `ingest`).
-*   `--input-dir`: Directory containing input documents for ingestion (default: `input`).
-*   `--storage-path`: Path for storing/loading the Narrative Atlas data (DB + FAISS index). Required for both ingest and query.
-*   `--clear-db`: (Ingest mode only) Clear existing data at `--storage-path` before ingestion.
-*   `--text-query`: (Query mode only) The text query for similarity search.
-*   `--max-results`: (Query mode only) Maximum number of results to return (default: 10).
-*   `--embedding-service`: Choose the embedding service (`mock`, `langchain`, `cascading`, default: `mock`).
-
-## Configuration
-
-Environment variables can be set (e.g., in a `.env` file):
-
-*   `EMBEDDING_SERVICE_TYPE`: Default embedding service if not specified via CLI.
-*   `EMBEDDING_MODEL_NAME`: Specific model name (e.g., "all-MiniLM-L6-v2", "text-embedding-3-small").
-*   `OPENAI_API_KEY`: Required if using OpenAI models.
-*   `CHUNK_SIZE`: Default text chunk size (default: 1000).
-*   `CHUNK_OVERLAP`: Default chunk overlap (default: 200).
-
-## Next Steps
-
-1.  ~~**Address Rate Limiting:** Implement retry logic (e.g., with exponential backoff) in `refine_coordinates.py` to handle `RateLimitError` during batch processing.~~ (DONE)
-2.  ~~**Complete Refinement:** Run the finalized `refine_coordinates.py` script to process all nodes and generate the full set of semantic coordinates.~~ (DONE - Verified)
-3.  **Phase 3 (Querying Mechanisms):**
-    *   Develop advanced querying mechanisms that leverage the refined `r` and `theta` coordinates.
-4.  **Phase 4 (Visualization):**
-    *   Implement visualization tools to explore the 4D Narrative Atlas.
-
-## License
-
-MIT License.
+    *   **Retry logic** with exponential backoff is implemented in `refine_coordinates.py`
