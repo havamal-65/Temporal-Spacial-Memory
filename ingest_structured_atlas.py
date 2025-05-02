@@ -9,13 +9,14 @@ import argparse
 import logging
 import json
 import time
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Union
 
 from dotenv import load_dotenv, find_dotenv
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
-from langchain_core.pydantic_v1 import BaseModel, Field, validator
+# Use pydantic.v1 explicitly to address deprecation warning and maintain V1 compatibility
+from pydantic.v1 import BaseModel, Field, validator
 from langchain_community.document_loaders import PyPDFLoader
 
 # Add the src directory to the path to enable imports
@@ -48,7 +49,8 @@ logger = logging.getLogger('StructuredIngestion')
 # Pydantic model for structured LLM output
 class ExtractedEntities(BaseModel):
     characters: List[str] = Field(default_factory=list, description="List of character names mentioned on the page.")
-    events: List[Dict[str, str | List[str]]] = Field(default_factory=list, description="List of events. Each event should have a 'description' (string) and optionally 'participant_names' (list of strings).")
+    # Use Union[] for Python < 3.10 compatibility
+    events: List[Dict[str, Union[str, List[str]]]] = Field(default_factory=list, description="List of events. Each event should have a 'description' (string) and optionally 'participant_names' (list of strings).")
     locations: List[str] = Field(default_factory=list, description="List of location names mentioned on the page.")
 
     @validator('events')
