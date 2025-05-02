@@ -25,10 +25,11 @@ The system uses an initial analysis pass followed by a "Steward LLM" phase, whic
 -   `src/services/ingestion_pipeline.py`: Orchestrates the document ingestion process, including chunking, initial coordinate mapping, and invoking the Steward LLM.
 -   `src/services/coordinate_mapper.py`: Responsible for calculating the initial coordinates for each text chunk.
 -   `src/services/steward_analyzer.py`: Implements the Steward LLM logic using a Map-Reduce approach for global coordinate refinement.
--   `run.py`: The main script for executing the document ingestion pipeline.
--   `server.py`: (Likely intended for querying the Narrative Atlas - TBD)
+-   `ingest_structured_atlas.py`: Main script for ingesting PDF documents, performing initial structural/semantic analysis, and optionally running the Steward LLM refinement.
+-   `src/query.py`: Handles querying the Narrative Atlas (under development/verification).
 -   `requirements.txt`: Lists project dependencies.
 -   `.env`: File for storing environment variables (e.g., API keys).
+-   `server.py`: (Potentially for future API access - TBD)
 
 ## Setup
 
@@ -60,15 +61,20 @@ The system uses an initial analysis pass followed by a "Steward LLM" phase, whic
 
 ## Usage
 
-1.  Place the document(s) you want to ingest into the `input/` directory (or a subdirectory within it).
-2.  Run the ingestion pipeline using `run.py`. You might need to specify input/output directories and database paths:
+1.  Place the document(s) you want to ingest (currently supports PDF via `ingest_structured_atlas.py`) into a suitable directory (e.g., `input/`).
+2.  Run the ingestion script (`ingest_structured_atlas.py`), specifying the input PDF and the path for the atlas data:
     ```bash
-    python run.py --input-dir ./input --output-dir ./output/ --db-path ./cache/narrative_atlas.db --index-path ./cache/narrative_atlas.index
+    python ingest_structured_atlas.py --input-pdf ./input/your_document.pdf --output-atlas-path ./output/my_atlas_data
     ```
-    *(Note: Check `run.py` for the exact command-line arguments and their usage.)*
-
-3.  Processed outputs, logs, and debug information will be generated in the specified `output/` directory.
-4.  The FAISS index and database are typically stored in the `cache/` directory.
+    -   Use `--overwrite` to clear any existing atlas data at the output path before starting.
+    -   Use `--start-page` and `--end-page` to process only a specific range of pages.
+    -   Use `--llm-model` to specify a different OpenAI model (e.g., `gpt-4o-mini`).
+3.  Processed outputs (the Narrative Atlas data including FAISS index and node database) will be saved in the directory specified by `--output-atlas-path`. Debug logs are printed to the console.
+4.  (Future/Under Development) Query the generated atlas using `src/query.py`:
+    ```bash
+    # Example structure - verify arguments in src/query.py
+    python src/query.py --atlas-path ./output/my_atlas_data --query "Search for specific information"
+    ```
 
 ## Testing
 
@@ -127,10 +133,6 @@ The system is organized into several key components:
     *   `EntityExtractor`: Extracts named entities, events, and locations using spaCy.
     *   `CoordinateMapper`: Calculates coordinates (primarily structural in Phase 1) and extracts keywords.
     *   `EmbeddingService`: Handles text embedding generation (supports mock, LangChain models).
-4.  **Scripts**:
-    *   `run.py`: Main entry point for running ingestion or queries via subprocesses.
-    *   `src/main.py`: Handles the ingestion process logic.
-    *   `src/query.py`: Handles the query process logic.
 
 ## Installation
 
