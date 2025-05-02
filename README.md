@@ -2,13 +2,13 @@
 
 ## Description
 
-This project implements a system for ingesting text documents, analyzing their content and structure chunk by chunk, and storing them in a "Narrative Atlas". The core idea is to represent each text chunk using 4D Polar-Temporal Coordinates (`r`, `theta`, `z`, `t`) within a vector database (FAISS).
+This project implements a system for ingesting text documents (currently PDFs), extracting structured entities (characters, events, locations) page by page using an LLM, calculating initial 4D Polar-Temporal Coordinates (`r`, `theta`, `z`, `t`) for these entities, and storing them in a "Narrative Atlas" (FAISS vector store + metadata).
 
--   `r` (radius) and `theta` (angle) represent semantic similarity relative to a central theme or origin.
--   `z` (depth) and `z_type` represent the hierarchical structure within the document.
--   `t` (time) represents the sequential position of the chunk in the original document.
+-   `r` (radius) and `theta` (angle) represent semantic position.
+-   `z` (depth) and `z_type` represent structural layer/type.
+-   `t` (time) represents the sequential position (page number).
 
-The system uses an initial analysis pass followed by a "Steward LLM" phase, which performs a global analysis to refine the assigned coordinates (excluding `t`) for better consistency and accuracy across the entire document.
+The ingestion pipeline includes an optional "Steward LLM" phase, which uses a Map-Reduce approach to perform a global analysis across all extracted entities, refining the `r`, `theta`, `z`, and `z_type` coordinates for better consistency and accuracy across the entire document. The `t` coordinate remains fixed.
 
 ## Key Concepts
 
@@ -20,15 +20,15 @@ The system uses an initial analysis pass followed by a "Steward LLM" phase, whic
 
 ## Core Components
 
--   `src/models/narrative_atlas.py`: Manages the FAISS vector store and associated metadata.
--   `src/data_models.py`: Defines Pydantic models for coordinates, nodes, and other data structures.
--   `src/services/ingestion_pipeline.py`: Orchestrates the document ingestion process, including chunking, initial coordinate mapping, and invoking the Steward LLM.
--   `src/services/coordinate_mapper.py`: Responsible for calculating the initial coordinates for each text chunk.
--   `src/services/steward_analyzer.py`: Implements the Steward LLM logic using a Map-Reduce approach for global coordinate refinement.
--   `ingest_structured_atlas.py`: Main script for ingesting PDF documents, performing initial structural/semantic analysis, and optionally running the Steward LLM refinement.
+-   `ingest_structured_atlas.py`: Main script for ingesting PDF documents, performing entity extraction, initial coordinate mapping, and optionally running the Steward LLM refinement.
+-   `src/models/narrative_atlas.py`: Manages the FAISS vector store and associated metadata, including adding/updating nodes and coordinates.
+-   `src/data_models.py`: Defines Pydantic models for coordinates, nodes, entities, and other data structures.
+-   `src/utils/embedding_service.py`: Handles text embedding generation (currently using SentenceTransformers via Langchain).
+-   `src/services/steward_analyzer.py`: Implements the Steward LLM logic using a Map-Reduce approach for global coordinate refinement (r, theta, z, z_type).
 -   `src/query.py`: Handles querying the Narrative Atlas (under development/verification).
+-   `setup.py`: Cross-platform script to set up the virtual environment and install dependencies.
 -   `requirements.txt`: Lists project dependencies.
--   `.env`: File for storing environment variables (e.g., API keys).
+-   `.env` / `.env copy.txt`: Files for storing environment variables (e.g., API keys).
 -   `server.py`: (Potentially for future API access - TBD)
 
 ## Setup
@@ -65,19 +65,27 @@ The system uses an initial analysis pass followed by a "Steward LLM" phase, whic
 
 ## Usage
 
-1.  Place the document(s) you want to ingest (currently supports PDF via `ingest_structured_atlas.py`) into a suitable directory (e.g., `input/`).
-2.  Run the ingestion script (`ingest_structured_atlas.py`), specifying the input PDF and the path for the atlas data:
+1.  **Setup the environment:** Follow the instructions in the [Setup](#setup) section.
+2.  **Activate the virtual environment** (the setup script provides the command).
+3.  **Run Ingestion:**
+    Use the `ingest_structured_atlas.py` script to process a PDF and build/update an atlas. The Steward LLM refinement step is automatically included if the analyzer initializes correctly (requires `OPENAI_API_KEY`).
+
     ```bash
-    python ingest_structured_atlas.py --input-pdf ./input/your_document.pdf --output-atlas-path ./output/my_atlas_data
+    python ingest_structured_atlas.py --input-pdf <path/to/your/document.pdf> --output-atlas-path <path/to/save/atlas/data>
     ```
-    -   Use `--overwrite` to clear any existing atlas data at the output path before starting.
-    -   Use `--start-page` and `--end-page` to process only a specific range of pages.
-    -   Use `--llm-model` to specify a different OpenAI model (e.g., `gpt-4o-mini`).
-3.  Processed outputs (the Narrative Atlas data including FAISS index and node database) will be saved in the directory specified by `--output-atlas-path`. Debug logs are printed to the console.
-4.  (Future/Under Development) Query the generated atlas using `src/query.py`:
+    **Key Arguments:**
+    *   `--input-pdf`: (Required) Path to the input PDF file.
+    *   `--output-atlas-path`: (Required) Directory path to save/load the Narrative Atlas data (FAISS index and metadata).
+    *   `--llm-model`: (Optional) OpenAI model for entity extraction and Steward refinement (default: `gpt-3.5-turbo`). Ensure your API key has access.
+    *   `--start-page`: (Optional) 1-indexed page number to start processing from (default: 1).
+    *   `--end-page`: (Optional) 1-indexed page number to end processing at (inclusive, default: end of document).
+    *   `--overwrite`: (Optional) If set, ignores and overwrites any existing atlas data at the output path.
+
+4.  **Querying (Development):**
+    The `src/query.py` script is intended for querying the generated atlas, but its functionality is still under development/verification.
     ```bash
-    # Example structure - verify arguments in src/query.py
-    python src/query.py --atlas-path ./output/my_atlas_data --query "Search for specific information"
+    # Example (details might change)
+    # python src/query.py --atlas-path <path/to/your/atlas/data> --query "Search term"
     ```
 
 ## Testing

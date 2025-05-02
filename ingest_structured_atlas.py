@@ -14,8 +14,8 @@ from typing import Dict, List, Optional, Union
 from dotenv import load_dotenv, find_dotenv
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
-from langchain_core.output_parsers import StrOutputParser
-# Use pydantic.v1 explicitly to address deprecation warning and maintain V1 compatibility
+# Output parsers no longer explicitly needed in main script due to .with_structured_output
+# from langchain_core.output_parsers import JsonOutputParser, StrOutputParser 
 from pydantic.v1 import BaseModel, Field, validator
 from langchain_community.document_loaders import PyPDFLoader
 
@@ -26,6 +26,8 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), 'src'
 try:
     from models.narrative_atlas import NarrativeAtlas
     from utils.embedding_service import EmbeddingService
+    from services.steward_analyzer import StewardAnalyzer
+    from data_models import PolarTemporalCoordinate
 except ImportError as e:
     print(f"Error: Could not import a required module: {e}. Ensure it exists and src is in sys.path.")
     sys.exit(1)
@@ -171,6 +173,10 @@ def main():
         logger.error(f"Failed to initialize EmbeddingService: {e}")
         sys.exit(1)
 
+    # Initialize Steward Analyzer
+    logger.info(f"Initializing Steward Analyzer with model: {args.llm_model}")
+    steward_analyzer = StewardAnalyzer(llm_model=args.llm_model) # Use same model for now
+
     logger.info(f"Initializing Narrative Atlas at: {args.output_atlas_path}")
     if args.overwrite and os.path.exists(args.output_atlas_path):
         logger.warning(f"Overwriting existing data in {args.output_atlas_path}")
@@ -255,6 +261,60 @@ def main():
                  logger.info("Intermediate save successful.")
             except Exception as e:
                  logger.error(f"Failed to save intermediate progress: {e}")
+
+    # --- Steward Refinement Step ---
+    if steward_analyzer.reduce_llm: # Check if Steward initialized properly
+        logger.info("Starting Steward LLM refinement process...")
+        # Collect node data needed by Steward (ensure coordinates are serializable if needed, but objects should be fine)
+        # Steward expects dicts with 'node_id' and 'coordinate' (PolarTemporalCoordinate obj)
+        steward_input_data = []
+        for node_id, node_obj in atlas.db.nodes.items():
+            if hasattr(node_obj, 'coordinate') and isinstance(node_obj.coordinate, PolarTemporalCoordinate):
+                 steward_input_data.append({
+                     "node_id": node_id, 
+                     "coordinate": node_obj.coordinate # Pass the Pydantic object directly
+                })
+            else:
+                 logger.warning(f"Node {node_id} missing valid coordinate object for Steward input.")
+                 
+        if steward_input_data:
+            logger.info(f"Sending {len(steward_input_data)} nodes to Steward for analysis.")
+            try:
+                steward_updates_dict = steward_analyzer.analyze_and_recommend_updates(steward_input_data)
+                
+                if steward_updates_dict and 'updates' in steward_updates_dict:
+                    updates_applied = 0
+                    for update_info in steward_updates_dict['updates']:
+                        if isinstance(update_info, dict) and 'node_id' in update_info and 'new_coordinates' in update_info:
+                            node_id = update_info['node_id']
+                            new_coords_data = update_info['new_coordinates']
+                            
+                            # Important: Convert dict back to Pydantic model before updating atlas
+                            try:
+                                # Ensure all fields are present, provide defaults if necessary for robustness
+                                # Note: Steward *should* provide all fields including 't'
+                                required_fields = {'r', 'theta', 't', 'z', 'z_type'}
+                                if required_fields.issubset(new_coords_data.keys()):
+                                    new_coordinates = PolarTemporalCoordinate(**new_coords_data)
+                                    atlas.update_node_coordinates(node_id, new_coordinates)
+                                    logger.debug(f"Applied Steward update for node {node_id}")
+                                    updates_applied += 1
+                                else:
+                                    logger.warning(f"Skipping Steward update for node {node_id}: missing required coordinate fields in {new_coords_data}")
+                            except Exception as coord_err:
+                                logger.error(f"Error creating PolarTemporalCoordinate from Steward output for node {node_id}: {coord_err} - Data: {new_coords_data}")
+                        else:
+                            logger.warning(f"Skipping invalid update item from Steward: {update_info}")
+                    logger.info(f"Steward refinement complete. Applied {updates_applied} updates.")
+                else:
+                    logger.info("Steward analysis returned no updates or an invalid format.")
+
+            except Exception as steward_err:
+                logger.error(f"Error during Steward refinement process: {steward_err}", exc_info=True)
+        else:
+             logger.info("No valid node data to send to Steward.")
+    else:
+        logger.warning("Steward Analyzer not initialized (likely missing API key). Skipping refinement step.")
 
     # --- Final Save and Summary ---
     logger.info("Finalizing ingestion and saving atlas...")
