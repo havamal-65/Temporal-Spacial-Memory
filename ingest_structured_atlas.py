@@ -25,8 +25,9 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), 'src'
 # Import local modules
 try:
     from models.narrative_atlas import NarrativeAtlas
-except ImportError:
-    print("Error: Could not import NarrativeAtlas. Ensure it's in src/models/")
+    from utils.embedding_service import EmbeddingService
+except ImportError as e:
+    print(f"Error: Could not import a required module: {e}. Ensure it exists and src is in sys.path.")
     sys.exit(1)
 
 # --- Configuration ---
@@ -160,13 +161,23 @@ def main():
     # Initialize Pydantic parser (though used implicitly via with_structured_output)
     pydantic_parser = None # Not strictly needed for invocation but good practice
 
+    # Initialize Embedding Service (using default 'langchain' type for now)
+    logger.info("Initializing Embedding Service...")
+    try:
+        # TODO: Potentially make embedding service type configurable via args
+        embedding_service = EmbeddingService()
+        logger.info(f"Using embedding service type: {embedding_service.service_type} with model: {embedding_service.model_name}")
+    except Exception as e:
+        logger.error(f"Failed to initialize EmbeddingService: {e}")
+        sys.exit(1)
+
     logger.info(f"Initializing Narrative Atlas at: {args.output_atlas_path}")
     if args.overwrite and os.path.exists(args.output_atlas_path):
         logger.warning(f"Overwriting existing data in {args.output_atlas_path}")
         # Simple overwrite: just proceed. Atlas init handles loading/creating.
         # More robust would be to delete folder contents.
         pass 
-    atlas = NarrativeAtlas(storage_path=args.output_atlas_path)
+    atlas = NarrativeAtlas(storage_path=args.output_atlas_path, embedding_service=embedding_service)
     # Load existing data if not overwriting, otherwise it starts fresh
     if not args.overwrite:
         atlas.load()
