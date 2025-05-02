@@ -1,6 +1,78 @@
-# Temporal-Spatial Memory System
+# Temporal-Spatial Memory
 
-A system for creating a 4D spatial-temporal database designed to map and store knowledge, particularly narrative structures, in a coordinate space defined by relevance/centrality (r), thematic perspective (θ), temporal sequence (t), and abstraction layer (z).
+## Description
+
+This project implements a system for ingesting text documents, analyzing their content and structure chunk by chunk, and storing them in a "Narrative Atlas". The core idea is to represent each text chunk using 4D Polar-Temporal Coordinates (`r`, `theta`, `z`, `t`) within a vector database (FAISS).
+
+-   `r` (radius) and `theta` (angle) represent semantic similarity relative to a central theme or origin.
+-   `z` (depth) and `z_type` represent the hierarchical structure within the document.
+-   `t` (time) represents the sequential position of the chunk in the original document.
+
+The system uses an initial analysis pass followed by a "Steward LLM" phase, which performs a global analysis to refine the assigned coordinates (excluding `t`) for better consistency and accuracy across the entire document.
+
+## Key Concepts
+
+-   **Narrative Atlas:** A vector store (currently using FAISS) that stores text chunk embeddings alongside their calculated Polar-Temporal Coordinates and other metadata.
+-   **Polar-Temporal Coordinates:** A 4D system (`r`, `theta`, `z`, `t`) for locating text chunks based on semantics, structure, and sequence.
+-   **Chunking:** Dividing input documents into smaller, manageable text segments for analysis.
+-   **Embedding:** Generating vector representations of text chunks using language models.
+-   **Steward LLM:** A secondary LLM process (implemented using a Map-Reduce pattern) responsible for refining the initial coordinates based on a global view of the document's content and structure.
+
+## Core Components
+
+-   `src/models/narrative_atlas.py`: Manages the FAISS vector store and associated metadata.
+-   `src/data_models.py`: Defines Pydantic models for coordinates, nodes, and other data structures.
+-   `src/services/ingestion_pipeline.py`: Orchestrates the document ingestion process, including chunking, initial coordinate mapping, and invoking the Steward LLM.
+-   `src/services/coordinate_mapper.py`: Responsible for calculating the initial coordinates for each text chunk.
+-   `src/services/steward_analyzer.py`: Implements the Steward LLM logic using a Map-Reduce approach for global coordinate refinement.
+-   `run.py`: The main script for executing the document ingestion pipeline.
+-   `server.py`: (Likely intended for querying the Narrative Atlas - TBD)
+-   `requirements.txt`: Lists project dependencies.
+-   `.env`: File for storing environment variables (e.g., API keys).
+
+## Setup
+
+1.  **Clone the repository:**
+    ```bash
+    git clone <repository-url>
+    cd Temporal-Spacial\ Memory
+    ```
+2.  **Create and activate a virtual environment:**
+    ```bash
+    # Windows
+    python -m venv venv
+    .\venv\Scripts\activate
+
+    # Linux/macOS
+    python3 -m venv venv
+    source venv/bin/activate
+    ```
+3.  **Install dependencies:**
+    ```bash
+    pip install -r requirements.txt
+    ```
+4.  **Configure Environment Variables:**
+    Create a `.env` file in the project root and add necessary variables, such as your OpenAI API key:
+    ```dotenv
+    OPENAI_API_KEY='your_openai_api_key_here'
+    # Add other necessary environment variables
+    ```
+
+## Usage
+
+1.  Place the document(s) you want to ingest into the `input/` directory (or a subdirectory within it).
+2.  Run the ingestion pipeline using `run.py`. You might need to specify input/output directories and database paths:
+    ```bash
+    python run.py --input-dir ./input --output-dir ./output/ --db-path ./cache/narrative_atlas.db --index-path ./cache/narrative_atlas.index
+    ```
+    *(Note: Check `run.py` for the exact command-line arguments and their usage.)*
+
+3.  Processed outputs, logs, and debug information will be generated in the specified `output/` directory.
+4.  The FAISS index and database are typically stored in the `cache/` directory.
+
+## Testing
+
+*(Information about running tests, if available in the `tests/` directory, should be added here.)*
 
 ## Project Goal & Vision
 
