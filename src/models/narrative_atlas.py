@@ -4,7 +4,7 @@ import faiss
 import numpy as np
 import shutil
 import pickle
-from typing import Dict, List, Tuple, Optional, Any, TYPE_CHECKING
+from typing import Dict, List, Tuple, Optional, Any, TYPE_CHECKING, Set
 from dataclasses import dataclass, field, asdict
 from langchain_community.vectorstores import FAISS
 from langchain_community.docstore.in_memory import InMemoryDocstore
@@ -19,15 +19,12 @@ from langchain_core.documents import Document
 from src.nl_parser import CoordinateFilters, NlQueryParser, ParsedQuery
 
 # --- Add Logger Setup ---
-logging.basicConfig(
-    level=logging.INFO, # Or use level from env var/config
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-)
 logger = logging.getLogger('NarrativeAtlas') # Create logger instance
 # --- End Logger Setup ---
 
 if TYPE_CHECKING:
-    from src.services.embedding_service import EmbeddingService
+    # Correct the import path for type checking
+    from src.utils.embedding_service import EmbeddingService
     from src.utils.coordinate_mapper import CoordinateMapper
 
 @dataclass
@@ -49,116 +46,81 @@ class NarrativeAtlas:
         self.db = SpatialTemporalDB()
         self.embedding_service = embedding_service
         from src.utils.coordinate_mapper import CoordinateMapper
+        
+        # Initialize coordinate mapper with embedding-based coordinate options
+        use_embedding_coords = os.getenv('USE_EMBEDDING_COORDS', 'True').lower() in ('true', '1', 'yes')
+        embedding_r_scale = float(os.getenv('EMBEDDING_R_SCALE', '1.0'))
+        embedding_theta_scale = float(os.getenv('EMBEDDING_THETA_SCALE', '3.14159'))
+        
         self.coordinate_mapper = CoordinateMapper(
             embedding_service=self.embedding_service,
-            base_radius=float(os.getenv('BASE_RADIUS', 0.9))
+            base_radius=float(os.getenv('BASE_RADIUS', '0.9')),
+            # Enable embedding-based coordinate transformation
+            use_embedding_for_coords=use_embedding_coords,
+            embedding_r_scale=embedding_r_scale,
+            embedding_theta_scale=embedding_theta_scale
         )
-        self.embedding_dim = self.embedding_service.embedding_dim
         
-        # Langchain FAISS wrapper (still used for search/docstore)
+        logger.info(f"Initialized NarrativeAtlas with embedding-based coordinates: {use_embedding_coords}")
+        logger.info(f"Coordinate scaling factors - r: {embedding_r_scale}, theta: {embedding_theta_scale}")
+        
+        try:
+            self.embedding_dim = self.embedding_service.embedding_dim
+        except AttributeError:
+             logger.error(f"Embedding service {type(self.embedding_service)} lacks 'embedding_dim' attribute.")
+             raise ValueError("Cannot determine embedding dimension from service.")
+        
+        # Langchain FAISS wrapper (initialized during load or _initialize_vector_store)
         self.vector_store: Optional[FAISS] = None
-        # Raw FAISS index (for direct adding)
-        self.raw_faiss_index: Optional[faiss.Index] = None
+        # Raw FAISS index (Not directly used anymore, managed by Langchain FAISS)
+        # self.raw_faiss_index: Optional[faiss.Index] = None # REMOVED
         
-        # Mappings for direct FAISS interaction
+        # Mappings for direct FAISS interaction (loaded from file)
         self.node_id_to_faiss_id: Dict[str, int] = {}
         self.faiss_id_to_node_id: Dict[int, str] = {}
-        self.next_faiss_id: int = 0 # Counter for next available FAISS integer ID
+        self.next_faiss_id: int = 0 # Counter for next available FAISS integer ID (loaded or reset)
 
         # Keep NL Parser
         self.nl_parser = NlQueryParser()
         
-        self._initialize_vector_store()
-        self.load()
-    
-    def _create_new_hnsw_index(self) -> Tuple[faiss.Index, FAISS]:
-        """Creates a new raw FAISS HNSW index and its Langchain wrapper."""
-        print("Creating new FAISS index with HNSW.")
-        M = 32  # Number of connections for HNSW
-        
-        # Define the HNSW index
-        raw_index = faiss.IndexHNSWFlat(self.embedding_dim, M, faiss.METRIC_L2)
-        
-        # --- IMPORTANT: FAISS requires an ID map for add_with_ids --- 
-        # Wrap the HNSW index with IndexIDMap2. This maps external 64-bit IDs
-        # to internal sequential IDs used by the HNSW structure.
-        index_with_ids = faiss.IndexIDMap2(raw_index)
-        
-        # Create an empty docstore for the Langchain wrapper
-        docstore = InMemoryDocstore()
-        
-        # Initialize the LangChain FAISS wrapper
-        vector_store_wrapper = FAISS(
-            embedding_function=self.embedding_service, 
-            index=index_with_ids, # Pass the index wrapped with IDMap2
-            docstore=docstore,
-            index_to_docstore_id={}
-        )
-        return index_with_ids, vector_store_wrapper # Return both
+        # Attempt to load existing data first
+        if not self.load(): # If loading fails or path doesn't exist
+            self._initialize_vector_store() # Create a new empty store
+        # DO NOT CALL load() here again
 
     def _initialize_vector_store(self):
-        """Initialize or load the FAISS vector store (raw index and Langchain wrapper)."""
-        index_folder = os.path.join(self.storage_path)
-        index_file = os.path.join(index_folder, "index.faiss") # Path for raw FAISS index
-        id_maps_path = os.path.join(self.storage_path, "id_maps.json")
-        docstore_file = os.path.join(index_folder, "index.pkl") # Default Langchain FAISS docstore file
-
+        """Initializes a NEW, EMPTY vector store in memory.""" # Changed docstring
+        if self.embedding_service is None:
+            raise ValueError("Cannot initialize vector store without an embedding service.")
+            
+        # Dimension already checked in __init__
+        dimension = self.embedding_dim
+        logger.info(f"Initializing NEW EMPTY in-memory FAISS index with dimension: {dimension}")
+        
         try:
-            if os.path.exists(index_file) and os.path.exists(docstore_file):
-                print(f"Loading existing FAISS index from {index_file}")
-                # Load raw FAISS index directly
-                self.raw_faiss_index = faiss.read_index(index_file)
-                self.next_faiss_id = self.raw_faiss_index.ntotal
-                print(f"Raw index loaded. ntotal: {self.next_faiss_id}")
-
-                # Load the Langchain wrapper (primarily for docstore and search methods)
-                # We pass the *already loaded* raw index to avoid re-reading
-                # Also need to load the docstore and index_to_docstore_id mapping explicitly
-                # because load_local usually handles this.
-                print(f"Loading Langchain FAISS wrapper components from {index_folder}")
-                with open(docstore_file, "rb") as f:
-                     docstore, index_to_docstore_id = pickle.load(f)
-                     
-                self.vector_store = FAISS(
-                     embedding_function=self.embedding_service,
-                     index=self.raw_faiss_index, # Use the loaded raw index
-                     docstore=docstore,
-                     index_to_docstore_id=index_to_docstore_id
-                )
-                print(f"Langchain wrapper initialized with loaded index and docstore (docstore size: {len(index_to_docstore_id)}).")
-
-                # Load ID maps (node_id <-> faiss_id)
-                if os.path.exists(id_maps_path):
-                    with open(id_maps_path, 'r') as f:
-                        maps = json.load(f)
-                        self.node_id_to_faiss_id = maps.get('node_id_to_faiss_id', {})
-                        # Convert JSON string keys back to integers for faiss_id_to_node_id
-                        self.faiss_id_to_node_id = {int(k): v for k, v in maps.get('faiss_id_to_node_id', {}).items()}
-                        # Load the next ID counter if saved (optional, recalculating from ntotal is safer)
-                        # self.next_faiss_id = maps.get('next_faiss_id', self.raw_faiss_index.ntotal)
-                else:
-                     print("Warning: Index files found but id_maps.json missing.")
-                     # Attempt to reconstruct maps if possible? Risky.
-                     self.node_id_to_faiss_id = {}
-                     self.faiss_id_to_node_id = {}
-                     # Reset next_faiss_id based on loaded index size
-                     self.next_faiss_id = self.raw_faiss_index.ntotal
-            else:
-                print("Index files not found, creating new HNSW index.")
-                # Create a new index and wrapper
-                self.raw_faiss_index, self.vector_store = self._create_new_hnsw_index()
-                self.node_id_to_faiss_id = {}
-                self.faiss_id_to_node_id = {}
-                self.next_faiss_id = 0 # Start counter at 0 for new index
-                
-        except Exception as e:
-            print(f"Error loading or creating vector store: {e}. Creating new HNSW index.")
-            # Fallback to creating a new index and wrapper
-            self.raw_faiss_index, self.vector_store = self._create_new_hnsw_index()
+            import faiss 
+            # Use IndexFlatL2 for simplicity, can be changed later
+            index = faiss.IndexFlatL2(dimension)
+            
+            # Create the FAISS wrapper with the service and an empty index/docstore
+            self.vector_store = FAISS( 
+                 embedding_function=self.embedding_service, 
+                 index=index, 
+                 docstore=InMemoryDocstore({}), # Start with empty docstore
+                 index_to_docstore_id={}  # Start with empty mapping
+            )
+            # Reset ID mappings for the new index
             self.node_id_to_faiss_id = {}
             self.faiss_id_to_node_id = {}
             self.next_faiss_id = 0
-    
+            logger.info("New empty in-memory FAISS index initialized successfully.")
+        except ImportError:
+            logger.error("FAISS library not installed. Please install it (`pip install faiss-cpu` or `pip install faiss-gpu`).")
+            raise
+        except Exception as e:
+            logger.error(f"Error initializing new FAISS vector store: {e}", exc_info=True)
+            raise
+
     def _get_or_create_character(self, name: str, temporal_coordinate: float) -> str:
         """Get or create a character node (stores in DB only)."""
         node_id = f"character_{name.lower().replace(' ', '_')}"
@@ -229,193 +191,162 @@ class NarrativeAtlas:
                                text_to_embed: Optional[str] = None,
                                precomputed_embedding: Optional[np.ndarray] = None):
         """
-        Adds or updates the node's embedding in the FAISS index and the node object itself.
+        Adds or updates the node's embedding in the FAISS vector store and the node object itself.
         Handles both precomputed embeddings and generating them from text.
-        Uses direct FAISS index manipulation (add_with_ids).
-        Also updates the Langchain FAISS docstore for compatibility.
+        Uses the Langchain FAISS wrapper's add_texts method.
         """
-        if self.raw_faiss_index is None or self.vector_store is None:
-            logger.error("FAISS index or vector store not initialized. Cannot add embedding.")
+        if self.vector_store is None:
+            logger.error("FAISS vector store not initialized. Cannot add embedding.")
             return
 
-        embedding_to_add = None
+        embedding_to_use = None
         if precomputed_embedding is not None:
-            embedding_to_add = precomputed_embedding
+            embedding_to_use = precomputed_embedding
         elif text_to_embed:
             try:
-                # Get embedding from service
-                embedding_to_add = self.embedding_service.get_embedding(text_to_embed)
-                # Ensure it's a numpy array of float32
-                if embedding_to_add is not None:
-                    embedding_to_add = np.array(embedding_to_add, dtype=np.float32)
+                # Use the standard embed_query method
+                embedding_list = self.embedding_service.embed_query(text_to_embed) 
+                if embedding_list:
+                    embedding_to_use = np.array(embedding_list, dtype=np.float32)
             except Exception as e:
-                logger.error(f"Error getting embedding for node {node.id}: {e}")
-                # Decide if we should proceed without embedding or raise error
-                return # Do not proceed without embedding
+                logger.error(f"Error getting embedding for node {node.id}: {e}", exc_info=True)
+                return
         
-        # Ensure we have an embedding vector
-        if embedding_to_add is None:
+        if embedding_to_use is None:
             logger.warning(f"No embedding available for node {node.id}. Cannot add to FAISS.")
             return
             
-        # Ensure embedding dimension matches index
-        if embedding_to_add.shape[0] != self.embedding_dim:
-             logger.error(f"Embedding dimension mismatch for node {node.id}. Expected {self.embedding_dim}, got {embedding_to_add.shape[0]}.")
+        if embedding_to_use.shape[0] != self.embedding_dim:
+             logger.error(f"Embedding dimension mismatch for node {node.id}. Expected {self.embedding_dim}, got {embedding_to_use.shape[0]}. Skipping add.")
              return
 
         # Update the node object with the embedding
-        node.embedding = embedding_to_add
+        node.embedding = embedding_to_use
 
-        # Assign or get the FAISS integer ID for this node_id
-        if node.id in self.node_id_to_faiss_id:
-            faiss_id = self.node_id_to_faiss_id[node.id]
-            # FAISS HNSW doesn't easily support updates, so we treat this as an add
-            # Note: This means duplicate vectors if called multiple times for the same node.id
-            # Proper update would require removing the old ID and adding the new one.
-            logger.warning(f"Node {node.id} already has FAISS ID {faiss_id}. Re-adding (potential duplicate vector).")
-            # For simplicity in this example, we just add it again with the same ID
-        else:
-            # Assign the next available integer ID
-            faiss_id = self.next_faiss_id
-            self.node_id_to_faiss_id[node.id] = faiss_id
-            self.faiss_id_to_node_id[faiss_id] = node.id
-            self.next_faiss_id += 1 # Increment for the next node
-
-        # Add the vector to the raw FAISS index using the assigned integer ID
-        vector_np = embedding_to_add.reshape(1, -1) # Reshape for FAISS
-        ids_np = np.array([faiss_id], dtype=np.int64)
-        try:
-            self.raw_faiss_index.add_with_ids(vector_np, ids_np)
-            logger.debug(f"Added embedding for node {node.id} with FAISS ID {faiss_id}")
-        except Exception as e:
-            logger.error(f"FAISS add_with_ids failed for node {node.id} (FAISS ID {faiss_id}): {e}", exc_info=True)
-            # Should we revert the ID mapping if add fails?
-            # For now, log the error and continue, but the mappings might be inconsistent.
-            return
-        
-        # === Update Langchain Docstore ===
-        # Create/update the Document object for Langchain's docstore
-        # This ensures metadata filtering works correctly with Langchain methods
-        # and keeps the docstore consistent with the raw index.
+        # --- Add/Update using Langchain FAISS wrapper --- 
+        # Prepare metadata including coordinates
         doc_metadata = node.metadata.copy() if node.metadata else {}
-        # Add coordinate info to the document metadata
         doc_metadata["coord_r"] = node.coordinates.r
         doc_metadata["coord_theta"] = node.coordinates.theta
         doc_metadata["coord_t"] = node.coordinates.t
         doc_metadata["coord_z"] = node.coordinates.z
         doc_metadata["coord_z_type"] = node.coordinates.z_type
-        doc_metadata["node_type"] = node.type # Ensure node type is in metadata
+        doc_metadata["node_type"] = node.type
         doc_metadata["timestamp"] = node.timestamp
         doc_metadata["keywords"] = ",".join(node.keywords) if node.keywords else ""
-        # Add other potentially useful fields from Node
-        doc_metadata["mapping_details"] = json.dumps(node.mapping_details) # Serialize dict
+        doc_metadata["mapping_details"] = json.dumps(node.mapping_details)
         if node.parent_node_id:
              doc_metadata["parent_node_id"] = node.parent_node_id
-
-        # Determine page_content for the Document (use 'text' field if available)
+        doc_metadata["node_id"] = node.id # Crucial: Ensure node_id is in metadata
+        
+        # Determine page_content for the Document
         page_content = node.content.get('text', json.dumps(node.content))
-        
-        # Create the Langchain Document
-        doc = Document(page_content=page_content, metadata=doc_metadata)
-        
-        # Add/update the document in the docstore using the node.id
-        # and map the Langchain internal index ID to this node.id
-        internal_docstore_id = node.id # Use node.id as the key for Langchain's docstore
-        self.vector_store.docstore.add({internal_docstore_id: doc})
-        
-        # Map the FAISS integer ID (faiss_id) to the Langchain docstore ID (node.id)
-        # Find the internal index (sequential ID) used by FAISS wrapper for the given faiss_id.
-        # This mapping is tricky because Langchain's FAISS wrapper assumes sequential integer IDs
-        # starting from 0 when adding documents via its own add_documents method.
-        # Since we are using add_with_ids on the raw index, the Langchain wrapper's internal
-        # index_to_docstore_id map might not naturally align with our faiss_id.
-        
-        # WORKAROUND: We directly manage the index_to_docstore_id map.
-        # This map links the sequential index position (0, 1, 2...) assumed by Langchain 
-        # search results to our node.id (which is used as the docstore key).
-        # However, the raw FAISS index returns our custom `faiss_id` during search. 
-        # There's a mismatch here. Langchain's standard FAISS assumes the index position
-        # *is* the ID added, or maps it sequentially.
-        
-        # Let's update index_to_docstore_id assuming the size implies the next sequential index.
-        # This relies on the assumption that adds happen sequentially, which is true
-        # with our self.next_faiss_id counter *if* no deletes occur or IDs are reused.
-        current_lc_index_count = len(self.vector_store.index_to_docstore_id)
-        # Check if the faiss_id matches the expected next sequential ID
-        # If not, log a warning, as Langchain search might return unexpected docstore IDs
-        if faiss_id != current_lc_index_count:
-            logger.warning(f"FAISS ID {faiss_id} does not match expected next Langchain index {current_lc_index_count}. Langchain search results mapping might be inconsistent.")
-            # Option: Try to find an existing entry for faiss_id and update? Risky.
-            # Option: Force the mapping anyway? Might overwrite existing map entry.
-        
-        # Update the mapping - associating the current sequential position with the node.id
-        self.vector_store.index_to_docstore_id[current_lc_index_count] = internal_docstore_id
-        # logger.debug(f"Updated Langchain index_to_docstore_id: map[{current_lc_index_count}] = {internal_docstore_id}")
-        # === End Update Langchain Docstore ===
+
+        # Use add_texts with the node_id as the ID
+        # Langchain's FAISS handles mapping this ID internally.
+        # Note: FAISS typically doesn't support efficient updates. 
+        # Calling add_texts for an existing ID might lead to duplicates 
+        # depending on the underlying index type and Langchain version.
+        # A true update might require delete + add.
+        # For now, we assume add_texts handles this reasonably or we accept potential duplicates.
+        try:
+            # FAISS.add_texts expects list of texts and list of metadatas
+            added_ids = self.vector_store.add_texts(
+                 texts=[page_content], 
+                 metadatas=[doc_metadata], 
+                 ids=[node.id] # Provide the node_id directly
+            )
+            # Optionally update our internal ID maps if needed, though Langchain manages its own.
+            # The `ids` parameter *should* make Langchain use our node.id internally.
+            # Let's verify if the internal index_to_docstore_id map looks correct after adding.
+            # logger.debug(f"Added/updated node {node.id} in FAISS. Langchain IDs returned: {added_ids}")
+            # logger.debug(f"Current vector_store.index_to_docstore_id: {self.vector_store.index_to_docstore_id}")
+        except Exception as e:
+            logger.error(f"Error adding/updating node {node.id} in FAISS vector store: {e}", exc_info=True)
+        # --- End Add/Update --- 
 
     def add_node(self,
                  node_id: str,
                  content: Dict[str, Any],
                  embedding: Optional[np.ndarray],
                  metadata: Dict,
-                 coordinates: PolarTemporalCoordinate,
-                 keywords: Optional[List[str]],
-                 mapping_details: Dict,
+                 coordinates: Optional[PolarTemporalCoordinate] = None,
+                 keywords: Optional[List[str]] = None,
+                 mapping_details: Optional[Dict] = None,
                  parent_node_id: Optional[str] = None,
                  explicit_timestamp: Optional[float] = None
                 ) -> str:
         """
-        Adds a node to the Narrative Atlas, storing it in the DB and adding/updating
-        its embedding in the vector store with coordinates in metadata.
-
+        Add a node to the narrative atlas with either provided coordinates or
+        coordinates computed from the embedding and/or content.
+        
         Args:
-            node_id: Unique ID for the new node.
-            content: Dictionary representing the node's primary content (e.g., {'text': '...'}).
-            embedding: Pre-computed embedding (numpy array).
-            metadata: Dictionary containing structural info (page_number, chunk_index_on_page, etc.)
-                      and any other relevant metadata.
-            coordinates: Pre-calculated PolarTemporalCoordinate object for the node.
-            keywords: List of extracted keywords for the node.
-            mapping_details: Dictionary describing how coordinates were mapped.
-            parent_node_id: Optional ID of the parent node for structural linking.
-            explicit_timestamp: Optional timestamp to override node creation time.
-
+            node_id: Unique identifier for the node
+            content: Dictionary containing node content (varies by node type)
+            embedding: Pre-computed embedding vector (optional)
+            metadata: Additional metadata for the node
+            coordinates: Pre-computed coordinates (optional)
+            keywords: Pre-extracted keywords (optional)
+            mapping_details: Details about how coordinates were mapped (optional)
+            parent_node_id: ID of parent node (optional)
+            explicit_timestamp: Override timestamp (optional)
+            
         Returns:
-            The ID of the added node.
+            The node ID (may be generated if not provided)
         """
-        print(f"--- NARRATIVE ATLAS: ADDING NODE {node_id} ---") # DEBUG
-        # Validate coordinates
-        if not isinstance(coordinates, PolarTemporalCoordinate):
-            raise TypeError(f"Expected PolarTemporalCoordinate for coordinates, got {type(coordinates)}")
-
-        # Create Node object
+        # If no node_id provided, generate one
+        if not node_id:
+            node_id = f"node_{int(time.time())}_{hashlib.md5(str(content).encode()).hexdigest()[:8]}"
+            
         timestamp = explicit_timestamp if explicit_timestamp is not None else time.time()
-        node_obj = Node(
+
+        # Generate mapping if coordinates not provided
+        if coordinates is None:
+            text_content = content.get('text', str(content))
+            
+            # If no embedding is provided, generate one
+            if embedding is None and text_content:
+                try:
+                    embedding_list = self.embedding_service.embed_query(text_content)
+                    embedding = np.array(embedding_list)
+                    logger.debug(f"Generated embedding for node {node_id}")
+                except Exception as e:
+                    logger.error(f"Failed to generate embedding for node {node_id}: {e}")
+                    # Continue with None embedding
+            
+            # Map to coordinates using embedding and/or metadata
+            mapping_result = self.coordinate_mapper.map_to_coordinates(
+                content=text_content,
+                metadata=metadata,
+                embedding=embedding
+            )
+            
+            coordinates = mapping_result['coordinate']
+            keywords = mapping_result.get('keywords', keywords)
+            mapping_details = mapping_result.get('mapping_details', mapping_details or {})
+            logger.info(f"Mapped node {node_id} to coordinates: r={coordinates.r:.3f}, theta={coordinates.theta:.3f}, t={coordinates.t:.3f}, z={coordinates.z:.3f}, z_type={coordinates.z_type}")
+        
+        # Create a Node instance
+        node = Node(
             id=node_id,
-            type=metadata.get("node_type", "unknown"), # Extract type from metadata if possible
+            type=metadata.get('node_type', 'content'),
             content=content,
-            coordinates=coordinates, # Store the coordinate object
-            embedding=embedding, # Store the embedding (can be None)
+            coordinates=coordinates,
+            embedding=embedding,
             keywords=keywords,
-            metadata=metadata, # Store original metadata
+            metadata=metadata,
             parent_node_id=parent_node_id,
             timestamp=timestamp,
-            mapping_details=mapping_details
+            mapping_details=mapping_details or {}
         )
-
-        # Store node data in the spatial-temporal DB
-        self.db.nodes[node_id] = node_obj
-        print(f"--- NARRATIVE ATLAS: Node {node_id} added to self.db.nodes ---") # DEBUG
-
-        # Add/update embedding in the vector store
-        # Determine text to embed (e.g., from content['text'])
-        text_for_embedding = content.get("text", json.dumps(content)) # Fallback to json
-        if text_for_embedding or embedding is not None: # Only add if there's text or precomputed embedding
-             self._add_or_update_embedding(node=node_obj, text_to_embed=text_for_embedding, precomputed_embedding=embedding)
-        else:
-             print(f"Warning: Node {node_id} has no text content or precomputed embedding; skipping vector store add.")
-
-        print(f"--- NARRATIVE ATLAS: Finished adding node {node_id} ---") # DEBUG
+        
+        # Store in the database
+        self.db.nodes[node_id] = node
+        
+        # Add to FAISS if embedding is available
+        if embedding is not None:
+            self._add_or_update_embedding(node, text_to_embed=None, precomputed_embedding=embedding)
+            
         return node_id
 
     def find_similar_nodes(self, query_text: str, k: int = 5) -> List[Tuple[Node, float]]:
@@ -443,56 +374,112 @@ class NarrativeAtlas:
         return results
     
     def save(self):
-        """Save the atlas data (DB nodes, FAISS index, ID maps)."""
+        """Save the atlas data (DB nodes, FAISS index + docstore)."""
         index_folder = os.path.join(self.storage_path)
-        id_maps_path = os.path.join(self.storage_path, "id_maps.json")
-        db_path = os.path.join(self.storage_path, "spatial_temporal_db.pkl") # Path for SpatialTemporalDB data
+        # id_maps_path = os.path.join(self.storage_path, "id_maps.json") # REMOVED - Managed by FAISS wrapper
+        db_path = os.path.join(self.storage_path, "spatial_temporal_db.pkl")
 
         os.makedirs(index_folder, exist_ok=True)
         
         try:
-            # Save FAISS index
+            # Save FAISS index and docstore using Langchain's method
             if self.vector_store:
-                self.vector_store.save_local(folder_path=index_folder, index_name="index")
+                self.vector_store.save_local(folder_path=index_folder, index_name="vector_index") # Changed index_name
+                logger.info(f"FAISS index and docstore saved to {index_folder}")
+            else:
+                 logger.warning("Vector store not initialized, skipping FAISS save.")
             
-            # Save ID maps
-            with open(id_maps_path, 'w') as f:
-                json.dump({
-                    'node_id_to_faiss_id': self.node_id_to_faiss_id,
-                    'faiss_id_to_node_id': self.faiss_id_to_node_id
-                }, f)
+            # REMOVED ID maps save - Langchain FAISS wrapper handles this internally in its index.pkl
             
-            # Save SpatialTemporalDB nodes (simple pickle for now)
+            # Save SpatialTemporalDB nodes
             with open(db_path, 'wb') as f:
                 pickle.dump(self.db.nodes, f)
+            logger.info(f"SpatialTemporalDB nodes saved to {db_path}")
                 
-            print(f"Narrative Atlas saved successfully to {self.storage_path}")
+            logger.info(f"Narrative Atlas saved successfully to {self.storage_path}")
 
         except Exception as e:
-            print(f"Error saving Narrative Atlas: {e}")
-            raise
+            logger.error(f"Error saving Narrative Atlas: {e}", exc_info=True)
+            # raise # Optional: re-raise if saving failure is critical
 
-    def load(self):
-        """Load the atlas data (DB nodes, FAISS index, ID maps)."""
-        # Note: Loading of FAISS index and ID maps happens in _initialize_vector_store
-        # We only need to load the SpatialTemporalDB nodes here.
+    def load(self) -> bool:
+        """Load the atlas data (DB nodes, FAISS index + docstore). Returns True on success, False otherwise.""" 
         db_path = os.path.join(self.storage_path, "spatial_temporal_db.pkl")
-        
+        index_folder = os.path.join(self.storage_path)
+        index_file = os.path.join(index_folder, "vector_index.faiss") # Match saved name
+        pkl_file = os.path.join(index_folder, "vector_index.pkl") # Match saved name
+
+        db_loaded = False
+        index_loaded = False
+
+        # 1. Load SpatialTemporalDB nodes
         if os.path.exists(db_path):
             try:
                 with open(db_path, 'rb') as f:
                     self.db.nodes = pickle.load(f)
-                print(f"Loaded SpatialTemporalDB nodes from {db_path}. Count: {len(self.db.nodes)}")
+                logger.info(f"Loaded SpatialTemporalDB nodes from {db_path}. Count: {len(self.db.nodes)}")
+                db_loaded = True
             except Exception as e:
-                print(f"Error loading SpatialTemporalDB nodes: {e}. Starting with empty DB.")
-                self.db.nodes = {}
+                logger.error(f"Error loading SpatialTemporalDB nodes from {db_path}: {e}", exc_info=True)
+                self.db.nodes = {} # Reset on error
         else:
-             print(f"SpatialTemporalDB file not found at {db_path}. Starting with empty DB.")
+             logger.warning(f"SpatialTemporalDB file not found at {db_path}. DB remains empty.")
              self.db.nodes = {}
-             
-        # Re-initialize vector store to load FAISS index and ID maps
-        # This ensures consistency after loading the DB nodes
-        self._initialize_vector_store()
+
+        # 2. Load FAISS index and docstore using Langchain
+        if os.path.exists(index_file) and os.path.exists(pkl_file):
+            if self.embedding_service is None:
+                 logger.error("Cannot load FAISS index without an embedding service.")
+                 return False # Cannot proceed without embedding service
+            try:
+                # allow_dangerous_deserialization=True might be needed depending on Langchain/Pickle versions
+                self.vector_store = FAISS.load_local(
+                    folder_path=index_folder, 
+                    embeddings=self.embedding_service, 
+                    index_name="vector_index",
+                    allow_dangerous_deserialization=True # Added for compatibility
+                )
+                
+                # --- Dimension Validation --- 
+                if self.vector_store.index is None:
+                     logger.error("Loaded FAISS index is None.")
+                     index_loaded = False
+                elif not hasattr(self.vector_store.index, 'd'):
+                     logger.error("Loaded FAISS index object does not have dimension attribute 'd'.")
+                     index_loaded = False
+                elif self.vector_store.index.d != self.embedding_dim:
+                    logger.error(f"Dimension mismatch! Loaded FAISS index dimension ({self.vector_store.index.d}) does not match current embedding service dimension ({self.embedding_dim}).")
+                    # Decide how to handle: raise error, re-initialize, etc.
+                    # For now, treat as load failure
+                    self.vector_store = None # Reset vector store
+                    index_loaded = False
+                else:
+                    logger.info(f"FAISS index and docstore loaded successfully from {index_folder}. Dimension: {self.vector_store.index.d}")
+                    index_loaded = True
+                    # Restore ID mappings from the loaded docstore (if needed for other logic)
+                    # Typically, Langchain methods use the docstore/index directly
+                    # self.node_id_to_faiss_id = {v: k for k, v in self.vector_store.index_to_docstore_id.items()} # Rebuild if needed
+                    # self.faiss_id_to_node_id = self.vector_store.index_to_docstore_id.copy()
+                    # self.next_faiss_id = max(self.faiss_id_to_node_id.keys()) + 1 if self.faiss_id_to_node_id else 0
+
+            except Exception as e:
+                logger.error(f"Error loading FAISS index/docstore from {index_folder}: {e}", exc_info=True)
+                self.vector_store = None # Ensure it's None on error
+                index_loaded = False
+        else:
+             logger.warning(f"FAISS index files not found in {index_folder}. Vector store not loaded.")
+             self.vector_store = None # Ensure it's None if files missing
+
+        # Return True only if both DB and Index loaded successfully (or were intentionally empty)
+        # If DB loaded but index failed, return False as atlas is inconsistent
+        if db_loaded and index_loaded:
+             return True
+        elif not os.path.exists(db_path) and not os.path.exists(index_file):
+             logger.info("Atlas storage path was empty. Initializing fresh atlas.")
+             return False # Indicates fresh start needed
+        else:
+             logger.error("Atlas loaded partially or inconsistently. DB loaded: {db_loaded}, Index loaded: {index_loaded}")
+             return False # Load was not fully successful
 
     def clear(self):
         """Clears the database, vector index, and mappings, and removes persisted files."""
@@ -505,7 +492,7 @@ class NarrativeAtlas:
         
         # 2. Reset FAISS index to a new empty one
         print("Resetting FAISS index...")
-        self.raw_faiss_index, self.vector_store = self._create_new_hnsw_index()
+        self._initialize_vector_store()
         self.next_faiss_id = 0 # Reset counter for new index
         
         # 3. Delete physical files/directory
@@ -554,214 +541,321 @@ class NarrativeAtlas:
             print(f"Warning: Node {node_id} found in DB but not in FAISS mappings.")
             return True # Node deleted from DB, but vector inconsistency noted
 
-    def _get_ids_matching_filters(self, filters: CoordinateFilters) -> Optional[List[str]]:
-        """
-        Filters node IDs based on coordinate ranges (r, theta, t, z) and z_type.
-        Returns a list of node IDs that match the filters, or None if no store.
-        """
-        if self.vector_store is None:
-            logger.warning("Vector store not initialized, cannot filter IDs.")
-            return None
-        
-        matching_ids = []
-        # Check if docstore exists and has the _dict attribute
-        if not hasattr(self.vector_store.docstore, '_dict'):
-            logger.warning("Docstore is not the expected InMemoryDocstore or lacks _dict.")
-            return []
-            
-        # Iterate through the Langchain docstore to access metadata
-        for node_id, doc in self.vector_store.docstore._dict.items():
-            # Ensure doc has metadata
-            if not hasattr(doc, 'metadata') or not isinstance(doc.metadata, dict):
-                logger.debug(f"Skipping node {node_id} due to missing or invalid metadata.")
-                continue
-            
-            metadata = doc.metadata
-            match = True # Assume match initially
-            
-            # Retrieve coordinates from metadata
-            coord_r = metadata.get('coord_r')
-            coord_theta = metadata.get('coord_theta')
-            coord_t = metadata.get('coord_t')
-            coord_z = metadata.get('coord_z')
-            coord_z_type = metadata.get('coord_z_type')
-            
-            # --- Apply Filters --- 
-            # R filter
-            if filters.r_min is not None and (coord_r is None or coord_r < filters.r_min):
-                match = False
-            if match and filters.r_max is not None and (coord_r is None or coord_r > filters.r_max):
-                match = False
-                
-            # T filter
-            if match and filters.t_min is not None and (coord_t is None or coord_t < filters.t_min):
-                match = False
-            if match and filters.t_max is not None and (coord_t is None or coord_t > filters.t_max):
-                match = False
-                
-            # Theta filter (handle wraparound if necessary - simple check here)
-            if match and filters.theta_min is not None and (coord_theta is None or coord_theta < filters.theta_min):
-                 match = False # Simplified check, assumes no range wraps around 2pi
-            if match and filters.theta_max is not None and (coord_theta is None or coord_theta > filters.theta_max):
-                 match = False # Simplified check
-                 
-            # Z filter
-            if match and filters.z_min is not None and (coord_z is None or coord_z < filters.z_min):
-                 match = False
-            if match and filters.z_max is not None and (coord_z is None or coord_z > filters.z_max):
-                 match = False
-                 
-            # Z Type filter
-            if match and filters.z_type is not None and (coord_z_type is None or coord_z_type != filters.z_type):
-                 match = False
-            # --- End Filters --- 
-            
-            if match:
-                matching_ids.append(node_id)
-                
-        logger.info(f"Filter matched {len(matching_ids)} nodes out of {len(self.vector_store.docstore._dict)} total.")
+    def _get_ids_matching_filters(self, filters: CoordinateFilters) -> Optional[Set[str]]:
+        """Retrieve a set of node IDs that match the coordinate filters."""
+        if not filters or not filters.has_filters():
+            return None # No filters applied, return None
+
+        logger.info(f"Filtering nodes based on coordinates: {filters}")
+        matching_ids = set()
+        # Check if db.nodes is populated
+        if not self.db.nodes:
+             logger.warning("_get_ids_matching_filters called but self.db.nodes is empty.")
+             # If filters were applied but DB is empty, the result set is definitely empty
+             return matching_ids # Return empty set
+
+        for node_id, node in self.db.nodes.items():
+            # Ensure node has coordinates before attempting match
+            if node.coordinates and self._is_coordinate_match(node.coordinates, filters):
+                 matching_ids.add(node_id)
+
+        logger.info(f"Found {len(matching_ids)} nodes matching coordinate filters.")
+        # Always return the set (which might be empty) if filters were specified.
         return matching_ids
-    
-    def search_with_nl_query(self, nl_query: str, k: int = 10) -> List[Tuple[Node, float]]:
-        """Processes a natural language query, applies coordinate filters, 
-           and performs vector search on the filtered results.
 
-        Args:
-            nl_query: The natural language query string.
-            k: The maximum number of final results to return after filtering and ranking.
-
-        Returns:
-            A list of (Node, score) tuples representing the final ranked results.
-        """
-        print(f"--- NARRATIVE ATLAS: Starting NL Query Search for: '{nl_query}' with k={k} ---")
-        
-        # 1. Parse the Natural Language Query
-        try:
-            parsed_params: ParsedQuery = self.nl_parser.parse(nl_query)
-            print(f"--- NARRATIVE ATLAS: Parsed Query Params: {parsed_params} ---")
-        except Exception as e:
-            print(f"Error parsing NL query: {e}. Returning empty results.")
-            # logger.error(f"Error parsing NL query '{nl_query}': {e}", exc_info=True)
-            return []
-
-        # 2. Get Candidate IDs matching Coordinate Filters
-        # This returns None if no filters are specified, meaning use all docs.
-        candidate_doc_ids: Optional[List[str]] = self._get_ids_matching_filters(parsed_params.filters)
-        
-        if candidate_doc_ids is not None and not candidate_doc_ids:
-            print("--- NARRATIVE ATLAS: No documents matched coordinate filters. Returning empty results. ---")
-            return [] # No candidates survived filtering
-
-        # 3. Perform Vector Search (Potentially Restricted)
-        query_embedding = self.embedding_service.embed_query(parsed_params.query_text)
-        
-        # Prepare for FAISS search
-        # FAISS similarity_search_with_score_by_vector expects the vector itself.
-        # We need a way to filter by the `candidate_doc_ids`.
-        # Langchain's default FAISS wrapper doesn't directly support filtering by arbitrary IDs during search.
-        # We might need to retrieve a larger set and then filter *after* the similarity search,
-        # or potentially use a more advanced FAISS feature/wrapper if available.
-
-        # --- Option A: Search broadly, then filter (Simpler for now) ---
-        # Retrieve more results initially to account for filtering post-search
-        initial_k = k * 5 # Heuristic: Retrieve more initially
-        if candidate_doc_ids:
-            # If we have candidates, maybe fetch even more initially?
-            # This is inefficient but works with current LC FAISS limitations.
-            initial_k = max(initial_k, len(candidate_doc_ids)) 
-        
-        print(f"--- NARRATIVE ATLAS: Performing initial vector search with k={initial_k} ---")
-        try:
-            # Use the base similarity search by vector method
-            initial_docs = self.vector_store.similarity_search_by_vector(
-                embedding=query_embedding,
-                k=initial_k
-            )
-            print(f"--- NARRATIVE ATLAS: Initial vector search returned {len(initial_docs)} results ---")
-        except Exception as e:
-            print(f"Error during initial vector search: {e}. Returning empty results.")
-            # logger.error(f"Error during vector search for '{parsed_params.query_text}': {e}", exc_info=True)
-            return []
-
-        # --- Filter the initial results based on candidate_doc_ids (if applicable) ---
-        # Need to handle that we only have docs now, not (doc, score) tuples
-        filtered_docs = []
-        if candidate_doc_ids is None: # No coordinate filtering was done
-            filtered_docs = initial_docs
-        else:
-            candidate_set = set(candidate_doc_ids)
-            for doc in initial_docs: # Iterate through docs directly
-                # Assuming Langchain FAISS stores original node_id in metadata['node_id']
-                doc_id = doc.metadata.get("node_id") 
-                if doc_id and doc_id in candidate_set:
-                     filtered_docs.append(doc) # Append the matching doc
-            print(f"--- NARRATIVE ATLAS: Filtered vector search results down to {len(filtered_docs)} based on coordinate filters ---")
-
-        # --- Limit to final k and format results ---
-        final_results = []
-        # Sort by score (similarity_search_by_vector_with_scores returns distance, lower is better)
-        # Sort ascending by score
-        # filtered_results_with_scores.sort(key=lambda item: item[1], reverse=False) # <-- Comment out sorting as we have no scores
-        
-        # Iterate through filtered docs up to k
-        for doc in filtered_docs[:k]: 
-            node_id = doc.metadata.get("node_id")
-            if node_id and node_id in self.db.nodes:
-                final_results.append((self.db.nodes[node_id], 0.0)) # Append node and placeholder score (0.0)
-            elif node_id:
-                 print(f"Warning: Found node_id {node_id} in final results but not in DB.")
+    def _is_coordinate_match(self, node_coords: PolarTemporalCoordinate, filters: CoordinateFilters) -> bool:
+        """Check if node coordinates match the specified filters."""
+        # Shortcut for empty filters
+        if not filters.has_filters():
+            return True
+            
+        # Radius (Relevance) filters
+        if filters.r_min is not None and node_coords.r < filters.r_min:
+            return False
+        if filters.r_max is not None and node_coords.r > filters.r_max:
+            return False
+            
+        # Temporal sequence filters
+        if filters.t_min is not None and node_coords.t < filters.t_min:
+            return False
+        if filters.t_max is not None and node_coords.t > filters.t_max:
+            return False
+            
+        # Theta (Angular) filters
+        if filters.theta_min is not None and filters.theta_max is not None:
+            # Handle cases where theta_min > theta_max (crosses the 0/2π boundary)
+            if filters.theta_min > filters.theta_max:
+                # Check if node_theta is outside the excluded range
+                if node_coords.theta > filters.theta_max and node_coords.theta < filters.theta_min:
+                    return False
             else:
-                 print(f"Warning: Final result metadata missing 'node_id': {doc.metadata}")
+                # Normal case, theta_min <= theta_max
+                if node_coords.theta < filters.theta_min or node_coords.theta > filters.theta_max:
+                    return False
+        elif filters.theta_min is not None and node_coords.theta < filters.theta_min:
+            return False
+        elif filters.theta_max is not None and node_coords.theta > filters.theta_max:
+            return False
+            
+        # Z-coordinate filters
+        if filters.z_min is not None and node_coords.z < filters.z_min:
+            return False
+        if filters.z_max is not None and node_coords.z > filters.z_max:
+            return False
+            
+        # Z-type filter (only if specified)
+        if filters.z_type is not None and node_coords.z_type != filters.z_type:
+            return False
+            
+        # If passed all checks, the node matches the filters
+        return True
 
-        print(f"--- NARRATIVE ATLAS: Returning {len(final_results)} final results for NL Query ---")
-        return final_results
-
-    def answer_query_with_context(self, user_query: str, k: int = 3) -> str:
-        """Find relevant nodes, format context, and construct a prompt for RAG.
-
-        Args:
-            user_query: The user's question.
-            k: The number of relevant nodes to retrieve.
-
-        Returns:
-            A string containing the formatted context and the prompt for an LLM,
-            or a message indicating no context was found.
+    def search_with_nl_query(self, nl_query: str, k: int = 10) -> List[Tuple[Node, float]]:
         """
-        # 1. Retrieve Context
-        similar_nodes = self.find_similar_nodes(query_text=user_query, k=k)
-
-        # 2. Handle Empty Context
-        if not similar_nodes:
-            return "No relevant context found for your query."
-
-        # 3. Format Context
-        formatted_context = """
---- CONTEXT START ---
-"""
-        for node, score in similar_nodes:
-            formatted_context += f"\nNode Type: {node.type}\n"
-            formatted_context += f"Node ID: {node.id}\n"
-            content_str = json.dumps(node.content, indent=2)
-            formatted_context += f"Content:\n{content_str}\n"
-            formatted_context += f"Temporal Coordinate: {node.coordinates['t']}\n"
-            #formatted_context += f"(Similarity Score: {score:.4f})\n"
-            formatted_context += "---"
+        Search the narrative atlas using natural language query with parsing and filtering.
+        This is the main search entry point that leverages coordinate filters.
         
-        formatted_context += "\n--- CONTEXT END ---"
-
-        # 4. Construct Prompt
-        prompt = f"""
-Based ONLY on the following context:
-{formatted_context}
-
-Answer the question: {user_query}
-"""
-
-        # 5. LLM Call (Placeholder) - Return the prompt for now
-        # llm_response = llm_client.generate(prompt) # Example placeholder
-        # return llm_response
+        Args:
+            nl_query: Natural language query string.
+            k: Maximum number of results to return.
+            
+        Returns:
+            List of (node, score) tuples sorted by score.
+        """
+        start_time = time.time()
+        # Parse the NL query to extract filters
+        parsed_query = self.nl_parser.parse(nl_query)
         
-        return prompt 
+        logger.info(f"Parsed query: '{nl_query}' into text='{parsed_query.query_text}', filters={parsed_query.filters}")
+        
+        # Get all nodes that match the filters (or all nodes if no filters)
+        prefiltered_ids = self._get_ids_matching_filters(parsed_query.filters)
+        
+        # Use the semantic part of the query to get embeddings
+        query_text = parsed_query.query_text or nl_query  # Fallback to original if no semantic extracted
+        
+        # Preprocess the query with default settings
+        # This extracts keywords, estimates theta, etc.
+        query_text, retrieval_params = self.preprocess_query(query_text, {
+            'extract_keywords': True,
+            'decompose_query': True,
+            'estimate_theta': True
+        })
+        
+        # Add filter-derived parameters to retrieval_params
+        if parsed_query.filters:
+            # If there's a temporal range specified, use middle as focus
+            if parsed_query.filters.t_min is not None and parsed_query.filters.t_max is not None:
+                retrieval_params['time_preference'] = (parsed_query.filters.t_min + parsed_query.filters.t_max) / 2
+            
+            # If there's a radial range, use it as preference
+            if parsed_query.filters.r_min is not None and parsed_query.filters.r_max is not None:
+                retrieval_params['radial_preference'] = {
+                    'radius': (parsed_query.filters.r_min + parsed_query.filters.r_max) / 2,
+                    'strength': 0.2
+                }
+            
+            # If there's a theta range, use it for directional bias
+            if parsed_query.filters.theta_min is not None and parsed_query.filters.theta_max is not None:
+                # Use middle of the range for direction
+                theta_mid = (parsed_query.filters.theta_min + parsed_query.filters.theta_max) / 2
+                # Handle wrap-around case
+                if parsed_query.filters.theta_min > parsed_query.filters.theta_max:
+                    theta_mid = (theta_mid + np.pi) % (2 * np.pi)
+                    
+                retrieval_params['directional_bias'] = {
+                    'direction': theta_mid,
+                    'strength': 0.3
+                }
+                
+            # If there's a z_type specified, add it to priority list
+            if parsed_query.filters.z_type:
+                retrieval_params['z_type_priority'] = [parsed_query.filters.z_type]
+        
+        # Use a pre-filtered FAISS search if we have filters
+        if prefiltered_ids is not None:
+            # If empty set returned, there are no matches
+            if not prefiltered_ids:
+                logger.info(f"No nodes match the coordinate filters for query: '{nl_query}'")
+                return []
+            
+            # Search only within nodes matching filters
+            filtered_nodes = [self.db.nodes[nid] for nid in prefiltered_ids]
+            filtered_embeddings = [node.embedding for node in filtered_nodes if node.embedding is not None]
+            
+            if not filtered_embeddings:
+                logger.warning("No valid embeddings found in filtered nodes")
+                return []
+                
+            # Use these node embeddings for similarity search
+            try:
+                # Use our enhanced retrieval method with the node subset
+                # First convert the filtered nodes to a format compatible with search_with_retrieval_params
+                base_results = []
+                
+                # If we have Langchain FAISS wrapper
+                if self.vector_store:
+                    # Create a temporary embedding array for the query
+                    query_embedding = self.embedding_service.embed_query(query_text)
+                    
+                    # Get similarity scores for all filtered nodes
+                    for i, node in enumerate(filtered_nodes):
+                        if node.embedding is not None:
+                            # Use dot product similarity (cosine similarity for normalized vectors)
+                            similarity = np.dot(query_embedding, node.embedding)
+                            base_results.append((node, float(similarity)))
+                    
+                    # Sort by similarity (highest first)
+                    base_results.sort(key=lambda x: x[1], reverse=True)
+                
+                # Apply additional score adjustments with retrieval_params
+                results = []
+                for node, score in base_results:
+                    adjusted_score = score
+                    
+                    # Apply temporal decay if time_preference is specified
+                    if 'time_preference' in retrieval_params:
+                        adjusted_score = self.apply_temporal_decay(
+                            adjusted_score, 
+                            node.coordinates.t, 
+                            retrieval_params['time_preference'],
+                            retrieval_params.get('temporal_decay_rate', 0.1)
+                        )
+                    
+                    # Apply directional bias if specified
+                    if 'directional_bias' in retrieval_params:
+                        bias = retrieval_params['directional_bias']
+                        adjusted_score = self.apply_directional_bias(
+                            adjusted_score,
+                            node.coordinates.theta,
+                            bias['direction'],
+                            bias.get('strength', 0.3)
+                        )
+                    
+                    # Apply radial preference if specified
+                    if 'radial_preference' in retrieval_params:
+                        pref = retrieval_params['radial_preference']
+                        adjusted_score = self.apply_radial_preference(
+                            adjusted_score,
+                            node.coordinates.r,
+                            pref['radius'],
+                            pref.get('strength', 0.2)
+                        )
+                    
+                    # Boost score for relevant keywords
+                    if 'boost_keywords' in retrieval_params and node.keywords:
+                        keywords = retrieval_params['boost_keywords']
+                        matching_keywords = set(keywords).intersection(set(node.keywords))
+                        if matching_keywords:
+                            keyword_boost = len(matching_keywords) / len(keywords) * 0.2
+                            adjusted_score += keyword_boost
+                    
+                    # Apply z_type priority if specified
+                    if 'z_type_priority' in retrieval_params and node.coordinates.z_type in retrieval_params['z_type_priority']:
+                        adjusted_score += 0.1  # Simple boost for matching z_type
+                    
+                    results.append((node, adjusted_score))
+                
+                # Sort by adjusted score
+                results.sort(key=lambda x: x[1], reverse=True)
+                
+                # Return top k results
+                return results[:k]
+                    
+            except Exception as e:
+                logger.error(f"Error in similarity search with filtered nodes: {e}", exc_info=True)
+                return []
+        else:
+            # No filters, use the enhanced retrieval method directly
+            return self.search_with_retrieval_params(query_text, retrieval_params, k)
+                
+    def answer_query_with_context(self, user_query: str, k: int = 3) -> str:
+        """
+        Generate an answer to a user query using retrieved context nodes.
+        Uses the enhanced retrieval methods for better context selection.
+        
+        Args:
+            user_query: The user's question
+            k: Number of context nodes to retrieve
+            
+        Returns:
+            Generated answer string
+        """
+        # Parse the query to extract any coordinate filters
+        parsed_query = self.nl_parser.parse(user_query)
+        
+        # Preprocess the query to extract keywords, estimate theta, etc.
+        query_text, retrieval_params = self.preprocess_query(
+            parsed_query.query_text or user_query,
+            {
+                'extract_keywords': True,
+                'decompose_query': True,
+                'estimate_theta': True,
+                'default_r_preference': 0.5  # Prefer more relevant nodes
+            }
+        )
+        
+        # Add any coordinate filters to retrieval params
+        if parsed_query.filters:
+            # Focus on temporal range if specified
+            if parsed_query.filters.t_min is not None or parsed_query.filters.t_max is not None:
+                t_min = parsed_query.filters.t_min or 0
+                t_max = parsed_query.filters.t_max or float('inf')
+                # Use middle of range as focus point
+                if t_max < float('inf'):
+                    retrieval_params['time_preference'] = (t_min + t_max) / 2
+            
+            # Use z_type priority if specified
+            if parsed_query.filters.z_type:
+                retrieval_params['z_type_priority'] = [parsed_query.filters.z_type]
+        
+        # Use our enhanced retrieval method
+        results = self.search_with_retrieval_params(query_text, retrieval_params, k=k)
+        
+        if not results:
+            return f"I couldn't find any relevant information to answer your question about '{user_query}'."
+        
+        # Construct context from results
+        context_parts = []
+        for i, (node, score) in enumerate(results):
+            # Extract meaningful content from the node
+            if isinstance(node.content, dict):
+                if 'text' in node.content:
+                    content_text = node.content['text']
+                else:
+                    # Fallback to serializing the content dict
+                    content_text = json.dumps(node.content)
+            else:
+                content_text = str(node.content)
+                
+            # Add metadata about the source 
+            source_info = f"[Source {i+1}: {node.type}"
+            if node.coordinates:
+                source_info += f" (t={node.coordinates.t:.2f}, r={node.coordinates.r:.2f}"
+                
+                # Add directional info using angle conversion to compass directions
+                theta_degrees = (node.coordinates.theta * 180 / np.pi) % 360
+                directions = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"]
+                direction_idx = int(((theta_degrees + 22.5) % 360) / 45)
+                source_info += f", direction={directions[direction_idx]}°"
+                
+                source_info += f", score={score:.3f})"
+            source_info += "]"
+            
+            # Add this chunk to context
+            context_parts.append(f"{source_info}\n{content_text}\n")
+            
+        # Join all context parts
+        context = "\n".join(context_parts)
+        
+        # Generate answer using LLM (in a real implementation)
+        answer = f"Based on the retrieved information, here's the answer to your question about '{user_query}':\n\n"
+        
+        # For now, just return the context with explanation
+        # In a full implementation, this would use an LLM to generate an answer
+        answer += context
+        
+        return answer
 
     def update_node_coordinates(self, node_id: str, new_coordinates: PolarTemporalCoordinate) -> bool:
         """
@@ -816,3 +910,740 @@ Answer the question: {user_query}
         except Exception as e:
             logger.error(f"Error updating docstore for node {node_id}: {e}", exc_info=True)
             return False 
+
+    # --- Phase 3: Retrieval Methods Implementation ---
+    
+    def apply_temporal_decay(self, original_score: float, node_temporal: float, 
+                           query_temporal: float, decay_rate: float = 0.1) -> float:
+        """
+        Apply temporal decay to a similarity score based on temporal distance.
+        Higher decay_rate means more penalty for temporal distance.
+        
+        Args:
+            original_score: Original similarity score
+            node_temporal: Node's temporal coordinate
+            query_temporal: Query's temporal coordinate (reference point)
+            decay_rate: Rate of decay (higher = faster decay)
+            
+        Returns:
+            Adjusted score after temporal decay
+        """
+        temporal_distance = abs(node_temporal - query_temporal)
+        decay_factor = np.exp(-decay_rate * temporal_distance)
+        return original_score * decay_factor
+    
+    def apply_directional_bias(self, original_score: float, node_theta: float, 
+                             preferred_direction: float, bias_strength: float = 0.3) -> float:
+        """
+        Apply directional bias to favor results in a particular direction.
+        
+        Args:
+            original_score: Original similarity score
+            node_theta: Node's angular coordinate
+            preferred_direction: Preferred direction in radians
+            bias_strength: Strength of the directional bias (0-1)
+            
+        Returns:
+            Adjusted score with directional bias
+        """
+        # Calculate angular distance (shortest distance on unit circle)
+        angle_diff = abs((node_theta - preferred_direction + np.pi) % (2 * np.pi) - np.pi)
+        max_diff = np.pi
+        
+        # Normalize to [0, 1] where 0 means perfect alignment
+        normalized_diff = angle_diff / max_diff
+        
+        # Apply bias (higher score for closer alignment)
+        direction_factor = 1.0 - (bias_strength * normalized_diff)
+        return original_score * direction_factor
+    
+    def apply_radial_preference(self, original_score: float, node_r: float, 
+                              preferred_radius: float, preference_strength: float = 0.2) -> float:
+        """
+        Apply preference for a specific radius/relevance level.
+        
+        Args:
+            original_score: Original similarity score
+            node_r: Node's radial coordinate
+            preferred_radius: Preferred radial distance
+            preference_strength: Strength of the preference (0-1)
+            
+        Returns:
+            Adjusted score with radial preference
+        """
+        # Calculate radial distance and normalize by a reasonable max range
+        radial_diff = abs(node_r - preferred_radius)
+        max_diff = 10.0  # Assuming this is a reasonable maximum difference
+        
+        # Normalize to [0, 1]
+        normalized_diff = min(radial_diff / max_diff, 1.0)
+        
+        # Apply preference (higher score for closer to preferred radius)
+        radial_factor = 1.0 - (preference_strength * normalized_diff)
+        return original_score * radial_factor
+    
+    def search_with_retrieval_params(self, query_text: str, retrieval_params: dict = None, k: int = 10) -> List[Tuple[Node, float]]:
+        """
+        Enhanced search with configurable retrieval parameters.
+        
+        Args:
+            query_text: The semantic query text
+            retrieval_params: Dictionary of retrieval parameters to customize behavior
+                - temporal_decay_rate: float (default: 0.1)
+                - directional_bias: dict with 'direction' (radians) and 'strength' (0-1)
+                - radial_preference: dict with 'radius' and 'strength' (0-1)
+                - time_preference: float (temporal coordinate to focus on)
+                - boost_keywords: list of keywords to boost score for
+                - keyword_boost_factor: float (default: 0.2)
+                - z_type_priority: list of z_types to prioritize in results
+                - min_score_threshold: float (default: 0.0)
+            k: Maximum number of results to return
+            
+        Returns:
+            List of (node, score) tuples sorted by adjusted score
+        """
+        # Default parameters
+        if retrieval_params is None:
+            retrieval_params = {}
+            
+        # Extract parameters with defaults
+        temporal_decay_rate = retrieval_params.get('temporal_decay_rate', 0.1)
+        time_preference = retrieval_params.get('time_preference', None)
+        directional_bias = retrieval_params.get('directional_bias', None)
+        radial_preference = retrieval_params.get('radial_preference', None)
+        boost_keywords = retrieval_params.get('boost_keywords', [])
+        keyword_boost_factor = retrieval_params.get('keyword_boost_factor', 0.2)
+        z_type_priority = retrieval_params.get('z_type_priority', [])
+        min_score_threshold = retrieval_params.get('min_score_threshold', 0.0)
+        
+        # Get the base semantic search results (could be a raw or prefiltered search)
+        base_results = self.find_similar_nodes(query_text, k=min(k * 2, 100))  # Get more results than needed for reranking
+        
+        if not base_results:
+            logger.warning(f"No base results found for query: '{query_text}'")
+            return []
+            
+        # Apply score adjustments based on retrieval parameters
+        adjusted_results = []
+        for node, score in base_results:
+            if score < min_score_threshold:
+                continue
+                
+            adjusted_score = score
+            
+            # Apply temporal decay if time_preference is specified
+            if time_preference is not None:
+                adjusted_score = self.apply_temporal_decay(
+                    adjusted_score, node.coordinates.t, time_preference, temporal_decay_rate
+                )
+                
+            # Apply directional bias if specified
+            if directional_bias and isinstance(directional_bias, dict):
+                direction = directional_bias.get('direction', 0.0)
+                strength = directional_bias.get('strength', 0.3)
+                adjusted_score = self.apply_directional_bias(
+                    adjusted_score, node.coordinates.theta, direction, strength
+                )
+                
+            # Apply radial preference if specified
+            if radial_preference and isinstance(radial_preference, dict):
+                radius = radial_preference.get('radius', 0.5)
+                strength = radial_preference.get('strength', 0.2)
+                adjusted_score = self.apply_radial_preference(
+                    adjusted_score, node.coordinates.r, radius, strength
+                )
+                
+            # Boost score for relevant keywords
+            if boost_keywords and node.keywords:
+                matching_keywords = set(boost_keywords).intersection(set(node.keywords))
+                if matching_keywords:
+                    keyword_boost = len(matching_keywords) / len(boost_keywords) * keyword_boost_factor
+                    adjusted_score += keyword_boost
+                    
+            # Boost for z_type priority
+            if z_type_priority and node.coordinates.z_type in z_type_priority:
+                # Prioritize by position in the list
+                type_index = z_type_priority.index(node.coordinates.z_type)
+                type_boost = (len(z_type_priority) - type_index) / len(z_type_priority) * 0.1
+                adjusted_score += type_boost
+                
+            adjusted_results.append((node, adjusted_score))
+            
+        # Sort by adjusted score
+        adjusted_results.sort(key=lambda x: x[1], reverse=True)
+        
+        # Return top k results
+        return adjusted_results[:k]
+    
+    def preprocess_query(self, query_text: str, params: dict = None) -> Tuple[str, dict]:
+        """
+        Preprocess a query to align with the coordinate system.
+        
+        Args:
+            query_text: Original query text
+            params: Optional parameters to guide preprocessing
+                - extract_keywords: bool (default: True)
+                - decompose_query: bool (default: False)
+                - estimate_theta: bool (default: False)
+                - default_r_preference: float or None
+                - default_temporal_focus: float or None
+            
+        Returns:
+            Tuple of (processed_query_text, retrieval_params)
+        """
+        # Default parameters
+        if params is None:
+            params = {}
+            
+        extract_keywords = params.get('extract_keywords', True)
+        decompose_query = params.get('decompose_query', False)
+        estimate_theta = params.get('estimate_theta', False)
+        default_r_preference = params.get('default_r_preference', None)
+        default_temporal_focus = params.get('default_temporal_focus', None)
+        
+        # Initialize retrieval params
+        retrieval_params = {}
+        
+        # Extract keywords for boosting if requested
+        if extract_keywords:
+            # Use the same keyword extraction as in coordinate mapper
+            from src.utils.coordinate_mapper import CoordinateMapper
+            if not hasattr(self, '_coordinate_mapper_for_keywords'):
+                # FIXED: Ensure consistent coordinate parameters with main mapper
+                main_config = self.coordinate_mapper.get_config()
+                self._coordinate_mapper_for_keywords = CoordinateMapper(
+                    embedding_service=self.embedding_service,
+                    use_embedding_for_coords=main_config.get('use_embedding_coords', True),
+                    embedding_r_scale=main_config.get('embedding_r_scale', 1.0),
+                    embedding_theta_scale=main_config.get('embedding_theta_scale', 3.14159)
+                )
+                logger.info(f"Created keyword extraction coordinate mapper with matching config: {main_config}")
+            keywords = self._coordinate_mapper_for_keywords._extract_keywords(query_text)
+            retrieval_params['boost_keywords'] = keywords
+            
+        # Decompose complex queries if requested
+        if decompose_query:
+            # Simple approach: look for sections separated by 'and', 'or', etc.
+            import re
+            parts = re.split(r'\s+(?:and|or|plus|with|including)\s+', query_text, flags=re.IGNORECASE)
+            if len(parts) > 1:
+                # If decomposed, we might use the main part as the query
+                query_text = parts[0].strip()
+                # And add additional parts as keywords to boost
+                additional_keywords = []
+                for part in parts[1:]:
+                    words = re.findall(r'\b\w+\b', part)
+                    additional_keywords.extend(words)
+                retrieval_params.setdefault('boost_keywords', []).extend(additional_keywords)
+                
+        # Estimate theta (topic angle) if requested
+        if estimate_theta and self.embedding_service:
+            try:
+                # Get the query embedding
+                query_embedding = np.array(self.embedding_service.embed_query(query_text))
+                
+                # We can use the first two dimensions after normalization to estimate a topic angle
+                if len(query_embedding) >= 2:
+                    normalized = query_embedding / np.linalg.norm(query_embedding)
+                    # Use first two dimensions to get an angle
+                    theta = np.arctan2(normalized[1], normalized[0]) % (2 * np.pi)
+                    
+                    # Use this as a directional bias
+                    retrieval_params['directional_bias'] = {
+                        'direction': float(theta),
+                        'strength': 0.2  # Moderate strength
+                    }
+            except Exception as e:
+                logger.warning(f"Failed to estimate theta for query: {e}")
+                
+        # Apply default preferences if specified
+        if default_r_preference is not None:
+            retrieval_params['radial_preference'] = {
+                'radius': default_r_preference,
+                'strength': 0.15  # Mild preference
+            }
+            
+        if default_temporal_focus is not None:
+            retrieval_params['time_preference'] = default_temporal_focus
+            
+        return query_text, retrieval_params
+    
+    def search_with_temporal_focus(self, query_text: str, temporal_focus: float, 
+                                 decay_rate: float = 0.1, k: int = 10) -> List[Tuple[Node, float]]:
+        """
+        Search with a specific temporal focus point.
+        
+        Args:
+            query_text: The query text
+            temporal_focus: The temporal coordinate to focus around
+            decay_rate: Rate of decay away from focus point
+            k: Maximum number of results
+            
+        Returns:
+            List of (node, score) tuples
+        """
+        retrieval_params = {
+            'time_preference': temporal_focus,
+            'temporal_decay_rate': decay_rate
+        }
+        return self.search_with_retrieval_params(query_text, retrieval_params, k)
+    
+    def search_with_directional_bias(self, query_text: str, direction: float, 
+                                   strength: float = 0.3, k: int = 10) -> List[Tuple[Node, float]]:
+        """
+        Search with bias toward a specific direction in the polar coordinate space.
+        
+        Args:
+            query_text: The query text
+            direction: Preferred direction in radians
+            strength: Strength of the directional bias (0-1)
+            k: Maximum number of results
+            
+        Returns:
+            List of (node, score) tuples
+        """
+        retrieval_params = {
+            'directional_bias': {
+                'direction': direction,
+                'strength': strength
+            }
+        }
+        return self.search_with_retrieval_params(query_text, retrieval_params, k)
+    
+    def validate_coordinate_config(self, query_config: dict) -> dict:
+        """
+        Validate query coordinate config against storage config to prevent mismatches.
+        If critical parameters don't match, warns and returns storage configuration.
+        
+        Args:
+            query_config: The coordinate configuration from the query
+            
+        Returns:
+            The validated configuration to use (typically storage config if mismatch)
+        """
+        # Get storage configuration from the coordinate mapper
+        storage_config = self.coordinate_mapper.get_config()
+        
+        # Check for critical parameter mismatches
+        critical_params = ['use_embedding_coords', 'embedding_r_scale', 'embedding_theta_scale']
+        has_mismatch = False
+        
+        for param in critical_params:
+            query_param = param
+            mapper_param = param
+            
+            # Handle difference in parameter naming between query and mapper
+            if param == 'use_embedding_coords':
+                mapper_param = 'use_embedding_for_coords'
+            
+            if query_param in query_config and mapper_param in storage_config:
+                if query_config[query_param] != storage_config[mapper_param]:
+                    logger.warning(f"Coordinate parameter mismatch: storage {mapper_param}={storage_config[mapper_param]}, "
+                                  f"query {query_param}={query_config[query_param]}. Using storage value.")
+                    has_mismatch = True
+        
+        if has_mismatch:
+            logger.warning("Critical coordinate parameter mismatch detected. Using storage configuration to avoid retrieval issues.")
+            # Convert use_embedding_for_coords to use_embedding_coords for query 
+            adjusted_config = {
+                'use_embedding_coords': storage_config['use_embedding_for_coords'],
+                'embedding_r_scale': storage_config['embedding_r_scale'],
+                'embedding_theta_scale': storage_config['embedding_theta_scale'],
+            }
+            return adjusted_config
+        
+        return query_config
+    
+    def search_with_hyde(self, 
+                       query: str, 
+                       hypothesis_prompt: str = None, 
+                       llm_model: str = "gpt-3.5-turbo", 
+                       k: int = 10) -> List[Tuple[Node, float]]:
+        """
+        Implement Hypothetical Document Embeddings (HyDE) retrieval.
+        This method generates a hypothetical document that would answer the query,
+        then embeds that document rather than the query for better semantic search.
+        
+        Args:
+            query: The user's query
+            hypothesis_prompt: Optional custom prompt for hypothesis generation
+            llm_model: LLM model to use for generating hypothetical document
+            k: Number of results to retrieve
+            
+        Returns:
+            List of (node, score) tuples representing search results
+        """
+        from langchain_openai import ChatOpenAI
+        from langchain.schema import HumanMessage
+        
+        logger.info(f"Executing HyDE search for query: '{query}'")
+        
+        # Default prompt for generating a hypothetical answer
+        if hypothesis_prompt is None:
+            hypothesis_prompt = f"""
+            Write a short passage that would answer the following question directly.
+            Keep your response factual and concise, as if you were writing an encyclopedia entry.
+            DO NOT include phrases like "the answer is" or "in conclusion".
+            Just write the content that would contain the answer.
+            
+            Question: {query}
+            """
+        
+        try:
+            # Initialize LLM for hypothetical document generation
+            llm = ChatOpenAI(model=llm_model, temperature=0.2)
+            
+            # Generate hypothetical document
+            messages = [HumanMessage(content=hypothesis_prompt)]
+            hypothetical_doc = llm.invoke(messages).content
+            
+            logger.info(f"Generated hypothetical document: {hypothetical_doc[:100]}...")
+            
+            # Embed the hypothetical document instead of the query
+            results = self.find_similar_nodes(hypothetical_doc, k=k)
+            
+            # Adjust scores based on query-specific parameters if needed
+            # For now, just use the raw similarity scores
+            
+            return results
+            
+        except Exception as e:
+            logger.error(f"Error in HyDE search: {e}", exc_info=True)
+            # Fall back to regular search if HyDE fails
+            logger.info("Falling back to regular search after HyDE failure")
+            return self.find_similar_nodes(query, k=k)
+
+    def search_with_hybrid(self, query: str, keyword_weight: float = 0.3, k: int = 10) -> List[Tuple[Node, float]]:
+        """
+        Implement hybrid search combining semantic (embedding) search with keyword-based search.
+        This addresses limitations of pure semantic search, especially for explicit keyword queries.
+        
+        Args:
+            query: The user's query
+            keyword_weight: Weight to give keyword matches (0-1)
+            k: Number of results to retrieve
+            
+        Returns:
+            List of (node, score) tuples representing search results
+        """
+        from sklearn.feature_extraction.text import TfidfVectorizer
+        import re
+        
+        logger.info(f"Executing hybrid search for query: '{query}'")
+        
+        # Extract keywords from query using simple method
+        def extract_keywords(text):
+            # Remove stop words and extract key terms
+            stop_words = {'a', 'an', 'the', 'and', 'or', 'but', 'if', 'then', 'else', 'when', 
+                         'at', 'from', 'by', 'for', 'with', 'about', 'to', 'in', 'on', 'is', 'are'}
+            words = re.findall(r'\b\w+\b', text.lower())
+            return [w for w in words if w not in stop_words and len(w) > 2]
+        
+        query_keywords = extract_keywords(query)
+        logger.info(f"Extracted keywords from query: {query_keywords}")
+        
+        # If no keywords extracted but the query is a single meaningful word, use it
+        if not query_keywords and len(query.strip()) > 2:
+            query_keywords = [query.strip().lower()]
+            logger.info(f"Using full query as keyword: {query_keywords}")
+        
+        try:
+            # 1. Get semantic search results
+            semantic_results = self.find_similar_nodes(query, k=k*2)  # Get more for merging
+            
+            # 2. ENHANCED: Perform direct content search for exact keyword matches
+            exact_matches = []
+            
+            # First, try exact string matching for each keyword
+            for node_id, node in self.db.nodes.items():
+                content_text = ""
+                
+                # Extract searchable text from node content
+                if isinstance(node.content, dict):
+                    if 'text' in node.content:
+                        content_text = node.content['text'].lower()
+                    else:
+                        # Serialize other content fields
+                        content_text = json.dumps(node.content).lower()
+                else:
+                    content_text = str(node.content).lower()
+                
+                # Check for exact matches of query keywords
+                for keyword in query_keywords:
+                    if keyword in content_text:
+                        # Calculate a match score - higher if multiple occurrences
+                        count = content_text.count(keyword)
+                        match_score = 1.0 + (0.1 * min(count-1, 10))  # Cap bonus at 10 occurrences
+                        exact_matches.append((node, match_score))
+                        break  # Found one match, move to next node
+            
+            logger.info(f"Found {len(exact_matches)} exact keyword matches")
+                
+            # 3. Combine results using a weighted approach
+            # First, combine semantic and exact match results
+            all_results = {}
+            
+            # Add semantic results
+            for node, score in semantic_results:
+                all_results[node.id] = {
+                    'node': node, 
+                    'semantic_score': score,
+                    'exact_score': 0.0,
+                    'combined_score': (1.0 - keyword_weight) * score
+                }
+                
+            # Add or update with exact match results    
+            for node, score in exact_matches:
+                if node.id in all_results:
+                    all_results[node.id]['exact_score'] = score
+                    all_results[node.id]['combined_score'] += keyword_weight * score
+                else:
+                    all_results[node.id] = {
+                        'node': node,
+                        'semantic_score': 0.0,
+                        'exact_score': score,
+                        'combined_score': keyword_weight * score
+                    }
+            
+            # Sort by combined score and convert back to (node, score) tuples
+            sorted_results = sorted(all_results.values(), key=lambda x: x['combined_score'], reverse=True)
+            
+            # Log detailed matching information for top results
+            for i, result in enumerate(sorted_results[:min(3, len(sorted_results))]):
+                logger.info(f"Top result {i+1}: node_id={result['node'].id}, semantic_score={result['semantic_score']:.3f}, "
+                           f"exact_score={result['exact_score']:.3f}, combined_score={result['combined_score']:.3f}")
+            
+            return [(item['node'], item['combined_score']) for item in sorted_results[:k]]
+            
+        except Exception as e:
+            logger.error(f"Error in hybrid search: {e}", exc_info=True)
+            # Fall back to regular search if hybrid search fails
+            logger.info("Falling back to regular search after hybrid search failure")
+            return semantic_results[:k] if semantic_results else []
+    
+    # --- End Phase 3: Retrieval Methods Implementation --- 
+    
+    # --- Begin Phase 8: Advanced Retrieval Enhancement ---
+    
+    def search_with_colbert(self, query: str, k: int = 10) -> List[Tuple[Node, float]]:
+        """
+        Search using ColBERT-style token-level retrieval for more precise matching.
+        
+        Args:
+            query: The query text
+            k: Number of results to return
+            
+        Returns:
+            List of (node, score) tuples
+        """
+        from src.models.advanced_retrieval import ColBERTRetriever
+        
+        logger.info(f"Executing ColBERT search for query: '{query}'")
+        
+        try:
+            # Initialize ColBERT retriever
+            colbert = ColBERTRetriever(self.embedding_service)
+            
+            # We need to first pre-filter nodes to a reasonable number
+            # since ColBERT processing is computationally expensive
+            prefiltered_nodes = []
+            
+            # Use standard vector search to get a broader set of candidates
+            candidate_results = self.find_similar_nodes(query, k=min(k*5, 100))
+            prefiltered_nodes = [node for node, _ in candidate_results]
+            
+            logger.info(f"Pre-filtered to {len(prefiltered_nodes)} nodes for ColBERT processing")
+            
+            # Apply ColBERT retrieval on the pre-filtered nodes
+            results = colbert.retrieve(query, prefiltered_nodes, k=k)
+            
+            return results
+            
+        except Exception as e:
+            logger.error(f"Error in ColBERT search: {e}", exc_info=True)
+            # Fall back to regular search
+            return self.find_similar_nodes(query, k=k)
+    
+    def search_with_reranking(self, query: str, k: int = 10, initial_k: int = 30) -> List[Tuple[Node, float]]:
+        """
+        Search with Cohere reranking for improved relevance ordering.
+        
+        Args:
+            query: The query text
+            k: Number of final results to return
+            initial_k: Number of initial results to retrieve before reranking
+            
+        Returns:
+            List of (node, score) tuples
+        """
+        from src.models.advanced_retrieval import CohereReranker
+        
+        logger.info(f"Executing search with Cohere reranking for query: '{query}'")
+        
+        try:
+            # First get initial results with our standard retrieval method
+            # We retrieve more results than needed for reranking
+            initial_results = self.find_similar_nodes(query, k=initial_k)
+            
+            # Initialize the reranker
+            reranker = CohereReranker()
+            
+            # Rerank the results
+            reranked_results = reranker.rerank(query, initial_results, top_n=k)
+            
+            return reranked_results
+            
+        except Exception as e:
+            logger.error(f"Error in reranking search: {e}", exc_info=True)
+            # Fall back to regular search
+            return self.find_similar_nodes(query, k=k)
+    
+    def search_with_mmr(self, query: str, k: int = 10, lambda_param: float = 0.7) -> List[Tuple[Node, float]]:
+        """
+        Search with Maximal Marginal Relevance for diverse results.
+        
+        Args:
+            query: The query text
+            k: Number of results to return
+            lambda_param: Diversity-relevance trade-off parameter (0-1)
+                Higher values favor relevance, lower values favor diversity
+            
+        Returns:
+            List of (node, score) tuples
+        """
+        from src.models.advanced_retrieval import MaximalMarginalRelevance
+        
+        logger.info(f"Executing MMR search for query: '{query}'")
+        
+        try:
+            # Get query embedding
+            query_embedding = np.array(self.embedding_service.embed_query(query))
+            
+            # First get a larger set of candidates
+            initial_results = self.find_similar_nodes(query, k=min(k*3, 100))
+            
+            # Apply MMR reranking
+            mmr = MaximalMarginalRelevance(lambda_param=lambda_param)
+            diverse_results = mmr.rerank(query_embedding, initial_results, k=k)
+            
+            return diverse_results
+            
+        except Exception as e:
+            logger.error(f"Error in MMR search: {e}", exc_info=True)
+            # Fall back to regular search
+            return self.find_similar_nodes(query, k=k)
+    
+    def search_with_rag_fusion(self, query: str, k: int = 10) -> List[Tuple[Node, float]]:
+        """
+        Search using RAG-Fusion to combine multiple retrieval methods.
+        
+        Args:
+            query: The query text
+            k: Number of results to return
+            
+        Returns:
+            List of (node, score) tuples
+        """
+        from src.models.advanced_retrieval import RAGFusionRetriever
+        
+        logger.info(f"Executing RAG-Fusion search for query: '{query}'")
+        
+        try:
+            # Define the retrievers to use in fusion
+            retrievers = [
+                # Standard semantic search
+                lambda q: self.find_similar_nodes(q, k=k*2),
+                
+                # Hybrid search
+                lambda q: self.search_with_hybrid(q, keyword_weight=0.3, k=k*2),
+                
+                # HyDE search
+                lambda q: self.search_with_hyde(q, k=k*2)
+            ]
+            
+            # Initialize RAG-Fusion retriever
+            fusion_retriever = RAGFusionRetriever(retrievers)
+            
+            # Retrieve results
+            results = fusion_retriever.retrieve(query, k=k)
+            
+            return results
+            
+        except Exception as e:
+            logger.error(f"Error in RAG-Fusion search: {e}", exc_info=True)
+            # Fall back to regular search
+            return self.find_similar_nodes(query, k=k)
+    
+    def search_with_weighted_ensemble(self, query: str, k: int = 10) -> List[Tuple[Node, float]]:
+        """
+        Search using a weighted ensemble of multiple retrieval methods.
+        
+        Args:
+            query: The query text
+            k: Number of results to return
+            
+        Returns:
+            List of (node, score) tuples
+        """
+        from src.models.advanced_retrieval import weighted_fusion
+        
+        logger.info(f"Executing weighted ensemble search for query: '{query}'")
+        
+        try:
+            # Get results from different retrieval methods
+            results_semantic = self.find_similar_nodes(query, k=k*2)
+            results_hybrid = self.search_with_hybrid(query, k=k*2)
+            results_mmr = self.search_with_mmr(query, k=k*2)
+            
+            # Try to get results from ColBERT, but handle potential failure
+            try:
+                results_colbert = self.search_with_colbert(query, k=k*2)
+            except Exception as e:
+                logger.warning(f"ColBERT retrieval failed, excluding from ensemble: {e}")
+                results_colbert = []
+            
+            # Define weights for each method
+            # These can be tuned based on performance evaluation
+            weights = []
+            result_lists = []
+            
+            # Only include methods that returned results
+            if results_semantic:
+                result_lists.append(results_semantic)
+                weights.append(0.3)  # Standard semantic search weight
+                
+            if results_hybrid:
+                result_lists.append(results_hybrid)
+                weights.append(0.3)  # Hybrid search weight
+                
+            if results_mmr:
+                result_lists.append(results_mmr)
+                weights.append(0.2)  # MMR search weight
+                
+            if results_colbert:
+                result_lists.append(results_colbert)
+                weights.append(0.2)  # ColBERT search weight
+            
+            # If we have multiple result types, perform weighted fusion
+            if len(result_lists) > 1:
+                # Normalize weights to sum to 1.0
+                total_weight = sum(weights)
+                normalized_weights = [w / total_weight for w in weights]
+                
+                # Perform weighted fusion
+                results = weighted_fusion(result_lists, normalized_weights, k=k)
+            elif len(result_lists) == 1:
+                # If only one type of results, just use those
+                results = result_lists[0][:k]
+            else:
+                # Fall back to standard search if no methods succeeded
+                results = self.find_similar_nodes(query, k=k)
+            
+            return results
+            
+        except Exception as e:
+            logger.error(f"Error in weighted ensemble search: {e}", exc_info=True)
+            # Fall back to regular search
+            return self.find_similar_nodes(query, k=k)
+    
+    # --- End Phase 8: Advanced Retrieval Enhancement --- 

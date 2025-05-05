@@ -9,13 +9,14 @@ langchain-openai>=0.1.0 # Specify a reasonable base version
 # langchain-huggingface
 sentence-transformers>=2.2.2 # For SentenceTransformerEmbeddings
 torch>=2.0.0 # Commonly needed by sentence-transformers
-transformers>=4.30.0 # Commonly needed by sentence-transformers
+transformers>=4.30.0 # For ColBERT tokenization and transformers
 
 # Utilities
 python-dotenv>=1.0.0
 numpy>=1.20.0
 pytest>=7.0.0 # For testing
 spacy>=3.5.3
+requests>=2.28.0 # For Cohere API integration
 
 # Document Loaders (Add as needed)
 # pypdf
@@ -28,9 +29,12 @@ docx2txt>=0.8
 markdown>=3.4.3
 html2text>=2020.1.16
 tiktoken>=0.7.0 # Often needed by OpenAI/other tokenizers
-scikit-learn>=1.2.2 # For TfidfVectorizer
-# transformers>=4.30.0
-# openai>=1.0.0  # For OpenAI embeddings 
+scikit-learn>=1.2.2 # For TfidfVectorizer and similarity calculations
+
+# Advanced Retrieval Dependencies (Phase 8)
+# transformers>=4.30.0  # Already included above
+# requests>=2.28.0  # Already included above
+# scikit-learn>=1.2.2  # Already included above
 
 # Local Embeddings (Comment out if not using)
 # sentence-transformers>=2.2.2

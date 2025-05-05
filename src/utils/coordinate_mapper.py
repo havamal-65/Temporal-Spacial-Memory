@@ -14,17 +14,32 @@ from datetime import datetime, timedelta
 import hashlib
 import math # Added for potential future angle calculations
 from sklearn.feature_extraction.text import TfidfVectorizer
+import json
+import os
 
 # Local imports
 from src.data_models import PolarTemporalCoordinate, Z_TYPES # Updated import path if data_models is top level
 from src.utils.embedding_service import EmbeddingService # Keep for potential use
 
 # Configure logging
+log_level = os.getenv('COORDINATE_MAPPER_LOG_LEVEL', 'INFO')
 logging.basicConfig(
-    level=logging.INFO,
+    level=getattr(logging, log_level),
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
 logger = logging.getLogger('CoordinateMapper')
+
+# Create a separate logger for coordinate transformations if detailed logging is needed
+coord_logger = logging.getLogger('CoordinateMapper.Transformations')
+coord_logger.setLevel(getattr(logging, os.getenv('COORDINATE_TRANSFORM_LOG_LEVEL', 'DEBUG')))
+
+# Add file handler for coordinate transformations if LOG_TO_FILE is enabled
+if os.getenv('LOG_COORDINATES_TO_FILE', 'False').lower() in ('true', '1', 'yes'):
+    log_dir = os.getenv('COORDINATE_LOG_DIR', 'logs')
+    os.makedirs(log_dir, exist_ok=True)
+    file_handler = logging.FileHandler(f"{log_dir}/coordinate_transforms.log")
+    file_handler.setFormatter(logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s'))
+    coord_logger.addHandler(file_handler)
 
 
 class CoordinateMapper:
@@ -44,7 +59,17 @@ class CoordinateMapper:
                  layer_z_map: Dict[str, float] = {'MAIN': 0.0, 'FOOTNOTE': 1.0, 'COMMENTARY': 2.0, 'APPENDIX': 3.0}, # Example mapping
                  version_z_multiplier: float = 10.0, # Example scaling factor
                  abstraction_z_map: Dict[str, float] = {'DETAILED': 0.0, 'SUMMARY': 5.0, 'ABSTRACT': 6.0}, # Example mapping
-                 doc_id_z_multiplier: float = 1000.0 # Example scaling factor
+                 doc_id_z_multiplier: float = 1000.0, # Example scaling factor
+                 # --- Parameters for embedding-based coordinates ---
+                 use_embedding_for_coords: bool = False,  # Flag to use embedding-based coordinates
+                 embedding_r_scale: float = 1.0,  # Scaling factor for radial distance
+                 embedding_theta_scale: float = math.pi,  # Scaling factor for angular position
+                 # --- Parameters for normalization ---
+                 max_radius: float = 100.0,
+                 min_radius: float = 0.1,
+                 normalize_embeddings: bool = True,
+                 # --- Parameters for logging ---
+                 log_coordinates: bool = True
                 ):
         """
         Initialize the coordinate mapper.
@@ -58,6 +83,13 @@ class CoordinateMapper:
             version_z_multiplier: Factor to scale version numbers for z-value.
             abstraction_z_map: Dictionary mapping abstraction levels to z-values.
             doc_id_z_multiplier: Factor to scale document IDs (if numeric) for z-value.
+            use_embedding_for_coords: Whether to use embedding vectors for coordinate transformation.
+            embedding_r_scale: Scaling factor for radial distance from embeddings.
+            embedding_theta_scale: Scaling factor for angular position from embeddings.
+            max_radius: Maximum allowed radius for normalization.
+            min_radius: Minimum allowed radius for normalization.
+            normalize_embeddings: Whether to normalize embeddings before coordinate calculation.
+            log_coordinates: Whether to log coordinate transformations in detail.
         """
         self.embedding_service = embedding_service
         self.base_radius = base_radius
@@ -68,6 +100,46 @@ class CoordinateMapper:
         self.version_z_multiplier = version_z_multiplier
         self.abstraction_z_map = abstraction_z_map
         self.doc_id_z_multiplier = doc_id_z_multiplier
+        # Store embedding-based coordinate parameters
+        self.use_embedding_for_coords = use_embedding_for_coords
+        self.embedding_r_scale = embedding_r_scale
+        self.embedding_theta_scale = embedding_theta_scale
+        # Store normalization parameters
+        self.max_radius = max_radius
+        self.min_radius = min_radius
+        self.normalize_embeddings = normalize_embeddings
+        # Store logging parameters
+        self.log_coordinates = log_coordinates
+        
+        # Log initialization parameters
+        init_params = {
+            "use_embedding_coords": use_embedding_for_coords,
+            "embedding_r_scale": embedding_r_scale,
+            "embedding_theta_scale": embedding_theta_scale,
+            "max_radius": max_radius,
+            "min_radius": min_radius,
+            "normalize_embeddings": normalize_embeddings
+        }
+        logger.info(f"CoordinateMapper initialized with params: {json.dumps(init_params)}")
+
+    def get_config(self) -> Dict[str, Any]:
+        """
+        Get the current configuration of the CoordinateMapper.
+        
+        Returns:
+            Dictionary containing the current configuration parameters
+        """
+        config = {
+            "use_embedding_coords": self.use_embedding_for_coords,
+            "embedding_r_scale": self.embedding_r_scale,
+            "embedding_theta_scale": self.embedding_theta_scale,
+            "base_radius": self.base_radius,
+            "base_angle_spread": self.base_angle_spread,
+            "max_radius": self.max_radius,
+            "min_radius": self.min_radius,
+            "normalize_embeddings": self.normalize_embeddings
+        }
+        return config
 
     def map_to_coordinates(self,
                          content: str,
@@ -76,31 +148,79 @@ class CoordinateMapper:
                         ) -> Dict[str, Any]:
         """
         Map text content and structural metadata to 4D coordinates and keywords.
-        Phase 1: Structural mapping for 't', 'z', 'z_type'; placeholders for 'r', 'theta'.
+        Uses embeddings for r and theta if available and enabled.
 
         Args:
             content: Text content of the chunk.
             metadata: Metadata including structural info (page, chunk index, LLM analysis results).
-            embedding: Pre-computed embedding (optional, not used for coords in this phase).
+            embedding: Pre-computed embedding (optional, used for coords if available and enabled).
 
         Returns:
             Dictionary containing coordinates, keywords, embedding, and mapping details.
         """
-
-        # --- Calculate Coordinates (Phase 1: Structure-based 't', 'z', 'z_type', Placeholders 'r','theta') ---
-        coordinates = self._calculate_structural_coordinates(metadata)
-
+        # Extract document and chunk identifiers for logging
+        doc_id = metadata.get('doc_id', 'unknown_doc')
+        chunk_id = metadata.get('chunk_id', f"chunk_{time.time()}")
+        logger.debug(f"Mapping coordinates for {doc_id}/{chunk_id}")
+        
+        # Log summary of input metadata for traceability
+        if self.log_coordinates:
+            coord_logger.debug(f"Input metadata for {doc_id}/{chunk_id}: " +
+                               f"page={metadata.get('page_number', 'N/A')}, " +
+                               f"chunk_idx={metadata.get('chunk_index_on_page', 'N/A')}, " +
+                               f"has_embedding={embedding is not None}")
+        
+        # Get embedding shape for logging
+        embedding_shape = None
+        if embedding is not None:
+            embedding_shape = embedding.shape
+            if self.log_coordinates:
+                coord_logger.debug(f"Input embedding shape for {doc_id}/{chunk_id}: {embedding_shape}")
+        
+        # --- Calculate Coordinates ---
+        start_time = time.time()
+        if self.use_embedding_for_coords and embedding is not None:
+            # Use embedding-based coordinates with structural t and z
+            coordinates = self._calculate_embedding_based_coordinates(embedding, metadata)
+            mapping_basis = "embedding-based"
+        else:
+            # Use structural coordinates (placeholder r, theta)
+            coordinates = self._calculate_structural_coordinates(metadata)
+            mapping_basis = "structure-based"
+            
+        calculation_time = time.time() - start_time
+        
         # --- Generate Keywords (Using local TF calculation) ---
         keywords = self._extract_keywords(content)
 
         # --- Prepare Mapping Details ---
         mapping_details = {
-            'calculation_phase': 1,
+            'calculation_method': mapping_basis,
+            'calculation_time_ms': round(calculation_time * 1000, 2),
+            'embedding_shape': str(embedding_shape) if embedding_shape else "None",
             'temporal_basis': f"page {metadata.get('page_number', 0)} chunk {metadata.get('chunk_index_on_page', 0)}",
-            'radial_basis': f"fixed placeholder radius {self.base_radius}",
-            'angular_basis': f"fixed placeholder angle {coordinates.theta}",
-            'z_basis': f"{coordinates.z_type} -> z={coordinates.z}" # Add z basis info
+            'radial_basis': f"{'embedding magnitude' if mapping_basis == 'embedding-based' else 'fixed placeholder'} radius {coordinates.r}",
+            'angular_basis': f"{'embedding direction' if mapping_basis == 'embedding-based' else 'fixed placeholder'} angle {coordinates.theta}",
+            'z_basis': f"{coordinates.z_type} -> z={coordinates.z}", # Add z basis info
+            'metadata_keys': list(metadata.keys())
         }
+        
+        # Log the resulting coordinates
+        if self.log_coordinates:
+            coord_log = {
+                "doc_id": doc_id,
+                "chunk_id": chunk_id, 
+                "coordinates": {
+                    "r": float(coordinates.r),
+                    "theta": float(coordinates.theta),
+                    "t": float(coordinates.t),
+                    "z": float(coordinates.z),
+                    "z_type": coordinates.z_type
+                },
+                "mapping_basis": mapping_basis,
+                "calculation_time_ms": mapping_details['calculation_time_ms']
+            }
+            coord_logger.info(f"Coordinate mapping: {json.dumps(coord_log)}")
 
         # --- Construct Result ---
         return {
@@ -109,6 +229,229 @@ class CoordinateMapper:
             'embedding': embedding, # Pass through the embedding
             'mapping_details': mapping_details
         }
+
+    def _normalize_embedding(self, embedding: np.ndarray) -> np.ndarray:
+        """
+        Normalize an embedding vector to unit length.
+        
+        Args:
+            embedding: The embedding vector to normalize
+            
+        Returns:
+            Normalized embedding vector
+        """
+        norm = np.linalg.norm(embedding)
+        if norm > 0:
+            normalized = embedding / norm
+            if self.log_coordinates:
+                coord_logger.debug(f"Normalized embedding: original norm={norm:.4f}")
+            return normalized
+        return embedding
+        
+    def _normalize_radius(self, radius: float) -> float:
+        """
+        Normalize radius to be within the allowed range.
+        
+        Args:
+            radius: The calculated radius
+            
+        Returns:
+            Normalized radius within min_radius and max_radius
+        """
+        original = radius
+        if radius < self.min_radius:
+            logger.debug(f"Normalizing small radius: {radius:.6f} -> {self.min_radius}")
+            radius = self.min_radius
+        if radius > self.max_radius:
+            logger.debug(f"Normalizing large radius: {radius:.6f} -> {self.max_radius}")
+            radius = self.max_radius
+            
+        if self.log_coordinates and original != radius:
+            coord_logger.debug(f"Radius normalization: {original:.6f} -> {radius:.6f}")
+            
+        return radius
+        
+    def _normalize_theta(self, theta: float) -> float:
+        """
+        Normalize theta to be within [0, 2π) range.
+        
+        Args:
+            theta: The calculated angle in radians
+            
+        Returns:
+            Normalized angle in [0, 2π) range
+        """
+        original = theta
+        normalized = theta % (2 * np.pi)
+        if normalized < 0:
+            normalized += 2 * np.pi
+            
+        if self.log_coordinates and abs(original - normalized) > 1e-6:
+            coord_logger.debug(f"Theta normalization: {original:.6f} -> {normalized:.6f}")
+            
+        return normalized
+        
+    def _handle_edge_case_coordinates(self, coords: PolarTemporalCoordinate) -> PolarTemporalCoordinate:
+        """
+        Handle edge cases in coordinate values.
+        
+        Args:
+            coords: The original coordinates
+            
+        Returns:
+            Corrected coordinates with handled edge cases
+        """
+        # Store original values for logging
+        original = {
+            "r": coords.r,
+            "theta": coords.theta,
+            "t": coords.t,
+            "z": coords.z
+        }
+        
+        # Normalize r and theta
+        r = self._normalize_radius(coords.r)
+        theta = self._normalize_theta(coords.theta)
+        
+        # Handle potential NaN or infinite values in t and z
+        t = coords.t
+        if not np.isfinite(t):
+            logger.warning(f"Invalid temporal coordinate (t={t}), setting to 0")
+            t = 0.0
+            
+        z = coords.z
+        if not np.isfinite(z):
+            logger.warning(f"Invalid z coordinate (z={z}), setting to 0")
+            z = 0.0
+            
+        # Log corrections if any were made
+        if self.log_coordinates and (
+            original["r"] != r or
+            original["theta"] != theta or
+            original["t"] != t or
+            original["z"] != z
+        ):
+            coord_logger.info(f"Edge case handling: Original={json.dumps(original)}, " +
+                             f"Corrected={{r:{r}, theta:{theta}, t:{t}, z:{z}}}")
+            
+        # Return corrected coordinates
+        return PolarTemporalCoordinate(
+            r=r,
+            theta=theta,
+            t=t,
+            z=z,
+            z_type=coords.z_type
+        )
+
+    def _calculate_embedding_based_coordinates(self, embedding: np.ndarray, metadata: Dict[str, Any]) -> PolarTemporalCoordinate:
+        """
+        Calculate polar-temporal coordinates using embedding vector properties for r and theta,
+        while maintaining structural mapping for t and z.
+        
+        Args:
+            embedding: The embedding vector to transform
+            metadata: Structural metadata for t and z calculation
+            
+        Returns:
+            PolarTemporalCoordinate with embedding-derived r and theta values
+        """
+        # First get the structural t and z values
+        structural_coords = self._calculate_structural_coordinates(metadata)
+        
+        # Extract identifiers for logging
+        doc_id = metadata.get('doc_id', 'unknown_doc')
+        chunk_id = metadata.get('chunk_id', f"chunk_{time.time()}")
+        
+        # Log embedding stats before normalization if logging is enabled
+        if self.log_coordinates:
+            pre_norm_stats = {
+                "doc_id": doc_id,
+                "chunk_id": chunk_id,
+                "embedding_shape": embedding.shape,
+                "embedding_mean": float(np.mean(embedding)),
+                "embedding_std": float(np.std(embedding)),
+                "embedding_min": float(np.min(embedding)),
+                "embedding_max": float(np.max(embedding)),
+                "embedding_norm": float(np.linalg.norm(embedding))
+            }
+            coord_logger.debug(f"Pre-normalization embedding stats: {json.dumps(pre_norm_stats)}")
+        
+        # Normalize embedding if configured to do so
+        if self.normalize_embeddings and embedding is not None and embedding.size > 0:
+            embedding = self._normalize_embedding(embedding)
+            
+            # Log post-normalization stats
+            if self.log_coordinates:
+                post_norm_stats = {
+                    "embedding_mean": float(np.mean(embedding)),
+                    "embedding_std": float(np.std(embedding)),
+                    "embedding_norm": float(np.linalg.norm(embedding))
+                }
+                coord_logger.debug(f"Post-normalization embedding stats: {json.dumps(post_norm_stats)}")
+        
+        # Calculate embedding magnitude (L2 norm) for radial distance
+        r = np.linalg.norm(embedding) * self.embedding_r_scale
+        
+        # Log pre-normalization r value
+        if self.log_coordinates:
+            coord_logger.debug(f"Pre-normalized r value for {doc_id}/{chunk_id}: {r:.6f}")
+            
+        r = self._normalize_radius(r)
+        
+        # For theta, project to 2D and calculate angle
+        # Using first two principal components for simplicity
+        # More sophisticated dimension reduction could be applied here
+        theta_source = "projection"
+        if embedding.size >= 2:
+            # Calculate angle in 2D projection using arctan2
+            pre_norm_theta = np.arctan2(embedding[1], embedding[0]) * self.embedding_theta_scale
+            
+            # Log pre-normalization theta value
+            if self.log_coordinates:
+                coord_logger.debug(f"Pre-normalized theta for {doc_id}/{chunk_id}: {pre_norm_theta:.6f}")
+            
+            # Normalize to [0, 2π) range
+            theta = self._normalize_theta(pre_norm_theta)
+        else:
+            # Fallback if embedding is too small
+            theta = 0.0
+            theta_source = "fallback"
+            
+        # Log detailed coordinate derivation
+        if self.log_coordinates:
+            derivation = {
+                "doc_id": doc_id,
+                "chunk_id": chunk_id,
+                "r_calculation": {
+                    "embedding_norm": float(np.linalg.norm(embedding)),
+                    "scale_factor": self.embedding_r_scale,
+                    "final_r": float(r)
+                },
+                "theta_calculation": {
+                    "source": theta_source,
+                    "value": float(theta)
+                },
+                "t_value": float(structural_coords.t),
+                "z_calculation": {
+                    "value": float(structural_coords.z),
+                    "type": structural_coords.z_type
+                }
+            }
+            coord_logger.debug(f"Coordinate derivation: {json.dumps(derivation)}")
+            
+        logger.debug(f"Calculated embedding-based coordinates: r={r:.4f}, theta={theta:.4f} rad, t={structural_coords.t:.4f}, z={structural_coords.z:.4f}")
+            
+        # Create coordinate with embedding-based r and theta, structural t and z
+        coords = PolarTemporalCoordinate(
+            r=float(r),
+            theta=float(theta),
+            t=structural_coords.t,
+            z=structural_coords.z,
+            z_type=structural_coords.z_type
+        )
+        
+        # Handle any potential edge cases
+        return self._handle_edge_case_coordinates(coords)
 
     def _calculate_structural_coordinates(self, metadata: Dict[str, Any]) -> PolarTemporalCoordinate:
         """
@@ -124,10 +467,13 @@ class CoordinateMapper:
         Returns:
             A PolarTemporalCoordinate object (r, theta, t, z, z_type).
         """
-        # --- Import the correct class INSIDE the method ---
-        # Already imported at the top level now
-        # from src.data_models import PolarTemporalCoordinate, Z_TYPES
-        # --- End Import ---
+        # Extract identifiers for logging
+        doc_id = metadata.get('doc_id', 'unknown_doc')
+        chunk_id = metadata.get('chunk_id', f"chunk_{time.time()}")
+        
+        # Log start of structural coordinate calculation
+        if self.log_coordinates:
+            coord_logger.debug(f"Computing structural coordinates for {doc_id}/{chunk_id}")
 
         page_number = metadata.get('page_number', 1) # Default to 1 if missing
         chunk_index = metadata.get('chunk_index_on_page', 0) # Default to 0
@@ -139,6 +485,16 @@ class CoordinateMapper:
         # --- 1. Temporal Coordinate (t) ---
         # Maps page number and chunk index to a continuous time value.
         t = float(page_number - 1) + (float(chunk_index) / float(total_chunks_on_page))
+        
+        # Log t calculation details
+        if self.log_coordinates:
+            t_calc = {
+                "page_number": page_number,
+                "chunk_index": chunk_index, 
+                "total_chunks": total_chunks_on_page,
+                "resulting_t": t
+            }
+            coord_logger.debug(f"Temporal coordinate calculation: {json.dumps(t_calc)}")
 
         # --- 2. Radial Distance (r) ---
         # Assign the fixed placeholder radius for Phase 1.
@@ -150,91 +506,120 @@ class CoordinateMapper:
 
         # --- 4. Structural Coordinate (z) and Type (z_type) ---
         # Derive z and z_type from structural metadata (LLM analysis results)
-        # **NOTE: This mapping logic is a placeholder based on the plan's examples.**
-        # **It needs careful design and refinement based on actual LLM outputs and desired structural representation.**
         perspective = metadata.get("structural_perspective")
-        layer_type = metadata.get("structural_layer_type", 'MAIN') # Default added here
+        layer_type = metadata.get("structural_layer_type", 'MAIN')
         version = metadata.get("structural_version")
-        abstraction_level = metadata.get("structural_abstraction_level", 'DETAILED') # Default added here
-        doc_id = metadata.get("doc_id") # Get doc_id for potential mapping
+        abstraction_level = metadata.get("structural_abstraction_level", 'DETAILED')
+        doc_id = metadata.get("doc_id")
 
         z: float = 0.0
-        z_type: Z_TYPES = 'DEFAULT' # Default value
+        z_type: Z_TYPES = 'DEFAULT'
+        
+        # Log available structural metadata fields
+        if self.log_coordinates:
+            structural_fields = {
+                "perspective": perspective is not None,
+                "layer_type": layer_type if layer_type != 'MAIN' else None,
+                "version": version is not None,
+                "abstraction_level": abstraction_level if abstraction_level != 'DETAILED' else None,
+                "doc_id": doc_id is not None
+            }
+            coord_logger.debug(f"Structural metadata fields for z calculation: {json.dumps(structural_fields)}")
 
-        # --- Apply mapping rules based on priority (example priority: perspective > layer > version > abstraction > doc_id) ---
-        # **DESIGN DECISION: Define the priority/combination strategy for multiple struct_ fields.**
+        # --- Apply mapping rules based on priority ---
+        z_source = "default"
         if perspective:
-            # Example: Map perspective name hash to a float range
+            # Map perspective name hash to a float range
             z = self._map_perspective_to_z(perspective)
             z_type = 'PERSPECTIVE'
-        elif layer_type and layer_type != 'MAIN': # Check against default
-            # Example: Map predefined layers to specific z values
+            z_source = "perspective"
+        elif layer_type and layer_type != 'MAIN':
+            # Map predefined layers to specific z values
             z = self._map_layer_to_z(layer_type)
-            # Construct z_type string, ensuring it's in Z_TYPES
             potential_z_type = f'LAYER_{layer_type.upper().replace(" ", "_")}'
             if potential_z_type in Z_TYPES.__args__:
                  z_type = potential_z_type # Type: ignore[assignment]
             else:
                  logger.warning(f"Mapped layer '{layer_type}' resulted in unrecognized Z_TYPE '{potential_z_type}'. Defaulting z_type.")
-                 z_type = 'DEFAULT' # Fallback if generated type isn't valid
+                 z_type = 'DEFAULT'
+            z_source = "layer_type"
         elif version:
-             # Example: Use version directly (or mapped)
+             # Try to extract numeric part from version string
              numeric_part = None
              try:
-                 # Attempt to extract a year or number from the version string
                  match = re.search(r'\b(\d{4}|\d+\.?\d*)\b', version)
                  if match:
                      numeric_part = float(match.group(1))
                      
                  if numeric_part is not None:
-                     z = numeric_part * self.version_z_multiplier # Scale extracted number
+                     z = numeric_part * self.version_z_multiplier
                      logger.debug(f"Mapped version '{version}' to z={z} based on numeric part {numeric_part}")
+                     z_source = "version_numeric"
                  else:
                      # If no number found, fall back to hashing the whole string
                      logger.debug(f"No clear numeric part in version '{version}'. Using hash for z-mapping.")
                      z = self._hash_to_z(f"version_{version}", (200.0, 300.0))
+                     z_source = "version_hash"
                  z_type = 'VERSION'
-             except Exception as e: # Catch potential errors during regex or float conversion
+             except Exception as e:
                  logger.warning(f"Error processing version '{version}' for z-mapping: {e}. Falling back to hash.")
                  # Fallback to hashing the whole string on any error
                  z = self._hash_to_z(f"version_{version}", (200.0, 300.0))
                  z_type = 'VERSION'
-        elif abstraction_level and abstraction_level != 'DETAILED': # Check against default
+                 z_source = "version_hash_fallback"
+        elif abstraction_level and abstraction_level != 'DETAILED':
              z = self._map_abstraction_to_z(abstraction_level)
              potential_z_type = f'ABSTRACTION_{abstraction_level.upper().replace(" ", "_")}'
              if potential_z_type in Z_TYPES.__args__:
                  z_type = potential_z_type # Type: ignore[assignment]
              else:
                  logger.warning(f"Mapped abstraction '{abstraction_level}' resulted in unrecognized Z_TYPE '{potential_z_type}'. Defaulting z_type.")
-                 z_type = 'DEFAULT' # Fallback
+                 z_type = 'DEFAULT'
+             z_source = "abstraction_level"
         elif doc_id:
-            # Example: Map doc_id hash or a numeric part to z
-            # Attempt to convert to numeric first, then hash
+            # Map doc_id hash or a numeric part to z
             try:
                 # Try to extract a number for scaling
                 doc_id_num_str = re.sub(r'\D', '', doc_id)
                 if doc_id_num_str:
                      z = float(doc_id_num_str) * self.doc_id_z_multiplier
+                     z_source = "doc_id_numeric"
                 else:
                      # Fallback to hashing the string doc_id if no number found
                     z = self._hash_to_z(f"docid_{doc_id}", (300.0, 400.0))
+                    z_source = "doc_id_hash"
                 z_type = 'DOC_ID'
             except ValueError:
                  logger.warning(f"Could not process doc_id '{doc_id}' for numeric z-mapping, hashing instead.")
                  z = self._hash_to_z(f"docid_{doc_id}", (300.0, 400.0))
                  z_type = 'DOC_ID'
-        # If none of the above matched, z remains 0.0 and z_type remains 'DEFAULT'
+                 z_source = "doc_id_hash_fallback"
+        
+        # Log z calculation details
+        if self.log_coordinates:
+            z_calc = {
+                "z_source": z_source,
+                "z_type": z_type,
+                "z_value": z
+            }
+            coord_logger.debug(f"Z coordinate calculation: {json.dumps(z_calc)}")
 
         # Final coordinate (r, theta, t, z, z_type)
-        final_coordinate = PolarTemporalCoordinate(
+        coords = PolarTemporalCoordinate(
             r=r,
             theta=theta_rad,
             t=t,
             z=z,
             z_type=z_type
         )
+        
+        # Log final structural coordinates
+        if self.log_coordinates:
+            final = coords.to_dict()
+            coord_logger.debug(f"Final structural coordinates for {doc_id}/{chunk_id}: {json.dumps(final)}")
 
-        return final_coordinate
+        # Handle any potential edge cases
+        return self._handle_edge_case_coordinates(coords)
 
     # --- Helper methods for z-mapping (Placeholders/Examples) ---
 
@@ -262,6 +647,17 @@ class CoordinateMapper:
         # Scale to the desired z_range
         z_min, z_max = z_range
         z_value = z_min + normalized_hash * (z_max - z_min)
+        
+        # Log hash calculation if detailed logging is enabled
+        if self.log_coordinates:
+            hash_calc = {
+                "input": input_string,
+                "normalized_hash": normalized_hash,
+                "z_range": f"{z_min}-{z_max}",
+                "result": z_value
+            }
+            coord_logger.debug(f"Hash-to-Z calculation: {json.dumps(hash_calc)}")
+            
         return z_value
 
     # --- End Helper methods ---
@@ -323,4 +719,19 @@ class CoordinateMapper:
                 return []
         except Exception as e:
             logger.error(f"Unexpected error extracting keywords: {e}", exc_info=True)
-            return [] 
+            return []
+            
+    def transform_vector_to_polar_temporal(self, embedding: np.ndarray, metadata: Dict[str, Any]) -> PolarTemporalCoordinate:
+        """
+        Public method to transform a vector embedding to polar-temporal coordinates.
+        Useful for external coordinate transformation without the full mapping process.
+        
+        Args:
+            embedding: Vector embedding to transform
+            metadata: Structural metadata for temporal and z mapping
+            
+        Returns:
+            PolarTemporalCoordinate object with transformed coordinates
+        """
+        logger.info(f"Transforming vector to polar-temporal coordinates (embedding shape: {embedding.shape})")
+        return self._calculate_embedding_based_coordinates(embedding, metadata) 
