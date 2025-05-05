@@ -32,6 +32,20 @@ class CoordinateFilters(V1BaseModel):
     z_max: Optional[float] = V1Field(None, description="Maximum structural coordinate (z).")
     z_type: Optional[Z_TYPES] = V1Field(None, description=f"Specific structural type to filter for. Allowed values: {list(Z_TYPES.__args__)}")
 
+    def has_filters(self) -> bool:
+        """Check if any coordinate filters are set."""
+        return any([
+            self.r_min is not None,
+            self.r_max is not None,
+            self.t_min is not None,
+            self.t_max is not None,
+            self.theta_min is not None,
+            self.theta_max is not None,
+            self.z_min is not None,
+            self.z_max is not None,
+            self.z_type is not None,
+        ])
+
     @V1Validator('r_min', 'r_max')
     def validate_relevance(cls, v):
         if v is not None and v < 0:

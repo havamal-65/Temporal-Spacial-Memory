@@ -1,126 +1,332 @@
-# Temporal-Spatial Memory
+# Temporal-Spatial Memory System with Polar Coordinates
 
-## Description
+A sophisticated information retrieval and memory system that maps text to 4D polar-temporal coordinates for enhanced context retrieval, narrative awareness, and multi-dimensional information organization.
 
-This project implements a system for ingesting text documents (currently PDFs), extracting structured entities (characters, events, locations) page by page using an LLM, calculating initial 4D Polar-Temporal Coordinates (`r`, `theta`, `z`, `t`) for these entities, and storing them in a "Narrative Atlas" (FAISS vector store + metadata).
+## Overview
 
--   `r` (radius) and `theta` (angle) represent semantic position.
--   `z` (depth) and `z_type` represent structural layer/type.
--   `t` (time) represents the sequential position (page number).
+The Temporal-Spatial Memory System organizes information in a 4D coordinate space defined by:
 
-The ingestion pipeline includes an optional "Steward LLM" phase, which uses a Map-Reduce approach to perform a global analysis across all extracted entities, refining the `r`, `theta`, `z`, and `z_type` coordinates for better consistency and accuracy across the entire document. The `t` coordinate remains fixed.
+- **Radius (r)**: Semantic importance/relevance
+- **Theta (θ)**: Semantic direction/meaning
+- **Temporal (t)**: Sequential/chronological position
+- **Z-coordinate (z)**: Structural layer or perspective
 
-## Key Concepts
+This coordinate system enables rich information retrieval capabilities that surpass traditional vector search methods by incorporating temporal relationships, semantic directions, and structural organization.
 
--   **Narrative Atlas:** A vector store (currently using FAISS) that stores text chunk embeddings alongside their calculated Polar-Temporal Coordinates and other metadata.
--   **Polar-Temporal Coordinates:** A 4D system (`r`, `theta`, `z`, `t`) for locating text chunks based on semantics, structure, and sequence.
--   **Chunking:** Dividing input documents into smaller, manageable text segments for analysis.
--   **Embedding:** Generating vector representations of text chunks using language models.
--   **Steward LLM:** A secondary LLM process (implemented using a Map-Reduce pattern) responsible for refining the initial coordinates based on a global view of the document's content and structure.
+## Key Features
+
+- **Polar-Temporal Coordinate System**: Maps text to a 4D space that preserves both semantic relationships and narrative structure
+- **Temporal-Aware Retrieval**: Find information with awareness of chronological sequence
+- **Directional Bias**: Favor specific semantic directions in information retrieval
+- **Multi-Layer Organization**: Filter information based on structural layers
+- **Visualization Tools**: Explore information distribution across coordinate dimensions
+- **Natural Language Query Processing**: Parse queries for temporal constraints and coordinate filters
+- **RAG Integration**: Generate contextually rich, narrative-aware content for LLMs
+- **Advanced Retrieval Methods**: Including Hypothetical Document Embeddings (HyDE) and hybrid search (semantic + keyword)
+- **Coordinate Validation**: Ensures consistent coordinate mapping between storage and retrieval
+
+## Installation
+
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/yourusername/temporal-spatial-memory.git
+   cd temporal-spatial-memory
+   ```
+
+2. Install required dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. Set up environment variables (copy .env.example to .env and fill in your API keys)
+   ```bash
+   cp .env.example .env
+   # Edit .env with your API keys
+   ```
+
+## Quick Start
+
+1. Process a document into the polar-temporal coordinate system:
+   ```bash
+   python ingest_structured_atlas.py --input-pdf input/your_document.pdf --output-atlas-path output/atlas_storage
+   ```
+
+2. Query the system:
+   ```bash
+   python src/query.py --storage-path output/atlas_storage --query "Find information about key events in the early chapters"
+   ```
+   
+   Use advanced retrieval methods:
+   ```bash
+   # Use hybrid search for better keyword matching
+   python src/query.py --storage-path output/atlas_storage --query "Hobbit" --use-hybrid-search
+   
+   # Use HyDE for better semantic understanding
+   python src/query.py --storage-path output/atlas_storage --query "Tell me about the main character" --use-hyde
+   ```
+
+3. Visualize the coordinate space:
+   ```bash
+   python visualize_atlas.py --atlas-path output/atlas_storage --type dashboard
+   ```
+
+## Documentation
+
+### Architecture and Guides
+
+- [Coordinate System Architecture](docs/coordinate_system_architecture.md): Details of the 4D polar-temporal coordinate system
+- [Temporal Aspect User Guide](docs/temporal_aspect_user_guide.md): How to leverage temporal dimensions in queries
+- [Advanced Retrieval Methods](docs/Phase7_Coordinate_System_Alignment.md): Details on HyDE and hybrid search implementation
+- [API Documentation](docs/api_documentation.md): Comprehensive API reference
+- [Example Notebook](docs/example_notebook.md): Jupyter notebook with common use cases
+
+### Previous Development Phases
+
+- **Phase 1**: Coordinate Transformation Implementation ✓
+- **Phase 2**: Storage Optimization ✓
+- **Phase 3**: Retrieval Methods ✓
+- **Phase 4**: Visualization & Analysis ✓
+- **Phase 5**: Testing & Optimization ✓
+- **Phase 6**: Documentation & Integration ✓
+- **Phase 7**: Embedding Coordinate System Alignment ✓
+
+## System Architecture
+
+```
+┌─────────────────┐      ┌─────────────────┐      ┌─────────────────┐
+│                 │      │                 │      │                 │
+│  Document Input │───┬─▶│ Polar-Temporal  │──┬──▶│  NarrativeAtlas │
+│                 │   │  │ Transformation  │  │   │                 │
+└─────────────────┘   │  └─────────────────┘  │   └─────────────────┘
+                      │                       │             │
+                      │                       │             │
+                      │  ┌─────────────────┐  │             ▼
+                      │  │                 │  │   ┌─────────────────┐
+                      └─▶│   Embedding     │──┘   │                 │
+                         │    Service      │      │     Queries     │
+                         │                 │      │                 │
+                         └─────────────────┘      └─────────────────┘
+```
 
 ## Core Components
 
--   `ingest_structured_atlas.py`: Main script for ingesting PDF documents, performing entity extraction, initial coordinate mapping, and optionally running the Steward LLM refinement.
--   `src/models/narrative_atlas.py`: Manages the FAISS vector store and associated metadata, including adding/updating nodes and coordinates.
--   `src/data_models.py`: Defines Pydantic models for coordinates, nodes, entities, and other data structures.
--   `src/utils/embedding_service.py`: Handles text embedding generation (currently using SentenceTransformers via Langchain).
--   `src/services/steward_analyzer.py`: Implements the Steward LLM logic using a Map-Reduce approach for global coordinate refinement (r, theta, z, z_type).
--   `src/query.py`: Handles querying the Narrative Atlas (under development/verification).
--   `setup.py`: Cross-platform script to set up the virtual environment and install dependencies.
--   `requirements.txt`: Lists project dependencies.
--   `.env` / `.env copy.txt`: Files for storing environment variables (e.g., API keys).
--   `server.py`: (Potentially for future API access - TBD)
+- **NarrativeAtlas**: Main interface for the system; manages nodes and coordinates
+- **CoordinateMapper**: Transforms text and embeddings into polar-temporal coordinates
+- **Visualization Tools**: Dashboard, static visualizations, and network exports
+- **Query Processing**: Natural language parsing and coordinate-aware retrieval
 
-## Setup
+## Example Usage
 
-1.  **Clone the repository:**
-    ```bash
-    git clone <repository-url> # Replace <repository-url> with the actual URL
-    cd Temporal-Spacial\ Memory
-    ```
-2.  **Run the setup script:**
-    This script will create a virtual environment (if it doesn't exist), install dependencies from `requirements.txt`, and download the necessary spaCy model.
-    ```bash
-    python setup.py
-    ```
-3.  **Activate the virtual environment:**
-    After the setup script finishes, activate the created environment. The script will print the correct command for your OS (Windows or Linux/macOS).
-    ```bash
-    # Example for Windows (Command Prompt/PowerShell)
-    .\venv\Scripts\activate
-    
-    # Example for Linux/macOS (bash/zsh)
-    source venv/bin/activate 
-    ```
-4.  **Configure Environment Variables:**
-    The setup script will remind you, but ensure you have a `.env` file in the project root. If you don't, copy the `.env copy.txt` file to `.env` and add your OpenAI API key and any other required variables:
-    ```bash
-    # Example for Windows
-    copy ".env copy.txt" .env 
-    
-    # Example for Linux/macOS
-    cp ".env copy.txt" .env
-    ```
-    Then, edit the `.env` file to add your credentials.
+```python
+from src.models.narrative_atlas import NarrativeAtlas
+from src.utils.embedding_service import create_embedding_service
+
+# Initialize
+embedding_service = create_embedding_service()
+atlas = NarrativeAtlas(storage_path="output/atlas", embedding_service=embedding_service)
+
+# Add content
+node_id = atlas.add_node(
+    node_id=None,
+    content={"text": "Example content to store"},
+    embedding=None,  # Will be generated
+    metadata={"page_number": 1, "chunk_index_on_page": 0}
+)
+
+# Temporal-aware search
+results = atlas.search_with_temporal_focus(
+    query_text="Find related information",
+    temporal_focus=5.0,  # Target temporal position
+    decay_rate=0.1
+)
+
+# Process results
+for node, score in results:
+    print(f"Score: {score}, Content: {node.content['text']}")
+```
+
+## New in Phase 7: Coordinate System Alignment
+
+Phase 7 brings major improvements to the system's coordinate handling and retrieval capabilities:
+
+1. **Fixed Coordinate System Mismatch**: We've corrected a critical issue where the coordinate system parameters were inconsistent between ingestion and query processes. This ensures that data ingested with embedding-based coordinates can now be properly retrieved using the same coordinate system.
+
+2. **Enhanced Retrieval Methods**:
+   - **Hybrid Search**: Combines semantic embedding search with keyword matching, greatly improving results for exact-match queries like "Hobbit".
+   - **HyDE (Hypothetical Document Embeddings)**: Generates a hypothetical document that would answer a query, then embeds that document instead of the original query for better semantic context.
+
+3. **System Robustness**:
+   - Added configuration validation to prevent parameter mismatches
+   - Improved error handling for different coordinate types
+   - Enhanced logging for easier debugging of coordinate transformations
+
+Try these new features with:
+
+```bash
+# Use hybrid search for better keyword matching
+python src/query.py --storage-path output/atlas_storage --query "Hobbit" --use-hybrid-search
+
+# Use HyDE for better semantic understanding 
+python src/query.py --storage-path output/atlas_storage --query "Tell me about the main character" --use-hyde
+```
+
+## Server API
+
+The system includes a FastAPI server for accessing functionality via HTTP:
+
+```bash
+# Start the server
+python server.py
+```
+
+Access the API at `http://localhost:8000/narrative-rag` with queries:
+
+```json
+{
+  "query": "How did the main character evolve through the story?",
+  "k": 3
+}
+```
+
+## Visualization
+
+The system provides multiple visualization options:
+
+- **Interactive Dashboard**: Explore the coordinate space in real-time
+- **Static Visualizations**: Generate 2D and 3D plots of coordinates
+- **Network Exports**: Export to Gephi, Cytoscape, or D3.js formats
+- **Heatmaps**: Visualize information density across coordinate dimensions
+
+## License
+
+[MIT License](LICENSE)
+
+## Acknowledgements
+
+This project utilizes several open-source libraries and frameworks:
+- [LangChain](https://github.com/langchain-ai/langchain) for embeddings and vector stores
+- [FAISS](https://github.com/facebookresearch/faiss) for vector similarity search
+- [Sentence Transformers](https://github.com/UKPLab/sentence-transformers) for embeddings
+- [Plotly](https://github.com/plotly/plotly.py) for interactive visualizations
+
+## Features
+
+- **4D Polar-Temporal Coordinate Space**: Map information into a 4-dimensional space for intuitive retrieval
+- **Semantic Embedding Integration**: Convert text embeddings to meaningful polar coordinates
+- **Contextual Retrieval**: Search with awareness of temporal, thematic, and relevance dimensions
+- **Coordinate-Based Filtering**: Filter results by time period, thematic direction, and relevance radius
+- **Rich Visualization**: Visual exploration of the information space with relationship analysis
+- **Advanced Retrieval Methods**: Multiple retrieval techniques for optimal information access
+
+## Installation
+
+1. Clone this repository
+2. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+3. Set up environment variables in `.env` file:
+```
+OPENAI_API_KEY=your_openai_key_here
+COHERE_API_KEY=your_cohere_key_here (optional, for reranking)
+```
 
 ## Usage
 
-1.  **Setup the environment:** Follow the instructions in the [Setup](#setup) section.
-2.  **Activate the virtual environment** (the setup script provides the command).
-3.  **Run Ingestion:**
-    Use the `ingest_structured_atlas.py` script to process a PDF and build/update an atlas. The Steward LLM refinement step is automatically included if the analyzer initializes correctly (requires `OPENAI_API_KEY`).
+### Ingest Documents
 
-    ```bash
-    python ingest_structured_atlas.py --input-pdf <path/to/your/document.pdf> --output-atlas-path <path/to/save/atlas/data>
-    ```
-    **Key Arguments:**
-    *   `--input-pdf`: (Required) Path to the input PDF file.
-    *   `--output-atlas-path`: (Required) Directory path to save/load the Narrative Atlas data (FAISS index and metadata).
-    *   `--llm-model`: (Optional) OpenAI model for entity extraction and Steward refinement (default: `gpt-3.5-turbo`). Ensure your API key has access.
-    *   `--start-page`: (Optional) 1-indexed page number to start processing from (default: 1).
-    *   `--end-page`: (Optional) 1-indexed page number to end processing at (inclusive, default: end of document).
-    *   `--overwrite`: (Optional) If set, ignores and overwrites any existing atlas data at the output path.
+```bash
+python ingest_structured_atlas.py --input-directory ./input --output-directory ./output/atlas
+```
 
-4.  **Querying (Development):**
-    The `src/query.py` script is intended for querying the generated atlas, but its functionality is still under development/verification.
-    ```bash
-    # Example (details might change)
-    # python src/query.py --atlas-path <path/to/your/atlas/data> --query "Search term"
-    ```
+### Query the Database
 
-## Testing
+Basic query:
+```bash
+python run_project.py --query "What happened in Middle Earth?"
+```
 
-*(Information about running tests, if available in the `tests/` directory, should be added here.)*
+With advanced parameters:
+```bash
+python run_project.py --query "What happened in Middle Earth?" --temporal-focus 0.5 --directional-bias 1.5 --use-hybrid
+```
 
-## Project Goal & Vision
+### Advanced Retrieval Methods (Phase 8)
 
-The primary goal is to build a "Narrative Atlas" capable of reconstructing and querying narrative sequences from source documents. It aims to understand not just *what* information exists, but *where* it fits within the overall structure and flow of the narrative in a multi-dimensional context. This involves mapping text chunks (nodes) into a 4D coordinate system:
+The system provides multiple advanced retrieval methods:
 
--   **t (time)**: Represents the sequential position within the document/narrative flow. Derived from structural features like page number and chunk order.
--   **r (radius)**: Represents relevance or centrality to the core narrative or a specific query context. Currently fixed in Phase 1, intended for semantic refinement in Phase 2. (Range 0.0 - 1.0, lower is more relevant).
--   **θ (theta)**: Represents thematic category or perspective. Currently derived simplistically from structure (page number) in Phase 1, intended for semantic refinement in Phase 2. (Range 0 - 2π or 0-360 degrees).
--   **z (height)**: Represents the level of abstraction or context layer (e.g., document root, section, paragraph, chunk). Derived from structural information.
+- **ColBERT Token-Level Retrieval**: Fine-grained matching between query and document tokens
+  ```bash
+  python run_project.py --query "Your query" --retrieval-method colbert
+  ```
 
-## Approach: Phased Development
+- **Cohere Reranking**: Reranks initial retrieval results for improved relevance
+  ```bash
+  python run_project.py --query "Your query" --retrieval-method rerank
+  ```
 
-The system is being developed in phases:
+- **Maximal Marginal Relevance (MMR)**: Provides diverse results while maintaining relevance
+  ```bash
+  python run_project.py --query "Your query" --retrieval-method mmr --diversity-lambda 0.6
+  ```
 
-1.  **Phase 1: Structural Backbone (Complete)**
-    *   Focus on accurately mapping the *structure* of documents (pages, chunk order) to establish the temporal (`t`) and initial spatial (`theta`, `z`, fixed `r`) coordinates.
-    *   Ingest documents, perform page-by-page chunking, and store nodes with structure-derived coordinates in the `NarrativeAtlas`.
-    *   Utilize FAISS for efficient vector similarity search based on chunk embeddings.
-2.  **Phase 2: Semantic Refinement (Planned)**
-    *   Integrate a Large Language Model (LLM) to analyze node content and metadata.
-    *   Use LLM insights to refine the semantic coordinates (`r` and `theta`) based on content relevance and thematic classification.
-    *   Update nodes in the `NarrativeAtlas` with these refined coordinates, adding a layer of semantic understanding.
+- **RAG-Fusion**: Combines multiple retrieval methods with reciprocal rank fusion
+  ```bash
+  python run_project.py --query "Your query" --retrieval-method rag_fusion
+  ```
 
-## Current Status (Post-Phase 2 Refinement Debugging)
+- **Weighted Ensemble**: Uses a weighted combination of different retrieval techniques
+  ```bash
+  python run_project.py --query "Your query" --retrieval-method ensemble
+  ```
 
-*   **Phase 1 (Structural Backbone):** Complete and functional.
-*   **Phase 2 (Semantic Refinement):**
-    *   The `refine_coordinates.py` script has been developed and debugged.
-    *   It successfully loads the atlas data created by the ingestion phase.
-    *   It utilizes an LLM (`gpt-4o-mini` by default) via LangChain to analyze node content.
-    *   It correctly assigns semantic coordinates (`r` for relevance, `theta` for topic) based on LLM output.
-    *   **Batch processing** is implemented using `refinement_chain.batch()` for improved performance.
-    *   **Retry logic** with exponential backoff is implemented in `refine_coordinates.py`
+### Visualization
+
+```bash
+python visualize_atlas.py --input-directory ./output/atlas --output-directory ./output/viz
+```
+
+## System Architecture
+
+The system consists of several components:
+
+1. **Embedding Service**: Converts text to vector embeddings
+2. **Coordinate Mapper**: Transforms embeddings into polar-temporal coordinates
+3. **Narrative Atlas**: Core database with coordinate-based storage and retrieval
+4. **Query Engine**: Processes natural language queries and retrieves relevant information
+5. **Advanced Retrieval System**: Provides multiple methods for improved information retrieval
+
+## Advanced Retrieval Methods
+
+Phase 8 introduces four key advanced retrieval enhancements:
+
+1. **ColBERT-style Token-Level Embeddings**:
+   - Creates embeddings for individual tokens rather than entire documents
+   - Enables more precise matching between query and document tokens
+   - Particularly effective for capturing localized semantic information
+
+2. **Cohere Reranker**:
+   - Uses Cohere's reranking API to improve retrieval relevance
+   - Applies advanced LLM-based relevance scoring to initial results
+   - Helps correct errors in the initial retrieval phase
+
+3. **Maximal Marginal Relevance (MMR)**:
+   - Balances relevance with information diversity
+   - Reduces redundancy in search results
+   - Controllable diversity-relevance trade-off via lambda parameter
+
+4. **Hybrid Retrieval Fusion**:
+   - RAG-Fusion: Combines multiple retrievers with reciprocal rank fusion
+   - Weighted ensemble: Applies different weights to various retrieval methods
+   - Provides more robust retrieval performance across different query types
+
+## Development Phases
+
+1. ✅ **Phase 1**: Coordinate Transformation Implementation
+2. ✅ **Phase 2**: Storage Optimization
+3. ✅ **Phase 3**: Retrieval Methods
+4. ✅ **Phase 4**: Visualization & Analysis
+5. ✅ **Phase 5**: Testing & Optimization
+6. ✅ **Phase 6**: Documentation & Integration
+7. ✅ **Phase 7**: Embedding Coordinate System Alignment
+8. ✅ **Phase.8**: Advanced Retrieval Enhancement
