@@ -6,8 +6,8 @@ pydantic<2.8,>=2.0 # Pinned to avoid potential v2.8 issues, keep >=2.0 for Langc
 
 # Embedding / LLM Providers
 langchain-openai>=0.1.0 # Specify a reasonable base version
-# langchain-huggingface
-sentence-transformers>=2.2.2 # For SentenceTransformerEmbeddings
+langchain-huggingface>=0.0.1 # For HuggingFaceEmbeddings
+sentence-transformers>=2.2.2 # For HuggingFaceEmbeddings backend
 torch>=2.0.0 # Commonly needed by sentence-transformers
 transformers>=4.30.0 # For ColBERT tokenization and transformers
 
@@ -17,6 +17,8 @@ numpy>=1.20.0
 pytest>=7.0.0 # For testing
 spacy>=3.5.3
 requests>=2.28.0 # For Cohere API integration
+networkx>=2.8.0 # For relationship graph representation
+pyyaml>=6.0.0 # For relationship ontology configuration
 
 # Document Loaders (Add as needed)
 # pypdf

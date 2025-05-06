@@ -322,14 +322,14 @@ class LangchainEmbeddingService(EmbeddingService):
                 raise
         elif self.model_provider == 'sentence_transformer' or self.model_provider == 'huggingface':
             try:
-                from langchain_community.embeddings import SentenceTransformerEmbeddings
+                from langchain_huggingface import HuggingFaceEmbeddings
                 # Default to a common SentenceTransformer model if none specified
                 model_name_to_use = self.model_name or 'all-MiniLM-L6-v2' 
                 logger.info(f"Using SentenceTransformer model: {model_name_to_use}")
-                # Check SentenceTransformerEmbeddings documentation for relevant kwargs (e.g., device)
-                return SentenceTransformerEmbeddings(model_name=model_name_to_use, **self.kwargs)
+                # Check HuggingFaceEmbeddings documentation for relevant kwargs (e.g., device)
+                return HuggingFaceEmbeddings(model_name=model_name_to_use, **self.kwargs)
             except ImportError:
-                 logger.error("langchain-community and sentence-transformers not installed. Run 'pip install langchain-community sentence-transformers'")
+                 logger.error("langchain-huggingface and sentence-transformers not installed. Run 'pip install langchain-huggingface sentence-transformers'")
                  raise
         else:
             raise ValueError(f"Unsupported embedding model provider: {self.model_provider}")

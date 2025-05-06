@@ -5,7 +5,7 @@ import os
 # Langchain imports
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
-from langchain_core.pydantic_v1 import BaseModel, Field, validator # Use v1 for Langchain compatibility
+from pydantic import BaseModel, Field, validator
 
 # Local imports (assuming data_models.py defines PolarTemporalCoordinate)
 # If PolarTemporalCoordinate is defined elsewhere, adjust the import
@@ -188,7 +188,11 @@ class StewardAnalyzer:
             final_updates = []
             for update in llm_response.updates:
                  # Convert RecommendedCoordinates Pydantic model to dict
-                 new_coords_dict = update.new_coordinates.dict()
+                 try:
+                     new_coords_dict = update.new_coordinates.model_dump()  # Pydantic v2 style
+                 except AttributeError:
+                     new_coords_dict = update.new_coordinates.dict()  # Fallback for Pydantic v1
+                 
                  final_updates.append({
                      "node_id": update.node_id,
                      "new_coordinates": new_coords_dict,

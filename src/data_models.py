@@ -14,7 +14,13 @@ class PolarTemporalCoordinate(BaseModel):
     z_type: Z_TYPES = Field(..., description="Type/context of the z coordinate")
 
     def to_dict(self) -> Dict[str, Any]:
-        return {"r": self.r, "theta": self.theta, "t": self.t, "z": self.z, "z_type": self.z_type}
+        """Convert to dictionary, supporting both Pydantic v1 and v2 styles."""
+        try:
+            # Try Pydantic v2 approach first
+            return self.model_dump()
+        except AttributeError:
+            # Fallback to v1 approach
+            return {"r": self.r, "theta": self.theta, "t": self.t, "z": self.z, "z_type": self.z_type}
 
     @classmethod
     def from_dict(cls, data: Dict[str, Any]) -> "PolarTemporalCoordinate":
