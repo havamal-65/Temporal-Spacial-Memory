@@ -1,0 +1,126 @@
+{
+  "timestamp": "2025-05-06T22:39:28.995365",
+  "excerpt_count": 7,
+  "total_temporal_expressions": 14,
+  "results": [
+    {
+      "chapter": "Chapter 1: An Unexpected Party",
+      "paragraph_id": "01.005",
+      "text": "Long ago in my grandfather Took's time, Old Took was still the head of the family. My grandfather was famous for the Old Took's twelfth birthday party.",
+      "matches": [
+        {
+          "text": "Long ago",
+          "pattern_type": "literary_relative",
+          "position": "0-8"
+        }
+      ]
+    },
+    {
+      "chapter": "Chapter 2: Roast Mutton",
+      "paragraph_id": "02.038",
+      "text": "By the next morning they had forgotten about the trolls and set off again into the wild. After breakfast they went on again, and by noon they reached a high hill.",
+      "matches": [
+        {
+          "text": "morning",
+          "pattern_type": "literary_time_of_day",
+          "position": "12-19"
+        },
+        {
+          "text": "noon",
+          "pattern_type": "literary_time_of_day",
+          "position": "132-136"
+        }
+      ]
+    },
+    {
+      "chapter": "Chapter 3: A Short Rest",
+      "paragraph_id": "03.003",
+      "text": "They stayed long in that good house, fourteen days at least, and they found it hard to leave. Bilbo would gladly have stopped there for ever and ever.",
+      "matches": [
+        {
+          "text": "fourteen days",
+          "pattern_type": "literary_duration",
+          "position": "37-50"
+        },
+        {
+          "text": "for ever and ever",
+          "pattern_type": "forever_expressions",
+          "position": "132-149"
+        }
+      ]
+    },
+    {
+      "chapter": "Chapter 5: Riddles in the Dark",
+      "paragraph_id": "05.034",
+      "text": "A few hours later, Bilbo woke up, in an unpleasant state. Gollum was at his side hissing to himself about his precious that had been lost for ages and ages.",
+      "matches": [
+        {
+          "text": "few hours",
+          "pattern_type": "literary_duration",
+          "position": "2-11"
+        },
+        {
+          "text": "later",
+          "pattern_type": "literary_relative",
+          "position": "12-17"
+        },
+        {
+          "text": "ages and ages",
+          "pattern_type": "literary_duration",
+          "position": "142-155"
+        }
+      ]
+    },
+    {
+      "chapter": "Chapter 9: Barrels Out of Bond",
+      "paragraph_id": "09.025",
+      "text": "Now the Wood-elves made merry for the return of their king, and after the autumn feast, for two days and two nights they partied, drinking wine and singing songs.",
+      "matches": [
+        {
+          "text": "autumn",
+          "pattern_type": "literary_seasons",
+          "position": "74-80"
+        },
+        {
+          "text": "two days and two nights",
+          "pattern_type": "literary_duration",
+          "position": "92-115"
+        }
+      ]
+    },
+    {
+      "chapter": "Chapter 17: The Clouds Burst",
+      "paragraph_id": "17.042",
+      "text": "The Elvenking hurried forward to join the battle. But Bilbo remained behind, sitting on the stone, and thinking of what Gandalf had said to him long ago: 'You are only quite a little fellow in a wide world after all!'",
+      "matches": [
+        {
+          "text": "long ago",
+          "pattern_type": "literary_relative",
+          "position": "144-152"
+        }
+      ]
+    },
+    {
+      "chapter": "Chapter 19: The Last Stage",
+      "paragraph_id": "19.022",
+      "text": "It was on May the First that they came back at last to the brink of the valley of Rivendell, where stood the Last (or the First) Homely House. They arrived on a Thursday, and on Friday there was a big party in the great hall with the elves.",
+      "matches": [
+        {
+          "text": "May",
+          "pattern_type": "month_name",
+          "position": "10-13"
+        },
+        {
+          "text": "Thursday",
+          "pattern_type": "weekday",
+          "position": "161-169"
+        },
+        {
+          "text": "Friday",
+          "pattern_type": "weekday",
+          "position": "178-184"
+        }
+      ]
+    }
+  ]
+}

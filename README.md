@@ -24,6 +24,7 @@ This coordinate system enables rich information retrieval capabilities that surp
 - **RAG Integration**: Generate contextually rich, narrative-aware content for LLMs
 - **Advanced Retrieval Methods**: Including Hypothetical Document Embeddings (HyDE) and hybrid search (semantic + keyword)
 - **Coordinate Validation**: Ensures consistent coordinate mapping between storage and retrieval
+- **Temporal Reasoning**: Sophisticated extraction and analysis of temporal expressions from text
 
 ## Installation
 
@@ -53,22 +54,69 @@ This coordinate system enables rich information retrieval capabilities that surp
 
 2. Query the system:
    ```bash
-   python src/query.py --storage-path output/atlas_storage --query "Find information about key events in the early chapters"
+   python run_project.py --query "Find information about key events in the early chapters"
    ```
    
    Use advanced retrieval methods:
    ```bash
    # Use hybrid search for better keyword matching
-   python src/query.py --storage-path output/atlas_storage --query "Hobbit" --use-hybrid-search
+   python run_project.py --query "Hobbit" --use-hybrid-search
    
-   # Use HyDE for better semantic understanding
-   python src/query.py --storage-path output/atlas_storage --query "Tell me about the main character" --use-hyde
+   # Use temporal analysis for time-related expressions
+   python run_project.py --query "Events that happened last week" --use-temporal-reasoning
    ```
 
-3. Visualize the coordinate space:
+3. Analyze temporal expressions in literary text:
+   ```bash
+   python hobbit_analysis.py
+   ```
+   This will analyze temporal expressions in excerpts from "The Hobbit" and save results to a JSON file.
+
+4. Visualize the coordinate space:
    ```bash
    python visualize_atlas.py --atlas-path output/atlas_storage --type dashboard
    ```
+
+## New: Temporal Reasoning System
+
+The system now features advanced temporal reasoning capabilities that can analyze and understand time-related expressions in text. This functionality is particularly valuable for literary analysis, historical document processing, and any application requiring chronological awareness.
+
+### Key Temporal Reasoning Components
+
+1. **Temporal Feature Extraction**: Identifies and extracts temporal expressions from text, including:
+   - Absolute dates and times (e.g., "May 5, 2023", "3:30 PM")
+   - Relative temporal references (e.g., "yesterday", "next week", "two days ago")
+   - Duration expressions (e.g., "for three hours", "fourteen days")
+   - Literary temporal expressions (e.g., "long ago", "ages and ages", "at that moment")
+
+2. **Temporal Coordinate Extension**: Enhances our polar coordinate system with temporal dimensions that can:
+   - Map chronological sequence to coordinates
+   - Calculate temporal distance between information nodes
+   - Apply decay functions for time-sensitive relevance
+
+3. **Pattern Recognition for Literary Text**: Specialized pattern matching for identifying temporal expressions in literary works, demonstrated with excerpts from "The Hobbit".
+
+### Hobbit Analysis Example
+
+Our system includes a demonstration of temporal analysis using excerpts from J.R.R. Tolkien's "The Hobbit". This example:
+
+- Identifies various types of temporal expressions in the text
+- Classifies them by type (duration, relative time, time of day, etc.)
+- Maps these expressions to our coordinate system
+- Outputs structured data for visualization or further analysis
+
+To run the analysis:
+```bash
+python hobbit_analysis.py
+```
+
+Results will be saved in a JSON file with detailed analysis of each temporal expression found in the text.
+
+Example results include detection of expressions like:
+- "Long ago" (literary_relative)
+- "morning" and "noon" (literary_time_of_day)
+- "fourteen days" (literary_duration)
+- "May", "Thursday", and "Friday" (month_name, weekday)
 
 ## Documentation
 
@@ -76,11 +124,12 @@ This coordinate system enables rich information retrieval capabilities that surp
 
 - [Coordinate System Architecture](docs/coordinate_system_architecture.md): Details of the 4D polar-temporal coordinate system
 - [Temporal Aspect User Guide](docs/temporal_aspect_user_guide.md): How to leverage temporal dimensions in queries
+- [Temporal Reasoning Implementation](docs/strategic_planning/temporal_reasoning_implementation.md): Detailed plan for the temporal reasoning system
 - [Advanced Retrieval Methods](docs/Phase7_Coordinate_System_Alignment.md): Details on HyDE and hybrid search implementation
 - [API Documentation](docs/api_documentation.md): Comprehensive API reference
 - [Example Notebook](docs/example_notebook.md): Jupyter notebook with common use cases
 
-### Previous Development Phases
+### Development Phases
 
 - **Phase 1**: Coordinate Transformation Implementation ✓
 - **Phase 2**: Storage Optimization ✓
@@ -89,6 +138,8 @@ This coordinate system enables rich information retrieval capabilities that surp
 - **Phase 5**: Testing & Optimization ✓
 - **Phase 6**: Documentation & Integration ✓
 - **Phase 7**: Embedding Coordinate System Alignment ✓
+- **Phase 8**: Advanced Retrieval Enhancement ✓
+- **Phase 9**: Temporal Reasoning Implementation ✓
 
 ## System Architecture
 
@@ -106,6 +157,14 @@ This coordinate system enables rich information retrieval capabilities that surp
                          │    Service      │      │     Queries     │
                          │                 │      │                 │
                          └─────────────────┘      └─────────────────┘
+                                                          │
+                                                          │
+                         ┌─────────────────┐              │
+                         │                 │              │
+                         │    Temporal     │◀─────────────┘
+                         │    Reasoning    │
+                         │                 │
+                         └─────────────────┘
 ```
 
 ## Core Components
@@ -114,23 +173,34 @@ This coordinate system enables rich information retrieval capabilities that surp
 - **CoordinateMapper**: Transforms text and embeddings into polar-temporal coordinates
 - **Visualization Tools**: Dashboard, static visualizations, and network exports
 - **Query Processing**: Natural language parsing and coordinate-aware retrieval
+- **Temporal Reasoning**: Extracts and analyzes temporal expressions in text
 
 ## Example Usage
 
 ```python
 from src.models.narrative_atlas import NarrativeAtlas
 from src.utils.embedding_service import create_embedding_service
+from src.temporal.feature_extractor import TemporalFeatureExtractor
 
-# Initialize
+# Initialize services
 embedding_service = create_embedding_service()
+temporal_extractor = TemporalFeatureExtractor()
 atlas = NarrativeAtlas(storage_path="output/atlas", embedding_service=embedding_service)
 
-# Add content
+# Extract temporal expressions from text
+text = "The meeting is scheduled for next Tuesday at 3 PM, two weeks after the initial discussion."
+temporal_expressions = temporal_extractor.extract_expressions(text)
+
+# Add content with temporal information
 node_id = atlas.add_node(
     node_id=None,
-    content={"text": "Example content to store"},
+    content={"text": text},
     embedding=None,  # Will be generated
-    metadata={"page_number": 1, "chunk_index_on_page": 0}
+    metadata={
+        "page_number": 1, 
+        "chunk_index_on_page": 0,
+        "temporal_expressions": [expr.__dict__ for expr in temporal_expressions]
+    }
 )
 
 # Temporal-aware search
@@ -143,31 +213,6 @@ results = atlas.search_with_temporal_focus(
 # Process results
 for node, score in results:
     print(f"Score: {score}, Content: {node.content['text']}")
-```
-
-## New in Phase 7: Coordinate System Alignment
-
-Phase 7 brings major improvements to the system's coordinate handling and retrieval capabilities:
-
-1. **Fixed Coordinate System Mismatch**: We've corrected a critical issue where the coordinate system parameters were inconsistent between ingestion and query processes. This ensures that data ingested with embedding-based coordinates can now be properly retrieved using the same coordinate system.
-
-2. **Enhanced Retrieval Methods**:
-   - **Hybrid Search**: Combines semantic embedding search with keyword matching, greatly improving results for exact-match queries like "Hobbit".
-   - **HyDE (Hypothetical Document Embeddings)**: Generates a hypothetical document that would answer a query, then embeds that document instead of the original query for better semantic context.
-
-3. **System Robustness**:
-   - Added configuration validation to prevent parameter mismatches
-   - Improved error handling for different coordinate types
-   - Enhanced logging for easier debugging of coordinate transformations
-
-Try these new features with:
-
-```bash
-# Use hybrid search for better keyword matching
-python src/query.py --storage-path output/atlas_storage --query "Hobbit" --use-hybrid-search
-
-# Use HyDE for better semantic understanding 
-python src/query.py --storage-path output/atlas_storage --query "Tell me about the main character" --use-hyde
 ```
 
 ## Server API
@@ -184,7 +229,8 @@ Access the API at `http://localhost:8000/narrative-rag` with queries:
 ```json
 {
   "query": "How did the main character evolve through the story?",
-  "k": 3
+  "k": 3,
+  "use_temporal_reasoning": true
 }
 ```
 
@@ -196,6 +242,7 @@ The system provides multiple visualization options:
 - **Static Visualizations**: Generate 2D and 3D plots of coordinates
 - **Network Exports**: Export to Gephi, Cytoscape, or D3.js formats
 - **Heatmaps**: Visualize information density across coordinate dimensions
+- **Timeline Visualizations**: Plot temporal expressions and relationships
 
 ## License
 
