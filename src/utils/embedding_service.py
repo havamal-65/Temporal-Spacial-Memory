@@ -523,6 +523,9 @@ def create_embedding_service(service_type: str = 'langchain', **kwargs) -> Embed
             # Pass only the *remaining* kwargs
             **remaining_kwargs 
         )
+    elif service_type == 'mock':
+        dimension = kwargs.get('dimension', int(os.getenv('EMBEDDING_DIM', 384)))
+        return MockEmbeddingService(dimension=dimension, store_polar_coords=store_polar_coords)
     elif service_type == 'cascading':
         services = kwargs.pop("services", [])
         if not services:
@@ -549,3 +552,28 @@ def create_embedding_service(service_type: str = 'langchain', **kwargs) -> Embed
         return CascadingEmbeddingService(services=services, store_polar_coords=store_polar_coords)
     else:
         raise ValueError(f"Unsupported embedding service type: {service_type}") 
+
+
+class MockEmbeddingService(EmbeddingService):
+    """Mock embedding service for testing purposes."""
+    
+    def __init__(self, dimension: int = 384, store_polar_coords: bool = True):
+        super().__init__(embedding_dim=dimension, store_polar_coords=store_polar_coords)
+        self.call_count = 0
+        self.embedded_texts = []
+    
+    def embed_query(self, text: str) -> List[float]:
+        """Generate a deterministic mock embedding for testing."""
+        self.call_count += 1
+        self.embedded_texts.append(text)
+        
+        # Create a simple deterministic embedding based on text hash
+        text_hash = hash(text) % (2**31)  # Ensure positive
+        np.random.seed(text_hash)  # Deterministic based on text
+        embedding = np.random.normal(0, 1, self.embedding_dim).tolist()
+        
+        return embedding
+    
+    def embed_documents(self, texts: List[str]) -> List[List[float]]:
+        """Generate mock embeddings for multiple documents."""
+        return [self.embed_query(text) for text in texts] 

@@ -16,11 +16,67 @@ import hashlib
 import logging
 from langchain_core.embeddings import Embeddings
 from langchain_core.documents import Document
+import math
 from src.nl_parser import CoordinateFilters, NlQueryParser, ParsedQuery
+from src.utils.sector_legend import get_sector_legend
+from src.utils.semantic_compass import SemanticCompassMapper
 
 # --- Add Logger Setup ---
 logger = logging.getLogger('NarrativeAtlas') # Create logger instance
 # --- End Logger Setup ---
+
+# Maps SectorLegend category strings to 8-point compass sector names.
+# Keyed by the lowercase string returned in recommendation["category"].
+CATEGORY_TO_SECTOR: Dict[str, str] = {
+    "action_adventure":        "N",
+    "technical_instructional": "NE",
+    "scientific_analytical":   "E",
+    "educational_reference":   "SE",
+    "creative_artistic":       "S",
+    "personal_lifestyle":      "SW",
+    "historical_reflective":   "W",
+    "philosophical_abstract":  "NW",
+}
+
+
+def _sectors_to_theta_range(sectors: List[str]) -> Optional[Tuple[float, float]]:
+    """Convert a list of 8-point sector names to a (theta_min, theta_max) range.
+
+    Uses the first valid sector only (highest-confidence). The existing
+    _is_coordinate_match filter supports a single contiguous range.
+    Returns None when no valid sector name is found.
+    """
+    HALF = math.pi / 8  # 8 sectors × (π/4 each) → half-width is π/8
+    angles = SemanticCompassMapper.SECTOR_ANGLES
+    for sector in sectors:
+        if sector not in angles:
+            continue
+        center = angles[sector]
+        if center == 0.0:  # N straddles 0/2π — produce wrap-around signal
+            return (2 * math.pi - HALF, HALF)
+        return (center - HALF, center + HALF)
+    return None
+
+
+def _derive_sectors_from_query(
+    query: str, confidence_threshold: float = 0.3
+) -> List[str]:
+    """Translate a natural-language query to 8-point sector names via SectorLegend.
+
+    No LLM required — pure keyword/pattern matching.
+    confidence_threshold: pattern matches score 0.7-0.95; keyword scoring is
+    min(count*0.1, 1.0), so 0.3 requires 3+ keywords or 1 phrase match.
+    """
+    result = get_sector_legend().translate_query(query)
+    sectors: List[str] = []
+    for rec in result.get("recommendations", []):
+        if rec.get("confidence", 0.0) < confidence_threshold:
+            continue
+        sector = CATEGORY_TO_SECTOR.get(rec.get("category", ""))
+        if sector and sector not in sectors:
+            sectors.append(sector)
+    return sectors
+
 
 if TYPE_CHECKING:
     # Correct the import path for type checking
@@ -43,7 +99,7 @@ class Node:
 class NarrativeAtlas:
     def __init__(self, storage_path: str, embedding_service: EmbeddingService):
         self.storage_path = storage_path
-        self.db = SpatialTemporalDB()
+        self.db = SpatialTemporalDB(db_path=os.path.join(storage_path, "nodes.sqlite"))
         self.embedding_service = embedding_service
         from src.utils.coordinate_mapper import CoordinateMapper
         
@@ -137,7 +193,7 @@ class NarrativeAtlas:
                 timestamp=time.time(),
                 mapping_details={}
             )
-            self.db.nodes[node_id] = node
+            self.db.add_node(node)
             # No call to _add_or_update_embedding here
         return node_id
 
@@ -162,7 +218,7 @@ class NarrativeAtlas:
             timestamp=time.time(),
             mapping_details={}
         )
-        self.db.nodes[node_id] = node
+        self.db.add_node(node)
         # No call to _add_or_update_embedding here
         return node_id
 
@@ -182,7 +238,7 @@ class NarrativeAtlas:
                 timestamp=time.time(),
                 mapping_details={}
             )
-            self.db.nodes[node_id] = node
+            self.db.add_node(node)
             # No call to _add_or_update_embedding here
         return node_id
 
@@ -341,13 +397,31 @@ class NarrativeAtlas:
         )
         
         # Store in the database
-        self.db.nodes[node_id] = node
-        
+        self.db.add_node(node)
+
         # Add to FAISS if embedding is available
         if embedding is not None:
             self._add_or_update_embedding(node, text_to_embed=None, precomputed_embedding=embedding)
             
         return node_id
+
+    def get_node(self, node_id: str) -> Optional["Node"]:
+        """Return the Node with the given ID, or None if not found."""
+        return self.db.nodes.get(node_id)
+
+    def update_node(self, node: "Node") -> bool:
+        """Persist in-place changes to a node back to SQLite and the docstore."""
+        if node.id not in self.db.nodes:
+            return False
+        self.db.add_node(node)
+        if self.vector_store is not None and hasattr(self.vector_store, "docstore"):
+            page_content = node.content.get("text", "")
+            self.vector_store.docstore.add({node.id: Document(page_content=page_content, metadata=node.metadata)})
+        return True
+
+    def remove_node(self, node_id: str) -> bool:
+        """Alias for delete_node for API compatibility."""
+        return self.delete_node(node_id)
 
     def find_similar_nodes(self, query_text: str, k: int = 5) -> List[Tuple[Node, float]]:
         """Find nodes similar to the query text."""
@@ -391,10 +465,8 @@ class NarrativeAtlas:
             
             # REMOVED ID maps save - Langchain FAISS wrapper handles this internally in its index.pkl
             
-            # Save SpatialTemporalDB nodes
-            with open(db_path, 'wb') as f:
-                pickle.dump(self.db.nodes, f)
-            logger.info(f"SpatialTemporalDB nodes saved to {db_path}")
+            # SpatialTemporalDB writes to SQLite on every add_node() — no separate save needed.
+            logger.info("SpatialTemporalDB nodes are persisted in SQLite (no separate save required)")
                 
             logger.info(f"Narrative Atlas saved successfully to {self.storage_path}")
 
@@ -404,7 +476,7 @@ class NarrativeAtlas:
 
     def load(self) -> bool:
         """Load the atlas data (DB nodes, FAISS index + docstore). Returns True on success, False otherwise.""" 
-        db_path = os.path.join(self.storage_path, "spatial_temporal_db.pkl")
+        legacy_pkl_path = os.path.join(self.storage_path, "spatial_temporal_db.pkl")
         index_folder = os.path.join(self.storage_path)
         index_file = os.path.join(index_folder, "vector_index.faiss") # Match saved name
         pkl_file = os.path.join(index_folder, "vector_index.pkl") # Match saved name
@@ -412,19 +484,49 @@ class NarrativeAtlas:
         db_loaded = False
         index_loaded = False
 
-        # 1. Load SpatialTemporalDB nodes
-        if os.path.exists(db_path):
+        # 1. Migrate legacy pickle if it exists, then load from SQLite.
+        if os.path.exists(legacy_pkl_path):
+            logger.info(f"Migrating legacy pickle to SQLite: {legacy_pkl_path}")
             try:
-                with open(db_path, 'rb') as f:
-                    self.db.nodes = pickle.load(f)
-                logger.info(f"Loaded SpatialTemporalDB nodes from {db_path}. Count: {len(self.db.nodes)}")
-                db_loaded = True
+                with open(legacy_pkl_path, "rb") as f:
+                    legacy_nodes: dict = pickle.load(f)
+                for node in legacy_nodes.values():
+                    self.db.add_node(node)
+                os.rename(legacy_pkl_path, legacy_pkl_path + ".migrated")
+                logger.info(f"Migrated {len(legacy_nodes)} nodes from pickle to SQLite")
             except Exception as e:
-                logger.error(f"Error loading SpatialTemporalDB nodes from {db_path}: {e}", exc_info=True)
-                self.db.nodes = {} # Reset on error
-        else:
-             logger.warning(f"SpatialTemporalDB file not found at {db_path}. DB remains empty.")
-             self.db.nodes = {}
+                logger.error(f"Error migrating legacy pickle {legacy_pkl_path}: {e}", exc_info=True)
+
+        # Load all persisted nodes from SQLite into memory.
+        try:
+            rows = self.db.load_all_to_memory()
+            if rows:
+                from src.data_models import PolarTemporalCoordinate as _PTC
+                for row in rows:
+                    coords = _PTC(
+                        r=row["r"], theta=row["theta"],
+                        t=row["t"], z=row["z"], z_type=row["z_type"],
+                    )
+                    node = Node(
+                        id=row["id"],
+                        type=row["type"],
+                        content=row["content"],
+                        coordinates=coords,
+                        embedding=row["embedding"],
+                        keywords=row["keywords"],
+                        metadata=row["metadata"],
+                        parent_node_id=row["parent_node_id"],
+                        timestamp=row["timestamp"],
+                        mapping_details=row["mapping_details"],
+                    )
+                    self.db.nodes[node.id] = node
+                logger.info(f"Loaded {len(rows)} nodes from SQLite into memory")
+                db_loaded = True
+            else:
+                logger.info("SQLite DB is empty — starting fresh")
+        except Exception as e:
+            logger.error(f"Error loading nodes from SQLite: {e}", exc_info=True)
+            self.db.nodes = {}
 
         # 2. Load FAISS index and docstore using Langchain
         if os.path.exists(index_file) and os.path.exists(pkl_file):
@@ -474,7 +576,7 @@ class NarrativeAtlas:
         # If DB loaded but index failed, return False as atlas is inconsistent
         if db_loaded and index_loaded:
              return True
-        elif not os.path.exists(db_path) and not os.path.exists(index_file):
+        elif not os.path.exists(legacy_pkl_path) and not os.path.exists(index_file):
              logger.info("Atlas storage path was empty. Initializing fresh atlas.")
              return False # Indicates fresh start needed
         else:
@@ -485,8 +587,8 @@ class NarrativeAtlas:
         """Clears the database, vector index, and mappings, and removes persisted files."""
         print(f"Clearing Narrative Atlas data in {self.storage_path}...")
         
-        # 1. Clear in-memory data
-        self.db.nodes = {}
+        # 1. Clear in-memory data and SQLite store
+        self.db.clear_all()
         self.node_id_to_faiss_id = {}
         self.faiss_id_to_node_id = {}
         
@@ -512,10 +614,9 @@ class NarrativeAtlas:
 
     def delete_node(self, node_id: str) -> bool:
         """Remove a node from the database and its corresponding vector."""
-        # 1. Remove from DB
-        if node_id not in self.db.nodes:
+        # 1. Remove from SQLite + in-memory cache
+        if not self.db.delete_node(node_id):
             return False
-        del self.db.nodes[node_id]
 
         # 2. Remove from FAISS index
         if node_id in self.node_id_to_faiss_id:
@@ -544,23 +645,23 @@ class NarrativeAtlas:
     def _get_ids_matching_filters(self, filters: CoordinateFilters) -> Optional[Set[str]]:
         """Retrieve a set of node IDs that match the coordinate filters."""
         if not filters or not filters.has_filters():
-            return None # No filters applied, return None
+            return None
 
         logger.info(f"Filtering nodes based on coordinates: {filters}")
-        matching_ids = set()
-        # Check if db.nodes is populated
-        if not self.db.nodes:
-             logger.warning("_get_ids_matching_filters called but self.db.nodes is empty.")
-             # If filters were applied but DB is empty, the result set is definitely empty
-             return matching_ids # Return empty set
 
-        for node_id, node in self.db.nodes.items():
-            # Ensure node has coordinates before attempting match
-            if node.coordinates and self._is_coordinate_match(node.coordinates, filters):
-                 matching_ids.add(node_id)
+        matching_ids = self.db.query_by_coordinate_range(
+            theta_min=filters.theta_min,
+            theta_max=filters.theta_max,
+            r_min=filters.r_min,
+            r_max=filters.r_max,
+            t_min=filters.t_min,
+            t_max=filters.t_max,
+            z_min=filters.z_min,
+            z_max=filters.z_max,
+            z_type=filters.z_type,
+        )
 
         logger.info(f"Found {len(matching_ids)} nodes matching coordinate filters.")
-        # Always return the set (which might be empty) if filters were specified.
         return matching_ids
 
     def _is_coordinate_match(self, node_coords: PolarTemporalCoordinate, filters: CoordinateFilters) -> bool:
@@ -630,7 +731,23 @@ class NarrativeAtlas:
         
         # Get all nodes that match the filters (or all nodes if no filters)
         prefiltered_ids = self._get_ids_matching_filters(parsed_query.filters)
-        
+
+        # Sector augmentation: if the LLM left theta unset, derive it from the query text
+        if (parsed_query.filters is not None
+                and parsed_query.filters.theta_min is None
+                and parsed_query.filters.theta_max is None):
+            derived = _derive_sectors_from_query(nl_query)
+            theta_range = _sectors_to_theta_range(derived) if derived else None
+            if theta_range is not None:
+                parsed_query.filters.theta_min = theta_range[0]
+                parsed_query.filters.theta_max = theta_range[1]
+                prefiltered_ids = self._get_ids_matching_filters(parsed_query.filters)
+                logger.info(
+                    "Sector augmentation: %s → theta=[%.4f, %.4f], %s nodes in filter",
+                    derived, theta_range[0], theta_range[1],
+                    len(prefiltered_ids) if prefiltered_ids is not None else "all",
+                )
+
         # Use the semantic part of the query to get embeddings
         query_text = parsed_query.query_text or nl_query  # Fallback to original if no semantic extracted
         
@@ -769,11 +886,67 @@ class NarrativeAtlas:
             # No filters, use the enhanced retrieval method directly
             return self.search_with_retrieval_params(query_text, retrieval_params, k)
                 
+    def search_with_sector_filter(
+        self,
+        query: str,
+        sectors: Optional[List[str]] = None,
+        k: int = 10,
+        confidence_threshold: float = 0.1,
+    ) -> List[Tuple[Node, float]]:
+        """Semantic search pre-filtered to specific compass sectors.
+
+        Args:
+            query: Natural-language search text (also used for embedding similarity).
+            sectors: Explicit 8-point sector names e.g. ["N", "NE"], or None to derive
+                     from query text automatically via SectorLegend (no LLM required).
+            k: Maximum results to return.
+            confidence_threshold: Minimum SectorLegend confidence when auto-deriving sectors.
+
+        Returns:
+            List of (Node, similarity_score) sorted descending. Falls back to unfiltered
+            search when no sectors are matched or the sector filter returns 0 nodes.
+        """
+        resolved = sectors if sectors is not None else _derive_sectors_from_query(
+            query, confidence_threshold
+        )
+        theta_range = _sectors_to_theta_range(resolved) if resolved else None
+
+        prefiltered_ids: Optional[Set[str]] = None
+        if theta_range is not None:
+            filters = CoordinateFilters(theta_min=theta_range[0], theta_max=theta_range[1])
+            prefiltered_ids = self._get_ids_matching_filters(filters)
+            logger.info(
+                "search_with_sector_filter: sectors=%s theta=[%.4f, %.4f] → %d candidate nodes",
+                resolved, theta_range[0], theta_range[1],
+                len(prefiltered_ids) if prefiltered_ids else 0,
+            )
+
+        if not prefiltered_ids:
+            if theta_range is not None:
+                logger.warning(
+                    "Sector filter matched 0 nodes — falling back to unfiltered search"
+                )
+            return self.find_similar_nodes(query, k=k)
+
+        try:
+            query_emb = np.array(self.embedding_service.embed_query(query))
+            results: List[Tuple[Node, float]] = []
+            for nid in prefiltered_ids:
+                node = self.db.nodes[nid]
+                if node.embedding is not None:
+                    sim = float(np.dot(query_emb, node.embedding))
+                    results.append((node, sim))
+            results.sort(key=lambda x: x[1], reverse=True)
+            return results[:k]
+        except Exception:
+            logger.exception("Sector-filtered search failed — falling back to unfiltered")
+            return self.find_similar_nodes(query, k=k)
+
     def answer_query_with_context(self, user_query: str, k: int = 3) -> str:
         """
         Generate an answer to a user query using retrieved context nodes.
         Uses the enhanced retrieval methods for better context selection.
-        
+
         Args:
             user_query: The user's question
             k: Number of context nodes to retrieve
@@ -901,7 +1074,10 @@ class NarrativeAtlas:
         
         updated_document = Document(page_content=page_content, metadata=updated_metadata)
 
-        # 4. Update the document in the docstore using its add method
+        # 4. Persist updated node to SQLite
+        self.db.add_node(node_to_update)
+
+        # 5. Update the document in the docstore using its add method
         # For InMemoryDocstore, adding with an existing ID overwrites.
         try:
             self.vector_store.docstore.add({node_id: updated_document})
@@ -909,7 +1085,7 @@ class NarrativeAtlas:
             return True
         except Exception as e:
             logger.error(f"Error updating docstore for node {node_id}: {e}", exc_info=True)
-            return False 
+            return False
 
     # --- Phase 3: Retrieval Methods Implementation ---
     

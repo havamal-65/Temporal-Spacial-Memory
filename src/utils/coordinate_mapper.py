@@ -16,10 +16,13 @@ import math # Added for potential future angle calculations
 from sklearn.feature_extraction.text import TfidfVectorizer
 import json
 import os
+from collections import defaultdict
 
 # Local imports
 from src.data_models import PolarTemporalCoordinate, Z_TYPES # Updated import path if data_models is top level
 from src.utils.embedding_service import EmbeddingService # Keep for potential use
+from .angular_sector_system import AngularSectorSystem, SectorSystem, create_compass_32_system
+from .semantic_compass import SemanticCompassMapper
 
 # Configure logging
 log_level = os.getenv('COORDINATE_MAPPER_LOG_LEVEL', 'INFO')
@@ -51,6 +54,9 @@ class CoordinateMapper:
 
     def __init__(self,
                  embedding_service: EmbeddingService, # Keep for potential semantic analysis later
+                 # Angular sector system parameters
+                 sector_system: SectorSystem = SectorSystem.COMPASS_32,
+                 use_sector_quantization: bool = True,
                  # Parameters for placeholder/future fractal growth logic
                  base_radius: float = 0.9, # Default radius for initial chunks
                  base_angle_spread: float = np.pi / 180, # Small spread based on page?
@@ -62,8 +68,9 @@ class CoordinateMapper:
                  doc_id_z_multiplier: float = 1000.0, # Example scaling factor
                  # --- Parameters for embedding-based coordinates ---
                  use_embedding_for_coords: bool = False,  # Flag to use embedding-based coordinates
+                 use_semantic_compass: bool = True,  # Use SemanticCompassMapper for theta (requires use_embedding_for_coords=True)
                  embedding_r_scale: float = 1.0,  # Scaling factor for radial distance
-                 embedding_theta_scale: float = math.pi,  # Scaling factor for angular position
+                 embedding_theta_scale: float = math.pi,  # Scaling factor for angular position (legacy arctan2 path)
                  # --- Parameters for normalization ---
                  max_radius: float = 100.0,
                  min_radius: float = 0.1,
@@ -76,6 +83,8 @@ class CoordinateMapper:
 
         Args:
             embedding_service: Service for generating embeddings (used later).
+            sector_system: Angular sector system to use
+            use_sector_quantization: Whether to quantize angles to sector centers
             base_radius: Default radial distance for new chunks.
             base_angle_spread: Factor for spreading angles based on structure.
             perspective_z_range: Min/Max z-values for perspective mapping.
@@ -84,32 +93,54 @@ class CoordinateMapper:
             abstraction_z_map: Dictionary mapping abstraction levels to z-values.
             doc_id_z_multiplier: Factor to scale document IDs (if numeric) for z-value.
             use_embedding_for_coords: Whether to use embedding vectors for coordinate transformation.
+            use_semantic_compass: When True (and use_embedding_for_coords=True), assigns theta via
+                cosine similarity to precomputed sector centroids instead of arctan2.
             embedding_r_scale: Scaling factor for radial distance from embeddings.
-            embedding_theta_scale: Scaling factor for angular position from embeddings.
+            embedding_theta_scale: Scaling factor for angular position (legacy arctan2 path only).
             max_radius: Maximum allowed radius for normalization.
             min_radius: Minimum allowed radius for normalization.
             normalize_embeddings: Whether to normalize embeddings before coordinate calculation.
             log_coordinates: Whether to log coordinate transformations in detail.
         """
         self.embedding_service = embedding_service
+        
+        # Initialize angular sector system
+        self.sector_system = AngularSectorSystem(sector_system)
+        self.use_sector_quantization = use_sector_quantization
+        
+        # Store base parameters
         self.base_radius = base_radius
         self.base_angle_spread = base_angle_spread
+        
         # Store z-mapping parameters
         self.perspective_z_range = perspective_z_range
         self.layer_z_map = layer_z_map
         self.version_z_multiplier = version_z_multiplier
         self.abstraction_z_map = abstraction_z_map
         self.doc_id_z_multiplier = doc_id_z_multiplier
+        
         # Store embedding-based coordinate parameters
         self.use_embedding_for_coords = use_embedding_for_coords
+        self.use_semantic_compass = use_semantic_compass
         self.embedding_r_scale = embedding_r_scale
         self.embedding_theta_scale = embedding_theta_scale
+
+        # Initialize semantic compass if both embedding-based coords and semantic compass are enabled
+        self.semantic_compass: Optional[SemanticCompassMapper] = None
+        if use_embedding_for_coords and use_semantic_compass:
+            logger.info("Initializing SemanticCompassMapper (computes reference centroids once)...")
+            self.semantic_compass = SemanticCompassMapper(embedding_service)
+        
         # Store normalization parameters
         self.max_radius = max_radius
         self.min_radius = min_radius
         self.normalize_embeddings = normalize_embeddings
+        
         # Store logging parameters
         self.log_coordinates = log_coordinates
+        
+        # Track sector usage for analytics
+        self.sector_usage = defaultdict(int)
         
         # Log initialization parameters
         init_params = {
@@ -130,14 +161,24 @@ class CoordinateMapper:
             Dictionary containing the current configuration parameters
         """
         config = {
+            "sector_system": self.sector_system.system.value,
+            "sector_count": len(self.sector_system.sectors),
+            "use_sector_quantization": self.use_sector_quantization,
             "use_embedding_coords": self.use_embedding_for_coords,
+            "use_semantic_compass": self.use_semantic_compass,
+            "semantic_compass_active": self.semantic_compass is not None,
             "embedding_r_scale": self.embedding_r_scale,
             "embedding_theta_scale": self.embedding_theta_scale,
             "base_radius": self.base_radius,
             "base_angle_spread": self.base_angle_spread,
             "max_radius": self.max_radius,
             "min_radius": self.min_radius,
-            "normalize_embeddings": self.normalize_embeddings
+            "normalize_embeddings": self.normalize_embeddings,
+            "perspective_z_range": self.perspective_z_range,
+            "layer_z_map": self.layer_z_map,
+            "version_z_multiplier": self.version_z_multiplier,
+            "abstraction_z_map": self.abstraction_z_map,
+            "doc_id_z_multiplier": self.doc_id_z_multiplier
         }
         return config
 
@@ -181,11 +222,11 @@ class CoordinateMapper:
         start_time = time.time()
         if self.use_embedding_for_coords and embedding is not None:
             # Use embedding-based coordinates with structural t and z
-            coordinates = self._calculate_embedding_based_coordinates(embedding, metadata)
+            coords = self._calculate_embedding_based_coordinates(embedding, metadata)
             mapping_basis = "embedding-based"
         else:
             # Use structural coordinates (placeholder r, theta)
-            coordinates = self._calculate_structural_coordinates(metadata)
+            coords = self._calculate_structural_coordinates(metadata)
             mapping_basis = "structure-based"
             
         calculation_time = time.time() - start_time
@@ -199,9 +240,9 @@ class CoordinateMapper:
             'calculation_time_ms': round(calculation_time * 1000, 2),
             'embedding_shape': str(embedding_shape) if embedding_shape else "None",
             'temporal_basis': f"page {metadata.get('page_number', 0)} chunk {metadata.get('chunk_index_on_page', 0)}",
-            'radial_basis': f"{'embedding magnitude' if mapping_basis == 'embedding-based' else 'fixed placeholder'} radius {coordinates.r}",
-            'angular_basis': f"{'embedding direction' if mapping_basis == 'embedding-based' else 'fixed placeholder'} angle {coordinates.theta}",
-            'z_basis': f"{coordinates.z_type} -> z={coordinates.z}", # Add z basis info
+            'radial_basis': f"{'embedding magnitude' if mapping_basis == 'embedding-based' else 'fixed placeholder'} radius {coords.r}",
+            'angular_basis': f"{'embedding direction' if mapping_basis == 'embedding-based' else 'fixed placeholder'} angle {coords.theta}",
+            'z_basis': f"{coords.z_type} -> z={coords.z}", # Add z basis info
             'metadata_keys': list(metadata.keys())
         }
         
@@ -211,24 +252,65 @@ class CoordinateMapper:
                 "doc_id": doc_id,
                 "chunk_id": chunk_id, 
                 "coordinates": {
-                    "r": float(coordinates.r),
-                    "theta": float(coordinates.theta),
-                    "t": float(coordinates.t),
-                    "z": float(coordinates.z),
-                    "z_type": coordinates.z_type
+                    "r": float(coords.r),
+                    "theta": float(coords.theta),
+                    "t": float(coords.t),
+                    "z": float(coords.z),
+                    "z_type": coords.z_type
                 },
                 "mapping_basis": mapping_basis,
                 "calculation_time_ms": mapping_details['calculation_time_ms']
             }
             coord_logger.info(f"Coordinate mapping: {json.dumps(coord_log)}")
 
+        # --- Apply Sector Quantization ---
+        if self.use_sector_quantization:
+            original_theta = coords.theta
+            sector_info = self.sector_system.angle_to_sector(original_theta)
+            quantized_theta = sector_info.center_angle
+            
+            # Update coordinates with quantized theta
+            coords = PolarTemporalCoordinate(
+                r=coords.r,
+                theta=quantized_theta,
+                t=coords.t,
+                z=coords.z,
+                z_type=getattr(coords, 'z_type', 'unknown')
+            )
+            
+            # Track sector usage
+            self.sector_usage[sector_info.id] += 1
+            
+            # Log sector assignment
+            if self.log_coordinates:
+                coord_logger.debug(f"Sector assignment: {math.degrees(original_theta):.1f}° → "
+                                 f"{sector_info.name} ({math.degrees(quantized_theta):.1f}°)")
+        else:
+            sector_info = self.sector_system.angle_to_sector(coords.theta)
+        
+        # Handle edge cases
+        coords = self._handle_edge_case_coordinates(coords)
+        
         # --- Construct Result ---
-        return {
-            'coordinate': coordinates,
+        result = {
+            'coordinates': coords,
             'keywords': keywords,
             'embedding': embedding, # Pass through the embedding
-            'mapping_details': mapping_details
+            'mapping_details': mapping_details,
+            'sector': {
+                'id': sector_info.id,
+                'name': sector_info.name,
+                'center_angle_deg': math.degrees(sector_info.center_angle),
+                'center_angle_rad': sector_info.center_angle,
+                'quantized': self.use_sector_quantization
+            },
+            'system_info': self.sector_system.get_system_info()
         }
+        
+        if self.log_coordinates:
+            coord_logger.info(f"Mapped to coordinates: {coords} in sector {sector_info.name}")
+
+        return result
 
     def _normalize_embedding(self, embedding: np.ndarray) -> np.ndarray:
         """
@@ -398,22 +480,21 @@ class CoordinateMapper:
             
         r = self._normalize_radius(r)
         
-        # For theta, project to 2D and calculate angle
-        # Using first two principal components for simplicity
-        # More sophisticated dimension reduction could be applied here
-        theta_source = "projection"
-        if embedding.size >= 2:
-            # Calculate angle in 2D projection using arctan2
+        # For theta, use the semantic compass (cosine similarity to sector centroids)
+        # when available, otherwise fall back to the legacy arctan2 projection.
+        if self.semantic_compass is not None:
+            sector_name, theta = self.semantic_compass.embedding_to_sector(embedding)
+            theta_source = f"semantic_compass:{sector_name}"
+            if self.log_coordinates:
+                coord_logger.debug(f"Semantic compass assigned sector {sector_name} "
+                                   f"(theta={theta:.4f}) for {doc_id}/{chunk_id}")
+        elif embedding.size >= 2:
+            theta_source = "projection"
             pre_norm_theta = np.arctan2(embedding[1], embedding[0]) * self.embedding_theta_scale
-            
-            # Log pre-normalization theta value
             if self.log_coordinates:
                 coord_logger.debug(f"Pre-normalized theta for {doc_id}/{chunk_id}: {pre_norm_theta:.6f}")
-            
-            # Normalize to [0, 2π) range
             theta = self._normalize_theta(pre_norm_theta)
         else:
-            # Fallback if embedding is too small
             theta = 0.0
             theta_source = "fallback"
             
@@ -734,4 +815,127 @@ class CoordinateMapper:
             PolarTemporalCoordinate object with transformed coordinates
         """
         logger.info(f"Transforming vector to polar-temporal coordinates (embedding shape: {embedding.shape})")
-        return self._calculate_embedding_based_coordinates(embedding, metadata) 
+        return self._calculate_embedding_based_coordinates(embedding, metadata)
+
+    def get_sector_analytics(self) -> Dict[str, Any]:
+        """
+        Get analytics about sector usage patterns.
+        
+        Returns:
+            Dictionary with sector usage statistics
+        """
+        total_items = sum(self.sector_usage.values())
+        
+        analytics = {
+            "total_items_mapped": total_items,
+            "unique_sectors_used": len(self.sector_usage),
+            "total_sectors_available": len(self.sector_system.sectors),
+            "sector_coverage_percent": (len(self.sector_usage) / len(self.sector_system.sectors)) * 100,
+            "sector_usage": dict(self.sector_usage),
+            "most_used_sectors": [],
+            "unused_sectors": []
+        }
+        
+        if total_items > 0:
+            # Calculate usage percentages and find most used
+            sector_percentages = []
+            for sector_id, count in self.sector_usage.items():
+                percentage = (count / total_items) * 100
+                sector_info = self.sector_system.get_sector_info(sector_id)
+                sector_percentages.append({
+                    "sector_id": sector_id,
+                    "sector_name": sector_info.name if sector_info else "Unknown",
+                    "count": count,
+                    "percentage": percentage
+                })
+            
+            # Sort by usage
+            sector_percentages.sort(key=lambda x: x['count'], reverse=True)
+            analytics["most_used_sectors"] = sector_percentages[:5]  # Top 5
+        
+        # Find unused sectors
+        all_sector_ids = set(self.sector_system.sectors.keys())
+        used_sector_ids = set(self.sector_usage.keys())
+        unused_ids = all_sector_ids - used_sector_ids
+        
+        analytics["unused_sectors"] = [
+            {
+                "sector_id": sector_id,
+                "sector_name": self.sector_system.get_sector_info(sector_id).name
+            }
+            for sector_id in unused_ids
+        ]
+        
+        return analytics
+    
+    def get_items_in_sector(self, sector_id: str) -> List[str]:
+        """
+        Get items that have been mapped to a specific sector.
+        Note: This requires maintaining an item-to-sector mapping.
+        """
+        # This would need to be implemented with proper item tracking
+        # For now, return placeholder
+        return []
+    
+    def suggest_sector_for_content(self, content: str) -> Dict[str, Any]:
+        """
+        Suggest the best sector for given content without full coordinate mapping.
+        
+        Args:
+            content: Text content to analyze
+            
+        Returns:
+            Dictionary with suggested sector information
+        """
+        # Get embedding for content
+        embedding = np.array(self.embedding_service.embed_query(content))
+
+        # Determine theta via semantic compass or legacy arctan2
+        if self.semantic_compass is not None:
+            sector_name, raw_theta = self.semantic_compass.embedding_to_sector(embedding)
+        elif embedding.size >= 2:
+            raw_theta = self._normalize_theta(
+                np.arctan2(embedding[1], embedding[0]) * self.embedding_theta_scale
+            )
+        else:
+            raw_theta = 0.0
+
+        # Find corresponding sector
+        sector_info = self.sector_system.angle_to_sector(raw_theta)
+        
+        # Get adjacent sectors for alternatives
+        adjacent_sectors = self.sector_system.get_adjacent_sectors(sector_info.id)
+        
+        return {
+            "suggested_sector": {
+                "id": sector_info.id,
+                "name": sector_info.name,
+                "center_angle_deg": math.degrees(sector_info.center_angle),
+                "confidence": "high"  # Could implement confidence scoring
+            },
+            "raw_angle_deg": math.degrees(raw_theta),
+            "alternative_sectors": [
+                {
+                    "id": adj.id,
+                    "name": adj.name,
+                    "center_angle_deg": math.degrees(adj.center_angle)
+                }
+                for adj in adjacent_sectors
+            ]
+        }
+    
+    def change_sector_system(self, new_system: SectorSystem) -> None:
+        """
+        Change the angular sector system used by this mapper.
+        
+        Args:
+            new_system: New sector system to use
+        """
+        old_system = self.sector_system.system
+        self.sector_system = AngularSectorSystem(new_system)
+        
+        # Reset sector usage tracking
+        self.sector_usage.clear()
+        
+        if self.log_coordinates:
+            coord_logger.info(f"Changed sector system from {old_system.value} to {new_system.value}") 

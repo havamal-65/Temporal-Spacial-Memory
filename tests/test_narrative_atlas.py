@@ -1,162 +1,138 @@
-import unittest
+"""
+Tests for NarrativeAtlas coordinate filtering.
+
+Covers _get_ids_matching_filters() — the SQL-backed pre-filter that
+narrows candidates before vector similarity scoring.
+
+No FAISS index or embedding service is required for these tests because
+filtering operates entirely on the SQLite coordinate store.
+"""
+
 import sys
 import os
+import time
+import unittest
 import numpy as np
-from unittest.mock import MagicMock, PropertyMock
+from unittest.mock import MagicMock, patch
 
-# Add src directory to path to allow importing atlas and coordinates
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-from models.narrative_atlas import NarrativeAtlas, Node
-from coordinates import PolarTemporalCoordinate
-from nl_parser import CoordinateFilters
-from utils.embedding_service import MockEmbeddingService # Use mock service for testing
-from langchain_community.docstore.in_memory import InMemoryDocstore
-from langchain_core.documents import Document
+from src.models.narrative_atlas import NarrativeAtlas, Node
+from src.data_models import PolarTemporalCoordinate
+from src.nl_parser import CoordinateFilters
+from src.utils.embedding_service import MockEmbeddingService
 
-# Mock FAISS class (enough for basic interaction testing)
-class MockFAISS:
-    def __init__(self):
-        self.index = MagicMock()
-        self.docstore = InMemoryDocstore() # Use the real InMemoryDocstore
-        self.index_to_docstore_id = {}
 
-    def save_local(self, folder_path, index_name):
-        pass # Mock save
+def _coord(r: float, theta: float, t: float, z: float = 1.0,
+           z_type: str = "DEFAULT") -> PolarTemporalCoordinate:
+    return PolarTemporalCoordinate(r=r, theta=theta, t=t, z=z, z_type=z_type)
 
-    @classmethod
-    def load_local(cls, folder_path, embeddings, index_name, allow_dangerous_deserialization):
-        # Return a new mock instance on load for simplicity
-        print(f"MockFAISS.load_local called in {folder_path}")
-        # In a real test, you might want to load pre-saved mock data here
-        mock_instance = cls()
-        # Simulate loading some dummy data if needed for specific tests
-        # mock_instance.docstore.add({"doc_id_1": Document(...)})
-        return mock_instance
 
-    def add_embeddings(self, texts, embeddings, metadatas, ids):
-        # Mock adding to docstore and mappings
-        added_ids = []
-        for i, doc_id in enumerate(ids):
-             doc = Document(page_content=texts[i], metadata=metadatas[i])
-             self.docstore.add({doc_id: doc})
-             # Simulate mapping (index_to_docstore_id not critical for this test)
-             added_ids.append(doc_id)
-        return added_ids
-
-    def delete(self, ids):
-        # Mock deletion (actual InMemoryDocstore has no delete, so just pass)
-        print(f"MockFAISS delete called with ids: {ids}")
-        return True
-        
-    def similarity_search_by_vector_with_relevance_scores(self, embedding, k):
-        # Return dummy results for testing search flow
-        print(f"MockFAISS similarity_search called with k={k}")
-        # In a real test, you'd return mock Document objects with scores
-        return []
+def _node(node_id: str, coords: PolarTemporalCoordinate, dim: int = 4) -> Node:
+    return Node(
+        id=node_id,
+        type="chunk",
+        content={"text": f"content for {node_id}"},
+        coordinates=coords,
+        embedding=np.zeros(dim, dtype=np.float32),
+        keywords=None,
+        metadata={},
+        parent_node_id=None,
+        timestamp=time.time(),
+        mapping_details={},
+    )
 
 
 class TestNarrativeAtlasFiltering(unittest.TestCase):
 
     def setUp(self):
-        """Set up a mock NarrativeAtlas instance for testing filtering."""
-        # Use a mock embedding service
-        self.mock_embedding_service = MockEmbeddingService(dimension=4) # Small dimension for testing
-        
-        # Patch the FAISS class used by NarrativeAtlas
-        self.patcher = patch('src.models.narrative_atlas.FAISS', new=MockFAISS)
-        self.MockFAISSClass = self.patcher.start()
-        
-        # Create NarrativeAtlas instance (will use MockFAISS)
-        self.atlas = NarrativeAtlas(storage_path="./test_atlas_storage", embedding_service=self.mock_embedding_service)
-        
-        # Clean up any previous test storage if needed (optional)
-        # self.atlas.clear() 
-        
-        # --- Add some mock documents directly to the mock docstore for testing filtering --- 
-        # Note: We bypass atlas.add_node for simpler setup here, focusing only on filtering logic
-        self.doc_meta_list = [
-            {'node_id': 'node1', 'node_type': 'chunk', 'r': 0.1, 'theta': 1.0, 't': 100, 'z': 1}, # Matches filters below
-            {'node_id': 'node2', 'node_type': 'chunk', 'r': 0.6, 'theta': 2.0, 't': 150, 'z': 1}, # Fails r_max
-            {'node_id': 'node3', 'node_type': 'chunk', 'r': 0.2, 'theta': 3.0, 't': 50,  'z': 1}, # Fails t_min
-            {'node_id': 'node4', 'node_type': 'chunk', 'r': 0.3, 'theta': 4.0, 't': 250, 'z': 1}, # Fails t_max
-            {'node_id': 'node5', 'node_type': 'chunk', 'r': 0.4, 'theta': 5.0, 't': 180, 'z': 2}, # Fails z_max
-            {'node_id': 'node6', 'node_type': 'chunk', 'r': 0.15, 'theta': 0.5, 't': 120, 'z': 1},# Matches filters below
-            {'node_id': 'node7', 'node_type': 'summary', 'r': 0.05, 'theta': 1.5, 't': 110, 'z': 0}, # Fails z_min
-            {'node_id': 'node8', 'node_type': 'chunk', 'r': 0.9, 'theta': 1.0, 't': 100, 'z': 1} # Fails r_max
-        ]
-        
-        docs_to_add = {}
-        test_doc_ids = []
-        for i, meta in enumerate(self.doc_meta_list):
-            doc_id = f"doc_{meta['node_id']}"
-            test_doc_ids.append(doc_id)
-            docs_to_add[doc_id] = Document(page_content=f"Content for {meta['node_id']}", metadata=meta)
-            # Manually populate the atlas mappings needed by the filter function
-            self.atlas.node_id_to_doc_id[meta['node_id']] = doc_id
-            self.atlas.doc_id_to_node_id[doc_id] = meta['node_id']
-            
-        # Add documents directly to the docstore of the mocked vector_store
-        if hasattr(self.atlas.vector_store, 'docstore') and hasattr(self.atlas.vector_store.docstore, 'add'):
-             self.atlas.vector_store.docstore.add(docs_to_add)
-        else:
-             print("Warning: Could not directly add mock docs to docstore in setup.")
-        print(f"Setup: Added {len(docs_to_add)} mock docs to docstore for filtering test.")
+        self.emb_svc = MockEmbeddingService(dimension=4)
+
+        # Patch FAISS so no real index is created
+        self._patcher = patch("src.models.narrative_atlas.FAISS")
+        mock_faiss_cls = self._patcher.start()
+        mock_faiss_cls.load_local.side_effect = Exception("no index on disk")
+        mock_faiss_inst = MagicMock()
+        mock_faiss_inst.index.d = 4
+        mock_faiss_cls.return_value = mock_faiss_inst
+
+        self.atlas = NarrativeAtlas(
+            storage_path="./test_atlas_storage",
+            embedding_service=self.emb_svc,
+        )
+
+        # Nodes — 8 entries mirroring the original test intent:
+        # node1:  r=0.10, theta=1.0, t=100, z=1   → matches (r<=0.5, 100<=t<=200, 1<=z<=1)
+        # node2:  r=0.60, theta=2.0, t=150, z=1   → fails r_max
+        # node3:  r=0.20, theta=3.0, t=50,  z=1   → fails t_min
+        # node4:  r=0.30, theta=4.0, t=250, z=1   → fails t_max
+        # node5:  r=0.40, theta=5.0, t=180, z=2   → fails z_max (z=2 > 1)
+        # node6:  r=0.15, theta=0.5, t=120, z=1   → matches
+        # node7:  r=0.05, theta=1.5, t=110, z=0   → fails z_min (z=0 < 1)
+        # node8:  r=0.90, theta=1.0, t=100, z=1   → fails r_max
+        self._nodes = {
+            "node1": _node("node1", _coord(0.10, 1.0, 100, 1.0)),
+            "node2": _node("node2", _coord(0.60, 2.0, 150, 1.0)),
+            "node3": _node("node3", _coord(0.20, 3.0,  50, 1.0)),
+            "node4": _node("node4", _coord(0.30, 4.0, 250, 1.0)),
+            "node5": _node("node5", _coord(0.40, 5.0, 180, 2.0)),
+            "node6": _node("node6", _coord(0.15, 0.5, 120, 1.0)),
+            "node7": _node("node7", _coord(0.05, 1.5, 110, 0.0)),
+            "node8": _node("node8", _coord(0.90, 1.0, 100, 1.0)),
+        }
+        for node in self._nodes.values():
+            self.atlas.db.add_node(node)
 
     def tearDown(self):
-        """Stop the patcher after each test."""
-        self.patcher.stop()
-        # Clean up test directory (optional)
-        # import shutil
-        # if os.path.exists("./test_atlas_storage"):
-        #     shutil.rmtree("./test_atlas_storage")
+        self._patcher.stop()
+        self.atlas.db.clear_all()
+
+    # ------------------------------------------------------------------
 
     def test_coordinate_filtering(self):
-        """Test the _get_ids_matching_filters method."""
-        # Define filters
-        filters = CoordinateFilters(
-            r_max=0.5, # Max relevance distance
-            t_min=100, # Min time
-            t_max=200, # Max time
-            z_min=1,   # Min layer
-            z_max=1    # Max layer
-        )
-        
-        # Expected matching doc IDs based on self.doc_meta_list
-        expected_doc_ids = ["doc_node1", "doc_node6"]
-        
-        # Call the method under test
-        matching_ids = self.atlas._get_ids_matching_filters(filters)
-        
-        # Assertions
-        self.assertIsNotNone(matching_ids)
-        self.assertIsInstance(matching_ids, list)
-        # Use assertCountEqual for order-independent comparison
-        self.assertCountEqual(matching_ids, expected_doc_ids)
+        filters = CoordinateFilters(r_max=0.5, t_min=100, t_max=200, z_min=1, z_max=1)
+        result = self.atlas._get_ids_matching_filters(filters)
+        self.assertIsNotNone(result)
+        self.assertIsInstance(result, set)
+        self.assertEqual(result, {"node1", "node6"})
 
     def test_filtering_no_filters(self):
-         """Test filtering when no filters are specified."""
-         filters = CoordinateFilters() # Empty filters
-         matching_ids = self.atlas._get_ids_matching_filters(filters)
-         # Expect None when no filters are applied (signal to use all IDs)
-         self.assertIsNone(matching_ids)
-         
+        filters = CoordinateFilters()
+        result = self.atlas._get_ids_matching_filters(filters)
+        self.assertIsNone(result)
+
     def test_filtering_no_matches(self):
-         """Test filtering when filters result in no matches."""
-         filters = CoordinateFilters(r_max=0.01) # Very strict filter
-         matching_ids = self.atlas._get_ids_matching_filters(filters)
-         self.assertEqual(matching_ids, []) # Expect empty list
-         
+        filters = CoordinateFilters(r_max=0.01)
+        result = self.atlas._get_ids_matching_filters(filters)
+        self.assertIsNotNone(result)
+        self.assertEqual(result, set())
+
     def test_filtering_only_one_filter(self):
-         """Test filtering with only a single filter active."""
-         filters = CoordinateFilters(z_min=2) # Only nodes at layer 2 or higher
-         expected_doc_ids = ["doc_node5"]
-         matching_ids = self.atlas._get_ids_matching_filters(filters)
-         self.assertCountEqual(matching_ids, expected_doc_ids)
-         
-    # TODO: Add tests for theta filtering if/when implemented.
-    # TODO: Add tests for edge cases like missing coordinate values in metadata.
+        # Only nodes with z >= 2
+        filters = CoordinateFilters(z_min=2)
+        result = self.atlas._get_ids_matching_filters(filters)
+        self.assertIsNotNone(result)
+        self.assertEqual(result, {"node5"})
+
+    def test_theta_wrap_around_N_sector(self):
+        # N sector: theta_min > theta_max (wraps around 0/2π boundary)
+        # Nodes node1 (theta=1.0) and node8 (theta=1.0) should NOT match;
+        # a node near theta≈0 or theta≈6.28 should match.
+        import math
+        half = math.pi / 8
+        theta_min = 2 * math.pi - half  # ≈ 5.89
+        theta_max = half                # ≈ 0.39
+
+        # Add a node near theta=0.1 (inside N sector)
+        n_node = _node("node_n", _coord(0.5, 0.1, 100, 1.0))
+        self.atlas.db.add_node(n_node)
+
+        filters = CoordinateFilters(theta_min=theta_min, theta_max=theta_max)
+        result = self.atlas._get_ids_matching_filters(filters)
+        self.assertIn("node_n", result)
+        # node1 has theta=1.0 which is between 0.39 and 5.89 — not in N sector
+        self.assertNotIn("node1", result)
 
 
-if __name__ == '__main__':
-    unittest.main() 
+if __name__ == "__main__":
+    unittest.main()

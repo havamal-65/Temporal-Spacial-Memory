@@ -42,7 +42,11 @@ class TestNlQueryParser(unittest.TestCase):
         self.assertEqual(result.limit, 10) # Default limit
         
         # Verify the mock was called correctly
-        mock_runnable.invoke.assert_called_once_with(query)
+        # Parser injects a system prompt before the query; verify invoke was called once
+        # and the raw query text appears somewhere in the argument passed.
+        mock_runnable.invoke.assert_called_once()
+        call_arg = mock_runnable.invoke.call_args[0][0]
+        self.assertIn(query, call_arg)
 
     @patch('nl_parser.ChatOpenAI')
     def test_query_with_filters_parsing(self, MockChatOpenAI):
@@ -79,7 +83,11 @@ class TestNlQueryParser(unittest.TestCase):
         self.assertEqual(result.filters.z_max, 1)
         self.assertEqual(result.limit, 5)
         
-        mock_runnable.invoke.assert_called_once_with(query)
+        # Parser injects a system prompt before the query; verify invoke was called once
+        # and the raw query text appears somewhere in the argument passed.
+        mock_runnable.invoke.assert_called_once()
+        call_arg = mock_runnable.invoke.call_args[0][0]
+        self.assertIn(query, call_arg)
 
     # TODO: Add more test cases:
     # - Test different filter combinations
