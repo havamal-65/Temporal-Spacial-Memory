@@ -136,13 +136,20 @@ class NarrativeAtlas:
         self.faiss_id_to_node_id: Dict[int, str] = {}
         self.next_faiss_id: int = 0 # Counter for next available FAISS integer ID (loaded or reset)
 
-        # Keep NL Parser
-        self.nl_parser = NlQueryParser()
+        # NL parser is initialised lazily — only when search_with_nl_query() is called,
+        # so the atlas can be used without OPENAI_API_KEY for embedding-only workloads.
+        self._nl_parser: Optional[NlQueryParser] = None
         
         # Attempt to load existing data first
         if not self.load(): # If loading fails or path doesn't exist
             self._initialize_vector_store() # Create a new empty store
         # DO NOT CALL load() here again
+
+    @property
+    def nl_parser(self) -> NlQueryParser:
+        if self._nl_parser is None:
+            self._nl_parser = NlQueryParser()
+        return self._nl_parser
 
     def _initialize_vector_store(self):
         """Initializes a NEW, EMPTY vector store in memory.""" # Changed docstring
