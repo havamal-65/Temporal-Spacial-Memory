@@ -58,6 +58,28 @@ def _sectors_to_theta_range(sectors: List[str]) -> Optional[Tuple[float, float]]
     return None
 
 
+def _sectors_to_theta_ranges(sectors: List[str]) -> List[Tuple[float, float]]:
+    """Return one (theta_min, theta_max) range per valid sector name.
+
+    Unlike _sectors_to_theta_range (singular), all valid sectors in the list
+    are converted, enabling multi-sector OR queries.  Wrap-around sectors
+    (N, whose center is 0.0) produce theta_min > theta_max as the signal.
+    Invalid sector names are silently skipped.  Empty list → empty list.
+    """
+    HALF = math.pi / 8
+    angles = SemanticCompassMapper.SECTOR_ANGLES
+    ranges: List[Tuple[float, float]] = []
+    for sector in sectors:
+        if sector not in angles:
+            continue
+        center = angles[sector]
+        if center == 0.0:
+            ranges.append((2 * math.pi - HALF, HALF))
+        else:
+            ranges.append((center - HALF, center + HALF))
+    return ranges
+
+
 def _derive_sectors_from_query(
     query: str, confidence_threshold: float = 0.3
 ) -> List[str]:
@@ -429,6 +451,17 @@ class NarrativeAtlas:
     def remove_node(self, node_id: str) -> bool:
         """Alias for delete_node for API compatibility."""
         return self.delete_node(node_id)
+
+    def dedup_nodes(self) -> int:
+        """Remove duplicate nodes (same content JSON) from DB and in-memory cache.
+
+        For each duplicate group the lexicographically smallest node id is kept.
+        Returns the number of nodes removed.
+        """
+        removed = self.db.dedup_by_content()
+        if removed:
+            logger.info("dedup_nodes: removed %d duplicate nodes", removed)
+        return removed
 
     def find_similar_nodes(self, query_text: str, k: int = 5) -> List[Tuple[Node, float]]:
         """Find nodes similar to the query text."""
@@ -916,20 +949,18 @@ class NarrativeAtlas:
         resolved = sectors if sectors is not None else _derive_sectors_from_query(
             query, confidence_threshold
         )
-        theta_range = _sectors_to_theta_range(resolved) if resolved else None
+        theta_ranges = _sectors_to_theta_ranges(resolved) if resolved else []
 
         prefiltered_ids: Optional[Set[str]] = None
-        if theta_range is not None:
-            filters = CoordinateFilters(theta_min=theta_range[0], theta_max=theta_range[1])
-            prefiltered_ids = self._get_ids_matching_filters(filters)
+        if theta_ranges:
+            prefiltered_ids = self.db.query_by_coordinate_range(theta_ranges=theta_ranges)
             logger.info(
-                "search_with_sector_filter: sectors=%s theta=[%.4f, %.4f] → %d candidate nodes",
-                resolved, theta_range[0], theta_range[1],
-                len(prefiltered_ids) if prefiltered_ids else 0,
+                "search_with_sector_filter: sectors=%s → %d candidate nodes",
+                resolved, len(prefiltered_ids) if prefiltered_ids else 0,
             )
 
         if not prefiltered_ids:
-            if theta_range is not None:
+            if theta_ranges:
                 logger.warning(
                     "Sector filter matched 0 nodes — falling back to unfiltered search"
                 )

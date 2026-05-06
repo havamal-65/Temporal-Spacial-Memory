@@ -1,7 +1,8 @@
+import hashlib
 import json
 import os
 import sqlite3
-from typing import Any, Dict, List, Optional, Set
+from typing import Any, Dict, List, Optional, Set, Tuple
 
 import numpy as np
 
@@ -121,6 +122,7 @@ class SpatialTemporalDB:
         self,
         theta_min: Optional[float] = None,
         theta_max: Optional[float] = None,
+        theta_ranges: Optional[List[Tuple[float, float]]] = None,
         r_min: Optional[float] = None,
         r_max: Optional[float] = None,
         t_min: Optional[float] = None,
@@ -129,11 +131,28 @@ class SpatialTemporalDB:
         z_max: Optional[float] = None,
         z_type: Optional[str] = None,
     ) -> Set[str]:
-        """Return node IDs matching all supplied coordinate constraints."""
+        """Return node IDs matching all supplied coordinate constraints.
+
+        theta_ranges (list of (lo, hi) pairs) takes precedence over theta_min/theta_max
+        when provided and non-empty.  Each pair follows the same wrap-around convention
+        as theta_min/theta_max: lo > hi signals the N-sector 0/2π crossing.
+        An empty theta_ranges list is treated as no theta filter.
+        """
         conditions: List[str] = []
         params: List[Any] = []
 
-        if theta_min is not None and theta_max is not None:
+        if theta_ranges:
+            # Multi-range OR: one clause per sector, combined with OR.
+            range_parts: List[str] = []
+            for lo, hi in theta_ranges:
+                if lo <= hi:
+                    range_parts.append("theta BETWEEN ? AND ?")
+                    params.extend([lo, hi])
+                else:
+                    range_parts.append("(theta >= ? OR theta <= ?)")
+                    params.extend([lo, hi])
+            conditions.append("(" + " OR ".join(range_parts) + ")")
+        elif theta_min is not None and theta_max is not None:
             if theta_min <= theta_max:
                 conditions.append("theta BETWEEN ? AND ?")
                 params.extend([theta_min, theta_max])
@@ -218,6 +237,36 @@ class SpatialTemporalDB:
                 }
             )
         return rows
+
+    def dedup_by_content(self) -> int:
+        """Remove duplicate nodes that share the same content JSON.
+
+        For each group of duplicates, the node with the lexicographically smallest
+        id is kept; all others are deleted from SQLite and the in-memory cache.
+        Returns the number of rows deleted.
+        """
+        cursor = self._conn.execute("SELECT id, content FROM nodes ORDER BY id")
+        rows = cursor.fetchall()
+
+        seen: Dict[str, str] = {}  # content_hash -> first id
+        to_delete: List[str] = []
+        for row in rows:
+            content_hash = hashlib.md5(row[1].encode()).hexdigest()
+            if content_hash in seen:
+                to_delete.append(row[0])
+            else:
+                seen[content_hash] = row[0]
+
+        if to_delete:
+            placeholders = ",".join("?" * len(to_delete))
+            self._conn.execute(
+                f"DELETE FROM nodes WHERE id IN ({placeholders})", to_delete
+            )
+            self._conn.commit()
+            for node_id in to_delete:
+                self.nodes.pop(node_id, None)
+
+        return len(to_delete)
 
     def close(self) -> None:
         self._conn.close()
