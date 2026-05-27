@@ -188,7 +188,11 @@ class StewardAnalyzer:
             final_updates = []
             for update in llm_response.updates:
                  # Convert RecommendedCoordinates Pydantic model to dict
-                 new_coords_dict = update.new_coordinates.dict()
+                 try:
+                     new_coords_dict = update.new_coordinates.model_dump()  # Pydantic v2 style
+                 except AttributeError:
+                     new_coords_dict = update.new_coordinates.dict()  # Fallback for Pydantic v1
+
                  final_updates.append({
                      "node_id": update.node_id,
                      "new_coordinates": new_coords_dict,
