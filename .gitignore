@@ -16,6 +16,17 @@ dist/
 cache/
 output/
 
+# Local databases / LLM caches
+.langchain.db
+
+# Local test / scratch artifacts
+test_atlas_storage/
+tmp_smoke/
+
+# Input corpora (large / copyrighted source material)
+input/
+Input/
+
 # Other common ignores
 .vscode/
 .idea/
