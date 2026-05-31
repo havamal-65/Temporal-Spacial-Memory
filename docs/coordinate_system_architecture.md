@@ -15,6 +15,15 @@ The system uses a 4-dimensional coordinate space defined as:
 
 This 4D coordinate system allows for rich representation of information that combines both semantic meaning and document structure.
 
+> **Active behavior (SemanticCompass):** When the `SemanticCompass` is enabled (the
+> default in the current pipeline), both `r` and `θ` are derived from cosine
+> similarity to the compass sector centroids rather than from raw embedding
+> magnitude/angular projection: `θ` is the centre angle of the best-matching sector
+> and `r` is the strength of that match (semantic centrality). This is necessary
+> because sentence-transformer embeddings are L2-normalised, which makes the legacy
+> magnitude-based `r` degenerate. The magnitude/`arctan2` description below applies to
+> configurations without the compass.
+
 ## Transformation Process
 
 ### From Embeddings to Polar Coordinates
