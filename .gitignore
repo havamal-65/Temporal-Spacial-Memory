@@ -27,6 +27,10 @@ tmp_smoke/
 input/
 Input/
 
+# Internal / development-only docs (kept locally, never published)
+PROJECT_BRIEFING_FOR_AI_AGENTS.md
+SPATIAL_COORDINATE_IMPROVEMENTS.md
+
 # Other common ignores
 .vscode/
 .idea/
