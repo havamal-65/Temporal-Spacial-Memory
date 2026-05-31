@@ -206,24 +206,55 @@ class NarrativeAtlas:
             logger.error(f"Error initializing new FAISS vector store: {e}", exc_info=True)
             raise
 
+    def _map_entity_coordinates(
+        self, text: str, temporal_coordinate: float
+    ) -> Tuple[PolarTemporalCoordinate, np.ndarray, Optional[List[str]]]:
+        """Embed entity text and map it to full 4D polar-temporal coordinates.
+
+        r and theta are derived from the entity's real embedding via the shared
+        CoordinateMapper / SemanticCompass (theta = semantic-direction sector,
+        r = semantic centrality). t is set from the structural page-based
+        temporal_coordinate so the narrative sequence is preserved exactly as
+        before. This replaces the previous zero-vector embedding + hardcoded
+        r=theta=0.0 that left entity nodes without meaningful spatial coordinates.
+
+        Returns:
+            (coordinates, embedding, keywords)
+        """
+        embedding = np.asarray(self.embedding_service.embed_query(text), dtype=np.float32)
+        mapping = self.coordinate_mapper.map_to_coordinates(
+            content=text,
+            metadata={"page_number": int(temporal_coordinate), "node_type": "entity"},
+            embedding=embedding,
+        )
+        mapped = mapping["coordinates"]
+        coordinates = PolarTemporalCoordinate(
+            r=mapped.r,
+            theta=mapped.theta,
+            t=float(temporal_coordinate),
+            z=mapped.z,
+            z_type=mapped.z_type,
+        )
+        return coordinates, embedding, mapping.get("keywords")
+
     def _get_or_create_character(self, name: str, temporal_coordinate: float) -> str:
         """Get or create a character node (stores in DB only)."""
         node_id = f"character_{name.lower().replace(' ', '_')}"
         if node_id not in self.db.nodes:
+            coordinates, embedding, keywords = self._map_entity_coordinates(name, temporal_coordinate)
             node = Node(
                 id=node_id,
                 type="character",
                 content={"name": name},
-                coordinates={"t": temporal_coordinate, "r": 0.0, "theta": 0.0},
-                embedding=np.zeros(self.embedding_dim, dtype=np.float32),
-                keywords=None,
+                coordinates=coordinates,
+                embedding=embedding,
+                keywords=keywords,
                 metadata={"node_type": "character"},
                 parent_node_id=None,
                 timestamp=time.time(),
                 mapping_details={}
             )
             self.db.add_node(node)
-            # No call to _add_or_update_embedding here
         return node_id
 
     def _create_event(self, description: str, temporal_coordinate: float, participant_names: List[str]) -> str:
@@ -235,40 +266,40 @@ class NarrativeAtlas:
             node_id = f"{original_node_id}_{counter}"
             counter += 1
 
+        coordinates, embedding, keywords = self._map_entity_coordinates(description, temporal_coordinate)
         node = Node(
             id=node_id,
             type="event",
             content={"description": description, "participant_names": participant_names},
-            coordinates={"t": temporal_coordinate, "r": 0.0, "theta": 0.0},
-            embedding=np.zeros(self.embedding_dim, dtype=np.float32),
-            keywords=None,
+            coordinates=coordinates,
+            embedding=embedding,
+            keywords=keywords,
             metadata={"node_type": "event"},
             parent_node_id=None,
             timestamp=time.time(),
             mapping_details={}
         )
         self.db.add_node(node)
-        # No call to _add_or_update_embedding here
         return node_id
 
     def _get_or_create_location(self, name: str, temporal_coordinate: float) -> str:
         """Get or create a location node (stores in DB only)."""
         node_id = f"location_{name.lower().replace(' ', '_')}"
         if node_id not in self.db.nodes:
+            coordinates, embedding, keywords = self._map_entity_coordinates(name, temporal_coordinate)
             node = Node(
                 id=node_id,
                 type="location",
                 content={"name": name},
-                coordinates={"t": temporal_coordinate, "r": 0.0, "theta": 0.0},
-                embedding=np.zeros(self.embedding_dim, dtype=np.float32),
-                keywords=None,
+                coordinates=coordinates,
+                embedding=embedding,
+                keywords=keywords,
                 metadata={"node_type": "location"},
                 parent_node_id=None,
                 timestamp=time.time(),
                 mapping_details={}
             )
             self.db.add_node(node)
-            # No call to _add_or_update_embedding here
         return node_id
 
     def _add_or_update_embedding(self,
@@ -406,7 +437,7 @@ class NarrativeAtlas:
                 embedding=embedding
             )
             
-            coordinates = mapping_result['coordinate']
+            coordinates = mapping_result['coordinates']
             keywords = mapping_result.get('keywords', keywords)
             mapping_details = mapping_result.get('mapping_details', mapping_details or {})
             logger.info(f"Mapped node {node_id} to coordinates: r={coordinates.r:.3f}, theta={coordinates.theta:.3f}, t={coordinates.t:.3f}, z={coordinates.z:.3f}, z_type={coordinates.z_type}")
@@ -465,6 +496,12 @@ class NarrativeAtlas:
 
     def find_similar_nodes(self, query_text: str, k: int = 5) -> List[Tuple[Node, float]]:
         """Find nodes similar to the query text."""
+        # Atlases built by the entity-ingestion pipeline store nodes in self.db
+        # only, leaving the FAISS index empty. In that case score the in-memory
+        # node embeddings directly (same cosine approach as search_with_sector_filter).
+        if self.vector_store is None or getattr(self.vector_store.index, "ntotal", 0) == 0:
+            return self._find_similar_nodes_in_memory(query_text, k)
+
         # Search the vector store
         docs = self.vector_store.similarity_search_with_score(query_text, k=k)
         
@@ -486,6 +523,20 @@ class NarrativeAtlas:
                  print(f"Warning: FAISS result metadata missing 'node_id': {doc.metadata}")
                  
         return results
+
+    def _find_similar_nodes_in_memory(self, query_text: str, k: int = 5) -> List[Tuple[Node, float]]:
+        """Cosine-similarity search over in-memory node embeddings.
+
+        Fallback used when the FAISS index is empty. Returns (node, score) pairs
+        sorted by descending similarity, consistent with the FAISS path's ordering.
+        """
+        query_emb = np.asarray(self.embedding_service.embed_query(query_text), dtype=np.float32)
+        scored: List[Tuple[Node, float]] = []
+        for node in self.db.nodes.values():
+            if node.embedding is not None:
+                scored.append((node, float(np.dot(query_emb, node.embedding))))
+        scored.sort(key=lambda x: x[1], reverse=True)
+        return scored[:k]
     
     def save(self):
         """Save the atlas data (DB nodes, FAISS index + docstore)."""
@@ -1487,7 +1538,7 @@ class NarrativeAtlas:
         Returns:
             List of (node, score) tuples representing search results
         """
-        from langchain_openai import ChatOpenAI
+        from src.utils.llm_factory import create_llm_service
         from langchain.schema import HumanMessage
         
         logger.info(f"Executing HyDE search for query: '{query}'")
@@ -1505,7 +1556,7 @@ class NarrativeAtlas:
         
         try:
             # Initialize LLM for hypothetical document generation
-            llm = ChatOpenAI(model=llm_model, temperature=0.2)
+            llm = create_llm_service(model=llm_model, temperature=0.2)
             
             # Generate hypothetical document
             messages = [HumanMessage(content=hypothesis_prompt)]

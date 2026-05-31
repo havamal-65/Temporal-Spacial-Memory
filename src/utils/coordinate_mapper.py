@@ -471,32 +471,42 @@ class CoordinateMapper:
                 }
                 coord_logger.debug(f"Post-normalization embedding stats: {json.dumps(post_norm_stats)}")
         
-        # Calculate embedding magnitude (L2 norm) for radial distance
-        r = np.linalg.norm(embedding) * self.embedding_r_scale
-        
-        # Log pre-normalization r value
-        if self.log_coordinates:
-            coord_logger.debug(f"Pre-normalized r value for {doc_id}/{chunk_id}: {r:.6f}")
-            
-        r = self._normalize_radius(r)
-        
-        # For theta, use the semantic compass (cosine similarity to sector centroids)
-        # when available, otherwise fall back to the legacy arctan2 projection.
+        # --- Radial distance (r) and angular position (theta) ---
+        # When the SemanticCompass is active, BOTH coordinates are derived from
+        # cosine similarity to the reference centroids:
+        #   theta = centre angle of the best-matching sector (semantic direction)
+        #   r     = strength of that match (semantic centrality / relevance)
+        # This is necessary because sentence-transformer embeddings are L2-normalised
+        # (constant magnitude 1.0), which makes the legacy magnitude-based r degenerate
+        # (every node would collapse to the same radius). Configs without the compass
+        # keep the legacy magnitude/arctan2 behaviour.
         if self.semantic_compass is not None:
-            sector_name, theta = self.semantic_compass.embedding_to_sector(embedding)
+            similarities = self.semantic_compass.get_sector_similarities(embedding)
+            sector_name = max(similarities, key=similarities.get)
+            theta = self.semantic_compass.SECTOR_ANGLES[sector_name]
             theta_source = f"semantic_compass:{sector_name}"
+            r = float(similarities[sector_name]) * self.embedding_r_scale
+            r_source = "semantic_centrality"
             if self.log_coordinates:
                 coord_logger.debug(f"Semantic compass assigned sector {sector_name} "
-                                   f"(theta={theta:.4f}) for {doc_id}/{chunk_id}")
-        elif embedding.size >= 2:
-            theta_source = "projection"
-            pre_norm_theta = np.arctan2(embedding[1], embedding[0]) * self.embedding_theta_scale
-            if self.log_coordinates:
-                coord_logger.debug(f"Pre-normalized theta for {doc_id}/{chunk_id}: {pre_norm_theta:.6f}")
-            theta = self._normalize_theta(pre_norm_theta)
+                                   f"(theta={theta:.4f}, r={r:.4f}) for {doc_id}/{chunk_id}")
         else:
-            theta = 0.0
-            theta_source = "fallback"
+            # Legacy path: radial distance from raw embedding magnitude.
+            r = np.linalg.norm(embedding) * self.embedding_r_scale
+            r_source = "embedding_magnitude"
+            if embedding.size >= 2:
+                theta_source = "projection"
+                pre_norm_theta = np.arctan2(embedding[1], embedding[0]) * self.embedding_theta_scale
+                theta = self._normalize_theta(pre_norm_theta)
+            else:
+                theta = 0.0
+                theta_source = "fallback"
+
+        # Log pre-normalization r value
+        if self.log_coordinates:
+            coord_logger.debug(f"Pre-normalized r value for {doc_id}/{chunk_id}: {r:.6f} ({r_source})")
+
+        r = self._normalize_radius(r)
             
         # Log detailed coordinate derivation
         if self.log_coordinates:
