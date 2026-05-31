@@ -5,9 +5,9 @@ Temporal-Spatial Memory System - End-to-End Demo
 Loads the Hobbit SQLite+FAISS atlas (399 nodes, 8 semantic sectors) and runs
 three illustrative query types against the live data:
 
-  1. Sector-filtered semantic search  (no API key required)
-  2. Coordinate range filter          (no API key required)
-  3. NL query with sector augmentation (requires OPENAI_API_KEY)
+  1. Sector-filtered semantic search  (no LLM required)
+  2. Coordinate range filter          (no LLM required)
+  3. NL query with sector augmentation (requires an LLM provider; local by default)
 
 Usage:
     python demo_atlas.py
@@ -29,6 +29,7 @@ from src.models.narrative_atlas import NarrativeAtlas, Node
 from src.utils.embedding_service import create_embedding_service
 from src.nl_parser import CoordinateFilters
 from src.utils.semantic_compass import SemanticCompassMapper
+from src.utils.llm_factory import llm_is_available
 
 logging.basicConfig(level=logging.WARNING)  # suppress library chatter during demo
 
@@ -188,10 +189,10 @@ def demo_nl_query(atlas: NarrativeAtlas, k: int) -> None:
     print("  DEMO 3 - NL Query with Sector Augmentation")
     print("=" * 60)
 
-    if not os.getenv("OPENAI_API_KEY"):
-        print("\n  Skipped - set OPENAI_API_KEY to enable NL parsing.")
-        print("  The NL parser extracts coordinate filters from free-form text,")
-        print("  then augments theta automatically via keyword-based sector detection.")
+    if not llm_is_available():
+        print("\n  Skipped - no LLM provider available.")
+        print("  Set LLM_PROVIDER=local with a running local server (Ollama/LM Studio),")
+        print("  or LLM_PROVIDER=openai with OPENAI_API_KEY, to enable NL parsing.")
         return
 
     for nl_query in NL_QUERIES:

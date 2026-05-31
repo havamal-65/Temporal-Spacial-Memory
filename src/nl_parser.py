@@ -11,11 +11,11 @@ import time
 from typing import Optional, Dict, Any, Tuple
 from pydantic import BaseModel, Field, validator
 import math
-from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 from pydantic.v1 import BaseModel as V1BaseModel, Field as V1Field, validator as V1Validator
 from dataclasses import dataclass
 from src.data_models import Z_TYPES
+from src.utils.llm_factory import create_llm_service, create_structured_llm, llm_is_available
 
 
 # --- Define Output Schema using Pydantic V1 (as used previously) ---
@@ -89,16 +89,18 @@ class NlQueryParser:
         Defaults to ChatOpenAI if not provided.
         """
         if llm is None:
-            # Ensure API key is loaded (should be done at entry point)
-            if not os.getenv("OPENAI_API_KEY"):
-                raise ValueError("OPENAI_API_KEY environment variable not set.")
-            self.llm = ChatOpenAI(model="gpt-4o", temperature=0) # Use a capable model
+            # Provider (local/openai) controlled by LLM_PROVIDER; see src/utils/llm_factory.py
+            if not llm_is_available():
+                raise ValueError(
+                    "LLM provider not available. Set LLM_PROVIDER=local with a running "
+                    "local server, or LLM_PROVIDER=openai with OPENAI_API_KEY."
+                )
+            self.llm = create_llm_service(model="gpt-4o", temperature=0)
         else:
              self.llm = llm
 
-        # Create the extraction chain using the Pydantic schema
-        # Note: Using create_structured_output_runnable for compatibility
-        self.extraction_runnable = self.llm.with_structured_output(ParsedQuery)
+        # Create the extraction chain using the Pydantic schema (provider-aware).
+        self.extraction_runnable = create_structured_llm(self.llm, ParsedQuery)
 
 
     def parse(self, query: str) -> ParsedQuery:
@@ -123,7 +125,7 @@ class NlQueryParser:
         
         - Do NOT attempt to derive theta (topic angle) filters from the topic words in the query for now. Set theta_min/theta_max only if explicit angles/directions (e.g., 'topics around 90 degrees') are mentioned.
         - If a single value is given for a coordinate (e.g., 'relevance 0.2', 'layer 1' mapped to z=1.0), set both min and max for that coordinate filter (e.g., r_min=0.2, r_max=0.2 or z_min=1.0, z_max=1.0).
-        Return the extracted information structured according to the ParsedQuery schema."""
+        Return the extracted information as a JSON object structured according to the ParsedQuery schema."""
         
         try:
             # Pass the query and the system message (if the runnable supports it directly,

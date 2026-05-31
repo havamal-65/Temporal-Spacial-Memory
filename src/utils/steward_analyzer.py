@@ -3,9 +3,10 @@ from typing import List, Dict, Any, Optional
 import os
 
 # Langchain imports
-from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.pydantic_v1 import BaseModel, Field, validator # Use v1 for Langchain compatibility
+
+from src.utils.llm_factory import create_llm_service, llm_is_available
 
 # Local imports (assuming data_models.py defines PolarTemporalCoordinate)
 # If PolarTemporalCoordinate is defined elsewhere, adjust the import
@@ -108,13 +109,12 @@ class StewardAnalyzer:
         self.llm_client = None
         self.reduce_llm = False # Flag indicating successful LLM init
 
-        api_key = os.getenv("OPENAI_API_KEY")
-        if not api_key:
-            logger.error("OPENAI_API_KEY not found in environment. StewardAnalyzer cannot function.")
+        if not llm_is_available():
+            logger.warning("LLM provider not available. StewardAnalyzer will be skipped.")
             return # Keep self.llm_client as None
 
         try:
-            self.llm_client = ChatOpenAI(model=self.llm_model_name, temperature=0, openai_api_key=api_key)
+            self.llm_client = create_llm_service(model=self.llm_model_name, temperature=0)
             # Perform a quick test call (optional, but good practice)
             self.llm_client.invoke("Test prompt")
             logger.info("StewardAnalyzer LLM client initialized and tested successfully.")

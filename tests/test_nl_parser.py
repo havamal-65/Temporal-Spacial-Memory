@@ -10,11 +10,11 @@ from nl_parser import NlQueryParser, ParsedQuery, CoordinateFilters
 
 class TestNlQueryParser(unittest.TestCase):
 
-    @patch('nl_parser.ChatOpenAI') # Mock the ChatOpenAI class where it's imported in nl_parser
-    def test_simple_query_parsing(self, MockChatOpenAI):
+    @patch('nl_parser.create_llm_service') # Mock the LLM factory used by nl_parser
+    def test_simple_query_parsing(self, MockCreateLlm):
         """Test parsing a simple query with no filters."""
         # Configure the mock LLM's structured output runnable
-        mock_llm_instance = MockChatOpenAI.return_value
+        mock_llm_instance = MockCreateLlm.return_value
         mock_runnable = MagicMock()
         # Simulate the LLM returning a ParsedQuery object
         expected_output = ParsedQuery(
@@ -48,10 +48,10 @@ class TestNlQueryParser(unittest.TestCase):
         call_arg = mock_runnable.invoke.call_args[0][0]
         self.assertIn(query, call_arg)
 
-    @patch('nl_parser.ChatOpenAI')
-    def test_query_with_filters_parsing(self, MockChatOpenAI):
+    @patch('nl_parser.create_llm_service')
+    def test_query_with_filters_parsing(self, MockCreateLlm):
         """Test parsing a query with various filters."""
-        mock_llm_instance = MockChatOpenAI.return_value
+        mock_llm_instance = MockCreateLlm.return_value
         mock_runnable = MagicMock()
         # Simulate LLM output based on instructions (assuming it followed them)
         expected_output = ParsedQuery(
