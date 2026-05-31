@@ -34,6 +34,7 @@ from langchain_community.document_loaders import PyPDFLoader
 # from langchain.chains import LLMChain # Replaced by LCEL
 from src.utils.embedding_service import LangchainEmbeddingService
 from src.utils.steward_analyzer import StewardAnalyzer
+from src.utils.llm_factory import create_llm_service, create_structured_llm, get_provider, llm_is_available
 from src.models.narrative_atlas import NarrativeAtlas
 from src.data_models import PolarTemporalCoordinate
 from langchain.globals import set_llm_cache
@@ -123,21 +124,19 @@ Provide ONLY the JSON object in your response, without any introductory text or 
 """
 
 def get_llm_client(model_name: str = "gpt-3.5-turbo") -> Optional[ChatOpenAI]:
-    """Initializes the LLM client, checking for API key."""
-    api_key = os.getenv("OPENAI_API_KEY")
-    if not api_key:
-        logger.error("OPENAI_API_KEY environment variable not set.")
-        return None
+    """Initializes the LLM client via the central provider factory.
+
+    Provider (local/openai) is controlled by LLM_PROVIDER; see src/utils/llm_factory.py.
+    """
     try:
-        # Explicitly pass the API key if needed, otherwise rely on environment variable
         # Add a request timeout (e.g., 60 seconds)
-        llm = ChatOpenAI(model=model_name, temperature=0, openai_api_key=api_key, request_timeout=60)
+        llm = create_llm_service(model=model_name, temperature=0, request_timeout=60)
         # Test connection briefly
-        llm.invoke("Hello") 
-        logger.info(f"Successfully initialized OpenAI client with model: {model_name}")
+        llm.invoke("Hello")
+        logger.info(f"Successfully initialized {get_provider()} LLM client.")
         return llm
     except Exception as e:
-        logger.error(f"Failed to initialize or test OpenAI client: {e}", exc_info=True)
+        logger.error(f"Failed to initialize or test LLM client: {e}", exc_info=True)
         return None
 
 def extract_entities_from_page(page_text: str, llm: ChatOpenAI, page_num: int) -> Optional[ExtractedEntities]:
@@ -151,7 +150,7 @@ def extract_entities_from_page(page_text: str, llm: ChatOpenAI, page_num: int) -
     # --- Reverted to recommended method: .with_structured_output --- 
     # Create the structured LLM first by calling the method on the llm object
     try:
-        structured_llm = llm.with_structured_output(ExtractedEntities)
+        structured_llm = create_structured_llm(llm, ExtractedEntities)
     except AttributeError:
          logger.error(f"LLM object (type: {type(llm)}) does not support .with_structured_output. Check Langchain version compatibility.", exc_info=True)
          return None
@@ -200,6 +199,7 @@ def parse_args():
     parser.add_argument('--start-page', type=int, default=1, help='Page number to start processing from (1-indexed).')
     parser.add_argument('--end-page', type=int, default=None, help='Page number to end processing at (inclusive). Default is process all pages.')
     parser.add_argument('--overwrite', action='store_true', help='Overwrite existing atlas data in the output path.')
+    parser.add_argument('--enable-steward', action='store_true', help='Enable the optional Steward LLM coordinate-refinement step after ingestion.')
     return parser.parse_args()
 
 def main():
@@ -266,6 +266,14 @@ def main():
             atlas.load()
             logger.info(f"Loaded existing atlas with {len(atlas.db.nodes)} nodes.")
         else:
+            # The NarrativeAtlas constructor auto-loads any persisted data, so a true
+            # --overwrite must explicitly clear it; otherwise stale nodes (default
+            # r=theta=0) survive and entity ids collide, leaving them un-refreshed.
+            if args.overwrite:
+                cleared = len(atlas.db.nodes)
+                atlas.db.clear_all()
+                atlas._initialize_vector_store()
+                logger.info(f"Overwrite requested: cleared {cleared} pre-existing nodes before ingest.")
             logger.info("Starting with a fresh atlas.")
     except Exception as e:
         logger.error(f"Failed to initialize or load Narrative Atlas from {args.output_atlas_path}: {e}", exc_info=True)
@@ -354,17 +362,17 @@ def main():
         # --- END ADDED LOGGING ---
 
     # --- Steward Refinement Step ---
-    # Added check for steward_analyzer being not None
-    if steward_analyzer and hasattr(steward_analyzer, 'reduce_llm') and steward_analyzer.reduce_llm: 
+    # Gated behind --enable-steward; also requires a successfully-initialized analyzer.
+    if args.enable_steward and steward_analyzer and hasattr(steward_analyzer, 'reduce_llm') and steward_analyzer.reduce_llm: 
         logger.info("Starting Steward LLM refinement process...")
         # Collect node data needed by Steward (ensure coordinates are serializable if needed, but objects should be fine)
         # Steward expects dicts with 'node_id' and 'coordinate' (PolarTemporalCoordinate obj)
         steward_input_data = []
         for node_id, node_obj in atlas.db.nodes.items():
-            if hasattr(node_obj, 'coordinate') and isinstance(node_obj.coordinate, PolarTemporalCoordinate):
+            if hasattr(node_obj, 'coordinates') and isinstance(node_obj.coordinates, PolarTemporalCoordinate):
                  steward_input_data.append({
                      "node_id": node_id, 
-                     "coordinate": node_obj.coordinate # Pass the Pydantic object directly
+                     "coordinate": node_obj.coordinates # Pass the Pydantic object directly
                 })
             else:
                  logger.warning(f"Node {node_id} (type: {type(node_obj).__name__}) missing valid coordinate object for Steward input.")
@@ -406,7 +414,9 @@ def main():
         else:
              logger.info("No valid node data with coordinates found to send to Steward.")
     else:
-        if not steward_analyzer:
+        if not args.enable_steward:
+             logger.info("Steward refinement disabled (pass --enable-steward to run it). Skipping refinement step.")
+        elif not steward_analyzer:
              logger.warning("Steward Analyzer was not initialized successfully. Skipping refinement step.")
         else:
              logger.warning("Steward Analyzer not configured for refinement (missing reduce_llm?). Skipping refinement step.")
@@ -434,16 +444,15 @@ def main():
 
 if __name__ == "__main__":
     try:
-        # Basic check for OPENAI_API_KEY before even starting main logic
-        api_key = os.getenv("OPENAI_API_KEY")
-        if not api_key:
-             # Use logger now since it's configured at the top
-             logger.critical("CRITICAL ERROR: OPENAI_API_KEY environment variable not set. Cannot proceed.")
+        # Verify the configured LLM provider can be constructed before running.
+        if not llm_is_available():
+             logger.critical(
+                 "CRITICAL ERROR: LLM provider not available. For LLM_PROVIDER=openai set "
+                 "OPENAI_API_KEY, or use LLM_PROVIDER=local with a running local server."
+             )
              sys.exit(1)
-        else:
-             # Optional: Log partial key for confirmation, be careful with security
-             logger.info(f"Found OPENAI_API_KEY starting with: {api_key[:5]}...") 
-             
+        logger.info(f"Using LLM provider: {get_provider()}")
+
         main()
     except Exception as e:
         # Catch any other unexpected errors during initial setup or main() execution
