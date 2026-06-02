@@ -161,6 +161,11 @@ class NarrativeAtlas:
         # NL parser is initialised lazily — only when search_with_nl_query() is called,
         # so the atlas can be used without OPENAI_API_KEY for embedding-only workloads.
         self._nl_parser: Optional[NlQueryParser] = None
+
+        # Sequence-aware retrieval helper (time-ordered timeline / neighbor lookups),
+        # constructed lazily on first use. See src/models/sequence_retrieval.py.
+        self._sequence_retriever = None
+        self._rag_answerer = None
         
         # Attempt to load existing data first
         if not self.load(): # If loading fails or path doesn't exist
@@ -172,6 +177,18 @@ class NarrativeAtlas:
         if self._nl_parser is None:
             self._nl_parser = NlQueryParser()
         return self._nl_parser
+
+    @property
+    def sequence_retriever(self):
+        """Lazily-constructed SequenceRetriever (time-ordered retrieval helpers).
+
+        Imported lazily to avoid a circular import (sequence_retrieval is a
+        composable layer over this atlas and never imports it at module load).
+        """
+        if getattr(self, "_sequence_retriever", None) is None:
+            from src.models.sequence_retrieval import SequenceRetriever
+            self._sequence_retriever = SequenceRetriever(self)
+        return self._sequence_retriever
 
     def _initialize_vector_store(self):
         """Initializes a NEW, EMPTY vector store in memory.""" # Changed docstring
@@ -237,27 +254,54 @@ class NarrativeAtlas:
         )
         return coordinates, embedding, mapping.get("keywords")
 
-    def _get_or_create_character(self, name: str, temporal_coordinate: float) -> str:
+    @staticmethod
+    def _merge_source_refs(existing: Optional[List[str]], new_refs: Optional[List[str]]) -> List[str]:
+        merged: List[str] = list(existing or [])
+        for ref in new_refs or []:
+            if ref and ref not in merged:
+                merged.append(ref)
+        return merged
+
+    def _get_or_create_character(
+        self, name: str, temporal_coordinate: float, source_refs: Optional[List[str]] = None
+    ) -> str:
         """Get or create a character node (stores in DB only)."""
         node_id = f"character_{name.lower().replace(' ', '_')}"
         if node_id not in self.db.nodes:
             coordinates, embedding, keywords = self._map_entity_coordinates(name, temporal_coordinate)
+            refs = self._merge_source_refs([], source_refs)
             node = Node(
                 id=node_id,
                 type="character",
-                content={"name": name},
+                content={"name": name, "source_refs": refs},
                 coordinates=coordinates,
                 embedding=embedding,
                 keywords=keywords,
-                metadata={"node_type": "character"},
+                metadata={"node_type": "character", "source_refs": refs},
                 parent_node_id=None,
                 timestamp=time.time(),
                 mapping_details={}
             )
             self.db.add_node(node)
+        else:
+            node = self.db.nodes[node_id]
+            refs = self._merge_source_refs(
+                (node.content or {}).get("source_refs"),
+                source_refs,
+            )
+            if refs != (node.content or {}).get("source_refs"):
+                node.content = {**(node.content or {}), "name": name, "source_refs": refs}
+                node.metadata = {**(node.metadata or {}), "source_refs": refs}
+                self.db.add_node(node)
         return node_id
 
-    def _create_event(self, description: str, temporal_coordinate: float, participant_names: List[str]) -> str:
+    def _create_event(
+        self,
+        description: str,
+        temporal_coordinate: float,
+        participant_names: List[str],
+        source_refs: Optional[List[str]] = None,
+    ) -> str:
         """Create an event node (stores in DB only)."""
         node_id = f"event_{description.lower().replace(' ', '_')[:50]}"
         original_node_id = node_id
@@ -267,14 +311,15 @@ class NarrativeAtlas:
             counter += 1
 
         coordinates, embedding, keywords = self._map_entity_coordinates(description, temporal_coordinate)
+        refs = self._merge_source_refs([], source_refs)
         node = Node(
             id=node_id,
             type="event",
-            content={"description": description, "participant_names": participant_names},
+            content={"description": description, "participant_names": participant_names, "source_refs": refs},
             coordinates=coordinates,
             embedding=embedding,
             keywords=keywords,
-            metadata={"node_type": "event"},
+            metadata={"node_type": "event", "source_refs": refs},
             parent_node_id=None,
             timestamp=time.time(),
             mapping_details={}
@@ -282,24 +327,37 @@ class NarrativeAtlas:
         self.db.add_node(node)
         return node_id
 
-    def _get_or_create_location(self, name: str, temporal_coordinate: float) -> str:
+    def _get_or_create_location(
+        self, name: str, temporal_coordinate: float, source_refs: Optional[List[str]] = None
+    ) -> str:
         """Get or create a location node (stores in DB only)."""
         node_id = f"location_{name.lower().replace(' ', '_')}"
         if node_id not in self.db.nodes:
             coordinates, embedding, keywords = self._map_entity_coordinates(name, temporal_coordinate)
+            refs = self._merge_source_refs([], source_refs)
             node = Node(
                 id=node_id,
                 type="location",
-                content={"name": name},
+                content={"name": name, "source_refs": refs},
                 coordinates=coordinates,
                 embedding=embedding,
                 keywords=keywords,
-                metadata={"node_type": "location"},
+                metadata={"node_type": "location", "source_refs": refs},
                 parent_node_id=None,
                 timestamp=time.time(),
                 mapping_details={}
             )
             self.db.add_node(node)
+        else:
+            node = self.db.nodes[node_id]
+            refs = self._merge_source_refs(
+                (node.content or {}).get("source_refs"),
+                source_refs,
+            )
+            if refs != (node.content or {}).get("source_refs"):
+                node.content = {**(node.content or {}), "name": name, "source_refs": refs}
+                node.metadata = {**(node.metadata or {}), "source_refs": refs}
+                self.db.add_node(node)
         return node_id
 
     def _add_or_update_embedding(self,
@@ -496,33 +554,45 @@ class NarrativeAtlas:
 
     def find_similar_nodes(self, query_text: str, k: int = 5) -> List[Tuple[Node, float]]:
         """Find nodes similar to the query text."""
-        # Atlases built by the entity-ingestion pipeline store nodes in self.db
-        # only, leaving the FAISS index empty. In that case score the in-memory
-        # node embeddings directly (same cosine approach as search_with_sector_filter).
-        if self.vector_store is None or getattr(self.vector_store.index, "ntotal", 0) == 0:
+        ntotal = 0
+        if self.vector_store is not None and hasattr(self.vector_store, "index"):
+            ntotal = getattr(self.vector_store.index, "ntotal", 0)
+
+        # When FAISS holds fewer vectors than nodes (e.g. segments indexed but entities
+        # are DB-only), search all in-memory embeddings so entity nodes are reachable.
+        if (
+            self.vector_store is None
+            or ntotal == 0
+            or ntotal < len(self.db.nodes)
+        ):
             return self._find_similar_nodes_in_memory(query_text, k)
 
-        # Search the vector store
         docs = self.vector_store.similarity_search_with_score(query_text, k=k)
-        
-        # Convert results to nodes
         results = []
         for doc, score in docs:
-            # Retrieve the node_id stored in the metadata
-            node_id = doc.metadata.get("node_id") # Use .get() for safety
-            
-            # Retrieve the mapped node ID - This mapping might be redundant now?
-            # Let's rely on the node_id directly from metadata first.
-            # doc_id = self.doc_id_to_node_id.get(doc_id) # We don't have doc_id here easily
-            
+            node_id = doc.metadata.get("node_id")
             if node_id and node_id in self.db.nodes:
-                 results.append((self.db.nodes[node_id], score))
+                results.append((self.db.nodes[node_id], score))
             elif node_id:
-                 print(f"Warning: Found node_id {node_id} in FAISS metadata but not in DB.")
+                print(f"Warning: Found node_id {node_id} in FAISS metadata but not in DB.")
             else:
-                 print(f"Warning: FAISS result metadata missing 'node_id': {doc.metadata}")
-                 
+                print(f"Warning: FAISS result metadata missing 'node_id': {doc.metadata}")
         return results
+
+    @staticmethod
+    def _node_search_text(node: Node) -> str:
+        """Lowercased searchable text from a node (prose, entity name, event description)."""
+        content = node.content
+        if isinstance(content, dict):
+            parts: List[str] = []
+            for key in ("text", "description", "name"):
+                val = content.get(key)
+                if val and isinstance(val, str):
+                    parts.append(val)
+            if parts:
+                return " ".join(parts).lower()
+            return json.dumps(content).lower()
+        return str(content).lower()
 
     def _find_similar_nodes_in_memory(self, query_text: str, k: int = 5) -> List[Tuple[Node, float]]:
         """Cosine-similarity search over in-memory node embeddings.
@@ -1031,93 +1101,248 @@ class NarrativeAtlas:
             logger.exception("Sector-filtered search failed — falling back to unfiltered")
             return self.find_similar_nodes(query, k=k)
 
-    def answer_query_with_context(self, user_query: str, k: int = 3) -> str:
-        """
-        Generate an answer to a user query using retrieved context nodes.
-        Uses the enhanced retrieval methods for better context selection.
+    def search_timeline(
+        self,
+        query: Optional[str] = None,
+        t_min: Optional[float] = None,
+        t_max: Optional[float] = None,
+        k: int = 20,
+    ) -> List[Tuple[Node, float]]:
+        """Return passages within a temporal range in narrative (t-ascending) order.
 
-        Args:
-            user_query: The user's question
-            k: Number of context nodes to retrieve
-            
-        Returns:
-            Generated answer string
+        Thin wrapper delegating to SequenceRetriever.fetch_timeline so callers have
+        a single public interface on the atlas. Unlike score-ranked search, results
+        are ordered by the temporal coordinate t (story order).
         """
-        # Parse the query to extract any coordinate filters
-        parsed_query = self.nl_parser.parse(user_query)
-        
-        # Preprocess the query to extract keywords, estimate theta, etc.
-        query_text, retrieval_params = self.preprocess_query(
-            parsed_query.query_text or user_query,
-            {
-                'extract_keywords': True,
-                'decompose_query': True,
-                'estimate_theta': True,
-                'default_r_preference': 0.5  # Prefer more relevant nodes
-            }
+        return self.sequence_retriever.fetch_timeline(
+            t_min=t_min, t_max=t_max, query=query, k=k
         )
-        
-        # Add any coordinate filters to retrieval params
-        if parsed_query.filters:
-            # Focus on temporal range if specified
-            if parsed_query.filters.t_min is not None or parsed_query.filters.t_max is not None:
-                t_min = parsed_query.filters.t_min or 0
-                t_max = parsed_query.filters.t_max or float('inf')
-                # Use middle of range as focus point
-                if t_max < float('inf'):
-                    retrieval_params['time_preference'] = (t_min + t_max) / 2
-            
-            # Use z_type priority if specified
-            if parsed_query.filters.z_type:
-                retrieval_params['z_type_priority'] = [parsed_query.filters.z_type]
-        
-        # Use our enhanced retrieval method
-        results = self.search_with_retrieval_params(query_text, retrieval_params, k=k)
-        
+
+    def search_neighbors(
+        self,
+        anchor: Any,
+        direction: str = "both",
+        window: float = 5.0,
+        k: int = 10,
+    ) -> List[Tuple[Node, float]]:
+        """Return passages temporally before/after an anchor, in narrative order.
+
+        Thin wrapper delegating to SequenceRetriever.get_neighbors. ``anchor`` may
+        be a node id, a Node, or free text resolved to the most similar node.
+        """
+        return self.sequence_retriever.get_neighbors(
+            anchor, direction=direction, window=window, k=k
+        )
+
+    def resolve_ref(self, ref: str):
+        return self.sequence_retriever.resolve_ref(ref)
+
+    def get_text_window(self, ref_or_node, before: int = 1, after: int = 1):
+        return self.sequence_retriever.get_text_window(ref_or_node, before=before, after=after)
+
+    @property
+    def rag_answerer(self):
+        if getattr(self, "_rag_answerer", None) is None:
+            from src.models.rag_answer import RagAnswerer
+            self._rag_answerer = RagAnswerer(self)
+        return self._rag_answerer
+
+    def _retrieve_for_query(self, user_query: str, k: int = 5) -> List[Tuple[Node, float]]:
+        """Intent-aware retrieval shared by context-only and answer paths."""
+        from src.models.sequence_retrieval import SequenceRetriever
+        from src.models.retrieval_merge import (
+            expansion_queries,
+            filter_to_region,
+            inject_theme_coverage,
+            merge_result_lists,
+            query_suggests_enumeration,
+            region_t_range,
+            spread_by_time,
+            themes_for_query,
+        )
+
+        intent = SequenceRetriever.detect_sequence_intent(user_query)
+        sr = self.sequence_retriever
+
+        if intent["mode"] == "neighbors":
+            return sr.get_neighbors(
+                intent["anchor"], direction=intent["direction"], window=8.0, k=max(k, 10)
+            )
+        if intent["mode"] == "timeline":
+            parsed_query = self._safe_parse(user_query)
+            t_min = parsed_query.filters.t_min if (parsed_query and parsed_query.filters) else None
+            t_max = parsed_query.filters.t_max if (parsed_query and parsed_query.filters) else None
+            query_text = parsed_query.query_text if (parsed_query and parsed_query.query_text) else user_query
+            return sr.fetch_timeline(t_min=t_min, t_max=t_max, query=query_text, k=max(k, 10))
+
+        try:
+            target_k = max(k, 12)
+            channels: List[List[Tuple[Node, float]]] = []
+
+            region = region_t_range(user_query)
+            t_min, t_max = (region if region is not None else (None, None))
+
+            hybrid = self.search_with_hybrid(
+                user_query,
+                keyword_weight=0.45,
+                k=max(target_k * 2, 24),
+                t_min=t_min,
+                t_max=t_max,
+            )
+            channels.append(hybrid)
+
+            if query_suggests_enumeration(user_query):
+                channels.append(self.search_with_mmr(user_query, k=target_k, lambda_param=0.55))
+                for extra_q in expansion_queries(user_query, region=region):
+                    channels.append(
+                        self.search_with_hybrid(
+                            extra_q,
+                            keyword_weight=0.5,
+                            k=target_k,
+                            t_min=t_min,
+                            t_max=t_max,
+                        )
+                    )
+
+            if region is not None:
+                t_min, t_max = region
+                channels.append(
+                    sr.fetch_timeline(t_min=t_min, t_max=t_max, query=user_query, k=target_k)
+                )
+
+            merged = merge_result_lists(*channels, k=target_k * 2)
+            enum_query = query_suggests_enumeration(user_query)
+            theme_list = themes_for_query(user_query)
+            if region is not None:
+                t_min, t_max = region
+                merged = filter_to_region(
+                    merged, t_min, t_max, k=target_k * 2, strict=True
+                )
+            segments = [(n, s) for n, s in merged if getattr(n, "type", None) == "segment"]
+            entities = [(n, s) for n, s in merged if getattr(n, "type", None) != "segment"]
+
+            if enum_query:
+                segments = spread_by_time(segments, k=max(target_k, 10), min_t_gap=2.5)
+
+            combined: List[Tuple[Node, float]] = []
+            seen: set = set()
+            for n, s in segments[: max(target_k, 10)] + entities[: max(target_k // 2, 4)]:
+                if n.id not in seen:
+                    seen.add(n.id)
+                    combined.append((n, s))
+            combined = combined[:target_k]
+            if region is not None:
+                t_min, t_max = region
+                combined = filter_to_region(
+                    combined, t_min, t_max, k=target_k, strict=True
+                )
+                if theme_list:
+                    region_segments = [
+                        n
+                        for n in self.db.nodes.values()
+                        if getattr(n, "type", None) == "segment"
+                        and t_min <= n.coordinates.t <= t_max
+                    ]
+                    combined = inject_theme_coverage(
+                        combined,
+                        region_segments,
+                        sr._extract_text,
+                        themes=theme_list,
+                    )
+                    if enum_query:
+                        combined = spread_by_time(combined, k=target_k, min_t_gap=2.0)
+                    else:
+                        combined = combined[:target_k]
+            return combined
+        except Exception as e:
+            logger.warning("multi-channel retrieval failed (%s); falling back to similarity search", e)
+            return self.find_similar_nodes(user_query, k=k)
+
+    def answer_query(
+        self,
+        user_query: str,
+        k: int = 10,
+        expand_refs: bool = True,
+        max_context_chars: int = 4000,
+        max_context_tokens: int = 1500,
+    ) -> Dict[str, Any]:
+        """Retrieve context, optionally expand via source_refs, and generate a grounded answer."""
+        from src.utils.token_budget import count_tokens, dedupe_results_for_context
+
+        results = self._retrieve_for_query(user_query, k=k)
+        if not results:
+            return {
+                "answer": f"I couldn't find any relevant information to answer your question about '{user_query}'.",
+                "citations": [],
+                "context": "",
+                "context_chars": 0,
+                "context_tokens": 0,
+            }
+
+        from src.models.retrieval_merge import query_suggests_enumeration
+
+        sr = self.sequence_retriever
+        if expand_refs:
+            results = sr.expand_results_with_refs(results, before=1, after=1)
+
+        results = dedupe_results_for_context(results, sr._extract_text)
+
+        token_budget = max_context_tokens
+        if query_suggests_enumeration(user_query):
+            token_budget = max(max_context_tokens, 2000)
+
+        per_passage_tokens = max(120, min(350, token_budget // max(len(results), 1)))
+
+        context = sr.assemble_sequence_context(
+            results,
+            max_total_tokens=token_budget,
+            max_tokens_per_passage=per_passage_tokens,
+        )
+        gen = self.rag_answerer.generate_answer(user_query, context)
+        gen["context"] = context
+        gen["context_tokens"] = count_tokens(context)
+        gen["context_chars"] = len(context)
+        return gen
+
+    def _safe_parse(self, user_query: str) -> Optional[ParsedQuery]:
+        """Parse a query for coordinate filters, degrading gracefully on failure."""
+        try:
+            return self.nl_parser.parse(user_query)
+        except Exception as e:
+            logger.warning("NL parse failed (%s); proceeding without coordinate filters", e)
+            return None
+
+    def answer_query_with_context(self, user_query: str, k: int = 3, max_context_chars: int = 3000, max_context_tokens: Optional[int] = 1200) -> str:
+        """
+        Build LLM-ready context for a user query, surfacing narrative sequence.
+
+        Returns context string only (no LLM generation). See ``answer_query`` for
+        grounded answers with citations.
+        """
+        from src.utils.token_budget import dedupe_results_for_context
+
+        results = self._retrieve_for_query(user_query, k=k)
         if not results:
             return f"I couldn't find any relevant information to answer your question about '{user_query}'."
-        
-        # Construct context from results
-        context_parts = []
-        for i, (node, score) in enumerate(results):
-            # Extract meaningful content from the node
-            if isinstance(node.content, dict):
-                if 'text' in node.content:
-                    content_text = node.content['text']
-                else:
-                    # Fallback to serializing the content dict
-                    content_text = json.dumps(node.content)
-            else:
-                content_text = str(node.content)
-                
-            # Add metadata about the source 
-            source_info = f"[Source {i+1}: {node.type}"
-            if node.coordinates:
-                source_info += f" (t={node.coordinates.t:.2f}, r={node.coordinates.r:.2f}"
-                
-                # Add directional info using angle conversion to compass directions
-                theta_degrees = (node.coordinates.theta * 180 / np.pi) % 360
-                directions = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"]
-                direction_idx = int(((theta_degrees + 22.5) % 360) / 45)
-                source_info += f", direction={directions[direction_idx]}°"
-                
-                source_info += f", score={score:.3f})"
-            source_info += "]"
-            
-            # Add this chunk to context
-            context_parts.append(f"{source_info}\n{content_text}\n")
-            
-        # Join all context parts
-        context = "\n".join(context_parts)
-        
-        # Generate answer using LLM (in a real implementation)
-        answer = f"Based on the retrieved information, here's the answer to your question about '{user_query}':\n\n"
-        
-        # For now, just return the context with explanation
-        # In a full implementation, this would use an LLM to generate an answer
-        answer += context
-        
-        return answer
+
+        sr = self.sequence_retriever
+        results = sr.expand_results_with_refs(results, before=1, after=1)
+        results = dedupe_results_for_context(results, sr._extract_text)
+
+        if max_context_tokens is not None and max_context_tokens > 0:
+            context = sr.assemble_sequence_context(
+                results,
+                max_total_tokens=max_context_tokens,
+                max_tokens_per_passage=max(100, max_context_tokens // max(len(results), 1)),
+            )
+        else:
+            context = sr.assemble_sequence_context(results, max_total_chars=max_context_chars)
+
+        return (
+            f"Based on the retrieved information (shown in narrative order), here's the "
+            f"context for your question about '{user_query}':\n\n"
+            f"{context}"
+        )
 
     def update_node_coordinates(self, node_id: str, new_coordinates: PolarTemporalCoordinate) -> bool:
         """
@@ -1578,7 +1803,14 @@ class NarrativeAtlas:
             logger.info("Falling back to regular search after HyDE failure")
             return self.find_similar_nodes(query, k=k)
 
-    def search_with_hybrid(self, query: str, keyword_weight: float = 0.3, k: int = 10) -> List[Tuple[Node, float]]:
+    def search_with_hybrid(
+        self,
+        query: str,
+        keyword_weight: float = 0.3,
+        k: int = 10,
+        t_min: Optional[float] = None,
+        t_max: Optional[float] = None,
+    ) -> List[Tuple[Node, float]]:
         """
         Implement hybrid search combining semantic (embedding) search with keyword-based search.
         This addresses limitations of pure semantic search, especially for explicit keyword queries.
@@ -1596,51 +1828,81 @@ class NarrativeAtlas:
         
         logger.info(f"Executing hybrid search for query: '{query}'")
         
-        # Extract keywords from query using simple method
-        def extract_keywords(text):
-            # Remove stop words and extract key terms
-            stop_words = {'a', 'an', 'the', 'and', 'or', 'but', 'if', 'then', 'else', 'when', 
-                         'at', 'from', 'by', 'for', 'with', 'about', 'to', 'in', 'on', 'is', 'are'}
-            words = re.findall(r'\b\w+\b', text.lower())
-            return [w for w in words if w not in stop_words and len(w) > 2]
-        
-        query_keywords = extract_keywords(query)
+        # Extract hyphenated phrases and keywords from query
+        def extract_query_terms(text):
+            lowered = text.lower()
+            phrases = re.findall(r"\b[\w]+(?:-[\w]+)+\b", lowered)
+            stop_words = {
+                'a', 'an', 'the', 'and', 'or', 'but', 'if', 'then', 'else', 'when',
+                'at', 'from', 'by', 'for', 'with', 'about', 'to', 'in', 'on', 'is', 'are',
+                'was', 'were', 'be', 'been', 'being', 'have', 'has', 'had', 'do', 'does',
+                'did', 'will', 'would', 'could', 'should', 'may', 'might', 'must', 'shall',
+                'what', 'who', 'whom', 'whose', 'which', 'where', 'when', 'why', 'how',
+                'this', 'that', 'these', 'those', 'it', 'its', 'they', 'them', 'their',
+                'he', 'she', 'his', 'her', 'we', 'you', 'your', 'i', 'my', 'me',
+                'while', 'through', 'during', 'into', 'out', 'up', 'down', 'over', 'under',
+                'meet', 'avoid', 'traveling', 'travel', 'party', 'get', 'got', 'go', 'going',
+                'role', 'play', 'does',
+            }
+            words = re.findall(r'\b\w+\b', lowered)
+            keywords = [w for w in words if w not in stop_words and len(w) > 2]
+            return phrases, keywords
+
+        query_phrases, query_keywords = extract_query_terms(query)
+        logger.info(f"Extracted phrases from query: {query_phrases}")
         logger.info(f"Extracted keywords from query: {query_keywords}")
         
         # If no keywords extracted but the query is a single meaningful word, use it
-        if not query_keywords and len(query.strip()) > 2:
+        if not query_keywords and not query_phrases and len(query.strip()) > 2:
             query_keywords = [query.strip().lower()]
             logger.info(f"Using full query as keyword: {query_keywords}")
         
         try:
-            # 1. Get semantic search results
-            semantic_results = self.find_similar_nodes(query, k=k*2)  # Get more for merging
-            
-            # 2. ENHANCED: Perform direct content search for exact keyword matches
+            def _in_t_window(node: Node) -> bool:
+                if t_min is None or t_max is None:
+                    return True
+                t = node.coordinates.t
+                return t_min <= t <= t_max
+
+            semantic_results = self.find_similar_nodes(query, k=k * 2)
             exact_matches = []
-            
-            # First, try exact string matching for each keyword
             for node_id, node in self.db.nodes.items():
-                content_text = ""
-                
-                # Extract searchable text from node content
-                if isinstance(node.content, dict):
-                    if 'text' in node.content:
-                        content_text = node.content['text'].lower()
-                    else:
-                        # Serialize other content fields
-                        content_text = json.dumps(node.content).lower()
-                else:
-                    content_text = str(node.content).lower()
-                
-                # Check for exact matches of query keywords
+                if not _in_t_window(node):
+                    continue
+                content_text = self._node_search_text(node)
+                matched = False
+
+                for phrase in query_phrases:
+                    if phrase in content_text:
+                        count = content_text.count(phrase)
+                        match_score = 2.0 + (0.15 * min(count - 1, 10))
+                        is_stub_entity = (
+                            getattr(node, "type", None) in ("location", "character", "event")
+                            and not (isinstance(node.content, dict) and node.content.get("text"))
+                        )
+                        if is_stub_entity:
+                            match_score *= 0.25
+                        exact_matches.append((node, match_score))
+                        matched = True
+                        break
+
+                if matched:
+                    continue
+
                 for keyword in query_keywords:
                     if keyword in content_text:
-                        # Calculate a match score - higher if multiple occurrences
                         count = content_text.count(keyword)
-                        match_score = 1.0 + (0.1 * min(count-1, 10))  # Cap bonus at 10 occurrences
+                        match_score = 1.0 + (0.1 * min(count - 1, 10))
+                        # Stub entities (name-only) should not beat prose segments
+                        # on generic keywords like "mountains" or "party".
+                        is_stub_entity = (
+                            getattr(node, "type", None) in ("location", "character", "event")
+                            and not (isinstance(node.content, dict) and node.content.get("text"))
+                        )
+                        if is_stub_entity:
+                            match_score *= 0.25
                         exact_matches.append((node, match_score))
-                        break  # Found one match, move to next node
+                        break
             
             logger.info(f"Found {len(exact_matches)} exact keyword matches")
                 
@@ -1650,11 +1912,18 @@ class NarrativeAtlas:
             
             # Add semantic results
             for node, score in semantic_results:
+                prose_boost = 0.0
+                if (
+                    getattr(node, "type", None) == "segment"
+                    and isinstance(node.content, dict)
+                    and node.content.get("text")
+                ):
+                    prose_boost = 0.12
                 all_results[node.id] = {
-                    'node': node, 
+                    'node': node,
                     'semantic_score': score,
                     'exact_score': 0.0,
-                    'combined_score': (1.0 - keyword_weight) * score
+                    'combined_score': (1.0 - keyword_weight) * score + prose_boost,
                 }
                 
             # Add or update with exact match results    

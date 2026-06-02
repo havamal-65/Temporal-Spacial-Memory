@@ -24,6 +24,7 @@ sys.path.insert(0, os.path.abspath(os.path.dirname(os.path.dirname(__file__))))
 
 # Import local modules
 from src.models.narrative_atlas import NarrativeAtlas, Node
+from src.models.sequence_retrieval import SequenceRetriever
 from src.utils.embedding_service import create_embedding_service
 from src.coordinates import PolarTemporalCoordinate
 
@@ -165,12 +166,29 @@ class QueryEngine:
                 k=max_results
             )
         else:
-            # Use standard search with retrieval parameters
-            results_with_scores = self.narrative_atlas.search_with_retrieval_params(
-                processed_query, 
-                merged_params, 
-                k=max_results
-            )
+            # Standard NL query: detect sequence intent so plain queries like
+            # "events in chronological order" or "what happened before X" return
+            # time-ordered results instead of similarity-ranked ones.
+            intent = SequenceRetriever.detect_sequence_intent(nl_query)
+            if intent["mode"] == "timeline":
+                logger.info(f"Using timeline (sequence) retrieval for query: '{nl_query}'")
+                results_with_scores = self.narrative_atlas.search_timeline(
+                    query=processed_query, k=max_results
+                )
+            elif intent["mode"] == "neighbors":
+                logger.info(
+                    f"Using neighbor ({intent['direction']}) retrieval for query: '{nl_query}'"
+                )
+                results_with_scores = self.narrative_atlas.search_neighbors(
+                    intent["anchor"], direction=intent["direction"], k=max_results
+                )
+            else:
+                # Use standard search with retrieval parameters
+                results_with_scores = self.narrative_atlas.search_with_retrieval_params(
+                    processed_query,
+                    merged_params,
+                    k=max_results
+                )
             
         # Format the results
         formatted_results = []
@@ -390,6 +408,15 @@ def parse_args():
     parser.add_argument('--visualize-results', action='store_true',
                         help='Generate a visualization of the results in coordinate space (not implemented yet)')
 
+    parser.add_argument('--answer', action='store_true',
+                        help='Generate a grounded LLM answer with citations (requires local/Ollama LLM)')
+
+    parser.add_argument('--show-context', action='store_true',
+                        help='When using --answer, also print retrieved context passages')
+
+    parser.add_argument('--max-context-tokens', type=int, default=1500,
+                        help='Max tokens of retrieved context sent to the LLM (default: 1500)')
+
     return parser.parse_args()
 
 
@@ -498,26 +525,44 @@ def main():
     start_time = time.time()
     print(f"--- QUERY.PY Executing NL Query: '{args.query}' ---")
     try:
-        # Use the enhanced query method with Phase 3 and Phase 7 parameters
-        results = query_engine.query_by_natural_language(
-            nl_query=args.query,
-            max_results=args.max_results,
-            temporal_focus=args.temporal_focus,
-            temporal_decay_rate=args.temporal_decay_rate,
-            directional_bias=args.directional_bias,
-            directional_bias_strength=args.directional_bias_strength,
-            relevance_preference=args.relevance_preference,
-            use_hyde=args.use_hyde,
-            use_hybrid_search=args.use_hybrid_search,
-            keyword_weight=args.keyword_weight
-        )
-        end_time = time.time()
-        print(f"--- QUERY.PY NL Query finished in {end_time - start_time:.2f} seconds ---")
+        if args.answer:
+            result = narrative_atlas.answer_query(
+                args.query,
+                k=args.max_results,
+                max_context_tokens=args.max_context_tokens,
+            )
+            end_time = time.time()
+            print(f"--- QUERY.PY Answer finished in {end_time - start_time:.2f} seconds ---")
+            print("\n=== Answer ===")
+            print(result.get("answer", ""))
+            if result.get("context_tokens") is not None:
+                print(f"\n(context: {result.get('context_tokens')} tokens, "
+                      f"{result.get('context_chars', 0)} chars)")
+            citations = result.get("citations") or []
+            if citations:
+                print("\n=== Citations ===")
+                for c in citations:
+                    print(f"  - {c}")
+            if args.show_context and result.get("context"):
+                print("\n=== Context ===")
+                print(result["context"])
+        else:
+            results = query_engine.query_by_natural_language(
+                nl_query=args.query,
+                max_results=args.max_results,
+                temporal_focus=args.temporal_focus,
+                temporal_decay_rate=args.temporal_decay_rate,
+                directional_bias=args.directional_bias,
+                directional_bias_strength=args.directional_bias_strength,
+                relevance_preference=args.relevance_preference,
+                use_hyde=args.use_hyde,
+                use_hybrid_search=args.use_hybrid_search,
+                keyword_weight=args.keyword_weight
+            )
+            end_time = time.time()
+            print(f"--- QUERY.PY NL Query finished in {end_time - start_time:.2f} seconds ---")
+            query_engine.print_results(results)
          
-        # Print results
-        query_engine.print_results(results)
-        
-        # Generate visualization if requested (placeholder for future enhancement)
         if args.visualize_results:
             print("Result visualization is not implemented yet.")
          

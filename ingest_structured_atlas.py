@@ -37,6 +37,8 @@ from src.utils.steward_analyzer import StewardAnalyzer
 from src.utils.llm_factory import create_llm_service, create_structured_llm, get_provider, llm_is_available
 from src.models.narrative_atlas import NarrativeAtlas
 from src.data_models import PolarTemporalCoordinate
+from src.utils.paragraph_segmenter import segment_page, sanitize_doc_id
+import numpy as np
 from langchain.globals import set_llm_cache
 from langchain_community.cache import SQLiteCache
 
@@ -188,6 +190,72 @@ def extract_entities_from_page(page_text: str, llm: ChatOpenAI, page_num: int) -
             time.sleep(2 ** attempt) # Exponential backoff
     return None # Should not be reached if logic is correct
 
+def _ingest_page_segments(atlas: NarrativeAtlas, page_text: str, doc_id: str, page_num: int) -> List[dict]:
+    """Create segment nodes for a page; returns segment metadata list."""
+    created = []
+    for seg in segment_page(page_text, doc_id, page_num):
+        embedding = np.asarray(
+            atlas.embedding_service.embed_query(seg["text"]), dtype=np.float32
+        )
+        mapping = atlas.coordinate_mapper.map_to_coordinates(
+            content=seg["text"],
+            metadata={"page_number": page_num, "node_type": "segment"},
+            embedding=embedding,
+        )
+        mapped = mapping["coordinates"]
+        coords = PolarTemporalCoordinate(
+            r=mapped.r,
+            theta=mapped.theta,
+            t=seg["t"],
+            z=mapped.z,
+            z_type="LAYER_MAIN",
+        )
+        atlas.add_node(
+            node_id=seg["id"],
+            content={"text": seg["text"], "ref": seg["ref"]},
+            embedding=embedding,
+            metadata={
+                "node_type": "segment",
+                "doc_id": seg["doc_id"],
+                "page": seg["page"],
+                "para_idx": seg["para_idx"],
+                "ref": seg["ref"],
+            },
+            coordinates=coords,
+            keywords=mapping.get("keywords"),
+        )
+        created.append(seg)
+    return created
+
+
+def _ref_for_name(name: str, segments: List[dict]) -> Optional[str]:
+    """First paragraph ref on page containing the name (case-insensitive)."""
+    if not segments:
+        return None
+    needle = name.lower()
+    for seg in segments:
+        if needle in seg["text"].lower():
+            return seg["ref"]
+    return segments[0]["ref"]
+
+
+def _ref_for_event(description: str, segments: List[dict], embedding_service) -> Optional[str]:
+    """Paragraph ref best matching the event description by embedding similarity."""
+    if not segments:
+        return None
+    query_emb = np.asarray(embedding_service.embed_query(description), dtype=np.float32)
+    best_ref = segments[0]["ref"]
+    best_score = -1.0
+    for seg in segments:
+        node = None
+        # segment nodes were just added; embed paragraph text for comparison
+        text_emb = np.asarray(embedding_service.embed_query(seg["text"]), dtype=np.float32)
+        score = float(np.dot(query_emb, text_emb))
+        if score > best_score:
+            best_score = score
+            best_ref = seg["ref"]
+    return best_ref
+
 # --- Main Ingestion Logic ---
 
 def parse_args():
@@ -309,6 +377,8 @@ def main():
 
     logger.info(f"Processing pages from {args.start_page} to {end_page_idx}...")
 
+    doc_id = sanitize_doc_id(Path(args.input_pdf).stem)
+
     # Wrap the range with tqdm for a progress bar
     for i in tqdm(range(start_page_idx, end_page_idx), desc="Processing Pages", unit="page"):
         page_doc = pages[i]
@@ -316,6 +386,8 @@ def main():
         page_text = page_doc.page_content
 
         logger.info(f"--- Processing Page {page_num}/{len(pages)} ---")
+
+        page_segments = _ingest_page_segments(atlas, page_text, doc_id, page_num)
 
         # Pass page_text, llm, and page_num
         extracted_data = extract_entities_from_page(page_text, llm, page_num) 
@@ -329,7 +401,10 @@ def main():
             # Add characters
             for name in extracted_data.characters:
                 try:
-                    atlas._get_or_create_character(name, temporal_coord)
+                    ref = _ref_for_name(name, page_segments)
+                    atlas._get_or_create_character(
+                        name, temporal_coord, source_refs=[ref] if ref else None
+                    )
                     logger.debug(f"Added/found character: {name}")
                 except Exception as e:
                     logger.error(f"Error adding character '{name}' from page {page_num}: {e}")
@@ -340,7 +415,13 @@ def main():
                 participants = event.get("participant_names", []) # Default to empty list
                 if description:
                     try:
-                        atlas._create_event(description, temporal_coord, participants)
+                        ref = _ref_for_event(description, page_segments, embedding_service)
+                        atlas._create_event(
+                            description,
+                            temporal_coord,
+                            participants,
+                            source_refs=[ref] if ref else None,
+                        )
                         logger.debug(f"Added event: {description[:50]}...")
                     except Exception as e:
                          logger.error(f"Error adding event '{description[:50]}...' from page {page_num}: {e}")
@@ -348,7 +429,10 @@ def main():
             # Add locations
             for name in extracted_data.locations:
                  try:
-                    atlas._get_or_create_location(name, temporal_coord)
+                    ref = _ref_for_name(name, page_segments)
+                    atlas._get_or_create_location(
+                        name, temporal_coord, source_refs=[ref] if ref else None
+                    )
                     logger.debug(f"Added/found location: {name}")
                  except Exception as e:
                      logger.error(f"Error adding location '{name}' from page {page_num}: {e}")

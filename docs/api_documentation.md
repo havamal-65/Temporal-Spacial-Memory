@@ -105,12 +105,41 @@ results = atlas.search_with_retrieval_params(
 #### RAG Integration
 
 ```python
-# Generate context-enhanced prompt for LLM
-context_prompt = atlas.answer_query_with_context(
+# Grounded answer with citations (requires LLM)
+result = atlas.answer_query(
+    user_query="Who is Beorn and where does he live?",
+    k=12,
+    max_context_tokens=1500,
+)
+print(result["answer"])
+print(result["citations"])       # list of ref strings
+print(result["context_tokens"])  # tokens sent to the LLM
+
+# Context only (no LLM generation)
+context = atlas.answer_query_with_context(
     user_query="Explain the relationship between Bilbo and Gollum",
-    k=3                          # Number of context nodes to include
+    k=5,
+    max_context_tokens=1200,
 )
 ```
+
+#### Sequence-aware retrieval
+
+```python
+# Timeline: passages in narrative order within a t-range
+results = atlas.search_timeline(query="goblins", t_min=55.0, t_max=95.0, k=15)
+
+# Neighbors: before/after an anchor ref or passage
+results = atlas.search_neighbors("the_hobbit_tolkien:68:1", direction="after", window=5.0)
+
+# Expand entity hit to surrounding prose via source_refs
+from src.models.sequence_retrieval import SequenceRetriever
+sr = SequenceRetriever(atlas)
+expanded = sr.expand_results_with_refs(results, before=1, after=1)
+context = sr.assemble_sequence_context(expanded, max_total_tokens=1500)
+```
+
+See also `docs/addressable_text_plan.md` and `docs/token_efficiency.md`.
 
 #### Persistence
 

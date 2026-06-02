@@ -1,0 +1,83 @@
+{
+  "description": "Repeatable evaluation cases for sequence-aware retrieval against a built atlas (default: output/hobbit_local_full). Each case exercises a retrieval mode and declares properties we expect to hold so before/after runs are comparable.",
+  "cases": [
+    {
+      "id": "timeline_main_events",
+      "query": "Summarize the main events in chronological order",
+      "expected_mode": "timeline",
+      "k": 12,
+      "expect_t_monotonic": true,
+      "expect_event_substrings": []
+    },
+    {
+      "id": "timeline_full_story",
+      "query": "Give me a timeline of the story from beginning to end",
+      "expected_mode": "timeline",
+      "k": 15,
+      "expect_t_monotonic": true,
+      "expect_event_substrings": []
+    },
+    {
+      "id": "neighbors_before_battle",
+      "query": "What happened before the battle?",
+      "expected_mode": "neighbors",
+      "expected_direction": "before",
+      "k": 10,
+      "expect_t_monotonic": true
+    },
+    {
+      "id": "neighbors_after_ring",
+      "query": "What happened after Bilbo found the ring?",
+      "expected_mode": "neighbors",
+      "expected_direction": "after",
+      "k": 10,
+      "expect_t_monotonic": true
+    },
+    {
+      "id": "timeline_range_early",
+      "query": "events in order",
+      "expected_mode": "timeline",
+      "t_min": 1.0,
+      "t_max": 40.0,
+      "k": 12,
+      "expect_t_monotonic": true
+    },
+    {
+      "id": "point_who_is_gandalf",
+      "query": "Who is Gandalf?",
+      "expected_mode": "point",
+      "k": 5,
+      "expect_t_monotonic": false
+    },
+    {
+      "id": "answer_bilbo_hobbit",
+      "query": "Who is Bilbo Baggins?",
+      "expected_mode": "point",
+      "k": 5,
+      "run_answer": true,
+      "max_context_tokens": 1500,
+      "expect_answer_substrings": ["bilbo"],
+      "expect_cited_ref_pattern": ":\\d+:\\d+"
+    },
+    {
+      "id": "token_budget_mountain",
+      "query": "what does the party meet and have to avoid while traveling through the mountains?",
+      "expected_mode": "point",
+      "k": 12,
+      "use_production_context": true,
+      "max_context_tokens": 1500,
+      "expect_max_context_tokens": 2100,
+      "expect_event_substrings": ["goblin"]
+    },
+    {
+      "id": "token_budget_jewel",
+      "query": "What was the prized jewel that the dwarves were seeking, which mountain was it in and what was it being guarded by?",
+      "expected_mode": "point",
+      "k": 12,
+      "use_production_context": true,
+      "max_context_tokens": 1500,
+      "expect_max_context_tokens": 2100,
+      "expect_event_substrings": ["smaug"]
+    }
+  ]
+}

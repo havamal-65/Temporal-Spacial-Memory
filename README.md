@@ -55,8 +55,8 @@ LOCAL_LLM_API_KEY=ollama                         # placeholder; local servers ig
 1. Clone the repository and install dependencies:
 
 ```bash
-git clone https://github.com/havamal-65/Temporal-Spacial-Memory.git
-cd Temporal-Spacial-Memory
+git clone https://github.com/havamal-65/Temporal-Spatial-Memory.git
+cd Temporal-Spatial-Memory
 pip install -r requirements.txt
 ```
 
@@ -118,9 +118,25 @@ provider (local by default).
 
 ### 3. Query directly
 
+**Grounded Q&A (recommended)** — retrieve passages, generate an answer with citations:
+
+```bash
+python src/query.py \
+  --storage-path output/hobbit_local_full \
+  --query "What does the party meet while traveling through the mountains?" \
+  --answer \
+  --max-results 12 \
+  --show-context
+```
+
+Requires a running LLM (Ollama by default). Answers are grounded in retrieved
+paragraph text; citations use verse-style refs like `the_hobbit_tolkien:68:1`.
+
+**Retrieval-only modes:**
+
 ```bash
 # Hybrid search (semantic + keyword) — good for exact-match terms
-python src/query.py --storage-path output/atlas --query "Hobbit" --use-hybrid-search
+python src/query.py --storage-path output/atlas --query "Arkenstone" --use-hybrid-search
 
 # Temporal focus — bias results toward a point in the narrative
 python src/query.py --storage-path output/atlas --query "the journey begins" --temporal-focus 5.0
@@ -129,9 +145,21 @@ python src/query.py --storage-path output/atlas --query "the journey begins" --t
 python src/query.py --storage-path output/atlas --query "Tell me about the main character" --use-hyde
 ```
 
-When the FAISS index is empty (e.g. an atlas built only from the entity-ingestion
-pipeline), similarity search automatically falls back to scoring the in-memory node
-embeddings, so retrieval still works.
+When the FAISS index holds fewer vectors than nodes (segments in FAISS, entities in
+SQLite), similarity search scores **all in-memory embeddings**, so entity nodes
+remain reachable. Hybrid search combines semantic and keyword matching; the answer
+path uses multi-channel retrieval (timeline, region hints, theme coverage) for
+list-style and character questions.
+
+### Addressable references
+
+Ingest creates **segment** nodes (one per paragraph) with stable refs:
+
+`{doc_id}:{page}:{paragraph}` — e.g. `the_hobbit_tolkien:126:1`
+
+Entity nodes link back via `source_refs`. Retrieval can expand a hit to neighboring
+paragraphs without scanning the whole book. See
+[Addressable text plan](docs/addressable_text_plan.md).
 
 ## Project Structure
 
@@ -155,6 +183,9 @@ tests/           # unit and integration tests
 
 ## Documentation
 
+- [Usefulness roadmap](docs/usefulness_roadmap.md) — what’s done and what’s next
+- [Addressable full text](docs/addressable_text_plan.md) — verse-style refs and segment ingest
+- [Token efficiency](docs/token_efficiency.md) — context budgets and deduplication
 - [Coordinate System Architecture](docs/coordinate_system_architecture.md)
 - [Temporal Aspect User Guide](docs/temporal_aspect_user_guide.md)
 - [API Documentation](docs/api_documentation.md)
@@ -165,10 +196,13 @@ tests/           # unit and integration tests
 - With the local provider, the Steward refinement step is conservative and may
   recommend zero coordinate adjustments; it is disabled by default (`--enable-steward`
   to opt in).
-- Non-hybrid similarity search relies on the in-memory embedding fallback when the
-  FAISS index is empty.
-- Small local models are less reliable than hosted OpenAI models for structured
-  extraction; switch to `LLM_PROVIDER=openai` for higher-fidelity entity extraction.
+- FAISS indexes **segment** nodes; entity nodes are searchable via in-memory
+  embedding fallback and hybrid keyword matching.
+- Small local models (e.g. `llama3.2:3b`) may omit retrieved details in answers even
+  when citations are good; try a larger model or increase `--max-context-tokens`.
+- Region routing uses keyword hints in `src/models/retrieval_merge.py` for some
+  question shapes (mountains, Erebor, Beorn); not fully automatic.
+- Six tests under `tests/temporal/` are known pre-existing failures.
 
 ## Acknowledgements
 
